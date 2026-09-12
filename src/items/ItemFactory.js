@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { ITEM_DEFINITIONS, getCanonicalId } from './itemDefinitions.js';
 
 export class ItemFactory {
@@ -535,6 +536,52 @@ export class ItemFactory {
       case 'kelebek':
         mainMesh = this._createKelebekMesh(def);
         break;
+      // Yeni Basit Eşyalar
+      case 'sis':
+        mainMesh = this._createSisMesh(def);
+        break;
+      case 'gayzer':
+        mainMesh = this._createGayzerMesh(def);
+        break;
+      case 'kaktus':
+        mainMesh = this._createKaktusMesh(def);
+        break;
+      case 'cam_agaci':
+        mainMesh = this._createCamAgaciMesh(def);
+        break;
+      case 'mese_agaci':
+        mainMesh = this._createMeseAgaciMesh(def);
+        break;
+      case 'tavuk':
+        mainMesh = this._createTavukMesh(def);
+        break;
+      case 'kedi':
+        mainMesh = this._createKediMesh(def);
+        break;
+      case 'mesale':
+        mainMesh = this._createMesaleMesh(def);
+        break;
+      case 'somon':
+        mainMesh = this._createSomonMesh(def);
+        break;
+      case 'yay':
+        mainMesh = this._createYayMesh(def);
+        break;
+      case 'barut_ficisi':
+        mainMesh = this._createBarutFicisiMesh(def);
+        break;
+      case 'su_degirmeni':
+        mainMesh = this._createSuDegirmeniMesh(def);
+        break;
+      case 'buz_dagi':
+        mainMesh = this._createBuzDagiMesh(def);
+        break;
+      case 'kalkan':
+        mainMesh = this._createKalkanMesh(def);
+        break;
+      case 'iksir_kazani':
+        mainMesh = this._createIksirKazaniMesh(def);
+        break;
       default:
         mainMesh = this._createDefaultMesh(def);
         break;
@@ -551,67 +598,174 @@ export class ItemFactory {
   static _createFireMesh(def) {
     const group = new THREE.Group();
 
-    // Dış alev hare & tabanı (2D alev görselindeki açık sarı/turuncu parlama çemberi)
-    const haloGeo = new THREE.SphereGeometry(0.7, 16, 16);
-    haloGeo.scale(1, 1.1, 0.4);
-    const haloMat = new THREE.MeshBasicMaterial({
-      color: 0xffe8b4,
+    // Model yüklenene kadar gösterilecek ve GLB yüklense bile kıvılcım efektini taşıyacak alev kabı
+    const modelContainer = new THREE.Group();
+    group.add(modelContainer);
+
+    // Kıvılcım (Spark / Ember) parçacıkları sistemi
+    const sparkCount = 12;
+    const sparkGeo = new THREE.DodecahedronGeometry(0.04, 0);
+    const sparkMat = new THREE.MeshBasicMaterial({
+      color: 0xffedd5
+    });
+    const sparks = [];
+    for (let i = 0; i < sparkCount; i++) {
+      const spark = new THREE.Mesh(sparkGeo, sparkMat);
+      const angle = (i / sparkCount) * Math.PI * 2 + Math.random() * 0.5;
+      const radius = 0.15 + Math.random() * 0.25;
+      const startY = 0.2 + Math.random() * 0.9;
+      spark.position.set(Math.cos(angle) * radius, startY, Math.sin(angle) * radius);
+      spark.userData = {
+        angle: angle,
+        radius: radius,
+        speed: 0.8 + Math.random() * 0.9,
+        rotSpeed: (Math.random() - 0.5) * 5,
+        maxHeight: 1.4 + Math.random() * 0.5,
+        baseScale: 0.6 + Math.random() * 0.6
+      };
+      group.add(spark);
+      sparks.push(spark);
+    }
+
+    // Ateş ışığı (PointLight titreme efekti)
+    const fireLight = new THREE.PointLight(0xff6600, 2.8, 3.5);
+    fireLight.position.set(0, 0.6, 0.2);
+    group.add(fireLight);
+
+    // Yumuşak sıcaklık parlaması (Volumetric Glow)
+    const glowGeo = new THREE.SphereGeometry(0.55, 16, 16);
+    glowGeo.scale(1.0, 1.3, 1.0);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: 0xff4500,
       transparent: true,
-      opacity: 0.35,
-      side: THREE.DoubleSide
+      opacity: 0.25,
+      side: THREE.BackSide,
+      blending: THREE.AdditiveBlending
     });
-    const halo = new THREE.Mesh(haloGeo, haloMat);
-    halo.position.y = 0.5;
-    group.add(halo);
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    glow.position.y = 0.5;
+    group.add(glow);
 
-    // Ana alev gövdesi (Kırmızımsı koyu turuncu dış siluet)
-    const mainFlameGeo = new THREE.ConeGeometry(0.55, 1.35, 7);
-    const mainFlameMat = new THREE.MeshToonMaterial({
-      color: 0xef4444,
-      emissive: 0xd97706,
-      emissiveIntensity: 0.4
-    });
-    const mainFlame = new THREE.Mesh(mainFlameGeo, mainFlameMat);
-    mainFlame.position.y = 0.65;
-    mainFlame.add(this._createOutline(mainFlameGeo, 0x7f1d1d, 0.04));
-    group.add(mainFlame);
+    // Model yükleme hazırlığı
+    let mixer = null;
+    let fireModel = null;
 
-    // Orta katman alev (Parlak turuncu)
-    const midFlameGeo = new THREE.ConeGeometry(0.42, 1.1, 7);
-    const midFlameMat = new THREE.MeshToonMaterial({
-      color: 0xf97316,
-      emissive: 0xfbbf24,
-      emissiveIntensity: 0.6
-    });
-    const midFlame = new THREE.Mesh(midFlameGeo, midFlameMat);
-    midFlame.position.set(0, 0.6, 0.08);
-    group.add(midFlame);
+    if (!ItemFactory._fireGltfCache) {
+      const loader = new GLTFLoader();
+      loader.load(
+        '/models/low_poly_fire.glb',
+        (gltf) => {
+          ItemFactory._fireGltfCache = gltf;
+          this._setupFireInstance(gltf, modelContainer, (newMixer, m) => {
+            mixer = newMixer;
+            fireModel = m;
+          });
+        },
+        undefined,
+        (err) => {
+          console.warn("low_poly_fire.glb yüklenemedi:", err);
+        }
+      );
+    } else {
+      this._setupFireInstance(ItemFactory._fireGltfCache, modelContainer, (newMixer, m) => {
+        mixer = newMixer;
+        fireModel = m;
+      });
+    }
 
-    // Çekirdek alev (Sarı kalori çekirdeği)
-    const coreFlameGeo = new THREE.ConeGeometry(0.24, 0.75, 6);
-    const coreFlameMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
-    const coreFlame = new THREE.Mesh(coreFlameGeo, coreFlameMat);
-    coreFlame.position.set(0, 0.45, 0.14);
-    group.add(coreFlame);
+    // 60 FPS Canlı Yanma & Kıvılcım Efekti Animasyonu
+    group.userData.update = (time, delta) => {
+      const dt = delta || 0.016;
+      const t = time * 3.5;
 
-    // Sağ-sol kıvılcım dilleri
-    const sparkGeo = new THREE.ConeGeometry(0.12, 0.4, 5);
-    const sparkMat = new THREE.MeshBasicMaterial({ color: 0xf97316 });
-    const leftSpark = new THREE.Mesh(sparkGeo, sparkMat);
-    leftSpark.position.set(-0.42, 0.65, 0);
-    leftSpark.rotation.z = 0.35;
-    group.add(leftSpark);
+      // Modelin dahili gltf animasyonunu oynat
+      if (mixer) {
+        mixer.update(dt);
+      } else if (fireModel) {
+        // Modelin hafif canlı nefes alma ve dalgalanma hareketi
+        fireModel.scale.y = 0.52 + Math.sin(t * 2.2) * 0.03;
+        fireModel.rotation.y += dt * 0.4;
+      }
 
-    const rightSpark = new THREE.Mesh(sparkGeo, sparkMat);
-    rightSpark.position.set(0.42, 0.7, 0);
-    rightSpark.rotation.z = -0.35;
-    group.add(rightSpark);
+      // Ateş ışığı titremesi (Flicker)
+      fireLight.intensity = 2.4 + Math.sin(t * 6.0) * 0.6 + (Math.random() - 0.5) * 0.35;
+      fireLight.position.y = 0.6 + Math.sin(t * 3.0) * 0.06;
 
-    const light = new THREE.PointLight(0xff7700, 2.0, 3.5);
-    light.position.set(0, 0.7, 0.3);
-    group.add(light);
+      // Sıcaklık haresinin nabız gibi atması
+      glow.scale.set(
+        1.0 + Math.sin(t * 2.0) * 0.08,
+        1.3 + Math.cos(t * 2.5) * 0.12,
+        1.0 + Math.sin(t * 2.0) * 0.08
+      );
+
+      // Kıvılcımların (Sparks) spiraller çizerek yükselmesi ve sönmesi
+      sparks.forEach(spark => {
+        const u = spark.userData;
+        spark.position.y += u.speed * dt;
+        u.angle += u.rotSpeed * dt;
+        
+        // Yukarı çıktıkça hafifçe daralan veya genişleyen spiral
+        const heightProgress = Math.min(1.0, spark.position.y / u.maxHeight);
+        spark.position.x = Math.cos(u.angle) * (u.radius * (1.0 - heightProgress * 0.3));
+        spark.position.z = Math.sin(u.angle) * (u.radius * (1.0 - heightProgress * 0.3));
+
+        // Yükseldikçe küçülerek yok olma efekti
+        const scale = u.baseScale * (1.0 - heightProgress * 0.85);
+        spark.scale.setScalar(Math.max(0.001, scale));
+
+        // Tepeye ulaştığında tabandan rastgele yeni kıvılcım olarak doğma
+        if (spark.position.y >= u.maxHeight) {
+          spark.position.y = 0.15 + Math.random() * 0.15;
+          u.angle = Math.random() * Math.PI * 2;
+          u.radius = 0.12 + Math.random() * 0.24;
+        }
+      });
+    };
 
     return group;
+  }
+
+  static _setupFireInstance(gltf, container, onReady) {
+    // Modelin klonunu al (her slot için bağımsız model)
+    const model = gltf.scene.clone(true);
+    
+    // Modelin bounding box'ına göre boyutunu masaya uygun normalize et (yaklaşık 1.1 birim yükseklik)
+    const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3());
+    const targetHeight = 1.1;
+    const scaleFactor = targetHeight / Math.max(0.001, size.y);
+    
+    model.scale.setScalar(scaleFactor);
+    // Modeli tabana oturt
+    model.position.y = -box.min.y * scaleFactor;
+
+    model.traverse(child => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        // Materyallerin renklerini ve emisyonlarını canlı tut
+        if (child.material) {
+          child.material = child.material.clone();
+          if (child.material.emissive) {
+            child.material.emissiveIntensity = 1.2;
+          }
+        }
+      }
+    });
+
+    container.add(model);
+
+    // Varsa dahili animasyon mixer'ını başlat
+    let instanceMixer = null;
+    if (gltf.animations && gltf.animations.length > 0) {
+      instanceMixer = new THREE.AnimationMixer(model);
+      const action = instanceMixer.clipAction(gltf.animations[0]);
+      action.play();
+    }
+
+    if (onReady) {
+      onReady(instanceMixer, model);
+    }
   }
 
   static _createWaterMesh(def) {
@@ -5551,6 +5705,326 @@ export class ItemFactory {
     const light = new THREE.PointLight(0x60a5fa, 2.0, 2.2);
     light.position.set(0, 0.45, 0.1);
     group.add(light);
+    return group;
+  }
+
+  // --- YENİ BASİT EŞYA 3D MODELLERİ ---
+  static _createSisMesh(def) {
+    const group = new THREE.Group();
+    const cloudMat = new THREE.MeshStandardMaterial({
+      color: 0xe2e8f0,
+      transparent: true,
+      opacity: 0.75,
+      roughness: 0.9
+    });
+    [-0.2, 0, 0.2].forEach((x, i) => {
+      const puff = new THREE.Mesh(new THREE.SphereGeometry(0.35 + i * 0.05, 12, 12), cloudMat);
+      puff.position.set(x, 0.4 + (i % 2) * 0.08, (i - 1) * 0.08);
+      group.add(puff);
+    });
+    return group;
+  }
+
+  static _createGayzerMesh(def) {
+    const group = new THREE.Group();
+    const rockMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.8 });
+    const pool = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.15, 8), rockMat);
+    pool.position.y = 0.1;
+    group.add(pool);
+
+    const waterMat = new THREE.MeshStandardMaterial({
+      color: 0x38bdf8,
+      emissive: 0x0284c7,
+      emissiveIntensity: 0.5,
+      transparent: true,
+      opacity: 0.85
+    });
+    const steamJet = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.16, 0.7, 8), waterMat);
+    steamJet.position.y = 0.55;
+    group.add(steamJet);
+    return group;
+  }
+
+  static _createKaktusMesh(def) {
+    const group = new THREE.Group();
+    const stemMat = new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.7 });
+    const mainStem = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.8, 8), stemMat);
+    mainStem.position.y = 0.45;
+    mainStem.add(this._createOutline(mainStem.geometry, 0x14532d, 0.035));
+    group.add(mainStem);
+
+    const armGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.35, 6);
+    const leftArm = new THREE.Mesh(armGeo, stemMat);
+    leftArm.position.set(-0.2, 0.5, 0);
+    leftArm.rotation.z = 0.5;
+    group.add(leftArm);
+
+    const rightArm = new THREE.Mesh(armGeo, stemMat);
+    rightArm.position.set(0.2, 0.4, 0);
+    rightArm.rotation.z = -0.5;
+    group.add(rightArm);
+    return group;
+  }
+
+  static _createCamAgaciMesh(def) {
+    const group = new THREE.Group();
+    const trunkMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.3, 6), trunkMat);
+    trunk.position.y = 0.15;
+    group.add(trunk);
+
+    const foliageMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.7 });
+    [0.4, 0.65, 0.88].forEach((y, i) => {
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.55 - i * 0.12, 0.4, 6), foliageMat);
+      cone.position.y = y;
+      cone.add(this._createOutline(cone.geometry, 0x14532d, 0.035));
+      group.add(cone);
+    });
+    return group;
+  }
+
+  static _createMeseAgaciMesh(def) {
+    const group = new THREE.Group();
+    const trunkMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.4, 6), trunkMat);
+    trunk.position.y = 0.2;
+    group.add(trunk);
+
+    const leafMat = new THREE.MeshStandardMaterial({ color: 0x166534, roughness: 0.7 });
+    const crown = new THREE.Mesh(new THREE.DodecahedronGeometry(0.48), leafMat);
+    crown.position.y = 0.65;
+    crown.add(this._createOutline(crown.geometry, 0x14532d, 0.035));
+    group.add(crown);
+    return group;
+  }
+
+  static _createTavukMesh(def) {
+    const group = new THREE.Group();
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.6 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 12), bodyMat);
+    body.position.y = 0.35;
+    body.scale.set(0.9, 1, 1.2);
+    group.add(body);
+
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), bodyMat);
+    head.position.set(0, 0.6, 0.2);
+    group.add(head);
+
+    const combMat = new THREE.MeshStandardMaterial({ color: 0xef4444 });
+    const comb = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.12, 0.14), combMat);
+    comb.position.set(0, 0.76, 0.18);
+    group.add(comb);
+
+    const beakMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b });
+    const beak = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.14, 4), beakMat);
+    beak.position.set(0, 0.58, 0.38);
+    beak.rotation.x = Math.PI / 2;
+    group.add(beak);
+    return group;
+  }
+
+  static _createKediMesh(def) {
+    const group = new THREE.Group();
+    const furMat = new THREE.MeshStandardMaterial({ color: 0xf97316, roughness: 0.6 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 12), furMat);
+    body.position.y = 0.32;
+    body.scale.set(0.9, 0.9, 1.3);
+    group.add(body);
+
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 10), furMat);
+    head.position.set(0, 0.54, 0.24);
+    group.add(head);
+
+    const earMat = new THREE.MeshStandardMaterial({ color: 0xea580c });
+    const earGeo = new THREE.ConeGeometry(0.08, 0.16, 4);
+    const leftEar = new THREE.Mesh(earGeo, earMat);
+    leftEar.position.set(-0.1, 0.72, 0.22);
+    leftEar.rotation.z = -0.2;
+    group.add(leftEar);
+
+    const rightEar = new THREE.Mesh(earGeo, earMat);
+    rightEar.position.set(0.1, 0.72, 0.22);
+    rightEar.rotation.z = 0.2;
+    group.add(rightEar);
+
+    const tail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.35, 6), furMat);
+    tail.position.set(0, 0.45, -0.32);
+    tail.rotation.x = -0.6;
+    group.add(tail);
+    return group;
+  }
+
+  static _createMesaleMesh(def) {
+    const group = new THREE.Group();
+    const woodMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
+    const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.05, 0.7, 6), woodMat);
+    handle.position.y = 0.35;
+    handle.add(this._createOutline(handle.geometry, 0x451a03, 0.035));
+    group.add(handle);
+
+    const flameMat = new THREE.MeshStandardMaterial({
+      color: 0xf59e0b,
+      emissive: 0xef4444,
+      emissiveIntensity: 0.8
+    });
+    const flame = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.35, 6), flameMat);
+    flame.position.y = 0.8;
+    group.add(flame);
+
+    const light = new THREE.PointLight(0xf59e0b, 2.5, 3.0);
+    light.position.set(0, 0.85, 0);
+    group.add(light);
+    return group;
+  }
+
+  static _createSomonMesh(def) {
+    const group = new THREE.Group();
+    const fishMat = new THREE.MeshStandardMaterial({ color: 0xf43f5e, roughness: 0.5 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.25, 12, 8), fishMat);
+    body.position.y = 0.45;
+    body.scale.set(0.6, 1.0, 1.8);
+    group.add(body);
+
+    const finMat = new THREE.MeshStandardMaterial({ color: 0xfb7185 });
+    const tail = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.3, 3), finMat);
+    tail.position.set(0, 0.45, -0.45);
+    tail.rotation.x = -Math.PI / 2;
+    group.add(tail);
+    return group;
+  }
+
+  static _createYayMesh(def) {
+    const group = new THREE.Group();
+    const woodMat = new THREE.MeshStandardMaterial({ color: 0x92400e, roughness: 0.7 });
+    const bowCurve = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.04, 8, 16, Math.PI), woodMat);
+    bowCurve.position.set(0, 0.45, 0);
+    bowCurve.rotation.z = -Math.PI / 2;
+    bowCurve.add(this._createOutline(bowCurve.geometry, 0x451a03, 0.035));
+    group.add(bowCurve);
+
+    const stringMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const string = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.8, 4), stringMat);
+    string.position.set(0, 0.45, 0);
+    group.add(string);
+    return group;
+  }
+
+  static _createBarutFicisiMesh(def) {
+    const group = new THREE.Group();
+    const barrelMat = new THREE.MeshStandardMaterial({ color: 0xb91c1c, roughness: 0.7 });
+    const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.65, 12), barrelMat);
+    barrel.position.y = 0.35;
+    barrel.add(this._createOutline(barrel.geometry, 0x7f1d1d, 0.035));
+    group.add(barrel);
+
+    const ringMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8, roughness: 0.3 });
+    [-0.15, 0.15].forEach(y => {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.02, 6, 16), ringMat);
+      ring.position.y = 0.35 + y;
+      ring.rotation.x = Math.PI / 2;
+      group.add(ring);
+    });
+
+    const fuseMat = new THREE.MeshBasicMaterial({ color: 0xfde047 });
+    const fuse = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.15, 4), fuseMat);
+    fuse.position.set(0, 0.72, 0);
+    group.add(fuse);
+    return group;
+  }
+
+  static _createSuDegirmeniMesh(def) {
+    const group = new THREE.Group();
+    const woodMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, roughness: 0.7 });
+    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.18, 12), woodMat);
+    wheel.position.y = 0.48;
+    wheel.rotation.x = Math.PI / 2;
+    wheel.add(this._createOutline(wheel.geometry, 0x451a03, 0.035));
+    group.add(wheel);
+
+    const bladeGeo = new THREE.BoxGeometry(0.12, 0.9, 0.04);
+    for (let i = 0; i < 4; i++) {
+      const blade = new THREE.Mesh(bladeGeo, woodMat);
+      blade.position.y = 0.48;
+      blade.rotation.z = (i * Math.PI) / 4;
+      group.add(blade);
+    }
+    return group;
+  }
+
+  static _createBuzDagiMesh(def) {
+    const group = new THREE.Group();
+    const iceMat = new THREE.MeshPhysicalMaterial({
+      color: 0xbae6fd,
+      transmission: 0.8,
+      opacity: 0.9,
+      transparent: true,
+      roughness: 0.1,
+      ior: 1.31
+    });
+    const mainPeak = new THREE.Mesh(new THREE.ConeGeometry(0.5, 0.8, 5), iceMat);
+    mainPeak.position.y = 0.45;
+    group.add(mainPeak);
+
+    const subPeak = new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.55, 4), iceMat);
+    subPeak.position.set(0.2, 0.3, 0.1);
+    group.add(subPeak);
+    return group;
+  }
+
+  static _createKalkanMesh(def) {
+    const group = new THREE.Group();
+    const shieldMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.6, roughness: 0.4 });
+    const shield = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.35, 0.08, 6), shieldMat);
+    shield.position.y = 0.45;
+    shield.rotation.x = Math.PI / 2;
+    shield.add(this._createOutline(shield.geometry, 0x1e293b, 0.035));
+    group.add(shield);
+
+    const bossMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.8, roughness: 0.2 });
+    const boss = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 8), bossMat);
+    boss.position.set(0, 0.45, 0.05);
+    group.add(boss);
+    return group;
+  }
+
+  static _createIksirKazaniMesh(def) {
+    const group = new THREE.Group();
+    const ironMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.7, metalness: 0.5 });
+    const pot = new THREE.Mesh(new THREE.SphereGeometry(0.38, 16, 16), ironMat);
+    pot.position.y = 0.35;
+    pot.scale.set(1.1, 0.9, 1.1);
+    group.add(pot);
+
+    [-0.2, 0.2].forEach(x => {
+      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.2, 6), ironMat);
+      leg.position.set(x, 0.1, 0);
+      group.add(leg);
+    });
+
+    const liquidMat = new THREE.MeshStandardMaterial({
+      color: 0xa855f7,
+      emissive: 0x9333ea,
+      emissiveIntensity: 0.7
+    });
+    const liquid = new THREE.Mesh(new THREE.CircleGeometry(0.32, 16), liquidMat);
+    liquid.position.set(0, 0.52, 0);
+    liquid.rotation.x = -Math.PI / 2;
+    group.add(liquid);
+    return group;
+  }
+
+  static _createDefaultMesh(def) {
+    const group = new THREE.Group();
+    const color = def?.colorPalette?.primary ? new THREE.Color(def.colorPalette.primary) : 0x38bdf8;
+    const mat = new THREE.MeshStandardMaterial({
+      color: color,
+      roughness: 0.4,
+      metalness: 0.2
+    });
+    const mesh = new THREE.Mesh(new THREE.DodecahedronGeometry(0.42), mat);
+    mesh.position.y = 0.45;
+    mesh.add(this._createOutline(mesh.geometry, 0x0f172a, 0.04));
+    group.add(mesh);
     return group;
   }
 }

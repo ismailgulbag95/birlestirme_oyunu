@@ -30,3 +30,14 @@ Bu kural seti; modelin token tüketimini (input & output) minimumda tutması, ba
 - **Hedefe Yönelik Okuma:** Dosyaların tamamını okumak yerine satır aralıkları (`StartLine`, `EndLine`) veya `grep_search` kullanarak sadece ilgili kısımları oku.
 - **Parçalı Düzenleme:** Dosyaları baştan sona yeniden yazmak yerine (`write_to_file`), cerrahi araçları (`replace_file_content` veya `multi_replace_file_content`) kullan.
 - **Stratejik Bağlam Yönetimi:** Görev fazı değişimlerinde (keşif bittiğinde, yeni aşamaya geçerken) bağlamı şişiren gereksiz geçici verilerden arın.
+
+---
+
+## 4. Eşya Üretim Kuralı (14'lü Item Production Workflow)
+Kullanıcı eşya üretimi / yeni eşyalar istediğinde [docs/ITEM_PIPELINE.md](file:///d:/github/birlestirme_oyunu/docs/ITEM_PIPELINE.md) standardı zorunludur:
+1. **Analiz:** `python tools/item_generator.py --scan` ile mevcut havuzu incele.
+2. **14'lü Plan:** Tam 14 eşyadan oluşan mantıksal set ve tarifleri hazırla.
+3. **Spritesheet:** 5x3 ızgara formatında `generate_image` ile beyaz arka planlı görsel üret (`assets/raw_sheets/`). **Kural:** Promptta ve görselde kesinlikle hiçbir yazı, harf, numara, başlık veya etiket (`NO text, NO labels, NO words, strictly icons only`) bulunmamalıdır.
+4. **Dilimleme:** `python tools/item_generator.py --slice` ile şeffaf 256x256 PNG'ler oluştur (`public/textures/items/`).
+5. **Kodlama:** `itemDefinitions.js`, `CraftingSystem.js`, `ItemFactory.js` ve `main.js` dosyalarına sırayla entegre et.
+

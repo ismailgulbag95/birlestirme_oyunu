@@ -61,8 +61,9 @@ def generate_prompt_for_items(items_list):
         "A neat 5x3 grid spritesheet containing exactly 14 individual 2D casual mobile game icons, "
         "completely isolated on a solid pure white background. Clean vector art, vibrant cell shading, "
         "bold crisp outlines, flat shading, zero background drop shadows. "
+        "NO text, NO labels, NO words, NO titles, NO typography, NO numbers, NO captions below or above items, strictly icon illustrations only. "
         f"The image must distinctly feature each of these 14 separate items arranged in orderly rows: {items_desc}. "
-        "Generous empty white space between all items, perfectly modular for sprite slicing --ar 16:9 --v 6.0"
+        "Generous empty white space between all items, bottom right corner is empty, perfectly modular for sprite slicing --ar 16:9 --v 6.0 --no text, font, letters, watermark, labels, names, words, typography, numbers"
     )
     return prompt
 
@@ -265,6 +266,19 @@ def main():
         print("Taranan ilk 10 eşya:")
         for k in list(items.keys())[:10]:
             print(f" - {k}: {items[k]}")
+
+    if args.slice:
+        if not args.items_json:
+            print("Hata: --items-json belirtilmelidir.")
+            return
+        with open(args.items_json, "r", encoding="utf-8") as f:
+            target_items = json.load(f)
+        image_path = Path(args.slice)
+        if not image_path.is_absolute():
+            image_path = WORKSPACE_DIR / image_path
+        print(f"Dilimleme başlatılıyor: {image_path}")
+        slice_spritesheet(image_path, target_items)
+
 
 if __name__ == "__main__":
     main()

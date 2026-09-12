@@ -48,7 +48,13 @@ class Game {
       'peynir', 'un', 'hamur', 'ekmek',
       'disli_cark', 'degirmen', 'ayna', 'saat',
       'demir_parmaklik', 'savas_baltasi', 'gozetleme_kulesi', 'kale_kapisi',
-      'buz_runu', 'cehennem_tasi', 'zaman_kum_saati', 'illuzyon_aynasi'
+      'buz_runu', 'cehennem_tasi', 'zaman_kum_saati', 'illuzyon_aynasi',
+      // Kategori 9 & 10 & Fauna
+      'siber_kristal', 'hologram_kupu', 'buhar_jeneratoru', 'meka_zirhi', 'plazma_tufegi', 'felsefe_tasi', 'gunes_paneli', 'yercekimsiz_platform', 'biyonik_kol', 'usturlap', 'tesla_bobini', 'enerji_kalkani', 'kuantum_islemci', 'minyatur_yildiz',
+      'dag', 'kaya', 'gunes', 'okyanus', 'volkan', 'ada', 'nehir', 'orman', 'firtina_bulutu', 'magara', 'gokkusagi', 'kanyon', 'fay_hatti',
+      'at', 'koyun', 'kurt', 'ari', 'yilan', 'baykus', 'kaplumbaga', 'bal', 'nilufer', 'elma', 'kurbaga', 'sincap', 'geyik', 'kelebek',
+      // Yeni Basit Eşyalar
+      'sis', 'gayzer', 'kaktus', 'cam_agaci', 'mese_agaci', 'tavuk', 'kedi', 'mesale', 'somon', 'yay', 'barut_ficisi', 'su_degirmeni', 'buz_dagi', 'kalkan', 'iksir_kazani'
     ];
 
     this.ui = new UIManager(
@@ -296,6 +302,16 @@ class Game {
       requestAnimationFrame(animate);
 
       const delta = clock.getDelta();
+      const elapsedTime = clock.getElapsedTime();
+
+      // Masadaki slotlarda bulunan animasyonlu eşyaları güncelle (örneğin dans eden ateş)
+      const slots = this.tableScene.getSlots();
+      slots.forEach(slot => {
+        const mesh = slot.userData?.mesh;
+        if (mesh && typeof mesh.userData?.update === 'function') {
+          mesh.userData.update(elapsedTime, delta);
+        }
+      });
 
       this.tableScene.update(delta);
       this.physics.step(this.sceneManager.scene);

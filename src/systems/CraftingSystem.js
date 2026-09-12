@@ -1,4 +1,19 @@
-import { ITEM_DEFINITIONS, RECIPES_CAT_1, RECIPES_CAT_2, RECIPES_CAT_3, RECIPES_CAT_4, RECIPES_CAT_5, RECIPES_CAT_6, RECIPES_CAT_7, RECIPES_CATEGORY_8, getCanonicalId } from '../items/itemDefinitions.js';
+import { 
+  ITEM_DEFINITIONS, 
+  RECIPES_CAT_1, 
+  RECIPES_CAT_2, 
+  RECIPES_CAT_3, 
+  RECIPES_CAT_4, 
+  RECIPES_CAT_5, 
+  RECIPES_CAT_6, 
+  RECIPES_CAT_7, 
+  RECIPES_CATEGORY_8,
+  RECIPES_CAT_9,
+  RECIPES_CAT_10,
+  RECIPES_CAT_FAUNA,
+  RECIPES_CAT_SIMPLE,
+  getCanonicalId 
+} from '../items/itemDefinitions.js';
 
 export class CraftingSystem {
   constructor() {
@@ -23,6 +38,10 @@ export class CraftingSystem {
     RECIPES_CAT_6.forEach(r => addRecipe(r.inputs, r.output));
     RECIPES_CAT_7.forEach(r => addRecipe(r.inputs, r.output));
     RECIPES_CATEGORY_8.forEach(r => addRecipe(r.inputs, r.output));
+    if (typeof RECIPES_CAT_9 !== 'undefined') RECIPES_CAT_9.forEach(r => addRecipe(r.inputs, r.output));
+    if (typeof RECIPES_CAT_10 !== 'undefined') RECIPES_CAT_10.forEach(r => addRecipe(r.inputs, r.output));
+    if (typeof RECIPES_CAT_FAUNA !== 'undefined') RECIPES_CAT_FAUNA.forEach(r => addRecipe(r.inputs, r.output));
+    if (typeof RECIPES_CAT_SIMPLE !== 'undefined') RECIPES_CAT_SIMPLE.forEach(r => addRecipe(r.inputs, r.output));
 
     // 2. Diğer tanımlı reçeteleri ekle
     Object.keys(ITEM_DEFINITIONS).forEach(id => {

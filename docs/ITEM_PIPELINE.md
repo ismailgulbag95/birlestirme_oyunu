@@ -15,7 +15,7 @@ Bu rehber, oyuna yeni 14'lü eşya seti (yeni kategori) eklemek istediğinizde i
    - Referans formattaki 5x3 grid (14 eşya) düzeninde NanoBanana / Gemini / Midjourney promptu oluşturulur.
    - Örnek:
      ```
-     A neat 5x3 grid spritesheet containing exactly 14 individual 2D casual mobile game icons, completely isolated on a solid pure white background. Clean vector art, vibrant cell shading, bold crisp outlines, flat shading, zero background drop shadows. The image must distinctly feature each of these 14 separate items arranged in orderly rows: (1)... (14)... Generous empty white space between all items, perfectly modular for sprite slicing --ar 16:9 --v 6.0
+     A neat 5x3 grid spritesheet containing exactly 14 individual 2D casual mobile game icons, completely isolated on a solid pure white background. Clean vector art, vibrant cell shading, bold crisp outlines, flat shading, zero background drop shadows. NO text, NO labels, NO words, NO titles, NO typography, NO numbers, strictly icon illustrations only. The image must distinctly feature each of these 14 separate items arranged in orderly rows: (1)... (14)... Generous empty white space between all items, bottom right corner is empty, perfectly modular for sprite slicing --ar 16:9 --v 6.0 --no text, font, letters, watermark, labels, names, words, typography, numbers
      ```
 
 3. **Görselin Üretilmesi:**

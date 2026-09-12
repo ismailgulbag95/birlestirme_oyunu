@@ -1855,6 +1855,172 @@ export const ITEM_DEFINITIONS = {
     recipe: { inputs: ['kus', 'nilufer', 'hava'] },
     icon: '🦋',
     category: 3
+  },
+  // --- YENİ BASİT EŞYALAR ---
+  sis: {
+    id: 'sis',
+    name: 'Sis',
+    description: 'Havanın su buharı ile yoğuşması sonucu yeryüzüne inen hafif pus.',
+    tier: 2,
+    colorPalette: { primary: '#cbd5e1', secondary: '#94a3b8', emissive: '#64748b' },
+    particles: { type: 'cloud', color: '#e2e8f0', count: 15 },
+    recipe: { inputs: ['hava', 'su', null] },
+    icon: '🌫️',
+    category: 'elements'
+  },
+  gayzer: {
+    id: 'gayzer',
+    name: 'Gayzer',
+    description: 'Yeraltındaki ısınmış su ve buharın taşlar arasından fışkırması.',
+    tier: 2,
+    colorPalette: { primary: '#0ea5e9', secondary: '#38bdf8', emissive: '#0284c7' },
+    particles: { type: 'bubble', color: '#ffffff', count: 20 },
+    recipe: { inputs: ['ates', 'toprak', 'su'] },
+    icon: '♨️',
+    category: 'elements'
+  },
+  kaktus: {
+    id: 'kaktus',
+    name: 'Kaktüs',
+    description: 'Kızgın çöl kumlarında bile dimdik duran çiçekli dikenli bitki.',
+    tier: 2,
+    colorPalette: { primary: '#15803d', secondary: '#22c55e', emissive: '#166534' },
+    particles: { type: 'leaf', color: '#86efac', count: 10 },
+    recipe: { inputs: ['bitki', 'kum', null] },
+    icon: '🌵',
+    category: 'nature'
+  },
+  cam_agaci: {
+    id: 'cam_agaci',
+    name: 'Çam Ağacı',
+    description: 'Karlı dağ yamaçlarında kışın da yeşil kalan iğne yapraklı ağaç.',
+    tier: 2,
+    colorPalette: { primary: '#166534', secondary: '#15803d', emissive: '#14532d' },
+    particles: { type: 'leaf', color: '#4ade80', count: 12 },
+    recipe: { inputs: ['agac', 'kar', null] },
+    icon: '🌲',
+    category: 'nature'
+  },
+  mese_agaci: {
+    id: 'mese_agaci',
+    name: 'Meşe Ağacı',
+    description: 'Toprağa derin kökler salan gür yapraklı ulu ağaç.',
+    tier: 2,
+    colorPalette: { primary: '#14532d', secondary: '#166534', emissive: '#052e16' },
+    particles: { type: 'leaf', color: '#22c55e', count: 12 },
+    recipe: { inputs: ['agac', 'toprak', null] },
+    icon: '🌳',
+    category: 'nature'
+  },
+  tavuk: {
+    id: 'tavuk',
+    name: 'Tavuk',
+    description: 'Yumurtadan çıkan, tarlalarda dolaşan sevimli kümes hayvanı.',
+    tier: 2,
+    colorPalette: { primary: '#f59e0b', secondary: '#fbbf24', emissive: '#d97706' },
+    particles: { type: 'spark', color: '#fef08a', count: 8 },
+    recipe: { inputs: ['kus', 'yumurta', null] },
+    icon: '🐔',
+    category: 'life'
+  },
+  kedi: {
+    id: 'kedi',
+    name: 'Kedi',
+    description: 'Sütü ve sıcağı seven sevimli uysal evcil dost.',
+    tier: 2,
+    colorPalette: { primary: '#f97316', secondary: '#ea580c', emissive: '#c2410c' },
+    particles: { type: 'spark', color: '#fed7aa', count: 10 },
+    recipe: { inputs: ['hayvan', 'sut', null] },
+    icon: '🐱',
+    category: 'life'
+  },
+  mesale: {
+    id: 'mesale',
+    name: 'Meşale',
+    description: 'Karanlık mağaraları ve yolları aydınlatan alevli ahşap meşale.',
+    tier: 2,
+    colorPalette: { primary: '#f97316', secondary: '#ef4444', emissive: '#ea580c' },
+    particles: { type: 'spark', color: '#ffaa00', count: 15 },
+    recipe: { inputs: ['ates', 'odun', null] },
+    icon: '🔦',
+    category: 'craft_tools'
+  },
+  somon: {
+    id: 'somon',
+    name: 'Somon',
+    description: 'Akıntının tersine nehirlerde sıçrayan çevik tatlı su balığı.',
+    tier: 2,
+    colorPalette: { primary: '#fb7185', secondary: '#f43f5e', emissive: '#e11d48' },
+    particles: { type: 'bubble', color: '#fecdd3', count: 10 },
+    recipe: { inputs: ['balik', 'nehir', null] },
+    icon: '🐟',
+    category: 'life'
+  },
+  yay: {
+    id: 'yay',
+    name: 'Yay',
+    description: 'Esnek bir dal ve gergin ip ile yapılan avcı silahı.',
+    tier: 2,
+    colorPalette: { primary: '#78350f', secondary: '#92400e', emissive: '#451a03' },
+    particles: { type: 'spark', color: '#fde047', count: 10 },
+    recipe: { inputs: ['ip', 'odun', null] },
+    icon: '🏹',
+    category: 'craft_tools'
+  },
+  barut_ficisi: {
+    id: 'barut_ficisi',
+    name: 'Barut Fıçısı',
+    description: 'Ateşle buluştuğunda şiddetli patlama yaratan ahşap fıçı.',
+    tier: 3,
+    colorPalette: { primary: '#dc2626', secondary: '#b91c1c', emissive: '#991b1b' },
+    particles: { type: 'spark', color: '#ef4444', count: 20 },
+    recipe: { inputs: ['barut', 'odun', null] },
+    icon: '🛢️',
+    category: 5
+  },
+  su_degirmeni: {
+    id: 'su_degirmeni',
+    name: 'Su Değirmeni',
+    description: 'Akarsuyun akış gücüyle dönen ahşap çark mekanizması.',
+    tier: 3,
+    colorPalette: { primary: '#0284c7', secondary: '#0369a1', emissive: '#075985' },
+    particles: { type: 'bubble', color: '#38bdf8', count: 12 },
+    recipe: { inputs: ['su', 'tekerlek', null] },
+    icon: '⚙️',
+    category: 6
+  },
+  buz_dagi: {
+    id: 'buz_dagi',
+    name: 'Buz Dağı',
+    description: 'Okyanusta yüzen devasa parıltılı buz kütlesi.',
+    tier: 2,
+    colorPalette: { primary: '#38bdf8', secondary: '#bae6fd', emissive: '#0284c7' },
+    particles: { type: 'shimmer', color: '#ffffff', count: 15 },
+    recipe: { inputs: ['buz', 'okyanus', null] },
+    icon: '🏔️',
+    category: 'elements'
+  },
+  kalkan: {
+    id: 'kalkan',
+    name: 'Kalkan',
+    description: 'Saldırılardan ve oklardan koruyan sağlam yuvarlak ahşap kalkan.',
+    tier: 2,
+    colorPalette: { primary: '#64748b', secondary: '#94a3b8', emissive: '#334155' },
+    particles: { type: 'spark', color: '#cbd5e1', count: 8 },
+    recipe: { inputs: ['odun', 'demir_kulce', null] },
+    icon: '🛡️',
+    category: 'craft_tools'
+  },
+  iksir_kazani: {
+    id: 'iksir_kazani',
+    name: 'İksir Kazanı',
+    description: 'Ateş üzerinde iksirlerin ve simya özlerinin kaynatıldığı döküm kazan.',
+    tier: 3,
+    colorPalette: { primary: '#1e293b', secondary: '#475569', emissive: '#0f172a' },
+    particles: { type: 'bubble', color: '#a855f7', count: 16 },
+    recipe: { inputs: ['ates', 'comlek', 'su'] },
+    icon: '🍲',
+    category: 5
   }
 };
 
@@ -2061,3 +2227,24 @@ export const RECIPES_CAT_FAUNA = [
   { inputs: ["hayvan", "orman", "dag"], output: "geyik", category: 3 },
   { inputs: ["kus", "nilufer", "hava"], output: "kelebek", category: 3 }
 ];
+
+export const RECIPES_CAT_SIMPLE = [
+  { inputs: ["hava", "su", null], output: "sis", category: 1 },
+  { inputs: ["ates", "toprak", "su"], output: "gayzer", category: 1 },
+  { inputs: ["bitki", "kum", null], output: "kaktus", category: 2 },
+  { inputs: ["agac", "kar", null], output: "cam_agaci", category: 2 },
+  { inputs: ["agac", "toprak", null], output: "mese_agaci", category: 2 },
+  { inputs: ["kus", "yumurta", null], output: "tavuk", category: 3 },
+  { inputs: ["hayvan", "sut", null], output: "kedi", category: 3 },
+  { inputs: ["ates", "odun", null], output: "mesale", category: 4 },
+  { inputs: ["balik", "nehir", null], output: "somon", category: 3 },
+  { inputs: ["ip", "odun", null], output: "yay", category: 4 },
+  { inputs: ["barut", "odun", null], output: "barut_ficisi", category: 5 },
+  { inputs: ["su", "tekerlek", null], output: "su_degirmeni", category: 6 },
+  { inputs: ["buz", "okyanus", null], output: "buz_dagi", category: 1 },
+  { inputs: ["odun", "demir_kulce", null], output: "kalkan", category: 4 },
+  { inputs: ["ates", "comlek", "su"], output: "iksir_kazani", category: 5 }
+];
+
+
+
