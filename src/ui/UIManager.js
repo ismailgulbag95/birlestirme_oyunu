@@ -9,8 +9,9 @@ export class UIManager {
     this.onWatchAd = onWatchAd; // (itemId) => void
     this.onCleanup = onCleanup; // () => void
     this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
-    this.onMusicToggle = onMusicToggle; // () => boolean (isMuted)
-    this.isMusicMuted = localStorage.getItem('alchemy_bgm_muted') === 'true';
+    this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
+    const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
+    this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.currentCharacterId = 'character2';
     this.filterCategory = 'all'; // 'all', 'elements', 'nature', 'life', 'craft_tools'
     this.sortMode = 'discovery'; // 'discovery', 'category'
@@ -489,7 +490,7 @@ export class UIManager {
       <div id="bottom-action-bar">
         <button id="cleanup-btn" class="action-pill-btn">${i18n.t('cleanup')}</button>
         <button id="character-switch-btn" class="action-pill-btn">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
-        <button id="music-toggle-btn" class="action-pill-btn ${this.isMusicMuted ? 'muted' : ''}">${this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on')}</button>
+        <button id="music-toggle-btn" class="action-pill-btn ${this.musicMode === 0 ? 'muted' : ''}">${this._getMusicButtonLabel()}</button>
         <button id="lang-toggle-btn" class="action-pill-btn">${i18n.t('lang_btn')}</button>
       </div>
 
@@ -540,6 +541,12 @@ export class UIManager {
     return mode === 'category' ? i18n.t('sort_category') : i18n.t('sort_discovery');
   }
 
+  _getMusicButtonLabel() {
+    if (this.musicMode === 1) return i18n.t('music_1');
+    if (this.musicMode === 2) return i18n.t('music_2');
+    return i18n.t('music_none');
+  }
+
   _setupLanguageToggle() {
     const langBtn = document.getElementById('lang-toggle-btn');
     if (langBtn) {
@@ -570,7 +577,8 @@ export class UIManager {
 
     const musicBtn = document.getElementById('music-toggle-btn');
     if (musicBtn) {
-      musicBtn.textContent = this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on');
+      musicBtn.textContent = this._getMusicButtonLabel();
+      musicBtn.classList.toggle('muted', this.musicMode === 0);
     }
 
     // 3. Search placeholder
@@ -645,13 +653,15 @@ export class UIManager {
 
     musicBtn.addEventListener('click', () => {
       if (this.onMusicToggle) {
-        this.isMusicMuted = this.onMusicToggle();
+        this.musicMode = this.onMusicToggle();
       } else {
-        this.isMusicMuted = !this.isMusicMuted;
+        if (this.musicMode === 1) this.musicMode = 2;
+        else if (this.musicMode === 2) this.musicMode = 0;
+        else this.musicMode = 1;
       }
 
-      musicBtn.classList.toggle('muted', this.isMusicMuted);
-      musicBtn.textContent = this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on');
+      musicBtn.classList.toggle('muted', this.musicMode === 0);
+      musicBtn.textContent = this._getMusicButtonLabel();
     });
   }
 

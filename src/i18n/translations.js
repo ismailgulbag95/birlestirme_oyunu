@@ -36,8 +36,9 @@ export const TRANSLATIONS = {
       "ad_cancel_btn": "Vazgeç",
       "ad_watched_alert": "📺 Reklam başarıyla izlendi! +1 İpucu hakkı harcanarak detaylı ipucu açıldı.",
       "lang_btn": "🌐 Dil: TR",
-      "music_on": "🎵 Müzik: Açık",
-      "music_off": "🔇 Müzik: Kapalı"
+      "music_1": "🎵 Müzik 1",
+      "music_2": "🎵 Müzik 2",
+      "music_none": "🔇 Müzik Yok"
     },
     "items": {
       "ates": {
@@ -780,8 +781,9 @@ export const TRANSLATIONS = {
       "ad_cancel_btn": "Cancel",
       "ad_watched_alert": "📺 Ad watched successfully! Used +1 hint right to reveal detailed clue.",
       "lang_btn": "🌐 Lang: EN",
-      "music_on": "🎵 Music: On",
-      "music_off": "🔇 Music: Off"
+      "music_1": "🎵 Music 1",
+      "music_2": "🎵 Music 2",
+      "music_none": "🔇 No Music"
     },
     "items": {
       "ates": {

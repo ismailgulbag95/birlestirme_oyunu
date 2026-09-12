@@ -89,7 +89,7 @@ class Game {
         this.tableScene.switchCharacter(charId);
         this._saveGame();
       },
-      () => audioManager.toggleMute()
+      () => audioManager.cycleMusicMode()
     );
 
     this.ui.updateCharacterButton(initialChar);
