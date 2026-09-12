@@ -9,6 +9,7 @@ import { CraftingSystem } from './systems/CraftingSystem.js';
 import { HintSystem } from './systems/HintSystem.js';
 import { UIManager } from './ui/UIManager.js';
 import { i18n } from './i18n/translations.js';
+import { audioManager } from './core/AudioManager.js';
 
 class Game {
   async init() {
@@ -87,7 +88,8 @@ class Game {
       (charId) => {
         this.tableScene.switchCharacter(charId);
         this._saveGame();
-      }
+      },
+      () => audioManager.toggleMute()
     );
 
     this.ui.updateCharacterButton(initialChar);

@@ -2058,7 +2058,8 @@ export const ITEM_ALIASES = {
   iron_shield: 'demir_kalkan',
   leather_armor: 'deri_zirh',
   iron_armor: 'demir_zirh',
-  bed: 'yatak'
+  bed: 'yatak',
+  forest: 'orman'
 };
 
 export function getCanonicalId(id) {

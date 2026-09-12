@@ -1,14 +1,16 @@
 import gsap from 'gsap';
-import { ITEM_DEFINITIONS } from '../items/itemDefinitions.js';
+import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
     this.onCleanup = onCleanup; // () => void
     this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
+    this.onMusicToggle = onMusicToggle; // () => boolean (isMuted)
+    this.isMusicMuted = localStorage.getItem('alchemy_bgm_muted') === 'true';
     this.currentCharacterId = 'character2';
     this.filterCategory = 'all'; // 'all', 'elements', 'nature', 'life', 'craft_tools'
     this.sortMode = 'discovery'; // 'discovery', 'category'
@@ -322,6 +324,21 @@ export class UIManager {
         box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
       }
 
+      #music-toggle-btn {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(5, 150, 105, 0.85));
+        border: 1px solid rgba(110, 231, 183, 0.4);
+      }
+
+      #music-toggle-btn:hover {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(5, 150, 105, 1));
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+      }
+
+      #music-toggle-btn.muted {
+        background: linear-gradient(135deg, rgba(100, 116, 139, 0.85), rgba(71, 85, 105, 0.85));
+        border-color: rgba(148, 163, 184, 0.3);
+      }
+
       /* Ad Modal */
       #ad-modal {
         position: absolute;
@@ -472,6 +489,7 @@ export class UIManager {
       <div id="bottom-action-bar">
         <button id="cleanup-btn" class="action-pill-btn">${i18n.t('cleanup')}</button>
         <button id="character-switch-btn" class="action-pill-btn">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
+        <button id="music-toggle-btn" class="action-pill-btn ${this.isMusicMuted ? 'muted' : ''}">${this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on')}</button>
         <button id="lang-toggle-btn" class="action-pill-btn">${i18n.t('lang_btn')}</button>
       </div>
 
@@ -497,6 +515,7 @@ export class UIManager {
     this._setupDrawerLogic();
     this._setupInventoryControls();
     this._setupLanguageToggle();
+    this._setupMusicToggle();
   }
 
   _getFilterLabel(cat) {
@@ -547,6 +566,11 @@ export class UIManager {
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
       charBtn.textContent = this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+    }
+
+    const musicBtn = document.getElementById('music-toggle-btn');
+    if (musicBtn) {
+      musicBtn.textContent = this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on');
     }
 
     // 3. Search placeholder
@@ -612,6 +636,22 @@ export class UIManager {
 
     document.getElementById('close-ad-btn').addEventListener('click', () => {
       document.getElementById('ad-modal').style.display = 'none';
+    });
+  }
+
+  _setupMusicToggle() {
+    const musicBtn = document.getElementById('music-toggle-btn');
+    if (!musicBtn) return;
+
+    musicBtn.addEventListener('click', () => {
+      if (this.onMusicToggle) {
+        this.isMusicMuted = this.onMusicToggle();
+      } else {
+        this.isMusicMuted = !this.isMusicMuted;
+      }
+
+      musicBtn.classList.toggle('muted', this.isMusicMuted);
+      musicBtn.textContent = this.isMusicMuted ? i18n.t('music_off') : i18n.t('music_on');
     });
   }
 
@@ -691,7 +731,8 @@ export class UIManager {
       const iconShadow = isNamed ? `0 0 10px ${def.colorPalette?.primary || '#38bdf8'}` : 'none';
       const iconBg = isNamed ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.35)';
 
-      const iconHtml = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
+      const canonicalId = getCanonicalId(itemId) || itemId;
+      const iconHtml = `<img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
 
       card.innerHTML = `
         <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${iconBg}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
@@ -779,15 +820,16 @@ export class UIManager {
     container.innerHTML = '';
 
     filtered.forEach(id => {
-      const def = ITEM_DEFINITIONS[id];
+      const canonicalId = getCanonicalId(id) || id;
+      const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
       if (!def) return;
-      const localizedName = i18n.getItemName(id, def.name);
+      const localizedName = i18n.getItemName(canonicalId, def.name);
 
       const btn = document.createElement('div');
       btn.className = 'item-icon-btn';
       btn.innerHTML = `
         <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
-          <img src="/textures/items/${id}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
+          <img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
         </div>
         <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${localizedName}</span>
       `;
@@ -814,11 +856,12 @@ export class UIManager {
 
     if (!banner || !iconEl || !titleEl || !descEl) return;
 
-    const localizedName = i18n.getItemName(itemId, def.name);
-    const localizedDesc = i18n.getItemDescription(itemId, def.description);
+    const canonicalId = getCanonicalId(itemId) || itemId;
+    const localizedName = i18n.getItemName(canonicalId, def.name);
+    const localizedDesc = i18n.getItemDescription(canonicalId, def.description);
 
     // Simge ve görsel
-    iconEl.innerHTML = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${localizedName ? localizedName[0].toUpperCase() : ''}</span>';">`;
+    iconEl.innerHTML = `<img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${localizedName ? localizedName[0].toUpperCase() : ''}</span>';">`;
     if (def.colorPalette?.primary) {
       iconEl.style.boxShadow = `0 0 16px ${def.colorPalette.primary}`;
     }
