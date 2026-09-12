@@ -9,6 +9,7 @@ export class UIManager {
     this.onCleanup = onCleanup; // () => void
     this.filterCategory = 'all'; // 'all', 'elements', 'nature', 'life', 'craft_tools'
     this.sortMode = 'discovery'; // 'discovery', 'category'
+    this.searchQuery = '';
     this.lastItemIds = [];
     this._injectStyles();
     this._createUI();
@@ -36,29 +37,68 @@ export class UIManager {
       #right-panel {
         position: absolute;
         right: 12px;
-        top: 60px;
-        width: 96px;
-        height: calc(100% - 140px);
+        top: 20px;
+        width: 104px;
+        height: calc(100% - 100px);
         background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 16px;
+        border-radius: 18px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 8px 4px;
+        padding: 8px 6px;
         gap: 8px;
         pointer-events: auto;
-        overflow-y: auto;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
       }
 
-      #right-panel::-webkit-scrollbar {
-        width: 4px;
+      #inv-items-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        overflow-y: auto;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
       }
-      #right-panel::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 2px;
+
+      #inv-items-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+        width: 0;
+        height: 0;
+      }
+
+      #item-search-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        padding: 5px 6px;
+        color: #f8fafc;
+        font-size: 10px;
+        font-weight: 500;
+        outline: none;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+        text-align: center;
+      }
+
+      #item-search-input:focus {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: #38bdf8;
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+      }
+
+      #item-search-input::placeholder {
+        color: #94a3b8;
+        font-size: 10px;
       }
 
       .item-icon-btn {
@@ -294,23 +334,6 @@ export class UIManager {
         font-size: 12px;
       }
 
-      /* Üst Bilgi Barı */
-      #top-bar {
-        position: absolute;
-        top: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(15, 23, 42, 0.7);
-        backdrop-filter: blur(8px);
-        padding: 8px 20px;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: #f8fafc;
-        font-size: 14px;
-        font-weight: 600;
-        pointer-events: auto;
-      }
-
       /* Masanın Önündeki Keşif Bilgilendirme Banner'ı */
       #discovery-banner {
         position: absolute;
@@ -375,8 +398,6 @@ export class UIManager {
     const container = document.createElement('div');
     container.id = 'ui-container';
     container.innerHTML = `
-      <div id="top-bar">3D Alchemist Craft</div>
-
       <div id="left-drawer">
         <div id="drawer-toggle">☰</div>
         <div class="drawer-header">
@@ -389,11 +410,14 @@ export class UIManager {
       </div>
 
       <div id="right-panel">
-        <div id="inv-controls" style="display: flex; flex-direction: column; gap: 4px; width: 100%; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-          <button id="filter-btn" title="Kategoriye Göre Filtrele" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 9px; padding: 4px 2px; cursor: pointer; width: 100%; text-align: center; font-weight: 600;">📁 Tümü</button>
-          <button id="sort-btn" title="Sıralama Şekli" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 9px; padding: 4px 2px; cursor: pointer; width: 100%; text-align: center; font-weight: 600;">⏳ Keşif</button>
+        <div id="inv-controls" style="display: flex; flex-direction: column; gap: 5px; width: 100%; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+          <input type="text" id="item-search-input" placeholder="🔍 Ara..." autocomplete="off" spellcheck="false">
+          <div style="display: flex; gap: 3px; width: 100%;">
+            <button id="filter-btn" title="Kategoriye Göre Filtrele" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">📁 Tümü</button>
+            <button id="sort-btn" title="Sıralama Şekli" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">⏳ Keşif</button>
+          </div>
         </div>
-        <div id="inv-items-container" style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; overflow-y: auto; flex: 1;">
+        <div id="inv-items-container">
           <!-- Keşfedilen itemler dinamik yüklenecek -->
         </div>
       </div>
@@ -401,9 +425,9 @@ export class UIManager {
       <button id="cleanup-btn">🧹 Temizlik</button>
 
       <div id="discovery-banner">
-        <div class="discovery-icon" id="discovery-icon">✨</div>
+        <div class="discovery-icon" id="discovery-icon"></div>
         <div>
-          <div class="discovery-title" id="discovery-title">✨ Yeni Keşif!</div>
+          <div class="discovery-title" id="discovery-title">Yeni Keşif</div>
           <div class="discovery-desc" id="discovery-desc">Keşfedilen nesne açıklaması...</div>
         </div>
       </div>
@@ -479,6 +503,14 @@ export class UIManager {
       sortBtn.textContent = sortLabels[this.sortMode];
       this._populateInventory();
     });
+
+    const searchInput = document.getElementById('item-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        this.searchQuery = e.target.value.trim().toLocaleLowerCase('tr');
+        this._populateInventory();
+      });
+    }
   }
 
   updateHintRights(rights) {
@@ -511,10 +543,14 @@ export class UIManager {
       card.style.alignItems = 'flex-start';
       card.style.gap = '10px';
 
-      const iconHtml = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">`;
+      const iconFilter = isNamed ? 'none' : 'brightness(0)';
+      const iconShadow = isNamed ? `0 0 10px ${def.colorPalette?.primary || '#38bdf8'}` : 'none';
+      const iconBg = isNamed ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.35)';
+
+      const iconHtml = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
 
       card.innerHTML = `
-        <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 0 10px ${def.colorPalette?.primary || '#38bdf8'}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
+        <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${iconBg}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
         <div style="flex: 1; min-width: 0;">
           <h4 style="font-size: 13px; color: #f8fafc; margin-bottom: 2px;">${isNamed ? def.name : '???'}</h4>
           <p style="font-size: 11px; color: #94a3b8; margin-bottom: 6px; line-height: 1.4;">${hintObj.text}</p>
@@ -556,6 +592,14 @@ export class UIManager {
     let filtered = targetIds.filter(id => {
       const def = ITEM_DEFINITIONS[id];
       if (!def) return false;
+      // Search Query filter
+      if (this.searchQuery) {
+        const itemName = (def.name || '').toLocaleLowerCase('tr');
+        if (!itemName.includes(this.searchQuery)) {
+          return false;
+        }
+      }
+
       if (this.filterCategory === 'all') return true;
       const cat = def.category;
       if (this.filterCategory === 'elements' || this.filterCategory === 1 || this.filterCategory === '1') {
@@ -622,15 +666,15 @@ export class UIManager {
 
     if (!banner || !iconEl || !titleEl || !descEl) return;
 
-    // Simge ve görsel
-    iconEl.innerHTML = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">`;
+    // Simge ve görsel (varsayılan yedek ilk harf veya boş)
+    iconEl.innerHTML = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${def.name ? def.name[0].toUpperCase() : ''}</span>';">`;
     if (def.colorPalette?.primary) {
       iconEl.style.boxShadow = `0 0 16px ${def.colorPalette.primary}`;
     }
 
-    // Başlık ve açıklama
-    titleEl.innerHTML = `🎉 Yeni Keşif: <span style="color: #67e8f9; margin-left: 4px;">"${def.name}"</span>`;
-    descEl.textContent = def.description || 'Yeni bir element veya nesne ortaya çıkardın!';
+    // Başlık ve açıklama (emoji yok)
+    titleEl.innerHTML = `Yeni Keşif: <span style="color: #67e8f9; margin-left: 4px;">"${def.name}"</span>`;
+    descEl.textContent = def.description || 'Yeni bir element veya nesne ortaya çıkardın.';
 
     // Önceki zamanlayıcı varsa temizle
     if (this._discoveryTimeout) {

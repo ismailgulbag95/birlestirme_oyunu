@@ -1387,6 +1387,474 @@ export const ITEM_DEFINITIONS = {
     recipe: { inputs: ['ayna', 'prizma_tasi', 'yildiz_tozu'] },
     icon: '🪞',
     category: 8
+  },
+
+  // ================= KATEGORİ 9: YÜKSEK BİLİM & SİBER-BÜYÜ EŞYALARI ================
+  siber_kristal: {
+    id: 'siber_kristal',
+    name: 'Siber Kristal',
+    description: 'Kristal, elektrik motoru ve prizma taşının rezonansıyla parıldayan veri çekirdeği.',
+    tier: 9,
+    colorPalette: { primary: '#06b6d4', secondary: '#3b82f6', emissive: '#0ea5e9' },
+    particles: { type: 'spark', color: '#38bdf8', count: 18 },
+    recipe: { inputs: ['kristal', 'elektrik_motoru', 'prizma_tasi'] },
+    icon: '💎',
+    category: 9
+  },
+  hologram_kupu: {
+    id: 'hologram_kupu',
+    name: 'Hologram Küpü',
+    description: 'Cam küp içinde sıkıştırılmış siber kristal ve enerji ışık projeksiyonu.',
+    tier: 9,
+    colorPalette: { primary: '#10b981', secondary: '#06b6d4', emissive: '#059669' },
+    particles: { type: 'spark', color: '#34d399', count: 16 },
+    recipe: { inputs: ['cam', 'enerji', 'siber_kristal'] },
+    icon: '🧊',
+    category: 9
+  },
+  buhar_jeneratoru: {
+    id: 'buhar_jeneratoru',
+    name: 'Buhar Jeneratörü',
+    description: 'Buhar motoru ve çelik dişlilerle güçlendirilmiş devasa pirinç tazyik makinesi.',
+    tier: 9,
+    colorPalette: { primary: '#d97706', secondary: '#b45309', emissive: '#f59e0b' },
+    particles: { type: 'smoke', color: '#d1d5db', count: 20 },
+    recipe: { inputs: ['buhar_motoru', 'celik_kulce', 'disli_cark'] },
+    icon: '⚙️',
+    category: 9
+  },
+  meka_zirhi: {
+    id: 'meka_zirhi',
+    name: 'Meka Zırhı',
+    description: 'Rünik zırhın çelik plakalar ve plazma jeneratörüyle donatılmış güç gövdesi.',
+    tier: 9,
+    colorPalette: { primary: '#475569', secondary: '#f97316', emissive: '#ea580c' },
+    particles: { type: 'spark', color: '#fb923c', count: 15 },
+    recipe: { inputs: ['celik_kulce', 'runik_zirh', 'buhar_jeneratoru'] },
+    icon: '🛡️',
+    category: 9
+  },
+  plazma_tufegi: {
+    id: 'plazma_tufegi',
+    name: 'Plazma Tüfeği',
+    description: 'Fırtına kılıcının enerjisi ve siber kristal ile ateşlenen yüksek enerjili silah.',
+    tier: 9,
+    colorPalette: { primary: '#3b82f6', secondary: '#ec4899', emissive: '#6366f1' },
+    particles: { type: 'spark', color: '#f43f5e', count: 22 },
+    recipe: { inputs: ['celik_kulce', 'firtina_kilici', 'siber_kristal'] },
+    icon: '🔫',
+    category: 9
+  },
+  felsefe_tasi: {
+    id: 'felsefe_tasi',
+    name: 'Felsefe Taşı',
+    description: 'Anka külü ve cehennem taşının saf simya ile yoğrulduğu efsanevi cevher.',
+    tier: 10,
+    colorPalette: { primary: '#dc2626', secondary: '#f59e0b', emissive: '#ef4444' },
+    particles: { type: 'shimmer', color: '#f87171', count: 26 },
+    recipe: { inputs: ['anka_kulu', 'cehennem_tasi', 'prizma_tasi'] },
+    icon: '🔮',
+    category: 9
+  },
+  gunes_paneli: {
+    id: 'gunes_paneli',
+    name: 'Güneş Paneli',
+    description: 'Cam yüzey ve siber kristal katmanlarıyla ışığı doğrudan elektriğe çeviren panel.',
+    tier: 9,
+    colorPalette: { primary: '#0284c7', secondary: '#facc15', emissive: '#38bdf8' },
+    particles: { type: 'spark', color: '#fef08a', count: 14 },
+    recipe: { inputs: ['cam', 'elektrik_motoru', 'siber_kristal'] },
+    icon: '☀️',
+    category: 9
+  },
+  yercekimsiz_platform: {
+    id: 'yercekimsiz_platform',
+    name: 'Yerçekimsiz Platform',
+    description: 'Mıknatıs, portal rünü ve siber kristal ile havada asılı duran iniş pedi.',
+    tier: 9,
+    colorPalette: { primary: '#9333ea', secondary: '#c084fc', emissive: '#a855f7' },
+    particles: { type: 'ring', color: '#c084fc', count: 20 },
+    recipe: { inputs: ['miknatis', 'portal_runu', 'siber_kristal'] },
+    icon: '🛸',
+    category: 9
+  },
+  biyonik_kol: {
+    id: 'biyonik_kol',
+    name: 'Biyonik Kol',
+    description: 'Çelik eklemler ve siber kristal sinir uçlarıyla donatılmış sibernetik uzuv.',
+    tier: 9,
+    colorPalette: { primary: '#64748b', secondary: '#06b6d4', emissive: '#0284c7' },
+    particles: { type: 'spark', color: '#38bdf8', count: 12 },
+    recipe: { inputs: ['celik_kulce', 'elektrik_motoru', 'siber_kristal'] },
+    icon: '🦾',
+    category: 9
+  },
+  usturlap: {
+    id: 'usturlap',
+    name: 'Kozmik Usturlap',
+    description: 'Pusula ve teleskopun altın yörünge halkalarıyla gökcisimlerini haritalayan alet.',
+    tier: 9,
+    colorPalette: { primary: '#eab308', secondary: '#3b82f6', emissive: '#ca8a04' },
+    particles: { type: 'shimmer', color: '#fde047', count: 16 },
+    recipe: { inputs: ['pusula', 'teleskop', 'yildiz_tozu'] },
+    icon: '🧭',
+    category: 9
+  },
+  tesla_bobini: {
+    id: 'tesla_bobini',
+    name: 'Tesla Bobini',
+    description: 'Yıldırım gücünü kesintisiz yüksek voltaj arklarına dönüştüren kule jeneratörü.',
+    tier: 9,
+    colorPalette: { primary: '#0284c7', secondary: '#38bdf8', emissive: '#0ea5e9' },
+    particles: { type: 'spark', color: '#60a5fa', count: 28 },
+    recipe: { inputs: ['celik_kulce', 'elektrik_motoru', 'yildirim'] },
+    icon: '⚡',
+    category: 9
+  },
+  enerji_kalkani: {
+    id: 'enerji_kalkani',
+    name: 'Enerji Kalkanı',
+    description: 'Heksagonal kuvvet alanı üreten koruyucu kubbe emitörü.',
+    tier: 9,
+    colorPalette: { primary: '#0284c7', secondary: '#67e8f9', emissive: '#06b6d4' },
+    particles: { type: 'ring', color: '#22d3ee', count: 22 },
+    recipe: { inputs: ['celik_kulce', 'enerji', 'siber_kristal'] },
+    icon: '🌐',
+    category: 9
+  },
+  kuantum_islemci: {
+    id: 'kuantum_islemci',
+    name: 'Kuantum İşlemci',
+    description: 'Prizma taşı ve siber kristal matrisleriyle hesaplama yapan süper çip.',
+    tier: 10,
+    colorPalette: { primary: '#0284c7', secondary: '#22d3ee', emissive: '#0ea5e9' },
+    particles: { type: 'spark', color: '#38bdf8', count: 20 },
+    recipe: { inputs: ['elektrik_motoru', 'prizma_tasi', 'siber_kristal'] },
+    icon: '💻',
+    category: 9
+  },
+  minyatur_yildiz: {
+    id: 'minyatur_yildiz',
+    name: 'Minyatür Yıldız',
+    description: 'Manyetik muhafaza içinde kontrol altında tutulan mikro süpernova.',
+    tier: 10,
+    colorPalette: { primary: '#f97316', secondary: '#eab308', emissive: '#ef4444' },
+    particles: { type: 'flame', color: '#fb923c', count: 30 },
+    recipe: { inputs: ['bosluk_sisesi', 'yildiz_gecidi_cekirdegi', 'yildiz_tozu'] },
+    icon: '☀️',
+    category: 9
+  },
+
+  // ================= KATEGORİ 10: DOĞA & COĞRAFYA EŞYALARI ================
+  dag: {
+    id: 'dag',
+    name: 'Dağ',
+    description: 'Yükselen devasa kaya kütlesi ve karlı zirveler.',
+    tier: 2,
+    colorPalette: { primary: '#64748b', secondary: '#94a3b8', emissive: '#475569' },
+    particles: { type: 'dust', color: '#cbd5e1', count: 12 },
+    recipe: { inputs: ['toprak', 'tas', null] },
+    icon: '⛰️',
+    category: 10
+  },
+  kaya: {
+    id: 'kaya',
+    name: 'Kaya',
+    description: 'Yılların baskısıyla sertleşmiş yosunlu monolit taş.',
+    tier: 2,
+    colorPalette: { primary: '#78716c', secondary: '#a8a29e', emissive: '#57534e' },
+    particles: { type: 'dust', color: '#a8a29e', count: 10 },
+    recipe: { inputs: ['tas', 'tas', null] },
+    icon: '🪨',
+    category: 10
+  },
+  gunes: {
+    id: 'gunes',
+    name: 'Güneş',
+    description: 'Gökyüzünü aydınlatan ve ısıtan saf yaşam ışığı.',
+    tier: 2,
+    colorPalette: { primary: '#eab308', secondary: '#facc15', emissive: '#ca8a04' },
+    particles: { type: 'spark', color: '#fef08a', count: 25 },
+    recipe: { inputs: ['ates', 'enerji', null] },
+    icon: '☀️',
+    category: 10
+  },
+  okyanus: {
+    id: 'okyanus',
+    name: 'Okyanus',
+    description: 'Uçsuz bucaksız derin sular ve coşkulu dalgalar.',
+    tier: 2,
+    colorPalette: { primary: '#0284c7', secondary: '#0369a1', emissive: '#075985' },
+    particles: { type: 'bubble', color: '#38bdf8', count: 20 },
+    recipe: { inputs: ['su', 'su', null] },
+    icon: '🌊',
+    category: 10
+  },
+  volkan: {
+    id: 'volkan',
+    name: 'Volkan',
+    description: 'Zirvesinden duman ve kızgın lavlar fışkıran yanardağ.',
+    tier: 3,
+    colorPalette: { primary: '#dc2626', secondary: '#ea580c', emissive: '#b91c1c' },
+    particles: { type: 'flame', color: '#f97316', count: 24 },
+    recipe: { inputs: ['dag', 'lav', null] },
+    icon: '🌋',
+    category: 10
+  },
+  ada: {
+    id: 'ada',
+    name: 'Ada',
+    description: 'Turkuaz suların ortasında palmiyelerle bezeli kara parçası.',
+    tier: 3,
+    colorPalette: { primary: '#10b981', secondary: '#06b6d4', emissive: '#059669' },
+    particles: { type: 'bubble', color: '#6ee7b7', count: 14 },
+    recipe: { inputs: ['okyanus', 'toprak', null] },
+    icon: '🏝️',
+    category: 10
+  },
+  nehir: {
+    id: 'nehir',
+    name: 'Nehir',
+    description: 'Toprağı yararak akıp giden coşkun su yolu.',
+    tier: 2,
+    colorPalette: { primary: '#0ea5e9', secondary: '#38bdf8', emissive: '#0284c7' },
+    particles: { type: 'bubble', color: '#7dd3fc', count: 16 },
+    recipe: { inputs: ['su', 'toprak', null] },
+    icon: '🏞️',
+    category: 10
+  },
+  orman: {
+    id: 'orman',
+    name: 'Orman',
+    description: 'Yemyeşil ağaçlar ve gür bitki örtüsüyle kaplı koruluk.',
+    tier: 2,
+    colorPalette: { primary: '#15803d', secondary: '#22c55e', emissive: '#166534' },
+    particles: { type: 'leaf', color: '#4ade80', count: 18 },
+    recipe: { inputs: ['agac', 'agac', null] },
+    icon: '🌲',
+    category: 10
+  },
+  firtina_bulutu: {
+    id: 'firtina_bulutu',
+    name: 'Fırtına Bulutu',
+    description: 'Şimşekler çaktıran koyu gri fırtına kümesi.',
+    tier: 2,
+    colorPalette: { primary: '#475569', secondary: '#334155', emissive: '#facc15' },
+    particles: { type: 'spark', color: '#fef08a', count: 20 },
+    recipe: { inputs: ['hava', 'yagmur', 'yildirim'] },
+    icon: '🌩️',
+    category: 10
+  },
+  magara: {
+    id: 'magara',
+    name: 'Mağara',
+    description: 'Dağın derinliklerine uzanan gizemli karanlık kovuk.',
+    tier: 2,
+    colorPalette: { primary: '#334155', secondary: '#1e293b', emissive: '#0f172a' },
+    particles: { type: 'dust', color: '#64748b', count: 12 },
+    recipe: { inputs: ['dag', 'tas', null] },
+    icon: '🕳️',
+    category: 10
+  },
+  gokkusagi: {
+    id: 'gokkusagi',
+    name: 'Gökkuşağı',
+    description: 'Güneş ışınlarının yağmur damlalarında kırılmasıyla doğan renk cümbüşü.',
+    tier: 3,
+    colorPalette: { primary: '#ec4899', secondary: '#3b82f6', emissive: '#eab308' },
+    particles: { type: 'shimmer', color: '#f472b6', count: 25 },
+    recipe: { inputs: ['gunes', 'yagmur', null] },
+    icon: '🌈',
+    category: 10
+  },
+  kanyon: {
+    id: 'kanyon',
+    name: 'Kanyon',
+    description: 'Nehrin yüzyıllar boyu oyduğu derin kızıl kanyon vadisi.',
+    tier: 3,
+    colorPalette: { primary: '#b45309', secondary: '#9a3412', emissive: '#78350f' },
+    particles: { type: 'dust', color: '#d97706', count: 15 },
+    recipe: { inputs: ['dag', 'nehir', null] },
+    icon: '🏜️',
+    category: 10
+  },
+  fay_hatti: {
+    id: 'fay_hatti',
+    name: 'Fay Hattı',
+    description: 'Yerkabuğunun şiddetle sarsılıp ayrıldığı derin yarık.',
+    tier: 2,
+    colorPalette: { primary: '#57534e', secondary: '#44403c', emissive: '#292524' },
+    particles: { type: 'dust', color: '#78716c', count: 14 },
+    recipe: { inputs: ['toprak', 'toprak', 'tas'] },
+    icon: '⚡',
+    category: 10
+  },
+  bulut: {
+    id: 'bulut',
+    name: 'Bulut',
+    description: 'Gökyüzünde süzülen pamuksu beyaz su buharı kümesi.',
+    tier: 1,
+    colorPalette: { primary: '#e2e8f0', secondary: '#f8fafc', emissive: '#cbd5e1' },
+    particles: { type: 'cloud', color: '#ffffff', count: 18 },
+    recipe: { inputs: ['buhar', 'hava', null] },
+    icon: '☁️',
+    category: 10
+  },
+
+  // ================= KATEGORİ 3 & 2: CANLILAR, FAUNA & DOĞA GÜNCELLEMESİ ================
+  at: {
+    id: 'at',
+    name: 'At',
+    description: 'Sadık, güçlü ve rüzgâr gibi hızlı binek hayvanı.',
+    tier: 2,
+    colorPalette: { primary: '#854d0e', secondary: '#a16207', emissive: '#713f12' },
+    particles: { type: 'dust', color: '#ca8a04', count: 12 },
+    recipe: { inputs: ['hayvan', 'toprak', null] },
+    icon: '🐴',
+    category: 3
+  },
+  koyun: {
+    id: 'koyun',
+    name: 'Koyun',
+    description: 'Yumuşacık beyaz yünleriyle otlaklarda yayılan uysal hayvan.',
+    tier: 2,
+    colorPalette: { primary: '#f8fafc', secondary: '#e2e8f0', emissive: '#cbd5e1' },
+    particles: { type: 'cloud', color: '#ffffff', count: 10 },
+    recipe: { inputs: ['bitki', 'hayvan', null] },
+    icon: '🐑',
+    category: 3
+  },
+  kurt: {
+    id: 'kurt',
+    name: 'Kurt',
+    description: 'Dolunaya uluyan, vahşi doğanın keskin gözlü avcısı.',
+    tier: 2,
+    colorPalette: { primary: '#64748b', secondary: '#475569', emissive: '#334155' },
+    particles: { type: 'spark', color: '#94a3b8', count: 14 },
+    recipe: { inputs: ['hayvan', 'orman', null] },
+    icon: '🐺',
+    category: 3
+  },
+  ari: {
+    id: 'ari',
+    name: 'Arı',
+    description: 'Çiçek çiçek gezip nektar toplayan çalışkan bal arısı.',
+    tier: 2,
+    colorPalette: { primary: '#eab308', secondary: '#000000', emissive: '#ca8a04' },
+    particles: { type: 'spark', color: '#facc15', count: 12 },
+    recipe: { inputs: ['kus', 'nilufer', null] },
+    icon: '🐝',
+    category: 3
+  },
+  yilan: {
+    id: 'yilan',
+    name: 'Yılan',
+    description: 'Sessizce süzülen, zehirli ve gizemli sürüngen.',
+    tier: 2,
+    colorPalette: { primary: '#15803d', secondary: '#16a34a', emissive: '#14532d' },
+    particles: { type: 'bubble', color: '#4ade80', count: 10 },
+    recipe: { inputs: ['hayvan', 'zehirli_sivi', null] },
+    icon: '🐍',
+    category: 3
+  },
+  baykus: {
+    id: 'baykus',
+    name: 'Baykuş',
+    description: 'Gecenin karanlığında ormanı gözleyen bilge gece kuşu.',
+    tier: 2,
+    colorPalette: { primary: '#78350f', secondary: '#b45309', emissive: '#451a03' },
+    particles: { type: 'feather', color: '#d97706', count: 12 },
+    recipe: { inputs: ['kus', 'orman', null] },
+    icon: '🦉',
+    category: 3
+  },
+  kaplumbaga: {
+    id: 'kaplumbaga',
+    name: 'Kaplumbağa',
+    description: 'Ağır adımlarla yürüyen, sağlam kabuklu bilge amfibi.',
+    tier: 2,
+    colorPalette: { primary: '#166534', secondary: '#854d0e', emissive: '#14532d' },
+    particles: { type: 'bubble', color: '#86efac', count: 8 },
+    recipe: { inputs: ['hayvan', 'su', 'tas'] },
+    icon: '🐢',
+    category: 3
+  },
+  bal: {
+    id: 'bal',
+    name: 'Bal Kavanozu',
+    description: 'Çalışkan arıların çiçek nektarından süzdüğü altın tatlılık.',
+    tier: 3,
+    colorPalette: { primary: '#f59e0b', secondary: '#fbbf24', emissive: '#d97706' },
+    particles: { type: 'shimmer', color: '#fde047', count: 16 },
+    recipe: { inputs: ['ari', 'comlek', null] },
+    icon: '🍯',
+    category: 4
+  },
+  nilufer: {
+    id: 'nilufer',
+    name: 'Nilüfer',
+    description: 'Durgun suların üstünde zarafetle açan pembe çiçek.',
+    tier: 2,
+    colorPalette: { primary: '#ec4899', secondary: '#f472b6', emissive: '#db2777' },
+    particles: { type: 'leaf', color: '#fbcfe8', count: 14 },
+    recipe: { inputs: ['bitki', 'su', null] },
+    icon: '🪷',
+    category: 2
+  },
+  elma: {
+    id: 'elma',
+    name: 'Elma',
+    description: 'Ağaç dallarında olgunlaşmış sulu ve kıpkırmızı meyve.',
+    tier: 2,
+    colorPalette: { primary: '#dc2626', secondary: '#ef4444', emissive: '#b91c1c' },
+    particles: { type: 'leaf', color: '#f87171', count: 10 },
+    recipe: { inputs: ['agac', 'gunes', null] },
+    icon: '🍎',
+    category: 2
+  },
+  kurbaga: {
+    id: 'kurbaga',
+    name: 'Kurbağa',
+    description: 'Nilüfer yaprakları arasında neşeyle sıçrayan amfibi.',
+    tier: 2,
+    colorPalette: { primary: '#22c55e', secondary: '#16a34a', emissive: '#15803d' },
+    particles: { type: 'bubble', color: '#86efac', count: 12 },
+    recipe: { inputs: ['camur', 'hayvan', null] },
+    icon: '🐸',
+    category: 3
+  },
+  sincap: {
+    id: 'sincap',
+    name: 'Sincap',
+    description: 'Palamut toplayıp ağaç kovuklarında saklayan sevimli kemirgen.',
+    tier: 2,
+    colorPalette: { primary: '#a16207', secondary: '#ca8a04', emissive: '#854d0e' },
+    particles: { type: 'dust', color: '#eab308', count: 10 },
+    recipe: { inputs: ['hayvan', 'tohum', null] },
+    icon: '🐿️',
+    category: 3
+  },
+  geyik: {
+    id: 'geyik',
+    name: 'Geyik',
+    description: 'Ormanın derinliklerinde süzülen heybetli boynuzlu geyik.',
+    tier: 3,
+    colorPalette: { primary: '#92400e', secondary: '#b45309', emissive: '#78350f' },
+    particles: { type: 'leaf', color: '#fde047', count: 14 },
+    recipe: { inputs: ['hayvan', 'orman', 'dag'] },
+    icon: '🦌',
+    category: 3
+  },
+  kelebek: {
+    id: 'kelebek',
+    name: 'Kelebek',
+    description: 'Rengarenk kanatlarıyla çiçekler arasında dans eden böcek.',
+    tier: 2,
+    colorPalette: { primary: '#3b82f6', secondary: '#f97316', emissive: '#2563eb' },
+    particles: { type: 'spark', color: '#93c5fd', count: 18 },
+    recipe: { inputs: ['kus', 'nilufer', 'hava'] },
+    icon: '🦋',
+    category: 3
   }
 };
 
@@ -1543,6 +2011,53 @@ export const RECIPES_CATEGORY_8 = [
 
 export const RECIPES_CAT_8 = RECIPES_CATEGORY_8;
 
+export const RECIPES_CAT_9 = [
+  { inputs: ["kristal", "elektrik_motoru", "prizma_tasi"], output: "siber_kristal", category: 9 },
+  { inputs: ["cam", "enerji", "siber_kristal"], output: "hologram_kupu", category: 9 },
+  { inputs: ["buhar_motoru", "celik_kulce", "disli_cark"], output: "buhar_jeneratoru", category: 9 },
+  { inputs: ["celik_kulce", "runik_zirh", "buhar_jeneratoru"], output: "meka_zirhi", category: 9 },
+  { inputs: ["celik_kulce", "firtina_kilici", "siber_kristal"], output: "plazma_tufegi", category: 9 },
+  { inputs: ["anka_kulu", "cehennem_tasi", "prizma_tasi"], output: "felsefe_tasi", category: 9 },
+  { inputs: ["cam", "elektrik_motoru", "siber_kristal"], output: "gunes_paneli", category: 9 },
+  { inputs: ["miknatis", "portal_runu", "siber_kristal"], output: "yercekimsiz_platform", category: 9 },
+  { inputs: ["celik_kulce", "elektrik_motoru", "siber_kristal"], output: "biyonik_kol", category: 9 },
+  { inputs: ["pusula", "teleskop", "yildiz_tozu"], output: "usturlap", category: 9 },
+  { inputs: ["celik_kulce", "elektrik_motoru", "yildirim"], output: "tesla_bobini", category: 9 },
+  { inputs: ["celik_kulce", "enerji", "siber_kristal"], output: "enerji_kalkani", category: 9 },
+  { inputs: ["elektrik_motoru", "prizma_tasi", "siber_kristal"], output: "kuantum_islemci", category: 9 },
+  { inputs: ["bosluk_sisesi", "yildiz_gecidi_cekirdegi", "yildiz_tozu"], output: "minyatur_yildiz", category: 9 }
+];
 
+export const RECIPES_CAT_10 = [
+  { inputs: ["toprak", "tas", null], output: "dag", category: 10 },
+  { inputs: ["tas", "tas", null], output: "kaya", category: 10 },
+  { inputs: ["ates", "enerji", null], output: "gunes", category: 10 },
+  { inputs: ["su", "su", null], output: "okyanus", category: 10 },
+  { inputs: ["dag", "lav", null], output: "volkan", category: 10 },
+  { inputs: ["okyanus", "toprak", null], output: "ada", category: 10 },
+  { inputs: ["su", "toprak", null], output: "nehir", category: 10 },
+  { inputs: ["agac", "agac", null], output: "orman", category: 10 },
+  { inputs: ["hava", "yagmur", "yildirim"], output: "firtina_bulutu", category: 10 },
+  { inputs: ["dag", "tas", null], output: "magara", category: 10 },
+  { inputs: ["gunes", "yagmur", null], output: "gokkusagi", category: 10 },
+  { inputs: ["dag", "nehir", null], output: "kanyon", category: 10 },
+  { inputs: ["toprak", "toprak", "tas"], output: "fay_hatti", category: 10 },
+  { inputs: ["buhar", "hava", null], output: "bulut", category: 10 }
+];
 
-
+export const RECIPES_CAT_FAUNA = [
+  { inputs: ["hayvan", "toprak", null], output: "at", category: 3 },
+  { inputs: ["bitki", "hayvan", null], output: "koyun", category: 3 },
+  { inputs: ["hayvan", "orman", null], output: "kurt", category: 3 },
+  { inputs: ["kus", "nilufer", null], output: "ari", category: 3 },
+  { inputs: ["hayvan", "zehirli_sivi", null], output: "yilan", category: 3 },
+  { inputs: ["kus", "orman", null], output: "baykus", category: 3 },
+  { inputs: ["hayvan", "su", "tas"], output: "kaplumbaga", category: 3 },
+  { inputs: ["ari", "comlek", null], output: "bal", category: 4 },
+  { inputs: ["bitki", "su", null], output: "nilufer", category: 2 },
+  { inputs: ["agac", "gunes", null], output: "elma", category: 2 },
+  { inputs: ["camur", "hayvan", null], output: "kurbaga", category: 3 },
+  { inputs: ["hayvan", "tohum", null], output: "sincap", category: 3 },
+  { inputs: ["hayvan", "orman", "dag"], output: "geyik", category: 3 },
+  { inputs: ["kus", "nilufer", "hava"], output: "kelebek", category: 3 }
+];

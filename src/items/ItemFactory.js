@@ -406,6 +406,135 @@ export class ItemFactory {
       case 'illuzyon_aynasi':
         mainMesh = this._createIlluzyonAynasiMesh(def);
         break;
+      // Kategori 9: Yüksek Bilim & Siber-Büyü Eşyaları
+      case 'siber_kristal':
+        mainMesh = this._createSiberKristalMesh(def);
+        break;
+      case 'hologram_kupu':
+        mainMesh = this._createHologramKupuMesh(def);
+        break;
+      case 'buhar_jeneratoru':
+        mainMesh = this._createBuharJeneratoruMesh(def);
+        break;
+      case 'meka_zirhi':
+        mainMesh = this._createMekaZirhiMesh(def);
+        break;
+      case 'plazma_tufegi':
+        mainMesh = this._createPlazmaTufegiMesh(def);
+        break;
+      case 'felsefe_tasi':
+        mainMesh = this._createFelsefeTasiMesh(def);
+        break;
+      case 'gunes_paneli':
+        mainMesh = this._createGunesPaneliMesh(def);
+        break;
+      case 'yercekimsiz_platform':
+        mainMesh = this._createYercekimsizPlatformMesh(def);
+        break;
+      case 'biyonik_kol':
+        mainMesh = this._createBiyonikKolMesh(def);
+        break;
+      case 'usturlap':
+        mainMesh = this._createUsturlapMesh(def);
+        break;
+      case 'tesla_bobini':
+        mainMesh = this._createTeslaBobiniMesh(def);
+        break;
+      case 'enerji_kalkani':
+        mainMesh = this._createEnerjiKalkaniMesh(def);
+        break;
+      case 'kuantum_islemci':
+        mainMesh = this._createKuantumIslemciMesh(def);
+        break;
+      case 'minyatur_yildiz':
+        mainMesh = this._createMinyaturYildizMesh(def);
+        break;
+      // Kategori 10: Doğa & Coğrafya Eşyaları
+      case 'dag':
+        mainMesh = this._createDagMesh(def);
+        break;
+      case 'kaya':
+        mainMesh = this._createKayaMesh(def);
+        break;
+      case 'gunes':
+        mainMesh = this._createGunesMesh(def);
+        break;
+      case 'okyanus':
+        mainMesh = this._createOkyanusMesh(def);
+        break;
+      case 'volkan':
+        mainMesh = this._createVolkanMesh(def);
+        break;
+      case 'ada':
+        mainMesh = this._createAdaMesh(def);
+        break;
+      case 'nehir':
+        mainMesh = this._createNehirMesh(def);
+        break;
+      case 'orman':
+        mainMesh = this._createOrmanMesh(def);
+        break;
+      case 'firtina_bulutu':
+        mainMesh = this._createFirtinaBulutuMesh(def);
+        break;
+      case 'magara':
+        mainMesh = this._createMagaraMesh(def);
+        break;
+      case 'gokkusagi':
+        mainMesh = this._createGokkusagiMesh(def);
+        break;
+      case 'kanyon':
+        mainMesh = this._createKanyonMesh(def);
+        break;
+      case 'fay_hatti':
+        mainMesh = this._createFayHattiMesh(def);
+        break;
+      case 'bulut':
+        mainMesh = this._createBulutMesh(def);
+        break;
+      // Kategori 3, 2 & 4: Canlılar, Fauna ve Doğa Güncellemesi
+      case 'at':
+        mainMesh = this._createAtMesh(def);
+        break;
+      case 'koyun':
+        mainMesh = this._createKoyunMesh(def);
+        break;
+      case 'kurt':
+        mainMesh = this._createKurtMesh(def);
+        break;
+      case 'ari':
+        mainMesh = this._createAriMesh(def);
+        break;
+      case 'yilan':
+        mainMesh = this._createYilanMesh(def);
+        break;
+      case 'baykus':
+        mainMesh = this._createBaykusMesh(def);
+        break;
+      case 'kaplumbaga':
+        mainMesh = this._createKaplumbagaMesh(def);
+        break;
+      case 'bal':
+        mainMesh = this._createBalMesh(def);
+        break;
+      case 'nilufer':
+        mainMesh = this._createNiluferMesh(def);
+        break;
+      case 'elma':
+        mainMesh = this._createElmaMesh(def);
+        break;
+      case 'kurbaga':
+        mainMesh = this._createKurbagaMesh(def);
+        break;
+      case 'sincap':
+        mainMesh = this._createSincapMesh(def);
+        break;
+      case 'geyik':
+        mainMesh = this._createGeyikMesh(def);
+        break;
+      case 'kelebek':
+        mainMesh = this._createKelebekMesh(def);
+        break;
       default:
         mainMesh = this._createDefaultMesh(def);
         break;
@@ -4138,4 +4267,1293 @@ export class ItemFactory {
     }
     return pieces;
   }
+  static _createSiberKristalMesh(def) {
+    const group = new THREE.Group();
+    // Çift piramit siber kristal ve parlak iç çekirdek
+    const crysGeo = new THREE.OctahedronGeometry(0.5, 0);
+    crysGeo.scale(0.8, 1.6, 0.8);
+    const crysMat = new THREE.MeshPhysicalMaterial({
+      color: 0x06b6d4,
+      emissive: 0x0ea5e9,
+      emissiveIntensity: 0.6,
+      roughness: 0.1,
+      transmission: 0.8,
+      transparent: true,
+      opacity: 0.85
+    });
+    const crys = new THREE.Mesh(crysGeo, crysMat);
+    crys.position.y = 0.45;
+    crys.add(this._createOutline(crysGeo, 0x0284c7, 0.035));
+    group.add(crys);
+
+    const coreGeo = new THREE.SphereGeometry(0.18, 12, 12);
+    const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    core.position.y = 0.45;
+    group.add(core);
+
+    const light = new THREE.PointLight(0x38bdf8, 2.5, 3.0);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createHologramKupuMesh(def) {
+    const group = new THREE.Group();
+    // Dış koruyucu siber çerçeve
+    const frameGeo = new THREE.BoxGeometry(0.7, 0.7, 0.7);
+    const frameMat = new THREE.MeshStandardMaterial({
+      color: 0x334155,
+      metalness: 0.85,
+      roughness: 0.25
+    });
+    const frame = new THREE.Mesh(frameGeo, frameMat);
+    frame.position.y = 0.42;
+    frame.add(this._createOutline(frameGeo, 0x0f172a, 0.035));
+    group.add(frame);
+
+    // İçte parlayan neon yeşil holografik çekirdek
+    const holoGeo = new THREE.BoxGeometry(0.56, 0.56, 0.56);
+    const holoMat = new THREE.MeshStandardMaterial({
+      color: 0x10b981,
+      emissive: 0x059669,
+      emissiveIntensity: 0.9,
+      transparent: true,
+      opacity: 0.85
+    });
+    const holo = new THREE.Mesh(holoGeo, holoMat);
+    holo.position.y = 0.42;
+    group.add(holo);
+
+    const light = new THREE.PointLight(0x34d399, 2.0, 2.5);
+    light.position.set(0, 0.42, 0.2);
+    group.add(light);
+    return group;
+  }
+
+  static _createBuharJeneratoruMesh(def) {
+    const group = new THREE.Group();
+    // Bronz buhar silindiri ve pirinç borular
+    const tankGeo = new THREE.CylinderGeometry(0.28, 0.28, 0.55, 16);
+    const tankMat = new THREE.MeshStandardMaterial({
+      color: 0xb45309,
+      metalness: 0.8,
+      roughness: 0.3
+    });
+    const tank = new THREE.Mesh(tankGeo, tankMat);
+    tank.position.set(0.12, 0.38, 0);
+    tank.add(this._createOutline(tankGeo, 0x78350f, 0.035));
+    group.add(tank);
+
+    // Yan dişli çark
+    const gearGeo = new THREE.CylinderGeometry(0.26, 0.26, 0.1, 12);
+    gearGeo.rotateZ(Math.PI / 2);
+    const gearMat = new THREE.MeshStandardMaterial({
+      color: 0x78716c,
+      metalness: 0.85,
+      roughness: 0.2
+    });
+    const gear = new THREE.Mesh(gearGeo, gearMat);
+    gear.position.set(-0.22, 0.38, 0);
+    group.add(gear);
+
+    // Üst boru çıkışı
+    const pipeGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.22, 10);
+    const pipe = new THREE.Mesh(pipeGeo, tankMat);
+    pipe.position.set(0.12, 0.72, 0);
+    group.add(pipe);
+
+    return group;
+  }
+
+  static _createMekaZirhiMesh(def) {
+    const group = new THREE.Group();
+    // Ağır göğüs zırhı plakası
+    const chestGeo = new THREE.BoxGeometry(0.72, 0.65, 0.32);
+    const chestMat = new THREE.MeshStandardMaterial({
+      color: 0x475569,
+      metalness: 0.85,
+      roughness: 0.3
+    });
+    const chest = new THREE.Mesh(chestGeo, chestMat);
+    chest.position.y = 0.42;
+    chest.add(this._createOutline(chestGeo, 0x1e293b, 0.04));
+    group.add(chest);
+
+    // Omuzluklar
+    const shoulderGeo = new THREE.BoxGeometry(0.25, 0.28, 0.34);
+    const leftShoulder = new THREE.Mesh(shoulderGeo, chestMat);
+    leftShoulder.position.set(-0.44, 0.6, 0);
+    group.add(leftShoulder);
+    const rightShoulder = new THREE.Mesh(shoulderGeo, chestMat);
+    rightShoulder.position.set(0.44, 0.6, 0);
+    group.add(rightShoulder);
+
+    // Merkez reaktör çekirdeği
+    const reactorGeo = new THREE.CylinderGeometry(0.14, 0.14, 0.12, 16);
+    reactorGeo.rotateX(Math.PI / 2);
+    const reactorMat = new THREE.MeshStandardMaterial({
+      color: 0xf97316,
+      emissive: 0xea580c,
+      emissiveIntensity: 1.2
+    });
+    const reactor = new THREE.Mesh(reactorGeo, reactorMat);
+    reactor.position.set(0, 0.42, 0.15);
+    group.add(reactor);
+
+    const light = new THREE.PointLight(0xf97316, 2.2, 2.0);
+    light.position.set(0, 0.42, 0.25);
+    group.add(light);
+    return group;
+  }
+
+  static _createPlazmaTufegiMesh(def) {
+    const group = new THREE.Group();
+    // Ana gövde
+    const bodyGeo = new THREE.BoxGeometry(0.85, 0.24, 0.14);
+    const bodyMat = new THREE.MeshStandardMaterial({
+      color: 0x1e293b,
+      metalness: 0.8,
+      roughness: 0.3
+    });
+    const body = new THREE.Mesh(bodyGeo, bodyMat);
+    body.position.set(0, 0.38, 0);
+    body.add(this._createOutline(bodyGeo, 0x0f172a, 0.035));
+    group.add(body);
+
+    // Namlu ve plazma kanalı
+    const barrelGeo = new THREE.CylinderGeometry(0.06, 0.06, 0.45, 12);
+    barrelGeo.rotateZ(Math.PI / 2);
+    const barrelMat = new THREE.MeshStandardMaterial({
+      color: 0x3b82f6,
+      emissive: 0x2563eb,
+      emissiveIntensity: 0.8
+    });
+    const barrel = new THREE.Mesh(barrelGeo, barrelMat);
+    barrel.position.set(0.48, 0.38, 0);
+    group.add(barrel);
+
+    // Dürbün / Scope
+    const scopeGeo = new THREE.CylinderGeometry(0.045, 0.045, 0.35, 10);
+    scopeGeo.rotateZ(Math.PI / 2);
+    const scope = new THREE.Mesh(scopeGeo, bodyMat);
+    scope.position.set(0.05, 0.54, 0);
+    group.add(scope);
+
+    // Lazer namlu ucu ışığı
+    const light = new THREE.PointLight(0xec4899, 2.0, 2.0);
+    light.position.set(0.72, 0.38, 0);
+    group.add(light);
+    return group;
+  }
+
+  static _createFelsefeTasiMesh(def) {
+    const group = new THREE.Group();
+    // Altın sarma süsleme ve yakut damla
+    const stoneGeo = new THREE.DodecahedronGeometry(0.42, 1);
+    stoneGeo.scale(0.85, 1.3, 0.85);
+    const stoneMat = new THREE.MeshPhysicalMaterial({
+      color: 0xdc2626,
+      emissive: 0xb91c1c,
+      emissiveIntensity: 0.7,
+      roughness: 0.1,
+      transmission: 0.75,
+      transparent: true,
+      opacity: 0.9
+    });
+    const stone = new THREE.Mesh(stoneGeo, stoneMat);
+    stone.position.y = 0.42;
+    stone.add(this._createOutline(stoneGeo, 0x7f1d1d, 0.035));
+    group.add(stone);
+
+    // Altın taç/yuva
+    const goldGeo = new THREE.TorusGeometry(0.36, 0.06, 10, 24);
+    goldGeo.rotateX(Math.PI / 2);
+    const goldMat = new THREE.MeshStandardMaterial({
+      color: 0xf59e0b,
+      metalness: 0.9,
+      roughness: 0.2
+    });
+    const goldRing = new THREE.Mesh(goldGeo, goldMat);
+    goldRing.position.y = 0.38;
+    group.add(goldRing);
+
+    const light = new THREE.PointLight(0xef4444, 2.5, 2.8);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createGunesPaneliMesh(def) {
+    const group = new THREE.Group();
+    // Eğimli fotovoltaik panel
+    const panelGeo = new THREE.BoxGeometry(0.76, 0.58, 0.06);
+    panelGeo.rotateX(0.45);
+    const panelMat = new THREE.MeshStandardMaterial({
+      color: 0x0284c7,
+      emissive: 0x0369a1,
+      emissiveIntensity: 0.4,
+      metalness: 0.6,
+      roughness: 0.1
+    });
+    const panel = new THREE.Mesh(panelGeo, panelMat);
+    panel.position.y = 0.42;
+    panel.add(this._createOutline(panelGeo, 0x0c4a6e, 0.035));
+    group.add(panel);
+
+    // Ayak/Kaide
+    const standGeo = new THREE.CylinderGeometry(0.05, 0.07, 0.35, 10);
+    const standMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.7 });
+    const stand = new THREE.Mesh(standGeo, standMat);
+    stand.position.set(0, 0.16, -0.08);
+    group.add(stand);
+
+    const light = new THREE.PointLight(0xfde047, 1.8, 2.0);
+    light.position.set(0, 0.6, 0.2);
+    group.add(light);
+    return group;
+  }
+
+  static _createYercekimsizPlatformMesh(def) {
+    const group = new THREE.Group();
+    // Metal dairesel iniş diski
+    const discGeo = new THREE.CylinderGeometry(0.48, 0.42, 0.12, 24);
+    const discMat = new THREE.MeshStandardMaterial({
+      color: 0x334155,
+      metalness: 0.85,
+      roughness: 0.25
+    });
+    const disc = new THREE.Mesh(discGeo, discMat);
+    disc.position.y = 0.28;
+    disc.add(this._createOutline(discGeo, 0x0f172a, 0.035));
+    group.add(disc);
+
+    // Üstündeki mor parıldayan anti-yerçekimi ışık halkası
+    const glowGeo = new THREE.CylinderGeometry(0.38, 0.38, 0.03, 24);
+    const glowMat = new THREE.MeshStandardMaterial({
+      color: 0xa855f7,
+      emissive: 0x9333ea,
+      emissiveIntensity: 1.2
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    glow.position.y = 0.35;
+    group.add(glow);
+
+    // Yukarı uzanan hüzme konisi
+    const beamGeo = new THREE.ConeGeometry(0.45, 0.5, 16, 1, true);
+    beamGeo.rotateX(Math.PI);
+    const beamMat = new THREE.MeshBasicMaterial({
+      color: 0xc084fc,
+      transparent: true,
+      opacity: 0.35,
+      side: THREE.DoubleSide
+    });
+    const beam = new THREE.Mesh(beamGeo, beamMat);
+    beam.position.y = 0.62;
+    group.add(beam);
+
+    const light = new THREE.PointLight(0xa855f7, 2.4, 2.5);
+    light.position.set(0, 0.45, 0);
+    group.add(light);
+    return group;
+  }
+
+  static _createBiyonikKolMesh(def) {
+    const group = new THREE.Group();
+    // Kol ana gövdesi
+    const armGeo = new THREE.CylinderGeometry(0.14, 0.18, 0.58, 12);
+    armGeo.rotateZ(-0.4);
+    const armMat = new THREE.MeshStandardMaterial({
+      color: 0x64748b,
+      metalness: 0.85,
+      roughness: 0.25
+    });
+    const arm = new THREE.Mesh(armGeo, armMat);
+    arm.position.set(-0.08, 0.38, 0);
+    arm.add(this._createOutline(armGeo, 0x1e293b, 0.035));
+    group.add(arm);
+
+    // Eklemli el ve parmaklar
+    const handGeo = new THREE.BoxGeometry(0.22, 0.24, 0.12);
+    handGeo.rotateZ(-0.4);
+    const hand = new THREE.Mesh(handGeo, armMat);
+    hand.position.set(0.14, 0.62, 0);
+    group.add(hand);
+
+    // Mavi siber sinir hattı ışığı
+    const light = new THREE.PointLight(0x06b6d4, 1.8, 2.0);
+    light.position.set(0.05, 0.45, 0.15);
+    group.add(light);
+    return group;
+  }
+
+  static _createUsturlapMesh(def) {
+    const group = new THREE.Group();
+    // Altın kaide
+    const baseGeo = new THREE.CylinderGeometry(0.24, 0.28, 0.08, 16);
+    const goldMat = new THREE.MeshStandardMaterial({
+      color: 0xeab308,
+      metalness: 0.9,
+      roughness: 0.2
+    });
+    const base = new THREE.Mesh(baseGeo, goldMat);
+    base.position.y = 0.08;
+    group.add(base);
+
+    // İç gök küresi
+    const sphereGeo = new THREE.SphereGeometry(0.3, 16, 16);
+    const sphereMat = new THREE.MeshStandardMaterial({
+      color: 0x1e3a8a,
+      roughness: 0.3
+    });
+    const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+    sphere.position.y = 0.45;
+    group.add(sphere);
+
+    // 2 adet çapraz altın yörünge halkası
+    const ringGeo = new THREE.TorusGeometry(0.42, 0.03, 10, 32);
+    const ring1 = new THREE.Mesh(ringGeo, goldMat);
+    ring1.position.y = 0.45;
+    ring1.rotation.x = 0.6;
+    group.add(ring1);
+
+    const ring2 = new THREE.Mesh(ringGeo, goldMat);
+    ring2.position.y = 0.45;
+    ring2.rotation.y = 0.8;
+    ring2.rotation.z = 0.5;
+    group.add(ring2);
+
+    const light = new THREE.PointLight(0xfacc15, 2.0, 2.2);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createTeslaBobiniMesh(def) {
+    const group = new THREE.Group();
+    // Taban standı
+    const baseGeo = new THREE.CylinderGeometry(0.32, 0.38, 0.12, 16);
+    const baseMat = new THREE.MeshStandardMaterial({
+      color: 0x334155,
+      metalness: 0.7,
+      roughness: 0.3
+    });
+    const base = new THREE.Mesh(baseGeo, baseMat);
+    base.position.y = 0.08;
+    base.add(this._createOutline(baseGeo, 0x0f172a, 0.035));
+    group.add(base);
+
+    // Bakır sarımlı sütun
+    const colGeo = new THREE.CylinderGeometry(0.1, 0.1, 0.48, 16);
+    const copperMat = new THREE.MeshStandardMaterial({
+      color: 0xb45309,
+      metalness: 0.85,
+      roughness: 0.25
+    });
+    const col = new THREE.Mesh(colGeo, copperMat);
+    col.position.y = 0.38;
+    group.add(col);
+
+    // Tepe küresi (Torus & Sphere)
+    const orbGeo = new THREE.SphereGeometry(0.18, 16, 16);
+    const orbMat = new THREE.MeshStandardMaterial({
+      color: 0x38bdf8,
+      emissive: 0x0284c7,
+      emissiveIntensity: 1.0,
+      metalness: 0.9,
+      roughness: 0.1
+    });
+    const orb = new THREE.Mesh(orbGeo, orbMat);
+    orb.position.y = 0.68;
+    group.add(orb);
+
+    const light = new THREE.PointLight(0x38bdf8, 2.8, 3.0);
+    light.position.set(0, 0.68, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createEnerjiKalkaniMesh(def) {
+    const group = new THREE.Group();
+    // Emitör tabanı
+    const baseGeo = new THREE.CylinderGeometry(0.42, 0.46, 0.1, 20);
+    const baseMat = new THREE.MeshStandardMaterial({
+      color: 0x1e293b,
+      metalness: 0.85,
+      roughness: 0.25
+    });
+    const base = new THREE.Mesh(baseGeo, baseMat);
+    base.position.y = 0.1;
+    base.add(this._createOutline(baseGeo, 0x0f172a, 0.035));
+    group.add(base);
+
+    // Heksagonal şeffaf kuvvet alanı kubbesi
+    const domeGeo = new THREE.SphereGeometry(0.44, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2);
+    const domeMat = new THREE.MeshPhysicalMaterial({
+      color: 0x06b6d4,
+      emissive: 0x0891b2,
+      emissiveIntensity: 0.8,
+      roughness: 0.1,
+      transmission: 0.85,
+      transparent: true,
+      opacity: 0.75,
+      side: THREE.DoubleSide
+    });
+    const dome = new THREE.Mesh(domeGeo, domeMat);
+    dome.position.y = 0.15;
+    group.add(dome);
+
+    const light = new THREE.PointLight(0x22d3ee, 2.2, 2.5);
+    light.position.set(0, 0.35, 0);
+    group.add(light);
+    return group;
+  }
+
+  static _createKuantumIslemciMesh(def) {
+    const group = new THREE.Group();
+    // Kare çip substratı
+    const chipGeo = new THREE.BoxGeometry(0.68, 0.12, 0.68);
+    const chipMat = new THREE.MeshStandardMaterial({
+      color: 0x0f172a,
+      metalness: 0.9,
+      roughness: 0.2
+    });
+    const chip = new THREE.Mesh(chipGeo, chipMat);
+    chip.position.y = 0.32;
+    chip.add(this._createOutline(chipGeo, 0x0284c7, 0.035));
+    group.add(chip);
+
+    // Merkezde parlayan kristal çekirdek
+    const coreGeo = new THREE.BoxGeometry(0.38, 0.16, 0.38);
+    const coreMat = new THREE.MeshStandardMaterial({
+      color: 0x06b6d4,
+      emissive: 0x0ea5e9,
+      emissiveIntensity: 1.1
+    });
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    core.position.y = 0.34;
+    group.add(core);
+
+    // Dışarı uzanan metalik pinler
+    const pinGeo = new THREE.BoxGeometry(0.78, 0.04, 0.78);
+    const pinMat = new THREE.MeshStandardMaterial({
+      color: 0x38bdf8,
+      metalness: 0.95
+    });
+    const pins = new THREE.Mesh(pinGeo, pinMat);
+    pins.position.y = 0.3;
+    group.add(pins);
+
+    const light = new THREE.PointLight(0x38bdf8, 2.4, 2.8);
+    light.position.set(0, 0.42, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createMinyaturYildizMesh(def) {
+    const group = new THREE.Group();
+    // Dış manyetik muhafaza halkası / kafesi
+    const ringGeo = new THREE.TorusGeometry(0.48, 0.04, 12, 32);
+    const ringMat = new THREE.MeshStandardMaterial({
+      color: 0x475569,
+      metalness: 0.9,
+      roughness: 0.2
+    });
+    const ring1 = new THREE.Mesh(ringGeo, ringMat);
+    ring1.position.y = 0.45;
+    group.add(ring1);
+
+    const ring2 = new THREE.Mesh(ringGeo, ringMat);
+    ring2.position.y = 0.45;
+    ring2.rotation.x = Math.PI / 2;
+    group.add(ring2);
+
+    // İçte alev alev parıldayan mikro süpernova çekirdeği
+    const starGeo = new THREE.SphereGeometry(0.28, 20, 20);
+    const starMat = new THREE.MeshStandardMaterial({
+      color: 0xf97316,
+      emissive: 0xef4444,
+      emissiveIntensity: 1.6,
+      roughness: 0.1
+    });
+    const star = new THREE.Mesh(starGeo, starMat);
+    star.position.y = 0.45;
+    group.add(star);
+
+    const light = new THREE.PointLight(0xf97316, 3.2, 3.5);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  // ================= KATEGORİ 10: DOĞA & COĞRAFYA 3D MODELLERİ ================
+  static _createDagMesh(def) {
+    const group = new THREE.Group();
+    // Dağ ana konisi (kaba tetra/koni)
+    const mntGeo = new THREE.ConeGeometry(0.55, 0.75, 5);
+    const mntMat = new THREE.MeshStandardMaterial({
+      color: 0x475569,
+      roughness: 0.8,
+      flatShading: true
+    });
+    const mnt = new THREE.Mesh(mntGeo, mntMat);
+    mnt.position.y = 0.38;
+    mnt.add(this._createOutline(mntGeo, 0x1e293b, 0.035));
+    group.add(mnt);
+
+    // Karlı zirve şapkası
+    const snowGeo = new THREE.ConeGeometry(0.26, 0.32, 5);
+    const snowMat = new THREE.MeshStandardMaterial({
+      color: 0xf8fafc,
+      roughness: 0.3,
+      flatShading: true
+    });
+    const snow = new THREE.Mesh(snowGeo, snowMat);
+    snow.position.y = 0.6;
+    group.add(snow);
+
+    return group;
+  }
+
+  static _createKayaMesh(def) {
+    const group = new THREE.Group();
+    // Düzensiz yontulmuş monolit kaya
+    const rockGeo = new THREE.DodecahedronGeometry(0.48, 1);
+    rockGeo.scale(1.0, 0.85, 0.9);
+    const rockMat = new THREE.MeshStandardMaterial({
+      color: 0x78716c,
+      roughness: 0.85,
+      flatShading: true
+    });
+    const rock = new THREE.Mesh(rockGeo, rockMat);
+    rock.position.y = 0.38;
+    rock.add(this._createOutline(rockGeo, 0x292524, 0.035));
+    group.add(rock);
+
+    // Üzerindeki yosun lekesi
+    const mossGeo = new THREE.SphereGeometry(0.24, 8, 8);
+    const mossMat = new THREE.MeshStandardMaterial({ color: 0x65a30d, roughness: 0.9 });
+    const moss = new THREE.Mesh(mossGeo, mossMat);
+    moss.position.set(0.18, 0.52, 0.2);
+    group.add(moss);
+
+    return group;
+  }
+
+  static _createGunesMesh(def) {
+    const group = new THREE.Group();
+    // Parlak sarı güneş küresi
+    const sunGeo = new THREE.SphereGeometry(0.38, 18, 18);
+    const sunMat = new THREE.MeshStandardMaterial({
+      color: 0xfacc15,
+      emissive: 0xeab308,
+      emissiveIntensity: 1.2,
+      roughness: 0.1
+    });
+    const sun = new THREE.Mesh(sunGeo, sunMat);
+    sun.position.y = 0.45;
+    sun.add(this._createOutline(sunGeo, 0xb45309, 0.035));
+    group.add(sun);
+
+    // Çevresindeki 8 adet ışın sivrisi
+    const rayGeo = new THREE.ConeGeometry(0.08, 0.22, 6);
+    const rayMat = new THREE.MeshStandardMaterial({
+      color: 0xf59e0b,
+      emissive: 0xd97706,
+      emissiveIntensity: 0.8
+    });
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * Math.PI * 2;
+      const ray = new THREE.Mesh(rayGeo, rayMat);
+      ray.position.set(Math.cos(angle) * 0.48, 0.45 + Math.sin(angle) * 0.48, 0);
+      ray.rotation.z = angle - Math.PI / 2;
+      group.add(ray);
+    }
+
+    const light = new THREE.PointLight(0xfde047, 2.8, 3.5);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createOkyanusMesh(def) {
+    const group = new THREE.Group();
+    // Kıvrılan devasa turkuaz dalga
+    const waveGeo = new THREE.TorusGeometry(0.42, 0.18, 12, 24, Math.PI * 1.25);
+    const waveMat = new THREE.MeshPhysicalMaterial({
+      color: 0x0284c7,
+      emissive: 0x0369a1,
+      emissiveIntensity: 0.4,
+      roughness: 0.1,
+      transmission: 0.6,
+      transparent: true,
+      opacity: 0.9
+    });
+    const wave = new THREE.Mesh(waveGeo, waveMat);
+    wave.position.set(0, 0.42, 0);
+    wave.rotation.z = -0.6;
+    wave.add(this._createOutline(waveGeo, 0x0c4a6e, 0.035));
+    group.add(wave);
+
+    // Beyaz köpük tepesi
+    const foamGeo = new THREE.SphereGeometry(0.14, 10, 10);
+    const foamMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.2 });
+    const foam = new THREE.Mesh(foamGeo, foamMat);
+    foam.position.set(0.24, 0.65, 0);
+    group.add(foam);
+
+    return group;
+  }
+
+  static _createVolkanMesh(def) {
+    const group = new THREE.Group();
+    // Koni yanardağ
+    const volcanoGeo = new THREE.CylinderGeometry(0.18, 0.58, 0.65, 12);
+    const volcanoMat = new THREE.MeshStandardMaterial({
+      color: 0x44403c,
+      roughness: 0.85,
+      flatShading: true
+    });
+    const volcano = new THREE.Mesh(volcanoGeo, volcanoMat);
+    volcano.position.y = 0.35;
+    volcano.add(this._createOutline(volcanoGeo, 0x1c1917, 0.035));
+    group.add(volcano);
+
+    // Kraterdeki kızgın lav havuzu
+    const craterGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.05, 12);
+    const lavaMat = new THREE.MeshStandardMaterial({
+      color: 0xef4444,
+      emissive: 0xdc2626,
+      emissiveIntensity: 1.4
+    });
+    const lava = new THREE.Mesh(craterGeo, lavaMat);
+    lava.position.y = 0.68;
+    group.add(lava);
+
+    const light = new THREE.PointLight(0xf97316, 2.5, 2.5);
+    light.position.set(0, 0.72, 0);
+    group.add(light);
+    return group;
+  }
+
+  static _createAdaMesh(def) {
+    const group = new THREE.Group();
+    // Turkuaz su halkası ve kumlu tepe
+    const waterGeo = new THREE.CylinderGeometry(0.55, 0.55, 0.06, 24);
+    const waterMat = new THREE.MeshPhysicalMaterial({
+      color: 0x06b6d4,
+      roughness: 0.1,
+      transmission: 0.7,
+      transparent: true,
+      opacity: 0.85
+    });
+    const water = new THREE.Mesh(waterGeo, waterMat);
+    water.position.y = 0.12;
+    group.add(water);
+
+    const sandGeo = new THREE.CylinderGeometry(0.38, 0.44, 0.14, 16);
+    const sandMat = new THREE.MeshStandardMaterial({ color: 0xfde047, roughness: 0.7 });
+    const sand = new THREE.Mesh(sandGeo, sandMat);
+    sand.position.y = 0.2;
+    group.add(sand);
+
+    // Palmiye ağacı (gövde + yapraklar)
+    const trunkGeo = new THREE.CylinderGeometry(0.04, 0.05, 0.38, 8);
+    const trunkMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
+    const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+    trunk.position.set(0, 0.42, 0);
+    group.add(trunk);
+
+    const leafGeo = new THREE.ConeGeometry(0.24, 0.16, 6);
+    const leafMat = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.6 });
+    const leaf = new THREE.Mesh(leafGeo, leafMat);
+    leaf.position.set(0, 0.62, 0);
+    group.add(leaf);
+
+    return group;
+  }
+
+  static _createNehirMesh(def) {
+    const group = new THREE.Group();
+    // Yeşil çimen zemin
+    const groundGeo = new THREE.BoxGeometry(0.72, 0.12, 0.72);
+    const groundMat = new THREE.MeshStandardMaterial({ color: 0x65a30d, roughness: 0.8 });
+    const ground = new THREE.Mesh(groundGeo, groundMat);
+    ground.position.y = 0.2;
+    ground.add(this._createOutline(groundGeo, 0x365314, 0.035));
+    group.add(ground);
+
+    // Kıvrılarak geçen mavi nehir yatağı
+    const riverGeo = new THREE.BoxGeometry(0.32, 0.14, 0.74);
+    const riverMat = new THREE.MeshPhysicalMaterial({
+      color: 0x38bdf8,
+      emissive: 0x0284c7,
+      emissiveIntensity: 0.4,
+      roughness: 0.1,
+      transmission: 0.6,
+      transparent: true,
+      opacity: 0.9
+    });
+    riverGeo.rotateY(0.4);
+    const river = new THREE.Mesh(riverGeo, riverMat);
+    river.position.y = 0.22;
+    group.add(river);
+
+    return group;
+  }
+
+  static _createOrmanMesh(def) {
+    const group = new THREE.Group();
+    // 3 adet yan yana çam ağacı
+    const createTree = (x, z, scale) => {
+      const treeGroup = new THREE.Group();
+      const trunkGeo = new THREE.CylinderGeometry(0.04 * scale, 0.05 * scale, 0.25 * scale, 6);
+      const trunkMat = new THREE.MeshStandardMaterial({ color: 0x5c4033 });
+      const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+      trunk.position.y = 0.12 * scale;
+      treeGroup.add(trunk);
+
+      const foilGeo = new THREE.ConeGeometry(0.24 * scale, 0.45 * scale, 6);
+      const foilMat = new THREE.MeshStandardMaterial({
+        color: 0x15803d,
+        roughness: 0.7,
+        flatShading: true
+      });
+      const foil = new THREE.Mesh(foilGeo, foilMat);
+      foil.position.y = 0.38 * scale;
+      foil.add(this._createOutline(foilGeo, 0x14532d, 0.035));
+      treeGroup.add(foil);
+
+      treeGroup.position.set(x, 0.1, z);
+      return treeGroup;
+    };
+
+    group.add(createTree(0, 0, 1.2));
+    group.add(createTree(-0.25, 0.05, 0.9));
+    group.add(createTree(0.25, -0.05, 0.95));
+
+    return group;
+  }
+
+  static _createFirtinaBulutuMesh(def) {
+    const group = new THREE.Group();
+    // Koyu gri bulut gövdesi
+    const cloudMat = new THREE.MeshStandardMaterial({
+      color: 0x334155,
+      roughness: 0.8,
+      flatShading: true
+    });
+    const c1 = new THREE.Mesh(new THREE.SphereGeometry(0.3, 10, 10), cloudMat);
+    c1.position.set(0, 0.48, 0);
+    group.add(c1);
+
+    const c2 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 8), cloudMat);
+    c2.position.set(-0.24, 0.42, 0);
+    group.add(c2);
+
+    const c3 = new THREE.Mesh(new THREE.SphereGeometry(0.24, 8, 8), cloudMat);
+    c3.position.set(0.24, 0.44, 0);
+    group.add(c3);
+
+    // Aşağı sarkan sarı şimşek oku
+    const boltGeo = new THREE.ConeGeometry(0.08, 0.32, 4);
+    const boltMat = new THREE.MeshStandardMaterial({
+      color: 0xfacc15,
+      emissive: 0xeab308,
+      emissiveIntensity: 1.4
+    });
+    const bolt = new THREE.Mesh(boltGeo, boltMat);
+    bolt.position.set(0, 0.16, 0.05);
+    bolt.rotation.z = Math.PI;
+    group.add(bolt);
+
+    const light = new THREE.PointLight(0xfef08a, 2.4, 2.5);
+    light.position.set(0, 0.2, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createMagaraMesh(def) {
+    const group = new THREE.Group();
+    // Dış kaya kemeri
+    const archGeo = new THREE.TorusGeometry(0.38, 0.16, 10, 16, Math.PI);
+    const rockMat = new THREE.MeshStandardMaterial({
+      color: 0x475569,
+      roughness: 0.9,
+      flatShading: true
+    });
+    const arch = new THREE.Mesh(archGeo, rockMat);
+    arch.position.y = 0.28;
+    arch.add(this._createOutline(archGeo, 0x1e293b, 0.035));
+    group.add(arch);
+
+    // İçteki zifiri karanlık boşluk
+    const holeGeo = new THREE.CircleGeometry(0.32, 16);
+    const holeMat = new THREE.MeshBasicMaterial({ color: 0x09090b, side: THREE.DoubleSide });
+    const hole = new THREE.Mesh(holeGeo, holeMat);
+    hole.position.set(0, 0.28, -0.02);
+    group.add(hole);
+
+    return group;
+  }
+
+  static _createGokkusagiMesh(def) {
+    const group = new THREE.Group();
+    // Renkli gökkuşağı yay halkası
+    const rainbowGeo = new THREE.TorusGeometry(0.48, 0.08, 10, 24, Math.PI);
+    const rainbowMat = new THREE.MeshStandardMaterial({
+      color: 0xec4899,
+      emissive: 0x3b82f6,
+      emissiveIntensity: 0.7,
+      roughness: 0.2
+    });
+    const rainbow = new THREE.Mesh(rainbowGeo, rainbowMat);
+    rainbow.position.y = 0.26;
+    rainbow.add(this._createOutline(rainbowGeo, 0x831843, 0.03));
+    group.add(rainbow);
+
+    // İki uçtaki beyaz puf bulutlar
+    const cloudMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.4 });
+    const cLeft = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), cloudMat);
+    cLeft.position.set(-0.48, 0.26, 0);
+    group.add(cLeft);
+
+    const cRight = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), cloudMat);
+    cRight.position.set(0.48, 0.26, 0);
+    group.add(cRight);
+
+    const light = new THREE.PointLight(0xf472b6, 2.0, 2.5);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createKanyonMesh(def) {
+    const group = new THREE.Group();
+    // İki tarafı dik kızıl kaya bloğu
+    const rockMat = new THREE.MeshStandardMaterial({
+      color: 0x9a3412,
+      roughness: 0.85,
+      flatShading: true
+    });
+    const wallGeo = new THREE.BoxGeometry(0.28, 0.65, 0.6);
+    const leftWall = new THREE.Mesh(wallGeo, rockMat);
+    leftWall.position.set(-0.25, 0.38, 0);
+    leftWall.add(this._createOutline(wallGeo, 0x431407, 0.035));
+    group.add(leftWall);
+
+    const rightWall = new THREE.Mesh(wallGeo, rockMat);
+    rightWall.position.set(0.25, 0.38, 0);
+    rightWall.add(this._createOutline(wallGeo, 0x431407, 0.035));
+    group.add(rightWall);
+
+    return group;
+  }
+
+  static _createFayHattiMesh(def) {
+    const group = new THREE.Group();
+    // İkiye ayrılmış çatlak zemin
+    const groundMat = new THREE.MeshStandardMaterial({
+      color: 0x57534e,
+      roughness: 0.9,
+      flatShading: true
+    });
+    const p1Geo = new THREE.BoxGeometry(0.34, 0.15, 0.68);
+    const p1 = new THREE.Mesh(p1Geo, groundMat);
+    p1.position.set(-0.2, 0.25, 0);
+    p1.rotation.y = 0.15;
+    p1.add(this._createOutline(p1Geo, 0x1c1917, 0.035));
+    group.add(p1);
+
+    const p2Geo = new THREE.BoxGeometry(0.34, 0.15, 0.68);
+    const p2 = new THREE.Mesh(p2Geo, groundMat);
+    p2.position.set(0.2, 0.25, 0);
+    p2.rotation.y = -0.15;
+    p2.add(this._createOutline(p2Geo, 0x1c1917, 0.035));
+    group.add(p2);
+
+    return group;
+  }
+
+  static _createBulutMesh(def) {
+    const group = new THREE.Group();
+    // Pamuksu beyaz bulut kümeleri
+    const cloudMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 0.3,
+      flatShading: true
+    });
+    const c1 = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 12), cloudMat);
+    c1.position.set(0, 0.42, 0);
+    group.add(c1);
+
+    const c2 = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 10), cloudMat);
+    c2.position.set(-0.24, 0.38, 0);
+    group.add(c2);
+
+    const c3 = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 10), cloudMat);
+    c3.position.set(0.24, 0.4, 0);
+    group.add(c3);
+
+    return group;
+  }
+
+  // ================= KATEGORİ 3 & 2: CANLILAR, FAUNA & DOĞA 3D MODELLERİ ================
+  static _createAtMesh(def) {
+    const group = new THREE.Group();
+    // Gövde ve bacaklar
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, roughness: 0.7 });
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.32, 0.28), bodyMat);
+    body.position.set(0, 0.38, 0);
+    body.add(this._createOutline(new THREE.BoxGeometry(0.5, 0.32, 0.28), 0x451a03, 0.035));
+    group.add(body);
+
+    // Boyun ve kafa
+    const head = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.28, 0.2), bodyMat);
+    head.position.set(0.28, 0.58, 0);
+    group.add(head);
+
+    // Yele ve kuyruk
+    const maneMat = new THREE.MeshStandardMaterial({ color: 0x1c1917, roughness: 0.8 });
+    const mane = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.32, 0.08), maneMat);
+    mane.position.set(0.2, 0.62, 0);
+    group.add(mane);
+
+    const tail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.02, 0.3, 6), maneMat);
+    tail.position.set(-0.28, 0.32, 0);
+    tail.rotation.z = 0.5;
+    group.add(tail);
+
+    return group;
+  }
+
+  static _createKoyunMesh(def) {
+    const group = new THREE.Group();
+    // Kabarık beyaz yün gövde
+    const woolMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.9, flatShading: true });
+    const wool = new THREE.Mesh(new THREE.DodecahedronGeometry(0.38, 1), woolMat);
+    wool.position.set(0, 0.38, 0);
+    wool.add(this._createOutline(new THREE.DodecahedronGeometry(0.38, 1), 0x94a3b8, 0.035));
+    group.add(wool);
+
+    // Sevimli siyah/bej kafa
+    const faceMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.6 });
+    const face = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), faceMat);
+    face.position.set(0.32, 0.42, 0);
+    group.add(face);
+
+    return group;
+  }
+
+  static _createKurtMesh(def) {
+    const group = new THREE.Group();
+    // Vahşi gri gövde
+    const furMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.8, flatShading: true });
+    const body = new THREE.Mesh(new THREE.ConeGeometry(0.32, 0.6, 6), furMat);
+    body.position.set(0, 0.36, 0);
+    body.rotation.z = -0.4;
+    body.add(this._createOutline(new THREE.ConeGeometry(0.32, 0.6, 6), 0x1e293b, 0.035));
+    group.add(body);
+
+    // Uluyan kafa
+    const head = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.35, 5), furMat);
+    head.position.set(0.18, 0.62, 0);
+    head.rotation.z = -1.1;
+    group.add(head);
+
+    return group;
+  }
+
+  static _createAriMesh(def) {
+    const group = new THREE.Group();
+    // Sarı-siyah çizgili arı gövdesi
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.3 });
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.2, 0.28, 8, 12), bodyMat);
+    body.position.set(0, 0.4, 0);
+    body.rotation.z = Math.PI / 4;
+    body.add(this._createOutline(new THREE.CapsuleGeometry(0.2, 0.28, 8, 12), 0x713f12, 0.035));
+    group.add(body);
+
+    // Şeffaf kanatlar
+    const wingMat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      transmission: 0.8,
+      transparent: true,
+      opacity: 0.7
+    });
+    const wingGeo = new THREE.CircleGeometry(0.18, 10);
+    const leftWing = new THREE.Mesh(wingGeo, wingMat);
+    leftWing.position.set(-0.06, 0.58, 0.14);
+    leftWing.rotation.x = -0.6;
+    group.add(leftWing);
+
+    const rightWing = new THREE.Mesh(wingGeo, wingMat);
+    rightWing.position.set(-0.06, 0.58, -0.14);
+    rightWing.rotation.x = 0.6;
+    group.add(rightWing);
+
+    return group;
+  }
+
+  static _createYilanMesh(def) {
+    const group = new THREE.Group();
+    // Kıvrılmış yeşil yılan sarmalı
+    const snakeMat = new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.5 });
+    const coilGeo = new THREE.TorusGeometry(0.34, 0.1, 10, 24);
+    coilGeo.rotateX(Math.PI / 2);
+    const coil = new THREE.Mesh(coilGeo, snakeMat);
+    coil.position.y = 0.22;
+    coil.add(this._createOutline(coilGeo, 0x14532d, 0.035));
+    group.add(coil);
+
+    // Dikilen kafa
+    const head = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.26, 8), snakeMat);
+    head.position.set(0.18, 0.45, 0.12);
+    head.rotation.x = -0.3;
+    group.add(head);
+
+    return group;
+  }
+
+  static _createBaykusMesh(def) {
+    const group = new THREE.Group();
+    // Kahverengi tüylü gövde
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 12), bodyMat);
+    body.scale.set(0.9, 1.2, 0.85);
+    body.position.y = 0.42;
+    body.add(this._createOutline(new THREE.SphereGeometry(0.32, 12, 12), 0x451a03, 0.035));
+    group.add(body);
+
+    // Kocaman parlak sarı gözler
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+    const leftEye = new THREE.Mesh(new THREE.CircleGeometry(0.09, 10), eyeMat);
+    leftEye.position.set(0.12, 0.54, 0.28);
+    group.add(leftEye);
+
+    const rightEye = new THREE.Mesh(new THREE.CircleGeometry(0.09, 10), eyeMat);
+    rightEye.position.set(-0.12, 0.54, 0.28);
+    group.add(rightEye);
+
+    return group;
+  }
+
+  static _createKaplumbagaMesh(def) {
+    const group = new THREE.Group();
+    // Sert kubbe kabuk
+    const shellMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, roughness: 0.8, flatShading: true });
+    const shellGeo = new THREE.SphereGeometry(0.36, 10, 8, 0, Math.PI * 2, 0, Math.PI / 2);
+    const shell = new THREE.Mesh(shellGeo, shellMat);
+    shell.position.y = 0.22;
+    shell.add(this._createOutline(shellGeo, 0x3f2005, 0.035));
+    group.add(shell);
+
+    // Yeşil kafa ve yüzgeçler
+    const skinMat = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.6 });
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), skinMat);
+    head.position.set(0.38, 0.26, 0);
+    group.add(head);
+
+    return group;
+  }
+
+  static _createBalMesh(def) {
+    const group = new THREE.Group();
+    // Kil bal çömleği
+    const potMat = new THREE.MeshStandardMaterial({ color: 0xb45309, roughness: 0.7 });
+    const pot = new THREE.Mesh(new THREE.SphereGeometry(0.36, 14, 14), potMat);
+    pot.position.y = 0.36;
+    pot.add(this._createOutline(new THREE.SphereGeometry(0.36, 14, 14), 0x78350f, 0.035));
+    group.add(pot);
+
+    // Ağzından taşan amber rengi bal damlası
+    const honeyMat = new THREE.MeshPhysicalMaterial({
+      color: 0xf59e0b,
+      emissive: 0xd97706,
+      emissiveIntensity: 0.6,
+      roughness: 0.1,
+      transmission: 0.7,
+      transparent: true,
+      opacity: 0.9
+    });
+    const honey = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.08, 12), honeyMat);
+    honey.position.y = 0.68;
+    group.add(honey);
+
+    const light = new THREE.PointLight(0xfde047, 2.0, 2.0);
+    light.position.set(0, 0.68, 0.1);
+    group.add(light);
+    return group;
+  }
+
+  static _createNiluferMesh(def) {
+    const group = new THREE.Group();
+    // Yeşil nilüfer yaprağı tabanı
+    const padMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.8 });
+    const pad = new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.48, 0.04, 16), padMat);
+    pad.position.y = 0.12;
+    group.add(pad);
+
+    // Pembe çiçek taç yaprakları
+    const petalMat = new THREE.MeshStandardMaterial({
+      color: 0xec4899,
+      emissive: 0xdb2777,
+      emissiveIntensity: 0.5,
+      roughness: 0.3
+    });
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * Math.PI * 2;
+      const petal = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.34, 5), petalMat);
+      petal.position.set(Math.cos(angle) * 0.18, 0.28, Math.sin(angle) * 0.18);
+      petal.rotation.z = Math.cos(angle) * 0.4;
+      petal.rotation.x = Math.sin(angle) * -0.4;
+      group.add(petal);
+    }
+
+    return group;
+  }
+
+  static _createElmaMesh(def) {
+    const group = new THREE.Group();
+    // Kırmızı parlak elma
+    const appleMat = new THREE.MeshStandardMaterial({
+      color: 0xdc2626,
+      emissive: 0x991b1b,
+      emissiveIntensity: 0.3,
+      roughness: 0.2
+    });
+    const apple = new THREE.Mesh(new THREE.SphereGeometry(0.36, 16, 16), appleMat);
+    apple.scale.set(1.0, 0.92, 1.0);
+    apple.position.y = 0.38;
+    apple.add(this._createOutline(new THREE.SphereGeometry(0.36, 16, 16), 0x7f1d1d, 0.035));
+    group.add(apple);
+
+    // Sap ve yeşil yaprak
+    const stemMat = new THREE.MeshStandardMaterial({ color: 0x451a03 });
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.03, 0.16, 6), stemMat);
+    stem.position.set(0, 0.72, 0);
+    group.add(stem);
+
+    const leafMat = new THREE.MeshStandardMaterial({ color: 0x22c55e });
+    const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.18, 4), leafMat);
+    leaf.position.set(0.08, 0.74, 0);
+    leaf.rotation.z = -1.0;
+    group.add(leaf);
+
+    return group;
+  }
+
+  static _createKurbagaMesh(def) {
+    const group = new THREE.Group();
+    // Yeşil göbekli sevimli kurbağa
+    const frogMat = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.6 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 12), frogMat);
+    body.scale.set(1.0, 0.8, 0.9);
+    body.position.y = 0.3;
+    body.add(this._createOutline(new THREE.SphereGeometry(0.32, 12, 12), 0x14532d, 0.035));
+    group.add(body);
+
+    // Tepe gözleri
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+    const leftEye = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), frogMat);
+    leftEye.position.set(0.16, 0.54, 0.12);
+    group.add(leftEye);
+
+    const rightEye = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), frogMat);
+    rightEye.position.set(-0.16, 0.54, 0.12);
+    group.add(rightEye);
+
+    return group;
+  }
+
+  static _createSincapMesh(def) {
+    const group = new THREE.Group();
+    // Oturan sincap ve devasa kıvrık kuyruk
+    const furMat = new THREE.MeshStandardMaterial({ color: 0xa16207, roughness: 0.8 });
+    const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.25, 8, 12), furMat);
+    body.position.set(0, 0.34, 0);
+    body.add(this._createOutline(new THREE.CapsuleGeometry(0.18, 0.25, 8, 12), 0x713f12, 0.035));
+    group.add(body);
+
+    // Arkadaki kabarık kuyruk
+    const tail = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.12, 10, 16, Math.PI * 1.2), furMat);
+    tail.position.set(-0.16, 0.44, 0);
+    tail.rotation.z = -0.8;
+    group.add(tail);
+
+    // Elindeki palamut
+    const nutMat = new THREE.MeshStandardMaterial({ color: 0x451a03 });
+    const nut = new THREE.Mesh(new THREE.SphereGeometry(0.08, 6, 6), nutMat);
+    nut.position.set(0.16, 0.36, 0);
+    group.add(nut);
+
+    return group;
+  }
+
+  static _createGeyikMesh(def) {
+    const group = new THREE.Group();
+    // Heybetli geyik gövdesi
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x92400e, roughness: 0.7 });
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.32, 0.26), bodyMat);
+    body.position.set(0, 0.4, 0);
+    body.add(this._createOutline(new THREE.BoxGeometry(0.48, 0.32, 0.26), 0x451a03, 0.035));
+    group.add(body);
+
+    // Zarif kafa ve boynuzlar
+    const head = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.3, 6), bodyMat);
+    head.position.set(0.26, 0.62, 0);
+    head.rotation.z = -0.5;
+    group.add(head);
+
+    // Çatallı boynuzlar
+    const hornMat = new THREE.MeshStandardMaterial({ color: 0x451a03, roughness: 0.6 });
+    const leftHorn = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.03, 0.35, 6), hornMat);
+    leftHorn.position.set(0.24, 0.82, 0.08);
+    leftHorn.rotation.z = 0.3;
+    group.add(leftHorn);
+
+    const rightHorn = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.03, 0.35, 6), hornMat);
+    rightHorn.position.set(0.24, 0.82, -0.08);
+    rightHorn.rotation.z = 0.3;
+    group.add(rightHorn);
+
+    return group;
+  }
+
+  static _createKelebekMesh(def) {
+    const group = new THREE.Group();
+    // İnce gövde
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x0f172a });
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.45, 6), bodyMat);
+    body.position.y = 0.42;
+    group.add(body);
+
+    // Rengarenk kanatlar (Mavi & Turuncu)
+    const wingMat = new THREE.MeshStandardMaterial({
+      color: 0x3b82f6,
+      emissive: 0xf97316,
+      emissiveIntensity: 0.5,
+      side: THREE.DoubleSide
+    });
+    const wingGeo = new THREE.CircleGeometry(0.26, 12);
+    const leftWing = new THREE.Mesh(wingGeo, wingMat);
+    leftWing.position.set(0.22, 0.46, 0);
+    leftWing.rotation.y = 0.3;
+    leftWing.add(this._createOutline(wingGeo, 0x1d4ed8, 0.035));
+    group.add(leftWing);
+
+    const rightWing = new THREE.Mesh(wingGeo, wingMat);
+    rightWing.position.set(-0.22, 0.46, 0);
+    rightWing.rotation.y = -0.3;
+    rightWing.add(this._createOutline(wingGeo, 0x1d4ed8, 0.035));
+    group.add(rightWing);
+
+    const light = new THREE.PointLight(0x60a5fa, 2.0, 2.2);
+    light.position.set(0, 0.45, 0.1);
+    group.add(light);
+    return group;
+  }
 }
+
+
+
