@@ -1,0 +1,8 @@
+{
+  "appId": "com.birlestirme.oyunu",
+  "appName": "Birlestirme Oyunu",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
