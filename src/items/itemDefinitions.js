@@ -1,6 +1,6 @@
 export const ITEM_DEFINITIONS = {
-  fire: {
-    id: 'fire',
+  ates: {
+    id: 'ates',
     name: 'Ateş',
     description: 'Saf ısı ve enerji kaynağı.',
     tier: 1,
@@ -10,8 +10,8 @@ export const ITEM_DEFINITIONS = {
     icon: '🔥',
     category: 'elements'
   },
-  water: {
-    id: 'water',
+  su: {
+    id: 'su',
     name: 'Su',
     description: 'Hayatın kaynağı, akışkan ve berrak.',
     tier: 1,
@@ -21,8 +21,8 @@ export const ITEM_DEFINITIONS = {
     icon: '💧',
     category: 'elements'
   },
-  earth: {
-    id: 'earth',
+  toprak: {
+    id: 'toprak',
     name: 'Toprak',
     description: 'Sağlam temel, kaya ve bereket.',
     tier: 1,
@@ -32,8 +32,8 @@ export const ITEM_DEFINITIONS = {
     icon: '🌍',
     category: 'elements'
   },
-  air: {
-    id: 'air',
+  hava: {
+    id: 'hava',
     name: 'Hava',
     description: 'Görünmez rüzgâr, nefes ve hareket.',
     tier: 1,
@@ -43,553 +43,553 @@ export const ITEM_DEFINITIONS = {
     icon: '💨',
     category: 'elements'
   },
-  steam: {
-    id: 'steam',
+  buhar: {
+    id: 'buhar',
     name: 'Buhar',
     description: 'Ateş ve suyun dansından doğan buğu.',
     tier: 2,
     colorPalette: { primary: '#dcdcdc', secondary: '#f5f5f5', emissive: '#aaaaaa' },
     particles: { type: 'cloud', color: '#ffffff', count: 20 },
-    recipe: { inputs: ['fire', 'water'] },
+    recipe: { inputs: ['ates', 'su'] },
     icon: '♨️',
     category: 'elements'
   },
-  mud: {
-    id: 'mud',
+  camur: {
+    id: 'camur',
     name: 'Çamur',
     description: 'Su ve toprağın yoğrulmuş hali.',
     tier: 2,
     colorPalette: { primary: '#4a3b32', secondary: '#3d2817', emissive: '#1f140b' },
     particles: { type: 'drop', color: '#5c4033', count: 8 },
-    recipe: { inputs: ['water', 'earth'] },
+    recipe: { inputs: ['su', 'toprak'] },
     icon: '🟤',
     category: 'elements'
   },
-  lava: {
-    id: 'lava',
+  lav: {
+    id: 'lav',
     name: 'Lav',
     description: 'Ateş ve toprağın erimiş ihtişamı.',
     tier: 2,
     colorPalette: { primary: '#cf1020', secondary: '#ff4500', emissive: '#ff0000' },
     particles: { type: 'ember', color: '#ffcc00', count: 25 },
-    recipe: { inputs: ['fire', 'earth'] },
+    recipe: { inputs: ['ates', 'toprak'] },
     icon: '🌋',
     category: 'elements'
   },
-  sand: {
-    id: 'sand',
+  kum: {
+    id: 'kum',
     name: 'Kum',
     description: 'Rüzgar ve taşın aşındırdığı tanecikler.',
     tier: 4,
     colorPalette: { primary: '#e6ca65', secondary: '#f4d06f', emissive: '#c2a642' },
     particles: { type: 'grain', color: '#f4d06f', count: 15 },
-    recipe: { inputs: ['wind', 'stone'] },
+    recipe: { inputs: ['ruzgar', 'tas'] },
     icon: '⏳',
     category: 'elements'
   },
-  obsidian: {
-    id: 'obsidian',
+  obsidyen: {
+    id: 'obsidyen',
     name: 'Obsidyen',
     description: 'Su ile aniden soğuyan lavın sert camı.',
     tier: 3,
     colorPalette: { primary: '#1c1c1c', secondary: '#3b2f4f', emissive: '#4b0082' },
     particles: { type: 'shimmer', color: '#9370db', count: 12 },
-    recipe: { inputs: ['water', 'lava'] },
+    recipe: { inputs: ['su', 'lav'] },
     icon: '⬛',
     category: 'elements'
   },
-  rain: {
-    id: 'rain',
+  yagmur: {
+    id: 'yagmur',
     name: 'Yağmur',
     description: 'Hava ve suyun buluşmasından düşen damlalar.',
     tier: 2,
     colorPalette: { primary: '#87ceeb', secondary: '#00bfff', emissive: '#006699' },
     particles: { type: 'drop', color: '#87ceeb', count: 15 },
-    recipe: { inputs: ['air', 'water'] },
+    recipe: { inputs: ['hava', 'su'] },
     icon: '🌧️',
     category: 'elements'
   },
-  energy: {
-    id: 'energy',
+  enerji: {
+    id: 'enerji',
     name: 'Enerji',
     description: 'Ateş ve havanın saf plazma gücü.',
     tier: 2,
     colorPalette: { primary: '#ffeb3b', secondary: '#ffc107', emissive: '#ff9800' },
     particles: { type: 'spark', color: '#ffeb3b', count: 20 },
-    recipe: { inputs: ['fire', 'air'] },
+    recipe: { inputs: ['ates', 'hava'] },
     icon: '⚡',
     category: 'elements'
   },
-  wind: {
-    id: 'wind',
+  ruzgar: {
+    id: 'ruzgar',
     name: 'Rüzgar',
     description: 'Güçlü ve hızlı hava akımı.',
     tier: 2,
     colorPalette: { primary: '#e0f7fa', secondary: '#b2ebf2', emissive: '#80deea' },
     particles: { type: 'wind', color: '#ffffff', count: 18 },
-    recipe: { inputs: ['air', 'air'] },
+    recipe: { inputs: ['hava', 'hava'] },
     icon: '🌬️',
     category: 'elements'
   },
-  stone: {
-    id: 'stone',
+  tas: {
+    id: 'tas',
     name: 'Taş',
     description: 'Hava ve lavın katılaşmış sert kayası.',
     tier: 3,
     colorPalette: { primary: '#78909c', secondary: '#607d8b', emissive: '#37474f' },
     particles: { type: 'dust', color: '#78909c', count: 10 },
-    recipe: { inputs: ['air', 'lava'] },
+    recipe: { inputs: ['hava', 'lav'] },
     icon: '🪨',
     category: 'elements'
   },
-  glass: {
-    id: 'glass',
+  cam: {
+    id: 'cam',
     name: 'Cam',
     description: 'Ateş ve kumun eriyerek şeffaflaşması.',
     tier: 5,
     colorPalette: { primary: '#e0f7fa', secondary: '#b2ebf2', emissive: '#ffffff' },
     particles: { type: 'shimmer', color: '#ffffff', count: 15 },
-    recipe: { inputs: ['fire', 'sand'] },
+    recipe: { inputs: ['ates', 'kum'] },
     icon: '🔮',
     category: 'elements'
   },
-  cloud: {
-    id: 'cloud',
+  bulut: {
+    id: 'bulut',
     name: 'Bulut',
     description: 'Buhar ve suyun gökyüzündeki pofuduk kümesi.',
     tier: 3,
     colorPalette: { primary: '#ffffff', secondary: '#f1f5f9', emissive: '#cbd5e1' },
     particles: { type: 'cloud', color: '#ffffff', count: 20 },
-    recipe: { inputs: ['steam', 'water'] },
+    recipe: { inputs: ['buhar', 'su'] },
     icon: '☁️',
     category: 'elements'
   },
-  lightning: {
-    id: 'lightning',
+  yildirim: {
+    id: 'yildirim',
     name: 'Yıldırım',
     description: 'Bulut ve enerjinin çakan keskin şimşeği.',
     tier: 4,
     colorPalette: { primary: '#facc15', secondary: '#fde047', emissive: '#eab308' },
     particles: { type: 'spark', color: '#facc15', count: 30 },
-    recipe: { inputs: ['cloud', 'energy'] },
+    recipe: { inputs: ['bulut', 'enerji'] },
     icon: '⚡',
     category: 'elements'
   },
-  plant: {
-    id: 'plant',
+  bitki: {
+    id: 'bitki',
     name: 'Bitki',
     description: 'Toprak ve yağmurun yeşerten filizi.',
     tier: 3,
     colorPalette: { primary: '#4ade80', secondary: '#22c55e', emissive: '#15803d' },
     particles: { type: 'spark', color: '#4ade80', count: 10 },
-    recipe: { inputs: ['earth', 'rain'] },
+    recipe: { inputs: ['toprak', 'yagmur'] },
     icon: '🌱',
     category: 'nature'
   },
-  tree: {
-    id: 'tree',
+  agac: {
+    id: 'agac',
     name: 'Ağaç',
     description: 'Bitki ve toprağın büyüyen güçlü gövdesi.',
     tier: 4,
     colorPalette: { primary: '#16a34a', secondary: '#854d0e', emissive: '#14532d' },
     particles: { type: 'dust', color: '#16a34a', count: 12 },
-    recipe: { inputs: ['plant', 'earth'] },
+    recipe: { inputs: ['bitki', 'toprak'] },
     icon: '🌲',
     category: 'nature'
   },
-  wood: {
-    id: 'wood',
+  odun: {
+    id: 'odun',
     name: 'Odun',
     description: 'Ağaç ve taşın işlenen kütüğü.',
     tier: 5,
     colorPalette: { primary: '#a16207', secondary: '#ca8a04', emissive: '#713f12' },
     particles: { type: 'dust', color: '#a16207', count: 10 },
-    recipe: { inputs: ['tree', 'stone'] },
+    recipe: { inputs: ['agac', 'tas'] },
     icon: '🪵',
     category: 'nature'
   },
-  splinter: {
-    id: 'splinter',
+  kiymik: {
+    id: 'kiymik',
     name: 'Kıymık',
     description: 'Odun ve taşın sivri talaş parçası.',
     tier: 6,
     colorPalette: { primary: '#d97706', secondary: '#fbbf24', emissive: '#b45309' },
     particles: { type: 'spark', color: '#fbbf24', count: 8 },
-    recipe: { inputs: ['wood', 'stone'] },
+    recipe: { inputs: ['odun', 'tas'] },
     icon: '🥢',
     category: 'nature'
   },
-  fiber: {
-    id: 'fiber',
+  lif: {
+    id: 'lif',
     name: 'Lif',
     description: 'Bitki ve bitkinin sarılan lif demeti.',
     tier: 4,
     colorPalette: { primary: '#a3e635', secondary: '#bef264', emissive: '#65a30d' },
     particles: { type: 'spark', color: '#a3e635', count: 10 },
-    recipe: { inputs: ['plant', 'plant'] },
+    recipe: { inputs: ['bitki', 'bitki'] },
     icon: '🌾',
     category: 'nature'
   },
-  mushroom: {
-    id: 'mushroom',
+  mantar: {
+    id: 'mantar',
     name: 'Mantar',
     description: 'Beyaz benekli, kırmızı şapkalı, bodur saplı orman mantarı.',
     tier: 4,
     colorPalette: { primary: '#e63946', secondary: '#f1faee', emissive: '#9d0208' },
     particles: { type: 'spark', color: '#e63946', count: 8 },
-    recipe: { inputs: ['plant', 'mud'] },
+    recipe: { inputs: ['bitki', 'camur'] },
     icon: '🍄',
     category: 'nature'
   },
-  cotton: {
-    id: 'cotton',
+  pamuk: {
+    id: 'pamuk',
     name: 'Pamuk',
     description: 'Kurumuş kahverengi çanak yapraklar içinde duran bembeyaz pamuk kozası.',
     tier: 4,
     colorPalette: { primary: '#ffffff', secondary: '#dda15e', emissive: '#bc6c25' },
     particles: { type: 'cloud', color: '#ffffff', count: 12 },
-    recipe: { inputs: ['earth', 'plant', 'rain'] },
+    recipe: { inputs: ['toprak', 'bitki', 'yagmur'] },
     icon: '☁️',
     category: 'nature'
   },
-  resin: {
-    id: 'resin',
+  recine: {
+    id: 'recine',
     name: 'Reçine',
     description: 'Damla formunda katılaşmış, bal sarısı kehribar cevheri.',
     tier: 6,
     colorPalette: { primary: '#ffb703', secondary: '#fb8500', emissive: '#ffb703' },
     particles: { type: 'shimmer', color: '#ffb703', count: 10 },
-    recipe: { inputs: ['primitive_knife', 'tree'] },
+    recipe: { inputs: ['ilkel_bicak', 'agac'] },
     icon: '🍯',
     category: 'nature'
   },
-  life: {
-    id: 'life',
+  yasam: {
+    id: 'yasam',
     name: 'Yaşam',
     description: 'İçinde yeşilimsi çift sarmal DNA sembolü dönen ışıldayan öz küresi.',
     tier: 5,
     colorPalette: { primary: '#52b788', secondary: '#74c69d', emissive: '#1b4332' },
     particles: { type: 'spark', color: '#52b788', count: 25 },
-    recipe: { inputs: ['energy', 'mud', 'plant'] },
+    recipe: { inputs: ['enerji', 'camur', 'bitki'] },
     icon: '🧬',
     category: 'life'
   },
-  bird: {
-    id: 'bird',
+  kus: {
+    id: 'kus',
     name: 'Kuş',
     description: 'Basit geometrik gövdeli, mavi kanatlı, sarı gagalı küçük serçe.',
     tier: 6,
     colorPalette: { primary: '#4ea8de', secondary: '#ffb703', emissive: '#023e8a' },
     particles: { type: 'wind', color: '#4ea8de', count: 15 },
-    recipe: { inputs: ['air', 'life'] },
+    recipe: { inputs: ['hava', 'yasam'] },
     icon: '🐦',
     category: 'life'
   },
-  animal: {
-    id: 'animal',
+  hayvan: {
+    id: 'hayvan',
     name: 'Hayvan',
     description: 'Dört narin bacağı ve kısa kuyruğu olan bloklu canlı silüeti.',
     tier: 6,
     colorPalette: { primary: '#b08968', secondary: '#dda15e', emissive: '#7f5539' },
     particles: { type: 'dust', color: '#b08968', count: 12 },
-    recipe: { inputs: ['earth', 'life'] },
+    recipe: { inputs: ['toprak', 'yasam'] },
     icon: '🦌',
     category: 'life'
   },
-  fish: {
-    id: 'fish',
+  balik: {
+    id: 'balik',
     name: 'Balık',
     description: 'Üçgen yüzgeçli, turuncu-gümüş renkli köşeli gövdeli sazan.',
     tier: 6,
     colorPalette: { primary: '#f77f00', secondary: '#fcbf49', emissive: '#d62828' },
     particles: { type: 'drop', color: '#f77f00', count: 12 },
-    recipe: { inputs: ['life', 'water'] },
+    recipe: { inputs: ['yasam', 'su'] },
     icon: '🐟',
     category: 'life'
   },
-  rope: {
-    id: 'rope',
+  ip: {
+    id: 'ip',
     name: 'İp',
     description: 'Düğümlenmiş, halka şeklinde sarılı saman sarısı halat rulosu.',
     tier: 5,
     colorPalette: { primary: '#d4a373', secondary: '#e9edc9', emissive: '#bc6c25' },
     particles: { type: 'dust', color: '#d4a373', count: 8 },
-    recipe: { inputs: ['fiber', 'fiber'] },
+    recipe: { inputs: ['lif', 'lif'] },
     icon: '🪢',
     category: 'craft_tools'
   },
-  fabric: {
-    id: 'fabric',
+  kumas: {
+    id: 'kumas',
     name: 'Kumaş',
     description: 'Düzenli katlanmış, kenarları köşeli bej renkli kumaş bezi.',
     tier: 6,
     colorPalette: { primary: '#fefae0', secondary: '#dda15e', emissive: '#b08968' },
     particles: { type: 'dust', color: '#fefae0', count: 10 },
-    recipe: { inputs: ['cotton', 'rope'] },
+    recipe: { inputs: ['pamuk', 'ip'] },
     icon: '🧶',
     category: 'craft_tools'
   },
-  coal: {
-    id: 'coal',
+  komur: {
+    id: 'komur',
     name: 'Kömür',
     description: 'Düzensiz yüzeylere sahip, mat siyah renkli karbon parçası.',
     tier: 5,
     colorPalette: { primary: '#212529', secondary: '#343a40', emissive: '#000000' },
     particles: { type: 'dust', color: '#212529', count: 10 },
-    recipe: { inputs: ['fire', 'tree'] },
+    recipe: { inputs: ['ates', 'agac'] },
     icon: '⬛',
     category: 'craft_tools'
   },
-  ash: {
-    id: 'ash',
+  kul: {
+    id: 'kul',
     name: 'Kül',
     description: 'İçinde sönmeye yüz tutmuş kor parçaları olan gri toz yığını.',
     tier: 6,
     colorPalette: { primary: '#adb5bd', secondary: '#6c757d', emissive: '#e56b6f' },
     particles: { type: 'dust', color: '#adb5bd', count: 15 },
-    recipe: { inputs: ['coal', 'fire'] },
+    recipe: { inputs: ['komur', 'ates'] },
     icon: '💨',
     category: 'craft_tools'
   },
-  paper: {
-    id: 'paper',
+  kagit: {
+    id: 'kagit',
     name: 'Kağıt',
     description: 'Ucu hafif kıvrılmış, açık sarı renkte dikdörtgen parşömen tabakası.',
     tier: 6,
     colorPalette: { primary: '#faedcd', secondary: '#d4a373', emissive: '#ccd5ae' },
     particles: { type: 'dust', color: '#faedcd', count: 8 },
-    recipe: { inputs: ['stone', 'tree', 'water'] },
+    recipe: { inputs: ['tas', 'agac', 'su'] },
     icon: '📜',
     category: 'craft_tools'
   },
-  primitive_knife: {
-    id: 'primitive_knife',
+  ilkel_bicak: {
+    id: 'ilkel_bicak',
     name: 'İlkel Bıçak',
     description: 'Kısa ahşap sapına iple tutturulmuş çakmaktaşı uçlu kaba bıçak.',
     tier: 6,
     colorPalette: { primary: '#7f4f24', secondary: '#343a40', emissive: '#212529' },
     particles: { type: 'spark', color: '#6c757d', count: 8 },
-    recipe: { inputs: ['flint', 'splinter', 'wood'] },
+    recipe: { inputs: ['cakmaktasi', 'kiymik', 'odun'] },
     icon: '🔪',
     category: 'craft_tools'
   },
-  feather: {
-    id: 'feather',
+  kus_tuyu: {
+    id: 'kus_tuyu',
     name: 'Kuş Tüyü',
     description: 'Orta damarı belirgin, ucu beyazdan gök mavisine dönen tüy.',
     tier: 7,
     colorPalette: { primary: '#e0fbfc', secondary: '#98c1d9', emissive: '#3d5a80' },
     particles: { type: 'wind', color: '#e0fbfc', count: 10 },
-    recipe: { inputs: ['bird', 'primitive_knife'] },
+    recipe: { inputs: ['kus', 'ilkel_bicak'] },
     icon: '🪶',
     category: 'craft_tools'
   },
-  leather: {
-    id: 'leather',
+  deri: {
+    id: 'deri',
     name: 'Deri',
     description: 'Kenarları asimetrik kesilmiş, taba rengi işlenmemiş post.',
     tier: 7,
     colorPalette: { primary: '#bc6c25', secondary: '#dda15e', emissive: '#9b5de5' },
     particles: { type: 'dust', color: '#bc6c25', count: 10 },
-    recipe: { inputs: ['animal', 'primitive_knife'] },
+    recipe: { inputs: ['hayvan', 'ilkel_bicak'] },
     icon: '📜',
     category: 'craft_tools'
   },
-  cooked_meat: {
-    id: 'cooked_meat',
+  kavrulmus_et: {
+    id: 'kavrulmus_et',
     name: 'Kavrulmuş Et',
     description: 'Beyaz kemik sapından tutulan, kızarmış kahverengi et butu.',
     tier: 7,
     colorPalette: { primary: '#b05721', secondary: '#f4a261', emissive: '#e76f51' },
     particles: { type: 'spark', color: '#f4a261', count: 12 },
-    recipe: { inputs: ['animal', 'fire'] },
+    recipe: { inputs: ['hayvan', 'ates'] },
     icon: '🍖',
     category: 'craft_tools'
   },
-  pottery: {
-    id: 'pottery',
+  comlek: {
+    id: 'comlek',
     name: 'Çömlek',
     description: 'Geniş göbekli, dar boyunlu kiremit kırmızısı pişmiş kil testi.',
     tier: 5,
     colorPalette: { primary: '#b83321', secondary: '#d9534f', emissive: '#802010' },
     particles: { type: 'dust', color: '#b83321', count: 8 },
-    recipe: { inputs: ['fire', 'mud'] },
+    recipe: { inputs: ['ates', 'camur'] },
     icon: '🏺',
     category: 'craft_tools'
   },
-  water_jug: {
-    id: 'water_jug',
+  su_comlegi: {
+    id: 'su_comlegi',
     name: 'Su Çömleği',
     description: 'Ağzından mavi su yüzeyi görünen, ıslak killi dolgun testi.',
     tier: 6,
     colorPalette: { primary: '#b83321', secondary: '#00bfff', emissive: '#006699' },
     particles: { type: 'drop', color: '#00bfff', count: 10 },
-    recipe: { inputs: ['pottery', 'water'] },
+    recipe: { inputs: ['comlek', 'su'] },
     icon: '🏺',
     category: 'craft_tools'
   },
-  bottle: {
-    id: 'bottle',
+  sise: {
+    id: 'sise',
     name: 'Şişe',
     description: 'Mantar tıpası olan şeffaf, silindirik cam iksir tüpü.',
     tier: 6,
     colorPalette: { primary: '#e0f7fa', secondary: '#a3704c', emissive: '#ffffff' },
     particles: { type: 'shimmer', color: '#ffffff', count: 10 },
-    recipe: { inputs: ['fire', 'glass'] },
+    recipe: { inputs: ['ates', 'cam'] },
     icon: '🧪',
     category: 'craft_tools'
   },
-  flint: {
-    id: 'flint',
+  cakmaktasi: {
+    id: 'cakmaktasi',
     name: 'Çakmaktaşı',
     description: 'Bir kenarı keskinleştirilmiş, koyu antrasit renkli yontma taş.',
     tier: 4,
     colorPalette: { primary: '#343a40', secondary: '#495057', emissive: '#212529' },
     particles: { type: 'spark', color: '#ffffff', count: 12 },
-    recipe: { inputs: ['stone', 'stone'] },
+    recipe: { inputs: ['tas', 'tas'] },
     icon: '🪨',
     category: 'craft_tools'
   },
-  bow: {
-    id: 'bow',
+  yay: {
+    id: 'yay',
     name: 'Yay',
     description: 'Uçları gergin iple birbirine bağlanmış kavisli ahşap av yayı.',
     tier: 7,
     colorPalette: { primary: '#a0522d', secondary: '#f4a261', emissive: '#654321' },
     particles: { type: 'wind', color: '#f4a261', count: 10 },
-    recipe: { inputs: ['rope', 'wood'] },
+    recipe: { inputs: ['ip', 'odun'] },
     icon: '🏹',
     category: 'craft_tools'
   },
-  arrow: {
-    id: 'arrow',
+  ok: {
+    id: 'ok',
     name: 'Ok',
     description: 'Ucunda sivri taş, arkasında tüy bulunan ince tahta ok.',
     tier: 8,
     colorPalette: { primary: '#8b5a2b', secondary: '#e0fbfc', emissive: '#343a40' },
     particles: { type: 'wind', color: '#e0fbfc', count: 10 },
-    recipe: { inputs: ['feather', 'splinter', 'wood'] },
+    recipe: { inputs: ['kus_tuyu', 'kiymik', 'odun'] },
     icon: '🎯',
     category: 'craft_tools'
   },
-  torch: {
-    id: 'torch',
+  mesale: {
+    id: 'mesale',
     name: 'Meşale',
     description: 'Başına beze sarılı reçine geçirilmiş, ucu yanan ahşap meşale.',
     tier: 7,
     colorPalette: { primary: '#8b5a2b', secondary: '#ff4500', emissive: '#ff8c00' },
     particles: { type: 'spark', color: '#ff4500', count: 15 },
-    recipe: { inputs: ['fiber', 'resin', 'wood'] },
+    recipe: { inputs: ['lif', 'recine', 'odun'] },
     icon: '🕯️',
     category: 'craft_tools'
   },
-  raw_metal: {
-    id: 'raw_metal',
+  metal: {
+    id: 'metal',
     name: 'Metal',
     description: 'İçinde parlak gri damarlar parıldayan ergitilmiş taş cevheri.',
     tier: 4,
     colorPalette: { primary: '#adb5bd', secondary: '#6c757d', emissive: '#495057' },
     particles: { type: 'shimmer', color: '#ced4da', count: 12 },
-    recipe: { inputs: ['fire', 'stone'] },
+    recipe: { inputs: ['ates', 'tas'] },
     icon: '🪙',
     category: 'craft_tools'
   },
-  iron_ingot: {
-    id: 'iron_ingot',
+  demir_kulce: {
+    id: 'demir_kulce',
     name: 'Demir Külçe',
     description: 'Pahlanmış kenarlarıyla profesyonel döküm çelik külçe.',
     tier: 5,
     colorPalette: { primary: '#ced4da', secondary: '#adb5bd', emissive: '#6c757d' },
     particles: { type: 'shimmer', color: '#ffffff', count: 15 },
-    recipe: { inputs: ['fire', 'raw_metal', 'stone'] },
+    recipe: { inputs: ['ates', 'metal', 'tas'] },
     icon: '🧱',
     category: 'craft_tools'
   },
-  metal_knife: {
-    id: 'metal_knife',
+  metal_bicak: {
+    id: 'metal_bicak',
     name: 'Metal Bıçak',
     description: 'Deri sarılı kabzası ve çift ağızlı parlak çelik namlulu bıçak.',
     tier: 7,
     colorPalette: { primary: '#dee2e6', secondary: '#bc6c25', emissive: '#495057' },
     particles: { type: 'spark', color: '#dee2e6', count: 10 },
-    recipe: { inputs: ['iron_ingot', 'primitive_knife', 'wood'] },
+    recipe: { inputs: ['demir_kulce', 'ilkel_bicak', 'odun'] },
     icon: '🗡️',
     category: 'craft_tools'
   },
-  pickaxe: {
-    id: 'pickaxe',
+  kazma: {
+    id: 'kazma',
     name: 'Kazma',
     description: 'Masif ahşap sapa monte edilmiş kavisli çift taraflı demir uç.',
     tier: 6,
     colorPalette: { primary: '#adb5bd', secondary: '#8b5a2b', emissive: '#495057' },
     particles: { type: 'dust', color: '#adb5bd', count: 10 },
-    recipe: { inputs: ['iron_ingot', 'stone', 'wood'] },
+    recipe: { inputs: ['demir_kulce', 'tas', 'odun'] },
     icon: '⛏️',
     category: 'craft_tools'
   },
-  sword: {
-    id: 'sword',
+  kilic: {
+    id: 'kilic',
     name: 'Kılıç',
     description: 'Çapraz korumalığı, deri kabzası ve parıldayan kesici gövdesi.',
     tier: 7,
     colorPalette: { primary: '#e9ecef', secondary: '#bc6c25', emissive: '#6c757d' },
     particles: { type: 'spark', color: '#ffffff', count: 18 },
-    recipe: { inputs: ['coal', 'iron_ingot', 'wood'] },
+    recipe: { inputs: ['komur', 'demir_kulce', 'odun'] },
     icon: '⚔️',
     category: 'craft_tools'
   },
-  wooden_shield: {
-    id: 'wooden_shield',
+  ahsap_kalkan: {
+    id: 'ahsap_kalkan',
     name: 'Ahşap Kalkan',
     description: 'Tahta kalaslardan birleştirilmiş, kenarları ham deri kalkan.',
     tier: 7,
     colorPalette: { primary: '#8b5a2b', secondary: '#bc6c25', emissive: '#5c4033' },
     particles: { type: 'dust', color: '#8b5a2b', count: 10 },
-    recipe: { inputs: ['leather', 'wood', 'wood'] },
+    recipe: { inputs: ['deri', 'odun', 'odun'] },
     icon: '🛡️',
     category: 'craft_tools'
   },
-  iron_shield: {
-    id: 'iron_shield',
+  demir_kalkan: {
+    id: 'demir_kalkan',
     name: 'Demir Kalkan',
     description: 'Perçin detaylı, parlatılmış damla formunda çelik kalkan.',
     tier: 8,
     colorPalette: { primary: '#ced4da', secondary: '#495057', emissive: '#adb5bd' },
     particles: { type: 'shimmer', color: '#ffffff', count: 12 },
-    recipe: { inputs: ['iron_ingot', 'wooden_shield'] },
+    recipe: { inputs: ['demir_kulce', 'ahsap_kalkan'] },
     icon: '🛡️',
     category: 'craft_tools'
   },
-  leather_armor: {
-    id: 'leather_armor',
+  deri_zirh: {
+    id: 'deri_zirh',
     name: 'Deri Zırh',
     description: 'İplerle dikişlenmiş, omuzları tokalı kahverengi yelek zırh.',
     tier: 7,
     colorPalette: { primary: '#bc6c25', secondary: '#dda15e', emissive: '#7f5539' },
     particles: { type: 'dust', color: '#bc6c25', count: 10 },
-    recipe: { inputs: ['leather', 'rope'] },
+    recipe: { inputs: ['deri', 'ip'] },
     icon: '🦺',
     category: 'craft_tools'
   },
-  iron_armor: {
-    id: 'iron_armor',
+  demir_zirh: {
+    id: 'demir_zirh',
     name: 'Demir Zırh',
     description: 'Parlak çelik göğüs plakası ve omuzluklardan oluşan ağır zırh.',
     tier: 8,
     colorPalette: { primary: '#ced4da', secondary: '#adb5bd', emissive: '#495057' },
     particles: { type: 'shimmer', color: '#ffffff', count: 15 },
-    recipe: { inputs: ['iron_ingot', 'iron_ingot', 'leather'] },
+    recipe: { inputs: ['demir_kulce', 'demir_kulce', 'deri'] },
     icon: '🛡️',
     category: 'craft_tools'
   },
-  bed: {
-    id: 'bed',
+  yatak: {
+    id: 'yatak',
     name: 'Yatak',
     description: 'Ahşap ayaklı, üzerinde beyaz yastık ve renkli örtü olan yatak.',
     tier: 8,
     colorPalette: { primary: '#8b5a2b', secondary: '#ffffff', emissive: '#e76f51' },
     particles: { type: 'cloud', color: '#ffffff', count: 12 },
-    recipe: { inputs: ['fabric', 'feather', 'rope'] },
+    recipe: { inputs: ['kumas', 'kus_tuyu', 'ip'] },
     icon: '🛏️',
     category: 'craft_tools'
   },
@@ -1511,17 +1511,7 @@ export const ITEM_DEFINITIONS = {
     icon: '⚡',
     category: 9
   },
-  enerji_kalkani: {
-    id: 'enerji_kalkani',
-    name: 'Enerji Kalkanı',
-    description: 'Heksagonal kuvvet alanı üreten koruyucu kubbe emitörü.',
-    tier: 9,
-    colorPalette: { primary: '#0284c7', secondary: '#67e8f9', emissive: '#06b6d4' },
-    particles: { type: 'ring', color: '#22d3ee', count: 22 },
-    recipe: { inputs: ['celik_kulce', 'enerji', 'siber_kristal'] },
-    icon: '🌐',
-    category: 9
-  },
+
   kuantum_islemci: {
     id: 'kuantum_islemci',
     name: 'Kuantum İşlemci',
@@ -1892,24 +1882,13 @@ export const ITEM_DEFINITIONS = {
   },
   cam_agaci: {
     id: 'cam_agaci',
-    name: 'Çam Ağacı',
-    description: 'Karlı dağ yamaçlarında kışın da yeşil kalan iğne yapraklı ağaç.',
+    name: 'Karlı Çam Ağacı',
+    description: 'Karlı dağ yamaçlarında kışın da beyaz karlar altında dimdik duran çam ağacı.',
     tier: 2,
-    colorPalette: { primary: '#166534', secondary: '#15803d', emissive: '#14532d' },
-    particles: { type: 'leaf', color: '#4ade80', count: 12 },
+    colorPalette: { primary: '#166534', secondary: '#f8fafc', emissive: '#14532d' },
+    particles: { type: 'cloud', color: '#f8fafc', count: 12 },
     recipe: { inputs: ['agac', 'kar', null] },
     icon: '🌲',
-    category: 'nature'
-  },
-  mese_agaci: {
-    id: 'mese_agaci',
-    name: 'Meşe Ağacı',
-    description: 'Toprağa derin kökler salan gür yapraklı ulu ağaç.',
-    tier: 2,
-    colorPalette: { primary: '#14532d', secondary: '#166534', emissive: '#052e16' },
-    particles: { type: 'leaf', color: '#22c55e', count: 12 },
-    recipe: { inputs: ['agac', 'toprak', null] },
-    icon: '🌳',
     category: 'nature'
   },
   tavuk: {
@@ -2024,46 +2003,62 @@ export const ITEM_DEFINITIONS = {
   }
 };
 
-// Aliases mapping between Turkish recipe IDs and original internal item IDs
+// Aliases mapping from legacy English IDs to canonical ASCII Turkish item IDs
 export const ITEM_ALIASES = {
-  mantar: 'mushroom',
-  su_comlegi: 'water_jug',
-  sise: 'bottle',
-  kilic: 'sword',
-  bitki: 'plant',
-  enerji: 'energy',
-  komur: 'coal',
-  kul: 'ash',
-  recine: 'resin',
-  demir_kulce: 'iron_ingot',
-  ip: 'rope',
-  kagit: 'paper',
-  kus_tuyu: 'feather',
-  yildirim: 'lightning',
-  ates: 'fire',
-  su: 'water',
-  toprak: 'earth',
-  hava: 'air',
-  buhar: 'steam',
-  odun: 'wood',
-  tas: 'stone',
-  cam: 'glass',
-  metal: 'raw_metal',
-  camur: 'mud',
-  kum: 'sand',
-  kazma: 'pickaxe',
-  demir_zirh: 'iron_armor',
-  yagmur: 'rain',
-  lav: 'lava',
-  ruzgar: 'wind',
-  agac: 'tree',
-  metal_bicak: 'metal_knife',
-  hayvan: 'animal',
-  comlek: 'pottery',
-  kus: 'bird',
-  balik: 'fish',
-  kumas: 'fabric',
-  obsidyen: 'obsidian'
+  fire: 'ates',
+  water: 'su',
+  earth: 'toprak',
+  air: 'hava',
+  steam: 'buhar',
+  mud: 'camur',
+  lava: 'lav',
+  sand: 'kum',
+  obsidian: 'obsidyen',
+  rain: 'yagmur',
+  energy: 'enerji',
+  wind: 'ruzgar',
+  stone: 'tas',
+  glass: 'cam',
+  cloud: 'bulut',
+  lightning: 'yildirim',
+  plant: 'bitki',
+  tree: 'agac',
+  wood: 'odun',
+  splinter: 'kiymik',
+  fiber: 'lif',
+  mushroom: 'mantar',
+  cotton: 'pamuk',
+  resin: 'recine',
+  life: 'yasam',
+  bird: 'kus',
+  animal: 'hayvan',
+  fish: 'balik',
+  rope: 'ip',
+  fabric: 'kumas',
+  coal: 'komur',
+  ash: 'kul',
+  paper: 'kagit',
+  primitive_knife: 'ilkel_bicak',
+  feather: 'kus_tuyu',
+  leather: 'deri',
+  cooked_meat: 'kavrulmus_et',
+  pottery: 'comlek',
+  water_jug: 'su_comlegi',
+  bottle: 'sise',
+  flint: 'cakmaktasi',
+  bow: 'yay',
+  arrow: 'ok',
+  torch: 'mesale',
+  raw_metal: 'metal',
+  iron_ingot: 'demir_kulce',
+  metal_knife: 'metal_bicak',
+  pickaxe: 'kazma',
+  sword: 'kilic',
+  wooden_shield: 'ahsap_kalkan',
+  iron_shield: 'demir_kalkan',
+  leather_armor: 'deri_zirh',
+  iron_armor: 'demir_zirh',
+  bed: 'yatak'
 };
 
 export function getCanonicalId(id) {
@@ -2072,10 +2067,10 @@ export function getCanonicalId(id) {
 }
 
 // Map alias keys directly on ITEM_DEFINITIONS for fast lookup
-Object.keys(ITEM_ALIASES).forEach(trKey => {
-  const targetId = ITEM_ALIASES[trKey];
-  if (ITEM_DEFINITIONS[targetId] && !ITEM_DEFINITIONS[trKey]) {
-    ITEM_DEFINITIONS[trKey] = ITEM_DEFINITIONS[targetId];
+Object.keys(ITEM_ALIASES).forEach(enKey => {
+  const targetId = ITEM_ALIASES[enKey];
+  if (ITEM_DEFINITIONS[targetId] && !ITEM_DEFINITIONS[enKey]) {
+    ITEM_DEFINITIONS[enKey] = ITEM_DEFINITIONS[targetId];
   }
 });
 
@@ -2189,7 +2184,7 @@ export const RECIPES_CAT_9 = [
   { inputs: ["celik_kulce", "elektrik_motoru", "siber_kristal"], output: "biyonik_kol", category: 9 },
   { inputs: ["pusula", "teleskop", "yildiz_tozu"], output: "usturlap", category: 9 },
   { inputs: ["celik_kulce", "elektrik_motoru", "yildirim"], output: "tesla_bobini", category: 9 },
-  { inputs: ["celik_kulce", "enerji", "siber_kristal"], output: "enerji_kalkani", category: 9 },
+
   { inputs: ["elektrik_motoru", "prizma_tasi", "siber_kristal"], output: "kuantum_islemci", category: 9 },
   { inputs: ["bosluk_sisesi", "yildiz_gecidi_cekirdegi", "yildiz_tozu"], output: "minyatur_yildiz", category: 9 }
 ];
@@ -2233,7 +2228,6 @@ export const RECIPES_CAT_SIMPLE = [
   { inputs: ["ates", "toprak", "su"], output: "gayzer", category: 1 },
   { inputs: ["bitki", "kum", null], output: "kaktus", category: 2 },
   { inputs: ["agac", "kar", null], output: "cam_agaci", category: 2 },
-  { inputs: ["agac", "toprak", null], output: "mese_agaci", category: 2 },
   { inputs: ["kus", "yumurta", null], output: "tavuk", category: 3 },
   { inputs: ["hayvan", "sut", null], output: "kedi", category: 3 },
   { inputs: ["ates", "odun", null], output: "mesale", category: 4 },

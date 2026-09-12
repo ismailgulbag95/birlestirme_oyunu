@@ -1,12 +1,15 @@
 import gsap from 'gsap';
 import { ITEM_DEFINITIONS } from '../items/itemDefinitions.js';
+import { i18n } from '../i18n/translations.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
     this.onCleanup = onCleanup; // () => void
+    this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
+    this.currentCharacterId = 'character2';
     this.filterCategory = 'all'; // 'all', 'elements', 'nature', 'life', 'craft_tools'
     this.sortMode = 'discovery'; // 'discovery', 'category'
     this.searchQuery = '';
@@ -251,28 +254,72 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* Temizlik Butonu */
-      #cleanup-btn {
+      /* Temizlik ve Karakter Butonları Barı */
+      #bottom-action-bar {
         position: absolute;
         bottom: 24px;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(239, 68, 68, 0.85);
-        backdrop-filter: blur(8px);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        pointer-events: auto;
+        z-index: 15;
+      }
+
+      .action-pill-btn {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         color: white;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 10px 20px;
-        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 10px 18px;
+        border-radius: 24px;
         font-size: 13px;
         font-weight: 700;
         cursor: pointer;
-        pointer-events: auto;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        user-select: none;
       }
 
-      #cleanup-btn:active {
-        transform: translateX(-50%) scale(0.92);
+      .action-pill-btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .action-pill-btn:active {
+        transform: scale(0.94);
+      }
+
+      #cleanup-btn {
+        background: rgba(239, 68, 68, 0.85);
+      }
+
+      #cleanup-btn:hover {
+        background: rgba(239, 68, 68, 1);
+      }
+
+      #character-switch-btn {
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.85), rgba(147, 51, 234, 0.85));
+        border: 1px solid rgba(167, 139, 250, 0.4);
+      }
+
+      #character-switch-btn:hover {
+        background: linear-gradient(135deg, rgba(79, 70, 229, 1), rgba(147, 51, 234, 1));
+        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+      }
+
+      #lang-toggle-btn {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(59, 130, 246, 0.85));
+        border: 1px solid rgba(125, 211, 252, 0.4);
+      }
+
+      #lang-toggle-btn:hover {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 1), rgba(59, 130, 246, 1));
+        box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
       }
 
       /* Ad Modal */
@@ -401,8 +448,8 @@ export class UIManager {
       <div id="left-drawer">
         <div id="drawer-toggle">☰</div>
         <div class="drawer-header">
-          <span>💡 İpuçları</span>
-          <span class="hint-badge" id="hint-rights-badge">Hak: 3</span>
+          <span id="drawer-hints-title">${i18n.t('hints_title')}</span>
+          <span class="hint-badge" id="hint-rights-badge">${i18n.t('hint_rights', { n: 3 })}</span>
         </div>
         <div class="drawer-content" id="drawer-hints-list">
           <!-- Kilitli eşyalar dinamik yüklenecek -->
@@ -411,10 +458,10 @@ export class UIManager {
 
       <div id="right-panel">
         <div id="inv-controls" style="display: flex; flex-direction: column; gap: 5px; width: 100%; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-          <input type="text" id="item-search-input" placeholder="🔍 Ara..." autocomplete="off" spellcheck="false">
+          <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
           <div style="display: flex; gap: 3px; width: 100%;">
-            <button id="filter-btn" title="Kategoriye Göre Filtrele" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">📁 Tümü</button>
-            <button id="sort-btn" title="Sıralama Şekli" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">⏳ Keşif</button>
+            <button id="filter-btn" title="Filter by Category" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getFilterLabel('all')}</button>
+            <button id="sort-btn" title="Sort Order" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getSortLabel('discovery')}</button>
           </div>
         </div>
         <div id="inv-items-container">
@@ -422,22 +469,26 @@ export class UIManager {
         </div>
       </div>
 
-      <button id="cleanup-btn">🧹 Temizlik</button>
+      <div id="bottom-action-bar">
+        <button id="cleanup-btn" class="action-pill-btn">${i18n.t('cleanup')}</button>
+        <button id="character-switch-btn" class="action-pill-btn">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
+        <button id="lang-toggle-btn" class="action-pill-btn">${i18n.t('lang_btn')}</button>
+      </div>
 
       <div id="discovery-banner">
         <div class="discovery-icon" id="discovery-icon"></div>
         <div>
-          <div class="discovery-title" id="discovery-title">Yeni Keşif</div>
-          <div class="discovery-desc" id="discovery-desc">Keşfedilen nesne açıklaması...</div>
+          <div class="discovery-title" id="discovery-title">${i18n.t('discovery_title')}</div>
+          <div class="discovery-desc" id="discovery-desc">...</div>
         </div>
       </div>
 
       <div id="ad-modal">
         <div class="ad-box">
-          <h3>📺 Reklam İzle</h3>
-          <p>İpucu hakkınız bitti! Kısa bir reklam izleyerek hemen +1 İpucu kazanabilirsiniz.</p>
-          <button class="ad-btn" id="watch-ad-btn">Reklamı İzle (+1 İpucu)</button>
-          <button class="ad-close" id="close-ad-btn">Vazgeç</button>
+          <h3 id="ad-title">${i18n.t('ad_title')}</h3>
+          <p id="ad-desc">${i18n.t('ad_desc')}</p>
+          <button class="ad-btn" id="watch-ad-btn">${i18n.t('ad_watch_btn')}</button>
+          <button class="ad-close" id="close-ad-btn">${i18n.t('ad_cancel_btn')}</button>
         </div>
       </div>
     `;
@@ -445,6 +496,89 @@ export class UIManager {
 
     this._setupDrawerLogic();
     this._setupInventoryControls();
+    this._setupLanguageToggle();
+  }
+
+  _getFilterLabel(cat) {
+    const map = {
+      all: 'all_categories',
+      elements: 'cat_elements',
+      nature: 'cat_nature',
+      life: 'cat_life',
+      craft_tools: 'cat_craft_tools',
+      5: 'cat_5',
+      6: 'cat_6',
+      7: 'cat_7',
+      8: 'cat_8',
+      9: 'cat_9',
+      10: 'cat_10'
+    };
+    const key = map[cat] || 'all_categories';
+    return i18n.t(key);
+  }
+
+  _getSortLabel(mode) {
+    return mode === 'category' ? i18n.t('sort_category') : i18n.t('sort_discovery');
+  }
+
+  _setupLanguageToggle() {
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => {
+        i18n.toggleLanguage();
+        this._updateUILanguage();
+      });
+    }
+
+    i18n.onLanguageChange(() => {
+      this._updateUILanguage();
+    });
+  }
+
+  _updateUILanguage() {
+    // 1. Language button label
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) langBtn.textContent = i18n.t('lang_btn');
+
+    // 2. Action buttons
+    const cleanupBtn = document.getElementById('cleanup-btn');
+    if (cleanupBtn) cleanupBtn.textContent = i18n.t('cleanup');
+
+    const charBtn = document.getElementById('character-switch-btn');
+    if (charBtn) {
+      charBtn.textContent = this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+    }
+
+    // 3. Search placeholder
+    const searchInput = document.getElementById('item-search-input');
+    if (searchInput) searchInput.placeholder = i18n.t('search_placeholder');
+
+    // 4. Filter & Sort buttons
+    const filterBtn = document.getElementById('filter-btn');
+    if (filterBtn) filterBtn.textContent = this._getFilterLabel(this.filterCategory);
+
+    const sortBtn = document.getElementById('sort-btn');
+    if (sortBtn) sortBtn.textContent = this._getSortLabel(this.sortMode);
+
+    // 5. Drawer header
+    const hintsTitle = document.getElementById('drawer-hints-title');
+    if (hintsTitle) hintsTitle.textContent = i18n.t('hints_title');
+
+    // 6. Ad modal
+    const adTitle = document.getElementById('ad-title');
+    if (adTitle) adTitle.textContent = i18n.t('ad_title');
+    const adDesc = document.getElementById('ad-desc');
+    if (adDesc) adDesc.textContent = i18n.t('ad_desc');
+    const watchAdBtn = document.getElementById('watch-ad-btn');
+    if (watchAdBtn) watchAdBtn.textContent = i18n.t('ad_watch_btn');
+    const closeAdBtn = document.getElementById('close-ad-btn');
+    if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
+
+    // 7. Refresh inventory and hints
+    this._populateInventory();
+    if (this._lastHintsArgs) {
+      this.populateHints(...this._lastHintsArgs);
+    }
   }
 
   _setupDrawerLogic() {
@@ -462,6 +596,20 @@ export class UIManager {
       }
     });
 
+    const charBtn = document.getElementById('character-switch-btn');
+    if (charBtn) {
+      charBtn.addEventListener('click', () => {
+        // character1 <-> character2 değişimi
+        this.currentCharacterId = this.currentCharacterId === 'character2' ? 'character1' : 'character2';
+        const label = this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+        charBtn.textContent = label;
+
+        if (this.onCharacterSwitch) {
+          this.onCharacterSwitch(this.currentCharacterId);
+        }
+      });
+    }
+
     document.getElementById('close-ad-btn').addEventListener('click', () => {
       document.getElementById('ad-modal').style.display = 'none';
     });
@@ -471,61 +619,56 @@ export class UIManager {
     const filterBtn = document.getElementById('filter-btn');
     const sortBtn = document.getElementById('sort-btn');
 
-    const filters = ['all', 'elements', 'nature', 'life', 'craft_tools', 5, 6, 7, 8];
-    const filterLabels = {
-      all: '📁 Tümü',
-      elements: '🔥 Element',
-      nature: '🌱 Doğa',
-      life: '🧬 Canlı',
-      craft_tools: '⚔️ Zanaat',
-      5: '🧪 Simya & Büyü',
-      6: '⚙️ Mekanik',
-      7: '🏗️ Ağır Sanayi',
-      8: '🌌 Kozmoloji & Boyut'
-    };
+    const filters = ['all', 'elements', 'nature', 'life', 'craft_tools', 5, 6, 7, 8, 9, 10];
 
     filterBtn.addEventListener('click', () => {
       const idx = filters.indexOf(this.filterCategory);
       this.filterCategory = filters[(idx + 1) % filters.length];
-      filterBtn.textContent = filterLabels[this.filterCategory] || '📁 Tümü';
+      filterBtn.textContent = this._getFilterLabel(this.filterCategory);
       this._populateInventory();
     });
 
     const sorts = ['discovery', 'category'];
-    const sortLabels = {
-      discovery: '⏳ Keşif',
-      category: '📂 Kategori'
-    };
 
     sortBtn.addEventListener('click', () => {
       const idx = sorts.indexOf(this.sortMode);
       this.sortMode = sorts[(idx + 1) % sorts.length];
-      sortBtn.textContent = sortLabels[this.sortMode];
+      sortBtn.textContent = this._getSortLabel(this.sortMode);
       this._populateInventory();
     });
 
     const searchInput = document.getElementById('item-search-input');
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
-        this.searchQuery = e.target.value.trim().toLocaleLowerCase('tr');
+        this.searchQuery = e.target.value.trim().toLowerCase();
         this._populateInventory();
       });
     }
   }
 
   updateHintRights(rights) {
+    this._lastHintRights = rights;
     const badge = document.getElementById('hint-rights-badge');
-    if (badge) badge.textContent = `Hak: ${rights}`;
+    if (badge) badge.textContent = i18n.t('hint_rights', { n: rights });
+  }
+
+  updateCharacterButton(characterId) {
+    this.currentCharacterId = characterId;
+    const charBtn = document.getElementById('character-switch-btn');
+    if (charBtn) {
+      charBtn.textContent = characterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+    }
   }
 
   populateHints(discoveredItems, lockedItems, hintSystem) {
+    this._lastHintsArgs = [discoveredItems, lockedItems, hintSystem];
     const list = document.getElementById('drawer-hints-list');
     list.innerHTML = '';
 
     const craftableItems = hintSystem.getCraftableLockedItems(discoveredItems, lockedItems);
 
     if (craftableItems.length === 0) {
-      list.innerHTML = '<p style="text-align: center; color: #94a3b8; font-size: 12px; padding: 10px;">Şu an keşfedilebilir yeni ipucu yok. Farklı kombinasyonlar deneyin!</p>';
+      list.innerHTML = `<p style="text-align: center; color: #94a3b8; font-size: 12px; padding: 10px;">${i18n.t('hint_no_craftable')}</p>`;
       return;
     }
 
@@ -533,6 +676,7 @@ export class UIManager {
       const def = ITEM_DEFINITIONS[itemId];
       if (!def) return;
 
+      const localizedName = i18n.getItemName(itemId, def.name);
       const hintObj = hintSystem.getHint(itemId);
       const canUse = hintSystem.canUseHint(itemId);
       const isNamed = hintObj.level > 0;
@@ -547,14 +691,14 @@ export class UIManager {
       const iconShadow = isNamed ? `0 0 10px ${def.colorPalette?.primary || '#38bdf8'}` : 'none';
       const iconBg = isNamed ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.35)';
 
-      const iconHtml = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
+      const iconHtml = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
 
       card.innerHTML = `
         <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${iconBg}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
         <div style="flex: 1; min-width: 0;">
-          <h4 style="font-size: 13px; color: #f8fafc; margin-bottom: 2px;">${isNamed ? def.name : '???'}</h4>
+          <h4 style="font-size: 13px; color: #f8fafc; margin-bottom: 2px;">${isNamed ? localizedName : '???'}</h4>
           <p style="font-size: 11px; color: #94a3b8; margin-bottom: 6px; line-height: 1.4;">${hintObj.text}</p>
-          ${canUse ? `<button class="hint-btn" data-id="${itemId}">İpucu Al (-1 Hak)</button>` : '<span style="font-size:11px; color:#10b981; font-weight:600;">✓ Tam İpucu Açık</span>'}
+          ${canUse ? `<button class="hint-btn" data-id="${itemId}">${i18n.t('hint_get')}</button>` : `<span style="font-size:11px; color:#10b981; font-weight:600;">${i18n.t('hint_opened')}</span>`}
         </div>
       `;
 
@@ -592,10 +736,13 @@ export class UIManager {
     let filtered = targetIds.filter(id => {
       const def = ITEM_DEFINITIONS[id];
       if (!def) return false;
+      const localizedName = i18n.getItemName(id, def.name);
+
       // Search Query filter
       if (this.searchQuery) {
-        const itemName = (def.name || '').toLocaleLowerCase('tr');
-        if (!itemName.includes(this.searchQuery)) {
+        const query = this.searchQuery;
+        const nameMatches = localizedName.toLowerCase().includes(query) || (def.name || '').toLowerCase().includes(query);
+        if (!nameMatches) {
           return false;
         }
       }
@@ -619,7 +766,7 @@ export class UIManager {
 
     // Sort
     if (this.sortMode === 'category') {
-      const catOrder = { elements: 1, nature: 2, life: 3, craft_tools: 4, 5: 5, '5': 5, 6: 6, '6': 6, 7: 7, '7': 7, 8: 8, '8': 8 };
+      const catOrder = { elements: 1, nature: 2, life: 3, craft_tools: 4, 5: 5, '5': 5, 6: 6, '6': 6, 7: 7, '7': 7, 8: 8, '8': 8, 9: 9, '9': 9, 10: 10, '10': 10 };
       filtered.sort((a, b) => {
         const catA = catOrder[ITEM_DEFINITIONS[a]?.category] || 99;
         const catB = catOrder[ITEM_DEFINITIONS[b]?.category] || 99;
@@ -634,14 +781,15 @@ export class UIManager {
     filtered.forEach(id => {
       const def = ITEM_DEFINITIONS[id];
       if (!def) return;
+      const localizedName = i18n.getItemName(id, def.name);
 
       const btn = document.createElement('div');
       btn.className = 'item-icon-btn';
       btn.innerHTML = `
         <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
-          <img src="/textures/items/${id}.png" class="item-img-icon" alt="${def.name}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
+          <img src="/textures/items/${id}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
         </div>
-        <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${def.name}</span>
+        <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${localizedName}</span>
       `;
 
       btn.addEventListener('click', () => {
@@ -666,15 +814,18 @@ export class UIManager {
 
     if (!banner || !iconEl || !titleEl || !descEl) return;
 
-    // Simge ve görsel (varsayılan yedek ilk harf veya boş)
-    iconEl.innerHTML = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${def.name}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${def.name ? def.name[0].toUpperCase() : ''}</span>';">`;
+    const localizedName = i18n.getItemName(itemId, def.name);
+    const localizedDesc = i18n.getItemDescription(itemId, def.description);
+
+    // Simge ve görsel
+    iconEl.innerHTML = `<img src="/textures/items/${itemId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${localizedName ? localizedName[0].toUpperCase() : ''}</span>';">`;
     if (def.colorPalette?.primary) {
       iconEl.style.boxShadow = `0 0 16px ${def.colorPalette.primary}`;
     }
 
-    // Başlık ve açıklama (emoji yok)
-    titleEl.innerHTML = `Yeni Keşif: <span style="color: #67e8f9; margin-left: 4px;">"${def.name}"</span>`;
-    descEl.textContent = def.description || 'Yeni bir element veya nesne ortaya çıkardın.';
+    // Başlık ve açıklama
+    titleEl.innerHTML = `${i18n.t('discovery_title')}: <span style="color: #67e8f9; margin-left: 4px;">"${localizedName}"</span>`;
+    descEl.textContent = localizedDesc;
 
     // Önceki zamanlayıcı varsa temizle
     if (this._discoveryTimeout) {

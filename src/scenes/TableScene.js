@@ -2,15 +2,44 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 export class TableScene {
-  constructor(sceneManager) {
+  constructor(sceneManager, initialCharacterId = 'character2') {
     this.sceneManager = sceneManager;
     this.group = new THREE.Group();
     this.slots = [];
     this.mixer = null;
     this.clock = new THREE.Clock();
+    this.characters = {
+      character1: {
+        id: 'character1',
+        name: 'Simyacı Çırağı',
+        modelPath: '/models/character.glb',
+        scale: 6.5,
+        position: [0, -1.0, -1.8],
+        gltf: null,
+        model: null,
+        mixer: null,
+        actions: {}
+      },
+      character2: {
+        id: 'character2',
+        name: 'Gözlemci',
+        modelPath: '/models/character2.glb',
+        scale: 3.9,
+        position: [0, -1.0, -1.8],
+        gltf: null,
+        model: null,
+        mixer: null,
+        actions: {}
+      }
+    };
+    this.activeCharacterId = initialCharacterId;
+    this.activeCharacterModel = null;
+    this.currentAction = null;
+    this.isTalking = false;
+    this.talkTimeout = null;
 
     this._buildTable();
-    this._loadCharacterModel();
+    this._loadCharacter(this.activeCharacterId);
     this._buildSlots();
 
     this.sceneManager.add(this.group);
@@ -158,41 +187,211 @@ export class TableScene {
     });
   }
 
-  _loadCharacterModel() {
+  _loadCharacter(charId) {
+    const config = this.characters[charId];
+    if (!config) return;
+
+    // Eğer önceki model sahnede ise kaldır
+    if (this.activeCharacterModel) {
+      this.group.remove(this.activeCharacterModel);
+      this.activeCharacterModel = null;
+      this.mixer = null;
+    }
+
+    // Eğer daha önce yüklendiyse önbellekten kullan
+    if (config.model && config.mixer) {
+      this.activeCharacterId = charId;
+      this.activeCharacterModel = config.model;
+      this.activeCharacterModel.scale.set(config.scale, config.scale, config.scale);
+      this.activeCharacterModel.position.set(...config.position);
+      this.mixer = config.mixer;
+      this.group.add(this.activeCharacterModel);
+      this._playAction(config, 'Sitting_Idle');
+      return;
+    }
+
     const loader = new GLTFLoader();
     loader.load(
-      '/models/character.glb',
+      config.modelPath,
       (gltf) => {
         const model = gltf.scene;
-        model.position.set(0, -1.0, -1.8);
-        model.scale.set(6.5, 6.5, 6.5);
+        model.position.set(...config.position);
+        model.scale.set(config.scale, config.scale, config.scale);
         model.traverse(child => {
           if (child.isMesh) {
             child.castShadow = true;
             child.receiveShadow = true;
           }
+          child.userData.isCharacter = true;
+          child.userData.characterId = charId;
         });
-        this.group.add(model);
+
+        config.gltf = gltf;
+        config.model = model;
+        config.mixer = new THREE.AnimationMixer(model);
+        config.actions = {};
 
         if (gltf.animations && gltf.animations.length > 0) {
-          this.mixer = new THREE.AnimationMixer(model);
-          const action = this.mixer.clipAction(gltf.animations[0]);
-          action.play();
+          gltf.animations.forEach(clip => {
+            const action = config.mixer.clipAction(clip);
+            config.actions[clip.name] = action;
+          });
         }
-        console.log("Özel 3D karakter modeli (character.glb) başarıyla yüklendi!");
+
+        // Eğer hala aktif karakter bu ise sahneye ekle
+        if (this.activeCharacterId === charId) {
+          this.activeCharacterModel = model;
+          this.mixer = config.mixer;
+          this.group.add(model);
+          this._playAction(config, 'Sitting_Idle');
+        }
+
+        console.log(`3D karakter (${config.name}) başarıyla yüklendi!`);
       },
       undefined,
       (error) => {
-        console.warn("Özel karakter yüklenemedi. Procedural placeholder karakter kullanılıyor.", error);
+        console.warn(`Karakter (${config.name}) yüklenemedi. Procedural karakter kullanılıyor.`, error);
         this._buildCharacterPlaceholder();
       }
     );
+  }
+
+  _playAction(config, clipName, loop = THREE.LoopRepeat, duration = 0.3) {
+    if (!config || !config.actions) return;
+
+    let targetAction = config.actions[clipName];
+    // Eğer istenen isim yoksa ilk animasyonu al
+    if (!targetAction && Object.keys(config.actions).length > 0) {
+      targetAction = Object.values(config.actions)[0];
+    }
+    if (!targetAction) return;
+
+    if (this.currentAction && this.currentAction !== targetAction) {
+      targetAction.reset();
+      targetAction.setLoop(loop);
+      targetAction.play();
+      this.currentAction.crossFadeTo(targetAction, duration, true);
+    } else {
+      targetAction.reset();
+      targetAction.setLoop(loop);
+      targetAction.play();
+    }
+    this.currentAction = targetAction;
+  }
+
+  playTalkingAnimation() {
+    const config = this.characters[this.activeCharacterId];
+    if (!config || !config.actions) return;
+
+    const talkingAction = config.actions['Sitting_Talking'];
+    if (!talkingAction) {
+      // Modelde konuşma animasyonu yoksa (örneğin Karakter 1) küçük bir tepki ver
+      if (this.activeCharacterModel) {
+        gsap.to(this.activeCharacterModel.position, {
+          y: -0.9,
+          duration: 0.15,
+          yoyo: true,
+          repeat: 3,
+          ease: 'power1.inOut',
+          onComplete: () => {
+            this.activeCharacterModel.position.set(...config.position);
+          }
+        });
+      }
+      return;
+    }
+
+    if (this.talkTimeout) {
+      clearTimeout(this.talkTimeout);
+      this.talkTimeout = null;
+    }
+
+    this.isTalking = true;
+    talkingAction.reset();
+    talkingAction.setLoop(THREE.LoopRepeat);
+    talkingAction.clampWhenFinished = false;
+    talkingAction.play();
+
+    if (this.currentAction && this.currentAction !== talkingAction) {
+      this.currentAction.crossFadeTo(talkingAction, 0.25, true);
+    }
+    this.currentAction = talkingAction;
+
+    // Konuşma animasyonunu 2.8 saniye oynattıktan sonra tekrar Sitting_Idle'a yumuşak geçiş yap
+    this.talkTimeout = setTimeout(() => {
+      this.isTalking = false;
+      this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.4);
+      this.talkTimeout = null;
+    }, 2800);
+  }
+
+  playDeathAnimation() {
+    const config = this.characters[this.activeCharacterId];
+    if (!config || !config.actions) return;
+
+    // Model 3'teki 3. animasyon (Death_D)
+    const deathAction = config.actions['Death_D'] || Object.values(config.actions).find(a => a.getClip().name.toLowerCase().includes('death'));
+    if (!deathAction) {
+      console.warn("Karakterde ölüm (Death) animasyonu bulunamadı.");
+      return;
+    }
+
+    if (this.talkTimeout) {
+      clearTimeout(this.talkTimeout);
+      this.talkTimeout = null;
+    }
+
+    this.isTalking = false;
+    deathAction.reset();
+    deathAction.setLoop(THREE.LoopOnce);
+    deathAction.clampWhenFinished = true;
+    deathAction.play();
+
+    if (this.currentAction && this.currentAction !== deathAction) {
+      this.currentAction.crossFadeTo(deathAction, 0.3, true);
+    }
+    this.currentAction = deathAction;
+
+    // Ölüm animasyonu sonrası (örneğin 4.5 saniye sonra) tekrar hayata dönüp oturma/salınım durumuna geç
+    this.talkTimeout = setTimeout(() => {
+      this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.6);
+      this.talkTimeout = null;
+    }, 4500);
+  }
+
+  switchCharacter(charId) {
+    if (!this.characters[charId]) return;
+    if (this.activeCharacterId === charId && this.activeCharacterModel) return;
+
+    if (this.talkTimeout) {
+      clearTimeout(this.talkTimeout);
+      this.talkTimeout = null;
+    }
+    this.isTalking = false;
+
+    this.activeCharacterId = charId;
+    this._loadCharacter(charId);
+  }
+
+  isCharacterHit(object) {
+    let curr = object;
+    while (curr && curr !== this.group && curr !== this.sceneManager.scene) {
+      if (curr.userData && (curr.userData.isCharacter || curr.userData.characterId)) {
+        return true;
+      }
+      if (curr === this.activeCharacterModel) {
+        return true;
+      }
+      curr = curr.parent;
+    }
+    return false;
   }
 
   _buildCharacterPlaceholder() {
     const charGroup = new THREE.Group();
     charGroup.position.set(0, -0.5, -1.8);
     charGroup.scale.set(4.0, 4.0, 4.0);
+    charGroup.userData.isCharacter = true;
 
     // Gövde (Torso)
     const torsoGeo = new THREE.CylinderGeometry(0.5, 0.4, 1.2, 16);
@@ -233,6 +432,7 @@ export class TableScene {
     rightArm.position.set(0.6, 0.7, 0.5);
     charGroup.add(rightArm);
 
+    this.activeCharacterModel = charGroup;
     this.group.add(charGroup);
   }
 
@@ -246,3 +446,4 @@ export class TableScene {
     return this.slots;
   }
 }
+

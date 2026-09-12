@@ -1,4 +1,5 @@
 import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
+import { i18n } from '../i18n/translations.js';
 
 export class HintSystem {
   constructor() {
@@ -32,7 +33,10 @@ export class HintSystem {
 
   getHint(itemId) {
     const def = ITEM_DEFINITIONS[itemId];
-    if (!def || !def.recipe) return { text: 'Bu temel bir elementtir.', level: 0, maxLevel: 0 };
+    const itemName = i18n.getItemName(itemId, def?.name);
+    if (!def || !def.recipe) {
+      return { text: i18n.t('hint_basic_element'), level: 0, maxLevel: 0 };
+    }
 
     const level = this.hintLevels[itemId] || 0;
     const inputs = def.recipe.inputs.filter(inp => inp != null);
@@ -41,13 +45,13 @@ export class HintSystem {
 
     if (level === 0) {
       return {
-        text: '<i>İpucu açmak için tıklayın</i>',
+        text: `<i>${i18n.t('hint_click_to_open')}</i>`,
         level: 0,
         maxLevel
       };
     } else if (level === 1) {
       return {
-        text: `<strong>${def.name}</strong>: ${count} bileşenden oluşur.`,
+        text: i18n.t('hint_consists_of', { name: itemName, count: count }),
         level: 1,
         maxLevel
       };
@@ -55,14 +59,14 @@ export class HintSystem {
       const revealedCount = level - 1;
       const componentNames = inputs.map((inp, idx) => {
         if (idx < revealedCount) {
-          const itemDef = ITEM_DEFINITIONS[inp] || ITEM_DEFINITIONS[getCanonicalId(inp)];
-          return itemDef ? itemDef.name : inp;
+          const canonical = getCanonicalId(inp);
+          return i18n.getItemName(canonical, ITEM_DEFINITIONS[canonical]?.name || inp);
         } else {
           return '?';
         }
       });
       return {
-        text: `<strong>${def.name}</strong>: ${componentNames.join(' + ')}`,
+        text: `<strong>${itemName}</strong>: ${componentNames.join(' + ')}`,
         level: level,
         maxLevel
       };

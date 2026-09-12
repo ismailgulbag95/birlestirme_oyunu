@@ -27,168 +27,222 @@ export class ItemFactory {
     let mainMesh;
 
     switch (canonicalId) {
+      case 'ates':
       case 'fire':
         mainMesh = this._createFireMesh(def);
         break;
+      case 'su':
       case 'water':
         mainMesh = this._createWaterMesh(def);
         break;
+      case 'toprak':
       case 'earth':
         mainMesh = this._createEarthMesh(def);
         break;
+      case 'hava':
       case 'air':
         mainMesh = this._createAirMesh(def);
         break;
+      case 'buhar':
       case 'steam':
         mainMesh = this._createSteamMesh(def);
         break;
+      case 'camur':
       case 'mud':
         mainMesh = this._createMudMesh(def);
         break;
+      case 'lav':
       case 'lava':
         mainMesh = this._createLavaMesh(def);
         break;
+      case 'kum':
       case 'sand':
         mainMesh = this._createSandMesh(def);
         break;
+      case 'obsidyen':
       case 'obsidian':
         mainMesh = this._createObsidianMesh(def);
         break;
+      case 'yagmur':
       case 'rain':
         mainMesh = this._createRainMesh(def);
         break;
+      case 'enerji':
       case 'energy':
         mainMesh = this._createEnergyMesh(def);
         break;
+      case 'ruzgar':
       case 'wind':
         mainMesh = this._createWindMesh(def);
         break;
+      case 'tas':
       case 'stone':
         mainMesh = this._createStoneMesh(def);
         break;
+      case 'cam':
       case 'glass':
         mainMesh = this._createGlassMesh(def);
         break;
+      case 'bulut':
       case 'cloud':
         mainMesh = this._createCloudMesh(def);
         break;
+      case 'yildirim':
       case 'lightning':
         mainMesh = this._createLightningMesh(def);
         break;
+      case 'bitki':
       case 'plant':
         mainMesh = this._createPlantMesh(def);
         break;
+      case 'agac':
       case 'tree':
         mainMesh = this._createTreeMesh(def);
         break;
+      case 'odun':
       case 'wood':
         mainMesh = this._createWoodMesh(def);
         break;
+      case 'kiymik':
       case 'splinter':
         mainMesh = this._createSplinterMesh(def);
         break;
+      case 'lif':
       case 'fiber':
         mainMesh = this._createFiberMesh(def);
         break;
+      case 'comlek':
       case 'pottery':
         mainMesh = this._createPotteryMesh(def);
         break;
+      case 'su_comlegi':
       case 'water_jug':
         mainMesh = this._createWaterJugMesh(def);
         break;
+      case 'sise':
       case 'bottle':
         mainMesh = this._createBottleMesh(def);
         break;
+      case 'cakmaktasi':
       case 'flint':
         mainMesh = this._createFlintMesh(def);
         break;
+      case 'yay':
       case 'bow':
         mainMesh = this._createBowMesh(def);
         break;
+      case 'ok':
       case 'arrow':
         mainMesh = this._createArrowMesh(def);
         break;
+      case 'mesale':
       case 'torch':
         mainMesh = this._createTorchMesh(def);
         break;
+      case 'metal':
       case 'raw_metal':
         mainMesh = this._createRawMetalMesh(def);
         break;
+      case 'demir_kulce':
       case 'iron_ingot':
         mainMesh = this._createIronIngotMesh(def);
         break;
+      case 'metal_bicak':
       case 'metal_knife':
         mainMesh = this._createMetalKnifeMesh(def);
         break;
+      case 'kazma':
       case 'pickaxe':
         mainMesh = this._createPickaxeMesh(def);
         break;
+      case 'kilic':
       case 'sword':
         mainMesh = this._createSwordMesh(def);
         break;
+      case 'ahsap_kalkan':
       case 'wooden_shield':
         mainMesh = this._createWoodenShieldMesh(def);
         break;
+      case 'demir_kalkan':
       case 'iron_shield':
         mainMesh = this._createIronShieldMesh(def);
         break;
+      case 'deri_zirh':
       case 'leather_armor':
         mainMesh = this._createLeatherArmorMesh(def);
         break;
+      case 'demir_zirh':
       case 'iron_armor':
         mainMesh = this._createIronArmorMesh(def);
         break;
+      case 'yatak':
       case 'bed':
         mainMesh = this._createBedMesh(def);
         break;
+      case 'ip':
       case 'rope':
         mainMesh = this._createRopeMesh(def);
         break;
+      case 'mantar':
       case 'mushroom':
         mainMesh = this._createMushroomMesh(def);
         break;
       case 'yosun':
         mainMesh = this._createYosunMesh(def);
         break;
+      case 'pamuk':
       case 'cotton':
         mainMesh = this._createCottonMesh(def);
         break;
+      case 'kumas':
       case 'fabric':
         mainMesh = this._createFabricMesh(def);
         break;
+      case 'komur':
       case 'coal':
         mainMesh = this._createCoalMesh(def);
         break;
+      case 'kul':
       case 'ash':
         mainMesh = this._createAshMesh(def);
         break;
+      case 'kagit':
       case 'paper':
         mainMesh = this._createPaperMesh(def);
         break;
+      case 'yasam':
       case 'life':
         mainMesh = this._createLifeMesh(def);
         break;
+      case 'kus':
       case 'bird':
         mainMesh = this._createBirdMesh(def);
         break;
+      case 'hayvan':
       case 'animal':
         mainMesh = this._createAnimalMesh(def);
         break;
+      case 'balik':
       case 'fish':
         mainMesh = this._createFishMesh(def);
         break;
+      case 'ilkel_bicak':
       case 'primitive_knife':
         mainMesh = this._createPrimitiveKnifeMesh(def);
         break;
+      case 'kus_tuyu':
       case 'feather':
         mainMesh = this._createFeatherMesh(def);
         break;
+      case 'deri':
       case 'leather':
         mainMesh = this._createLeatherMesh(def);
         break;
+      case 'kavrulmus_et':
       case 'cooked_meat':
         mainMesh = this._createCookedMeatMesh(def);
         break;
+      case 'recine':
       case 'resin':
         mainMesh = this._createResinMesh(def);
         break;
@@ -441,9 +495,7 @@ export class ItemFactory {
       case 'tesla_bobini':
         mainMesh = this._createTeslaBobiniMesh(def);
         break;
-      case 'enerji_kalkani':
-        mainMesh = this._createEnerjiKalkaniMesh(def);
-        break;
+
       case 'kuantum_islemci':
         mainMesh = this._createKuantumIslemciMesh(def);
         break;
@@ -548,9 +600,6 @@ export class ItemFactory {
         break;
       case 'cam_agaci':
         mainMesh = this._createCamAgaciMesh(def);
-        break;
-      case 'mese_agaci':
-        mainMesh = this._createMeseAgaciMesh(def);
         break;
       case 'tavuk':
         mainMesh = this._createTavukMesh(def);
@@ -4827,41 +4876,7 @@ export class ItemFactory {
     return group;
   }
 
-  static _createEnerjiKalkaniMesh(def) {
-    const group = new THREE.Group();
-    // Emitör tabanı
-    const baseGeo = new THREE.CylinderGeometry(0.42, 0.46, 0.1, 20);
-    const baseMat = new THREE.MeshStandardMaterial({
-      color: 0x1e293b,
-      metalness: 0.85,
-      roughness: 0.25
-    });
-    const base = new THREE.Mesh(baseGeo, baseMat);
-    base.position.y = 0.1;
-    base.add(this._createOutline(baseGeo, 0x0f172a, 0.035));
-    group.add(base);
 
-    // Heksagonal şeffaf kuvvet alanı kubbesi
-    const domeGeo = new THREE.SphereGeometry(0.44, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2);
-    const domeMat = new THREE.MeshPhysicalMaterial({
-      color: 0x06b6d4,
-      emissive: 0x0891b2,
-      emissiveIntensity: 0.8,
-      roughness: 0.1,
-      transmission: 0.85,
-      transparent: true,
-      opacity: 0.75,
-      side: THREE.DoubleSide
-    });
-    const dome = new THREE.Mesh(domeGeo, domeMat);
-    dome.position.y = 0.15;
-    group.add(dome);
-
-    const light = new THREE.PointLight(0x22d3ee, 2.2, 2.5);
-    light.position.set(0, 0.35, 0);
-    group.add(light);
-    return group;
-  }
 
   static _createKuantumIslemciMesh(def) {
     const group = new THREE.Group();
@@ -5773,28 +5788,21 @@ export class ItemFactory {
     trunk.position.y = 0.15;
     group.add(trunk);
 
-    const foliageMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.7 });
+    const foliageMat = new THREE.MeshStandardMaterial({ color: 0x166534, roughness: 0.7 });
+    const snowMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.5 });
+
     [0.4, 0.65, 0.88].forEach((y, i) => {
-      const cone = new THREE.Mesh(new THREE.ConeGeometry(0.55 - i * 0.12, 0.4, 6), foliageMat);
+      const radius = 0.55 - i * 0.12;
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(radius, 0.4, 6), foliageMat);
       cone.position.y = y;
       cone.add(this._createOutline(cone.geometry, 0x14532d, 0.035));
       group.add(cone);
+
+      // Karlı çam ağacı tepeliği ve karlar
+      const snowCone = new THREE.Mesh(new THREE.ConeGeometry(radius * 0.72, 0.18, 6), snowMat);
+      snowCone.position.y = y + 0.12;
+      group.add(snowCone);
     });
-    return group;
-  }
-
-  static _createMeseAgaciMesh(def) {
-    const group = new THREE.Group();
-    const trunkMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.8 });
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.4, 6), trunkMat);
-    trunk.position.y = 0.2;
-    group.add(trunk);
-
-    const leafMat = new THREE.MeshStandardMaterial({ color: 0x166534, roughness: 0.7 });
-    const crown = new THREE.Mesh(new THREE.DodecahedronGeometry(0.48), leafMat);
-    crown.position.y = 0.65;
-    crown.add(this._createOutline(crown.geometry, 0x14532d, 0.035));
-    group.add(crown);
     return group;
   }
 

@@ -8,29 +8,26 @@ import { ITEM_DEFINITIONS, getCanonicalId } from './items/itemDefinitions.js';
 import { CraftingSystem } from './systems/CraftingSystem.js';
 import { HintSystem } from './systems/HintSystem.js';
 import { UIManager } from './ui/UIManager.js';
+import { i18n } from './i18n/translations.js';
 
 class Game {
   async init() {
     const canvas = document.getElementById('canvas');
-    this.sceneManager = new SceneManager(canvas);
-    this.tableScene = new TableScene(this.sceneManager);
-    this.physics = new RapierWorld();
-    await this.physics.init();
-
     this.crafting = new CraftingSystem();
     this.hintSystem = new HintSystem();
+    this.failedCraftAttempts = 0;
 
-    this.unlockedItems = ['fire', 'water', 'earth', 'air'];
-    this.lockedItems = [
-      'steam', 'mud', 'lava', 'rain', 'energy', 'wind', 'stone',
-      'sand', 'glass', 'cloud', 'lightning', 'plant', 'tree',
-      'wood', 'splinter', 'fiber', 'obsidian', 'rope', 'mushroom',
-      'cotton', 'fabric', 'coal', 'ash', 'paper', 'life', 'bird',
-      'animal', 'fish', 'primitive_knife', 'feather', 'leather',
-      'cooked_meat', 'resin', 'pottery', 'water_jug', 'bottle',
-      'flint', 'bow', 'arrow', 'torch', 'raw_metal', 'iron_ingot',
-      'metal_knife', 'pickaxe', 'sword', 'wooden_shield', 'iron_shield',
-      'leather_armor', 'iron_armor', 'bed',
+    const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
+    const defaultLocked = [
+      'buhar', 'camur', 'lav', 'yagmur', 'enerji', 'ruzgar', 'tas',
+      'kum', 'cam', 'bulut', 'yildirim', 'bitki', 'agac',
+      'odun', 'kiymik', 'lif', 'obsidyen', 'ip', 'mantar',
+      'pamuk', 'kumas', 'komur', 'kul', 'kagit', 'yasam', 'kus',
+      'hayvan', 'balik', 'ilkel_bicak', 'kus_tuyu', 'deri',
+      'kavrulmus_et', 'recine', 'comlek', 'su_comlegi', 'sise',
+      'cakmaktasi', 'yay', 'ok', 'mesale', 'metal', 'demir_kulce',
+      'metal_bicak', 'kazma', 'kilic', 'ahsap_kalkan', 'demir_kalkan',
+      'deri_zirh', 'demir_zirh', 'yatak',
       // Kategori 5: Kimya, Simya & Büyü Eşyaları
       'zehirli_sivi', 'zehir_sisesi', 'zehirli_kilic', 'sifa_iksiri', 'mana_iksiri',
       'barut', 'bomba', 'buyu_parsomeni', 'yildirim_parsomeni', 'ates_topu_kitabi',
@@ -50,26 +47,87 @@ class Game {
       'demir_parmaklik', 'savas_baltasi', 'gozetleme_kulesi', 'kale_kapisi',
       'buz_runu', 'cehennem_tasi', 'zaman_kum_saati', 'illuzyon_aynasi',
       // Kategori 9 & 10 & Fauna
-      'siber_kristal', 'hologram_kupu', 'buhar_jeneratoru', 'meka_zirhi', 'plazma_tufegi', 'felsefe_tasi', 'gunes_paneli', 'yercekimsiz_platform', 'biyonik_kol', 'usturlap', 'tesla_bobini', 'enerji_kalkani', 'kuantum_islemci', 'minyatur_yildiz',
+      'siber_kristal', 'hologram_kupu', 'buhar_jeneratoru', 'meka_zirhi', 'plazma_tufegi', 'felsefe_tasi', 'gunes_paneli', 'yercekimsiz_platform', 'biyonik_kol', 'usturlap', 'tesla_bobini', 'kuantum_islemci', 'minyatur_yildiz',
       'dag', 'kaya', 'gunes', 'okyanus', 'volkan', 'ada', 'nehir', 'orman', 'firtina_bulutu', 'magara', 'gokkusagi', 'kanyon', 'fay_hatti',
       'at', 'koyun', 'kurt', 'ari', 'yilan', 'baykus', 'kaplumbaga', 'bal', 'nilufer', 'elma', 'kurbaga', 'sincap', 'geyik', 'kelebek',
       // Yeni Basit Eşyalar
-      'sis', 'gayzer', 'kaktus', 'cam_agaci', 'mese_agaci', 'tavuk', 'kedi', 'mesale', 'somon', 'yay', 'barut_ficisi', 'su_degirmeni', 'buz_dagi', 'kalkan', 'iksir_kazani'
+      'sis', 'gayzer', 'kaktus', 'cam_agaci', 'tavuk', 'kedi', 'mesale', 'somon', 'yay', 'barut_ficisi', 'su_degirmeni', 'buz_dagi', 'kalkan', 'iksir_kazani'
     ];
+
+    // Kayıtlı oyunu yükle
+    const savedData = this._loadSavedGame();
+    this.unlockedItems = savedData.unlockedItems || defaultUnlocked;
+    this.lockedItems = defaultLocked.filter(id => {
+      const canonical = getCanonicalId(id) || id;
+      return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
+    });
+
+    if (savedData.hintRights !== undefined) {
+      this.hintSystem.hintRights = savedData.hintRights;
+    }
+    if (savedData.hintLevels) {
+      this.hintSystem.hintLevels = savedData.hintLevels;
+    }
+    if (savedData.successfulMatches !== undefined) {
+      this.hintSystem.successfulMatches = savedData.successfulMatches;
+    }
+
+    const initialChar = savedData.activeCharacterId || 'character2'; // Oyun başlangıçta yeni karakter (Gözlemci) ile başlar
+
+    this.sceneManager = new SceneManager(canvas);
+    this.tableScene = new TableScene(this.sceneManager, initialChar);
+    this.physics = new RapierWorld();
+    await this.physics.init();
 
     this.ui = new UIManager(
       (itemId) => this.onInventoryItemSelect(itemId),
       (itemId) => this.onGetHint(itemId),
       (itemId) => this.onWatchAd(itemId),
-      () => this.physics.clearPieces(this.sceneManager.scene)
+      () => this.physics.clearPieces(this.sceneManager.scene),
+      (charId) => {
+        this.tableScene.switchCharacter(charId);
+        this._saveGame();
+      }
     );
 
+    this.ui.updateCharacterButton(initialChar);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
 
     this._setupRaycasting(canvas);
     this._startLoop();
+  }
+
+  _loadSavedGame() {
+    try {
+      const json = localStorage.getItem('alchemy_game_save');
+      if (json) {
+        const parsed = JSON.parse(json);
+        console.log("Kayıtlı oyun başarıyla yüklendi:", parsed);
+        return parsed;
+      }
+    } catch (e) {
+      console.warn("Kayıt yüklenirken hata oluştu:", e);
+    }
+    return {};
+  }
+
+  _saveGame() {
+    try {
+      const saveData = {
+        unlockedItems: this.unlockedItems,
+        activeCharacterId: this.tableScene ? this.tableScene.activeCharacterId : 'character2',
+        hintRights: this.hintSystem ? this.hintSystem.hintRights : 3,
+        hintLevels: this.hintSystem ? this.hintSystem.hintLevels : {},
+        successfulMatches: this.hintSystem ? this.hintSystem.successfulMatches : 0,
+        savedAt: Date.now()
+      };
+      localStorage.setItem('alchemy_game_save', JSON.stringify(saveData));
+      console.log("Oyun ilerlemesi kaydedildi.");
+    } catch (e) {
+      console.warn("Oyun kaydedilirken hata oluştu:", e);
+    }
   }
 
   get discoveredItems() {
@@ -119,6 +177,7 @@ class Game {
     if (res.success) {
       this.ui.updateHintRights(this.hintSystem.hintRights);
       this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+      this._saveGame();
     }
     return res;
   }
@@ -127,7 +186,8 @@ class Game {
     this.hintSystem.watchAdForHint(itemId);
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
-    alert("📺 Reklam başarıyla izlendi! +1 İpucu hakkı harcanarak detaylı ipucu açıldı.");
+    this._saveGame();
+    alert(i18n.t('ad_watched_alert'));
   }
 
   _setupRaycasting(canvas) {
@@ -166,8 +226,10 @@ class Game {
         return;
       }
 
-      // Check if clicked character (behind table)
-      if (hit.point.z - (hit.point.z || 0) < -1.0 || (hit.point && hit.point.z < -1.0)) {
+      // Check if clicked character (behind table or direct hit)
+      const isCharHit = this.tableScene.isCharacterHit(obj) || (hit.point && hit.point.z < -1.0);
+      if (isCharHit) {
+        this.tableScene.playTalkingAnimation();
         this.triggerCrafting();
       }
     });
@@ -214,6 +276,7 @@ class Game {
     const resultId = this.crafting.checkRecipe(itemIds);
 
     if (resultId) {
+      this.failedCraftAttempts = 0;
       const oldMeshes = [];
       slots.forEach(s => {
         if (s.userData.mesh) {
@@ -278,9 +341,21 @@ class Game {
         // Arayüzü ve ipuçlarını güncelle
         this.ui._populateInventory(this.unlockedItems);
         this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+
+        // İlerleme veya ipucu hakkı değiştiğinde kaydet
+        this._saveGame();
       }, 320);
 
     } else {
+      this.failedCraftAttempts++;
+      console.log(`Başarısız üretim denemesi: ${this.failedCraftAttempts}/20`);
+
+      if (this.failedCraftAttempts >= 20) {
+        console.log("20 kez başarısız üretim yapıldı! Karakter ölüm animasyonu tetikleniyor.");
+        this.tableScene.playDeathAnimation();
+        this.failedCraftAttempts = 0; // Animasyon oynatıldıktan sonra sayacı sıfırla
+      }
+
       slots.forEach(s => {
         if (s.userData.mesh) {
           gsap.to(s.userData.mesh.position, {

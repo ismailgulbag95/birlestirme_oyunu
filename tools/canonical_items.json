@@ -1,0 +1,1058 @@
+[
+  {
+    "id": "ates",
+    "trName": "Ateş",
+    "trDesc": "Saf ısı ve enerji kaynağı.",
+    "category": "elements"
+  },
+  {
+    "id": "su",
+    "trName": "Su",
+    "trDesc": "Hayatın kaynağı, akışkan ve berrak.",
+    "category": "elements"
+  },
+  {
+    "id": "toprak",
+    "trName": "Toprak",
+    "trDesc": "Sağlam temel, kaya ve bereket.",
+    "category": "elements"
+  },
+  {
+    "id": "hava",
+    "trName": "Hava",
+    "trDesc": "Görünmez rüzgâr, nefes ve hareket.",
+    "category": "elements"
+  },
+  {
+    "id": "buhar",
+    "trName": "Buhar",
+    "trDesc": "Ateş ve suyun dansından doğan buğu.",
+    "category": "elements"
+  },
+  {
+    "id": "camur",
+    "trName": "Çamur",
+    "trDesc": "Su ve toprağın yoğrulmuş hali.",
+    "category": "elements"
+  },
+  {
+    "id": "lav",
+    "trName": "Lav",
+    "trDesc": "Ateş ve toprağın erimiş ihtişamı.",
+    "category": "elements"
+  },
+  {
+    "id": "kum",
+    "trName": "Kum",
+    "trDesc": "Rüzgar ve taşın aşındırdığı tanecikler.",
+    "category": "elements"
+  },
+  {
+    "id": "obsidyen",
+    "trName": "Obsidyen",
+    "trDesc": "Su ile aniden soğuyan lavın sert camı.",
+    "category": "elements"
+  },
+  {
+    "id": "yagmur",
+    "trName": "Yağmur",
+    "trDesc": "Hava ve suyun buluşmasından düşen damlalar.",
+    "category": "elements"
+  },
+  {
+    "id": "enerji",
+    "trName": "Enerji",
+    "trDesc": "Ateş ve havanın saf plazma gücü.",
+    "category": "elements"
+  },
+  {
+    "id": "ruzgar",
+    "trName": "Rüzgar",
+    "trDesc": "Güçlü ve hızlı hava akımı.",
+    "category": "elements"
+  },
+  {
+    "id": "tas",
+    "trName": "Taş",
+    "trDesc": "Hava ve lavın katılaşmış sert kayası.",
+    "category": "elements"
+  },
+  {
+    "id": "cam",
+    "trName": "Cam",
+    "trDesc": "Ateş ve kumun eriyerek şeffaflaşması.",
+    "category": "elements"
+  },
+  {
+    "id": "bulut",
+    "trName": "Bulut",
+    "trDesc": "Gökyüzünde süzülen pamuksu beyaz su buharı kümesi.",
+    "category": 10
+  },
+  {
+    "id": "yildirim",
+    "trName": "Yıldırım",
+    "trDesc": "Bulut ve enerjinin çakan keskin şimşeği.",
+    "category": "elements"
+  },
+  {
+    "id": "bitki",
+    "trName": "Bitki",
+    "trDesc": "Toprak ve yağmurun yeşerten filizi.",
+    "category": "nature"
+  },
+  {
+    "id": "agac",
+    "trName": "Ağaç",
+    "trDesc": "Bitki ve toprağın büyüyen güçlü gövdesi.",
+    "category": "nature"
+  },
+  {
+    "id": "odun",
+    "trName": "Odun",
+    "trDesc": "Ağaç ve taşın işlenen kütüğü.",
+    "category": "nature"
+  },
+  {
+    "id": "kiymik",
+    "trName": "Kıymık",
+    "trDesc": "Odun ve taşın sivri talaş parçası.",
+    "category": "nature"
+  },
+  {
+    "id": "lif",
+    "trName": "Lif",
+    "trDesc": "Bitki ve bitkinin sarılan lif demeti.",
+    "category": "nature"
+  },
+  {
+    "id": "mantar",
+    "trName": "Mantar",
+    "trDesc": "Beyaz benekli, kırmızı şapkalı, bodur saplı orman mantarı.",
+    "category": "nature"
+  },
+  {
+    "id": "pamuk",
+    "trName": "Pamuk",
+    "trDesc": "Kurumuş kahverengi çanak yapraklar içinde duran bembeyaz pamuk kozası.",
+    "category": "nature"
+  },
+  {
+    "id": "recine",
+    "trName": "Reçine",
+    "trDesc": "Damla formunda katılaşmış, bal sarısı kehribar cevheri.",
+    "category": "nature"
+  },
+  {
+    "id": "yasam",
+    "trName": "Yaşam",
+    "trDesc": "İçinde yeşilimsi çift sarmal DNA sembolü dönen ışıldayan öz küresi.",
+    "category": "life"
+  },
+  {
+    "id": "kus",
+    "trName": "Kuş",
+    "trDesc": "Basit geometrik gövdeli, mavi kanatlı, sarı gagalı küçük serçe.",
+    "category": "life"
+  },
+  {
+    "id": "hayvan",
+    "trName": "Hayvan",
+    "trDesc": "Dört narin bacağı ve kısa kuyruğu olan bloklu canlı silüeti.",
+    "category": "life"
+  },
+  {
+    "id": "balik",
+    "trName": "Balık",
+    "trDesc": "Üçgen yüzgeçli, turuncu-gümüş renkli köşeli gövdeli sazan.",
+    "category": "life"
+  },
+  {
+    "id": "ip",
+    "trName": "İp",
+    "trDesc": "Düğümlenmiş, halka şeklinde sarılı saman sarısı halat rulosu.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kumas",
+    "trName": "Kumaş",
+    "trDesc": "Düzenli katlanmış, kenarları köşeli bej renkli kumaş bezi.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "komur",
+    "trName": "Kömür",
+    "trDesc": "Düzensiz yüzeylere sahip, mat siyah renkli karbon parçası.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kul",
+    "trName": "Kül",
+    "trDesc": "İçinde sönmeye yüz tutmuş kor parçaları olan gri toz yığını.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kagit",
+    "trName": "Kağıt",
+    "trDesc": "Ucu hafif kıvrılmış, açık sarı renkte dikdörtgen parşömen tabakası.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "ilkel_bicak",
+    "trName": "İlkel Bıçak",
+    "trDesc": "Kısa ahşap sapına iple tutturulmuş çakmaktaşı uçlu kaba bıçak.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kus_tuyu",
+    "trName": "Kuş Tüyü",
+    "trDesc": "Orta damarı belirgin, ucu beyazdan gök mavisine dönen tüy.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "deri",
+    "trName": "Deri",
+    "trDesc": "Kenarları asimetrik kesilmiş, taba rengi işlenmemiş post.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kavrulmus_et",
+    "trName": "Kavrulmuş Et",
+    "trDesc": "Beyaz kemik sapından tutulan, kızarmış kahverengi et butu.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "comlek",
+    "trName": "Çömlek",
+    "trDesc": "Geniş göbekli, dar boyunlu kiremit kırmızısı pişmiş kil testi.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "su_comlegi",
+    "trName": "Su Çömleği",
+    "trDesc": "Ağzından mavi su yüzeyi görünen, ıslak killi dolgun testi.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "sise",
+    "trName": "Şişe",
+    "trDesc": "Mantar tıpası olan şeffaf, silindirik cam iksir tüpü.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "cakmaktasi",
+    "trName": "Çakmaktaşı",
+    "trDesc": "Bir kenarı keskinleştirilmiş, koyu antrasit renkli yontma taş.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "yay",
+    "trName": "Yay",
+    "trDesc": "Esnek bir dal ve gergin ip ile yapılan avcı silahı.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "ok",
+    "trName": "Ok",
+    "trDesc": "Ucunda sivri taş, arkasında tüy bulunan ince tahta ok.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "mesale",
+    "trName": "Meşale",
+    "trDesc": "Karanlık mağaraları ve yolları aydınlatan alevli ahşap meşale.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "metal",
+    "trName": "Metal",
+    "trDesc": "İçinde parlak gri damarlar parıldayan ergitilmiş taş cevheri.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "demir_kulce",
+    "trName": "Demir Külçe",
+    "trDesc": "Pahlanmış kenarlarıyla profesyonel döküm çelik külçe.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "metal_bicak",
+    "trName": "Metal Bıçak",
+    "trDesc": "Deri sarılı kabzası ve çift ağızlı parlak çelik namlulu bıçak.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kazma",
+    "trName": "Kazma",
+    "trDesc": "Masif ahşap sapa monte edilmiş kavisli çift taraflı demir uç.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "kilic",
+    "trName": "Kılıç",
+    "trDesc": "Çapraz korumalığı, deri kabzası ve parıldayan kesici gövdesi.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "ahsap_kalkan",
+    "trName": "Ahşap Kalkan",
+    "trDesc": "Tahta kalaslardan birleştirilmiş, kenarları ham deri kalkan.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "demir_kalkan",
+    "trName": "Demir Kalkan",
+    "trDesc": "Perçin detaylı, parlatılmış damla formunda çelik kalkan.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "deri_zirh",
+    "trName": "Deri Zırh",
+    "trDesc": "İplerle dikişlenmiş, omuzları tokalı kahverengi yelek zırh.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "demir_zirh",
+    "trName": "Demir Zırh",
+    "trDesc": "Parlak çelik göğüs plakası ve omuzluklardan oluşan ağır zırh.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "yatak",
+    "trName": "Yatak",
+    "trDesc": "Ahşap ayaklı, üzerinde beyaz yastık ve renkli örtü olan yatak.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "zehirli_sivi",
+    "trName": "Zehirli Sıvı",
+    "trDesc": "Mantar ve su çömleğinden elde edilen tehlikeli yeşil sıvı.",
+    "category": 5
+  },
+  {
+    "id": "zehir_sisesi",
+    "trName": "Zehir Şişesi",
+    "trDesc": "Şişelenmiş ölümcül zehirli iksir.",
+    "category": 5
+  },
+  {
+    "id": "zehirli_kilic",
+    "trName": "Zehirli Kılıç",
+    "trDesc": "Ölümcül zehirle kaplanmış çelik kılıç.",
+    "category": 5
+  },
+  {
+    "id": "sifa_iksiri",
+    "trName": "Şifa İksiri",
+    "trDesc": "Bitki, şişe ve su çömleğinden hazırlanan can verici iksir.",
+    "category": 5
+  },
+  {
+    "id": "mana_iksiri",
+    "trName": "Mana İksiri",
+    "trDesc": "Enerji, şişe ve su çömleği ile özütlenen büyülü mana iksiri.",
+    "category": 5
+  },
+  {
+    "id": "barut",
+    "trName": "Barut",
+    "trDesc": "Kömür, kül ve reçineden yapılan patlayıcı siyah toz.",
+    "category": 5
+  },
+  {
+    "id": "bomba",
+    "trName": "Bomba",
+    "trDesc": "Barut, demir külçe ve ip ile hazırlanan yıkıcı patlayıcı.",
+    "category": 5
+  },
+  {
+    "id": "buyu_parsomeni",
+    "trName": "Büyü Parşömeni",
+    "trDesc": "Kağıt, kül ve kuş tüyü ile yazılan kadim tılsımlı parşömen.",
+    "category": 5
+  },
+  {
+    "id": "yildirim_parsomeni",
+    "trName": "Yıldırım Parşömeni",
+    "trDesc": "Büyü parşömeni ve yıldırımın gücüyle yüklenmiş parşömen.",
+    "category": 5
+  },
+  {
+    "id": "ates_topu_kitabi",
+    "trName": "Ateş Topu Kitabı",
+    "trDesc": "Ateş ve büyü parşömeninden oluşan alevli büyü kitabı.",
+    "category": 5
+  },
+  {
+    "id": "buhar_motoru",
+    "trName": "Buhar Motoru",
+    "trDesc": "Buhar, demir külçe ve kömürün basınçlı gücüyle çalışan ağır mekanik pistonlu motor.",
+    "category": 6
+  },
+  {
+    "id": "tekerlek",
+    "trName": "Tekerlek",
+    "trDesc": "Odun ve taştan yontulmuş, pürüzsüz dönen dairesel ahşap tekerlek.",
+    "category": 6
+  },
+  {
+    "id": "el_arabasi",
+    "trName": "El Arabası",
+    "trDesc": "Demir külçe, odun ve tekerlekten yapılmış taşıma arabası.",
+    "category": 6
+  },
+  {
+    "id": "lokomotif",
+    "trName": "Lokomotif",
+    "trDesc": "Buhar motoru, demir ve tekerleklerle inşa edilmiş dev raylı tren başı.",
+    "category": 6
+  },
+  {
+    "id": "ampul",
+    "trName": "Ampul",
+    "trDesc": "Cam, metal ve yıldırımın gücüyle akkor ışık saçan cam tüp.",
+    "category": 6
+  },
+  {
+    "id": "fener",
+    "trName": "Fener",
+    "trDesc": "Ampul, demir külçe ve enerjiyle çalışan parıltılı el feneri.",
+    "category": 6
+  },
+  {
+    "id": "pusula",
+    "trName": "Pusula",
+    "trDesc": "Cam ve demir kadran içinde yön gösteren manyetik pusula.",
+    "category": 6
+  },
+  {
+    "id": "miknatis",
+    "trName": "Mıknatıs",
+    "trDesc": "Yıldırım çarpmasıyla manyetize olmuş kavisli çelik demir.",
+    "category": 6
+  },
+  {
+    "id": "elektrik_motoru",
+    "trName": "Elektrik Motoru",
+    "trDesc": "Enerji, metal ve mıknatıs ile dönen bobinli elektromanyetik motor.",
+    "category": 6
+  },
+  {
+    "id": "celik_kulce",
+    "trName": "Çelik Külçe",
+    "trDesc": "Ateş, demir ve kömürün yüksek ısıda eritilmesiyle elde edilen dayanıklı alaşım.",
+    "category": 7
+  },
+  {
+    "id": "ors",
+    "trName": "Örs",
+    "trDesc": "Çelik külçe ve taştan yontulmuş demirci örsü.",
+    "category": 7
+  },
+  {
+    "id": "civi",
+    "trName": "Çivi",
+    "trDesc": "Ocakta dövülmüş sivri uçlu çelik bağlantı çivisi.",
+    "category": 7
+  },
+  {
+    "id": "tugla",
+    "trName": "Tuğla",
+    "trDesc": "Fırınlanmış kiremit rengi inşaat bloğu.",
+    "category": 7
+  },
+  {
+    "id": "harc",
+    "trName": "Harç",
+    "trDesc": "Kum, su ve taş tozundan yoğrulmuş inşaat bağlayıcısı.",
+    "category": 7
+  },
+  {
+    "id": "tugla_duvar",
+    "trName": "Tuğla Duvar",
+    "trDesc": "Harç ve tuğlaların örülmesiyle yapılmış sağlam yapı duvarı.",
+    "category": 7
+  },
+  {
+    "id": "saglam_sandik",
+    "trName": "Sağlam Sandık",
+    "trDesc": "Çelik külçe, çivi ve ahşapla güçlendirilmiş kilitli sandık.",
+    "category": 7
+  },
+  {
+    "id": "kristal",
+    "trName": "Kristal",
+    "trDesc": "Enerji ve kazma yardımıyla derinden çıkarılan parıltılı kristal cevheri.",
+    "category": 7
+  },
+  {
+    "id": "teleskop",
+    "trName": "Teleskop",
+    "trDesc": "Cam, kristal ve metal merceklerden oluşan gökyüzü gözlem tüpü.",
+    "category": 7
+  },
+  {
+    "id": "vinc",
+    "trName": "Vinç",
+    "trDesc": "Çelik külçe, elektrik motoru ve tekerleklerle çalışan ağır yük kaldırıcı vinç.",
+    "category": 7
+  },
+  {
+    "id": "yildiz_tozu",
+    "trName": "Yıldız Tozu",
+    "trDesc": "Teleskopla gözlemlenen ve enerjiyle toplanan parıltılı kozmik toz.",
+    "category": 8
+  },
+  {
+    "id": "prizma_tasi",
+    "trName": "Prizma Taşı",
+    "trDesc": "Kristal ve yıldız tozunun birleşimiyle ışığı tayflara ayıran kadim taş.",
+    "category": 8
+  },
+  {
+    "id": "kahin_kuresi",
+    "trName": "Kahin Küresi",
+    "trDesc": "Prizma taşı, cam ve enerjiyle geleceği gösteren mistik küre.",
+    "category": 8
+  },
+  {
+    "id": "portal_runu",
+    "trName": "Portal Rünü",
+    "trDesc": "Büyü parşömeni ve yıldız tozuyla mühürlenmiş uzay-zaman rünü.",
+    "category": 8
+  },
+  {
+    "id": "bosluk_sisesi",
+    "trName": "Boşluk Şişesi",
+    "trDesc": "Kristal, şişe ve yıldırım gücüyle karanlık boşluğu hapseden iksir tüpü.",
+    "category": 8
+  },
+  {
+    "id": "boyut_kapisi",
+    "trName": "Boyut Kapısı",
+    "trDesc": "Çelik külçe, portal rünü ve tuğla duvardan inşa edilmiş geçit kapısı.",
+    "category": 8
+  },
+  {
+    "id": "anka_kulu",
+    "trName": "Anka Külü",
+    "trDesc": "Kutsal ateş ve küllerle sonsuz döngüde küllerinden doğan mistik anka külü.",
+    "category": 8
+  },
+  {
+    "id": "runik_zirh",
+    "trName": "Runik Zırh",
+    "trDesc": "Demir zırhın örşte prizma taşı ile işlenmiş efsanevi koruyucu zırhı.",
+    "category": 8
+  },
+  {
+    "id": "firtina_kilici",
+    "trName": "Fırtına Kılıcı",
+    "trDesc": "Kılıca prizma taşı ve yıldırım çakılarak dövülmüş elektrikli kılıç.",
+    "category": 8
+  },
+  {
+    "id": "yildiz_gecidi_cekirdegi",
+    "trName": "Yıldız Geçidi Çekirdeği",
+    "trDesc": "Boşluk şişesi, kahin küresi ve portal rününün birleşimiyle evrenin kalbi.",
+    "category": 8
+  },
+  {
+    "id": "kar",
+    "trName": "Kar",
+    "trDesc": "Hava ve yağmurun dondurucu soğukta kristalleşmesi.",
+    "category": 1
+  },
+  {
+    "id": "buz",
+    "trName": "Buz",
+    "trDesc": "Sıkışmış kar tanelerinin donmasıyla oluşan sert, şeffaf kütle.",
+    "category": 1
+  },
+  {
+    "id": "col",
+    "trName": "Çöl",
+    "trDesc": "Rüzgarın toprağı aşındırıp savurmasıyla oluşan sonsuz kum denizi.",
+    "category": 1
+  },
+  {
+    "id": "tohum",
+    "trName": "Tohum",
+    "trDesc": "Bitki, toprak ve yağmurun bereketinden doğan hayat tanesi.",
+    "category": 2
+  },
+  {
+    "id": "bugday",
+    "trName": "Buğday",
+    "trDesc": "Tohum ve su ile yetişen altın sarısı başak.",
+    "category": 2
+  },
+  {
+    "id": "nane",
+    "trName": "Nane",
+    "trDesc": "Buzlu soğukta ferahlatıcı aromasıyla yetişen yeşil nane yaprağı.",
+    "category": 2
+  },
+  {
+    "id": "agac_kabugu",
+    "trName": "Ağaç Kabuğu",
+    "trDesc": "Metal bıçakla ağaçtan soyulmuş sert dış kabuk dokusu.",
+    "category": 2
+  },
+  {
+    "id": "inek",
+    "trName": "İnek",
+    "trDesc": "Toprakta beslenen uysal ve verimli büyükbaş hayvan.",
+    "category": 3
+  },
+  {
+    "id": "sut",
+    "trName": "Süt",
+    "trDesc": "Çömleğe sağılmış taze, besleyici beyaz süt.",
+    "category": 3
+  },
+  {
+    "id": "yumurta",
+    "trName": "Yumurta",
+    "trDesc": "Tohumla beslenen kuşun yumurtladığı pürüzsüz yumurta.",
+    "category": 3
+  },
+  {
+    "id": "mercan",
+    "trName": "Mercan",
+    "trDesc": "Balık ve su bitkilerinin ekosisteminde oluşan renkli deniz mercanı.",
+    "category": 3
+  },
+  {
+    "id": "olta",
+    "trName": "Olta",
+    "trDesc": "Ahşap çubuk ve ipe bağlı balık iğnesi.",
+    "category": 4
+  },
+  {
+    "id": "yelken",
+    "trName": "Yelken",
+    "trDesc": "Rüzgarı yakalamak için ahşap direkte gerilmiş dayanıklı kumaş.",
+    "category": 4
+  },
+  {
+    "id": "sal",
+    "trName": "Sal",
+    "trDesc": "İp ve odunlarla bağlanan yelkenli deniz taşıtı.",
+    "category": 4
+  },
+  {
+    "id": "obsidyen_bicak",
+    "trName": "Obsidyen Bıçak",
+    "trDesc": "Sivri obsidyen ve ahşap sapın iplerle bağlanmasıyla oluşan keskin bıçak.",
+    "category": 4
+  },
+  {
+    "id": "peynir",
+    "trName": "Peynir",
+    "trDesc": "Isıtılan sütün mayalanmasıyla elde edilen lezzetli peynir bloğu.",
+    "category": 5
+  },
+  {
+    "id": "un",
+    "trName": "Un",
+    "trDesc": "Buğdayın taş değirmende öğütülmesiyle oluşan ince beyaz toz.",
+    "category": 5
+  },
+  {
+    "id": "hamur",
+    "trName": "Hamur",
+    "trDesc": "Un ve suyun yoğrulmasıyla hazırlanan ekmek hamuru.",
+    "category": 5
+  },
+  {
+    "id": "ekmek",
+    "trName": "Ekmek",
+    "trDesc": "Fırında pişen mis kokulu kızarmış somun ekmek.",
+    "category": 5
+  },
+  {
+    "id": "disli_cark",
+    "trName": "Dişli Çark",
+    "trDesc": "Demir külçe ve çivilerden üretilmiş hassas mekanik dişli.",
+    "category": 6
+  },
+  {
+    "id": "degirmen",
+    "trName": "Değirmen",
+    "trDesc": "Buhar motoru ve dişlilerle çalışan dev öğütme tesisi.",
+    "category": 6
+  },
+  {
+    "id": "ayna",
+    "trName": "Ayna",
+    "trDesc": "Cam, metal ve enerji pürüzsüzlüğü ile ışığı yansıtan parlak yüzey.",
+    "category": 6
+  },
+  {
+    "id": "saat",
+    "trName": "Saat",
+    "trDesc": "İnce dişliler ve enerjiyle tıkır tıkır zamanı ölçen mekanizma.",
+    "category": 6
+  },
+  {
+    "id": "demir_parmaklik",
+    "trName": "Demir Parmaklık",
+    "trDesc": "Dövülmüş çelik çubuklardan oluşan sağlam demir parmaklık.",
+    "category": 7
+  },
+  {
+    "id": "savas_baltasi",
+    "trName": "Savaş Baltası",
+    "trDesc": "Çelik külçe ve ahşap saptan yapılan ağır kesici balta.",
+    "category": 7
+  },
+  {
+    "id": "gozetleme_kulesi",
+    "trName": "Gözetleme Kulesi",
+    "trDesc": "Harç ve tuğlalardan yükselen heybetli savunma kulesi.",
+    "category": 7
+  },
+  {
+    "id": "kale_kapisi",
+    "trName": "Kale Kapısı",
+    "trDesc": "Çelik külçe, çivi ve demir parmaklıklarla zırhlanmış dev kale kapısı.",
+    "category": 7
+  },
+  {
+    "id": "buz_runu",
+    "trName": "Buz Rünü",
+    "trDesc": "Buz ve büyü parşömeniyle dondurucu soğuk mühürü.",
+    "category": 8
+  },
+  {
+    "id": "cehennem_tasi",
+    "trName": "Cehennem Taşı",
+    "trDesc": "Ateş, obsidyen ve portal rününün alevli boyutsal kayası.",
+    "category": 8
+  },
+  {
+    "id": "zaman_kum_saati",
+    "trName": "Zaman Kum Saati",
+    "trDesc": "Kristal, portal rünü ve saat ile zamanı akıtan mistik kum saati.",
+    "category": 8
+  },
+  {
+    "id": "illuzyon_aynasi",
+    "trName": "İllüzyon Aynası",
+    "trDesc": "Ayna, prizma taşı ve yıldız tozundan gerçekliği büken büyülü ayna.",
+    "category": 8
+  },
+  {
+    "id": "siber_kristal",
+    "trName": "Siber Kristal",
+    "trDesc": "Kristal, elektrik motoru ve prizma taşının rezonansıyla parıldayan veri çekirdeği.",
+    "category": 9
+  },
+  {
+    "id": "hologram_kupu",
+    "trName": "Hologram Küpü",
+    "trDesc": "Cam küp içinde sıkıştırılmış siber kristal ve enerji ışık projeksiyonu.",
+    "category": 9
+  },
+  {
+    "id": "buhar_jeneratoru",
+    "trName": "Buhar Jeneratörü",
+    "trDesc": "Buhar motoru ve çelik dişlilerle güçlendirilmiş devasa pirinç tazyik makinesi.",
+    "category": 9
+  },
+  {
+    "id": "meka_zirhi",
+    "trName": "Meka Zırhı",
+    "trDesc": "Rünik zırhın çelik plakalar ve plazma jeneratörüyle donatılmış güç gövdesi.",
+    "category": 9
+  },
+  {
+    "id": "plazma_tufegi",
+    "trName": "Plazma Tüfeği",
+    "trDesc": "Fırtına kılıcının enerjisi ve siber kristal ile ateşlenen yüksek enerjili silah.",
+    "category": 9
+  },
+  {
+    "id": "felsefe_tasi",
+    "trName": "Felsefe Taşı",
+    "trDesc": "Anka külü ve cehennem taşının saf simya ile yoğrulduğu efsanevi cevher.",
+    "category": 9
+  },
+  {
+    "id": "gunes_paneli",
+    "trName": "Güneş Paneli",
+    "trDesc": "Cam yüzey ve siber kristal katmanlarıyla ışığı doğrudan elektriğe çeviren panel.",
+    "category": 9
+  },
+  {
+    "id": "yercekimsiz_platform",
+    "trName": "Yerçekimsiz Platform",
+    "trDesc": "Mıknatıs, portal rünü ve siber kristal ile havada asılı duran iniş pedi.",
+    "category": 9
+  },
+  {
+    "id": "biyonik_kol",
+    "trName": "Biyonik Kol",
+    "trDesc": "Çelik eklemler ve siber kristal sinir uçlarıyla donatılmış sibernetik uzuv.",
+    "category": 9
+  },
+  {
+    "id": "usturlap",
+    "trName": "Kozmik Usturlap",
+    "trDesc": "Pusula ve teleskopun altın yörünge halkalarıyla gökcisimlerini haritalayan alet.",
+    "category": 9
+  },
+  {
+    "id": "tesla_bobini",
+    "trName": "Tesla Bobini",
+    "trDesc": "Yıldırım gücünü kesintisiz yüksek voltaj arklarına dönüştüren kule jeneratörü.",
+    "category": 9
+  },
+  {
+    "id": "kuantum_islemci",
+    "trName": "Kuantum İşlemci",
+    "trDesc": "Prizma taşı ve siber kristal matrisleriyle hesaplama yapan süper çip.",
+    "category": 9
+  },
+  {
+    "id": "minyatur_yildiz",
+    "trName": "Minyatür Yıldız",
+    "trDesc": "Manyetik muhafaza içinde kontrol altında tutulan mikro süpernova.",
+    "category": 9
+  },
+  {
+    "id": "dag",
+    "trName": "Dağ",
+    "trDesc": "Yükselen devasa kaya kütlesi ve karlı zirveler.",
+    "category": 10
+  },
+  {
+    "id": "kaya",
+    "trName": "Kaya",
+    "trDesc": "Yılların baskısıyla sertleşmiş yosunlu monolit taş.",
+    "category": 10
+  },
+  {
+    "id": "gunes",
+    "trName": "Güneş",
+    "trDesc": "Gökyüzünü aydınlatan ve ısıtan saf yaşam ışığı.",
+    "category": 10
+  },
+  {
+    "id": "okyanus",
+    "trName": "Okyanus",
+    "trDesc": "Uçsuz bucaksız derin sular ve coşkulu dalgalar.",
+    "category": 10
+  },
+  {
+    "id": "volkan",
+    "trName": "Volkan",
+    "trDesc": "Zirvesinden duman ve kızgın lavlar fışkıran yanardağ.",
+    "category": 10
+  },
+  {
+    "id": "ada",
+    "trName": "Ada",
+    "trDesc": "Turkuaz suların ortasında palmiyelerle bezeli kara parçası.",
+    "category": 10
+  },
+  {
+    "id": "nehir",
+    "trName": "Nehir",
+    "trDesc": "Toprağı yararak akıp giden coşkun su yolu.",
+    "category": 10
+  },
+  {
+    "id": "orman",
+    "trName": "Orman",
+    "trDesc": "Yemyeşil ağaçlar ve gür bitki örtüsüyle kaplı koruluk.",
+    "category": 10
+  },
+  {
+    "id": "firtina_bulutu",
+    "trName": "Fırtına Bulutu",
+    "trDesc": "Şimşekler çaktıran koyu gri fırtına kümesi.",
+    "category": 10
+  },
+  {
+    "id": "magara",
+    "trName": "Mağara",
+    "trDesc": "Dağın derinliklerine uzanan gizemli karanlık kovuk.",
+    "category": 10
+  },
+  {
+    "id": "gokkusagi",
+    "trName": "Gökkuşağı",
+    "trDesc": "Güneş ışınlarının yağmur damlalarında kırılmasıyla doğan renk cümbüşü.",
+    "category": 10
+  },
+  {
+    "id": "kanyon",
+    "trName": "Kanyon",
+    "trDesc": "Nehrin yüzyıllar boyu oyduğu derin kızıl kanyon vadisi.",
+    "category": 10
+  },
+  {
+    "id": "fay_hatti",
+    "trName": "Fay Hattı",
+    "trDesc": "Yerkabuğunun şiddetle sarsılıp ayrıldığı derin yarık.",
+    "category": 10
+  },
+  {
+    "id": "at",
+    "trName": "At",
+    "trDesc": "Sadık, güçlü ve rüzgâr gibi hızlı binek hayvanı.",
+    "category": 3
+  },
+  {
+    "id": "koyun",
+    "trName": "Koyun",
+    "trDesc": "Yumuşacık beyaz yünleriyle otlaklarda yayılan uysal hayvan.",
+    "category": 3
+  },
+  {
+    "id": "kurt",
+    "trName": "Kurt",
+    "trDesc": "Dolunaya uluyan, vahşi doğanın keskin gözlü avcısı.",
+    "category": 3
+  },
+  {
+    "id": "ari",
+    "trName": "Arı",
+    "trDesc": "Çiçek çiçek gezip nektar toplayan çalışkan bal arısı.",
+    "category": 3
+  },
+  {
+    "id": "yilan",
+    "trName": "Yılan",
+    "trDesc": "Sessizce süzülen, zehirli ve gizemli sürüngen.",
+    "category": 3
+  },
+  {
+    "id": "baykus",
+    "trName": "Baykuş",
+    "trDesc": "Gecenin karanlığında ormanı gözleyen bilge gece kuşu.",
+    "category": 3
+  },
+  {
+    "id": "kaplumbaga",
+    "trName": "Kaplumbağa",
+    "trDesc": "Ağır adımlarla yürüyen, sağlam kabuklu bilge amfibi.",
+    "category": 3
+  },
+  {
+    "id": "bal",
+    "trName": "Bal Kavanozu",
+    "trDesc": "Çalışkan arıların çiçek nektarından süzdüğü altın tatlılık.",
+    "category": 4
+  },
+  {
+    "id": "nilufer",
+    "trName": "Nilüfer",
+    "trDesc": "Durgun suların üstünde zarafetle açan pembe çiçek.",
+    "category": 2
+  },
+  {
+    "id": "elma",
+    "trName": "Elma",
+    "trDesc": "Ağaç dallarında olgunlaşmış sulu ve kıpkırmızı meyve.",
+    "category": 2
+  },
+  {
+    "id": "kurbaga",
+    "trName": "Kurbağa",
+    "trDesc": "Nilüfer yaprakları arasında neşeyle sıçrayan amfibi.",
+    "category": 3
+  },
+  {
+    "id": "sincap",
+    "trName": "Sincap",
+    "trDesc": "Palamut toplayıp ağaç kovuklarında saklayan sevimli kemirgen.",
+    "category": 3
+  },
+  {
+    "id": "geyik",
+    "trName": "Geyik",
+    "trDesc": "Ormanın derinliklerinde süzülen heybetli boynuzlu geyik.",
+    "category": 3
+  },
+  {
+    "id": "kelebek",
+    "trName": "Kelebek",
+    "trDesc": "Rengarenk kanatlarıyla çiçekler arasında dans eden böcek.",
+    "category": 3
+  },
+  {
+    "id": "sis",
+    "trName": "Sis",
+    "trDesc": "Havanın su buharı ile yoğuşması sonucu yeryüzüne inen hafif pus.",
+    "category": "elements"
+  },
+  {
+    "id": "gayzer",
+    "trName": "Gayzer",
+    "trDesc": "Yeraltındaki ısınmış su ve buharın taşlar arasından fışkırması.",
+    "category": "elements"
+  },
+  {
+    "id": "kaktus",
+    "trName": "Kaktüs",
+    "trDesc": "Kızgın çöl kumlarında bile dimdik duran çiçekli dikenli bitki.",
+    "category": "nature"
+  },
+  {
+    "id": "cam_agaci",
+    "trName": "Karlı Çam Ağacı",
+    "trDesc": "Karlı dağ yamaçlarında kışın da beyaz karlar altında dimdik duran çam ağacı.",
+    "category": "nature"
+  },
+  {
+    "id": "tavuk",
+    "trName": "Tavuk",
+    "trDesc": "Yumurtadan çıkan, tarlalarda dolaşan sevimli kümes hayvanı.",
+    "category": "life"
+  },
+  {
+    "id": "kedi",
+    "trName": "Kedi",
+    "trDesc": "Sütü ve sıcağı seven sevimli uysal evcil dost.",
+    "category": "life"
+  },
+  {
+    "id": "somon",
+    "trName": "Somon",
+    "trDesc": "Akıntının tersine nehirlerde sıçrayan çevik tatlı su balığı.",
+    "category": "life"
+  },
+  {
+    "id": "barut_ficisi",
+    "trName": "Barut Fıçısı",
+    "trDesc": "Ateşle buluştuğunda şiddetli patlama yaratan ahşap fıçı.",
+    "category": 5
+  },
+  {
+    "id": "su_degirmeni",
+    "trName": "Su Değirmeni",
+    "trDesc": "Akarsuyun akış gücüyle dönen ahşap çark mekanizması.",
+    "category": 6
+  },
+  {
+    "id": "buz_dagi",
+    "trName": "Buz Dağı",
+    "trDesc": "Okyanusta yüzen devasa parıltılı buz kütlesi.",
+    "category": "elements"
+  },
+  {
+    "id": "kalkan",
+    "trName": "Kalkan",
+    "trDesc": "Saldırılardan ve oklardan koruyan sağlam yuvarlak ahşap kalkan.",
+    "category": "craft_tools"
+  },
+  {
+    "id": "iksir_kazani",
+    "trName": "İksir Kazanı",
+    "trDesc": "Ateş üzerinde iksirlerin ve simya özlerinin kaynatıldığı döküm kazan.",
+    "category": 5
+  }
+]
