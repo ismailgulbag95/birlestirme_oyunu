@@ -62,7 +62,12 @@ export const TRANSLATIONS = {
       "debug_reset_confirm": "Tüm ilerlemeniz sıfırlanacak ve sadece 4 temel element kalacak. Emin misiniz?",
       "debug_all_unlocked_msg": "Oyundaki tüm tarif ve eşyalar açıldı!",
       "debug_all_hints_revealed_msg": "Tüm tarif ipuçları açığa çıkarıldı!",
-      "debug_spawn_success": "Temel elementler masaya yerleştirildi!"
+      "debug_spawn_success": "Temel elementler masaya yerleştirildi!",
+      "craft_btn": "✨ BİRLEŞTİR",
+      "craft_hint": "Karaktere dokun veya Birleştir'e bas",
+      "craft_no_items": "Önce masaya element yerleştirin!",
+      "craft_no_recipe": "Bu elementler birbiriyle tepki vermiyor!",
+      "craft_success": "Büyü başarılı! Yeni bir element doğdu!"
     },
     "items": {
       "ates": {
@@ -831,7 +836,12 @@ export const TRANSLATIONS = {
       "debug_reset_confirm": "All your progress will be reset and only 4 basic elements will remain. Are you sure?",
       "debug_all_unlocked_msg": "All recipes and items have been unlocked!",
       "debug_all_hints_revealed_msg": "All recipe clues revealed!",
-      "debug_spawn_success": "Basic elements placed on table!"
+      "debug_spawn_success": "Basic elements placed on table!",
+      "craft_btn": "✨ COMBINE",
+      "craft_hint": "Tap character or press Combine",
+      "craft_no_items": "Place elements on the table first!",
+      "craft_no_recipe": "These elements do not react together!",
+      "craft_success": "Magic succeeded! A new element is born!"
     },
     "items": {
       "ates": {

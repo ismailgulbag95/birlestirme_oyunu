@@ -108,7 +108,11 @@ class Game {
         this._saveGame();
       },
       () => audioManager.cycleMusicMode(),
-      debugHandlers
+      debugHandlers,
+      () => {
+        this.tableScene.playTalkingAnimation();
+        this.triggerCrafting();
+      }
     );
 
     this.ui.updateCharacterButton(initialChar);
@@ -192,6 +196,15 @@ class Game {
       duration: 0.4,
       ease: 'back.out(1.7)'
     });
+
+    this._updateCraftButtonState();
+  }
+
+  _updateCraftButtonState() {
+    if (!this.tableScene || !this.ui) return;
+    const slots = this.tableScene.getSlots();
+    const count = slots.filter(s => s.userData && s.userData.isOccupied).length;
+    this.ui.updateCraftButton(count);
   }
 
   onGetHint(itemId) {
@@ -217,6 +230,9 @@ class Game {
     const mouse = new THREE.Vector2();
 
     canvas.addEventListener('pointerdown', (e) => {
+      // Yalnızca sol fare tuşu veya dokunmatik olay
+      if (e.button !== undefined && e.button !== 0) return;
+
       const rect = canvas.getBoundingClientRect();
       mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
@@ -226,34 +242,38 @@ class Game {
 
       if (intersects.length === 0) return;
 
-      const hit = intersects[0];
-      let obj = hit.object;
-      let targetSlot = null;
+      const firstHit = intersects[0];
 
-      while (obj && obj.parent && obj !== this.sceneManager.scene) {
-        if (obj.userData) {
-          if (obj.userData.slot) {
-            targetSlot = obj.userData.slot;
+      // 1. Aşama: Kullanıcının parmağının / faresinin DOĞRUDAN bastığı nesne masadaki bir eşya mı?
+      let targetSlot = null;
+      let curr = firstHit.object;
+      while (curr && curr !== this.sceneManager.scene) {
+        if (curr.userData) {
+          if (curr.userData.slot) {
+            targetSlot = curr.userData.slot;
             break;
-          } else if (obj.userData.slotIndex !== undefined && obj.userData.isOccupied) {
-            targetSlot = obj;
+          } else if (curr.userData.slotIndex !== undefined && curr.userData.isOccupied) {
+            targetSlot = curr;
             break;
           }
         }
-        obj = obj.parent;
+        curr = curr.parent;
       }
 
+      // Sadece ve sadece kullanıcı doğrudan masadaki dolu bir eşyaya bastıysa fırlatıp kır
       if (targetSlot && targetSlot.userData && targetSlot.userData.isOccupied && targetSlot.userData.mesh) {
         this.throwAndBreakItem(targetSlot);
         return;
       }
 
-      // Check if clicked character (behind table or direct hit)
-      const isCharHit = this.tableScene.isCharacterHit(obj) || (hit.point && hit.point.z < -1.0);
-      if (isCharHit) {
+      // 2. Aşama: Masadaki eşyaya doğrudan basılmadıysa; sahneye, karaktere veya masaya yapılan her dokunuş BİRLEŞTİRME (CRAFT) eylemidir!
+      console.log("Karakter/Masa etkileşimi algılandı! Craft tetikleniyor...");
+      try {
         this.tableScene.playTalkingAnimation();
-        this.triggerCrafting();
+      } catch (err) {
+        console.warn("Karakter konuşma animasyonu hatası:", err);
       }
+      this.triggerCrafting();
     });
   }
 
@@ -274,6 +294,7 @@ class Game {
       ease: 'power1.out',
       onComplete: () => {
         this.sceneManager.remove(mesh);
+        this._updateCraftButtonState();
         if (mesh.userData.fracturePieces) {
           mesh.userData.fracturePieces.forEach(originalPiece => {
             const piece = originalPiece.clone();
@@ -286,6 +307,7 @@ class Game {
         }
       }
     });
+    this._updateCraftButtonState();
   }
 
   triggerCrafting() {
@@ -293,13 +315,21 @@ class Game {
     // 3 girdi yuvası bulunur; boş yuvalar null kabul edilir.
     const itemIds = slots.map(s => s.userData.currentItem || null);
 
-    if (itemIds.every(id => id === null)) return;
+    if (itemIds.every(id => id === null)) {
+      this.ui.showToast(i18n.t('craft_no_items'), 'warn');
+      return;
+    }
 
     const resultId = this.crafting.checkRecipe(itemIds);
 
     if (resultId) {
       this.failedCraftAttempts = 0;
-      this.tableScene.playSuccessAnimation();
+      this.ui.showToast(i18n.t('craft_success'), 'success');
+      try {
+        this.tableScene.playSuccessAnimation();
+      } catch (err) {
+        console.warn("Karakter başarı animasyonu hatası:", err);
+      }
       const oldMeshes = [];
       slots.forEach(s => {
         if (s.userData.mesh) {
@@ -372,18 +402,24 @@ class Game {
 
         // İlerleme veya ipucu hakkı değiştiğinde kaydet
         this._saveGame();
+        this._updateCraftButtonState();
       }, 320);
 
     } else {
       this.failedCraftAttempts++;
+      this.ui.showToast(i18n.t('craft_no_recipe'), 'warn');
       console.log(`Başarısız üretim denemesi: ${this.failedCraftAttempts}/20`);
 
-      if (this.failedCraftAttempts >= 20) {
-        console.log("20 kez başarısız üretim yapıldı! Karakter ölüm animasyonu tetikleniyor.");
-        this.tableScene.playDeathAnimation();
-        this.failedCraftAttempts = 0; // Animasyon oynatıldıktan sonra sayacı sıfırla
-      } else {
-        this.tableScene.playFailAnimation();
+      try {
+        if (this.failedCraftAttempts >= 20) {
+          console.log("20 kez başarısız üretim yapıldı! Karakter ölüm animasyonu tetikleniyor.");
+          this.tableScene.playDeathAnimation();
+          this.failedCraftAttempts = 0; // Animasyon oynatıldıktan sonra sayacı sıfırla
+        } else {
+          this.tableScene.playFailAnimation();
+        }
+      } catch (err) {
+        console.warn("Karakter başarısızlık animasyonu hatası:", err);
       }
 
       slots.forEach(s => {
@@ -411,6 +447,7 @@ class Game {
       s.userData.isOccupied = false;
       s.userData.currentItem = null;
     });
+    this._updateCraftButtonState();
   }
 
   unlockAllItems() {

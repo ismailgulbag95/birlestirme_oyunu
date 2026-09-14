@@ -21,7 +21,7 @@
 * Copyright 2010-2023 Three.js Authors
 * SPDX-License-Identifier: MIT
 */
-const Bt = "160", Bc = 0, na = 1, ic = 2, Fn = 1, Rn = 2, fC = 3, TC = 0, Ng = 1, Jg = 2, iB = 0, Gi = 1, ra = 2, Da = 3, ca = 4, Qc = 5, FB = 100, Ec = 101, oc = 102, ha = 103, la = 104, ec = 200, tc = 201, ac = 202, sc = 203, ce = 204, he = 205, nc = 206, rc = 207, Dc = 208, cc = 209, hc = 210, lc = 211, wc = 212, Sc = 213, Gc = 214, kc = 0, yc = 1, dc = 2, FE = 3, Mc = 4, pc = 5, Uc = 6, Nc = 7, Jn = 0, Kc = 1, Fc = 2, QB = 0, Rc = 1, Jc = 2, uc = 3, qc = 4, fc = 5, mc = 6, wa = "attached", Yc = "detached", un = 300, Ui = 301, Ni = 302, le = 303, we = 304, $E = 306, Ki = 1e3, IC = 1001, RE = 1002, Eg = 1003, Se = 1004, dE = 1005, Rg = 1006, qn = 1007, TB = 1008, EB = 1009, Lc = 1010, Hc = 1011, it = 1012, fn = 1013, AB = 1014, HC = 1015, GQ = 1016, mn = 1017, Yn = 1018, qB = 1020, bc = 1021, gC = 1023, Tc = 1024, xc = 1025, fB = 1026, Fi = 1027, _c = 1028, Ln = 1029, Oc = 1030, Hn = 1031, bn = 1033, So = 33776, Go = 33777, ko = 33778, yo = 33779, Sa = 35840, Ga = 35841, ka = 35842, ya = 35843, Tn = 36196, da = 37492, Ma = 37496, pa = 37808, Ua = 37809, Na = 37810, Ka = 37811, Fa = 37812, Ra = 37813, Ja = 37814, ua = 37815, qa = 37816, fa = 37817, ma = 37818, Ya = 37819, La = 37820, Ha = 37821, Mo = 36492, ba = 36494, Ta = 36495, vc = 36283, xa = 36284, _a = 36285, Oa = 36286, ME = 2200, pB = 2201, Zc = 2202, kQ = 2300, Ri = 2301, po = 2302, ri = 2400, Di = 2401, JE = 2402, Qt = 2500, Pc = 2501, Wc = 0, xn = 1, Ge = 2, _n = 3e3, mB = 3001, jc = 3200, Vc = 3201, Et = 0, Xc = 1, CC = "", _I = "srgb", og = "srgb-linear", ot = "display-p3", Ao = "display-p3-linear", uE = "linear", UI = "srgb", qE = "rec709", fE = "p3", jB = 7680, va = 519, zc = 512, $c = 513, Ah = 514, On = 515, Ih = 516, gh = 517, Ch = 518, Bh = 519, ke = 35044, Za = "300 es", ye = 1035, bC = 2e3, mE = 2001;
+const Bt = "160", Bc = 0, na = 1, ic = 2, Fn = 1, Rn = 2, fC = 3, TC = 0, Ng = 1, Jg = 2, iB = 0, Gi = 1, ra = 2, Da = 3, ca = 4, Qc = 5, FB = 100, Ec = 101, oc = 102, ha = 103, la = 104, ec = 200, tc = 201, ac = 202, sc = 203, he = 204, le = 205, nc = 206, rc = 207, Dc = 208, cc = 209, hc = 210, lc = 211, wc = 212, Sc = 213, Gc = 214, kc = 0, yc = 1, dc = 2, FE = 3, Mc = 4, pc = 5, Uc = 6, Nc = 7, Jn = 0, Kc = 1, Fc = 2, QB = 0, Rc = 1, Jc = 2, uc = 3, qc = 4, fc = 5, mc = 6, wa = "attached", Yc = "detached", un = 300, Ui = 301, Ni = 302, we = 303, Se = 304, Ao = 306, Ki = 1e3, IC = 1001, RE = 1002, og = 1003, Ge = 1004, dE = 1005, Rg = 1006, qn = 1007, TB = 1008, EB = 1009, Lc = 1010, Hc = 1011, it = 1012, fn = 1013, AB = 1014, HC = 1015, GQ = 1016, mn = 1017, Yn = 1018, qB = 1020, bc = 1021, gC = 1023, Tc = 1024, xc = 1025, fB = 1026, Fi = 1027, _c = 1028, Ln = 1029, Oc = 1030, Hn = 1031, bn = 1033, Go = 33776, ko = 33777, yo = 33778, Mo = 33779, Sa = 35840, Ga = 35841, ka = 35842, ya = 35843, Tn = 36196, da = 37492, Ma = 37496, pa = 37808, Ua = 37809, Na = 37810, Ka = 37811, Fa = 37812, Ra = 37813, Ja = 37814, ua = 37815, qa = 37816, fa = 37817, ma = 37818, Ya = 37819, La = 37820, Ha = 37821, po = 36492, ba = 36494, Ta = 36495, vc = 36283, xa = 36284, _a = 36285, Oa = 36286, ME = 2200, pB = 2201, Zc = 2202, kQ = 2300, Ri = 2301, Uo = 2302, ri = 2400, Di = 2401, JE = 2402, Qt = 2500, Pc = 2501, Wc = 0, xn = 1, ke = 2, _n = 3e3, mB = 3001, jc = 3200, Vc = 3201, Et = 0, Xc = 1, CC = "", OI = "srgb", eg = "srgb-linear", ot = "display-p3", Io = "display-p3-linear", uE = "linear", UI = "srgb", qE = "rec709", fE = "p3", jB = 7680, va = 519, zc = 512, $c = 513, Ah = 514, On = 515, Ih = 516, gh = 517, Ch = 518, Bh = 519, ye = 35044, Za = "300 es", de = 1035, bC = 2e3, mE = 2001;
 class PB {
   addEventListener(A, I) {
     this._listeners === void 0 && (this._listeners = {});
@@ -52,12 +52,12 @@ class PB {
     }
   }
 }
-const Dg = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0a", "0b", "0c", "0d", "0e", "0f", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "1a", "1b", "1c", "1d", "1e", "1f", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "2a", "2b", "2c", "2d", "2e", "2f", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "3a", "3b", "3c", "3d", "3e", "3f", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "4a", "4b", "4c", "4d", "4e", "4f", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "5a", "5b", "5c", "5d", "5e", "5f", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "6a", "6b", "6c", "6d", "6e", "6f", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "7a", "7b", "7c", "7d", "7e", "7f", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "8a", "8b", "8c", "8d", "8e", "8f", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "9a", "9b", "9c", "9d", "9e", "9f", "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "aa", "ab", "ac", "ad", "ae", "af", "b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "ba", "bb", "bc", "bd", "be", "bf", "c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "ca", "cb", "cc", "cd", "ce", "cf", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "da", "db", "dc", "dd", "de", "df", "e0", "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "ea", "eb", "ec", "ed", "ee", "ef", "f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "fa", "fb", "fc", "fd", "fe", "ff"];
+const cg = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0a", "0b", "0c", "0d", "0e", "0f", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "1a", "1b", "1c", "1d", "1e", "1f", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "2a", "2b", "2c", "2d", "2e", "2f", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "3a", "3b", "3c", "3d", "3e", "3f", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "4a", "4b", "4c", "4d", "4e", "4f", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "5a", "5b", "5c", "5d", "5e", "5f", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "6a", "6b", "6c", "6d", "6e", "6f", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "7a", "7b", "7c", "7d", "7e", "7f", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "8a", "8b", "8c", "8d", "8e", "8f", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "9a", "9b", "9c", "9d", "9e", "9f", "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "aa", "ab", "ac", "ad", "ae", "af", "b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "ba", "bb", "bc", "bd", "be", "bf", "c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "ca", "cb", "cc", "cd", "ce", "cf", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "da", "db", "dc", "dd", "de", "df", "e0", "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "ea", "eb", "ec", "ed", "ee", "ef", "f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "fa", "fb", "fc", "fd", "fe", "ff"];
 let Pa = 1234567;
 const nQ = Math.PI / 180, Ji = 180 / Math.PI;
 function sC() {
   const E14 = Math.random() * 4294967295 | 0, A = Math.random() * 4294967295 | 0, I = Math.random() * 4294967295 | 0, g = Math.random() * 4294967295 | 0;
-  return (Dg[E14 & 255] + Dg[E14 >> 8 & 255] + Dg[E14 >> 16 & 255] + Dg[E14 >> 24 & 255] + "-" + Dg[A & 255] + Dg[A >> 8 & 255] + "-" + Dg[A >> 16 & 15 | 64] + Dg[A >> 24 & 255] + "-" + Dg[I & 63 | 128] + Dg[I >> 8 & 255] + "-" + Dg[I >> 16 & 255] + Dg[I >> 24 & 255] + Dg[g & 255] + Dg[g >> 8 & 255] + Dg[g >> 16 & 255] + Dg[g >> 24 & 255]).toLowerCase();
+  return (cg[E14 & 255] + cg[E14 >> 8 & 255] + cg[E14 >> 16 & 255] + cg[E14 >> 24 & 255] + "-" + cg[A & 255] + cg[A >> 8 & 255] + "-" + cg[A >> 16 & 15 | 64] + cg[A >> 24 & 255] + "-" + cg[I & 63 | 128] + cg[I >> 8 & 255] + "-" + cg[I >> 16 & 255] + cg[I >> 24 & 255] + cg[g & 255] + cg[g >> 8 & 255] + cg[g >> 16 & 255] + cg[g >> 24 & 255]).toLowerCase();
 }
 function wg(E14, A, I) {
   return Math.max(A, Math.min(I, E14));
@@ -106,7 +106,7 @@ function Dh(E14) {
 function ch(E14) {
   return E14 * Ji;
 }
-function de(E14) {
+function Me(E14) {
   return (E14 & E14 - 1) === 0 && E14 !== 0;
 }
 function hh(E14) {
@@ -180,7 +180,7 @@ function lI(E14, A) {
       throw new Error("Invalid component type.");
   }
 }
-const wh = { DEG2RAD: nQ, RAD2DEG: Ji, generateUUID: sC, clamp: wg, euclideanModulo: et, mapLinear: ih, inverseLerp: Qh, lerp: rQ, damp: Eh, pingpong: oh, smoothstep: eh, smootherstep: th, randInt: ah, randFloat: sh, randFloatSpread: nh, seededRandom: rh, degToRad: Dh, radToDeg: ch, isPowerOfTwo: de, ceilPowerOfTwo: hh, floorPowerOfTwo: YE, setQuaternionFromProperEuler: lh, normalize: lI, denormalize: GC };
+const wh = { DEG2RAD: nQ, RAD2DEG: Ji, generateUUID: sC, clamp: wg, euclideanModulo: et, mapLinear: ih, inverseLerp: Qh, lerp: rQ, damp: Eh, pingpong: oh, smoothstep: eh, smootherstep: th, randInt: ah, randFloat: sh, randFloatSpread: nh, seededRandom: rh, degToRad: Dh, radToDeg: ch, isPowerOfTwo: Me, ceilPowerOfTwo: hh, floorPowerOfTwo: YE, setQuaternionFromProperEuler: lh, normalize: lI, denormalize: GC };
 class ZA {
   constructor(A = 0, I = 0) {
     ZA.prototype.isVector2 = true, this.x = A, this.y = I;
@@ -404,8 +404,8 @@ class BI {
     return this.multiplyMatrices(A, this);
   }
   multiplyMatrices(A, I) {
-    const g = A.elements, C = I.elements, B = this.elements, i = g[0], Q = g[3], o = g[6], e = g[1], t = g[4], a = g[7], s = g[2], n = g[5], r = g[8], c = C[0], D = C[3], h = C[6], S = C[1], G = C[4], k = C[7], U = C[2], p = C[5], M = C[8];
-    return B[0] = i * c + Q * S + o * U, B[3] = i * D + Q * G + o * p, B[6] = i * h + Q * k + o * M, B[1] = e * c + t * S + a * U, B[4] = e * D + t * G + a * p, B[7] = e * h + t * k + a * M, B[2] = s * c + n * S + r * U, B[5] = s * D + n * G + r * p, B[8] = s * h + n * k + r * M, this;
+    const g = A.elements, C = I.elements, B = this.elements, i = g[0], Q = g[3], o = g[6], e = g[1], t = g[4], a = g[7], s = g[2], n = g[5], r = g[8], c = C[0], D = C[3], h = C[6], S = C[1], G = C[4], k = C[7], M = C[2], U = C[5], p = C[8];
+    return B[0] = i * c + Q * S + o * M, B[3] = i * D + Q * G + o * U, B[6] = i * h + Q * k + o * p, B[1] = e * c + t * S + a * M, B[4] = e * D + t * G + a * U, B[7] = e * h + t * k + a * p, B[2] = s * c + n * S + r * M, B[5] = s * D + n * G + r * U, B[8] = s * h + n * k + r * p, this;
   }
   multiplyScalar(A) {
     const I = this.elements;
@@ -438,13 +438,13 @@ class BI {
     return this.set(g * o, g * e, -g * (o * i + e * Q) + i + A, -C * e, C * o, -C * (-e * i + o * Q) + Q + I, 0, 0, 1), this;
   }
   scale(A, I) {
-    return this.premultiply(Uo.makeScale(A, I)), this;
+    return this.premultiply(No.makeScale(A, I)), this;
   }
   rotate(A) {
-    return this.premultiply(Uo.makeRotation(-A)), this;
+    return this.premultiply(No.makeRotation(-A)), this;
   }
   translate(A, I) {
-    return this.premultiply(Uo.makeTranslation(A, I)), this;
+    return this.premultiply(No.makeTranslation(A, I)), this;
   }
   makeTranslation(A, I) {
     return A.isVector2 ? this.set(1, 0, A.x, 0, 1, A.y, 0, 0, 1) : this.set(1, 0, A, 0, 1, I, 0, 0, 1), this;
@@ -473,7 +473,7 @@ class BI {
     return new this.constructor().fromArray(this.elements);
   }
 }
-const Uo = new BI();
+const No = new BI();
 function vn(E14) {
   for (let A = E14.length - 1; A >= 0; --A) if (E14[A] >= 65535) return true;
   return false;
@@ -489,7 +489,7 @@ const Wa = {};
 function DQ(E14) {
   E14 in Wa || (Wa[E14] = true, console.warn(E14));
 }
-const ja = new BI().set(0.8224621, 0.177538, 0, 0.0331941, 0.9668058, 0, 0.0170827, 0.0723974, 0.9105199), Va = new BI().set(1.2249401, -0.2249404, 0, -0.0420569, 1.0420571, 0, -0.0196376, -0.0786361, 1.0982735), PQ = { [og]: { transfer: uE, primaries: qE, toReference: (E14) => E14, fromReference: (E14) => E14 }, [_I]: { transfer: UI, primaries: qE, toReference: (E14) => E14.convertSRGBToLinear(), fromReference: (E14) => E14.convertLinearToSRGB() }, [Ao]: { transfer: uE, primaries: fE, toReference: (E14) => E14.applyMatrix3(Va), fromReference: (E14) => E14.applyMatrix3(ja) }, [ot]: { transfer: UI, primaries: fE, toReference: (E14) => E14.convertSRGBToLinear().applyMatrix3(Va), fromReference: (E14) => E14.applyMatrix3(ja).convertLinearToSRGB() } }, Gh = /* @__PURE__ */ new Set([og, Ao]), DI = { enabled: true, _workingColorSpace: og, get workingColorSpace() {
+const ja = new BI().set(0.8224621, 0.177538, 0, 0.0331941, 0.9668058, 0, 0.0170827, 0.0723974, 0.9105199), Va = new BI().set(1.2249401, -0.2249404, 0, -0.0420569, 1.0420571, 0, -0.0196376, -0.0786361, 1.0982735), PQ = { [eg]: { transfer: uE, primaries: qE, toReference: (E14) => E14, fromReference: (E14) => E14 }, [OI]: { transfer: UI, primaries: qE, toReference: (E14) => E14.convertSRGBToLinear(), fromReference: (E14) => E14.convertLinearToSRGB() }, [Io]: { transfer: uE, primaries: fE, toReference: (E14) => E14.applyMatrix3(Va), fromReference: (E14) => E14.applyMatrix3(ja) }, [ot]: { transfer: UI, primaries: fE, toReference: (E14) => E14.convertSRGBToLinear().applyMatrix3(Va), fromReference: (E14) => E14.applyMatrix3(ja).convertLinearToSRGB() } }, Gh = /* @__PURE__ */ new Set([eg, Io]), DI = { enabled: true, _workingColorSpace: eg, get workingColorSpace() {
   return this._workingColorSpace;
 }, set workingColorSpace(E14) {
   if (!Gh.has(E14)) throw new Error(`Unsupported working color space, "${E14}".`);
@@ -510,7 +510,7 @@ const ja = new BI().set(0.8224621, 0.177538, 0, 0.0331941, 0.9668058, 0, 0.01708
 function ki(E14) {
   return E14 < 0.04045 ? E14 * 0.0773993808 : Math.pow(E14 * 0.9478672986 + 0.0521327014, 2.4);
 }
-function No(E14) {
+function Ko(E14) {
   return E14 < 31308e-7 ? E14 * 12.92 : 1.055 * Math.pow(E14, 0.41666) - 0.055;
 }
 let VB;
@@ -558,20 +558,20 @@ class Pn {
       let B;
       if (Array.isArray(C)) {
         B = [];
-        for (let i = 0, Q = C.length; i < Q; i++) C[i].isDataTexture ? B.push(Ko(C[i].image)) : B.push(Ko(C[i]));
-      } else B = Ko(C);
+        for (let i = 0, Q = C.length; i < Q; i++) C[i].isDataTexture ? B.push(Fo(C[i].image)) : B.push(Fo(C[i]));
+      } else B = Fo(C);
       g.url = B;
     }
     return I || (A.images[this.uuid] = g), g;
   }
 }
-function Ko(E14) {
+function Fo(E14) {
   return typeof HTMLImageElement < "u" && E14 instanceof HTMLImageElement || typeof HTMLCanvasElement < "u" && E14 instanceof HTMLCanvasElement || typeof ImageBitmap < "u" && E14 instanceof ImageBitmap ? Zn.getDataURL(E14) : E14.data ? { data: Array.from(E14.data), width: E14.width, height: E14.height, type: E14.data.constructor.name } : (console.warn("THREE.Texture: Unable to serialize Texture."), {});
 }
 let yh = 0;
-class sg extends PB {
-  constructor(A = sg.DEFAULT_IMAGE, I = sg.DEFAULT_MAPPING, g = IC, C = IC, B = Rg, i = TB, Q = gC, o = EB, e = sg.DEFAULT_ANISOTROPY, t = CC) {
-    super(), this.isTexture = true, Object.defineProperty(this, "id", { value: yh++ }), this.uuid = sC(), this.name = "", this.source = new Pn(A), this.mipmaps = [], this.mapping = I, this.channel = 0, this.wrapS = g, this.wrapT = C, this.magFilter = B, this.minFilter = i, this.anisotropy = e, this.format = Q, this.internalFormat = null, this.type = o, this.offset = new ZA(0, 0), this.repeat = new ZA(1, 1), this.center = new ZA(0, 0), this.rotation = 0, this.matrixAutoUpdate = true, this.matrix = new BI(), this.generateMipmaps = true, this.premultiplyAlpha = false, this.flipY = true, this.unpackAlignment = 4, typeof t == "string" ? this.colorSpace = t : (DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace = t === mB ? _I : CC), this.userData = {}, this.version = 0, this.onUpdate = null, this.isRenderTargetTexture = false, this.needsPMREMUpdate = false;
+class ng extends PB {
+  constructor(A = ng.DEFAULT_IMAGE, I = ng.DEFAULT_MAPPING, g = IC, C = IC, B = Rg, i = TB, Q = gC, o = EB, e = ng.DEFAULT_ANISOTROPY, t = CC) {
+    super(), this.isTexture = true, Object.defineProperty(this, "id", { value: yh++ }), this.uuid = sC(), this.name = "", this.source = new Pn(A), this.mipmaps = [], this.mapping = I, this.channel = 0, this.wrapS = g, this.wrapT = C, this.magFilter = B, this.minFilter = i, this.anisotropy = e, this.format = Q, this.internalFormat = null, this.type = o, this.offset = new ZA(0, 0), this.repeat = new ZA(1, 1), this.center = new ZA(0, 0), this.rotation = 0, this.matrixAutoUpdate = true, this.matrix = new BI(), this.generateMipmaps = true, this.premultiplyAlpha = false, this.flipY = true, this.unpackAlignment = 4, typeof t == "string" ? this.colorSpace = t : (DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace = t === mB ? OI : CC), this.userData = {}, this.version = 0, this.onUpdate = null, this.isRenderTargetTexture = false, this.needsPMREMUpdate = false;
   }
   get image() {
     return this.source.data;
@@ -627,15 +627,15 @@ class sg extends PB {
     A === true && (this.version++, this.source.needsUpdate = true);
   }
   get encoding() {
-    return DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace === _I ? mB : _n;
+    return DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace === OI ? mB : _n;
   }
   set encoding(A) {
-    DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace = A === mB ? _I : CC;
+    DQ("THREE.Texture: Property .encoding has been replaced by .colorSpace."), this.colorSpace = A === mB ? OI : CC;
   }
 }
-sg.DEFAULT_IMAGE = null;
-sg.DEFAULT_MAPPING = un;
-sg.DEFAULT_ANISOTROPY = 1;
+ng.DEFAULT_IMAGE = null;
+ng.DEFAULT_MAPPING = un;
+ng.DEFAULT_ANISOTROPY = 1;
 class yI {
   constructor(A = 0, I = 0, g = 0, C = 1) {
     yI.prototype.isVector4 = true, this.x = A, this.y = I, this.z = g, this.w = C;
@@ -754,8 +754,8 @@ class yI {
     if (Math.abs(t - s) < 0.01 && Math.abs(a - c) < 0.01 && Math.abs(r - D) < 0.01) {
       if (Math.abs(t + s) < 0.1 && Math.abs(a + c) < 0.1 && Math.abs(r + D) < 0.1 && Math.abs(e + n + h - 3) < 0.1) return this.set(1, 0, 0, 0), this;
       I = Math.PI;
-      const G = (e + 1) / 2, k = (n + 1) / 2, U = (h + 1) / 2, p = (t + s) / 4, M = (a + c) / 4, F = (r + D) / 4;
-      return G > k && G > U ? G < 0.01 ? (g = 0, C = 0.707106781, B = 0.707106781) : (g = Math.sqrt(G), C = p / g, B = M / g) : k > U ? k < 0.01 ? (g = 0.707106781, C = 0, B = 0.707106781) : (C = Math.sqrt(k), g = p / C, B = F / C) : U < 0.01 ? (g = 0.707106781, C = 0.707106781, B = 0) : (B = Math.sqrt(U), g = M / B, C = F / B), this.set(g, C, B, I), this;
+      const G = (e + 1) / 2, k = (n + 1) / 2, M = (h + 1) / 2, U = (t + s) / 4, p = (a + c) / 4, F = (r + D) / 4;
+      return G > k && G > M ? G < 0.01 ? (g = 0, C = 0.707106781, B = 0.707106781) : (g = Math.sqrt(G), C = U / g, B = p / g) : k > M ? k < 0.01 ? (g = 0.707106781, C = 0, B = 0.707106781) : (C = Math.sqrt(k), g = U / C, B = F / C) : M < 0.01 ? (g = 0.707106781, C = 0.707106781, B = 0) : (B = Math.sqrt(M), g = p / B, C = F / B), this.set(g, C, B, I), this;
     }
     let S = Math.sqrt((D - r) * (D - r) + (a - c) * (a - c) + (s - t) * (s - t));
     return Math.abs(S) < 1e-3 && (S = 1), this.x = (D - r) / S, this.y = (a - c) / S, this.z = (s - t) / S, this.w = Math.acos((e + n + h - 1) / 2), this;
@@ -838,7 +838,7 @@ class dh extends PB {
   constructor(A = 1, I = 1, g = {}) {
     super(), this.isRenderTarget = true, this.width = A, this.height = I, this.depth = 1, this.scissor = new yI(0, 0, A, I), this.scissorTest = false, this.viewport = new yI(0, 0, A, I);
     const C = { width: A, height: I, depth: 1 };
-    g.encoding !== void 0 && (DQ("THREE.WebGLRenderTarget: option.encoding has been replaced by option.colorSpace."), g.colorSpace = g.encoding === mB ? _I : CC), g = Object.assign({ generateMipmaps: false, internalFormat: null, minFilter: Rg, depthBuffer: true, stencilBuffer: false, depthTexture: null, samples: 0 }, g), this.texture = new sg(C, g.mapping, g.wrapS, g.wrapT, g.magFilter, g.minFilter, g.format, g.type, g.anisotropy, g.colorSpace), this.texture.isRenderTargetTexture = true, this.texture.flipY = false, this.texture.generateMipmaps = g.generateMipmaps, this.texture.internalFormat = g.internalFormat, this.depthBuffer = g.depthBuffer, this.stencilBuffer = g.stencilBuffer, this.depthTexture = g.depthTexture, this.samples = g.samples;
+    g.encoding !== void 0 && (DQ("THREE.WebGLRenderTarget: option.encoding has been replaced by option.colorSpace."), g.colorSpace = g.encoding === mB ? OI : CC), g = Object.assign({ generateMipmaps: false, internalFormat: null, minFilter: Rg, depthBuffer: true, stencilBuffer: false, depthTexture: null, samples: 0 }, g), this.texture = new ng(C, g.mapping, g.wrapS, g.wrapT, g.magFilter, g.minFilter, g.format, g.type, g.anisotropy, g.colorSpace), this.texture.isRenderTargetTexture = true, this.texture.flipY = false, this.texture.generateMipmaps = g.generateMipmaps, this.texture.internalFormat = g.internalFormat, this.depthBuffer = g.depthBuffer, this.stencilBuffer = g.stencilBuffer, this.depthTexture = g.depthTexture, this.samples = g.samples;
   }
   setSize(A, I, g = 1) {
     (this.width !== A || this.height !== I || this.depth !== g) && (this.width = A, this.height = I, this.depth = g, this.texture.image.width = A, this.texture.image.height = I, this.texture.image.depth = g, this.dispose()), this.viewport.set(0, 0, A, I), this.scissor.set(0, 0, A, I);
@@ -860,14 +860,14 @@ class xB extends dh {
     super(A, I, g), this.isWebGLRenderTarget = true;
   }
 }
-class Wn extends sg {
+class Wn extends ng {
   constructor(A = null, I = 1, g = 1, C = 1) {
-    super(null), this.isDataArrayTexture = true, this.image = { data: A, width: I, height: g, depth: C }, this.magFilter = Eg, this.minFilter = Eg, this.wrapR = IC, this.generateMipmaps = false, this.flipY = false, this.unpackAlignment = 1;
+    super(null), this.isDataArrayTexture = true, this.image = { data: A, width: I, height: g, depth: C }, this.magFilter = og, this.minFilter = og, this.wrapR = IC, this.generateMipmaps = false, this.flipY = false, this.unpackAlignment = 1;
   }
 }
-class Mh extends sg {
+class Mh extends ng {
   constructor(A = null, I = 1, g = 1, C = 1) {
-    super(null), this.isData3DTexture = true, this.image = { data: A, width: I, height: g, depth: C }, this.magFilter = Eg, this.minFilter = Eg, this.wrapR = IC, this.generateMipmaps = false, this.flipY = false, this.unpackAlignment = 1;
+    super(null), this.isData3DTexture = true, this.image = { data: A, width: I, height: g, depth: C }, this.magFilter = og, this.minFilter = og, this.wrapR = IC, this.generateMipmaps = false, this.flipY = false, this.unpackAlignment = 1;
   }
 }
 class nC {
@@ -889,13 +889,13 @@ class nC {
       let D = 1 - Q;
       const h = o * s + e * n + t * r + a * c, S = h >= 0 ? 1 : -1, G = 1 - h * h;
       if (G > Number.EPSILON) {
-        const U = Math.sqrt(G), p = Math.atan2(U, h * S);
-        D = Math.sin(D * p) / U, Q = Math.sin(Q * p) / U;
+        const M = Math.sqrt(G), U = Math.atan2(M, h * S);
+        D = Math.sin(D * U) / M, Q = Math.sin(Q * U) / M;
       }
       const k = Q * S;
       if (o = o * D + s * k, e = e * D + n * k, t = t * D + r * k, a = a * D + c * k, D === 1 - Q) {
-        const U = 1 / Math.sqrt(o * o + e * e + t * t + a * a);
-        o *= U, e *= U, t *= U, a *= U;
+        const M = 1 / Math.sqrt(o * o + e * e + t * t + a * a);
+        o *= M, e *= M, t *= M, a *= M;
       }
     }
     A[I] = o, A[I + 1] = e, A[I + 2] = t, A[I + 3] = a;
@@ -1263,10 +1263,10 @@ class H {
     return this.copy(A).multiplyScalar(g);
   }
   projectOnPlane(A) {
-    return Fo.copy(this).projectOnVector(A), this.sub(Fo);
+    return Ro.copy(this).projectOnVector(A), this.sub(Ro);
   }
   reflect(A) {
-    return this.sub(Fo.copy(A).multiplyScalar(2 * this.dot(A)));
+    return this.sub(Ro.copy(A).multiplyScalar(2 * this.dot(A)));
   }
   angleTo(A) {
     const I = Math.sqrt(this.lengthSq() * A.lengthSq());
@@ -1340,7 +1340,7 @@ class H {
     yield this.x, yield this.y, yield this.z;
   }
 }
-const Fo = new H(), Xa = new nC();
+const Ro = new H(), Xa = new nC();
 class MC {
   constructor(A = new H(1 / 0, 1 / 0, 1 / 0), I = new H(-1 / 0, -1 / 0, -1 / 0)) {
     this.isBox3 = true, this.min = A, this.max = I;
@@ -1432,7 +1432,7 @@ class MC {
     if (this.isEmpty()) return false;
     this.getCenter(Vi), jQ.subVectors(this.max, Vi), XB.subVectors(A.a, Vi), zB.subVectors(A.b, Vi), $B.subVectors(A.c, Vi), PC.subVectors(zB, XB), WC.subVectors($B, zB), lB.subVectors(XB, $B);
     let I = [0, -PC.z, PC.y, 0, -WC.z, WC.y, 0, -lB.z, lB.y, PC.z, 0, -PC.x, WC.z, 0, -WC.x, lB.z, 0, -lB.x, -PC.y, PC.x, 0, -WC.y, WC.x, 0, -lB.y, lB.x, 0];
-    return !Ro(I, XB, zB, $B, jQ) || (I = [1, 0, 0, 0, 1, 0, 0, 0, 1], !Ro(I, XB, zB, $B, jQ)) ? false : (VQ.crossVectors(PC, WC), I = [VQ.x, VQ.y, VQ.z], Ro(I, XB, zB, $B, jQ));
+    return !Jo(I, XB, zB, $B, jQ) || (I = [1, 0, 0, 0, 1, 0, 0, 0, 1], !Jo(I, XB, zB, $B, jQ)) ? false : (VQ.crossVectors(PC, WC), I = [VQ.x, VQ.y, VQ.z], Jo(I, XB, zB, $B, jQ));
   }
   clampPoint(A, I) {
     return I.copy(A).clamp(this.min, this.max);
@@ -1460,7 +1460,7 @@ class MC {
   }
 }
 const KC = [new H(), new H(), new H(), new H(), new H(), new H(), new H(), new H()], QC = new H(), WQ = new MC(), XB = new H(), zB = new H(), $B = new H(), PC = new H(), WC = new H(), lB = new H(), Vi = new H(), jQ = new H(), VQ = new H(), wB = new H();
-function Ro(E14, A, I, g, C) {
+function Jo(E14, A, I, g, C) {
   for (let B = 0, i = E14.length - 3; B <= i; B += 3) {
     wB.fromArray(E14, B);
     const Q = C.x * Math.abs(wB.x) + C.y * Math.abs(wB.y) + C.z * Math.abs(wB.z), o = A.dot(wB), e = I.dot(wB), t = g.dot(wB);
@@ -1468,7 +1468,7 @@ function Ro(E14, A, I, g, C) {
   }
   return true;
 }
-const ph = new MC(), Xi = new H(), Jo = new H();
+const ph = new MC(), Xi = new H(), uo = new H();
 class pC {
   constructor(A = new H(), I = -1) {
     this.isSphere = true, this.center = A, this.radius = I;
@@ -1532,7 +1532,7 @@ class pC {
     return this;
   }
   union(A) {
-    return A.isEmpty() ? this : this.isEmpty() ? (this.copy(A), this) : (this.center.equals(A.center) === true ? this.radius = Math.max(this.radius, A.radius) : (Jo.subVectors(A.center, this.center).setLength(A.radius), this.expandByPoint(Xi.copy(A.center).add(Jo)), this.expandByPoint(Xi.copy(A.center).sub(Jo))), this);
+    return A.isEmpty() ? this : this.isEmpty() ? (this.copy(A), this) : (this.center.equals(A.center) === true ? this.radius = Math.max(this.radius, A.radius) : (uo.subVectors(A.center, this.center).setLength(A.radius), this.expandByPoint(Xi.copy(A.center).add(uo)), this.expandByPoint(Xi.copy(A.center).sub(uo))), this);
   }
   equals(A) {
     return A.center.equals(this.center) && A.radius === this.radius;
@@ -1541,7 +1541,7 @@ class pC {
     return new this.constructor().copy(this);
   }
 }
-const FC = new H(), uo = new H(), XQ = new H(), jC = new H(), qo = new H(), zQ = new H(), fo = new H();
+const FC = new H(), qo = new H(), XQ = new H(), jC = new H(), fo = new H(), zQ = new H(), mo = new H();
 class LQ {
   constructor(A = new H(), I = new H(0, 0, -1)) {
     this.origin = A, this.direction = I;
@@ -1574,7 +1574,7 @@ class LQ {
     return I < 0 ? this.origin.distanceToSquared(A) : (FC.copy(this.origin).addScaledVector(this.direction, I), FC.distanceToSquared(A));
   }
   distanceSqToSegment(A, I, g, C) {
-    uo.copy(A).add(I).multiplyScalar(0.5), XQ.copy(I).sub(A).normalize(), jC.copy(this.origin).sub(uo);
+    qo.copy(A).add(I).multiplyScalar(0.5), XQ.copy(I).sub(A).normalize(), jC.copy(this.origin).sub(qo);
     const B = A.distanceTo(I) * 0.5, i = -this.direction.dot(XQ), Q = jC.dot(this.direction), o = -jC.dot(XQ), e = jC.lengthSq(), t = Math.abs(1 - i * i);
     let a, s, n, r;
     if (t > 0) if (a = i * o - Q, s = i * Q - o, r = B * t, a >= 0) if (s >= -r) if (s <= r) {
@@ -1584,7 +1584,7 @@ class LQ {
     else s = -B, a = Math.max(0, -(i * s + Q)), n = -a * a + s * (s + 2 * o) + e;
     else s <= -r ? (a = Math.max(0, -(-i * B + Q)), s = a > 0 ? -B : Math.min(Math.max(-B, -o), B), n = -a * a + s * (s + 2 * o) + e) : s <= r ? (a = 0, s = Math.min(Math.max(-B, -o), B), n = s * (s + 2 * o) + e) : (a = Math.max(0, -(i * B + Q)), s = a > 0 ? B : Math.min(Math.max(-B, -o), B), n = -a * a + s * (s + 2 * o) + e);
     else s = i > 0 ? -B : B, a = Math.max(0, -(i * s + Q)), n = -a * a + s * (s + 2 * o) + e;
-    return g && g.copy(this.origin).addScaledVector(this.direction, a), C && C.copy(uo).addScaledVector(XQ, s), n;
+    return g && g.copy(this.origin).addScaledVector(this.direction, a), C && C.copy(qo).addScaledVector(XQ, s), n;
   }
   intersectSphere(A, I) {
     FC.subVectors(A.center, this.origin);
@@ -1619,8 +1619,8 @@ class LQ {
     return this.intersectBox(A, FC) !== null;
   }
   intersectTriangle(A, I, g, C, B) {
-    qo.subVectors(I, A), zQ.subVectors(g, A), fo.crossVectors(qo, zQ);
-    let i = this.direction.dot(fo), Q;
+    fo.subVectors(I, A), zQ.subVectors(g, A), mo.crossVectors(fo, zQ);
+    let i = this.direction.dot(mo), Q;
     if (i > 0) {
       if (C) return null;
       Q = 1;
@@ -1629,9 +1629,9 @@ class LQ {
     jC.subVectors(this.origin, A);
     const o = Q * this.direction.dot(zQ.crossVectors(jC, zQ));
     if (o < 0) return null;
-    const e = Q * this.direction.dot(qo.cross(jC));
+    const e = Q * this.direction.dot(fo.cross(jC));
     if (e < 0 || o + e > i) return null;
-    const t = -Q * jC.dot(fo);
+    const t = -Q * jC.dot(mo);
     return t < 0 ? null : this.at(t / i, B);
   }
   applyMatrix4(A) {
@@ -1717,8 +1717,8 @@ class iI {
     return this.multiplyMatrices(A, this);
   }
   multiplyMatrices(A, I) {
-    const g = A.elements, C = I.elements, B = this.elements, i = g[0], Q = g[4], o = g[8], e = g[12], t = g[1], a = g[5], s = g[9], n = g[13], r = g[2], c = g[6], D = g[10], h = g[14], S = g[3], G = g[7], k = g[11], U = g[15], p = C[0], M = C[4], F = C[8], y = C[12], N = C[1], q = C[5], L = C[9], Z = C[13], m = C[2], _ = C[6], v = C[10], AA = C[14], gA = C[3], CA = C[7], QA = C[11], sA = C[15];
-    return B[0] = i * p + Q * N + o * m + e * gA, B[4] = i * M + Q * q + o * _ + e * CA, B[8] = i * F + Q * L + o * v + e * QA, B[12] = i * y + Q * Z + o * AA + e * sA, B[1] = t * p + a * N + s * m + n * gA, B[5] = t * M + a * q + s * _ + n * CA, B[9] = t * F + a * L + s * v + n * QA, B[13] = t * y + a * Z + s * AA + n * sA, B[2] = r * p + c * N + D * m + h * gA, B[6] = r * M + c * q + D * _ + h * CA, B[10] = r * F + c * L + D * v + h * QA, B[14] = r * y + c * Z + D * AA + h * sA, B[3] = S * p + G * N + k * m + U * gA, B[7] = S * M + G * q + k * _ + U * CA, B[11] = S * F + G * L + k * v + U * QA, B[15] = S * y + G * Z + k * AA + U * sA, this;
+    const g = A.elements, C = I.elements, B = this.elements, i = g[0], Q = g[4], o = g[8], e = g[12], t = g[1], a = g[5], s = g[9], n = g[13], r = g[2], c = g[6], D = g[10], h = g[14], S = g[3], G = g[7], k = g[11], M = g[15], U = C[0], p = C[4], F = C[8], y = C[12], N = C[1], q = C[5], L = C[9], Z = C[13], m = C[2], _ = C[6], v = C[10], AA = C[14], gA = C[3], CA = C[7], iA = C[11], sA = C[15];
+    return B[0] = i * U + Q * N + o * m + e * gA, B[4] = i * p + Q * q + o * _ + e * CA, B[8] = i * F + Q * L + o * v + e * iA, B[12] = i * y + Q * Z + o * AA + e * sA, B[1] = t * U + a * N + s * m + n * gA, B[5] = t * p + a * q + s * _ + n * CA, B[9] = t * F + a * L + s * v + n * iA, B[13] = t * y + a * Z + s * AA + n * sA, B[2] = r * U + c * N + D * m + h * gA, B[6] = r * p + c * q + D * _ + h * CA, B[10] = r * F + c * L + D * v + h * iA, B[14] = r * y + c * Z + D * AA + h * sA, B[3] = S * U + G * N + k * m + M * gA, B[7] = S * p + G * q + k * _ + M * CA, B[11] = S * F + G * L + k * v + M * iA, B[15] = S * y + G * Z + k * AA + M * sA, this;
   }
   multiplyScalar(A) {
     const I = this.elements;
@@ -1738,10 +1738,10 @@ class iI {
     return A.isVector3 ? (C[12] = A.x, C[13] = A.y, C[14] = A.z) : (C[12] = A, C[13] = I, C[14] = g), this;
   }
   invert() {
-    const A = this.elements, I = A[0], g = A[1], C = A[2], B = A[3], i = A[4], Q = A[5], o = A[6], e = A[7], t = A[8], a = A[9], s = A[10], n = A[11], r = A[12], c = A[13], D = A[14], h = A[15], S = a * D * e - c * s * e + c * o * n - Q * D * n - a * o * h + Q * s * h, G = r * s * e - t * D * e - r * o * n + i * D * n + t * o * h - i * s * h, k = t * c * e - r * a * e + r * Q * n - i * c * n - t * Q * h + i * a * h, U = r * a * o - t * c * o - r * Q * s + i * c * s + t * Q * D - i * a * D, p = I * S + g * G + C * k + B * U;
-    if (p === 0) return this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    const M = 1 / p;
-    return A[0] = S * M, A[1] = (c * s * B - a * D * B - c * C * n + g * D * n + a * C * h - g * s * h) * M, A[2] = (Q * D * B - c * o * B + c * C * e - g * D * e - Q * C * h + g * o * h) * M, A[3] = (a * o * B - Q * s * B - a * C * e + g * s * e + Q * C * n - g * o * n) * M, A[4] = G * M, A[5] = (t * D * B - r * s * B + r * C * n - I * D * n - t * C * h + I * s * h) * M, A[6] = (r * o * B - i * D * B - r * C * e + I * D * e + i * C * h - I * o * h) * M, A[7] = (i * s * B - t * o * B + t * C * e - I * s * e - i * C * n + I * o * n) * M, A[8] = k * M, A[9] = (r * a * B - t * c * B - r * g * n + I * c * n + t * g * h - I * a * h) * M, A[10] = (i * c * B - r * Q * B + r * g * e - I * c * e - i * g * h + I * Q * h) * M, A[11] = (t * Q * B - i * a * B - t * g * e + I * a * e + i * g * n - I * Q * n) * M, A[12] = U * M, A[13] = (t * c * C - r * a * C + r * g * s - I * c * s - t * g * D + I * a * D) * M, A[14] = (r * Q * C - i * c * C - r * g * o + I * c * o + i * g * D - I * Q * D) * M, A[15] = (i * a * C - t * Q * C + t * g * o - I * a * o - i * g * s + I * Q * s) * M, this;
+    const A = this.elements, I = A[0], g = A[1], C = A[2], B = A[3], i = A[4], Q = A[5], o = A[6], e = A[7], t = A[8], a = A[9], s = A[10], n = A[11], r = A[12], c = A[13], D = A[14], h = A[15], S = a * D * e - c * s * e + c * o * n - Q * D * n - a * o * h + Q * s * h, G = r * s * e - t * D * e - r * o * n + i * D * n + t * o * h - i * s * h, k = t * c * e - r * a * e + r * Q * n - i * c * n - t * Q * h + i * a * h, M = r * a * o - t * c * o - r * Q * s + i * c * s + t * Q * D - i * a * D, U = I * S + g * G + C * k + B * M;
+    if (U === 0) return this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const p = 1 / U;
+    return A[0] = S * p, A[1] = (c * s * B - a * D * B - c * C * n + g * D * n + a * C * h - g * s * h) * p, A[2] = (Q * D * B - c * o * B + c * C * e - g * D * e - Q * C * h + g * o * h) * p, A[3] = (a * o * B - Q * s * B - a * C * e + g * s * e + Q * C * n - g * o * n) * p, A[4] = G * p, A[5] = (t * D * B - r * s * B + r * C * n - I * D * n - t * C * h + I * s * h) * p, A[6] = (r * o * B - i * D * B - r * C * e + I * D * e + i * C * h - I * o * h) * p, A[7] = (i * s * B - t * o * B + t * C * e - I * s * e - i * C * n + I * o * n) * p, A[8] = k * p, A[9] = (r * a * B - t * c * B - r * g * n + I * c * n + t * g * h - I * a * h) * p, A[10] = (i * c * B - r * Q * B + r * g * e - I * c * e - i * g * h + I * Q * h) * p, A[11] = (t * Q * B - i * a * B - t * g * e + I * a * e + i * g * n - I * Q * n) * p, A[12] = M * p, A[13] = (t * c * C - r * a * C + r * g * s - I * c * s - t * g * D + I * a * D) * p, A[14] = (r * Q * C - i * c * C - r * g * o + I * c * o + i * g * D - I * Q * D) * p, A[15] = (i * a * C - t * Q * C + t * g * o - I * a * o - i * g * s + I * Q * s) * p, this;
   }
   scale(A) {
     const I = this.elements, g = A.x, C = A.y, B = A.z;
@@ -1777,8 +1777,8 @@ class iI {
     return this.set(1, g, B, 0, A, 1, i, 0, I, C, 1, 0, 0, 0, 0, 1), this;
   }
   compose(A, I, g) {
-    const C = this.elements, B = I._x, i = I._y, Q = I._z, o = I._w, e = B + B, t = i + i, a = Q + Q, s = B * e, n = B * t, r = B * a, c = i * t, D = i * a, h = Q * a, S = o * e, G = o * t, k = o * a, U = g.x, p = g.y, M = g.z;
-    return C[0] = (1 - (c + h)) * U, C[1] = (n + k) * U, C[2] = (r - G) * U, C[3] = 0, C[4] = (n - k) * p, C[5] = (1 - (s + h)) * p, C[6] = (D + S) * p, C[7] = 0, C[8] = (r + G) * M, C[9] = (D - S) * M, C[10] = (1 - (s + c)) * M, C[11] = 0, C[12] = A.x, C[13] = A.y, C[14] = A.z, C[15] = 1, this;
+    const C = this.elements, B = I._x, i = I._y, Q = I._z, o = I._w, e = B + B, t = i + i, a = Q + Q, s = B * e, n = B * t, r = B * a, c = i * t, D = i * a, h = Q * a, S = o * e, G = o * t, k = o * a, M = g.x, U = g.y, p = g.z;
+    return C[0] = (1 - (c + h)) * M, C[1] = (n + k) * M, C[2] = (r - G) * M, C[3] = 0, C[4] = (n - k) * U, C[5] = (1 - (s + h)) * U, C[6] = (D + S) * U, C[7] = 0, C[8] = (r + G) * p, C[9] = (D - S) * p, C[10] = (1 - (s + c)) * p, C[11] = 0, C[12] = A.x, C[13] = A.y, C[14] = A.z, C[15] = 1, this;
   }
   decompose(A, I, g) {
     const C = this.elements;
@@ -1819,8 +1819,8 @@ class iI {
   }
 }
 const Ai = new H(), EC = new iI(), Uh = new H(0, 0, 0), Nh = new H(1, 1, 1), VC = new H(), $Q = new H(), bg = new H(), za = new iI(), $a = new nC();
-class Io {
-  constructor(A = 0, I = 0, g = 0, C = Io.DEFAULT_ORDER) {
+class go {
+  constructor(A = 0, I = 0, g = 0, C = go.DEFAULT_ORDER) {
     this.isEuler = true, this._x = A, this._y = I, this._z = g, this._order = C;
   }
   get x() {
@@ -1909,7 +1909,7 @@ class Io {
     yield this._x, yield this._y, yield this._z, yield this._order;
   }
 }
-Io.DEFAULT_ORDER = "XYZ";
+go.DEFAULT_ORDER = "XYZ";
 class tt {
   constructor() {
     this.mask = 1;
@@ -1941,17 +1941,17 @@ class tt {
 }
 let Kh = 0;
 const As = new H(), Ii = new nC(), RC = new iI(), AE = new H(), zi = new H(), Fh = new H(), Rh = new nC(), Is = new H(1, 0, 0), gs = new H(0, 1, 0), Cs = new H(0, 0, 1), Jh = { type: "added" }, uh = { type: "removed" };
-class HI extends PB {
+class bI extends PB {
   constructor() {
-    super(), this.isObject3D = true, Object.defineProperty(this, "id", { value: Kh++ }), this.uuid = sC(), this.name = "", this.type = "Object3D", this.parent = null, this.children = [], this.up = HI.DEFAULT_UP.clone();
-    const A = new H(), I = new Io(), g = new nC(), C = new H(1, 1, 1);
+    super(), this.isObject3D = true, Object.defineProperty(this, "id", { value: Kh++ }), this.uuid = sC(), this.name = "", this.type = "Object3D", this.parent = null, this.children = [], this.up = bI.DEFAULT_UP.clone();
+    const A = new H(), I = new go(), g = new nC(), C = new H(1, 1, 1);
     function B() {
       g.setFromEuler(I, false);
     }
     function i() {
       I.setFromQuaternion(g, void 0, false);
     }
-    I._onChange(B), g._onChange(i), Object.defineProperties(this, { position: { configurable: true, enumerable: true, value: A }, rotation: { configurable: true, enumerable: true, value: I }, quaternion: { configurable: true, enumerable: true, value: g }, scale: { configurable: true, enumerable: true, value: C }, modelViewMatrix: { value: new iI() }, normalMatrix: { value: new BI() } }), this.matrix = new iI(), this.matrixWorld = new iI(), this.matrixAutoUpdate = HI.DEFAULT_MATRIX_AUTO_UPDATE, this.matrixWorldAutoUpdate = HI.DEFAULT_MATRIX_WORLD_AUTO_UPDATE, this.matrixWorldNeedsUpdate = false, this.layers = new tt(), this.visible = true, this.castShadow = false, this.receiveShadow = false, this.frustumCulled = true, this.renderOrder = 0, this.animations = [], this.userData = {};
+    I._onChange(B), g._onChange(i), Object.defineProperties(this, { position: { configurable: true, enumerable: true, value: A }, rotation: { configurable: true, enumerable: true, value: I }, quaternion: { configurable: true, enumerable: true, value: g }, scale: { configurable: true, enumerable: true, value: C }, modelViewMatrix: { value: new iI() }, normalMatrix: { value: new BI() } }), this.matrix = new iI(), this.matrixWorld = new iI(), this.matrixAutoUpdate = bI.DEFAULT_MATRIX_AUTO_UPDATE, this.matrixWorldAutoUpdate = bI.DEFAULT_MATRIX_WORLD_AUTO_UPDATE, this.matrixWorldNeedsUpdate = false, this.layers = new tt(), this.visible = true, this.castShadow = false, this.receiveShadow = false, this.frustumCulled = true, this.renderOrder = 0, this.animations = [], this.userData = {};
   }
   onBeforeShadow() {
   }
@@ -2175,10 +2175,10 @@ class HI extends PB {
     return this;
   }
 }
-HI.DEFAULT_UP = new H(0, 1, 0);
-HI.DEFAULT_MATRIX_AUTO_UPDATE = true;
-HI.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = true;
-const oC = new H(), JC = new H(), mo = new H(), uC = new H(), gi = new H(), Ci = new H(), Bs = new H(), Yo = new H(), Lo = new H(), Ho = new H();
+bI.DEFAULT_UP = new H(0, 1, 0);
+bI.DEFAULT_MATRIX_AUTO_UPDATE = true;
+bI.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = true;
+const oC = new H(), JC = new H(), Yo = new H(), uC = new H(), gi = new H(), Ci = new H(), Bs = new H(), Lo = new H(), Ho = new H(), bo = new H();
 let IE = false;
 class aC {
   constructor(A = new H(), I = new H(), g = new H()) {
@@ -2190,8 +2190,8 @@ class aC {
     return B > 0 ? C.multiplyScalar(1 / Math.sqrt(B)) : C.set(0, 0, 0);
   }
   static getBarycoord(A, I, g, C, B) {
-    oC.subVectors(C, I), JC.subVectors(g, I), mo.subVectors(A, I);
-    const i = oC.dot(oC), Q = oC.dot(JC), o = oC.dot(mo), e = JC.dot(JC), t = JC.dot(mo), a = i * e - Q * Q;
+    oC.subVectors(C, I), JC.subVectors(g, I), Yo.subVectors(A, I);
+    const i = oC.dot(oC), Q = oC.dot(JC), o = oC.dot(Yo), e = JC.dot(JC), t = JC.dot(Yo), a = i * e - Q * Q;
     if (a === 0) return B.set(0, 0, 0), null;
     const s = 1 / a, n = (e * o - Q * t) * s, r = (i * t - Q * o) * s;
     return B.set(1 - n - r, r, n);
@@ -2256,16 +2256,16 @@ class aC {
   closestPointToPoint(A, I) {
     const g = this.a, C = this.b, B = this.c;
     let i, Q;
-    gi.subVectors(C, g), Ci.subVectors(B, g), Yo.subVectors(A, g);
-    const o = gi.dot(Yo), e = Ci.dot(Yo);
+    gi.subVectors(C, g), Ci.subVectors(B, g), Lo.subVectors(A, g);
+    const o = gi.dot(Lo), e = Ci.dot(Lo);
     if (o <= 0 && e <= 0) return I.copy(g);
-    Lo.subVectors(A, C);
-    const t = gi.dot(Lo), a = Ci.dot(Lo);
+    Ho.subVectors(A, C);
+    const t = gi.dot(Ho), a = Ci.dot(Ho);
     if (t >= 0 && a <= t) return I.copy(C);
     const s = o * a - t * e;
     if (s <= 0 && o >= 0 && t <= 0) return i = o / (o - t), I.copy(g).addScaledVector(gi, i);
-    Ho.subVectors(A, B);
-    const n = gi.dot(Ho), r = Ci.dot(Ho);
+    bo.subVectors(A, B);
+    const n = gi.dot(bo), r = Ci.dot(bo);
     if (r >= 0 && n <= r) return I.copy(B);
     const c = n * e - o * r;
     if (c <= 0 && e >= 0 && r <= 0) return Q = e / (e - r), I.copy(g).addScaledVector(Ci, Q);
@@ -2279,7 +2279,7 @@ class aC {
   }
 }
 const jn = { aliceblue: 15792383, antiquewhite: 16444375, aqua: 65535, aquamarine: 8388564, azure: 15794175, beige: 16119260, bisque: 16770244, black: 0, blanchedalmond: 16772045, blue: 255, blueviolet: 9055202, brown: 10824234, burlywood: 14596231, cadetblue: 6266528, chartreuse: 8388352, chocolate: 13789470, coral: 16744272, cornflowerblue: 6591981, cornsilk: 16775388, crimson: 14423100, cyan: 65535, darkblue: 139, darkcyan: 35723, darkgoldenrod: 12092939, darkgray: 11119017, darkgreen: 25600, darkgrey: 11119017, darkkhaki: 12433259, darkmagenta: 9109643, darkolivegreen: 5597999, darkorange: 16747520, darkorchid: 10040012, darkred: 9109504, darksalmon: 15308410, darkseagreen: 9419919, darkslateblue: 4734347, darkslategray: 3100495, darkslategrey: 3100495, darkturquoise: 52945, darkviolet: 9699539, deeppink: 16716947, deepskyblue: 49151, dimgray: 6908265, dimgrey: 6908265, dodgerblue: 2003199, firebrick: 11674146, floralwhite: 16775920, forestgreen: 2263842, fuchsia: 16711935, gainsboro: 14474460, ghostwhite: 16316671, gold: 16766720, goldenrod: 14329120, gray: 8421504, green: 32768, greenyellow: 11403055, grey: 8421504, honeydew: 15794160, hotpink: 16738740, indianred: 13458524, indigo: 4915330, ivory: 16777200, khaki: 15787660, lavender: 15132410, lavenderblush: 16773365, lawngreen: 8190976, lemonchiffon: 16775885, lightblue: 11393254, lightcoral: 15761536, lightcyan: 14745599, lightgoldenrodyellow: 16448210, lightgray: 13882323, lightgreen: 9498256, lightgrey: 13882323, lightpink: 16758465, lightsalmon: 16752762, lightseagreen: 2142890, lightskyblue: 8900346, lightslategray: 7833753, lightslategrey: 7833753, lightsteelblue: 11584734, lightyellow: 16777184, lime: 65280, limegreen: 3329330, linen: 16445670, magenta: 16711935, maroon: 8388608, mediumaquamarine: 6737322, mediumblue: 205, mediumorchid: 12211667, mediumpurple: 9662683, mediumseagreen: 3978097, mediumslateblue: 8087790, mediumspringgreen: 64154, mediumturquoise: 4772300, mediumvioletred: 13047173, midnightblue: 1644912, mintcream: 16121850, mistyrose: 16770273, moccasin: 16770229, navajowhite: 16768685, navy: 128, oldlace: 16643558, olive: 8421376, olivedrab: 7048739, orange: 16753920, orangered: 16729344, orchid: 14315734, palegoldenrod: 15657130, palegreen: 10025880, paleturquoise: 11529966, palevioletred: 14381203, papayawhip: 16773077, peachpuff: 16767673, peru: 13468991, pink: 16761035, plum: 14524637, powderblue: 11591910, purple: 8388736, rebeccapurple: 6697881, red: 16711680, rosybrown: 12357519, royalblue: 4286945, saddlebrown: 9127187, salmon: 16416882, sandybrown: 16032864, seagreen: 3050327, seashell: 16774638, sienna: 10506797, silver: 12632256, skyblue: 8900331, slateblue: 6970061, slategray: 7372944, slategrey: 7372944, snow: 16775930, springgreen: 65407, steelblue: 4620980, tan: 13808780, teal: 32896, thistle: 14204888, tomato: 16737095, turquoise: 4251856, violet: 15631086, wheat: 16113331, white: 16777215, whitesmoke: 16119285, yellow: 16776960, yellowgreen: 10145074 }, XC = { h: 0, s: 0, l: 0 }, gE = { h: 0, s: 0, l: 0 };
-function bo(E14, A, I) {
+function To(E14, A, I) {
   return I < 0 && (I += 1), I > 1 && (I -= 1), I < 1 / 6 ? E14 + (A - E14) * 6 * I : I < 1 / 2 ? A : I < 2 / 3 ? E14 + (A - E14) * 6 * (2 / 3 - I) : E14;
 }
 class mA {
@@ -2296,7 +2296,7 @@ class mA {
   setScalar(A) {
     return this.r = A, this.g = A, this.b = A, this;
   }
-  setHex(A, I = _I) {
+  setHex(A, I = OI) {
     return A = Math.floor(A), this.r = (A >> 16 & 255) / 255, this.g = (A >> 8 & 255) / 255, this.b = (A & 255) / 255, DI.toWorkingColorSpace(this, I), this;
   }
   setRGB(A, I, g, C = DI.workingColorSpace) {
@@ -2306,11 +2306,11 @@ class mA {
     if (A = et(A, 1), I = wg(I, 0, 1), g = wg(g, 0, 1), I === 0) this.r = this.g = this.b = g;
     else {
       const B = g <= 0.5 ? g * (1 + I) : g + I - g * I, i = 2 * g - B;
-      this.r = bo(i, B, A + 1 / 3), this.g = bo(i, B, A), this.b = bo(i, B, A - 1 / 3);
+      this.r = To(i, B, A + 1 / 3), this.g = To(i, B, A), this.b = To(i, B, A - 1 / 3);
     }
     return DI.toWorkingColorSpace(this, C), this;
   }
-  setStyle(A, I = _I) {
+  setStyle(A, I = OI) {
     function g(B) {
       B !== void 0 && parseFloat(B) < 1 && console.warn("THREE.Color: Alpha component of " + A + " will be ignored.");
     }
@@ -2339,7 +2339,7 @@ class mA {
     } else if (A && A.length > 0) return this.setColorName(A, I);
     return this;
   }
-  setColorName(A, I = _I) {
+  setColorName(A, I = OI) {
     const g = jn[A.toLowerCase()];
     return g !== void 0 ? this.setHex(g, I) : console.warn("THREE.Color: Unknown color " + A), this;
   }
@@ -2353,7 +2353,7 @@ class mA {
     return this.r = ki(A.r), this.g = ki(A.g), this.b = ki(A.b), this;
   }
   copyLinearToSRGB(A) {
-    return this.r = No(A.r), this.g = No(A.g), this.b = No(A.b), this;
+    return this.r = Ko(A.r), this.g = Ko(A.g), this.b = Ko(A.b), this;
   }
   convertSRGBToLinear() {
     return this.copySRGBToLinear(this), this;
@@ -2361,15 +2361,15 @@ class mA {
   convertLinearToSRGB() {
     return this.copyLinearToSRGB(this), this;
   }
-  getHex(A = _I) {
-    return DI.fromWorkingColorSpace(cg.copy(this), A), Math.round(wg(cg.r * 255, 0, 255)) * 65536 + Math.round(wg(cg.g * 255, 0, 255)) * 256 + Math.round(wg(cg.b * 255, 0, 255));
+  getHex(A = OI) {
+    return DI.fromWorkingColorSpace(hg.copy(this), A), Math.round(wg(hg.r * 255, 0, 255)) * 65536 + Math.round(wg(hg.g * 255, 0, 255)) * 256 + Math.round(wg(hg.b * 255, 0, 255));
   }
-  getHexString(A = _I) {
+  getHexString(A = OI) {
     return ("000000" + this.getHex(A).toString(16)).slice(-6);
   }
   getHSL(A, I = DI.workingColorSpace) {
-    DI.fromWorkingColorSpace(cg.copy(this), I);
-    const g = cg.r, C = cg.g, B = cg.b, i = Math.max(g, C, B), Q = Math.min(g, C, B);
+    DI.fromWorkingColorSpace(hg.copy(this), I);
+    const g = hg.r, C = hg.g, B = hg.b, i = Math.max(g, C, B), Q = Math.min(g, C, B);
     let o, e;
     const t = (Q + i) / 2;
     if (Q === i) o = 0, e = 0;
@@ -2391,12 +2391,12 @@ class mA {
     return A.h = o, A.s = e, A.l = t, A;
   }
   getRGB(A, I = DI.workingColorSpace) {
-    return DI.fromWorkingColorSpace(cg.copy(this), I), A.r = cg.r, A.g = cg.g, A.b = cg.b, A;
+    return DI.fromWorkingColorSpace(hg.copy(this), I), A.r = hg.r, A.g = hg.g, A.b = hg.b, A;
   }
-  getStyle(A = _I) {
-    DI.fromWorkingColorSpace(cg.copy(this), A);
-    const I = cg.r, g = cg.g, C = cg.b;
-    return A !== _I ? `color(${A} ${I.toFixed(3)} ${g.toFixed(3)} ${C.toFixed(3)})` : `rgb(${Math.round(I * 255)},${Math.round(g * 255)},${Math.round(C * 255)})`;
+  getStyle(A = OI) {
+    DI.fromWorkingColorSpace(hg.copy(this), A);
+    const I = hg.r, g = hg.g, C = hg.b;
+    return A !== OI ? `color(${A} ${I.toFixed(3)} ${g.toFixed(3)} ${C.toFixed(3)})` : `rgb(${Math.round(I * 255)},${Math.round(g * 255)},${Math.round(C * 255)})`;
   }
   offsetHSL(A, I, g) {
     return this.getHSL(XC), this.setHSL(XC.h + A, XC.s + I, XC.l + g);
@@ -2456,12 +2456,12 @@ class mA {
     yield this.r, yield this.g, yield this.b;
   }
 }
-const cg = new mA();
+const hg = new mA();
 mA.NAMES = jn;
 let qh = 0;
 class rC extends PB {
   constructor() {
-    super(), this.isMaterial = true, Object.defineProperty(this, "id", { value: qh++ }), this.uuid = sC(), this.name = "", this.type = "Material", this.blending = Gi, this.side = TC, this.vertexColors = false, this.opacity = 1, this.transparent = false, this.alphaHash = false, this.blendSrc = ce, this.blendDst = he, this.blendEquation = FB, this.blendSrcAlpha = null, this.blendDstAlpha = null, this.blendEquationAlpha = null, this.blendColor = new mA(0, 0, 0), this.blendAlpha = 0, this.depthFunc = FE, this.depthTest = true, this.depthWrite = true, this.stencilWriteMask = 255, this.stencilFunc = va, this.stencilRef = 0, this.stencilFuncMask = 255, this.stencilFail = jB, this.stencilZFail = jB, this.stencilZPass = jB, this.stencilWrite = false, this.clippingPlanes = null, this.clipIntersection = false, this.clipShadows = false, this.shadowSide = null, this.colorWrite = true, this.precision = null, this.polygonOffset = false, this.polygonOffsetFactor = 0, this.polygonOffsetUnits = 0, this.dithering = false, this.alphaToCoverage = false, this.premultipliedAlpha = false, this.forceSinglePass = false, this.visible = true, this.toneMapped = true, this.userData = {}, this.version = 0, this._alphaTest = 0;
+    super(), this.isMaterial = true, Object.defineProperty(this, "id", { value: qh++ }), this.uuid = sC(), this.name = "", this.type = "Material", this.blending = Gi, this.side = TC, this.vertexColors = false, this.opacity = 1, this.transparent = false, this.alphaHash = false, this.blendSrc = he, this.blendDst = le, this.blendEquation = FB, this.blendSrcAlpha = null, this.blendDstAlpha = null, this.blendEquationAlpha = null, this.blendColor = new mA(0, 0, 0), this.blendAlpha = 0, this.depthFunc = FE, this.depthTest = true, this.depthWrite = true, this.stencilWriteMask = 255, this.stencilFunc = va, this.stencilRef = 0, this.stencilFuncMask = 255, this.stencilFail = jB, this.stencilZFail = jB, this.stencilZPass = jB, this.stencilWrite = false, this.clippingPlanes = null, this.clipIntersection = false, this.clipShadows = false, this.shadowSide = null, this.colorWrite = true, this.precision = null, this.polygonOffset = false, this.polygonOffsetFactor = 0, this.polygonOffsetUnits = 0, this.dithering = false, this.alphaToCoverage = false, this.premultipliedAlpha = false, this.forceSinglePass = false, this.visible = true, this.toneMapped = true, this.userData = {}, this.version = 0, this._alphaTest = 0;
   }
   get alphaTest() {
     return this._alphaTest;
@@ -2497,7 +2497,7 @@ class rC extends PB {
     const I = A === void 0 || typeof A == "string";
     I && (A = { textures: {}, images: {} });
     const g = { metadata: { version: 4.6, type: "Material", generator: "Material.toJSON" } };
-    g.uuid = this.uuid, g.type = this.type, this.name !== "" && (g.name = this.name), this.color && this.color.isColor && (g.color = this.color.getHex()), this.roughness !== void 0 && (g.roughness = this.roughness), this.metalness !== void 0 && (g.metalness = this.metalness), this.sheen !== void 0 && (g.sheen = this.sheen), this.sheenColor && this.sheenColor.isColor && (g.sheenColor = this.sheenColor.getHex()), this.sheenRoughness !== void 0 && (g.sheenRoughness = this.sheenRoughness), this.emissive && this.emissive.isColor && (g.emissive = this.emissive.getHex()), this.emissiveIntensity && this.emissiveIntensity !== 1 && (g.emissiveIntensity = this.emissiveIntensity), this.specular && this.specular.isColor && (g.specular = this.specular.getHex()), this.specularIntensity !== void 0 && (g.specularIntensity = this.specularIntensity), this.specularColor && this.specularColor.isColor && (g.specularColor = this.specularColor.getHex()), this.shininess !== void 0 && (g.shininess = this.shininess), this.clearcoat !== void 0 && (g.clearcoat = this.clearcoat), this.clearcoatRoughness !== void 0 && (g.clearcoatRoughness = this.clearcoatRoughness), this.clearcoatMap && this.clearcoatMap.isTexture && (g.clearcoatMap = this.clearcoatMap.toJSON(A).uuid), this.clearcoatRoughnessMap && this.clearcoatRoughnessMap.isTexture && (g.clearcoatRoughnessMap = this.clearcoatRoughnessMap.toJSON(A).uuid), this.clearcoatNormalMap && this.clearcoatNormalMap.isTexture && (g.clearcoatNormalMap = this.clearcoatNormalMap.toJSON(A).uuid, g.clearcoatNormalScale = this.clearcoatNormalScale.toArray()), this.iridescence !== void 0 && (g.iridescence = this.iridescence), this.iridescenceIOR !== void 0 && (g.iridescenceIOR = this.iridescenceIOR), this.iridescenceThicknessRange !== void 0 && (g.iridescenceThicknessRange = this.iridescenceThicknessRange), this.iridescenceMap && this.iridescenceMap.isTexture && (g.iridescenceMap = this.iridescenceMap.toJSON(A).uuid), this.iridescenceThicknessMap && this.iridescenceThicknessMap.isTexture && (g.iridescenceThicknessMap = this.iridescenceThicknessMap.toJSON(A).uuid), this.anisotropy !== void 0 && (g.anisotropy = this.anisotropy), this.anisotropyRotation !== void 0 && (g.anisotropyRotation = this.anisotropyRotation), this.anisotropyMap && this.anisotropyMap.isTexture && (g.anisotropyMap = this.anisotropyMap.toJSON(A).uuid), this.map && this.map.isTexture && (g.map = this.map.toJSON(A).uuid), this.matcap && this.matcap.isTexture && (g.matcap = this.matcap.toJSON(A).uuid), this.alphaMap && this.alphaMap.isTexture && (g.alphaMap = this.alphaMap.toJSON(A).uuid), this.lightMap && this.lightMap.isTexture && (g.lightMap = this.lightMap.toJSON(A).uuid, g.lightMapIntensity = this.lightMapIntensity), this.aoMap && this.aoMap.isTexture && (g.aoMap = this.aoMap.toJSON(A).uuid, g.aoMapIntensity = this.aoMapIntensity), this.bumpMap && this.bumpMap.isTexture && (g.bumpMap = this.bumpMap.toJSON(A).uuid, g.bumpScale = this.bumpScale), this.normalMap && this.normalMap.isTexture && (g.normalMap = this.normalMap.toJSON(A).uuid, g.normalMapType = this.normalMapType, g.normalScale = this.normalScale.toArray()), this.displacementMap && this.displacementMap.isTexture && (g.displacementMap = this.displacementMap.toJSON(A).uuid, g.displacementScale = this.displacementScale, g.displacementBias = this.displacementBias), this.roughnessMap && this.roughnessMap.isTexture && (g.roughnessMap = this.roughnessMap.toJSON(A).uuid), this.metalnessMap && this.metalnessMap.isTexture && (g.metalnessMap = this.metalnessMap.toJSON(A).uuid), this.emissiveMap && this.emissiveMap.isTexture && (g.emissiveMap = this.emissiveMap.toJSON(A).uuid), this.specularMap && this.specularMap.isTexture && (g.specularMap = this.specularMap.toJSON(A).uuid), this.specularIntensityMap && this.specularIntensityMap.isTexture && (g.specularIntensityMap = this.specularIntensityMap.toJSON(A).uuid), this.specularColorMap && this.specularColorMap.isTexture && (g.specularColorMap = this.specularColorMap.toJSON(A).uuid), this.envMap && this.envMap.isTexture && (g.envMap = this.envMap.toJSON(A).uuid, this.combine !== void 0 && (g.combine = this.combine)), this.envMapIntensity !== void 0 && (g.envMapIntensity = this.envMapIntensity), this.reflectivity !== void 0 && (g.reflectivity = this.reflectivity), this.refractionRatio !== void 0 && (g.refractionRatio = this.refractionRatio), this.gradientMap && this.gradientMap.isTexture && (g.gradientMap = this.gradientMap.toJSON(A).uuid), this.transmission !== void 0 && (g.transmission = this.transmission), this.transmissionMap && this.transmissionMap.isTexture && (g.transmissionMap = this.transmissionMap.toJSON(A).uuid), this.thickness !== void 0 && (g.thickness = this.thickness), this.thicknessMap && this.thicknessMap.isTexture && (g.thicknessMap = this.thicknessMap.toJSON(A).uuid), this.attenuationDistance !== void 0 && this.attenuationDistance !== 1 / 0 && (g.attenuationDistance = this.attenuationDistance), this.attenuationColor !== void 0 && (g.attenuationColor = this.attenuationColor.getHex()), this.size !== void 0 && (g.size = this.size), this.shadowSide !== null && (g.shadowSide = this.shadowSide), this.sizeAttenuation !== void 0 && (g.sizeAttenuation = this.sizeAttenuation), this.blending !== Gi && (g.blending = this.blending), this.side !== TC && (g.side = this.side), this.vertexColors === true && (g.vertexColors = true), this.opacity < 1 && (g.opacity = this.opacity), this.transparent === true && (g.transparent = true), this.blendSrc !== ce && (g.blendSrc = this.blendSrc), this.blendDst !== he && (g.blendDst = this.blendDst), this.blendEquation !== FB && (g.blendEquation = this.blendEquation), this.blendSrcAlpha !== null && (g.blendSrcAlpha = this.blendSrcAlpha), this.blendDstAlpha !== null && (g.blendDstAlpha = this.blendDstAlpha), this.blendEquationAlpha !== null && (g.blendEquationAlpha = this.blendEquationAlpha), this.blendColor && this.blendColor.isColor && (g.blendColor = this.blendColor.getHex()), this.blendAlpha !== 0 && (g.blendAlpha = this.blendAlpha), this.depthFunc !== FE && (g.depthFunc = this.depthFunc), this.depthTest === false && (g.depthTest = this.depthTest), this.depthWrite === false && (g.depthWrite = this.depthWrite), this.colorWrite === false && (g.colorWrite = this.colorWrite), this.stencilWriteMask !== 255 && (g.stencilWriteMask = this.stencilWriteMask), this.stencilFunc !== va && (g.stencilFunc = this.stencilFunc), this.stencilRef !== 0 && (g.stencilRef = this.stencilRef), this.stencilFuncMask !== 255 && (g.stencilFuncMask = this.stencilFuncMask), this.stencilFail !== jB && (g.stencilFail = this.stencilFail), this.stencilZFail !== jB && (g.stencilZFail = this.stencilZFail), this.stencilZPass !== jB && (g.stencilZPass = this.stencilZPass), this.stencilWrite === true && (g.stencilWrite = this.stencilWrite), this.rotation !== void 0 && this.rotation !== 0 && (g.rotation = this.rotation), this.polygonOffset === true && (g.polygonOffset = true), this.polygonOffsetFactor !== 0 && (g.polygonOffsetFactor = this.polygonOffsetFactor), this.polygonOffsetUnits !== 0 && (g.polygonOffsetUnits = this.polygonOffsetUnits), this.linewidth !== void 0 && this.linewidth !== 1 && (g.linewidth = this.linewidth), this.dashSize !== void 0 && (g.dashSize = this.dashSize), this.gapSize !== void 0 && (g.gapSize = this.gapSize), this.scale !== void 0 && (g.scale = this.scale), this.dithering === true && (g.dithering = true), this.alphaTest > 0 && (g.alphaTest = this.alphaTest), this.alphaHash === true && (g.alphaHash = true), this.alphaToCoverage === true && (g.alphaToCoverage = true), this.premultipliedAlpha === true && (g.premultipliedAlpha = true), this.forceSinglePass === true && (g.forceSinglePass = true), this.wireframe === true && (g.wireframe = true), this.wireframeLinewidth > 1 && (g.wireframeLinewidth = this.wireframeLinewidth), this.wireframeLinecap !== "round" && (g.wireframeLinecap = this.wireframeLinecap), this.wireframeLinejoin !== "round" && (g.wireframeLinejoin = this.wireframeLinejoin), this.flatShading === true && (g.flatShading = true), this.visible === false && (g.visible = false), this.toneMapped === false && (g.toneMapped = false), this.fog === false && (g.fog = false), Object.keys(this.userData).length > 0 && (g.userData = this.userData);
+    g.uuid = this.uuid, g.type = this.type, this.name !== "" && (g.name = this.name), this.color && this.color.isColor && (g.color = this.color.getHex()), this.roughness !== void 0 && (g.roughness = this.roughness), this.metalness !== void 0 && (g.metalness = this.metalness), this.sheen !== void 0 && (g.sheen = this.sheen), this.sheenColor && this.sheenColor.isColor && (g.sheenColor = this.sheenColor.getHex()), this.sheenRoughness !== void 0 && (g.sheenRoughness = this.sheenRoughness), this.emissive && this.emissive.isColor && (g.emissive = this.emissive.getHex()), this.emissiveIntensity && this.emissiveIntensity !== 1 && (g.emissiveIntensity = this.emissiveIntensity), this.specular && this.specular.isColor && (g.specular = this.specular.getHex()), this.specularIntensity !== void 0 && (g.specularIntensity = this.specularIntensity), this.specularColor && this.specularColor.isColor && (g.specularColor = this.specularColor.getHex()), this.shininess !== void 0 && (g.shininess = this.shininess), this.clearcoat !== void 0 && (g.clearcoat = this.clearcoat), this.clearcoatRoughness !== void 0 && (g.clearcoatRoughness = this.clearcoatRoughness), this.clearcoatMap && this.clearcoatMap.isTexture && (g.clearcoatMap = this.clearcoatMap.toJSON(A).uuid), this.clearcoatRoughnessMap && this.clearcoatRoughnessMap.isTexture && (g.clearcoatRoughnessMap = this.clearcoatRoughnessMap.toJSON(A).uuid), this.clearcoatNormalMap && this.clearcoatNormalMap.isTexture && (g.clearcoatNormalMap = this.clearcoatNormalMap.toJSON(A).uuid, g.clearcoatNormalScale = this.clearcoatNormalScale.toArray()), this.iridescence !== void 0 && (g.iridescence = this.iridescence), this.iridescenceIOR !== void 0 && (g.iridescenceIOR = this.iridescenceIOR), this.iridescenceThicknessRange !== void 0 && (g.iridescenceThicknessRange = this.iridescenceThicknessRange), this.iridescenceMap && this.iridescenceMap.isTexture && (g.iridescenceMap = this.iridescenceMap.toJSON(A).uuid), this.iridescenceThicknessMap && this.iridescenceThicknessMap.isTexture && (g.iridescenceThicknessMap = this.iridescenceThicknessMap.toJSON(A).uuid), this.anisotropy !== void 0 && (g.anisotropy = this.anisotropy), this.anisotropyRotation !== void 0 && (g.anisotropyRotation = this.anisotropyRotation), this.anisotropyMap && this.anisotropyMap.isTexture && (g.anisotropyMap = this.anisotropyMap.toJSON(A).uuid), this.map && this.map.isTexture && (g.map = this.map.toJSON(A).uuid), this.matcap && this.matcap.isTexture && (g.matcap = this.matcap.toJSON(A).uuid), this.alphaMap && this.alphaMap.isTexture && (g.alphaMap = this.alphaMap.toJSON(A).uuid), this.lightMap && this.lightMap.isTexture && (g.lightMap = this.lightMap.toJSON(A).uuid, g.lightMapIntensity = this.lightMapIntensity), this.aoMap && this.aoMap.isTexture && (g.aoMap = this.aoMap.toJSON(A).uuid, g.aoMapIntensity = this.aoMapIntensity), this.bumpMap && this.bumpMap.isTexture && (g.bumpMap = this.bumpMap.toJSON(A).uuid, g.bumpScale = this.bumpScale), this.normalMap && this.normalMap.isTexture && (g.normalMap = this.normalMap.toJSON(A).uuid, g.normalMapType = this.normalMapType, g.normalScale = this.normalScale.toArray()), this.displacementMap && this.displacementMap.isTexture && (g.displacementMap = this.displacementMap.toJSON(A).uuid, g.displacementScale = this.displacementScale, g.displacementBias = this.displacementBias), this.roughnessMap && this.roughnessMap.isTexture && (g.roughnessMap = this.roughnessMap.toJSON(A).uuid), this.metalnessMap && this.metalnessMap.isTexture && (g.metalnessMap = this.metalnessMap.toJSON(A).uuid), this.emissiveMap && this.emissiveMap.isTexture && (g.emissiveMap = this.emissiveMap.toJSON(A).uuid), this.specularMap && this.specularMap.isTexture && (g.specularMap = this.specularMap.toJSON(A).uuid), this.specularIntensityMap && this.specularIntensityMap.isTexture && (g.specularIntensityMap = this.specularIntensityMap.toJSON(A).uuid), this.specularColorMap && this.specularColorMap.isTexture && (g.specularColorMap = this.specularColorMap.toJSON(A).uuid), this.envMap && this.envMap.isTexture && (g.envMap = this.envMap.toJSON(A).uuid, this.combine !== void 0 && (g.combine = this.combine)), this.envMapIntensity !== void 0 && (g.envMapIntensity = this.envMapIntensity), this.reflectivity !== void 0 && (g.reflectivity = this.reflectivity), this.refractionRatio !== void 0 && (g.refractionRatio = this.refractionRatio), this.gradientMap && this.gradientMap.isTexture && (g.gradientMap = this.gradientMap.toJSON(A).uuid), this.transmission !== void 0 && (g.transmission = this.transmission), this.transmissionMap && this.transmissionMap.isTexture && (g.transmissionMap = this.transmissionMap.toJSON(A).uuid), this.thickness !== void 0 && (g.thickness = this.thickness), this.thicknessMap && this.thicknessMap.isTexture && (g.thicknessMap = this.thicknessMap.toJSON(A).uuid), this.attenuationDistance !== void 0 && this.attenuationDistance !== 1 / 0 && (g.attenuationDistance = this.attenuationDistance), this.attenuationColor !== void 0 && (g.attenuationColor = this.attenuationColor.getHex()), this.size !== void 0 && (g.size = this.size), this.shadowSide !== null && (g.shadowSide = this.shadowSide), this.sizeAttenuation !== void 0 && (g.sizeAttenuation = this.sizeAttenuation), this.blending !== Gi && (g.blending = this.blending), this.side !== TC && (g.side = this.side), this.vertexColors === true && (g.vertexColors = true), this.opacity < 1 && (g.opacity = this.opacity), this.transparent === true && (g.transparent = true), this.blendSrc !== he && (g.blendSrc = this.blendSrc), this.blendDst !== le && (g.blendDst = this.blendDst), this.blendEquation !== FB && (g.blendEquation = this.blendEquation), this.blendSrcAlpha !== null && (g.blendSrcAlpha = this.blendSrcAlpha), this.blendDstAlpha !== null && (g.blendDstAlpha = this.blendDstAlpha), this.blendEquationAlpha !== null && (g.blendEquationAlpha = this.blendEquationAlpha), this.blendColor && this.blendColor.isColor && (g.blendColor = this.blendColor.getHex()), this.blendAlpha !== 0 && (g.blendAlpha = this.blendAlpha), this.depthFunc !== FE && (g.depthFunc = this.depthFunc), this.depthTest === false && (g.depthTest = this.depthTest), this.depthWrite === false && (g.depthWrite = this.depthWrite), this.colorWrite === false && (g.colorWrite = this.colorWrite), this.stencilWriteMask !== 255 && (g.stencilWriteMask = this.stencilWriteMask), this.stencilFunc !== va && (g.stencilFunc = this.stencilFunc), this.stencilRef !== 0 && (g.stencilRef = this.stencilRef), this.stencilFuncMask !== 255 && (g.stencilFuncMask = this.stencilFuncMask), this.stencilFail !== jB && (g.stencilFail = this.stencilFail), this.stencilZFail !== jB && (g.stencilZFail = this.stencilZFail), this.stencilZPass !== jB && (g.stencilZPass = this.stencilZPass), this.stencilWrite === true && (g.stencilWrite = this.stencilWrite), this.rotation !== void 0 && this.rotation !== 0 && (g.rotation = this.rotation), this.polygonOffset === true && (g.polygonOffset = true), this.polygonOffsetFactor !== 0 && (g.polygonOffsetFactor = this.polygonOffsetFactor), this.polygonOffsetUnits !== 0 && (g.polygonOffsetUnits = this.polygonOffsetUnits), this.linewidth !== void 0 && this.linewidth !== 1 && (g.linewidth = this.linewidth), this.dashSize !== void 0 && (g.dashSize = this.dashSize), this.gapSize !== void 0 && (g.gapSize = this.gapSize), this.scale !== void 0 && (g.scale = this.scale), this.dithering === true && (g.dithering = true), this.alphaTest > 0 && (g.alphaTest = this.alphaTest), this.alphaHash === true && (g.alphaHash = true), this.alphaToCoverage === true && (g.alphaToCoverage = true), this.premultipliedAlpha === true && (g.premultipliedAlpha = true), this.forceSinglePass === true && (g.forceSinglePass = true), this.wireframe === true && (g.wireframe = true), this.wireframeLinewidth > 1 && (g.wireframeLinewidth = this.wireframeLinewidth), this.wireframeLinecap !== "round" && (g.wireframeLinecap = this.wireframeLinecap), this.wireframeLinejoin !== "round" && (g.wireframeLinejoin = this.wireframeLinejoin), this.flatShading === true && (g.flatShading = true), this.visible === false && (g.visible = false), this.toneMapped === false && (g.toneMapped = false), this.fog === false && (g.fog = false), Object.keys(this.userData).length > 0 && (g.userData = this.userData);
     function C(B) {
       const i = [];
       for (const Q in B) {
@@ -2533,7 +2533,7 @@ class rC extends PB {
     A === true && this.version++;
   }
 }
-class SA extends rC {
+class wA extends rC {
   constructor(A) {
     super(), this.isMeshBasicMaterial = true, this.type = "MeshBasicMaterial", this.color = new mA(16777215), this.map = null, this.lightMap = null, this.lightMapIntensity = 1, this.aoMap = null, this.aoMapIntensity = 1, this.specularMap = null, this.alphaMap = null, this.envMap = null, this.combine = Jn, this.reflectivity = 1, this.refractionRatio = 0.98, this.wireframe = false, this.wireframeLinewidth = 1, this.wireframeLinecap = "round", this.wireframeLinejoin = "round", this.fog = true, this.setValues(A);
   }
@@ -2541,11 +2541,11 @@ class SA extends rC {
     return super.copy(A), this.color.copy(A.color), this.map = A.map, this.lightMap = A.lightMap, this.lightMapIntensity = A.lightMapIntensity, this.aoMap = A.aoMap, this.aoMapIntensity = A.aoMapIntensity, this.specularMap = A.specularMap, this.alphaMap = A.alphaMap, this.envMap = A.envMap, this.combine = A.combine, this.reflectivity = A.reflectivity, this.refractionRatio = A.refractionRatio, this.wireframe = A.wireframe, this.wireframeLinewidth = A.wireframeLinewidth, this.wireframeLinecap = A.wireframeLinecap, this.wireframeLinejoin = A.wireframeLinejoin, this.fog = A.fog, this;
   }
 }
-const WI = new H(), CE = new ZA();
+const jI = new H(), CE = new ZA();
 class Kg {
   constructor(A, I, g = false) {
     if (Array.isArray(A)) throw new TypeError("THREE.BufferAttribute: array should be a Typed Array.");
-    this.isBufferAttribute = true, this.name = "", this.array = A, this.itemSize = I, this.count = A !== void 0 ? A.length / I : 0, this.normalized = g, this.usage = ke, this._updateRange = { offset: 0, count: -1 }, this.updateRanges = [], this.gpuType = HC, this.version = 0;
+    this.isBufferAttribute = true, this.name = "", this.array = A, this.itemSize = I, this.count = A !== void 0 ? A.length / I : 0, this.normalized = g, this.usage = ye, this._updateRange = { offset: 0, count: -1 }, this.updateRanges = [], this.gpuType = HC, this.version = 0;
   }
   onUploadCallback() {
   }
@@ -2577,19 +2577,19 @@ class Kg {
   }
   applyMatrix3(A) {
     if (this.itemSize === 2) for (let I = 0, g = this.count; I < g; I++) CE.fromBufferAttribute(this, I), CE.applyMatrix3(A), this.setXY(I, CE.x, CE.y);
-    else if (this.itemSize === 3) for (let I = 0, g = this.count; I < g; I++) WI.fromBufferAttribute(this, I), WI.applyMatrix3(A), this.setXYZ(I, WI.x, WI.y, WI.z);
+    else if (this.itemSize === 3) for (let I = 0, g = this.count; I < g; I++) jI.fromBufferAttribute(this, I), jI.applyMatrix3(A), this.setXYZ(I, jI.x, jI.y, jI.z);
     return this;
   }
   applyMatrix4(A) {
-    for (let I = 0, g = this.count; I < g; I++) WI.fromBufferAttribute(this, I), WI.applyMatrix4(A), this.setXYZ(I, WI.x, WI.y, WI.z);
+    for (let I = 0, g = this.count; I < g; I++) jI.fromBufferAttribute(this, I), jI.applyMatrix4(A), this.setXYZ(I, jI.x, jI.y, jI.z);
     return this;
   }
   applyNormalMatrix(A) {
-    for (let I = 0, g = this.count; I < g; I++) WI.fromBufferAttribute(this, I), WI.applyNormalMatrix(A), this.setXYZ(I, WI.x, WI.y, WI.z);
+    for (let I = 0, g = this.count; I < g; I++) jI.fromBufferAttribute(this, I), jI.applyNormalMatrix(A), this.setXYZ(I, jI.x, jI.y, jI.z);
     return this;
   }
   transformDirection(A) {
-    for (let I = 0, g = this.count; I < g; I++) WI.fromBufferAttribute(this, I), WI.transformDirection(A), this.setXYZ(I, WI.x, WI.y, WI.z);
+    for (let I = 0, g = this.count; I < g; I++) jI.fromBufferAttribute(this, I), jI.transformDirection(A), this.setXYZ(I, jI.x, jI.y, jI.z);
     return this;
   }
   set(A, I = 0) {
@@ -2647,7 +2647,7 @@ class Kg {
   }
   toJSON() {
     const A = { itemSize: this.itemSize, type: this.array.constructor.name, array: Array.from(this.array), normalized: this.normalized };
-    return this.name !== "" && (A.name = this.name), this.usage !== ke && (A.usage = this.usage), A;
+    return this.name !== "" && (A.name = this.name), this.usage !== ye && (A.usage = this.usage), A;
   }
 }
 class Vn extends Kg {
@@ -2660,13 +2660,13 @@ class Xn extends Kg {
     super(new Uint32Array(A), I, g);
   }
 }
-class RI extends Kg {
+class JI extends Kg {
   constructor(A, I, g) {
     super(new Float32Array(A), I, g);
   }
 }
 let fh = 0;
-const Xg = new iI(), To = new HI(), Bi = new H(), Tg = new MC(), $i = new MC(), ig = new H();
+const Xg = new iI(), xo = new bI(), Bi = new H(), Tg = new MC(), $i = new MC(), Qg = new H();
 class Fg extends PB {
   constructor() {
     super(), this.isBufferGeometry = true, Object.defineProperty(this, "id", { value: fh++ }), this.uuid = sC(), this.name = "", this.type = "BufferGeometry", this.index = null, this.attributes = {}, this.morphAttributes = {}, this.morphTargetsRelative = false, this.groups = [], this.boundingBox = null, this.boundingSphere = null, this.drawRange = { start: 0, count: 1 / 0 }, this.userData = {};
@@ -2728,7 +2728,7 @@ class Fg extends PB {
     return Xg.makeScale(A, I, g), this.applyMatrix4(Xg), this;
   }
   lookAt(A) {
-    return To.lookAt(A), To.updateMatrix(), this.applyMatrix4(To.matrix), this;
+    return xo.lookAt(A), xo.updateMatrix(), this.applyMatrix4(xo.matrix), this;
   }
   center() {
     return this.computeBoundingBox(), this.boundingBox.getCenter(Bi).negate(), this.translate(Bi.x, Bi.y, Bi.z), this;
@@ -2739,7 +2739,7 @@ class Fg extends PB {
       const B = A[g];
       I.push(B.x, B.y, B.z || 0);
     }
-    return this.setAttribute("position", new RI(I, 3)), this;
+    return this.setAttribute("position", new JI(I, 3)), this;
   }
   computeBoundingBox() {
     this.boundingBox === null && (this.boundingBox = new MC());
@@ -2751,7 +2751,7 @@ class Fg extends PB {
     if (A !== void 0) {
       if (this.boundingBox.setFromBufferAttribute(A), I) for (let g = 0, C = I.length; g < C; g++) {
         const B = I[g];
-        Tg.setFromBufferAttribute(B), this.morphTargetsRelative ? (ig.addVectors(this.boundingBox.min, Tg.min), this.boundingBox.expandByPoint(ig), ig.addVectors(this.boundingBox.max, Tg.max), this.boundingBox.expandByPoint(ig)) : (this.boundingBox.expandByPoint(Tg.min), this.boundingBox.expandByPoint(Tg.max));
+        Tg.setFromBufferAttribute(B), this.morphTargetsRelative ? (Qg.addVectors(this.boundingBox.min, Tg.min), this.boundingBox.expandByPoint(Qg), Qg.addVectors(this.boundingBox.max, Tg.max), this.boundingBox.expandByPoint(Qg)) : (this.boundingBox.expandByPoint(Tg.min), this.boundingBox.expandByPoint(Tg.max));
       }
     } else this.boundingBox.makeEmpty();
     (isNaN(this.boundingBox.min.x) || isNaN(this.boundingBox.min.y) || isNaN(this.boundingBox.min.z)) && console.error('THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The "position" attribute is likely to have NaN values.', this);
@@ -2767,14 +2767,14 @@ class Fg extends PB {
       const g = this.boundingSphere.center;
       if (Tg.setFromBufferAttribute(A), I) for (let B = 0, i = I.length; B < i; B++) {
         const Q = I[B];
-        $i.setFromBufferAttribute(Q), this.morphTargetsRelative ? (ig.addVectors(Tg.min, $i.min), Tg.expandByPoint(ig), ig.addVectors(Tg.max, $i.max), Tg.expandByPoint(ig)) : (Tg.expandByPoint($i.min), Tg.expandByPoint($i.max));
+        $i.setFromBufferAttribute(Q), this.morphTargetsRelative ? (Qg.addVectors(Tg.min, $i.min), Tg.expandByPoint(Qg), Qg.addVectors(Tg.max, $i.max), Tg.expandByPoint(Qg)) : (Tg.expandByPoint($i.min), Tg.expandByPoint($i.max));
       }
       Tg.getCenter(g);
       let C = 0;
-      for (let B = 0, i = A.count; B < i; B++) ig.fromBufferAttribute(A, B), C = Math.max(C, g.distanceToSquared(ig));
+      for (let B = 0, i = A.count; B < i; B++) Qg.fromBufferAttribute(A, B), C = Math.max(C, g.distanceToSquared(Qg));
       if (I) for (let B = 0, i = I.length; B < i; B++) {
         const Q = I[B], o = this.morphTargetsRelative;
-        for (let e = 0, t = Q.count; e < t; e++) ig.fromBufferAttribute(Q, e), o && (Bi.fromBufferAttribute(A, e), ig.add(Bi)), C = Math.max(C, g.distanceToSquared(ig));
+        for (let e = 0, t = Q.count; e < t; e++) Qg.fromBufferAttribute(Q, e), o && (Bi.fromBufferAttribute(A, e), Qg.add(Bi)), C = Math.max(C, g.distanceToSquared(Qg));
       }
       this.boundingSphere.radius = Math.sqrt(C), isNaN(this.boundingSphere.radius) && console.error('THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "position" attribute is likely to have NaN values.', this);
     }
@@ -2801,13 +2801,13 @@ class Fg extends PB {
       const L = k[N], Z = L.start, m = L.count;
       for (let _ = Z, v = Z + m; _ < v; _ += 3) G(g[_ + 0], g[_ + 1], g[_ + 2]);
     }
-    const U = new H(), p = new H(), M = new H(), F = new H();
+    const M = new H(), U = new H(), p = new H(), F = new H();
     function y(N) {
-      M.fromArray(B, N * 3), F.copy(M);
+      p.fromArray(B, N * 3), F.copy(p);
       const q = e[N];
-      U.copy(q), U.sub(M.multiplyScalar(M.dot(q))).normalize(), p.crossVectors(F, q);
-      const Z = p.dot(t[N]) < 0 ? -1 : 1;
-      o[N * 4] = U.x, o[N * 4 + 1] = U.y, o[N * 4 + 2] = U.z, o[N * 4 + 3] = Z;
+      M.copy(q), M.sub(p.multiplyScalar(p.dot(q))).normalize(), U.crossVectors(F, q);
+      const Z = U.dot(t[N]) < 0 ? -1 : 1;
+      o[N * 4] = M.x, o[N * 4 + 1] = M.y, o[N * 4 + 2] = M.z, o[N * 4 + 3] = Z;
     }
     for (let N = 0, q = k.length; N < q; ++N) {
       const L = k[N], Z = L.start, m = L.count;
@@ -2831,7 +2831,7 @@ class Fg extends PB {
   }
   normalizeNormals() {
     const A = this.attributes.normal;
-    for (let I = 0, g = A.count; I < g; I++) ig.fromBufferAttribute(A, I), ig.normalize(), A.setXYZ(I, ig.x, ig.y, ig.z);
+    for (let I = 0, g = A.count; I < g; I++) Qg.fromBufferAttribute(A, I), Qg.normalize(), A.setXYZ(I, Qg.x, Qg.y, Qg.z);
   }
   toNonIndexed() {
     function A(Q, o) {
@@ -2932,9 +2932,9 @@ class Fg extends PB {
     this.dispatchEvent({ type: "dispose" });
   }
 }
-const is = new iI(), SB = new LQ(), BE = new pC(), Qs = new H(), ii = new H(), Qi = new H(), Ei = new H(), xo = new H(), iE = new H(), QE = new ZA(), EE = new ZA(), oE = new ZA(), Es = new H(), os = new H(), es = new H(), eE = new H(), tE = new H();
-class l extends HI {
-  constructor(A = new Fg(), I = new SA()) {
+const is = new iI(), SB = new LQ(), BE = new pC(), Qs = new H(), ii = new H(), Qi = new H(), Ei = new H(), _o = new H(), iE = new H(), QE = new ZA(), EE = new ZA(), oE = new ZA(), Es = new H(), os = new H(), es = new H(), eE = new H(), tE = new H();
+class l extends bI {
+  constructor(A = new Fg(), I = new wA()) {
     super(), this.isMesh = true, this.type = "Mesh", this.geometry = A, this.material = I, this.updateMorphTargets();
   }
   copy(A, I) {
@@ -2961,7 +2961,7 @@ class l extends HI {
       iE.set(0, 0, 0);
       for (let o = 0, e = B.length; o < e; o++) {
         const t = Q[o], a = B[o];
-        t !== 0 && (xo.fromBufferAttribute(a, A), i ? iE.addScaledVector(xo, t) : iE.addScaledVector(xo.sub(I), t));
+        t !== 0 && (_o.fromBufferAttribute(a, A), i ? iE.addScaledVector(_o, t) : iE.addScaledVector(_o.sub(I), t));
       }
       I.add(iE);
     }
@@ -2976,9 +2976,9 @@ class l extends HI {
     const B = this.geometry, i = this.material, Q = B.index, o = B.attributes.position, e = B.attributes.uv, t = B.attributes.uv1, a = B.attributes.normal, s = B.groups, n = B.drawRange;
     if (Q !== null) if (Array.isArray(i)) for (let r = 0, c = s.length; r < c; r++) {
       const D = s[r], h = i[D.materialIndex], S = Math.max(D.start, n.start), G = Math.min(Q.count, Math.min(D.start + D.count, n.start + n.count));
-      for (let k = S, U = G; k < U; k += 3) {
-        const p = Q.getX(k), M = Q.getX(k + 1), F = Q.getX(k + 2);
-        C = aE(this, h, A, g, e, t, a, p, M, F), C && (C.faceIndex = Math.floor(k / 3), C.face.materialIndex = D.materialIndex, I.push(C));
+      for (let k = S, M = G; k < M; k += 3) {
+        const U = Q.getX(k), p = Q.getX(k + 1), F = Q.getX(k + 2);
+        C = aE(this, h, A, g, e, t, a, U, p, F), C && (C.faceIndex = Math.floor(k / 3), C.face.materialIndex = D.materialIndex, I.push(C));
       }
     }
     else {
@@ -2990,9 +2990,9 @@ class l extends HI {
     }
     else if (o !== void 0) if (Array.isArray(i)) for (let r = 0, c = s.length; r < c; r++) {
       const D = s[r], h = i[D.materialIndex], S = Math.max(D.start, n.start), G = Math.min(o.count, Math.min(D.start + D.count, n.start + n.count));
-      for (let k = S, U = G; k < U; k += 3) {
-        const p = k, M = k + 1, F = k + 2;
-        C = aE(this, h, A, g, e, t, a, p, M, F), C && (C.faceIndex = Math.floor(k / 3), C.face.materialIndex = D.materialIndex, I.push(C));
+      for (let k = S, M = G; k < M; k += 3) {
+        const U = k, p = k + 1, F = k + 2;
+        C = aE(this, h, A, g, e, t, a, U, p, F), C && (C.faceIndex = Math.floor(k / 3), C.face.materialIndex = D.materialIndex, I.push(C));
       }
     }
     else {
@@ -3021,28 +3021,28 @@ function aE(E14, A, I, g, C, B, i, Q, o, e) {
   }
   return t;
 }
-class z extends Fg {
+class X extends Fg {
   constructor(A = 1, I = 1, g = 1, C = 1, B = 1, i = 1) {
     super(), this.type = "BoxGeometry", this.parameters = { width: A, height: I, depth: g, widthSegments: C, heightSegments: B, depthSegments: i };
     const Q = this;
     C = Math.floor(C), B = Math.floor(B), i = Math.floor(i);
     const o = [], e = [], t = [], a = [];
     let s = 0, n = 0;
-    r("z", "y", "x", -1, -1, g, I, A, i, B, 0), r("z", "y", "x", 1, -1, g, I, -A, i, B, 1), r("x", "z", "y", 1, 1, A, g, I, C, i, 2), r("x", "z", "y", 1, -1, A, g, -I, C, i, 3), r("x", "y", "z", 1, -1, A, I, g, C, B, 4), r("x", "y", "z", -1, -1, A, I, -g, C, B, 5), this.setIndex(o), this.setAttribute("position", new RI(e, 3)), this.setAttribute("normal", new RI(t, 3)), this.setAttribute("uv", new RI(a, 2));
-    function r(c, D, h, S, G, k, U, p, M, F, y) {
-      const N = k / M, q = U / F, L = k / 2, Z = U / 2, m = p / 2, _ = M + 1, v = F + 1;
+    r("z", "y", "x", -1, -1, g, I, A, i, B, 0), r("z", "y", "x", 1, -1, g, I, -A, i, B, 1), r("x", "z", "y", 1, 1, A, g, I, C, i, 2), r("x", "z", "y", 1, -1, A, g, -I, C, i, 3), r("x", "y", "z", 1, -1, A, I, g, C, B, 4), r("x", "y", "z", -1, -1, A, I, -g, C, B, 5), this.setIndex(o), this.setAttribute("position", new JI(e, 3)), this.setAttribute("normal", new JI(t, 3)), this.setAttribute("uv", new JI(a, 2));
+    function r(c, D, h, S, G, k, M, U, p, F, y) {
+      const N = k / p, q = M / F, L = k / 2, Z = M / 2, m = U / 2, _ = p + 1, v = F + 1;
       let AA = 0, gA = 0;
       const CA = new H();
-      for (let QA = 0; QA < v; QA++) {
-        const sA = QA * q - Z;
+      for (let iA = 0; iA < v; iA++) {
+        const sA = iA * q - Z;
         for (let nA = 0; nA < _; nA++) {
           const IA = nA * N - L;
-          CA[c] = IA * S, CA[D] = sA * G, CA[h] = m, e.push(CA.x, CA.y, CA.z), CA[c] = 0, CA[D] = 0, CA[h] = p > 0 ? 1 : -1, t.push(CA.x, CA.y, CA.z), a.push(nA / M), a.push(1 - QA / F), AA += 1;
+          CA[c] = IA * S, CA[D] = sA * G, CA[h] = m, e.push(CA.x, CA.y, CA.z), CA[c] = 0, CA[D] = 0, CA[h] = U > 0 ? 1 : -1, t.push(CA.x, CA.y, CA.z), a.push(nA / p), a.push(1 - iA / F), AA += 1;
         }
       }
-      for (let QA = 0; QA < F; QA++) for (let sA = 0; sA < M; sA++) {
-        const nA = s + sA + _ * QA, IA = s + sA + _ * (QA + 1), iA = s + (sA + 1) + _ * (QA + 1), cA = s + (sA + 1) + _ * QA;
-        o.push(nA, IA, cA), o.push(IA, iA, cA), gA += 6;
+      for (let iA = 0; iA < F; iA++) for (let sA = 0; sA < p; sA++) {
+        const nA = s + sA + _ * iA, IA = s + sA + _ * (iA + 1), EA = s + (sA + 1) + _ * (iA + 1), cA = s + (sA + 1) + _ * iA;
+        o.push(nA, IA, cA), o.push(IA, EA, cA), gA += 6;
       }
       Q.addGroup(n, gA, y), n += gA, s += AA;
     }
@@ -3051,7 +3051,7 @@ class z extends Fg {
     return super.copy(A), this.parameters = Object.assign({}, A.parameters), this;
   }
   static fromJSON(A) {
-    return new z(A.width, A.height, A.depth, A.widthSegments, A.heightSegments, A.depthSegments);
+    return new X(A.width, A.height, A.depth, A.widthSegments, A.heightSegments, A.depthSegments);
   }
 }
 function ui(E14) {
@@ -3107,7 +3107,7 @@ class _B extends rC {
     return Object.keys(g).length > 0 && (I.extensions = g), I;
   }
 }
-class $n extends HI {
+class $n extends bI {
   constructor() {
     super(), this.isCamera = true, this.type = "Camera", this.matrixWorldInverse = new iI(), this.projectionMatrix = new iI(), this.projectionMatrixInverse = new iI(), this.coordinateSystem = bC;
   }
@@ -3174,7 +3174,7 @@ class Ug extends $n {
   }
 }
 const oi = -90, ei = 1;
-class Th extends HI {
+class Th extends bI {
   constructor(A, I, g) {
     super(), this.type = "CubeCamera", this.renderTarget = g, this.coordinateSystem = null, this.activeMipmapLevel = 0;
     const C = new Ug(oi, ei, A, I);
@@ -3208,7 +3208,7 @@ class Th extends HI {
     g.texture.generateMipmaps = false, A.setRenderTarget(g, 0, C), A.render(I, B), A.setRenderTarget(g, 1, C), A.render(I, i), A.setRenderTarget(g, 2, C), A.render(I, Q), A.setRenderTarget(g, 3, C), A.render(I, o), A.setRenderTarget(g, 4, C), A.render(I, e), g.texture.generateMipmaps = c, A.setRenderTarget(g, 5, C), A.render(I, t), A.setRenderTarget(a, s, n), A.xr.enabled = r, g.texture.needsPMREMUpdate = true;
   }
 }
-class Ar extends sg {
+class Ar extends ng {
   constructor(A, I, g, C, B, i, Q, o, e, t) {
     A = A !== void 0 ? A : [], I = I !== void 0 ? I : Ui, super(A, I, g, C, B, i, Q, o, e, t), this.isCubeTexture = true, this.flipY = false;
   }
@@ -3223,7 +3223,7 @@ class xh extends xB {
   constructor(A = 1, I = {}) {
     super(A, A, I), this.isWebGLCubeRenderTarget = true;
     const g = { width: A, height: A, depth: 1 }, C = [g, g, g, g, g, g];
-    I.encoding !== void 0 && (DQ("THREE.WebGLCubeRenderTarget: option.encoding has been replaced by option.colorSpace."), I.colorSpace = I.encoding === mB ? _I : CC), this.texture = new Ar(C, I.mapping, I.wrapS, I.wrapT, I.magFilter, I.minFilter, I.format, I.type, I.anisotropy, I.colorSpace), this.texture.isRenderTargetTexture = true, this.texture.generateMipmaps = I.generateMipmaps !== void 0 ? I.generateMipmaps : false, this.texture.minFilter = I.minFilter !== void 0 ? I.minFilter : Rg;
+    I.encoding !== void 0 && (DQ("THREE.WebGLCubeRenderTarget: option.encoding has been replaced by option.colorSpace."), I.colorSpace = I.encoding === mB ? OI : CC), this.texture = new Ar(C, I.mapping, I.wrapS, I.wrapT, I.magFilter, I.minFilter, I.format, I.type, I.anisotropy, I.colorSpace), this.texture.isRenderTargetTexture = true, this.texture.generateMipmaps = I.generateMipmaps !== void 0 ? I.generateMipmaps : false, this.texture.minFilter = I.minFilter !== void 0 ? I.minFilter : Rg;
   }
   fromEquirectangularTexture(A, I) {
     this.texture.type = I.type, this.texture.colorSpace = I.colorSpace, this.texture.generateMipmaps = I.generateMipmaps, this.texture.minFilter = I.minFilter, this.texture.magFilter = I.magFilter;
@@ -3262,7 +3262,7 @@ class xh extends xB {
 					gl_FragColor = texture2D( tEquirect, sampleUV );
 
 				}
-			` }, C = new z(5, 5, 5), B = new _B({ name: "CubemapFromEquirect", uniforms: ui(g.uniforms), vertexShader: g.vertexShader, fragmentShader: g.fragmentShader, side: Ng, blending: iB });
+			` }, C = new X(5, 5, 5), B = new _B({ name: "CubemapFromEquirect", uniforms: ui(g.uniforms), vertexShader: g.vertexShader, fragmentShader: g.fragmentShader, side: Ng, blending: iB });
     B.uniforms.tEquirect.value = I;
     const i = new l(C, B), Q = I.minFilter;
     return I.minFilter === TB && (I.minFilter = Rg), new Th(1, 10, this).update(A, i), I.minFilter = Q, i.geometry.dispose(), i.material.dispose(), this;
@@ -3273,7 +3273,7 @@ class xh extends xB {
     A.setRenderTarget(B);
   }
 }
-const _o = new H(), _h = new H(), Oh = new BI();
+const Oo = new H(), _h = new H(), Oh = new BI();
 class UB {
   constructor(A = new H(1, 0, 0), I = 0) {
     this.isPlane = true, this.normal = A, this.constant = I;
@@ -3288,7 +3288,7 @@ class UB {
     return this.normal.copy(A), this.constant = -I.dot(this.normal), this;
   }
   setFromCoplanarPoints(A, I, g) {
-    const C = _o.subVectors(g, I).cross(_h.subVectors(A, I)).normalize();
+    const C = Oo.subVectors(g, I).cross(_h.subVectors(A, I)).normalize();
     return this.setFromNormalAndCoplanarPoint(C, A), this;
   }
   copy(A) {
@@ -3311,7 +3311,7 @@ class UB {
     return I.copy(A).addScaledVector(this.normal, -this.distanceToPoint(A));
   }
   intersectLine(A, I) {
-    const g = A.delta(_o), C = this.normal.dot(g);
+    const g = A.delta(Oo), C = this.normal.dot(g);
     if (C === 0) return this.distanceToPoint(A.start) === 0 ? I.copy(A.start) : null;
     const B = -(A.start.dot(this.normal) + this.constant) / C;
     return B < 0 || B > 1 ? null : I.copy(A.start).addScaledVector(g, B);
@@ -3330,7 +3330,7 @@ class UB {
     return A.copy(this.normal).multiplyScalar(-this.constant);
   }
   applyMatrix4(A, I) {
-    const g = I || Oh.getNormalMatrix(A), C = this.coplanarPoint(_o).applyMatrix4(A), B = this.normal.applyMatrix3(g).normalize();
+    const g = I || Oh.getNormalMatrix(A), C = this.coplanarPoint(Oo).applyMatrix4(A), B = this.normal.applyMatrix3(g).normalize();
     return this.constant = -C.dot(B), this;
   }
   translate(A) {
@@ -3478,10 +3478,10 @@ class HQ extends Fg {
       }
     }
     for (let h = 0; h < o; h++) for (let S = 0; S < Q; S++) {
-      const G = S + e * h, k = S + e * (h + 1), U = S + 1 + e * (h + 1), p = S + 1 + e * h;
-      n.push(G, k, p), n.push(k, U, p);
+      const G = S + e * h, k = S + e * (h + 1), M = S + 1 + e * (h + 1), U = S + 1 + e * h;
+      n.push(G, k, U), n.push(k, M, U);
     }
-    this.setIndex(n), this.setAttribute("position", new RI(r, 3)), this.setAttribute("normal", new RI(c, 3)), this.setAttribute("uv", new RI(D, 2));
+    this.setIndex(n), this.setAttribute("position", new JI(r, 3)), this.setAttribute("normal", new JI(c, 3)), this.setAttribute("uv", new JI(D, 2));
   }
   copy(A) {
     return super.copy(A), this.parameters = Object.assign({}, A.parameters), this;
@@ -4831,9 +4831,9 @@ IncidentLight directLight;
 	
 	#endif
 	diffuseColor *= sampledDiffuseColor;
-#endif`, Aw = `#ifdef USE_MAP
+#endif`, A0 = `#ifdef USE_MAP
 	uniform sampler2D map;
-#endif`, Iw = `#if defined( USE_MAP ) || defined( USE_ALPHAMAP )
+#endif`, I0 = `#if defined( USE_MAP ) || defined( USE_ALPHAMAP )
 	#if defined( USE_POINTS_UV )
 		vec2 uv = vUv;
 	#else
@@ -4845,7 +4845,7 @@ IncidentLight directLight;
 #endif
 #ifdef USE_ALPHAMAP
 	diffuseColor.a *= texture2D( alphaMap, uv ).g;
-#endif`, gw = `#if defined( USE_POINTS_UV )
+#endif`, g0 = `#if defined( USE_POINTS_UV )
 	varying vec2 vUv;
 #else
 	#if defined( USE_MAP ) || defined( USE_ALPHAMAP )
@@ -4857,13 +4857,13 @@ IncidentLight directLight;
 #endif
 #ifdef USE_ALPHAMAP
 	uniform sampler2D alphaMap;
-#endif`, Cw = `float metalnessFactor = metalness;
+#endif`, C0 = `float metalnessFactor = metalness;
 #ifdef USE_METALNESSMAP
 	vec4 texelMetalness = texture2D( metalnessMap, vMetalnessMapUv );
 	metalnessFactor *= texelMetalness.b;
-#endif`, Bw = `#ifdef USE_METALNESSMAP
+#endif`, B0 = `#ifdef USE_METALNESSMAP
 	uniform sampler2D metalnessMap;
-#endif`, iw = `#if defined( USE_MORPHCOLORS ) && defined( MORPHTARGETS_TEXTURE )
+#endif`, i0 = `#if defined( USE_MORPHCOLORS ) && defined( MORPHTARGETS_TEXTURE )
 	vColor *= morphTargetBaseInfluence;
 	for ( int i = 0; i < MORPHTARGETS_COUNT; i ++ ) {
 		#if defined( USE_COLOR_ALPHA )
@@ -4872,7 +4872,7 @@ IncidentLight directLight;
 			if ( morphTargetInfluences[ i ] != 0.0 ) vColor += getMorph( gl_VertexID, i, 2 ).rgb * morphTargetInfluences[ i ];
 		#endif
 	}
-#endif`, Qw = `#ifdef USE_MORPHNORMALS
+#endif`, Q0 = `#ifdef USE_MORPHNORMALS
 	objectNormal *= morphTargetBaseInfluence;
 	#ifdef MORPHTARGETS_TEXTURE
 		for ( int i = 0; i < MORPHTARGETS_COUNT; i ++ ) {
@@ -4884,7 +4884,7 @@ IncidentLight directLight;
 		objectNormal += morphNormal2 * morphTargetInfluences[ 2 ];
 		objectNormal += morphNormal3 * morphTargetInfluences[ 3 ];
 	#endif
-#endif`, Ew = `#ifdef USE_MORPHTARGETS
+#endif`, E0 = `#ifdef USE_MORPHTARGETS
 	uniform float morphTargetBaseInfluence;
 	#ifdef MORPHTARGETS_TEXTURE
 		uniform float morphTargetInfluences[ MORPHTARGETS_COUNT ];
@@ -4904,7 +4904,7 @@ IncidentLight directLight;
 			uniform float morphTargetInfluences[ 4 ];
 		#endif
 	#endif
-#endif`, ow = `#ifdef USE_MORPHTARGETS
+#endif`, o0 = `#ifdef USE_MORPHTARGETS
 	transformed *= morphTargetBaseInfluence;
 	#ifdef MORPHTARGETS_TEXTURE
 		for ( int i = 0; i < MORPHTARGETS_COUNT; i ++ ) {
@@ -4922,7 +4922,7 @@ IncidentLight directLight;
 			transformed += morphTarget7 * morphTargetInfluences[ 7 ];
 		#endif
 	#endif
-#endif`, ew = `float faceDirection = gl_FrontFacing ? 1.0 : - 1.0;
+#endif`, e0 = `float faceDirection = gl_FrontFacing ? 1.0 : - 1.0;
 #ifdef FLAT_SHADED
 	vec3 fdx = dFdx( vViewPosition );
 	vec3 fdy = dFdy( vViewPosition );
@@ -4963,7 +4963,7 @@ IncidentLight directLight;
 		tbn2[1] *= faceDirection;
 	#endif
 #endif
-vec3 nonPerturbedNormal = normal;`, tw = `#ifdef USE_NORMALMAP_OBJECTSPACE
+vec3 nonPerturbedNormal = normal;`, t0 = `#ifdef USE_NORMALMAP_OBJECTSPACE
 	normal = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 - 1.0;
 	#ifdef FLIP_SIDED
 		normal = - normal;
@@ -4978,25 +4978,25 @@ vec3 nonPerturbedNormal = normal;`, tw = `#ifdef USE_NORMALMAP_OBJECTSPACE
 	normal = normalize( tbn * mapN );
 #elif defined( USE_BUMPMAP )
 	normal = perturbNormalArb( - vViewPosition, normal, dHdxy_fwd(), faceDirection );
-#endif`, aw = `#ifndef FLAT_SHADED
+#endif`, a0 = `#ifndef FLAT_SHADED
 	varying vec3 vNormal;
 	#ifdef USE_TANGENT
 		varying vec3 vTangent;
 		varying vec3 vBitangent;
 	#endif
-#endif`, sw = `#ifndef FLAT_SHADED
+#endif`, s0 = `#ifndef FLAT_SHADED
 	varying vec3 vNormal;
 	#ifdef USE_TANGENT
 		varying vec3 vTangent;
 		varying vec3 vBitangent;
 	#endif
-#endif`, nw = `#ifndef FLAT_SHADED
+#endif`, n0 = `#ifndef FLAT_SHADED
 	vNormal = normalize( transformedNormal );
 	#ifdef USE_TANGENT
 		vTangent = normalize( transformedTangent );
 		vBitangent = normalize( cross( vNormal, vTangent ) * tangent.w );
 	#endif
-#endif`, rw = `#ifdef USE_NORMALMAP
+#endif`, r0 = `#ifdef USE_NORMALMAP
 	uniform sampler2D normalMap;
 	uniform vec2 normalScale;
 #endif
@@ -5018,13 +5018,13 @@ vec3 nonPerturbedNormal = normal;`, tw = `#ifdef USE_NORMALMAP_OBJECTSPACE
 		float scale = ( det == 0.0 ) ? 0.0 : inversesqrt( det );
 		return mat3( T * scale, B * scale, N );
 	}
-#endif`, Dw = `#ifdef USE_CLEARCOAT
+#endif`, D0 = `#ifdef USE_CLEARCOAT
 	vec3 clearcoatNormal = nonPerturbedNormal;
-#endif`, cw = `#ifdef USE_CLEARCOAT_NORMALMAP
+#endif`, c0 = `#ifdef USE_CLEARCOAT_NORMALMAP
 	vec3 clearcoatMapN = texture2D( clearcoatNormalMap, vClearcoatNormalMapUv ).xyz * 2.0 - 1.0;
 	clearcoatMapN.xy *= clearcoatNormalScale;
 	clearcoatNormal = normalize( tbn2 * clearcoatMapN );
-#endif`, hw = `#ifdef USE_CLEARCOATMAP
+#endif`, h0 = `#ifdef USE_CLEARCOATMAP
 	uniform sampler2D clearcoatMap;
 #endif
 #ifdef USE_CLEARCOAT_NORMALMAP
@@ -5033,18 +5033,18 @@ vec3 nonPerturbedNormal = normal;`, tw = `#ifdef USE_NORMALMAP_OBJECTSPACE
 #endif
 #ifdef USE_CLEARCOAT_ROUGHNESSMAP
 	uniform sampler2D clearcoatRoughnessMap;
-#endif`, lw = `#ifdef USE_IRIDESCENCEMAP
+#endif`, l0 = `#ifdef USE_IRIDESCENCEMAP
 	uniform sampler2D iridescenceMap;
 #endif
 #ifdef USE_IRIDESCENCE_THICKNESSMAP
 	uniform sampler2D iridescenceThicknessMap;
-#endif`, ww = `#ifdef OPAQUE
+#endif`, w0 = `#ifdef OPAQUE
 diffuseColor.a = 1.0;
 #endif
 #ifdef USE_TRANSMISSION
 diffuseColor.a *= material.transmissionAlpha;
 #endif
-gl_FragColor = vec4( outgoingLight, diffuseColor.a );`, Sw = `vec3 packNormalToRGB( const in vec3 normal ) {
+gl_FragColor = vec4( outgoingLight, diffuseColor.a );`, S0 = `vec3 packNormalToRGB( const in vec3 normal ) {
 	return normalize( normal ) * 0.5 + 0.5;
 }
 vec3 unpackRGBToNormal( const in vec3 rgb ) {
@@ -5085,9 +5085,9 @@ float viewZToPerspectiveDepth( const in float viewZ, const in float near, const 
 }
 float perspectiveDepthToViewZ( const in float depth, const in float near, const in float far ) {
 	return ( near * far ) / ( ( far - near ) * depth - far );
-}`, Gw = `#ifdef PREMULTIPLIED_ALPHA
+}`, G0 = `#ifdef PREMULTIPLIED_ALPHA
 	gl_FragColor.rgb *= gl_FragColor.a;
-#endif`, kw = `vec4 mvPosition = vec4( transformed, 1.0 );
+#endif`, k0 = `vec4 mvPosition = vec4( transformed, 1.0 );
 #ifdef USE_BATCHING
 	mvPosition = batchingMatrix * mvPosition;
 #endif
@@ -5095,22 +5095,22 @@ float perspectiveDepthToViewZ( const in float depth, const in float near, const 
 	mvPosition = instanceMatrix * mvPosition;
 #endif
 mvPosition = modelViewMatrix * mvPosition;
-gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
+gl_Position = projectionMatrix * mvPosition;`, y0 = `#ifdef DITHERING
 	gl_FragColor.rgb = dithering( gl_FragColor.rgb );
-#endif`, dw = `#ifdef DITHERING
+#endif`, d0 = `#ifdef DITHERING
 	vec3 dithering( vec3 color ) {
 		float grid_position = rand( gl_FragCoord.xy );
 		vec3 dither_shift_RGB = vec3( 0.25 / 255.0, -0.25 / 255.0, 0.25 / 255.0 );
 		dither_shift_RGB = mix( 2.0 * dither_shift_RGB, -2.0 * dither_shift_RGB, grid_position );
 		return color + dither_shift_RGB;
 	}
-#endif`, Mw = `float roughnessFactor = roughness;
+#endif`, M0 = `float roughnessFactor = roughness;
 #ifdef USE_ROUGHNESSMAP
 	vec4 texelRoughness = texture2D( roughnessMap, vRoughnessMapUv );
 	roughnessFactor *= texelRoughness.g;
-#endif`, pw = `#ifdef USE_ROUGHNESSMAP
+#endif`, p0 = `#ifdef USE_ROUGHNESSMAP
 	uniform sampler2D roughnessMap;
-#endif`, Uw = `#if NUM_SPOT_LIGHT_COORDS > 0
+#endif`, U0 = `#if NUM_SPOT_LIGHT_COORDS > 0
 	varying vec4 vSpotLightCoord[ NUM_SPOT_LIGHT_COORDS ];
 #endif
 #if NUM_SPOT_LIGHT_MAPS > 0
@@ -5287,7 +5287,7 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 			return texture2DCompare( shadowMap, cubeToUV( bd3D, texelSize.y ), dp );
 		#endif
 	}
-#endif`, Nw = `#if NUM_SPOT_LIGHT_COORDS > 0
+#endif`, N0 = `#if NUM_SPOT_LIGHT_COORDS > 0
 	uniform mat4 spotLightMatrix[ NUM_SPOT_LIGHT_COORDS ];
 	varying vec4 vSpotLightCoord[ NUM_SPOT_LIGHT_COORDS ];
 #endif
@@ -5325,7 +5325,7 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 		};
 		uniform PointLightShadow pointLightShadows[ NUM_POINT_LIGHT_SHADOWS ];
 	#endif
-#endif`, Kw = `#if ( defined( USE_SHADOWMAP ) && ( NUM_DIR_LIGHT_SHADOWS > 0 || NUM_POINT_LIGHT_SHADOWS > 0 ) ) || ( NUM_SPOT_LIGHT_COORDS > 0 )
+#endif`, K0 = `#if ( defined( USE_SHADOWMAP ) && ( NUM_DIR_LIGHT_SHADOWS > 0 || NUM_POINT_LIGHT_SHADOWS > 0 ) ) || ( NUM_SPOT_LIGHT_COORDS > 0 )
 	vec3 shadowWorldNormal = inverseTransformDirection( transformedNormal, viewMatrix );
 	vec4 shadowWorldPosition;
 #endif
@@ -5357,7 +5357,7 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 		vSpotLightCoord[ i ] = spotLightMatrix[ i ] * shadowWorldPosition;
 	}
 	#pragma unroll_loop_end
-#endif`, Fw = `float getShadowMask() {
+#endif`, F0 = `float getShadowMask() {
 	float shadow = 1.0;
 	#ifdef USE_SHADOWMAP
 	#if NUM_DIR_LIGHT_SHADOWS > 0
@@ -5389,12 +5389,12 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 	#endif
 	#endif
 	return shadow;
-}`, Rw = `#ifdef USE_SKINNING
+}`, R0 = `#ifdef USE_SKINNING
 	mat4 boneMatX = getBoneMatrix( skinIndex.x );
 	mat4 boneMatY = getBoneMatrix( skinIndex.y );
 	mat4 boneMatZ = getBoneMatrix( skinIndex.z );
 	mat4 boneMatW = getBoneMatrix( skinIndex.w );
-#endif`, Jw = `#ifdef USE_SKINNING
+#endif`, J0 = `#ifdef USE_SKINNING
 	uniform mat4 bindMatrix;
 	uniform mat4 bindMatrixInverse;
 	uniform highp sampler2D boneTexture;
@@ -5409,7 +5409,7 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 		vec4 v4 = texelFetch( boneTexture, ivec2( x + 3, y ), 0 );
 		return mat4( v1, v2, v3, v4 );
 	}
-#endif`, uw = `#ifdef USE_SKINNING
+#endif`, u0 = `#ifdef USE_SKINNING
 	vec4 skinVertex = bindMatrix * vec4( transformed, 1.0 );
 	vec4 skinned = vec4( 0.0 );
 	skinned += boneMatX * skinVertex * skinWeight.x;
@@ -5417,7 +5417,7 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 	skinned += boneMatZ * skinVertex * skinWeight.z;
 	skinned += boneMatW * skinVertex * skinWeight.w;
 	transformed = ( bindMatrixInverse * skinned ).xyz;
-#endif`, qw = `#ifdef USE_SKINNING
+#endif`, q0 = `#ifdef USE_SKINNING
 	mat4 skinMatrix = mat4( 0.0 );
 	skinMatrix += skinWeight.x * boneMatX;
 	skinMatrix += skinWeight.y * boneMatY;
@@ -5428,17 +5428,17 @@ gl_Position = projectionMatrix * mvPosition;`, yw = `#ifdef DITHERING
 	#ifdef USE_TANGENT
 		objectTangent = vec4( skinMatrix * vec4( objectTangent, 0.0 ) ).xyz;
 	#endif
-#endif`, fw = `float specularStrength;
+#endif`, f0 = `float specularStrength;
 #ifdef USE_SPECULARMAP
 	vec4 texelSpecular = texture2D( specularMap, vSpecularMapUv );
 	specularStrength = texelSpecular.r;
 #else
 	specularStrength = 1.0;
-#endif`, mw = `#ifdef USE_SPECULARMAP
+#endif`, m0 = `#ifdef USE_SPECULARMAP
 	uniform sampler2D specularMap;
-#endif`, Yw = `#if defined( TONE_MAPPING )
+#endif`, Y0 = `#if defined( TONE_MAPPING )
 	gl_FragColor.rgb = toneMapping( gl_FragColor.rgb );
-#endif`, Lw = `#ifndef saturate
+#endif`, L0 = `#ifndef saturate
 #define saturate( a ) clamp( a, 0.0, 1.0 )
 #endif
 uniform float toneMappingExposure;
@@ -5519,7 +5519,7 @@ vec3 AgXToneMapping( vec3 color ) {
 	color = LINEAR_REC2020_TO_LINEAR_SRGB * color;
 	return color;
 }
-vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSMISSION
+vec3 CustomToneMapping( vec3 color ) { return color; }`, H0 = `#ifdef USE_TRANSMISSION
 	material.transmission = transmission;
 	material.transmissionAlpha = 1.0;
 	material.thickness = thickness;
@@ -5540,7 +5540,7 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 		material.attenuationColor, material.attenuationDistance );
 	material.transmissionAlpha = mix( material.transmissionAlpha, transmitted.a, material.transmission );
 	totalDiffuse = mix( totalDiffuse, transmitted.rgb, material.transmission );
-#endif`, bw = `#ifdef USE_TRANSMISSION
+#endif`, b0 = `#ifdef USE_TRANSMISSION
 	uniform float transmission;
 	uniform float thickness;
 	uniform float attenuationDistance;
@@ -5646,7 +5646,7 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 		float transmittanceFactor = ( transmittance.r + transmittance.g + transmittance.b ) / 3.0;
 		return vec4( ( 1.0 - F ) * attenuatedColor, 1.0 - ( 1.0 - transmittedLight.a ) * transmittanceFactor );
 	}
-#endif`, Tw = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
+#endif`, T0 = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
 	varying vec2 vUv;
 #endif
 #ifdef USE_MAP
@@ -5716,7 +5716,7 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 #ifdef USE_THICKNESSMAP
 	uniform mat3 thicknessMapTransform;
 	varying vec2 vThicknessMapUv;
-#endif`, xw = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
+#endif`, x0 = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
 	varying vec2 vUv;
 #endif
 #ifdef USE_MAP
@@ -5810,7 +5810,7 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 #ifdef USE_THICKNESSMAP
 	uniform mat3 thicknessMapTransform;
 	varying vec2 vThicknessMapUv;
-#endif`, _w = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
+#endif`, _0 = `#if defined( USE_UV ) || defined( USE_ANISOTROPY )
 	vUv = vec3( uv, 1 ).xy;
 #endif
 #ifdef USE_MAP
@@ -5881,7 +5881,7 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 #endif
 #ifdef USE_THICKNESSMAP
 	vThicknessMapUv = ( thicknessMapTransform * vec3( THICKNESSMAP_UV, 1 ) ).xy;
-#endif`, Ow = `#if defined( USE_ENVMAP ) || defined( DISTANCE ) || defined ( USE_SHADOWMAP ) || defined ( USE_TRANSMISSION ) || NUM_SPOT_LIGHT_COORDS > 0
+#endif`, O0 = `#if defined( USE_ENVMAP ) || defined( DISTANCE ) || defined ( USE_SHADOWMAP ) || defined ( USE_TRANSMISSION ) || NUM_SPOT_LIGHT_COORDS > 0
 	vec4 worldPosition = vec4( transformed, 1.0 );
 	#ifdef USE_BATCHING
 		worldPosition = batchingMatrix * worldPosition;
@@ -5891,12 +5891,12 @@ vec3 CustomToneMapping( vec3 color ) { return color; }`, Hw = `#ifdef USE_TRANSM
 	#endif
 	worldPosition = modelMatrix * worldPosition;
 #endif`;
-const vw = `varying vec2 vUv;
+const v0 = `varying vec2 vUv;
 uniform mat3 uvTransform;
 void main() {
 	vUv = ( uvTransform * vec3( uv, 1 ) ).xy;
 	gl_Position = vec4( position.xy, 1.0, 1.0 );
-}`, Zw = `uniform sampler2D t2D;
+}`, Z0 = `uniform sampler2D t2D;
 uniform float backgroundIntensity;
 varying vec2 vUv;
 void main() {
@@ -5908,14 +5908,14 @@ void main() {
 	gl_FragColor = texColor;
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
-}`, Pw = `varying vec3 vWorldDirection;
+}`, P0 = `varying vec3 vWorldDirection;
 #include <common>
 void main() {
 	vWorldDirection = transformDirection( position, modelMatrix );
 	#include <begin_vertex>
 	#include <project_vertex>
 	gl_Position.z = gl_Position.w;
-}`, Ww = `#ifdef ENVMAP_TYPE_CUBE
+}`, W0 = `#ifdef ENVMAP_TYPE_CUBE
 	uniform samplerCube envMap;
 #elif defined( ENVMAP_TYPE_CUBE_UV )
 	uniform sampler2D envMap;
@@ -5937,14 +5937,14 @@ void main() {
 	gl_FragColor = texColor;
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
-}`, jw = `varying vec3 vWorldDirection;
+}`, j0 = `varying vec3 vWorldDirection;
 #include <common>
 void main() {
 	vWorldDirection = transformDirection( position, modelMatrix );
 	#include <begin_vertex>
 	#include <project_vertex>
 	gl_Position.z = gl_Position.w;
-}`, Vw = `uniform samplerCube tCube;
+}`, V0 = `uniform samplerCube tCube;
 uniform float tFlip;
 uniform float opacity;
 varying vec3 vWorldDirection;
@@ -5954,7 +5954,7 @@ void main() {
 	gl_FragColor.a *= opacity;
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
-}`, Xw = `#include <common>
+}`, X0 = `#include <common>
 #include <batching_pars_vertex>
 #include <uv_pars_vertex>
 #include <displacementmap_pars_vertex>
@@ -5980,7 +5980,7 @@ void main() {
 	#include <logdepthbuf_vertex>
 	#include <clipping_planes_vertex>
 	vHighPrecisionZW = gl_Position.zw;
-}`, zw = `#if DEPTH_PACKING == 3200
+}`, z0 = `#if DEPTH_PACKING == 3200
 	uniform float opacity;
 #endif
 #include <common>
@@ -6010,7 +6010,7 @@ void main() {
 	#elif DEPTH_PACKING == 3201
 		gl_FragColor = packDepthToRGBA( fragCoordZ );
 	#endif
-}`, $w = `#define DISTANCE
+}`, $0 = `#define DISTANCE
 varying vec3 vWorldPosition;
 #include <common>
 #include <batching_pars_vertex>
@@ -6036,7 +6036,7 @@ void main() {
 	#include <worldpos_vertex>
 	#include <clipping_planes_vertex>
 	vWorldPosition = worldPosition.xyz;
-}`, A0 = `#define DISTANCE
+}`, Aw = `#define DISTANCE
 uniform vec3 referencePosition;
 uniform float nearDistance;
 uniform float farDistance;
@@ -6060,13 +6060,13 @@ void main () {
 	dist = ( dist - nearDistance ) / ( farDistance - nearDistance );
 	dist = saturate( dist );
 	gl_FragColor = packDepthToRGBA( dist );
-}`, I0 = `varying vec3 vWorldDirection;
+}`, Iw = `varying vec3 vWorldDirection;
 #include <common>
 void main() {
 	vWorldDirection = transformDirection( position, modelMatrix );
 	#include <begin_vertex>
 	#include <project_vertex>
-}`, g0 = `uniform sampler2D tEquirect;
+}`, gw = `uniform sampler2D tEquirect;
 varying vec3 vWorldDirection;
 #include <common>
 void main() {
@@ -6075,7 +6075,7 @@ void main() {
 	gl_FragColor = texture2D( tEquirect, sampleUV );
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
-}`, C0 = `uniform float scale;
+}`, Cw = `uniform float scale;
 attribute float lineDistance;
 varying float vLineDistance;
 #include <common>
@@ -6096,7 +6096,7 @@ void main() {
 	#include <logdepthbuf_vertex>
 	#include <clipping_planes_vertex>
 	#include <fog_vertex>
-}`, B0 = `uniform vec3 diffuse;
+}`, Bw = `uniform vec3 diffuse;
 uniform float opacity;
 uniform float dashSize;
 uniform float totalSize;
@@ -6124,7 +6124,7 @@ void main() {
 	#include <colorspace_fragment>
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
-}`, i0 = `#include <common>
+}`, iw = `#include <common>
 #include <batching_pars_vertex>
 #include <uv_pars_vertex>
 #include <envmap_pars_vertex>
@@ -6155,7 +6155,7 @@ void main() {
 	#include <worldpos_vertex>
 	#include <envmap_vertex>
 	#include <fog_vertex>
-}`, Q0 = `uniform vec3 diffuse;
+}`, Qw = `uniform vec3 diffuse;
 uniform float opacity;
 #ifndef FLAT_SHADED
 	varying vec3 vNormal;
@@ -6203,7 +6203,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, E0 = `#define LAMBERT
+}`, Ew = `#define LAMBERT
 varying vec3 vViewPosition;
 #include <common>
 #include <batching_pars_vertex>
@@ -6241,7 +6241,7 @@ void main() {
 	#include <envmap_vertex>
 	#include <shadowmap_vertex>
 	#include <fog_vertex>
-}`, o0 = `#define LAMBERT
+}`, ow = `#define LAMBERT
 uniform vec3 diffuse;
 uniform vec3 emissive;
 uniform float opacity;
@@ -6298,7 +6298,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, e0 = `#define MATCAP
+}`, ew = `#define MATCAP
 varying vec3 vViewPosition;
 #include <common>
 #include <batching_pars_vertex>
@@ -6331,7 +6331,7 @@ void main() {
 	#include <clipping_planes_vertex>
 	#include <fog_vertex>
 	vViewPosition = - mvPosition.xyz;
-}`, t0 = `#define MATCAP
+}`, tw = `#define MATCAP
 uniform vec3 diffuse;
 uniform float opacity;
 uniform sampler2D matcap;
@@ -6377,7 +6377,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, a0 = `#define NORMAL
+}`, aw = `#define NORMAL
 #if defined( FLAT_SHADED ) || defined( USE_BUMPMAP ) || defined( USE_NORMALMAP_TANGENTSPACE )
 	varying vec3 vViewPosition;
 #endif
@@ -6409,7 +6409,7 @@ void main() {
 #if defined( FLAT_SHADED ) || defined( USE_BUMPMAP ) || defined( USE_NORMALMAP_TANGENTSPACE )
 	vViewPosition = - mvPosition.xyz;
 #endif
-}`, s0 = `#define NORMAL
+}`, sw = `#define NORMAL
 uniform float opacity;
 #if defined( FLAT_SHADED ) || defined( USE_BUMPMAP ) || defined( USE_NORMALMAP_TANGENTSPACE )
 	varying vec3 vViewPosition;
@@ -6430,7 +6430,7 @@ void main() {
 	#ifdef OPAQUE
 		gl_FragColor.a = 1.0;
 	#endif
-}`, n0 = `#define PHONG
+}`, nw = `#define PHONG
 varying vec3 vViewPosition;
 #include <common>
 #include <batching_pars_vertex>
@@ -6468,7 +6468,7 @@ void main() {
 	#include <envmap_vertex>
 	#include <shadowmap_vertex>
 	#include <fog_vertex>
-}`, r0 = `#define PHONG
+}`, rw = `#define PHONG
 uniform vec3 diffuse;
 uniform vec3 emissive;
 uniform vec3 specular;
@@ -6527,7 +6527,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, D0 = `#define STANDARD
+}`, Dw = `#define STANDARD
 varying vec3 vViewPosition;
 #ifdef USE_TRANSMISSION
 	varying vec3 vWorldPosition;
@@ -6569,7 +6569,7 @@ void main() {
 #ifdef USE_TRANSMISSION
 	vWorldPosition = worldPosition.xyz;
 #endif
-}`, c0 = `#define STANDARD
+}`, cw = `#define STANDARD
 #ifdef PHYSICAL
 	#define IOR
 	#define USE_SPECULAR
@@ -6691,7 +6691,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, h0 = `#define TOON
+}`, hw = `#define TOON
 varying vec3 vViewPosition;
 #include <common>
 #include <batching_pars_vertex>
@@ -6727,7 +6727,7 @@ void main() {
 	#include <worldpos_vertex>
 	#include <shadowmap_vertex>
 	#include <fog_vertex>
-}`, l0 = `#define TOON
+}`, lw = `#define TOON
 uniform vec3 diffuse;
 uniform vec3 emissive;
 uniform float opacity;
@@ -6780,7 +6780,7 @@ void main() {
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
 	#include <dithering_fragment>
-}`, w0 = `uniform float size;
+}`, ww = `uniform float size;
 uniform float scale;
 #include <common>
 #include <color_pars_vertex>
@@ -6810,7 +6810,7 @@ void main() {
 	#include <clipping_planes_vertex>
 	#include <worldpos_vertex>
 	#include <fog_vertex>
-}`, S0 = `uniform vec3 diffuse;
+}`, Sw = `uniform vec3 diffuse;
 uniform float opacity;
 #include <common>
 #include <color_pars_fragment>
@@ -6835,7 +6835,7 @@ void main() {
 	#include <colorspace_fragment>
 	#include <fog_fragment>
 	#include <premultiplied_alpha_fragment>
-}`, G0 = `#include <common>
+}`, Gw = `#include <common>
 #include <batching_pars_vertex>
 #include <fog_pars_vertex>
 #include <morphtarget_pars_vertex>
@@ -6857,7 +6857,7 @@ void main() {
 	#include <worldpos_vertex>
 	#include <shadowmap_vertex>
 	#include <fog_vertex>
-}`, k0 = `uniform vec3 color;
+}`, kw = `uniform vec3 color;
 uniform float opacity;
 #include <common>
 #include <packing>
@@ -6873,7 +6873,7 @@ void main() {
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
 	#include <fog_fragment>
-}`, y0 = `uniform float rotation;
+}`, yw = `uniform float rotation;
 uniform vec2 center;
 #include <common>
 #include <uv_pars_vertex>
@@ -6899,7 +6899,7 @@ void main() {
 	#include <logdepthbuf_vertex>
 	#include <clipping_planes_vertex>
 	#include <fog_vertex>
-}`, d0 = `uniform vec3 diffuse;
+}`, dw = `uniform vec3 diffuse;
 uniform float opacity;
 #include <common>
 #include <uv_pars_fragment>
@@ -6924,18 +6924,18 @@ void main() {
 	#include <tonemapping_fragment>
 	#include <colorspace_fragment>
 	#include <fog_fragment>
-}`, XA = { alphahash_fragment: Zh, alphahash_pars_fragment: Ph, alphamap_fragment: Wh, alphamap_pars_fragment: jh, alphatest_fragment: Vh, alphatest_pars_fragment: Xh, aomap_fragment: zh, aomap_pars_fragment: $h, batching_pars_vertex: Al, batching_vertex: Il, begin_vertex: gl, beginnormal_vertex: Cl, bsdfs: Bl, iridescence_fragment: il, bumpmap_pars_fragment: Ql, clipping_planes_fragment: El, clipping_planes_pars_fragment: ol, clipping_planes_pars_vertex: el, clipping_planes_vertex: tl, color_fragment: al, color_pars_fragment: sl, color_pars_vertex: nl, color_vertex: rl, common: Dl, cube_uv_reflection_fragment: cl, defaultnormal_vertex: hl, displacementmap_pars_vertex: ll, displacementmap_vertex: wl, emissivemap_fragment: Sl, emissivemap_pars_fragment: Gl, colorspace_fragment: kl, colorspace_pars_fragment: yl, envmap_fragment: dl, envmap_common_pars_fragment: Ml, envmap_pars_fragment: pl, envmap_pars_vertex: Ul, envmap_physical_pars_fragment: Hl, envmap_vertex: Nl, fog_vertex: Kl, fog_pars_vertex: Fl, fog_fragment: Rl, fog_pars_fragment: Jl, gradientmap_pars_fragment: ul, lightmap_fragment: ql, lightmap_pars_fragment: fl, lights_lambert_fragment: ml, lights_lambert_pars_fragment: Yl, lights_pars_begin: Ll, lights_toon_fragment: bl, lights_toon_pars_fragment: Tl, lights_phong_fragment: xl, lights_phong_pars_fragment: _l, lights_physical_fragment: Ol, lights_physical_pars_fragment: vl, lights_fragment_begin: Zl, lights_fragment_maps: Pl, lights_fragment_end: Wl, logdepthbuf_fragment: jl, logdepthbuf_pars_fragment: Vl, logdepthbuf_pars_vertex: Xl, logdepthbuf_vertex: zl, map_fragment: $l, map_pars_fragment: Aw, map_particle_fragment: Iw, map_particle_pars_fragment: gw, metalnessmap_fragment: Cw, metalnessmap_pars_fragment: Bw, morphcolor_vertex: iw, morphnormal_vertex: Qw, morphtarget_pars_vertex: Ew, morphtarget_vertex: ow, normal_fragment_begin: ew, normal_fragment_maps: tw, normal_pars_fragment: aw, normal_pars_vertex: sw, normal_vertex: nw, normalmap_pars_fragment: rw, clearcoat_normal_fragment_begin: Dw, clearcoat_normal_fragment_maps: cw, clearcoat_pars_fragment: hw, iridescence_pars_fragment: lw, opaque_fragment: ww, packing: Sw, premultiplied_alpha_fragment: Gw, project_vertex: kw, dithering_fragment: yw, dithering_pars_fragment: dw, roughnessmap_fragment: Mw, roughnessmap_pars_fragment: pw, shadowmap_pars_fragment: Uw, shadowmap_pars_vertex: Nw, shadowmap_vertex: Kw, shadowmask_pars_fragment: Fw, skinbase_vertex: Rw, skinning_pars_vertex: Jw, skinning_vertex: uw, skinnormal_vertex: qw, specularmap_fragment: fw, specularmap_pars_fragment: mw, tonemapping_fragment: Yw, tonemapping_pars_fragment: Lw, transmission_fragment: Hw, transmission_pars_fragment: bw, uv_pars_fragment: Tw, uv_pars_vertex: xw, uv_vertex: _w, worldpos_vertex: Ow, background_vert: vw, background_frag: Zw, backgroundCube_vert: Pw, backgroundCube_frag: Ww, cube_vert: jw, cube_frag: Vw, depth_vert: Xw, depth_frag: zw, distanceRGBA_vert: $w, distanceRGBA_frag: A0, equirect_vert: I0, equirect_frag: g0, linedashed_vert: C0, linedashed_frag: B0, meshbasic_vert: i0, meshbasic_frag: Q0, meshlambert_vert: E0, meshlambert_frag: o0, meshmatcap_vert: e0, meshmatcap_frag: t0, meshnormal_vert: a0, meshnormal_frag: s0, meshphong_vert: n0, meshphong_frag: r0, meshphysical_vert: D0, meshphysical_frag: c0, meshtoon_vert: h0, meshtoon_frag: l0, points_vert: w0, points_frag: S0, shadow_vert: G0, shadow_frag: k0, sprite_vert: y0, sprite_frag: d0 }, DA = { common: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, map: { value: null }, mapTransform: { value: new BI() }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 } }, specularmap: { specularMap: { value: null }, specularMapTransform: { value: new BI() } }, envmap: { envMap: { value: null }, flipEnvMap: { value: -1 }, reflectivity: { value: 1 }, ior: { value: 1.5 }, refractionRatio: { value: 0.98 } }, aomap: { aoMap: { value: null }, aoMapIntensity: { value: 1 }, aoMapTransform: { value: new BI() } }, lightmap: { lightMap: { value: null }, lightMapIntensity: { value: 1 }, lightMapTransform: { value: new BI() } }, bumpmap: { bumpMap: { value: null }, bumpMapTransform: { value: new BI() }, bumpScale: { value: 1 } }, normalmap: { normalMap: { value: null }, normalMapTransform: { value: new BI() }, normalScale: { value: new ZA(1, 1) } }, displacementmap: { displacementMap: { value: null }, displacementMapTransform: { value: new BI() }, displacementScale: { value: 1 }, displacementBias: { value: 0 } }, emissivemap: { emissiveMap: { value: null }, emissiveMapTransform: { value: new BI() } }, metalnessmap: { metalnessMap: { value: null }, metalnessMapTransform: { value: new BI() } }, roughnessmap: { roughnessMap: { value: null }, roughnessMapTransform: { value: new BI() } }, gradientmap: { gradientMap: { value: null } }, fog: { fogDensity: { value: 25e-5 }, fogNear: { value: 1 }, fogFar: { value: 2e3 }, fogColor: { value: new mA(16777215) } }, lights: { ambientLightColor: { value: [] }, lightProbe: { value: [] }, directionalLights: { value: [], properties: { direction: {}, color: {} } }, directionalLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {} } }, directionalShadowMap: { value: [] }, directionalShadowMatrix: { value: [] }, spotLights: { value: [], properties: { color: {}, position: {}, direction: {}, distance: {}, coneCos: {}, penumbraCos: {}, decay: {} } }, spotLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {} } }, spotLightMap: { value: [] }, spotShadowMap: { value: [] }, spotLightMatrix: { value: [] }, pointLights: { value: [], properties: { color: {}, position: {}, decay: {}, distance: {} } }, pointLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {}, shadowCameraNear: {}, shadowCameraFar: {} } }, pointShadowMap: { value: [] }, pointShadowMatrix: { value: [] }, hemisphereLights: { value: [], properties: { direction: {}, skyColor: {}, groundColor: {} } }, rectAreaLights: { value: [], properties: { color: {}, position: {}, width: {}, height: {} } }, ltc_1: { value: null }, ltc_2: { value: null } }, points: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, size: { value: 1 }, scale: { value: 1 }, map: { value: null }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 }, uvTransform: { value: new BI() } }, sprite: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, center: { value: new ZA(0.5, 0.5) }, rotation: { value: 0 }, map: { value: null }, mapTransform: { value: new BI() }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 } } }, wC = { basic: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.fog]), vertexShader: XA.meshbasic_vert, fragmentShader: XA.meshbasic_frag }, lambert: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, DA.lights, { emissive: { value: new mA(0) } }]), vertexShader: XA.meshlambert_vert, fragmentShader: XA.meshlambert_frag }, phong: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, DA.lights, { emissive: { value: new mA(0) }, specular: { value: new mA(1118481) }, shininess: { value: 30 } }]), vertexShader: XA.meshphong_vert, fragmentShader: XA.meshphong_frag }, standard: { uniforms: pg([DA.common, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.roughnessmap, DA.metalnessmap, DA.fog, DA.lights, { emissive: { value: new mA(0) }, roughness: { value: 1 }, metalness: { value: 0 }, envMapIntensity: { value: 1 } }]), vertexShader: XA.meshphysical_vert, fragmentShader: XA.meshphysical_frag }, toon: { uniforms: pg([DA.common, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.gradientmap, DA.fog, DA.lights, { emissive: { value: new mA(0) } }]), vertexShader: XA.meshtoon_vert, fragmentShader: XA.meshtoon_frag }, matcap: { uniforms: pg([DA.common, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, { matcap: { value: null } }]), vertexShader: XA.meshmatcap_vert, fragmentShader: XA.meshmatcap_frag }, points: { uniforms: pg([DA.points, DA.fog]), vertexShader: XA.points_vert, fragmentShader: XA.points_frag }, dashed: { uniforms: pg([DA.common, DA.fog, { scale: { value: 1 }, dashSize: { value: 1 }, totalSize: { value: 2 } }]), vertexShader: XA.linedashed_vert, fragmentShader: XA.linedashed_frag }, depth: { uniforms: pg([DA.common, DA.displacementmap]), vertexShader: XA.depth_vert, fragmentShader: XA.depth_frag }, normal: { uniforms: pg([DA.common, DA.bumpmap, DA.normalmap, DA.displacementmap, { opacity: { value: 1 } }]), vertexShader: XA.meshnormal_vert, fragmentShader: XA.meshnormal_frag }, sprite: { uniforms: pg([DA.sprite, DA.fog]), vertexShader: XA.sprite_vert, fragmentShader: XA.sprite_frag }, background: { uniforms: { uvTransform: { value: new BI() }, t2D: { value: null }, backgroundIntensity: { value: 1 } }, vertexShader: XA.background_vert, fragmentShader: XA.background_frag }, backgroundCube: { uniforms: { envMap: { value: null }, flipEnvMap: { value: -1 }, backgroundBlurriness: { value: 0 }, backgroundIntensity: { value: 1 } }, vertexShader: XA.backgroundCube_vert, fragmentShader: XA.backgroundCube_frag }, cube: { uniforms: { tCube: { value: null }, tFlip: { value: -1 }, opacity: { value: 1 } }, vertexShader: XA.cube_vert, fragmentShader: XA.cube_frag }, equirect: { uniforms: { tEquirect: { value: null } }, vertexShader: XA.equirect_vert, fragmentShader: XA.equirect_frag }, distanceRGBA: { uniforms: pg([DA.common, DA.displacementmap, { referencePosition: { value: new H() }, nearDistance: { value: 1 }, farDistance: { value: 1e3 } }]), vertexShader: XA.distanceRGBA_vert, fragmentShader: XA.distanceRGBA_frag }, shadow: { uniforms: pg([DA.lights, DA.fog, { color: { value: new mA(0) }, opacity: { value: 1 } }]), vertexShader: XA.shadow_vert, fragmentShader: XA.shadow_frag } };
+}`, XA = { alphahash_fragment: Zh, alphahash_pars_fragment: Ph, alphamap_fragment: Wh, alphamap_pars_fragment: jh, alphatest_fragment: Vh, alphatest_pars_fragment: Xh, aomap_fragment: zh, aomap_pars_fragment: $h, batching_pars_vertex: Al, batching_vertex: Il, begin_vertex: gl, beginnormal_vertex: Cl, bsdfs: Bl, iridescence_fragment: il, bumpmap_pars_fragment: Ql, clipping_planes_fragment: El, clipping_planes_pars_fragment: ol, clipping_planes_pars_vertex: el, clipping_planes_vertex: tl, color_fragment: al, color_pars_fragment: sl, color_pars_vertex: nl, color_vertex: rl, common: Dl, cube_uv_reflection_fragment: cl, defaultnormal_vertex: hl, displacementmap_pars_vertex: ll, displacementmap_vertex: wl, emissivemap_fragment: Sl, emissivemap_pars_fragment: Gl, colorspace_fragment: kl, colorspace_pars_fragment: yl, envmap_fragment: dl, envmap_common_pars_fragment: Ml, envmap_pars_fragment: pl, envmap_pars_vertex: Ul, envmap_physical_pars_fragment: Hl, envmap_vertex: Nl, fog_vertex: Kl, fog_pars_vertex: Fl, fog_fragment: Rl, fog_pars_fragment: Jl, gradientmap_pars_fragment: ul, lightmap_fragment: ql, lightmap_pars_fragment: fl, lights_lambert_fragment: ml, lights_lambert_pars_fragment: Yl, lights_pars_begin: Ll, lights_toon_fragment: bl, lights_toon_pars_fragment: Tl, lights_phong_fragment: xl, lights_phong_pars_fragment: _l, lights_physical_fragment: Ol, lights_physical_pars_fragment: vl, lights_fragment_begin: Zl, lights_fragment_maps: Pl, lights_fragment_end: Wl, logdepthbuf_fragment: jl, logdepthbuf_pars_fragment: Vl, logdepthbuf_pars_vertex: Xl, logdepthbuf_vertex: zl, map_fragment: $l, map_pars_fragment: A0, map_particle_fragment: I0, map_particle_pars_fragment: g0, metalnessmap_fragment: C0, metalnessmap_pars_fragment: B0, morphcolor_vertex: i0, morphnormal_vertex: Q0, morphtarget_pars_vertex: E0, morphtarget_vertex: o0, normal_fragment_begin: e0, normal_fragment_maps: t0, normal_pars_fragment: a0, normal_pars_vertex: s0, normal_vertex: n0, normalmap_pars_fragment: r0, clearcoat_normal_fragment_begin: D0, clearcoat_normal_fragment_maps: c0, clearcoat_pars_fragment: h0, iridescence_pars_fragment: l0, opaque_fragment: w0, packing: S0, premultiplied_alpha_fragment: G0, project_vertex: k0, dithering_fragment: y0, dithering_pars_fragment: d0, roughnessmap_fragment: M0, roughnessmap_pars_fragment: p0, shadowmap_pars_fragment: U0, shadowmap_pars_vertex: N0, shadowmap_vertex: K0, shadowmask_pars_fragment: F0, skinbase_vertex: R0, skinning_pars_vertex: J0, skinning_vertex: u0, skinnormal_vertex: q0, specularmap_fragment: f0, specularmap_pars_fragment: m0, tonemapping_fragment: Y0, tonemapping_pars_fragment: L0, transmission_fragment: H0, transmission_pars_fragment: b0, uv_pars_fragment: T0, uv_pars_vertex: x0, uv_vertex: _0, worldpos_vertex: O0, background_vert: v0, background_frag: Z0, backgroundCube_vert: P0, backgroundCube_frag: W0, cube_vert: j0, cube_frag: V0, depth_vert: X0, depth_frag: z0, distanceRGBA_vert: $0, distanceRGBA_frag: Aw, equirect_vert: Iw, equirect_frag: gw, linedashed_vert: Cw, linedashed_frag: Bw, meshbasic_vert: iw, meshbasic_frag: Qw, meshlambert_vert: Ew, meshlambert_frag: ow, meshmatcap_vert: ew, meshmatcap_frag: tw, meshnormal_vert: aw, meshnormal_frag: sw, meshphong_vert: nw, meshphong_frag: rw, meshphysical_vert: Dw, meshphysical_frag: cw, meshtoon_vert: hw, meshtoon_frag: lw, points_vert: ww, points_frag: Sw, shadow_vert: Gw, shadow_frag: kw, sprite_vert: yw, sprite_frag: dw }, DA = { common: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, map: { value: null }, mapTransform: { value: new BI() }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 } }, specularmap: { specularMap: { value: null }, specularMapTransform: { value: new BI() } }, envmap: { envMap: { value: null }, flipEnvMap: { value: -1 }, reflectivity: { value: 1 }, ior: { value: 1.5 }, refractionRatio: { value: 0.98 } }, aomap: { aoMap: { value: null }, aoMapIntensity: { value: 1 }, aoMapTransform: { value: new BI() } }, lightmap: { lightMap: { value: null }, lightMapIntensity: { value: 1 }, lightMapTransform: { value: new BI() } }, bumpmap: { bumpMap: { value: null }, bumpMapTransform: { value: new BI() }, bumpScale: { value: 1 } }, normalmap: { normalMap: { value: null }, normalMapTransform: { value: new BI() }, normalScale: { value: new ZA(1, 1) } }, displacementmap: { displacementMap: { value: null }, displacementMapTransform: { value: new BI() }, displacementScale: { value: 1 }, displacementBias: { value: 0 } }, emissivemap: { emissiveMap: { value: null }, emissiveMapTransform: { value: new BI() } }, metalnessmap: { metalnessMap: { value: null }, metalnessMapTransform: { value: new BI() } }, roughnessmap: { roughnessMap: { value: null }, roughnessMapTransform: { value: new BI() } }, gradientmap: { gradientMap: { value: null } }, fog: { fogDensity: { value: 25e-5 }, fogNear: { value: 1 }, fogFar: { value: 2e3 }, fogColor: { value: new mA(16777215) } }, lights: { ambientLightColor: { value: [] }, lightProbe: { value: [] }, directionalLights: { value: [], properties: { direction: {}, color: {} } }, directionalLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {} } }, directionalShadowMap: { value: [] }, directionalShadowMatrix: { value: [] }, spotLights: { value: [], properties: { color: {}, position: {}, direction: {}, distance: {}, coneCos: {}, penumbraCos: {}, decay: {} } }, spotLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {} } }, spotLightMap: { value: [] }, spotShadowMap: { value: [] }, spotLightMatrix: { value: [] }, pointLights: { value: [], properties: { color: {}, position: {}, decay: {}, distance: {} } }, pointLightShadows: { value: [], properties: { shadowBias: {}, shadowNormalBias: {}, shadowRadius: {}, shadowMapSize: {}, shadowCameraNear: {}, shadowCameraFar: {} } }, pointShadowMap: { value: [] }, pointShadowMatrix: { value: [] }, hemisphereLights: { value: [], properties: { direction: {}, skyColor: {}, groundColor: {} } }, rectAreaLights: { value: [], properties: { color: {}, position: {}, width: {}, height: {} } }, ltc_1: { value: null }, ltc_2: { value: null } }, points: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, size: { value: 1 }, scale: { value: 1 }, map: { value: null }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 }, uvTransform: { value: new BI() } }, sprite: { diffuse: { value: new mA(16777215) }, opacity: { value: 1 }, center: { value: new ZA(0.5, 0.5) }, rotation: { value: 0 }, map: { value: null }, mapTransform: { value: new BI() }, alphaMap: { value: null }, alphaMapTransform: { value: new BI() }, alphaTest: { value: 0 } } }, wC = { basic: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.fog]), vertexShader: XA.meshbasic_vert, fragmentShader: XA.meshbasic_frag }, lambert: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, DA.lights, { emissive: { value: new mA(0) } }]), vertexShader: XA.meshlambert_vert, fragmentShader: XA.meshlambert_frag }, phong: { uniforms: pg([DA.common, DA.specularmap, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, DA.lights, { emissive: { value: new mA(0) }, specular: { value: new mA(1118481) }, shininess: { value: 30 } }]), vertexShader: XA.meshphong_vert, fragmentShader: XA.meshphong_frag }, standard: { uniforms: pg([DA.common, DA.envmap, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.roughnessmap, DA.metalnessmap, DA.fog, DA.lights, { emissive: { value: new mA(0) }, roughness: { value: 1 }, metalness: { value: 0 }, envMapIntensity: { value: 1 } }]), vertexShader: XA.meshphysical_vert, fragmentShader: XA.meshphysical_frag }, toon: { uniforms: pg([DA.common, DA.aomap, DA.lightmap, DA.emissivemap, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.gradientmap, DA.fog, DA.lights, { emissive: { value: new mA(0) } }]), vertexShader: XA.meshtoon_vert, fragmentShader: XA.meshtoon_frag }, matcap: { uniforms: pg([DA.common, DA.bumpmap, DA.normalmap, DA.displacementmap, DA.fog, { matcap: { value: null } }]), vertexShader: XA.meshmatcap_vert, fragmentShader: XA.meshmatcap_frag }, points: { uniforms: pg([DA.points, DA.fog]), vertexShader: XA.points_vert, fragmentShader: XA.points_frag }, dashed: { uniforms: pg([DA.common, DA.fog, { scale: { value: 1 }, dashSize: { value: 1 }, totalSize: { value: 2 } }]), vertexShader: XA.linedashed_vert, fragmentShader: XA.linedashed_frag }, depth: { uniforms: pg([DA.common, DA.displacementmap]), vertexShader: XA.depth_vert, fragmentShader: XA.depth_frag }, normal: { uniforms: pg([DA.common, DA.bumpmap, DA.normalmap, DA.displacementmap, { opacity: { value: 1 } }]), vertexShader: XA.meshnormal_vert, fragmentShader: XA.meshnormal_frag }, sprite: { uniforms: pg([DA.sprite, DA.fog]), vertexShader: XA.sprite_vert, fragmentShader: XA.sprite_frag }, background: { uniforms: { uvTransform: { value: new BI() }, t2D: { value: null }, backgroundIntensity: { value: 1 } }, vertexShader: XA.background_vert, fragmentShader: XA.background_frag }, backgroundCube: { uniforms: { envMap: { value: null }, flipEnvMap: { value: -1 }, backgroundBlurriness: { value: 0 }, backgroundIntensity: { value: 1 } }, vertexShader: XA.backgroundCube_vert, fragmentShader: XA.backgroundCube_frag }, cube: { uniforms: { tCube: { value: null }, tFlip: { value: -1 }, opacity: { value: 1 } }, vertexShader: XA.cube_vert, fragmentShader: XA.cube_frag }, equirect: { uniforms: { tEquirect: { value: null } }, vertexShader: XA.equirect_vert, fragmentShader: XA.equirect_frag }, distanceRGBA: { uniforms: pg([DA.common, DA.displacementmap, { referencePosition: { value: new H() }, nearDistance: { value: 1 }, farDistance: { value: 1e3 } }]), vertexShader: XA.distanceRGBA_vert, fragmentShader: XA.distanceRGBA_frag }, shadow: { uniforms: pg([DA.lights, DA.fog, { color: { value: new mA(0) }, opacity: { value: 1 } }]), vertexShader: XA.shadow_vert, fragmentShader: XA.shadow_frag } };
 wC.physical = { uniforms: pg([wC.standard.uniforms, { clearcoat: { value: 0 }, clearcoatMap: { value: null }, clearcoatMapTransform: { value: new BI() }, clearcoatNormalMap: { value: null }, clearcoatNormalMapTransform: { value: new BI() }, clearcoatNormalScale: { value: new ZA(1, 1) }, clearcoatRoughness: { value: 0 }, clearcoatRoughnessMap: { value: null }, clearcoatRoughnessMapTransform: { value: new BI() }, iridescence: { value: 0 }, iridescenceMap: { value: null }, iridescenceMapTransform: { value: new BI() }, iridescenceIOR: { value: 1.3 }, iridescenceThicknessMinimum: { value: 100 }, iridescenceThicknessMaximum: { value: 400 }, iridescenceThicknessMap: { value: null }, iridescenceThicknessMapTransform: { value: new BI() }, sheen: { value: 0 }, sheenColor: { value: new mA(0) }, sheenColorMap: { value: null }, sheenColorMapTransform: { value: new BI() }, sheenRoughness: { value: 1 }, sheenRoughnessMap: { value: null }, sheenRoughnessMapTransform: { value: new BI() }, transmission: { value: 0 }, transmissionMap: { value: null }, transmissionMapTransform: { value: new BI() }, transmissionSamplerSize: { value: new ZA() }, transmissionSamplerMap: { value: null }, thickness: { value: 0 }, thicknessMap: { value: null }, thicknessMapTransform: { value: new BI() }, attenuationDistance: { value: 0 }, attenuationColor: { value: new mA(0) }, specularColor: { value: new mA(1, 1, 1) }, specularColorMap: { value: null }, specularColorMapTransform: { value: new BI() }, specularIntensity: { value: 1 }, specularIntensityMap: { value: null }, specularIntensityMapTransform: { value: new BI() }, anisotropyVector: { value: new ZA() }, anisotropyMap: { value: null }, anisotropyMapTransform: { value: new BI() } }]), vertexShader: XA.meshphysical_vert, fragmentShader: XA.meshphysical_frag };
 const nE = { r: 0, b: 0, g: 0 };
-function M0(E14, A, I, g, C, B, i) {
+function Mw(E14, A, I, g, C, B, i) {
   const Q = new mA(0);
   let o = B === true ? 0 : 1, e, t, a = null, s = 0, n = null;
   function r(D, h) {
     let S = false, G = h.isScene === true ? h.background : null;
     G && G.isTexture && (G = (h.backgroundBlurriness > 0 ? I : A).get(G)), G === null ? c(Q, o) : G && G.isColor && (c(G, 1), S = true);
     const k = E14.xr.getEnvironmentBlendMode();
-    k === "additive" ? g.buffers.color.setClear(0, 0, 0, 1, i) : k === "alpha-blend" && g.buffers.color.setClear(0, 0, 0, 0, i), (E14.autoClear || S) && E14.clear(E14.autoClearColor, E14.autoClearDepth, E14.autoClearStencil), G && (G.isCubeTexture || G.mapping === $E) ? (t === void 0 && (t = new l(new z(1, 1, 1), new _B({ name: "BackgroundCubeMaterial", uniforms: ui(wC.backgroundCube.uniforms), vertexShader: wC.backgroundCube.vertexShader, fragmentShader: wC.backgroundCube.fragmentShader, side: Ng, depthTest: false, depthWrite: false, fog: false })), t.geometry.deleteAttribute("normal"), t.geometry.deleteAttribute("uv"), t.onBeforeRender = function(U, p, M) {
-      this.matrixWorld.copyPosition(M.matrixWorld);
+    k === "additive" ? g.buffers.color.setClear(0, 0, 0, 1, i) : k === "alpha-blend" && g.buffers.color.setClear(0, 0, 0, 0, i), (E14.autoClear || S) && E14.clear(E14.autoClearColor, E14.autoClearDepth, E14.autoClearStencil), G && (G.isCubeTexture || G.mapping === Ao) ? (t === void 0 && (t = new l(new X(1, 1, 1), new _B({ name: "BackgroundCubeMaterial", uniforms: ui(wC.backgroundCube.uniforms), vertexShader: wC.backgroundCube.vertexShader, fragmentShader: wC.backgroundCube.fragmentShader, side: Ng, depthTest: false, depthWrite: false, fog: false })), t.geometry.deleteAttribute("normal"), t.geometry.deleteAttribute("uv"), t.onBeforeRender = function(M, U, p) {
+      this.matrixWorld.copyPosition(p.matrixWorld);
     }, Object.defineProperty(t.material, "envMap", { get: function() {
       return this.uniforms.envMap.value;
     } }), C.update(t)), t.material.uniforms.envMap.value = G, t.material.uniforms.flipEnvMap.value = G.isCubeTexture && G.isRenderTargetTexture === false ? -1 : 1, t.material.uniforms.backgroundBlurriness.value = h.backgroundBlurriness, t.material.uniforms.backgroundIntensity.value = h.backgroundIntensity, t.material.toneMapped = DI.getTransfer(G.colorSpace) !== UI, (a !== G || s !== G.version || n !== E14.toneMapping) && (t.material.needsUpdate = true, a = G, s = G.version, n = E14.toneMapping), t.layers.enableAll(), D.unshift(t, t.geometry, t.material, 0, 0, null)) : G && G.isTexture && (e === void 0 && (e = new l(new HQ(2, 2), new _B({ name: "BackgroundMaterial", uniforms: ui(wC.background.uniforms), vertexShader: wC.background.vertexShader, fragmentShader: wC.background.fragmentShader, side: TC, depthTest: false, depthWrite: false, fog: false })), e.geometry.deleteAttribute("normal"), Object.defineProperty(e.material, "map", { get: function() {
@@ -6955,17 +6955,17 @@ function M0(E14, A, I, g, C, B, i) {
     o = D, c(Q, o);
   }, render: r };
 }
-function p0(E14, A, I, g) {
+function pw(E14, A, I, g) {
   const C = E14.getParameter(E14.MAX_VERTEX_ATTRIBS), B = g.isWebGL2 ? null : A.get("OES_vertex_array_object"), i = g.isWebGL2 || B !== null, Q = {}, o = D(null);
   let e = o, t = false;
   function a(m, _, v, AA, gA) {
     let CA = false;
     if (i) {
-      const QA = c(AA, v, _);
-      e !== QA && (e = QA, n(e.object)), CA = h(m, AA, v, gA), CA && S(m, AA, v, gA);
+      const iA = c(AA, v, _);
+      e !== iA && (e = iA, n(e.object)), CA = h(m, AA, v, gA), CA && S(m, AA, v, gA);
     } else {
-      const QA = _.wireframe === true;
-      (e.geometry !== AA.id || e.program !== v.id || e.wireframe !== QA) && (e.geometry = AA.id, e.program = v.id, e.wireframe = QA, CA = true);
+      const iA = _.wireframe === true;
+      (e.geometry !== AA.id || e.program !== v.id || e.wireframe !== iA) && (e.geometry = AA.id, e.program = v.id, e.wireframe = iA, CA = true);
     }
     gA !== null && I.update(gA, E14.ELEMENT_ARRAY_BUFFER), (CA || t) && (t = false, F(m, _, v, AA), gA !== null && E14.bindBuffer(E14.ELEMENT_ARRAY_BUFFER, I.get(gA).buffer));
   }
@@ -6984,8 +6984,8 @@ function p0(E14, A, I, g) {
     gA === void 0 && (gA = {}, Q[m.id] = gA);
     let CA = gA[_.id];
     CA === void 0 && (CA = {}, gA[_.id] = CA);
-    let QA = CA[AA];
-    return QA === void 0 && (QA = D(s()), CA[AA] = QA), QA;
+    let iA = CA[AA];
+    return iA === void 0 && (iA = D(s()), CA[AA] = iA), iA;
   }
   function D(m) {
     const _ = [], v = [], AA = [];
@@ -6994,93 +6994,93 @@ function p0(E14, A, I, g) {
   }
   function h(m, _, v, AA) {
     const gA = e.attributes, CA = _.attributes;
-    let QA = 0;
+    let iA = 0;
     const sA = v.getAttributes();
     for (const nA in sA) if (sA[nA].location >= 0) {
-      const iA = gA[nA];
+      const EA = gA[nA];
       let cA = CA[nA];
-      if (cA === void 0 && (nA === "instanceMatrix" && m.instanceMatrix && (cA = m.instanceMatrix), nA === "instanceColor" && m.instanceColor && (cA = m.instanceColor)), iA === void 0 || iA.attribute !== cA || cA && iA.data !== cA.data) return true;
-      QA++;
+      if (cA === void 0 && (nA === "instanceMatrix" && m.instanceMatrix && (cA = m.instanceMatrix), nA === "instanceColor" && m.instanceColor && (cA = m.instanceColor)), EA === void 0 || EA.attribute !== cA || cA && EA.data !== cA.data) return true;
+      iA++;
     }
-    return e.attributesNum !== QA || e.index !== AA;
+    return e.attributesNum !== iA || e.index !== AA;
   }
   function S(m, _, v, AA) {
     const gA = {}, CA = _.attributes;
-    let QA = 0;
+    let iA = 0;
     const sA = v.getAttributes();
     for (const nA in sA) if (sA[nA].location >= 0) {
-      let iA = CA[nA];
-      iA === void 0 && (nA === "instanceMatrix" && m.instanceMatrix && (iA = m.instanceMatrix), nA === "instanceColor" && m.instanceColor && (iA = m.instanceColor));
+      let EA = CA[nA];
+      EA === void 0 && (nA === "instanceMatrix" && m.instanceMatrix && (EA = m.instanceMatrix), nA === "instanceColor" && m.instanceColor && (EA = m.instanceColor));
       const cA = {};
-      cA.attribute = iA, iA && iA.data && (cA.data = iA.data), gA[nA] = cA, QA++;
+      cA.attribute = EA, EA && EA.data && (cA.data = EA.data), gA[nA] = cA, iA++;
     }
-    e.attributes = gA, e.attributesNum = QA, e.index = AA;
+    e.attributes = gA, e.attributesNum = iA, e.index = AA;
   }
   function G() {
     const m = e.newAttributes;
     for (let _ = 0, v = m.length; _ < v; _++) m[_] = 0;
   }
   function k(m) {
-    U(m, 0);
+    M(m, 0);
   }
-  function U(m, _) {
+  function M(m, _) {
     const v = e.newAttributes, AA = e.enabledAttributes, gA = e.attributeDivisors;
     v[m] = 1, AA[m] === 0 && (E14.enableVertexAttribArray(m), AA[m] = 1), gA[m] !== _ && ((g.isWebGL2 ? E14 : A.get("ANGLE_instanced_arrays"))[g.isWebGL2 ? "vertexAttribDivisor" : "vertexAttribDivisorANGLE"](m, _), gA[m] = _);
   }
-  function p() {
+  function U() {
     const m = e.newAttributes, _ = e.enabledAttributes;
     for (let v = 0, AA = _.length; v < AA; v++) _[v] !== m[v] && (E14.disableVertexAttribArray(v), _[v] = 0);
   }
-  function M(m, _, v, AA, gA, CA, QA) {
-    QA === true ? E14.vertexAttribIPointer(m, _, v, gA, CA) : E14.vertexAttribPointer(m, _, v, AA, gA, CA);
+  function p(m, _, v, AA, gA, CA, iA) {
+    iA === true ? E14.vertexAttribIPointer(m, _, v, gA, CA) : E14.vertexAttribPointer(m, _, v, AA, gA, CA);
   }
   function F(m, _, v, AA) {
     if (g.isWebGL2 === false && (m.isInstancedMesh || AA.isInstancedBufferGeometry) && A.get("ANGLE_instanced_arrays") === null) return;
     G();
-    const gA = AA.attributes, CA = v.getAttributes(), QA = _.defaultAttributeValues;
+    const gA = AA.attributes, CA = v.getAttributes(), iA = _.defaultAttributeValues;
     for (const sA in CA) {
       const nA = CA[sA];
       if (nA.location >= 0) {
         let IA = gA[sA];
         if (IA === void 0 && (sA === "instanceMatrix" && m.instanceMatrix && (IA = m.instanceMatrix), sA === "instanceColor" && m.instanceColor && (IA = m.instanceColor)), IA !== void 0) {
-          const iA = IA.normalized, cA = IA.itemSize, KA = I.get(IA);
+          const EA = IA.normalized, cA = IA.itemSize, KA = I.get(IA);
           if (KA === void 0) continue;
           const NA = KA.buffer, PA = KA.type, jA = KA.bytesPerElement, YA = g.isWebGL2 === true && (PA === E14.INT || PA === E14.UNSIGNED_INT || IA.gpuType === fn);
           if (IA.isInterleavedBufferAttribute) {
             const aI = IA.data, P = aI.stride, kg = IA.offset;
             if (aI.isInstancedInterleavedBuffer) {
-              for (let JA = 0; JA < nA.locationSize; JA++) U(nA.location + JA, aI.meshPerAttribute);
+              for (let JA = 0; JA < nA.locationSize; JA++) M(nA.location + JA, aI.meshPerAttribute);
               m.isInstancedMesh !== true && AA._maxInstanceCount === void 0 && (AA._maxInstanceCount = aI.meshPerAttribute * aI.count);
             } else for (let JA = 0; JA < nA.locationSize; JA++) k(nA.location + JA);
             E14.bindBuffer(E14.ARRAY_BUFFER, NA);
-            for (let JA = 0; JA < nA.locationSize; JA++) M(nA.location + JA, cA / nA.locationSize, PA, iA, P * jA, (kg + cA / nA.locationSize * JA) * jA, YA);
+            for (let JA = 0; JA < nA.locationSize; JA++) p(nA.location + JA, cA / nA.locationSize, PA, EA, P * jA, (kg + cA / nA.locationSize * JA) * jA, YA);
           } else {
             if (IA.isInstancedBufferAttribute) {
-              for (let aI = 0; aI < nA.locationSize; aI++) U(nA.location + aI, IA.meshPerAttribute);
+              for (let aI = 0; aI < nA.locationSize; aI++) M(nA.location + aI, IA.meshPerAttribute);
               m.isInstancedMesh !== true && AA._maxInstanceCount === void 0 && (AA._maxInstanceCount = IA.meshPerAttribute * IA.count);
             } else for (let aI = 0; aI < nA.locationSize; aI++) k(nA.location + aI);
             E14.bindBuffer(E14.ARRAY_BUFFER, NA);
-            for (let aI = 0; aI < nA.locationSize; aI++) M(nA.location + aI, cA / nA.locationSize, PA, iA, cA * jA, cA / nA.locationSize * aI * jA, YA);
+            for (let aI = 0; aI < nA.locationSize; aI++) p(nA.location + aI, cA / nA.locationSize, PA, EA, cA * jA, cA / nA.locationSize * aI * jA, YA);
           }
-        } else if (QA !== void 0) {
-          const iA = QA[sA];
-          if (iA !== void 0) switch (iA.length) {
+        } else if (iA !== void 0) {
+          const EA = iA[sA];
+          if (EA !== void 0) switch (EA.length) {
             case 2:
-              E14.vertexAttrib2fv(nA.location, iA);
+              E14.vertexAttrib2fv(nA.location, EA);
               break;
             case 3:
-              E14.vertexAttrib3fv(nA.location, iA);
+              E14.vertexAttrib3fv(nA.location, EA);
               break;
             case 4:
-              E14.vertexAttrib4fv(nA.location, iA);
+              E14.vertexAttrib4fv(nA.location, EA);
               break;
             default:
-              E14.vertexAttrib1fv(nA.location, iA);
+              E14.vertexAttrib1fv(nA.location, EA);
           }
         }
       }
     }
-    p();
+    U();
   }
   function y() {
     L();
@@ -7119,9 +7119,9 @@ function p0(E14, A, I, g) {
   function Z() {
     o.geometry = null, o.program = null, o.wireframe = false;
   }
-  return { setup: a, reset: L, resetDefaultState: Z, dispose: y, releaseStatesOfGeometry: N, releaseStatesOfProgram: q, initAttributes: G, enableAttribute: k, disableUnusedAttributes: p };
+  return { setup: a, reset: L, resetDefaultState: Z, dispose: y, releaseStatesOfGeometry: N, releaseStatesOfProgram: q, initAttributes: G, enableAttribute: k, disableUnusedAttributes: U };
 }
-function U0(E14, A, I, g) {
+function Uw(E14, A, I, g) {
   const C = g.isWebGL2;
   let B;
   function i(t) {
@@ -7153,31 +7153,31 @@ function U0(E14, A, I, g) {
   }
   this.setMode = i, this.render = Q, this.renderInstances = o, this.renderMultiDraw = e;
 }
-function N0(E14, A, I) {
+function Nw(E14, A, I) {
   let g;
   function C() {
     if (g !== void 0) return g;
     if (A.has("EXT_texture_filter_anisotropic") === true) {
-      const M = A.get("EXT_texture_filter_anisotropic");
-      g = E14.getParameter(M.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
+      const p = A.get("EXT_texture_filter_anisotropic");
+      g = E14.getParameter(p.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
     } else g = 0;
     return g;
   }
-  function B(M) {
-    if (M === "highp") {
+  function B(p) {
+    if (p === "highp") {
       if (E14.getShaderPrecisionFormat(E14.VERTEX_SHADER, E14.HIGH_FLOAT).precision > 0 && E14.getShaderPrecisionFormat(E14.FRAGMENT_SHADER, E14.HIGH_FLOAT).precision > 0) return "highp";
-      M = "mediump";
+      p = "mediump";
     }
-    return M === "mediump" && E14.getShaderPrecisionFormat(E14.VERTEX_SHADER, E14.MEDIUM_FLOAT).precision > 0 && E14.getShaderPrecisionFormat(E14.FRAGMENT_SHADER, E14.MEDIUM_FLOAT).precision > 0 ? "mediump" : "lowp";
+    return p === "mediump" && E14.getShaderPrecisionFormat(E14.VERTEX_SHADER, E14.MEDIUM_FLOAT).precision > 0 && E14.getShaderPrecisionFormat(E14.FRAGMENT_SHADER, E14.MEDIUM_FLOAT).precision > 0 ? "mediump" : "lowp";
   }
   const i = typeof WebGL2RenderingContext < "u" && E14.constructor.name === "WebGL2RenderingContext";
   let Q = I.precision !== void 0 ? I.precision : "highp";
   const o = B(Q);
   o !== Q && (console.warn("THREE.WebGLRenderer:", Q, "not supported, using", o, "instead."), Q = o);
-  const e = i || A.has("WEBGL_draw_buffers"), t = I.logarithmicDepthBuffer === true, a = E14.getParameter(E14.MAX_TEXTURE_IMAGE_UNITS), s = E14.getParameter(E14.MAX_VERTEX_TEXTURE_IMAGE_UNITS), n = E14.getParameter(E14.MAX_TEXTURE_SIZE), r = E14.getParameter(E14.MAX_CUBE_MAP_TEXTURE_SIZE), c = E14.getParameter(E14.MAX_VERTEX_ATTRIBS), D = E14.getParameter(E14.MAX_VERTEX_UNIFORM_VECTORS), h = E14.getParameter(E14.MAX_VARYING_VECTORS), S = E14.getParameter(E14.MAX_FRAGMENT_UNIFORM_VECTORS), G = s > 0, k = i || A.has("OES_texture_float"), U = G && k, p = i ? E14.getParameter(E14.MAX_SAMPLES) : 0;
-  return { isWebGL2: i, drawBuffers: e, getMaxAnisotropy: C, getMaxPrecision: B, precision: Q, logarithmicDepthBuffer: t, maxTextures: a, maxVertexTextures: s, maxTextureSize: n, maxCubemapSize: r, maxAttributes: c, maxVertexUniforms: D, maxVaryings: h, maxFragmentUniforms: S, vertexTextures: G, floatFragmentTextures: k, floatVertexTextures: U, maxSamples: p };
+  const e = i || A.has("WEBGL_draw_buffers"), t = I.logarithmicDepthBuffer === true, a = E14.getParameter(E14.MAX_TEXTURE_IMAGE_UNITS), s = E14.getParameter(E14.MAX_VERTEX_TEXTURE_IMAGE_UNITS), n = E14.getParameter(E14.MAX_TEXTURE_SIZE), r = E14.getParameter(E14.MAX_CUBE_MAP_TEXTURE_SIZE), c = E14.getParameter(E14.MAX_VERTEX_ATTRIBS), D = E14.getParameter(E14.MAX_VERTEX_UNIFORM_VECTORS), h = E14.getParameter(E14.MAX_VARYING_VECTORS), S = E14.getParameter(E14.MAX_FRAGMENT_UNIFORM_VECTORS), G = s > 0, k = i || A.has("OES_texture_float"), M = G && k, U = i ? E14.getParameter(E14.MAX_SAMPLES) : 0;
+  return { isWebGL2: i, drawBuffers: e, getMaxAnisotropy: C, getMaxPrecision: B, precision: Q, logarithmicDepthBuffer: t, maxTextures: a, maxVertexTextures: s, maxTextureSize: n, maxCubemapSize: r, maxAttributes: c, maxVertexUniforms: D, maxVaryings: h, maxFragmentUniforms: S, vertexTextures: G, floatFragmentTextures: k, floatVertexTextures: M, maxSamples: U };
 }
-function K0(E14) {
+function Kw(E14) {
   const A = this;
   let I = null, g = 0, C = false, B = false;
   const i = new UB(), Q = new BI(), o = { value: null, needsUpdate: false };
@@ -7197,7 +7197,7 @@ function K0(E14) {
       const S = B ? 0 : g, G = S * 4;
       let k = h.clippingState || null;
       o.value = k, k = t(r, s, G, n);
-      for (let U = 0; U !== G; ++U) k[U] = I[U];
+      for (let M = 0; M !== G; ++M) k[M] = I[M];
       h.clippingState = k, this.numIntersection = c ? this.numPlanes : 0, this.numPlanes += S;
     }
   };
@@ -7218,15 +7218,15 @@ function K0(E14) {
     return A.numPlanes = c, A.numIntersection = 0, D;
   }
 }
-function F0(E14) {
+function Fw(E14) {
   let A = /* @__PURE__ */ new WeakMap();
   function I(i, Q) {
-    return Q === le ? i.mapping = Ui : Q === we && (i.mapping = Ni), i;
+    return Q === we ? i.mapping = Ui : Q === Se && (i.mapping = Ni), i;
   }
   function g(i) {
     if (i && i.isTexture) {
       const Q = i.mapping;
-      if (Q === le || Q === we) if (A.has(i)) {
+      if (Q === we || Q === Se) if (A.has(i)) {
         const o = A.get(i).texture;
         return I(o, i.mapping);
       } else {
@@ -7277,15 +7277,15 @@ class st extends $n {
     return I.object.zoom = this.zoom, I.object.left = this.left, I.object.right = this.right, I.object.top = this.top, I.object.bottom = this.bottom, I.object.near = this.near, I.object.far = this.far, this.view !== null && (I.object.view = Object.assign({}, this.view)), I;
   }
 }
-const ci = 4, ts = [0.125, 0.215, 0.35, 0.446, 0.526, 0.582], RB = 20, Oo = new st(), as = new mA();
-let vo = null, Zo = 0, Po = 0;
+const ci = 4, ts = [0.125, 0.215, 0.35, 0.446, 0.526, 0.582], RB = 20, vo = new st(), as = new mA();
+let Zo = null, Po = 0, Wo = 0;
 const NB = (1 + Math.sqrt(5)) / 2, ti = 1 / NB, ss = [new H(1, 1, 1), new H(-1, 1, 1), new H(1, 1, -1), new H(-1, 1, -1), new H(0, NB, ti), new H(0, NB, -ti), new H(ti, 0, NB), new H(-ti, 0, NB), new H(NB, ti, 0), new H(-NB, ti, 0)];
 class ns {
   constructor(A) {
     this._renderer = A, this._pingPongRenderTarget = null, this._lodMax = 0, this._cubeSize = 0, this._lodPlanes = [], this._sizeLods = [], this._sigmas = [], this._blurMaterial = null, this._cubemapMaterial = null, this._equirectMaterial = null, this._compileMaterial(this._blurMaterial);
   }
   fromScene(A, I = 0, g = 0.1, C = 100) {
-    vo = this._renderer.getRenderTarget(), Zo = this._renderer.getActiveCubeFace(), Po = this._renderer.getActiveMipmapLevel(), this._setSize(256);
+    Zo = this._renderer.getRenderTarget(), Po = this._renderer.getActiveCubeFace(), Wo = this._renderer.getActiveMipmapLevel(), this._setSize(256);
     const B = this._allocateTargets();
     return B.depthBuffer = true, this._sceneToCubeUV(A, g, C, B), I > 0 && this._blur(B, 0, 0, I), this._applyPMREM(B), this._cleanup(B), B;
   }
@@ -7312,30 +7312,30 @@ class ns {
     for (let A = 0; A < this._lodPlanes.length; A++) this._lodPlanes[A].dispose();
   }
   _cleanup(A) {
-    this._renderer.setRenderTarget(vo, Zo, Po), A.scissorTest = false, rE(A, 0, 0, A.width, A.height);
+    this._renderer.setRenderTarget(Zo, Po, Wo), A.scissorTest = false, rE(A, 0, 0, A.width, A.height);
   }
   _fromTexture(A, I) {
-    A.mapping === Ui || A.mapping === Ni ? this._setSize(A.image.length === 0 ? 16 : A.image[0].width || A.image[0].image.width) : this._setSize(A.image.width / 4), vo = this._renderer.getRenderTarget(), Zo = this._renderer.getActiveCubeFace(), Po = this._renderer.getActiveMipmapLevel();
+    A.mapping === Ui || A.mapping === Ni ? this._setSize(A.image.length === 0 ? 16 : A.image[0].width || A.image[0].image.width) : this._setSize(A.image.width / 4), Zo = this._renderer.getRenderTarget(), Po = this._renderer.getActiveCubeFace(), Wo = this._renderer.getActiveMipmapLevel();
     const g = I || this._allocateTargets();
     return this._textureToCubeUV(A, g), this._applyPMREM(g), this._cleanup(g), g;
   }
   _allocateTargets() {
-    const A = 3 * Math.max(this._cubeSize, 112), I = 4 * this._cubeSize, g = { magFilter: Rg, minFilter: Rg, generateMipmaps: false, type: GQ, format: gC, colorSpace: og, depthBuffer: false }, C = rs(A, I, g);
+    const A = 3 * Math.max(this._cubeSize, 112), I = 4 * this._cubeSize, g = { magFilter: Rg, minFilter: Rg, generateMipmaps: false, type: GQ, format: gC, colorSpace: eg, depthBuffer: false }, C = rs(A, I, g);
     if (this._pingPongRenderTarget === null || this._pingPongRenderTarget.width !== A || this._pingPongRenderTarget.height !== I) {
       this._pingPongRenderTarget !== null && this._dispose(), this._pingPongRenderTarget = rs(A, I, g);
       const { _lodMax: B } = this;
-      ({ sizeLods: this._sizeLods, lodPlanes: this._lodPlanes, sigmas: this._sigmas } = R0(B)), this._blurMaterial = J0(B, A, I);
+      ({ sizeLods: this._sizeLods, lodPlanes: this._lodPlanes, sigmas: this._sigmas } = Rw(B)), this._blurMaterial = Jw(B, A, I);
     }
     return C;
   }
   _compileMaterial(A) {
     const I = new l(this._lodPlanes[0], A);
-    this._renderer.compile(I, Oo);
+    this._renderer.compile(I, vo);
   }
   _sceneToCubeUV(A, I, g, C) {
     const Q = new Ug(90, 1, I, g), o = [1, -1, 1, 1, 1, 1], e = [1, 1, 1, -1, -1, -1], t = this._renderer, a = t.autoClear, s = t.toneMapping;
     t.getClearColor(as), t.toneMapping = QB, t.autoClear = false;
-    const n = new SA({ name: "PMREM.Background", side: Ng, depthWrite: false, depthTest: false }), r = new l(new z(), n);
+    const n = new wA({ name: "PMREM.Background", side: Ng, depthWrite: false, depthTest: false }), r = new l(new X(), n);
     let c = false;
     const D = A.background;
     D ? D.isColor && (n.color.copy(D), A.background = null, c = true) : (n.color.copy(as), c = true);
@@ -7353,7 +7353,7 @@ class ns {
     const B = C ? this._cubemapMaterial : this._equirectMaterial, i = new l(this._lodPlanes[0], B), Q = B.uniforms;
     Q.envMap.value = A;
     const o = this._cubeSize;
-    rE(I, 0, 0, 3 * o, 2 * o), g.setRenderTarget(I), g.render(i, Oo);
+    rE(I, 0, 0, 3 * o, 2 * o), g.setRenderTarget(I), g.render(i, vo);
   }
   _applyPMREM(A) {
     const I = this._renderer, g = I.autoClear;
@@ -7375,19 +7375,19 @@ class ns {
     D > RB && console.warn(`sigmaRadians, ${B}, is too large and will clip, as it requested ${D} samples when the maximum is set to ${RB}`);
     const h = [];
     let S = 0;
-    for (let M = 0; M < RB; ++M) {
-      const F = M / c, y = Math.exp(-F * F / 2);
-      h.push(y), M === 0 ? S += y : M < D && (S += 2 * y);
+    for (let p = 0; p < RB; ++p) {
+      const F = p / c, y = Math.exp(-F * F / 2);
+      h.push(y), p === 0 ? S += y : p < D && (S += 2 * y);
     }
-    for (let M = 0; M < h.length; M++) h[M] = h[M] / S;
+    for (let p = 0; p < h.length; p++) h[p] = h[p] / S;
     s.envMap.value = A.texture, s.samples.value = D, s.weights.value = h, s.latitudinal.value = i === "latitudinal", Q && (s.poleAxis.value = Q);
     const { _lodMax: G } = this;
     s.dTheta.value = r, s.mipInt.value = G - g;
-    const k = this._sizeLods[C], U = 3 * k * (C > G - ci ? C - G + ci : 0), p = 4 * (this._cubeSize - k);
-    rE(I, U, p, 3 * k, 2 * k), o.setRenderTarget(I), o.render(a, Oo);
+    const k = this._sizeLods[C], M = 3 * k * (C > G - ci ? C - G + ci : 0), U = 4 * (this._cubeSize - k);
+    rE(I, M, U, 3 * k, 2 * k), o.setRenderTarget(I), o.render(a, vo);
   }
 }
-function R0(E14) {
+function Rw(E14) {
   const A = [], I = [], g = [];
   let C = E14;
   const B = E14 - ci + 1 + ts.length;
@@ -7397,25 +7397,25 @@ function R0(E14) {
     let o = 1 / Q;
     i > E14 - ci ? o = ts[i - E14 + ci - 1] : i === 0 && (o = 0), g.push(o);
     const e = 1 / (Q - 2), t = -e, a = 1 + e, s = [t, t, a, t, a, a, t, t, a, a, t, a], n = 6, r = 6, c = 3, D = 2, h = 1, S = new Float32Array(c * r * n), G = new Float32Array(D * r * n), k = new Float32Array(h * r * n);
-    for (let p = 0; p < n; p++) {
-      const M = p % 3 * 2 / 3 - 1, F = p > 2 ? 0 : -1, y = [M, F, 0, M + 2 / 3, F, 0, M + 2 / 3, F + 1, 0, M, F, 0, M + 2 / 3, F + 1, 0, M, F + 1, 0];
-      S.set(y, c * r * p), G.set(s, D * r * p);
-      const N = [p, p, p, p, p, p];
-      k.set(N, h * r * p);
+    for (let U = 0; U < n; U++) {
+      const p = U % 3 * 2 / 3 - 1, F = U > 2 ? 0 : -1, y = [p, F, 0, p + 2 / 3, F, 0, p + 2 / 3, F + 1, 0, p, F, 0, p + 2 / 3, F + 1, 0, p, F + 1, 0];
+      S.set(y, c * r * U), G.set(s, D * r * U);
+      const N = [U, U, U, U, U, U];
+      k.set(N, h * r * U);
     }
-    const U = new Fg();
-    U.setAttribute("position", new Kg(S, c)), U.setAttribute("uv", new Kg(G, D)), U.setAttribute("faceIndex", new Kg(k, h)), A.push(U), C > ci && C--;
+    const M = new Fg();
+    M.setAttribute("position", new Kg(S, c)), M.setAttribute("uv", new Kg(G, D)), M.setAttribute("faceIndex", new Kg(k, h)), A.push(M), C > ci && C--;
   }
   return { lodPlanes: A, sizeLods: I, sigmas: g };
 }
 function rs(E14, A, I) {
   const g = new xB(E14, A, I);
-  return g.texture.mapping = $E, g.texture.name = "PMREM.cubeUv", g.scissorTest = true, g;
+  return g.texture.mapping = Ao, g.texture.name = "PMREM.cubeUv", g.scissorTest = true, g;
 }
 function rE(E14, A, I, g, C) {
   E14.viewport.set(A, I, g, C), E14.scissor.set(A, I, g, C);
 }
-function J0(E14, A, I) {
+function Jw(E14, A, I) {
   const g = new Float32Array(RB), C = new H(0, 1, 0);
   return new _B({ name: "SphericalGaussianBlur", defines: { n: RB, CUBEUV_TEXEL_WIDTH: 1 / A, CUBEUV_TEXEL_HEIGHT: 1 / I, CUBEUV_MAX_MIP: `${E14}.0` }, uniforms: { envMap: { value: null }, samples: { value: 1 }, weights: { value: g }, latitudinal: { value: false }, dTheta: { value: 0 }, mipInt: { value: 0 }, poleAxis: { value: C } }, vertexShader: nt(), fragmentShader: `
 
@@ -7578,11 +7578,11 @@ function nt() {
 		}
 	`;
 }
-function u0(E14) {
+function uw(E14) {
   let A = /* @__PURE__ */ new WeakMap(), I = null;
   function g(Q) {
     if (Q && Q.isTexture) {
-      const o = Q.mapping, e = o === le || o === we, t = o === Ui || o === Ni;
+      const o = Q.mapping, e = o === we || o === Se, t = o === Ui || o === Ni;
       if (e || t) if (Q.isRenderTargetTexture && Q.needsPMREMUpdate === true) {
         Q.needsPMREMUpdate = false;
         let a = A.get(Q);
@@ -7618,7 +7618,7 @@ function u0(E14) {
   }
   return { get: g, dispose: i };
 }
-function q0(E14) {
+function qw(E14) {
   const A = {};
   function I(g) {
     if (A[g] !== void 0) return A[g];
@@ -7650,7 +7650,7 @@ function q0(E14) {
     return C === null && console.warn("THREE.WebGLRenderer: " + g + " extension not supported."), C;
   } };
 }
-function f0(E14, A, I, g) {
+function fw(E14, A, I, g) {
   const C = {}, B = /* @__PURE__ */ new WeakMap();
   function i(a) {
     const s = a.target;
@@ -7683,15 +7683,15 @@ function f0(E14, A, I, g) {
       const S = n.array;
       c = n.version;
       for (let G = 0, k = S.length; G < k; G += 3) {
-        const U = S[G + 0], p = S[G + 1], M = S[G + 2];
-        s.push(U, p, p, M, M, U);
+        const M = S[G + 0], U = S[G + 1], p = S[G + 2];
+        s.push(M, U, U, p, p, M);
       }
     } else if (r !== void 0) {
       const S = r.array;
       c = r.version;
       for (let G = 0, k = S.length / 3 - 1; G < k; G += 3) {
-        const U = G + 0, p = G + 1, M = G + 2;
-        s.push(U, p, p, M, M, U);
+        const M = G + 0, U = G + 1, p = G + 2;
+        s.push(M, U, U, p, p, M);
       }
     } else return;
     const D = new (vn(s) ? Xn : Vn)(s, 1);
@@ -7709,7 +7709,7 @@ function f0(E14, A, I, g) {
   }
   return { get: Q, update: o, getWireframeAttribute: t };
 }
-function m0(E14, A, I, g) {
+function mw(E14, A, I, g) {
   const C = g.isWebGL2;
   let B;
   function i(n) {
@@ -7745,7 +7745,7 @@ function m0(E14, A, I, g) {
   }
   this.setMode = i, this.setIndex = e, this.render = t, this.renderInstances = a, this.renderMultiDraw = s;
 }
-function Y0(E14) {
+function Yw(E14) {
   const A = { geometries: 0, textures: 0 }, I = { frame: 0, calls: 0, triangles: 0, points: 0, lines: 0 };
   function g(B, i, Q) {
     switch (I.calls++, i) {
@@ -7774,13 +7774,13 @@ function Y0(E14) {
   }
   return { memory: A, render: I, programs: null, autoReset: true, reset: C, update: g };
 }
-function L0(E14, A) {
+function Lw(E14, A) {
   return E14[0] - A[0];
 }
-function H0(E14, A) {
+function Hw(E14, A) {
   return Math.abs(A[1]) - Math.abs(E14[1]);
 }
-function b0(E14, A, I) {
+function bw(E14, A, I) {
   const g = {}, C = new Float32Array(8), B = /* @__PURE__ */ new WeakMap(), i = new yI(), Q = [];
   for (let e = 0; e < 8; e++) Q[e] = [e, 0];
   function o(e, t, a) {
@@ -7794,19 +7794,19 @@ function b0(E14, A, I) {
         };
         var n = _;
         D !== void 0 && D.texture.dispose();
-        const G = t.morphAttributes.position !== void 0, k = t.morphAttributes.normal !== void 0, U = t.morphAttributes.color !== void 0, p = t.morphAttributes.position || [], M = t.morphAttributes.normal || [], F = t.morphAttributes.color || [];
+        const G = t.morphAttributes.position !== void 0, k = t.morphAttributes.normal !== void 0, M = t.morphAttributes.color !== void 0, U = t.morphAttributes.position || [], p = t.morphAttributes.normal || [], F = t.morphAttributes.color || [];
         let y = 0;
-        G === true && (y = 1), k === true && (y = 2), U === true && (y = 3);
+        G === true && (y = 1), k === true && (y = 2), M === true && (y = 3);
         let N = t.attributes.position.count * y, q = 1;
         N > A.maxTextureSize && (q = Math.ceil(N / A.maxTextureSize), N = A.maxTextureSize);
         const L = new Float32Array(N * q * 4 * c), Z = new Wn(L, N, q, c);
         Z.type = HC, Z.needsUpdate = true;
         const m = y * 4;
         for (let v = 0; v < c; v++) {
-          const AA = p[v], gA = M[v], CA = F[v], QA = N * q * 4 * v;
+          const AA = U[v], gA = p[v], CA = F[v], iA = N * q * 4 * v;
           for (let sA = 0; sA < AA.count; sA++) {
             const nA = sA * m;
-            G === true && (i.fromBufferAttribute(AA, sA), L[QA + nA + 0] = i.x, L[QA + nA + 1] = i.y, L[QA + nA + 2] = i.z, L[QA + nA + 3] = 0), k === true && (i.fromBufferAttribute(gA, sA), L[QA + nA + 4] = i.x, L[QA + nA + 5] = i.y, L[QA + nA + 6] = i.z, L[QA + nA + 7] = 0), U === true && (i.fromBufferAttribute(CA, sA), L[QA + nA + 8] = i.x, L[QA + nA + 9] = i.y, L[QA + nA + 10] = i.z, L[QA + nA + 11] = CA.itemSize === 4 ? i.w : 1);
+            G === true && (i.fromBufferAttribute(AA, sA), L[iA + nA + 0] = i.x, L[iA + nA + 1] = i.y, L[iA + nA + 2] = i.z, L[iA + nA + 3] = 0), k === true && (i.fromBufferAttribute(gA, sA), L[iA + nA + 4] = i.x, L[iA + nA + 5] = i.y, L[iA + nA + 6] = i.z, L[iA + nA + 7] = 0), M === true && (i.fromBufferAttribute(CA, sA), L[iA + nA + 8] = i.x, L[iA + nA + 9] = i.y, L[iA + nA + 10] = i.z, L[iA + nA + 11] = CA.itemSize === 4 ? i.w : 1);
           }
         }
         D = { count: c, texture: Z, size: new ZA(N, q) }, B.set(t, D), t.addEventListener("dispose", _);
@@ -7824,17 +7824,17 @@ function b0(E14, A, I) {
         g[t.id] = c;
       }
       for (let k = 0; k < r; k++) {
-        const U = c[k];
-        U[0] = k, U[1] = s[k];
+        const M = c[k];
+        M[0] = k, M[1] = s[k];
       }
-      c.sort(H0);
+      c.sort(Hw);
       for (let k = 0; k < 8; k++) k < r && c[k][1] ? (Q[k][0] = c[k][0], Q[k][1] = c[k][1]) : (Q[k][0] = Number.MAX_SAFE_INTEGER, Q[k][1] = 0);
-      Q.sort(L0);
+      Q.sort(Lw);
       const D = t.morphAttributes.position, h = t.morphAttributes.normal;
       let S = 0;
       for (let k = 0; k < 8; k++) {
-        const U = Q[k], p = U[0], M = U[1];
-        p !== Number.MAX_SAFE_INTEGER && M ? (D && t.getAttribute("morphTarget" + k) !== D[p] && t.setAttribute("morphTarget" + k, D[p]), h && t.getAttribute("morphNormal" + k) !== h[p] && t.setAttribute("morphNormal" + k, h[p]), C[k] = M, S += M) : (D && t.hasAttribute("morphTarget" + k) === true && t.deleteAttribute("morphTarget" + k), h && t.hasAttribute("morphNormal" + k) === true && t.deleteAttribute("morphNormal" + k), C[k] = 0);
+        const M = Q[k], U = M[0], p = M[1];
+        U !== Number.MAX_SAFE_INTEGER && p ? (D && t.getAttribute("morphTarget" + k) !== D[U] && t.setAttribute("morphTarget" + k, D[U]), h && t.getAttribute("morphNormal" + k) !== h[U] && t.setAttribute("morphNormal" + k, h[U]), C[k] = p, S += p) : (D && t.hasAttribute("morphTarget" + k) === true && t.deleteAttribute("morphTarget" + k), h && t.hasAttribute("morphNormal" + k) === true && t.deleteAttribute("morphNormal" + k), C[k] = 0);
       }
       const G = t.morphTargetsRelative ? 1 : 1 - S;
       a.getUniforms().setValue(E14, "morphTargetBaseInfluence", G), a.getUniforms().setValue(E14, "morphTargetInfluences", C);
@@ -7842,7 +7842,7 @@ function b0(E14, A, I) {
   }
   return { update: o };
 }
-function T0(E14, A, I, g) {
+function Tw(E14, A, I, g) {
   let C = /* @__PURE__ */ new WeakMap();
   function B(o) {
     const e = g.render.frame, t = o.geometry, a = A.get(o, t);
@@ -7861,10 +7861,10 @@ function T0(E14, A, I, g) {
   }
   return { update: B, dispose: i };
 }
-class gr extends sg {
+class gr extends ng {
   constructor(A, I, g, C, B, i, Q, o, e, t) {
     if (t = t !== void 0 ? t : fB, t !== fB && t !== Fi) throw new Error("DepthTexture format must be either THREE.DepthFormat or THREE.DepthStencilFormat");
-    g === void 0 && t === fB && (g = AB), g === void 0 && t === Fi && (g = qB), super(null, C, B, i, Q, o, t, g, e), this.isDepthTexture = true, this.image = { width: A, height: I }, this.magFilter = Q !== void 0 ? Q : Eg, this.minFilter = o !== void 0 ? o : Eg, this.flipY = false, this.generateMipmaps = false, this.compareFunction = null;
+    g === void 0 && t === fB && (g = AB), g === void 0 && t === Fi && (g = qB), super(null, C, B, i, Q, o, t, g, e), this.isDepthTexture = true, this.image = { width: A, height: I }, this.magFilter = Q !== void 0 ? Q : og, this.minFilter = o !== void 0 ? o : og, this.flipY = false, this.generateMipmaps = false, this.compareFunction = null;
   }
   copy(A) {
     return super.copy(A), this.compareFunction = A.compareFunction, this;
@@ -7874,7 +7874,7 @@ class gr extends sg {
     return this.compareFunction !== null && (I.compareFunction = this.compareFunction), I;
   }
 }
-const Cr = new sg(), Br = new gr(1, 1);
+const Cr = new ng(), Br = new gr(1, 1);
 Br.compareFunction = On;
 const ir = new Wn(), Qr = new Mh(), Er = new Ar(), hs = [], ls = [], ws = new Float32Array(16), Ss = new Float32Array(9), Gs = new Float32Array(4);
 function _i(E14, A, I) {
@@ -7888,108 +7888,108 @@ function _i(E14, A, I) {
   }
   return B;
 }
-function Ag(E14, A) {
+function Ig(E14, A) {
   if (E14.length !== A.length) return false;
   for (let I = 0, g = E14.length; I < g; I++) if (E14[I] !== A[I]) return false;
   return true;
 }
-function Ig(E14, A) {
+function gg(E14, A) {
   for (let I = 0, g = A.length; I < g; I++) E14[I] = A[I];
 }
-function go(E14, A) {
+function Co(E14, A) {
   let I = ls[A];
   I === void 0 && (I = new Int32Array(A), ls[A] = I);
   for (let g = 0; g !== A; ++g) I[g] = E14.allocateTextureUnit();
   return I;
 }
-function x0(E14, A) {
+function xw(E14, A) {
   const I = this.cache;
   I[0] !== A && (E14.uniform1f(this.addr, A), I[0] = A);
 }
-function _0(E14, A) {
+function _w(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y) && (E14.uniform2f(this.addr, A.x, A.y), I[0] = A.x, I[1] = A.y);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform2fv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform2fv(this.addr, A), gg(I, A);
   }
 }
-function O0(E14, A) {
+function Ow(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z) && (E14.uniform3f(this.addr, A.x, A.y, A.z), I[0] = A.x, I[1] = A.y, I[2] = A.z);
   else if (A.r !== void 0) (I[0] !== A.r || I[1] !== A.g || I[2] !== A.b) && (E14.uniform3f(this.addr, A.r, A.g, A.b), I[0] = A.r, I[1] = A.g, I[2] = A.b);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform3fv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform3fv(this.addr, A), gg(I, A);
   }
 }
-function v0(E14, A) {
+function vw(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z || I[3] !== A.w) && (E14.uniform4f(this.addr, A.x, A.y, A.z, A.w), I[0] = A.x, I[1] = A.y, I[2] = A.z, I[3] = A.w);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform4fv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform4fv(this.addr, A), gg(I, A);
   }
 }
-function Z0(E14, A) {
+function Zw(E14, A) {
   const I = this.cache, g = A.elements;
   if (g === void 0) {
-    if (Ag(I, A)) return;
-    E14.uniformMatrix2fv(this.addr, false, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniformMatrix2fv(this.addr, false, A), gg(I, A);
   } else {
-    if (Ag(I, g)) return;
-    Gs.set(g), E14.uniformMatrix2fv(this.addr, false, Gs), Ig(I, g);
+    if (Ig(I, g)) return;
+    Gs.set(g), E14.uniformMatrix2fv(this.addr, false, Gs), gg(I, g);
   }
 }
-function P0(E14, A) {
+function Pw(E14, A) {
   const I = this.cache, g = A.elements;
   if (g === void 0) {
-    if (Ag(I, A)) return;
-    E14.uniformMatrix3fv(this.addr, false, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniformMatrix3fv(this.addr, false, A), gg(I, A);
   } else {
-    if (Ag(I, g)) return;
-    Ss.set(g), E14.uniformMatrix3fv(this.addr, false, Ss), Ig(I, g);
+    if (Ig(I, g)) return;
+    Ss.set(g), E14.uniformMatrix3fv(this.addr, false, Ss), gg(I, g);
   }
 }
-function W0(E14, A) {
+function Ww(E14, A) {
   const I = this.cache, g = A.elements;
   if (g === void 0) {
-    if (Ag(I, A)) return;
-    E14.uniformMatrix4fv(this.addr, false, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniformMatrix4fv(this.addr, false, A), gg(I, A);
   } else {
-    if (Ag(I, g)) return;
-    ws.set(g), E14.uniformMatrix4fv(this.addr, false, ws), Ig(I, g);
+    if (Ig(I, g)) return;
+    ws.set(g), E14.uniformMatrix4fv(this.addr, false, ws), gg(I, g);
   }
 }
-function j0(E14, A) {
+function jw(E14, A) {
   const I = this.cache;
   I[0] !== A && (E14.uniform1i(this.addr, A), I[0] = A);
 }
-function V0(E14, A) {
+function Vw(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y) && (E14.uniform2i(this.addr, A.x, A.y), I[0] = A.x, I[1] = A.y);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform2iv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform2iv(this.addr, A), gg(I, A);
   }
 }
-function X0(E14, A) {
+function Xw(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z) && (E14.uniform3i(this.addr, A.x, A.y, A.z), I[0] = A.x, I[1] = A.y, I[2] = A.z);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform3iv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform3iv(this.addr, A), gg(I, A);
   }
 }
-function z0(E14, A) {
+function zw(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z || I[3] !== A.w) && (E14.uniform4i(this.addr, A.x, A.y, A.z, A.w), I[0] = A.x, I[1] = A.y, I[2] = A.z, I[3] = A.w);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform4iv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform4iv(this.addr, A), gg(I, A);
   }
 }
-function $0(E14, A) {
+function $w(E14, A) {
   const I = this.cache;
   I[0] !== A && (E14.uniform1ui(this.addr, A), I[0] = A);
 }
@@ -7997,24 +7997,24 @@ function AS(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y) && (E14.uniform2ui(this.addr, A.x, A.y), I[0] = A.x, I[1] = A.y);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform2uiv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform2uiv(this.addr, A), gg(I, A);
   }
 }
 function IS(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z) && (E14.uniform3ui(this.addr, A.x, A.y, A.z), I[0] = A.x, I[1] = A.y, I[2] = A.z);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform3uiv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform3uiv(this.addr, A), gg(I, A);
   }
 }
 function gS(E14, A) {
   const I = this.cache;
   if (A.x !== void 0) (I[0] !== A.x || I[1] !== A.y || I[2] !== A.z || I[3] !== A.w) && (E14.uniform4ui(this.addr, A.x, A.y, A.z, A.w), I[0] = A.x, I[1] = A.y, I[2] = A.z, I[3] = A.w);
   else {
-    if (Ag(I, A)) return;
-    E14.uniform4uiv(this.addr, A), Ig(I, A);
+    if (Ig(I, A)) return;
+    E14.uniform4uiv(this.addr, A), gg(I, A);
   }
 }
 function CS(E14, A, I) {
@@ -8038,33 +8038,33 @@ function QS(E14, A, I) {
 function ES(E14) {
   switch (E14) {
     case 5126:
-      return x0;
+      return xw;
     case 35664:
-      return _0;
+      return _w;
     case 35665:
-      return O0;
+      return Ow;
     case 35666:
-      return v0;
+      return vw;
     case 35674:
-      return Z0;
+      return Zw;
     case 35675:
-      return P0;
+      return Pw;
     case 35676:
-      return W0;
+      return Ww;
     case 5124:
     case 35670:
-      return j0;
+      return jw;
     case 35667:
     case 35671:
-      return V0;
+      return Vw;
     case 35668:
     case 35672:
-      return X0;
+      return Xw;
     case 35669:
     case 35673:
-      return z0;
+      return zw;
     case 5125:
-      return $0;
+      return $w;
     case 36294:
       return AS;
     case 36295:
@@ -8145,23 +8145,23 @@ function kS(E14, A) {
   E14.uniform4uiv(this.addr, A);
 }
 function yS(E14, A, I) {
-  const g = this.cache, C = A.length, B = go(I, C);
-  Ag(g, B) || (E14.uniform1iv(this.addr, B), Ig(g, B));
+  const g = this.cache, C = A.length, B = Co(I, C);
+  Ig(g, B) || (E14.uniform1iv(this.addr, B), gg(g, B));
   for (let i = 0; i !== C; ++i) I.setTexture2D(A[i] || Cr, B[i]);
 }
 function dS(E14, A, I) {
-  const g = this.cache, C = A.length, B = go(I, C);
-  Ag(g, B) || (E14.uniform1iv(this.addr, B), Ig(g, B));
+  const g = this.cache, C = A.length, B = Co(I, C);
+  Ig(g, B) || (E14.uniform1iv(this.addr, B), gg(g, B));
   for (let i = 0; i !== C; ++i) I.setTexture3D(A[i] || Qr, B[i]);
 }
 function MS(E14, A, I) {
-  const g = this.cache, C = A.length, B = go(I, C);
-  Ag(g, B) || (E14.uniform1iv(this.addr, B), Ig(g, B));
+  const g = this.cache, C = A.length, B = Co(I, C);
+  Ig(g, B) || (E14.uniform1iv(this.addr, B), gg(g, B));
   for (let i = 0; i !== C; ++i) I.setTextureCube(A[i] || Er, B[i]);
 }
 function pS(E14, A, I) {
-  const g = this.cache, C = A.length, B = go(I, C);
-  Ag(g, B) || (E14.uniform1iv(this.addr, B), Ig(g, B));
+  const g = this.cache, C = A.length, B = Co(I, C);
+  Ig(g, B) || (E14.uniform1iv(this.addr, B), gg(g, B));
   for (let i = 0; i !== C; ++i) I.setTexture2DArray(A[i] || ir, B[i]);
 }
 function US(E14) {
@@ -8244,14 +8244,14 @@ class FS {
     }
   }
 }
-const Wo = /(\w+)(\])?(\[|\.)?/g;
+const jo = /(\w+)(\])?(\[|\.)?/g;
 function ks(E14, A) {
   E14.seq.push(A), E14.map[A.id] = A;
 }
 function RS(E14, A, I) {
   const g = E14.name, C = g.length;
-  for (Wo.lastIndex = 0; ; ) {
-    const B = Wo.exec(g), i = Wo.lastIndex;
+  for (jo.lastIndex = 0; ; ) {
+    const B = jo.exec(g), i = jo.lastIndex;
     let Q = B[1];
     const o = B[2] === "]", e = B[3];
     if (o && (Q = Q | 0), e === void 0 || e === "[" && i + 2 === C) {
@@ -8315,10 +8315,10 @@ function fS(E14) {
   const A = DI.getPrimaries(DI.workingColorSpace), I = DI.getPrimaries(E14);
   let g;
   switch (A === I ? g = "" : A === fE && I === qE ? g = "LinearDisplayP3ToLinearSRGB" : A === qE && I === fE && (g = "LinearSRGBToLinearDisplayP3"), E14) {
-    case og:
-    case Ao:
+    case eg:
+    case Io:
       return [g, "LinearTransferOETF"];
-    case _I:
+    case OI:
     case ot:
       return [g, "sRGBTransferOETF"];
     default:
@@ -8405,7 +8405,7 @@ function ps(E14, A) {
   return E14.replace(/NUM_CLIPPING_PLANES/g, A.numClippingPlanes).replace(/UNION_CLIPPING_PLANES/g, A.numClippingPlanes - A.numClipIntersection);
 }
 const xS = /^[ \t]*#include +<([\w\d./]+)>/gm;
-function Me(E14) {
+function pe(E14) {
   return E14.replace(xS, OS);
 }
 const _S = /* @__PURE__ */ new Map([["encodings_fragment", "colorspace_fragment"], ["encodings_pars_fragment", "colorspace_pars_fragment"], ["output_fragment", "opaque_fragment"]]);
@@ -8416,7 +8416,7 @@ function OS(E14, A) {
     if (g !== void 0) I = XA[g], console.warn('THREE.WebGLRenderer: Shader chunk "%s" has been deprecated. Use "%s" instead.', A, g);
     else throw new Error("Can not resolve #include <" + A + ">");
   }
-  return Me(I);
+  return pe(I);
 }
 const vS = /#pragma unroll_loop_start\s+for\s*\(\s*int\s+i\s*=\s*(\d+)\s*;\s*i\s*<\s*(\d+)\s*;\s*i\s*\+\+\s*\)\s*{([\s\S]+?)}\s+#pragma unroll_loop_end/g;
 function Us(E14) {
@@ -8446,7 +8446,7 @@ function WS(E14) {
     case Ni:
       A = "ENVMAP_TYPE_CUBE";
       break;
-    case $E:
+    case Ao:
       A = "ENVMAP_TYPE_CUBE_UV";
       break;
   }
@@ -8496,21 +8496,21 @@ function zS(E14, A, I, g) {
 `].filter(hi).join(`
 `), S = [n, Ns(I), "#define SHADER_TYPE " + I.shaderType, "#define SHADER_NAME " + I.shaderName, c, I.useFog && I.fog ? "#define USE_FOG" : "", I.useFog && I.fogExp2 ? "#define FOG_EXP2" : "", I.map ? "#define USE_MAP" : "", I.matcap ? "#define USE_MATCAP" : "", I.envMap ? "#define USE_ENVMAP" : "", I.envMap ? "#define " + e : "", I.envMap ? "#define " + t : "", I.envMap ? "#define " + a : "", s ? "#define CUBEUV_TEXEL_WIDTH " + s.texelWidth : "", s ? "#define CUBEUV_TEXEL_HEIGHT " + s.texelHeight : "", s ? "#define CUBEUV_MAX_MIP " + s.maxMip + ".0" : "", I.lightMap ? "#define USE_LIGHTMAP" : "", I.aoMap ? "#define USE_AOMAP" : "", I.bumpMap ? "#define USE_BUMPMAP" : "", I.normalMap ? "#define USE_NORMALMAP" : "", I.normalMapObjectSpace ? "#define USE_NORMALMAP_OBJECTSPACE" : "", I.normalMapTangentSpace ? "#define USE_NORMALMAP_TANGENTSPACE" : "", I.emissiveMap ? "#define USE_EMISSIVEMAP" : "", I.anisotropy ? "#define USE_ANISOTROPY" : "", I.anisotropyMap ? "#define USE_ANISOTROPYMAP" : "", I.clearcoat ? "#define USE_CLEARCOAT" : "", I.clearcoatMap ? "#define USE_CLEARCOATMAP" : "", I.clearcoatRoughnessMap ? "#define USE_CLEARCOAT_ROUGHNESSMAP" : "", I.clearcoatNormalMap ? "#define USE_CLEARCOAT_NORMALMAP" : "", I.iridescence ? "#define USE_IRIDESCENCE" : "", I.iridescenceMap ? "#define USE_IRIDESCENCEMAP" : "", I.iridescenceThicknessMap ? "#define USE_IRIDESCENCE_THICKNESSMAP" : "", I.specularMap ? "#define USE_SPECULARMAP" : "", I.specularColorMap ? "#define USE_SPECULAR_COLORMAP" : "", I.specularIntensityMap ? "#define USE_SPECULAR_INTENSITYMAP" : "", I.roughnessMap ? "#define USE_ROUGHNESSMAP" : "", I.metalnessMap ? "#define USE_METALNESSMAP" : "", I.alphaMap ? "#define USE_ALPHAMAP" : "", I.alphaTest ? "#define USE_ALPHATEST" : "", I.alphaHash ? "#define USE_ALPHAHASH" : "", I.sheen ? "#define USE_SHEEN" : "", I.sheenColorMap ? "#define USE_SHEEN_COLORMAP" : "", I.sheenRoughnessMap ? "#define USE_SHEEN_ROUGHNESSMAP" : "", I.transmission ? "#define USE_TRANSMISSION" : "", I.transmissionMap ? "#define USE_TRANSMISSIONMAP" : "", I.thicknessMap ? "#define USE_THICKNESSMAP" : "", I.vertexTangents && I.flatShading === false ? "#define USE_TANGENT" : "", I.vertexColors || I.instancingColor ? "#define USE_COLOR" : "", I.vertexAlphas ? "#define USE_COLOR_ALPHA" : "", I.vertexUv1s ? "#define USE_UV1" : "", I.vertexUv2s ? "#define USE_UV2" : "", I.vertexUv3s ? "#define USE_UV3" : "", I.pointsUvs ? "#define USE_POINTS_UV" : "", I.gradientMap ? "#define USE_GRADIENTMAP" : "", I.flatShading ? "#define FLAT_SHADED" : "", I.doubleSided ? "#define DOUBLE_SIDED" : "", I.flipSided ? "#define FLIP_SIDED" : "", I.shadowMapEnabled ? "#define USE_SHADOWMAP" : "", I.shadowMapEnabled ? "#define " + o : "", I.premultipliedAlpha ? "#define PREMULTIPLIED_ALPHA" : "", I.numLightProbes > 0 ? "#define USE_LIGHT_PROBES" : "", I.useLegacyLights ? "#define LEGACY_LIGHTS" : "", I.decodeVideoTexture ? "#define DECODE_VIDEO_TEXTURE" : "", I.logarithmicDepthBuffer ? "#define USE_LOGDEPTHBUF" : "", I.logarithmicDepthBuffer && I.rendererExtensionFragDepth ? "#define USE_LOGDEPTHBUF_EXT" : "", "uniform mat4 viewMatrix;", "uniform vec3 cameraPosition;", "uniform bool isOrthographic;", I.toneMapping !== QB ? "#define TONE_MAPPING" : "", I.toneMapping !== QB ? XA.tonemapping_pars_fragment : "", I.toneMapping !== QB ? YS("toneMapping", I.toneMapping) : "", I.dithering ? "#define DITHERING" : "", I.opaque ? "#define OPAQUE" : "", XA.colorspace_pars_fragment, mS("linearToOutputTexel", I.outputColorSpace), I.useDepthPacking ? "#define DEPTH_PACKING " + I.depthPacking : "", `
 `].filter(hi).join(`
-`)), i = Me(i), i = Ms(i, I), i = ps(i, I), Q = Me(Q), Q = Ms(Q, I), Q = ps(Q, I), i = Us(i), Q = Us(Q), I.isWebGL2 && I.isRawShaderMaterial !== true && (G = `#version 300 es
+`)), i = pe(i), i = Ms(i, I), i = ps(i, I), Q = pe(Q), Q = Ms(Q, I), Q = ps(Q, I), i = Us(i), Q = Us(Q), I.isWebGL2 && I.isRawShaderMaterial !== true && (G = `#version 300 es
 `, h = [r, "precision mediump sampler2DArray;", "#define attribute in", "#define varying out", "#define texture2D texture"].join(`
 `) + `
 ` + h, S = ["precision mediump sampler2DArray;", "#define varying in", I.glslVersion === Za ? "" : "layout(location = 0) out highp vec4 pc_fragColor;", I.glslVersion === Za ? "" : "#define gl_FragColor pc_fragColor", "#define gl_FragDepthEXT gl_FragDepth", "#define texture2D texture", "#define textureCube texture", "#define texture2DProj textureProj", "#define texture2DLodEXT textureLod", "#define texture2DProjLodEXT textureProjLod", "#define textureCubeLodEXT textureLod", "#define texture2DGradEXT textureGrad", "#define texture2DProjGradEXT textureProjGrad", "#define textureCubeGradEXT textureGrad"].join(`
 `) + `
 ` + S);
-  const k = G + h + i, U = G + S + Q, p = ys(C, C.VERTEX_SHADER, k), M = ys(C, C.FRAGMENT_SHADER, U);
-  C.attachShader(D, p), C.attachShader(D, M), I.index0AttributeName !== void 0 ? C.bindAttribLocation(D, 0, I.index0AttributeName) : I.morphTargets === true && C.bindAttribLocation(D, 0, "position"), C.linkProgram(D);
+  const k = G + h + i, M = G + S + Q, U = ys(C, C.VERTEX_SHADER, k), p = ys(C, C.FRAGMENT_SHADER, M);
+  C.attachShader(D, U), C.attachShader(D, p), I.index0AttributeName !== void 0 ? C.bindAttribLocation(D, 0, I.index0AttributeName) : I.morphTargets === true && C.bindAttribLocation(D, 0, "position"), C.linkProgram(D);
   function F(L) {
     if (E14.debug.checkShaderErrors) {
-      const Z = C.getProgramInfoLog(D).trim(), m = C.getShaderInfoLog(p).trim(), _ = C.getShaderInfoLog(M).trim();
+      const Z = C.getProgramInfoLog(D).trim(), m = C.getShaderInfoLog(U).trim(), _ = C.getShaderInfoLog(p).trim();
       let v = true, AA = true;
-      if (C.getProgramParameter(D, C.LINK_STATUS) === false) if (v = false, typeof E14.debug.onShaderError == "function") E14.debug.onShaderError(C, D, p, M);
+      if (C.getProgramParameter(D, C.LINK_STATUS) === false) if (v = false, typeof E14.debug.onShaderError == "function") E14.debug.onShaderError(C, D, U, p);
       else {
-        const gA = ds(C, p, "vertex"), CA = ds(C, M, "fragment");
+        const gA = ds(C, U, "vertex"), CA = ds(C, p, "fragment");
         console.error("THREE.WebGLProgram: Shader Error " + C.getError() + " - VALIDATE_STATUS " + C.getProgramParameter(D, C.VALIDATE_STATUS) + `
 
 Program Info Log: ` + Z + `
@@ -8520,7 +8520,7 @@ Program Info Log: ` + Z + `
       else Z !== "" ? console.warn("THREE.WebGLProgram: Program Info Log:", Z) : (m === "" || _ === "") && (AA = false);
       AA && (L.diagnostics = { runnable: v, programLog: Z, vertexShader: { log: m, prefix: h }, fragmentShader: { log: _, prefix: S } });
     }
-    C.deleteShader(p), C.deleteShader(M), y = new pE(C, D), N = TS(C, D);
+    C.deleteShader(U), C.deleteShader(p), y = new pE(C, D), N = TS(C, D);
   }
   let y;
   this.getUniforms = function() {
@@ -8535,7 +8535,7 @@ Program Info Log: ` + Z + `
     return q === false && (q = C.getProgramParameter(D, JS)), q;
   }, this.destroy = function() {
     g.releaseStatesOfProgram(this), C.deleteProgram(D), this.program = void 0;
-  }, this.type = I.shaderType, this.name = I.shaderName, this.id = uS++, this.cacheKey = A, this.usedTimes = 1, this.program = D, this.vertexShader = p, this.fragmentShader = M, this;
+  }, this.type = I.shaderType, this.name = I.shaderName, this.id = uS++, this.cacheKey = A, this.usedTimes = 1, this.program = D, this.vertexShader = U, this.fragmentShader = p, this;
 }
 let $S = 0;
 class AG {
@@ -8584,19 +8584,19 @@ function gG(E14, A, I, g, C, B, i) {
     return y === 0 ? "uv" : `uv${y}`;
   }
   function D(y, N, q, L, Z) {
-    const m = L.fog, _ = Z.geometry, v = y.isMeshStandardMaterial ? L.environment : null, AA = (y.isMeshStandardMaterial ? I : A).get(y.envMap || v), gA = AA && AA.mapping === $E ? AA.image.height : null, CA = r[y.type];
+    const m = L.fog, _ = Z.geometry, v = y.isMeshStandardMaterial ? L.environment : null, AA = (y.isMeshStandardMaterial ? I : A).get(y.envMap || v), gA = AA && AA.mapping === Ao ? AA.image.height : null, CA = r[y.type];
     y.precision !== null && (n = C.getMaxPrecision(y.precision), n !== y.precision && console.warn("THREE.WebGLProgram.getParameters:", y.precision, "not supported, using", n, "instead."));
-    const QA = _.morphAttributes.position || _.morphAttributes.normal || _.morphAttributes.color, sA = QA !== void 0 ? QA.length : 0;
+    const iA = _.morphAttributes.position || _.morphAttributes.normal || _.morphAttributes.color, sA = iA !== void 0 ? iA.length : 0;
     let nA = 0;
     _.morphAttributes.position !== void 0 && (nA = 1), _.morphAttributes.normal !== void 0 && (nA = 2), _.morphAttributes.color !== void 0 && (nA = 3);
-    let IA, iA, cA, KA;
+    let IA, EA, cA, KA;
     if (CA) {
       const yg = wC[CA];
-      IA = yg.vertexShader, iA = yg.fragmentShader;
-    } else IA = y.vertexShader, iA = y.fragmentShader, o.update(y), cA = o.getVertexShaderID(y), KA = o.getFragmentShaderID(y);
-    const NA = E14.getRenderTarget(), PA = Z.isInstancedMesh === true, jA = Z.isBatchedMesh === true, YA = !!y.map, aI = !!y.matcap, P = !!AA, kg = !!y.aoMap, JA = !!y.lightMap, OA = !!y.bumpMap, MA = !!y.normalMap, JI = !!y.displacementMap, $A = !!y.emissiveMap, J = !!y.metalnessMap, K = !!y.roughnessMap, j = y.anisotropy > 0, tA = y.clearcoat > 0, eA = y.iridescence > 0, aA = y.sheen > 0, pA = y.transmission > 0, wA = j && !!y.anisotropyMap, yA = tA && !!y.clearcoatMap, fA = tA && !!y.clearcoatNormalMap, AI = tA && !!y.clearcoatRoughnessMap, oA = eA && !!y.iridescenceMap, hI = eA && !!y.iridescenceThicknessMap, QI = aA && !!y.sheenColorMap, _A = aA && !!y.sheenRoughnessMap, FA = !!y.specularMap, dA = !!y.specularColorMap, VA = !!y.specularIntensityMap, cI = pA && !!y.transmissionMap, bI = pA && !!y.thicknessMap, gI = !!y.gradientMap, rA = !!y.alphaMap, b = y.alphaTest > 0, hA = !!y.alphaHash, lA = !!y.extensions, LA = !!_.attributes.uv1, uA = !!_.attributes.uv2, dI = !!_.attributes.uv3;
+      IA = yg.vertexShader, EA = yg.fragmentShader;
+    } else IA = y.vertexShader, EA = y.fragmentShader, o.update(y), cA = o.getVertexShaderID(y), KA = o.getFragmentShaderID(y);
+    const NA = E14.getRenderTarget(), PA = Z.isInstancedMesh === true, jA = Z.isBatchedMesh === true, YA = !!y.map, aI = !!y.matcap, P = !!AA, kg = !!y.aoMap, JA = !!y.lightMap, OA = !!y.bumpMap, MA = !!y.normalMap, uI = !!y.displacementMap, $A = !!y.emissiveMap, J = !!y.metalnessMap, K = !!y.roughnessMap, j = y.anisotropy > 0, tA = y.clearcoat > 0, eA = y.iridescence > 0, aA = y.sheen > 0, pA = y.transmission > 0, SA = j && !!y.anisotropyMap, yA = tA && !!y.clearcoatMap, fA = tA && !!y.clearcoatNormalMap, AI = tA && !!y.clearcoatRoughnessMap, oA = eA && !!y.iridescenceMap, hI = eA && !!y.iridescenceThicknessMap, QI = aA && !!y.sheenColorMap, _A = aA && !!y.sheenRoughnessMap, FA = !!y.specularMap, dA = !!y.specularColorMap, VA = !!y.specularIntensityMap, cI = pA && !!y.transmissionMap, TI = pA && !!y.thicknessMap, gI = !!y.gradientMap, rA = !!y.alphaMap, b = y.alphaTest > 0, hA = !!y.alphaHash, lA = !!y.extensions, LA = !!_.attributes.uv1, uA = !!_.attributes.uv2, dI = !!_.attributes.uv3;
     let MI = QB;
-    return y.toneMapped && (NA === null || NA.isXRRenderTarget === true) && (MI = E14.toneMapping), { isWebGL2: t, shaderID: CA, shaderType: y.type, shaderName: y.name, vertexShader: IA, fragmentShader: iA, defines: y.defines, customVertexShaderID: cA, customFragmentShaderID: KA, isRawShaderMaterial: y.isRawShaderMaterial === true, glslVersion: y.glslVersion, precision: n, batching: jA, instancing: PA, instancingColor: PA && Z.instanceColor !== null, supportsVertexTextures: s, outputColorSpace: NA === null ? E14.outputColorSpace : NA.isXRRenderTarget === true ? NA.texture.colorSpace : og, map: YA, matcap: aI, envMap: P, envMapMode: P && AA.mapping, envMapCubeUVHeight: gA, aoMap: kg, lightMap: JA, bumpMap: OA, normalMap: MA, displacementMap: s && JI, emissiveMap: $A, normalMapObjectSpace: MA && y.normalMapType === Xc, normalMapTangentSpace: MA && y.normalMapType === Et, metalnessMap: J, roughnessMap: K, anisotropy: j, anisotropyMap: wA, clearcoat: tA, clearcoatMap: yA, clearcoatNormalMap: fA, clearcoatRoughnessMap: AI, iridescence: eA, iridescenceMap: oA, iridescenceThicknessMap: hI, sheen: aA, sheenColorMap: QI, sheenRoughnessMap: _A, specularMap: FA, specularColorMap: dA, specularIntensityMap: VA, transmission: pA, transmissionMap: cI, thicknessMap: bI, gradientMap: gI, opaque: y.transparent === false && y.blending === Gi, alphaMap: rA, alphaTest: b, alphaHash: hA, combine: y.combine, mapUv: YA && c(y.map.channel), aoMapUv: kg && c(y.aoMap.channel), lightMapUv: JA && c(y.lightMap.channel), bumpMapUv: OA && c(y.bumpMap.channel), normalMapUv: MA && c(y.normalMap.channel), displacementMapUv: JI && c(y.displacementMap.channel), emissiveMapUv: $A && c(y.emissiveMap.channel), metalnessMapUv: J && c(y.metalnessMap.channel), roughnessMapUv: K && c(y.roughnessMap.channel), anisotropyMapUv: wA && c(y.anisotropyMap.channel), clearcoatMapUv: yA && c(y.clearcoatMap.channel), clearcoatNormalMapUv: fA && c(y.clearcoatNormalMap.channel), clearcoatRoughnessMapUv: AI && c(y.clearcoatRoughnessMap.channel), iridescenceMapUv: oA && c(y.iridescenceMap.channel), iridescenceThicknessMapUv: hI && c(y.iridescenceThicknessMap.channel), sheenColorMapUv: QI && c(y.sheenColorMap.channel), sheenRoughnessMapUv: _A && c(y.sheenRoughnessMap.channel), specularMapUv: FA && c(y.specularMap.channel), specularColorMapUv: dA && c(y.specularColorMap.channel), specularIntensityMapUv: VA && c(y.specularIntensityMap.channel), transmissionMapUv: cI && c(y.transmissionMap.channel), thicknessMapUv: bI && c(y.thicknessMap.channel), alphaMapUv: rA && c(y.alphaMap.channel), vertexTangents: !!_.attributes.tangent && (MA || j), vertexColors: y.vertexColors, vertexAlphas: y.vertexColors === true && !!_.attributes.color && _.attributes.color.itemSize === 4, vertexUv1s: LA, vertexUv2s: uA, vertexUv3s: dI, pointsUvs: Z.isPoints === true && !!_.attributes.uv && (YA || rA), fog: !!m, useFog: y.fog === true, fogExp2: m && m.isFogExp2, flatShading: y.flatShading === true, sizeAttenuation: y.sizeAttenuation === true, logarithmicDepthBuffer: a, skinning: Z.isSkinnedMesh === true, morphTargets: _.morphAttributes.position !== void 0, morphNormals: _.morphAttributes.normal !== void 0, morphColors: _.morphAttributes.color !== void 0, morphTargetsCount: sA, morphTextureStride: nA, numDirLights: N.directional.length, numPointLights: N.point.length, numSpotLights: N.spot.length, numSpotLightMaps: N.spotLightMap.length, numRectAreaLights: N.rectArea.length, numHemiLights: N.hemi.length, numDirLightShadows: N.directionalShadowMap.length, numPointLightShadows: N.pointShadowMap.length, numSpotLightShadows: N.spotShadowMap.length, numSpotLightShadowsWithMaps: N.numSpotLightShadowsWithMaps, numLightProbes: N.numLightProbes, numClippingPlanes: i.numPlanes, numClipIntersection: i.numIntersection, dithering: y.dithering, shadowMapEnabled: E14.shadowMap.enabled && q.length > 0, shadowMapType: E14.shadowMap.type, toneMapping: MI, useLegacyLights: E14._useLegacyLights, decodeVideoTexture: YA && y.map.isVideoTexture === true && DI.getTransfer(y.map.colorSpace) === UI, premultipliedAlpha: y.premultipliedAlpha, doubleSided: y.side === Jg, flipSided: y.side === Ng, useDepthPacking: y.depthPacking >= 0, depthPacking: y.depthPacking || 0, index0AttributeName: y.index0AttributeName, extensionDerivatives: lA && y.extensions.derivatives === true, extensionFragDepth: lA && y.extensions.fragDepth === true, extensionDrawBuffers: lA && y.extensions.drawBuffers === true, extensionShaderTextureLOD: lA && y.extensions.shaderTextureLOD === true, extensionClipCullDistance: lA && y.extensions.clipCullDistance && g.has("WEBGL_clip_cull_distance"), rendererExtensionFragDepth: t || g.has("EXT_frag_depth"), rendererExtensionDrawBuffers: t || g.has("WEBGL_draw_buffers"), rendererExtensionShaderTextureLod: t || g.has("EXT_shader_texture_lod"), rendererExtensionParallelShaderCompile: g.has("KHR_parallel_shader_compile"), customProgramCacheKey: y.customProgramCacheKey() };
+    return y.toneMapped && (NA === null || NA.isXRRenderTarget === true) && (MI = E14.toneMapping), { isWebGL2: t, shaderID: CA, shaderType: y.type, shaderName: y.name, vertexShader: IA, fragmentShader: EA, defines: y.defines, customVertexShaderID: cA, customFragmentShaderID: KA, isRawShaderMaterial: y.isRawShaderMaterial === true, glslVersion: y.glslVersion, precision: n, batching: jA, instancing: PA, instancingColor: PA && Z.instanceColor !== null, supportsVertexTextures: s, outputColorSpace: NA === null ? E14.outputColorSpace : NA.isXRRenderTarget === true ? NA.texture.colorSpace : eg, map: YA, matcap: aI, envMap: P, envMapMode: P && AA.mapping, envMapCubeUVHeight: gA, aoMap: kg, lightMap: JA, bumpMap: OA, normalMap: MA, displacementMap: s && uI, emissiveMap: $A, normalMapObjectSpace: MA && y.normalMapType === Xc, normalMapTangentSpace: MA && y.normalMapType === Et, metalnessMap: J, roughnessMap: K, anisotropy: j, anisotropyMap: SA, clearcoat: tA, clearcoatMap: yA, clearcoatNormalMap: fA, clearcoatRoughnessMap: AI, iridescence: eA, iridescenceMap: oA, iridescenceThicknessMap: hI, sheen: aA, sheenColorMap: QI, sheenRoughnessMap: _A, specularMap: FA, specularColorMap: dA, specularIntensityMap: VA, transmission: pA, transmissionMap: cI, thicknessMap: TI, gradientMap: gI, opaque: y.transparent === false && y.blending === Gi, alphaMap: rA, alphaTest: b, alphaHash: hA, combine: y.combine, mapUv: YA && c(y.map.channel), aoMapUv: kg && c(y.aoMap.channel), lightMapUv: JA && c(y.lightMap.channel), bumpMapUv: OA && c(y.bumpMap.channel), normalMapUv: MA && c(y.normalMap.channel), displacementMapUv: uI && c(y.displacementMap.channel), emissiveMapUv: $A && c(y.emissiveMap.channel), metalnessMapUv: J && c(y.metalnessMap.channel), roughnessMapUv: K && c(y.roughnessMap.channel), anisotropyMapUv: SA && c(y.anisotropyMap.channel), clearcoatMapUv: yA && c(y.clearcoatMap.channel), clearcoatNormalMapUv: fA && c(y.clearcoatNormalMap.channel), clearcoatRoughnessMapUv: AI && c(y.clearcoatRoughnessMap.channel), iridescenceMapUv: oA && c(y.iridescenceMap.channel), iridescenceThicknessMapUv: hI && c(y.iridescenceThicknessMap.channel), sheenColorMapUv: QI && c(y.sheenColorMap.channel), sheenRoughnessMapUv: _A && c(y.sheenRoughnessMap.channel), specularMapUv: FA && c(y.specularMap.channel), specularColorMapUv: dA && c(y.specularColorMap.channel), specularIntensityMapUv: VA && c(y.specularIntensityMap.channel), transmissionMapUv: cI && c(y.transmissionMap.channel), thicknessMapUv: TI && c(y.thicknessMap.channel), alphaMapUv: rA && c(y.alphaMap.channel), vertexTangents: !!_.attributes.tangent && (MA || j), vertexColors: y.vertexColors, vertexAlphas: y.vertexColors === true && !!_.attributes.color && _.attributes.color.itemSize === 4, vertexUv1s: LA, vertexUv2s: uA, vertexUv3s: dI, pointsUvs: Z.isPoints === true && !!_.attributes.uv && (YA || rA), fog: !!m, useFog: y.fog === true, fogExp2: m && m.isFogExp2, flatShading: y.flatShading === true, sizeAttenuation: y.sizeAttenuation === true, logarithmicDepthBuffer: a, skinning: Z.isSkinnedMesh === true, morphTargets: _.morphAttributes.position !== void 0, morphNormals: _.morphAttributes.normal !== void 0, morphColors: _.morphAttributes.color !== void 0, morphTargetsCount: sA, morphTextureStride: nA, numDirLights: N.directional.length, numPointLights: N.point.length, numSpotLights: N.spot.length, numSpotLightMaps: N.spotLightMap.length, numRectAreaLights: N.rectArea.length, numHemiLights: N.hemi.length, numDirLightShadows: N.directionalShadowMap.length, numPointLightShadows: N.pointShadowMap.length, numSpotLightShadows: N.spotShadowMap.length, numSpotLightShadowsWithMaps: N.numSpotLightShadowsWithMaps, numLightProbes: N.numLightProbes, numClippingPlanes: i.numPlanes, numClipIntersection: i.numIntersection, dithering: y.dithering, shadowMapEnabled: E14.shadowMap.enabled && q.length > 0, shadowMapType: E14.shadowMap.type, toneMapping: MI, useLegacyLights: E14._useLegacyLights, decodeVideoTexture: YA && y.map.isVideoTexture === true && DI.getTransfer(y.map.colorSpace) === UI, premultipliedAlpha: y.premultipliedAlpha, doubleSided: y.side === Jg, flipSided: y.side === Ng, useDepthPacking: y.depthPacking >= 0, depthPacking: y.depthPacking || 0, index0AttributeName: y.index0AttributeName, extensionDerivatives: lA && y.extensions.derivatives === true, extensionFragDepth: lA && y.extensions.fragDepth === true, extensionDrawBuffers: lA && y.extensions.drawBuffers === true, extensionShaderTextureLOD: lA && y.extensions.shaderTextureLOD === true, extensionClipCullDistance: lA && y.extensions.clipCullDistance && g.has("WEBGL_clip_cull_distance"), rendererExtensionFragDepth: t || g.has("EXT_frag_depth"), rendererExtensionDrawBuffers: t || g.has("WEBGL_draw_buffers"), rendererExtensionShaderTextureLod: t || g.has("EXT_shader_texture_lod"), rendererExtensionParallelShaderCompile: g.has("KHR_parallel_shader_compile"), customProgramCacheKey: y.customProgramCacheKey() };
   }
   function h(y) {
     const N = [];
@@ -8618,7 +8618,7 @@ function gG(E14, A, I, g, C, B, i) {
     } else q = y.uniforms;
     return q;
   }
-  function U(y, N) {
+  function M(y, N) {
     let q;
     for (let L = 0, Z = e.length; L < Z; L++) {
       const m = e[L];
@@ -8629,19 +8629,19 @@ function gG(E14, A, I, g, C, B, i) {
     }
     return q === void 0 && (q = new zS(E14, N, y, B), e.push(q)), q;
   }
-  function p(y) {
+  function U(y) {
     if (--y.usedTimes === 0) {
       const N = e.indexOf(y);
       e[N] = e[e.length - 1], e.pop(), y.destroy();
     }
   }
-  function M(y) {
+  function p(y) {
     o.remove(y);
   }
   function F() {
     o.dispose();
   }
-  return { getParameters: D, getProgramCacheKey: h, getUniforms: k, acquireProgram: U, releaseProgram: p, releaseShaderCache: M, programs: e, dispose: F };
+  return { getParameters: D, getProgramCacheKey: h, getUniforms: k, acquireProgram: M, releaseProgram: U, releaseShaderCache: p, programs: e, dispose: F };
 }
 function CG() {
   let E14 = /* @__PURE__ */ new WeakMap();
@@ -8764,7 +8764,7 @@ function tG(E14, A) {
   function o(t, a) {
     let s = 0, n = 0, r = 0;
     for (let L = 0; L < 9; L++) C.probe[L].set(0, 0, 0);
-    let c = 0, D = 0, h = 0, S = 0, G = 0, k = 0, U = 0, p = 0, M = 0, F = 0, y = 0;
+    let c = 0, D = 0, h = 0, S = 0, G = 0, k = 0, M = 0, U = 0, p = 0, F = 0, y = 0;
     t.sort(eG);
     const N = a === true ? Math.PI : 1;
     for (let L = 0, Z = t.length; L < Z; L++) {
@@ -8776,17 +8776,17 @@ function tG(E14, A) {
       } else if (m.isDirectionalLight) {
         const CA = I.get(m);
         if (CA.color.copy(m.color).multiplyScalar(m.intensity * N), m.castShadow) {
-          const QA = m.shadow, sA = g.get(m);
-          sA.shadowBias = QA.bias, sA.shadowNormalBias = QA.normalBias, sA.shadowRadius = QA.radius, sA.shadowMapSize = QA.mapSize, C.directionalShadow[c] = sA, C.directionalShadowMap[c] = gA, C.directionalShadowMatrix[c] = m.shadow.matrix, k++;
+          const iA = m.shadow, sA = g.get(m);
+          sA.shadowBias = iA.bias, sA.shadowNormalBias = iA.normalBias, sA.shadowRadius = iA.radius, sA.shadowMapSize = iA.mapSize, C.directionalShadow[c] = sA, C.directionalShadowMap[c] = gA, C.directionalShadowMatrix[c] = m.shadow.matrix, k++;
         }
         C.directional[c] = CA, c++;
       } else if (m.isSpotLight) {
         const CA = I.get(m);
         CA.position.setFromMatrixPosition(m.matrixWorld), CA.color.copy(_).multiplyScalar(v * N), CA.distance = AA, CA.coneCos = Math.cos(m.angle), CA.penumbraCos = Math.cos(m.angle * (1 - m.penumbra)), CA.decay = m.decay, C.spot[h] = CA;
-        const QA = m.shadow;
-        if (m.map && (C.spotLightMap[M] = m.map, M++, QA.updateMatrices(m), m.castShadow && F++), C.spotLightMatrix[h] = QA.matrix, m.castShadow) {
+        const iA = m.shadow;
+        if (m.map && (C.spotLightMap[p] = m.map, p++, iA.updateMatrices(m), m.castShadow && F++), C.spotLightMatrix[h] = iA.matrix, m.castShadow) {
           const sA = g.get(m);
-          sA.shadowBias = QA.bias, sA.shadowNormalBias = QA.normalBias, sA.shadowRadius = QA.radius, sA.shadowMapSize = QA.mapSize, C.spotShadow[h] = sA, C.spotShadowMap[h] = gA, p++;
+          sA.shadowBias = iA.bias, sA.shadowNormalBias = iA.normalBias, sA.shadowRadius = iA.radius, sA.shadowMapSize = iA.mapSize, C.spotShadow[h] = sA, C.spotShadowMap[h] = gA, U++;
         }
         h++;
       } else if (m.isRectAreaLight) {
@@ -8795,8 +8795,8 @@ function tG(E14, A) {
       } else if (m.isPointLight) {
         const CA = I.get(m);
         if (CA.color.copy(m.color).multiplyScalar(m.intensity * N), CA.distance = m.distance, CA.decay = m.decay, m.castShadow) {
-          const QA = m.shadow, sA = g.get(m);
-          sA.shadowBias = QA.bias, sA.shadowNormalBias = QA.normalBias, sA.shadowRadius = QA.radius, sA.shadowMapSize = QA.mapSize, sA.shadowCameraNear = QA.camera.near, sA.shadowCameraFar = QA.camera.far, C.pointShadow[D] = sA, C.pointShadowMap[D] = gA, C.pointShadowMatrix[D] = m.shadow.matrix, U++;
+          const iA = m.shadow, sA = g.get(m);
+          sA.shadowBias = iA.bias, sA.shadowNormalBias = iA.normalBias, sA.shadowRadius = iA.radius, sA.shadowMapSize = iA.mapSize, sA.shadowCameraNear = iA.camera.near, sA.shadowCameraFar = iA.camera.far, C.pointShadow[D] = sA, C.pointShadowMap[D] = gA, C.pointShadowMatrix[D] = m.shadow.matrix, M++;
         }
         C.point[D] = CA, D++;
       } else if (m.isHemisphereLight) {
@@ -8806,7 +8806,7 @@ function tG(E14, A) {
     }
     S > 0 && (A.isWebGL2 ? E14.has("OES_texture_float_linear") === true ? (C.rectAreaLTC1 = DA.LTC_FLOAT_1, C.rectAreaLTC2 = DA.LTC_FLOAT_2) : (C.rectAreaLTC1 = DA.LTC_HALF_1, C.rectAreaLTC2 = DA.LTC_HALF_2) : E14.has("OES_texture_float_linear") === true ? (C.rectAreaLTC1 = DA.LTC_FLOAT_1, C.rectAreaLTC2 = DA.LTC_FLOAT_2) : E14.has("OES_texture_half_float_linear") === true ? (C.rectAreaLTC1 = DA.LTC_HALF_1, C.rectAreaLTC2 = DA.LTC_HALF_2) : console.error("THREE.WebGLRenderer: Unable to use RectAreaLight. Missing WebGL extensions.")), C.ambient[0] = s, C.ambient[1] = n, C.ambient[2] = r;
     const q = C.hash;
-    (q.directionalLength !== c || q.pointLength !== D || q.spotLength !== h || q.rectAreaLength !== S || q.hemiLength !== G || q.numDirectionalShadows !== k || q.numPointShadows !== U || q.numSpotShadows !== p || q.numSpotMaps !== M || q.numLightProbes !== y) && (C.directional.length = c, C.spot.length = h, C.rectArea.length = S, C.point.length = D, C.hemi.length = G, C.directionalShadow.length = k, C.directionalShadowMap.length = k, C.pointShadow.length = U, C.pointShadowMap.length = U, C.spotShadow.length = p, C.spotShadowMap.length = p, C.directionalShadowMatrix.length = k, C.pointShadowMatrix.length = U, C.spotLightMatrix.length = p + M - F, C.spotLightMap.length = M, C.numSpotLightShadowsWithMaps = F, C.numLightProbes = y, q.directionalLength = c, q.pointLength = D, q.spotLength = h, q.rectAreaLength = S, q.hemiLength = G, q.numDirectionalShadows = k, q.numPointShadows = U, q.numSpotShadows = p, q.numSpotMaps = M, q.numLightProbes = y, C.version = oG++);
+    (q.directionalLength !== c || q.pointLength !== D || q.spotLength !== h || q.rectAreaLength !== S || q.hemiLength !== G || q.numDirectionalShadows !== k || q.numPointShadows !== M || q.numSpotShadows !== U || q.numSpotMaps !== p || q.numLightProbes !== y) && (C.directional.length = c, C.spot.length = h, C.rectArea.length = S, C.point.length = D, C.hemi.length = G, C.directionalShadow.length = k, C.directionalShadowMap.length = k, C.pointShadow.length = M, C.pointShadowMap.length = M, C.spotShadow.length = U, C.spotShadowMap.length = U, C.directionalShadowMatrix.length = k, C.pointShadowMatrix.length = M, C.spotLightMatrix.length = U + p - F, C.spotLightMap.length = p, C.numSpotLightShadowsWithMaps = F, C.numLightProbes = y, q.directionalLength = c, q.pointLength = D, q.spotLength = h, q.rectAreaLength = S, q.hemiLength = G, q.numDirectionalShadows = k, q.numPointShadows = M, q.numSpotShadows = U, q.numSpotMaps = p, q.numLightProbes = y, C.version = oG++);
   }
   function e(t, a) {
     let s = 0, n = 0, r = 0, c = 0, D = 0;
@@ -8814,20 +8814,20 @@ function tG(E14, A) {
     for (let S = 0, G = t.length; S < G; S++) {
       const k = t[S];
       if (k.isDirectionalLight) {
-        const U = C.directional[s];
-        U.direction.setFromMatrixPosition(k.matrixWorld), B.setFromMatrixPosition(k.target.matrixWorld), U.direction.sub(B), U.direction.transformDirection(h), s++;
+        const M = C.directional[s];
+        M.direction.setFromMatrixPosition(k.matrixWorld), B.setFromMatrixPosition(k.target.matrixWorld), M.direction.sub(B), M.direction.transformDirection(h), s++;
       } else if (k.isSpotLight) {
-        const U = C.spot[r];
-        U.position.setFromMatrixPosition(k.matrixWorld), U.position.applyMatrix4(h), U.direction.setFromMatrixPosition(k.matrixWorld), B.setFromMatrixPosition(k.target.matrixWorld), U.direction.sub(B), U.direction.transformDirection(h), r++;
+        const M = C.spot[r];
+        M.position.setFromMatrixPosition(k.matrixWorld), M.position.applyMatrix4(h), M.direction.setFromMatrixPosition(k.matrixWorld), B.setFromMatrixPosition(k.target.matrixWorld), M.direction.sub(B), M.direction.transformDirection(h), r++;
       } else if (k.isRectAreaLight) {
-        const U = C.rectArea[c];
-        U.position.setFromMatrixPosition(k.matrixWorld), U.position.applyMatrix4(h), Q.identity(), i.copy(k.matrixWorld), i.premultiply(h), Q.extractRotation(i), U.halfWidth.set(k.width * 0.5, 0, 0), U.halfHeight.set(0, k.height * 0.5, 0), U.halfWidth.applyMatrix4(Q), U.halfHeight.applyMatrix4(Q), c++;
+        const M = C.rectArea[c];
+        M.position.setFromMatrixPosition(k.matrixWorld), M.position.applyMatrix4(h), Q.identity(), i.copy(k.matrixWorld), i.premultiply(h), Q.extractRotation(i), M.halfWidth.set(k.width * 0.5, 0, 0), M.halfHeight.set(0, k.height * 0.5, 0), M.halfWidth.applyMatrix4(Q), M.halfHeight.applyMatrix4(Q), c++;
       } else if (k.isPointLight) {
-        const U = C.point[n];
-        U.position.setFromMatrixPosition(k.matrixWorld), U.position.applyMatrix4(h), n++;
+        const M = C.point[n];
+        M.position.setFromMatrixPosition(k.matrixWorld), M.position.applyMatrix4(h), n++;
       } else if (k.isHemisphereLight) {
-        const U = C.hemi[D];
-        U.direction.setFromMatrixPosition(k.matrixWorld), U.direction.transformDirection(h), D++;
+        const M = C.hemi[D];
+        M.direction.setFromMatrixPosition(k.matrixWorld), M.direction.transformDirection(h), D++;
       }
     }
   }
@@ -8918,13 +8918,13 @@ function cG(E14, A, I) {
   const c = new l(r, s), D = this;
   this.enabled = false, this.autoUpdate = true, this.needsUpdate = false, this.type = Fn;
   let h = this.type;
-  this.render = function(p, M, F) {
-    if (D.enabled === false || D.autoUpdate === false && D.needsUpdate === false || p.length === 0) return;
+  this.render = function(U, p, F) {
+    if (D.enabled === false || D.autoUpdate === false && D.needsUpdate === false || U.length === 0) return;
     const y = E14.getRenderTarget(), N = E14.getActiveCubeFace(), q = E14.getActiveMipmapLevel(), L = E14.state;
     L.setBlending(iB), L.buffers.color.setClear(1, 1, 1, 1), L.buffers.depth.setTest(true), L.setScissorTest(false);
     const Z = h !== fC && this.type === fC, m = h === fC && this.type !== fC;
-    for (let _ = 0, v = p.length; _ < v; _++) {
-      const AA = p[_], gA = AA.shadow;
+    for (let _ = 0, v = U.length; _ < v; _++) {
+      const AA = U[_], gA = AA.shadow;
       if (gA === void 0) {
         console.warn("THREE.WebGLShadowMap:", AA, "has no shadow.");
         continue;
@@ -8933,66 +8933,66 @@ function cG(E14, A, I) {
       C.copy(gA.mapSize);
       const CA = gA.getFrameExtents();
       if (C.multiply(CA), B.copy(gA.mapSize), (C.x > t || C.y > t) && (C.x > t && (B.x = Math.floor(t / CA.x), C.x = B.x * CA.x, gA.mapSize.x = B.x), C.y > t && (B.y = Math.floor(t / CA.y), C.y = B.y * CA.y, gA.mapSize.y = B.y)), gA.map === null || Z === true || m === true) {
-        const sA = this.type !== fC ? { minFilter: Eg, magFilter: Eg } : {};
+        const sA = this.type !== fC ? { minFilter: og, magFilter: og } : {};
         gA.map !== null && gA.map.dispose(), gA.map = new xB(C.x, C.y, sA), gA.map.texture.name = AA.name + ".shadowMap", gA.camera.updateProjectionMatrix();
       }
       E14.setRenderTarget(gA.map), E14.clear();
-      const QA = gA.getViewportCount();
-      for (let sA = 0; sA < QA; sA++) {
+      const iA = gA.getViewportCount();
+      for (let sA = 0; sA < iA; sA++) {
         const nA = gA.getViewport(sA);
-        i.set(B.x * nA.x, B.y * nA.y, B.x * nA.z, B.y * nA.w), L.viewport(i), gA.updateMatrices(AA, sA), g = gA.getFrustum(), k(M, F, gA.camera, AA, this.type);
+        i.set(B.x * nA.x, B.y * nA.y, B.x * nA.z, B.y * nA.w), L.viewport(i), gA.updateMatrices(AA, sA), g = gA.getFrustum(), k(p, F, gA.camera, AA, this.type);
       }
       gA.isPointLightShadow !== true && this.type === fC && S(gA, F), gA.needsUpdate = false;
     }
     h = this.type, D.needsUpdate = false, E14.setRenderTarget(y, N, q);
   };
-  function S(p, M) {
+  function S(U, p) {
     const F = A.update(c);
-    s.defines.VSM_SAMPLES !== p.blurSamples && (s.defines.VSM_SAMPLES = p.blurSamples, n.defines.VSM_SAMPLES = p.blurSamples, s.needsUpdate = true, n.needsUpdate = true), p.mapPass === null && (p.mapPass = new xB(C.x, C.y)), s.uniforms.shadow_pass.value = p.map.texture, s.uniforms.resolution.value = p.mapSize, s.uniforms.radius.value = p.radius, E14.setRenderTarget(p.mapPass), E14.clear(), E14.renderBufferDirect(M, null, F, s, c, null), n.uniforms.shadow_pass.value = p.mapPass.texture, n.uniforms.resolution.value = p.mapSize, n.uniforms.radius.value = p.radius, E14.setRenderTarget(p.map), E14.clear(), E14.renderBufferDirect(M, null, F, n, c, null);
+    s.defines.VSM_SAMPLES !== U.blurSamples && (s.defines.VSM_SAMPLES = U.blurSamples, n.defines.VSM_SAMPLES = U.blurSamples, s.needsUpdate = true, n.needsUpdate = true), U.mapPass === null && (U.mapPass = new xB(C.x, C.y)), s.uniforms.shadow_pass.value = U.map.texture, s.uniforms.resolution.value = U.mapSize, s.uniforms.radius.value = U.radius, E14.setRenderTarget(U.mapPass), E14.clear(), E14.renderBufferDirect(p, null, F, s, c, null), n.uniforms.shadow_pass.value = U.mapPass.texture, n.uniforms.resolution.value = U.mapSize, n.uniforms.radius.value = U.radius, E14.setRenderTarget(U.map), E14.clear(), E14.renderBufferDirect(p, null, F, n, c, null);
   }
-  function G(p, M, F, y) {
+  function G(U, p, F, y) {
     let N = null;
-    const q = F.isPointLight === true ? p.customDistanceMaterial : p.customDepthMaterial;
+    const q = F.isPointLight === true ? U.customDistanceMaterial : U.customDepthMaterial;
     if (q !== void 0) N = q;
-    else if (N = F.isPointLight === true ? o : Q, E14.localClippingEnabled && M.clipShadows === true && Array.isArray(M.clippingPlanes) && M.clippingPlanes.length !== 0 || M.displacementMap && M.displacementScale !== 0 || M.alphaMap && M.alphaTest > 0 || M.map && M.alphaTest > 0) {
-      const L = N.uuid, Z = M.uuid;
+    else if (N = F.isPointLight === true ? o : Q, E14.localClippingEnabled && p.clipShadows === true && Array.isArray(p.clippingPlanes) && p.clippingPlanes.length !== 0 || p.displacementMap && p.displacementScale !== 0 || p.alphaMap && p.alphaTest > 0 || p.map && p.alphaTest > 0) {
+      const L = N.uuid, Z = p.uuid;
       let m = e[L];
       m === void 0 && (m = {}, e[L] = m);
       let _ = m[Z];
-      _ === void 0 && (_ = N.clone(), m[Z] = _, M.addEventListener("dispose", U)), N = _;
+      _ === void 0 && (_ = N.clone(), m[Z] = _, p.addEventListener("dispose", M)), N = _;
     }
-    if (N.visible = M.visible, N.wireframe = M.wireframe, y === fC ? N.side = M.shadowSide !== null ? M.shadowSide : M.side : N.side = M.shadowSide !== null ? M.shadowSide : a[M.side], N.alphaMap = M.alphaMap, N.alphaTest = M.alphaTest, N.map = M.map, N.clipShadows = M.clipShadows, N.clippingPlanes = M.clippingPlanes, N.clipIntersection = M.clipIntersection, N.displacementMap = M.displacementMap, N.displacementScale = M.displacementScale, N.displacementBias = M.displacementBias, N.wireframeLinewidth = M.wireframeLinewidth, N.linewidth = M.linewidth, F.isPointLight === true && N.isMeshDistanceMaterial === true) {
+    if (N.visible = p.visible, N.wireframe = p.wireframe, y === fC ? N.side = p.shadowSide !== null ? p.shadowSide : p.side : N.side = p.shadowSide !== null ? p.shadowSide : a[p.side], N.alphaMap = p.alphaMap, N.alphaTest = p.alphaTest, N.map = p.map, N.clipShadows = p.clipShadows, N.clippingPlanes = p.clippingPlanes, N.clipIntersection = p.clipIntersection, N.displacementMap = p.displacementMap, N.displacementScale = p.displacementScale, N.displacementBias = p.displacementBias, N.wireframeLinewidth = p.wireframeLinewidth, N.linewidth = p.linewidth, F.isPointLight === true && N.isMeshDistanceMaterial === true) {
       const L = E14.properties.get(N);
       L.light = F;
     }
     return N;
   }
-  function k(p, M, F, y, N) {
-    if (p.visible === false) return;
-    if (p.layers.test(M.layers) && (p.isMesh || p.isLine || p.isPoints) && (p.castShadow || p.receiveShadow && N === fC) && (!p.frustumCulled || g.intersectsObject(p))) {
-      p.modelViewMatrix.multiplyMatrices(F.matrixWorldInverse, p.matrixWorld);
-      const Z = A.update(p), m = p.material;
+  function k(U, p, F, y, N) {
+    if (U.visible === false) return;
+    if (U.layers.test(p.layers) && (U.isMesh || U.isLine || U.isPoints) && (U.castShadow || U.receiveShadow && N === fC) && (!U.frustumCulled || g.intersectsObject(U))) {
+      U.modelViewMatrix.multiplyMatrices(F.matrixWorldInverse, U.matrixWorld);
+      const Z = A.update(U), m = U.material;
       if (Array.isArray(m)) {
         const _ = Z.groups;
         for (let v = 0, AA = _.length; v < AA; v++) {
           const gA = _[v], CA = m[gA.materialIndex];
           if (CA && CA.visible) {
-            const QA = G(p, CA, y, N);
-            p.onBeforeShadow(E14, p, M, F, Z, QA, gA), E14.renderBufferDirect(F, null, Z, QA, p, gA), p.onAfterShadow(E14, p, M, F, Z, QA, gA);
+            const iA = G(U, CA, y, N);
+            U.onBeforeShadow(E14, U, p, F, Z, iA, gA), E14.renderBufferDirect(F, null, Z, iA, U, gA), U.onAfterShadow(E14, U, p, F, Z, iA, gA);
           }
         }
       } else if (m.visible) {
-        const _ = G(p, m, y, N);
-        p.onBeforeShadow(E14, p, M, F, Z, _, null), E14.renderBufferDirect(F, null, Z, _, p, null), p.onAfterShadow(E14, p, M, F, Z, _, null);
+        const _ = G(U, m, y, N);
+        U.onBeforeShadow(E14, U, p, F, Z, _, null), E14.renderBufferDirect(F, null, Z, _, U, null), U.onAfterShadow(E14, U, p, F, Z, _, null);
       }
     }
-    const L = p.children;
-    for (let Z = 0, m = L.length; Z < m; Z++) k(L[Z], M, F, y, N);
+    const L = U.children;
+    for (let Z = 0, m = L.length; Z < m; Z++) k(L[Z], p, F, y, N);
   }
-  function U(p) {
-    p.target.removeEventListener("dispose", U);
+  function M(U) {
+    U.target.removeEventListener("dispose", M);
     for (const F in e) {
-      const y = e[F], N = p.target.uuid;
+      const y = e[F], N = U.target.uuid;
       N in y && (y[N].dispose(), delete y[N]);
     }
   }
@@ -9008,8 +9008,8 @@ function hG(E14, A, I) {
       lA !== uA && !b && (E14.colorMask(uA, uA, uA, uA), lA = uA);
     }, setLocked: function(uA) {
       b = uA;
-    }, setClear: function(uA, dI, MI, Cg, yg) {
-      yg === true && (uA *= Cg, dI *= Cg, MI *= Cg), hA.set(uA, dI, MI, Cg), LA.equals(hA) === false && (E14.clearColor(uA, dI, MI, Cg), LA.copy(hA));
+    }, setClear: function(uA, dI, MI, Bg, yg) {
+      yg === true && (uA *= Bg, dI *= Bg, MI *= Bg), hA.set(uA, dI, MI, Bg), LA.equals(hA) === false && (E14.clearColor(uA, dI, MI, Bg), LA.copy(hA));
     }, reset: function() {
       b = false, lA = null, LA.set(-1, 0, 0, 0);
     } };
@@ -9061,7 +9061,7 @@ function hG(E14, A, I) {
     } };
   }
   function i() {
-    let b = false, hA = null, lA = null, LA = null, uA = null, dI = null, MI = null, Cg = null, yg = null;
+    let b = false, hA = null, lA = null, LA = null, uA = null, dI = null, MI = null, Bg = null, yg = null;
     return { setTest: function(pI) {
       b || (pI ? jA(E14.STENCIL_TEST) : YA(E14.STENCIL_TEST));
     }, setMask: function(pI) {
@@ -9069,23 +9069,23 @@ function hG(E14, A, I) {
     }, setFunc: function(pI, dg, cC) {
       (lA !== pI || LA !== dg || uA !== cC) && (E14.stencilFunc(pI, dg, cC), lA = pI, LA = dg, uA = cC);
     }, setOp: function(pI, dg, cC) {
-      (dI !== pI || MI !== dg || Cg !== cC) && (E14.stencilOp(pI, dg, cC), dI = pI, MI = dg, Cg = cC);
+      (dI !== pI || MI !== dg || Bg !== cC) && (E14.stencilOp(pI, dg, cC), dI = pI, MI = dg, Bg = cC);
     }, setLocked: function(pI) {
       b = pI;
     }, setClear: function(pI) {
       yg !== pI && (E14.clearStencil(pI), yg = pI);
     }, reset: function() {
-      b = false, hA = null, lA = null, LA = null, uA = null, dI = null, MI = null, Cg = null, yg = null;
+      b = false, hA = null, lA = null, LA = null, uA = null, dI = null, MI = null, Bg = null, yg = null;
     } };
   }
   const Q = new C(), o = new B(), e = new i(), t = /* @__PURE__ */ new WeakMap(), a = /* @__PURE__ */ new WeakMap();
-  let s = {}, n = {}, r = /* @__PURE__ */ new WeakMap(), c = [], D = null, h = false, S = null, G = null, k = null, U = null, p = null, M = null, F = null, y = new mA(0, 0, 0), N = 0, q = false, L = null, Z = null, m = null, _ = null, v = null;
+  let s = {}, n = {}, r = /* @__PURE__ */ new WeakMap(), c = [], D = null, h = false, S = null, G = null, k = null, M = null, U = null, p = null, F = null, y = new mA(0, 0, 0), N = 0, q = false, L = null, Z = null, m = null, _ = null, v = null;
   const AA = E14.getParameter(E14.MAX_COMBINED_TEXTURE_IMAGE_UNITS);
   let gA = false, CA = 0;
-  const QA = E14.getParameter(E14.VERSION);
-  QA.indexOf("WebGL") !== -1 ? (CA = parseFloat(/^WebGL (\d)/.exec(QA)[1]), gA = CA >= 1) : QA.indexOf("OpenGL ES") !== -1 && (CA = parseFloat(/^OpenGL ES (\d)/.exec(QA)[1]), gA = CA >= 2);
+  const iA = E14.getParameter(E14.VERSION);
+  iA.indexOf("WebGL") !== -1 ? (CA = parseFloat(/^WebGL (\d)/.exec(iA)[1]), gA = CA >= 1) : iA.indexOf("OpenGL ES") !== -1 && (CA = parseFloat(/^OpenGL ES (\d)/.exec(iA)[1]), gA = CA >= 2);
   let sA = null, nA = {};
-  const IA = E14.getParameter(E14.SCISSOR_BOX), iA = E14.getParameter(E14.VIEWPORT), cA = new yI().fromArray(IA), KA = new yI().fromArray(iA);
+  const IA = E14.getParameter(E14.SCISSOR_BOX), EA = E14.getParameter(E14.VIEWPORT), cA = new yI().fromArray(IA), KA = new yI().fromArray(EA);
   function NA(b, hA, lA, LA) {
     const uA = new Uint8Array(4), dI = E14.createTexture();
     E14.bindTexture(b, dI), E14.texParameteri(b, E14.TEXTURE_MIN_FILTER, E14.NEAREST), E14.texParameteri(b, E14.TEXTURE_MAG_FILTER, E14.NEAREST);
@@ -9124,15 +9124,15 @@ function hG(E14, A, I) {
     const b = A.get("EXT_blend_minmax");
     b !== null && (JA[ha] = b.MIN_EXT, JA[la] = b.MAX_EXT);
   }
-  const OA = { [ec]: E14.ZERO, [tc]: E14.ONE, [ac]: E14.SRC_COLOR, [ce]: E14.SRC_ALPHA, [hc]: E14.SRC_ALPHA_SATURATE, [Dc]: E14.DST_COLOR, [nc]: E14.DST_ALPHA, [sc]: E14.ONE_MINUS_SRC_COLOR, [he]: E14.ONE_MINUS_SRC_ALPHA, [cc]: E14.ONE_MINUS_DST_COLOR, [rc]: E14.ONE_MINUS_DST_ALPHA, [lc]: E14.CONSTANT_COLOR, [wc]: E14.ONE_MINUS_CONSTANT_COLOR, [Sc]: E14.CONSTANT_ALPHA, [Gc]: E14.ONE_MINUS_CONSTANT_ALPHA };
-  function MA(b, hA, lA, LA, uA, dI, MI, Cg, yg, pI) {
+  const OA = { [ec]: E14.ZERO, [tc]: E14.ONE, [ac]: E14.SRC_COLOR, [he]: E14.SRC_ALPHA, [hc]: E14.SRC_ALPHA_SATURATE, [Dc]: E14.DST_COLOR, [nc]: E14.DST_ALPHA, [sc]: E14.ONE_MINUS_SRC_COLOR, [le]: E14.ONE_MINUS_SRC_ALPHA, [cc]: E14.ONE_MINUS_DST_COLOR, [rc]: E14.ONE_MINUS_DST_ALPHA, [lc]: E14.CONSTANT_COLOR, [wc]: E14.ONE_MINUS_CONSTANT_COLOR, [Sc]: E14.CONSTANT_ALPHA, [Gc]: E14.ONE_MINUS_CONSTANT_ALPHA };
+  function MA(b, hA, lA, LA, uA, dI, MI, Bg, yg, pI) {
     if (b === iB) {
       h === true && (YA(E14.BLEND), h = false);
       return;
     }
     if (h === false && (jA(E14.BLEND), h = true), b !== Qc) {
       if (b !== S || pI !== q) {
-        if ((G !== FB || p !== FB) && (E14.blendEquation(E14.FUNC_ADD), G = FB, p = FB), pI) switch (b) {
+        if ((G !== FB || U !== FB) && (E14.blendEquation(E14.FUNC_ADD), G = FB, U = FB), pI) switch (b) {
           case Gi:
             E14.blendFuncSeparate(E14.ONE, E14.ONE_MINUS_SRC_ALPHA, E14.ONE, E14.ONE_MINUS_SRC_ALPHA);
             break;
@@ -9166,13 +9166,13 @@ function hG(E14, A, I) {
             console.error("THREE.WebGLState: Invalid blending: ", b);
             break;
         }
-        k = null, U = null, M = null, F = null, y.set(0, 0, 0), N = 0, S = b, q = pI;
+        k = null, M = null, p = null, F = null, y.set(0, 0, 0), N = 0, S = b, q = pI;
       }
       return;
     }
-    uA = uA || hA, dI = dI || lA, MI = MI || LA, (hA !== G || uA !== p) && (E14.blendEquationSeparate(JA[hA], JA[uA]), G = hA, p = uA), (lA !== k || LA !== U || dI !== M || MI !== F) && (E14.blendFuncSeparate(OA[lA], OA[LA], OA[dI], OA[MI]), k = lA, U = LA, M = dI, F = MI), (Cg.equals(y) === false || yg !== N) && (E14.blendColor(Cg.r, Cg.g, Cg.b, yg), y.copy(Cg), N = yg), S = b, q = false;
+    uA = uA || hA, dI = dI || lA, MI = MI || LA, (hA !== G || uA !== U) && (E14.blendEquationSeparate(JA[hA], JA[uA]), G = hA, U = uA), (lA !== k || LA !== M || dI !== p || MI !== F) && (E14.blendFuncSeparate(OA[lA], OA[LA], OA[dI], OA[MI]), k = lA, M = LA, p = dI, F = MI), (Bg.equals(y) === false || yg !== N) && (E14.blendColor(Bg.r, Bg.g, Bg.b, yg), y.copy(Bg), N = yg), S = b, q = false;
   }
-  function JI(b, hA) {
+  function uI(b, hA) {
     b.side === Jg ? YA(E14.CULL_FACE) : jA(E14.CULL_FACE);
     let lA = b.side === Ng;
     hA && (lA = !lA), $A(lA), b.blending === Gi && b.transparent === false ? MA(iB) : MA(b.blending, b.blendEquation, b.blendSrc, b.blendDst, b.blendEquationAlpha, b.blendSrcAlpha, b.blendDstAlpha, b.blendColor, b.blendAlpha, b.premultipliedAlpha), o.setFunc(b.depthFunc), o.setTest(b.depthTest), o.setMask(b.depthWrite), Q.setMask(b.colorWrite);
@@ -9206,7 +9206,7 @@ function hG(E14, A, I) {
     const b = nA[sA];
     b !== void 0 && b.type !== void 0 && (E14.bindTexture(b.type, null), b.type = void 0, b.texture = void 0);
   }
-  function wA() {
+  function SA() {
     try {
       E14.compressedTexImage2D.apply(E14, arguments);
     } catch (b) {
@@ -9282,7 +9282,7 @@ function hG(E14, A, I) {
   function cI(b) {
     KA.equals(b) === false && (E14.viewport(b.x, b.y, b.z, b.w), KA.copy(b));
   }
-  function bI(b, hA) {
+  function TI(b, hA) {
     let lA = a.get(hA);
     lA === void 0 && (lA = /* @__PURE__ */ new WeakMap(), a.set(hA, lA));
     let LA = lA.get(b);
@@ -9293,9 +9293,9 @@ function hG(E14, A, I) {
     t.get(hA) !== LA && (E14.uniformBlockBinding(hA, LA, b.__bindingPointIndex), t.set(hA, LA));
   }
   function rA() {
-    E14.disable(E14.BLEND), E14.disable(E14.CULL_FACE), E14.disable(E14.DEPTH_TEST), E14.disable(E14.POLYGON_OFFSET_FILL), E14.disable(E14.SCISSOR_TEST), E14.disable(E14.STENCIL_TEST), E14.disable(E14.SAMPLE_ALPHA_TO_COVERAGE), E14.blendEquation(E14.FUNC_ADD), E14.blendFunc(E14.ONE, E14.ZERO), E14.blendFuncSeparate(E14.ONE, E14.ZERO, E14.ONE, E14.ZERO), E14.blendColor(0, 0, 0, 0), E14.colorMask(true, true, true, true), E14.clearColor(0, 0, 0, 0), E14.depthMask(true), E14.depthFunc(E14.LESS), E14.clearDepth(1), E14.stencilMask(4294967295), E14.stencilFunc(E14.ALWAYS, 0, 4294967295), E14.stencilOp(E14.KEEP, E14.KEEP, E14.KEEP), E14.clearStencil(0), E14.cullFace(E14.BACK), E14.frontFace(E14.CCW), E14.polygonOffset(0, 0), E14.activeTexture(E14.TEXTURE0), E14.bindFramebuffer(E14.FRAMEBUFFER, null), g === true && (E14.bindFramebuffer(E14.DRAW_FRAMEBUFFER, null), E14.bindFramebuffer(E14.READ_FRAMEBUFFER, null)), E14.useProgram(null), E14.lineWidth(1), E14.scissor(0, 0, E14.canvas.width, E14.canvas.height), E14.viewport(0, 0, E14.canvas.width, E14.canvas.height), s = {}, sA = null, nA = {}, n = {}, r = /* @__PURE__ */ new WeakMap(), c = [], D = null, h = false, S = null, G = null, k = null, U = null, p = null, M = null, F = null, y = new mA(0, 0, 0), N = 0, q = false, L = null, Z = null, m = null, _ = null, v = null, cA.set(0, 0, E14.canvas.width, E14.canvas.height), KA.set(0, 0, E14.canvas.width, E14.canvas.height), Q.reset(), o.reset(), e.reset();
+    E14.disable(E14.BLEND), E14.disable(E14.CULL_FACE), E14.disable(E14.DEPTH_TEST), E14.disable(E14.POLYGON_OFFSET_FILL), E14.disable(E14.SCISSOR_TEST), E14.disable(E14.STENCIL_TEST), E14.disable(E14.SAMPLE_ALPHA_TO_COVERAGE), E14.blendEquation(E14.FUNC_ADD), E14.blendFunc(E14.ONE, E14.ZERO), E14.blendFuncSeparate(E14.ONE, E14.ZERO, E14.ONE, E14.ZERO), E14.blendColor(0, 0, 0, 0), E14.colorMask(true, true, true, true), E14.clearColor(0, 0, 0, 0), E14.depthMask(true), E14.depthFunc(E14.LESS), E14.clearDepth(1), E14.stencilMask(4294967295), E14.stencilFunc(E14.ALWAYS, 0, 4294967295), E14.stencilOp(E14.KEEP, E14.KEEP, E14.KEEP), E14.clearStencil(0), E14.cullFace(E14.BACK), E14.frontFace(E14.CCW), E14.polygonOffset(0, 0), E14.activeTexture(E14.TEXTURE0), E14.bindFramebuffer(E14.FRAMEBUFFER, null), g === true && (E14.bindFramebuffer(E14.DRAW_FRAMEBUFFER, null), E14.bindFramebuffer(E14.READ_FRAMEBUFFER, null)), E14.useProgram(null), E14.lineWidth(1), E14.scissor(0, 0, E14.canvas.width, E14.canvas.height), E14.viewport(0, 0, E14.canvas.width, E14.canvas.height), s = {}, sA = null, nA = {}, n = {}, r = /* @__PURE__ */ new WeakMap(), c = [], D = null, h = false, S = null, G = null, k = null, M = null, U = null, p = null, F = null, y = new mA(0, 0, 0), N = 0, q = false, L = null, Z = null, m = null, _ = null, v = null, cA.set(0, 0, E14.canvas.width, E14.canvas.height), KA.set(0, 0, E14.canvas.width, E14.canvas.height), Q.reset(), o.reset(), e.reset();
   }
-  return { buffers: { color: Q, depth: o, stencil: e }, enable: jA, disable: YA, bindFramebuffer: aI, drawBuffers: P, useProgram: kg, setBlending: MA, setMaterial: JI, setFlipSided: $A, setCullFace: J, setLineWidth: K, setPolygonOffset: j, setScissorTest: tA, activeTexture: eA, bindTexture: aA, unbindTexture: pA, compressedTexImage2D: wA, compressedTexImage3D: yA, texImage2D: FA, texImage3D: dA, updateUBOMapping: bI, uniformBlockBinding: gI, texStorage2D: QI, texStorage3D: _A, texSubImage2D: fA, texSubImage3D: AI, compressedTexSubImage2D: oA, compressedTexSubImage3D: hI, scissor: VA, viewport: cI, reset: rA };
+  return { buffers: { color: Q, depth: o, stencil: e }, enable: jA, disable: YA, bindFramebuffer: aI, drawBuffers: P, useProgram: kg, setBlending: MA, setMaterial: uI, setFlipSided: $A, setCullFace: J, setLineWidth: K, setPolygonOffset: j, setScissorTest: tA, activeTexture: eA, bindTexture: aA, unbindTexture: pA, compressedTexImage2D: SA, compressedTexImage3D: yA, texImage2D: FA, texImage3D: dA, updateUBOMapping: TI, uniformBlockBinding: gI, texStorage2D: QI, texStorage3D: _A, texSubImage2D: fA, texSubImage3D: AI, compressedTexSubImage2D: oA, compressedTexSubImage3D: hI, scissor: VA, viewport: cI, reset: rA };
 }
 function lG(E14, A, I, g, C, B, i) {
   const Q = C.isWebGL2, o = A.has("WEBGL_multisampled_render_to_texture") ? A.get("WEBGL_multisampled_render_to_texture") : null, e = typeof navigator > "u" ? false : /OculusBrowser/g.test(navigator.userAgent), t = /* @__PURE__ */ new WeakMap();
@@ -9312,21 +9312,21 @@ function lG(E14, A, I, g, C, B, i) {
   function c(J, K, j, tA) {
     let eA = 1;
     if ((J.width > tA || J.height > tA) && (eA = tA / Math.max(J.width, J.height)), eA < 1 || K === true) if (typeof HTMLImageElement < "u" && J instanceof HTMLImageElement || typeof HTMLCanvasElement < "u" && J instanceof HTMLCanvasElement || typeof ImageBitmap < "u" && J instanceof ImageBitmap) {
-      const aA = K ? YE : Math.floor, pA = aA(eA * J.width), wA = aA(eA * J.height);
-      a === void 0 && (a = r(pA, wA));
-      const yA = j ? r(pA, wA) : a;
-      return yA.width = pA, yA.height = wA, yA.getContext("2d").drawImage(J, 0, 0, pA, wA), console.warn("THREE.WebGLRenderer: Texture has been resized from (" + J.width + "x" + J.height + ") to (" + pA + "x" + wA + ")."), yA;
+      const aA = K ? YE : Math.floor, pA = aA(eA * J.width), SA = aA(eA * J.height);
+      a === void 0 && (a = r(pA, SA));
+      const yA = j ? r(pA, SA) : a;
+      return yA.width = pA, yA.height = SA, yA.getContext("2d").drawImage(J, 0, 0, pA, SA), console.warn("THREE.WebGLRenderer: Texture has been resized from (" + J.width + "x" + J.height + ") to (" + pA + "x" + SA + ")."), yA;
     } else return "data" in J && console.warn("THREE.WebGLRenderer: Image in DataTexture is too big (" + J.width + "x" + J.height + ")."), J;
     return J;
   }
   function D(J) {
-    return de(J.width) && de(J.height);
+    return Me(J.width) && Me(J.height);
   }
   function h(J) {
-    return Q ? false : J.wrapS !== IC || J.wrapT !== IC || J.minFilter !== Eg && J.minFilter !== Rg;
+    return Q ? false : J.wrapS !== IC || J.wrapT !== IC || J.minFilter !== og && J.minFilter !== Rg;
   }
   function S(J, K) {
-    return J.generateMipmaps && K && J.minFilter !== Eg && J.minFilter !== Rg;
+    return J.generateMipmaps && K && J.minFilter !== og && J.minFilter !== Rg;
   }
   function G(J) {
     E14.generateMipmap(J);
@@ -9344,15 +9344,15 @@ function lG(E14, A, I, g, C, B, i) {
     }
     return (aA === E14.R16F || aA === E14.R32F || aA === E14.RG16F || aA === E14.RG32F || aA === E14.RGBA16F || aA === E14.RGBA32F) && A.get("EXT_color_buffer_float"), aA;
   }
-  function U(J, K, j) {
-    return S(J, j) === true || J.isFramebufferTexture && J.minFilter !== Eg && J.minFilter !== Rg ? Math.log2(Math.max(K.width, K.height)) + 1 : J.mipmaps !== void 0 && J.mipmaps.length > 0 ? J.mipmaps.length : J.isCompressedTexture && Array.isArray(J.image) ? K.mipmaps.length : 1;
+  function M(J, K, j) {
+    return S(J, j) === true || J.isFramebufferTexture && J.minFilter !== og && J.minFilter !== Rg ? Math.log2(Math.max(K.width, K.height)) + 1 : J.mipmaps !== void 0 && J.mipmaps.length > 0 ? J.mipmaps.length : J.isCompressedTexture && Array.isArray(J.image) ? K.mipmaps.length : 1;
+  }
+  function U(J) {
+    return J === og || J === Ge || J === dE ? E14.NEAREST : E14.LINEAR;
   }
   function p(J) {
-    return J === Eg || J === Se || J === dE ? E14.NEAREST : E14.LINEAR;
-  }
-  function M(J) {
     const K = J.target;
-    K.removeEventListener("dispose", M), y(K), K.isVideoTexture && t.delete(K);
+    K.removeEventListener("dispose", p), y(K), K.isVideoTexture && t.delete(K);
   }
   function F(J) {
     const K = J.target;
@@ -9407,7 +9407,7 @@ function lG(E14, A, I, g, C, B, i) {
   }
   function v(J, K) {
     const j = g.get(J);
-    if (J.isVideoTexture && JI(J), J.isRenderTargetTexture === false && J.version > 0 && j.__version !== J.version) {
+    if (J.isVideoTexture && uI(J), J.isRenderTargetTexture === false && J.version > 0 && j.__version !== J.version) {
       const tA = J.image;
       if (tA === null) console.warn("THREE.WebGLRenderer: Texture marked for update but no image data found.");
       else if (tA.complete === false) console.warn("THREE.WebGLRenderer: Texture marked for update but image is incomplete");
@@ -9442,17 +9442,17 @@ function lG(E14, A, I, g, C, B, i) {
     }
     I.bindTexture(E14.TEXTURE_CUBE_MAP, j.__webglTexture, E14.TEXTURE0 + K);
   }
-  const QA = { [Ki]: E14.REPEAT, [IC]: E14.CLAMP_TO_EDGE, [RE]: E14.MIRRORED_REPEAT }, sA = { [Eg]: E14.NEAREST, [Se]: E14.NEAREST_MIPMAP_NEAREST, [dE]: E14.NEAREST_MIPMAP_LINEAR, [Rg]: E14.LINEAR, [qn]: E14.LINEAR_MIPMAP_NEAREST, [TB]: E14.LINEAR_MIPMAP_LINEAR }, nA = { [zc]: E14.NEVER, [Bh]: E14.ALWAYS, [$c]: E14.LESS, [On]: E14.LEQUAL, [Ah]: E14.EQUAL, [Ch]: E14.GEQUAL, [Ih]: E14.GREATER, [gh]: E14.NOTEQUAL };
+  const iA = { [Ki]: E14.REPEAT, [IC]: E14.CLAMP_TO_EDGE, [RE]: E14.MIRRORED_REPEAT }, sA = { [og]: E14.NEAREST, [Ge]: E14.NEAREST_MIPMAP_NEAREST, [dE]: E14.NEAREST_MIPMAP_LINEAR, [Rg]: E14.LINEAR, [qn]: E14.LINEAR_MIPMAP_NEAREST, [TB]: E14.LINEAR_MIPMAP_LINEAR }, nA = { [zc]: E14.NEVER, [Bh]: E14.ALWAYS, [$c]: E14.LESS, [On]: E14.LEQUAL, [Ah]: E14.EQUAL, [Ch]: E14.GEQUAL, [Ih]: E14.GREATER, [gh]: E14.NOTEQUAL };
   function IA(J, K, j) {
-    if (j ? (E14.texParameteri(J, E14.TEXTURE_WRAP_S, QA[K.wrapS]), E14.texParameteri(J, E14.TEXTURE_WRAP_T, QA[K.wrapT]), (J === E14.TEXTURE_3D || J === E14.TEXTURE_2D_ARRAY) && E14.texParameteri(J, E14.TEXTURE_WRAP_R, QA[K.wrapR]), E14.texParameteri(J, E14.TEXTURE_MAG_FILTER, sA[K.magFilter]), E14.texParameteri(J, E14.TEXTURE_MIN_FILTER, sA[K.minFilter])) : (E14.texParameteri(J, E14.TEXTURE_WRAP_S, E14.CLAMP_TO_EDGE), E14.texParameteri(J, E14.TEXTURE_WRAP_T, E14.CLAMP_TO_EDGE), (J === E14.TEXTURE_3D || J === E14.TEXTURE_2D_ARRAY) && E14.texParameteri(J, E14.TEXTURE_WRAP_R, E14.CLAMP_TO_EDGE), (K.wrapS !== IC || K.wrapT !== IC) && console.warn("THREE.WebGLRenderer: Texture is not power of two. Texture.wrapS and Texture.wrapT should be set to THREE.ClampToEdgeWrapping."), E14.texParameteri(J, E14.TEXTURE_MAG_FILTER, p(K.magFilter)), E14.texParameteri(J, E14.TEXTURE_MIN_FILTER, p(K.minFilter)), K.minFilter !== Eg && K.minFilter !== Rg && console.warn("THREE.WebGLRenderer: Texture is not power of two. Texture.minFilter should be set to THREE.NearestFilter or THREE.LinearFilter.")), K.compareFunction && (E14.texParameteri(J, E14.TEXTURE_COMPARE_MODE, E14.COMPARE_REF_TO_TEXTURE), E14.texParameteri(J, E14.TEXTURE_COMPARE_FUNC, nA[K.compareFunction])), A.has("EXT_texture_filter_anisotropic") === true) {
+    if (j ? (E14.texParameteri(J, E14.TEXTURE_WRAP_S, iA[K.wrapS]), E14.texParameteri(J, E14.TEXTURE_WRAP_T, iA[K.wrapT]), (J === E14.TEXTURE_3D || J === E14.TEXTURE_2D_ARRAY) && E14.texParameteri(J, E14.TEXTURE_WRAP_R, iA[K.wrapR]), E14.texParameteri(J, E14.TEXTURE_MAG_FILTER, sA[K.magFilter]), E14.texParameteri(J, E14.TEXTURE_MIN_FILTER, sA[K.minFilter])) : (E14.texParameteri(J, E14.TEXTURE_WRAP_S, E14.CLAMP_TO_EDGE), E14.texParameteri(J, E14.TEXTURE_WRAP_T, E14.CLAMP_TO_EDGE), (J === E14.TEXTURE_3D || J === E14.TEXTURE_2D_ARRAY) && E14.texParameteri(J, E14.TEXTURE_WRAP_R, E14.CLAMP_TO_EDGE), (K.wrapS !== IC || K.wrapT !== IC) && console.warn("THREE.WebGLRenderer: Texture is not power of two. Texture.wrapS and Texture.wrapT should be set to THREE.ClampToEdgeWrapping."), E14.texParameteri(J, E14.TEXTURE_MAG_FILTER, U(K.magFilter)), E14.texParameteri(J, E14.TEXTURE_MIN_FILTER, U(K.minFilter)), K.minFilter !== og && K.minFilter !== Rg && console.warn("THREE.WebGLRenderer: Texture is not power of two. Texture.minFilter should be set to THREE.NearestFilter or THREE.LinearFilter.")), K.compareFunction && (E14.texParameteri(J, E14.TEXTURE_COMPARE_MODE, E14.COMPARE_REF_TO_TEXTURE), E14.texParameteri(J, E14.TEXTURE_COMPARE_FUNC, nA[K.compareFunction])), A.has("EXT_texture_filter_anisotropic") === true) {
       const tA = A.get("EXT_texture_filter_anisotropic");
-      if (K.magFilter === Eg || K.minFilter !== dE && K.minFilter !== TB || K.type === HC && A.has("OES_texture_float_linear") === false || Q === false && K.type === GQ && A.has("OES_texture_half_float_linear") === false) return;
+      if (K.magFilter === og || K.minFilter !== dE && K.minFilter !== TB || K.type === HC && A.has("OES_texture_float_linear") === false || Q === false && K.type === GQ && A.has("OES_texture_half_float_linear") === false) return;
       (K.anisotropy > 1 || g.get(K).__currentAnisotropy) && (E14.texParameterf(J, tA.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(K.anisotropy, C.getMaxAnisotropy())), g.get(K).__currentAnisotropy = K.anisotropy);
     }
   }
-  function iA(J, K) {
+  function EA(J, K) {
     let j = false;
-    J.__webglInit === void 0 && (J.__webglInit = true, K.addEventListener("dispose", M));
+    J.__webglInit === void 0 && (J.__webglInit = true, K.addEventListener("dispose", p));
     const tA = K.source;
     let eA = s.get(tA);
     eA === void 0 && (eA = {}, s.set(tA, eA));
@@ -9467,12 +9467,12 @@ function lG(E14, A, I, g, C, B, i) {
   function cA(J, K, j) {
     let tA = E14.TEXTURE_2D;
     (K.isDataArrayTexture || K.isCompressedArrayTexture) && (tA = E14.TEXTURE_2D_ARRAY), K.isData3DTexture && (tA = E14.TEXTURE_3D);
-    const eA = iA(J, K), aA = K.source;
+    const eA = EA(J, K), aA = K.source;
     I.bindTexture(tA, J.__webglTexture, E14.TEXTURE0 + j);
     const pA = g.get(aA);
     if (aA.version !== pA.__version || eA === true) {
       I.activeTexture(E14.TEXTURE0 + j);
-      const wA = DI.getPrimaries(DI.workingColorSpace), yA = K.colorSpace === CC ? null : DI.getPrimaries(K.colorSpace), fA = K.colorSpace === CC || wA === yA ? E14.NONE : E14.BROWSER_DEFAULT_WEBGL;
+      const SA = DI.getPrimaries(DI.workingColorSpace), yA = K.colorSpace === CC ? null : DI.getPrimaries(K.colorSpace), fA = K.colorSpace === CC || SA === yA ? E14.NONE : E14.BROWSER_DEFAULT_WEBGL;
       E14.pixelStorei(E14.UNPACK_FLIP_Y_WEBGL, K.flipY), E14.pixelStorei(E14.UNPACK_PREMULTIPLY_ALPHA_WEBGL, K.premultiplyAlpha), E14.pixelStorei(E14.UNPACK_ALIGNMENT, K.unpackAlignment), E14.pixelStorei(E14.UNPACK_COLORSPACE_CONVERSION_WEBGL, fA);
       const AI = h(K) && D(K.image) === false;
       let oA = c(K.image, AI, false, C.maxTextureSize);
@@ -9481,54 +9481,54 @@ function lG(E14, A, I, g, C, B, i) {
       let _A = B.convert(K.type), FA = k(K.internalFormat, QI, _A, K.colorSpace, K.isVideoTexture);
       IA(tA, K, hI);
       let dA;
-      const VA = K.mipmaps, cI = Q && K.isVideoTexture !== true && FA !== Tn, bI = pA.__version === void 0 || eA === true, gI = U(K, oA, hI);
-      if (K.isDepthTexture) FA = E14.DEPTH_COMPONENT, Q ? K.type === HC ? FA = E14.DEPTH_COMPONENT32F : K.type === AB ? FA = E14.DEPTH_COMPONENT24 : K.type === qB ? FA = E14.DEPTH24_STENCIL8 : FA = E14.DEPTH_COMPONENT16 : K.type === HC && console.error("WebGLRenderer: Floating point depth texture requires WebGL2."), K.format === fB && FA === E14.DEPTH_COMPONENT && K.type !== it && K.type !== AB && (console.warn("THREE.WebGLRenderer: Use UnsignedShortType or UnsignedIntType for DepthFormat DepthTexture."), K.type = AB, _A = B.convert(K.type)), K.format === Fi && FA === E14.DEPTH_COMPONENT && (FA = E14.DEPTH_STENCIL, K.type !== qB && (console.warn("THREE.WebGLRenderer: Use UnsignedInt248Type for DepthStencilFormat DepthTexture."), K.type = qB, _A = B.convert(K.type))), bI && (cI ? I.texStorage2D(E14.TEXTURE_2D, 1, FA, oA.width, oA.height) : I.texImage2D(E14.TEXTURE_2D, 0, FA, oA.width, oA.height, 0, QI, _A, null));
+      const VA = K.mipmaps, cI = Q && K.isVideoTexture !== true && FA !== Tn, TI = pA.__version === void 0 || eA === true, gI = M(K, oA, hI);
+      if (K.isDepthTexture) FA = E14.DEPTH_COMPONENT, Q ? K.type === HC ? FA = E14.DEPTH_COMPONENT32F : K.type === AB ? FA = E14.DEPTH_COMPONENT24 : K.type === qB ? FA = E14.DEPTH24_STENCIL8 : FA = E14.DEPTH_COMPONENT16 : K.type === HC && console.error("WebGLRenderer: Floating point depth texture requires WebGL2."), K.format === fB && FA === E14.DEPTH_COMPONENT && K.type !== it && K.type !== AB && (console.warn("THREE.WebGLRenderer: Use UnsignedShortType or UnsignedIntType for DepthFormat DepthTexture."), K.type = AB, _A = B.convert(K.type)), K.format === Fi && FA === E14.DEPTH_COMPONENT && (FA = E14.DEPTH_STENCIL, K.type !== qB && (console.warn("THREE.WebGLRenderer: Use UnsignedInt248Type for DepthStencilFormat DepthTexture."), K.type = qB, _A = B.convert(K.type))), TI && (cI ? I.texStorage2D(E14.TEXTURE_2D, 1, FA, oA.width, oA.height) : I.texImage2D(E14.TEXTURE_2D, 0, FA, oA.width, oA.height, 0, QI, _A, null));
       else if (K.isDataTexture) if (VA.length > 0 && hI) {
-        cI && bI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
+        cI && TI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
         for (let rA = 0, b = VA.length; rA < b; rA++) dA = VA[rA], cI ? I.texSubImage2D(E14.TEXTURE_2D, rA, 0, 0, dA.width, dA.height, QI, _A, dA.data) : I.texImage2D(E14.TEXTURE_2D, rA, FA, dA.width, dA.height, 0, QI, _A, dA.data);
         K.generateMipmaps = false;
-      } else cI ? (bI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height), I.texSubImage2D(E14.TEXTURE_2D, 0, 0, 0, oA.width, oA.height, QI, _A, oA.data)) : I.texImage2D(E14.TEXTURE_2D, 0, FA, oA.width, oA.height, 0, QI, _A, oA.data);
+      } else cI ? (TI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height), I.texSubImage2D(E14.TEXTURE_2D, 0, 0, 0, oA.width, oA.height, QI, _A, oA.data)) : I.texImage2D(E14.TEXTURE_2D, 0, FA, oA.width, oA.height, 0, QI, _A, oA.data);
       else if (K.isCompressedTexture) if (K.isCompressedArrayTexture) {
-        cI && bI && I.texStorage3D(E14.TEXTURE_2D_ARRAY, gI, FA, VA[0].width, VA[0].height, oA.depth);
+        cI && TI && I.texStorage3D(E14.TEXTURE_2D_ARRAY, gI, FA, VA[0].width, VA[0].height, oA.depth);
         for (let rA = 0, b = VA.length; rA < b; rA++) dA = VA[rA], K.format !== gC ? QI !== null ? cI ? I.compressedTexSubImage3D(E14.TEXTURE_2D_ARRAY, rA, 0, 0, 0, dA.width, dA.height, oA.depth, QI, dA.data, 0, 0) : I.compressedTexImage3D(E14.TEXTURE_2D_ARRAY, rA, FA, dA.width, dA.height, oA.depth, 0, dA.data, 0, 0) : console.warn("THREE.WebGLRenderer: Attempt to load unsupported compressed texture format in .uploadTexture()") : cI ? I.texSubImage3D(E14.TEXTURE_2D_ARRAY, rA, 0, 0, 0, dA.width, dA.height, oA.depth, QI, _A, dA.data) : I.texImage3D(E14.TEXTURE_2D_ARRAY, rA, FA, dA.width, dA.height, oA.depth, 0, QI, _A, dA.data);
       } else {
-        cI && bI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
+        cI && TI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
         for (let rA = 0, b = VA.length; rA < b; rA++) dA = VA[rA], K.format !== gC ? QI !== null ? cI ? I.compressedTexSubImage2D(E14.TEXTURE_2D, rA, 0, 0, dA.width, dA.height, QI, dA.data) : I.compressedTexImage2D(E14.TEXTURE_2D, rA, FA, dA.width, dA.height, 0, dA.data) : console.warn("THREE.WebGLRenderer: Attempt to load unsupported compressed texture format in .uploadTexture()") : cI ? I.texSubImage2D(E14.TEXTURE_2D, rA, 0, 0, dA.width, dA.height, QI, _A, dA.data) : I.texImage2D(E14.TEXTURE_2D, rA, FA, dA.width, dA.height, 0, QI, _A, dA.data);
       }
-      else if (K.isDataArrayTexture) cI ? (bI && I.texStorage3D(E14.TEXTURE_2D_ARRAY, gI, FA, oA.width, oA.height, oA.depth), I.texSubImage3D(E14.TEXTURE_2D_ARRAY, 0, 0, 0, 0, oA.width, oA.height, oA.depth, QI, _A, oA.data)) : I.texImage3D(E14.TEXTURE_2D_ARRAY, 0, FA, oA.width, oA.height, oA.depth, 0, QI, _A, oA.data);
-      else if (K.isData3DTexture) cI ? (bI && I.texStorage3D(E14.TEXTURE_3D, gI, FA, oA.width, oA.height, oA.depth), I.texSubImage3D(E14.TEXTURE_3D, 0, 0, 0, 0, oA.width, oA.height, oA.depth, QI, _A, oA.data)) : I.texImage3D(E14.TEXTURE_3D, 0, FA, oA.width, oA.height, oA.depth, 0, QI, _A, oA.data);
+      else if (K.isDataArrayTexture) cI ? (TI && I.texStorage3D(E14.TEXTURE_2D_ARRAY, gI, FA, oA.width, oA.height, oA.depth), I.texSubImage3D(E14.TEXTURE_2D_ARRAY, 0, 0, 0, 0, oA.width, oA.height, oA.depth, QI, _A, oA.data)) : I.texImage3D(E14.TEXTURE_2D_ARRAY, 0, FA, oA.width, oA.height, oA.depth, 0, QI, _A, oA.data);
+      else if (K.isData3DTexture) cI ? (TI && I.texStorage3D(E14.TEXTURE_3D, gI, FA, oA.width, oA.height, oA.depth), I.texSubImage3D(E14.TEXTURE_3D, 0, 0, 0, 0, oA.width, oA.height, oA.depth, QI, _A, oA.data)) : I.texImage3D(E14.TEXTURE_3D, 0, FA, oA.width, oA.height, oA.depth, 0, QI, _A, oA.data);
       else if (K.isFramebufferTexture) {
-        if (bI) if (cI) I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height);
+        if (TI) if (cI) I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height);
         else {
           let rA = oA.width, b = oA.height;
           for (let hA = 0; hA < gI; hA++) I.texImage2D(E14.TEXTURE_2D, hA, FA, rA, b, 0, QI, _A, null), rA >>= 1, b >>= 1;
         }
       } else if (VA.length > 0 && hI) {
-        cI && bI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
+        cI && TI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, VA[0].width, VA[0].height);
         for (let rA = 0, b = VA.length; rA < b; rA++) dA = VA[rA], cI ? I.texSubImage2D(E14.TEXTURE_2D, rA, 0, 0, QI, _A, dA) : I.texImage2D(E14.TEXTURE_2D, rA, FA, QI, _A, dA);
         K.generateMipmaps = false;
-      } else cI ? (bI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height), I.texSubImage2D(E14.TEXTURE_2D, 0, 0, 0, QI, _A, oA)) : I.texImage2D(E14.TEXTURE_2D, 0, FA, QI, _A, oA);
+      } else cI ? (TI && I.texStorage2D(E14.TEXTURE_2D, gI, FA, oA.width, oA.height), I.texSubImage2D(E14.TEXTURE_2D, 0, 0, 0, QI, _A, oA)) : I.texImage2D(E14.TEXTURE_2D, 0, FA, QI, _A, oA);
       S(K, hI) && G(tA), pA.__version = aA.version, K.onUpdate && K.onUpdate(K);
     }
     J.__version = K.version;
   }
   function KA(J, K, j) {
     if (K.image.length !== 6) return;
-    const tA = iA(J, K), eA = K.source;
+    const tA = EA(J, K), eA = K.source;
     I.bindTexture(E14.TEXTURE_CUBE_MAP, J.__webglTexture, E14.TEXTURE0 + j);
     const aA = g.get(eA);
     if (eA.version !== aA.__version || tA === true) {
       I.activeTexture(E14.TEXTURE0 + j);
-      const pA = DI.getPrimaries(DI.workingColorSpace), wA = K.colorSpace === CC ? null : DI.getPrimaries(K.colorSpace), yA = K.colorSpace === CC || pA === wA ? E14.NONE : E14.BROWSER_DEFAULT_WEBGL;
+      const pA = DI.getPrimaries(DI.workingColorSpace), SA = K.colorSpace === CC ? null : DI.getPrimaries(K.colorSpace), yA = K.colorSpace === CC || pA === SA ? E14.NONE : E14.BROWSER_DEFAULT_WEBGL;
       E14.pixelStorei(E14.UNPACK_FLIP_Y_WEBGL, K.flipY), E14.pixelStorei(E14.UNPACK_PREMULTIPLY_ALPHA_WEBGL, K.premultiplyAlpha), E14.pixelStorei(E14.UNPACK_ALIGNMENT, K.unpackAlignment), E14.pixelStorei(E14.UNPACK_COLORSPACE_CONVERSION_WEBGL, yA);
       const fA = K.isCompressedTexture || K.image[0].isCompressedTexture, AI = K.image[0] && K.image[0].isDataTexture, oA = [];
       for (let rA = 0; rA < 6; rA++) !fA && !AI ? oA[rA] = c(K.image[rA], false, true, C.maxCubemapSize) : oA[rA] = AI ? K.image[rA].image : K.image[rA], oA[rA] = $A(K, oA[rA]);
       const hI = oA[0], QI = D(hI) || Q, _A = B.convert(K.format, K.colorSpace), FA = B.convert(K.type), dA = k(K.internalFormat, _A, FA, K.colorSpace), VA = Q && K.isVideoTexture !== true, cI = aA.__version === void 0 || tA === true;
-      let bI = U(K, hI, QI);
+      let TI = M(K, hI, QI);
       IA(E14.TEXTURE_CUBE_MAP, K, QI);
       let gI;
       if (fA) {
-        VA && cI && I.texStorage2D(E14.TEXTURE_CUBE_MAP, bI, dA, hI.width, hI.height);
+        VA && cI && I.texStorage2D(E14.TEXTURE_CUBE_MAP, TI, dA, hI.width, hI.height);
         for (let rA = 0; rA < 6; rA++) {
           gI = oA[rA].mipmaps;
           for (let b = 0; b < gI.length; b++) {
@@ -9537,7 +9537,7 @@ function lG(E14, A, I, g, C, B, i) {
           }
         }
       } else {
-        gI = K.mipmaps, VA && cI && (gI.length > 0 && bI++, I.texStorage2D(E14.TEXTURE_CUBE_MAP, bI, dA, oA[0].width, oA[0].height));
+        gI = K.mipmaps, VA && cI && (gI.length > 0 && TI++, I.texStorage2D(E14.TEXTURE_CUBE_MAP, TI, dA, oA[0].width, oA[0].height));
         for (let rA = 0; rA < 6; rA++) if (AI) {
           VA ? I.texSubImage2D(E14.TEXTURE_CUBE_MAP_POSITIVE_X + rA, 0, 0, 0, oA[rA].width, oA[rA].height, _A, FA, oA[rA].data) : I.texImage2D(E14.TEXTURE_CUBE_MAP_POSITIVE_X + rA, 0, dA, oA[rA].width, oA[rA].height, 0, _A, FA, oA[rA].data);
           for (let b = 0; b < gI.length; b++) {
@@ -9557,10 +9557,10 @@ function lG(E14, A, I, g, C, B, i) {
     J.__version = K.version;
   }
   function NA(J, K, j, tA, eA, aA) {
-    const pA = B.convert(j.format, j.colorSpace), wA = B.convert(j.type), yA = k(j.internalFormat, pA, wA, j.colorSpace);
+    const pA = B.convert(j.format, j.colorSpace), SA = B.convert(j.type), yA = k(j.internalFormat, pA, SA, j.colorSpace);
     if (!g.get(K).__hasExternalTextures) {
       const AI = Math.max(1, K.width >> aA), oA = Math.max(1, K.height >> aA);
-      eA === E14.TEXTURE_3D || eA === E14.TEXTURE_2D_ARRAY ? I.texImage3D(eA, aA, yA, AI, oA, K.depth, 0, pA, wA, null) : I.texImage2D(eA, aA, yA, AI, oA, 0, pA, wA, null);
+      eA === E14.TEXTURE_3D || eA === E14.TEXTURE_2D_ARRAY ? I.texImage3D(eA, aA, yA, AI, oA, K.depth, 0, pA, SA, null) : I.texImage2D(eA, aA, yA, AI, oA, 0, pA, SA, null);
     }
     I.bindFramebuffer(E14.FRAMEBUFFER, J), MA(K) ? o.framebufferTexture2DMultisampleEXT(E14.FRAMEBUFFER, tA, eA, g.get(j).__webglTexture, 0, OA(K)) : (eA === E14.TEXTURE_2D || eA >= E14.TEXTURE_CUBE_MAP_POSITIVE_X && eA <= E14.TEXTURE_CUBE_MAP_NEGATIVE_Z) && E14.framebufferTexture2D(E14.FRAMEBUFFER, tA, eA, g.get(j).__webglTexture, aA), I.bindFramebuffer(E14.FRAMEBUFFER, null);
   }
@@ -9580,7 +9580,7 @@ function lG(E14, A, I, g, C, B, i) {
     } else {
       const tA = K.isWebGLMultipleRenderTargets === true ? K.texture : [K.texture];
       for (let eA = 0; eA < tA.length; eA++) {
-        const aA = tA[eA], pA = B.convert(aA.format, aA.colorSpace), wA = B.convert(aA.type), yA = k(aA.internalFormat, pA, wA, aA.colorSpace), fA = OA(K);
+        const aA = tA[eA], pA = B.convert(aA.format, aA.colorSpace), SA = B.convert(aA.type), yA = k(aA.internalFormat, pA, SA, aA.colorSpace), fA = OA(K);
         j && MA(K) === false ? E14.renderbufferStorageMultisample(E14.RENDERBUFFER, fA, yA, K.width, K.height) : MA(K) ? o.renderbufferStorageMultisampleEXT(E14.RENDERBUFFER, fA, yA, K.width, K.height) : E14.renderbufferStorage(E14.RENDERBUFFER, yA, K.width, K.height);
       }
     }
@@ -9616,27 +9616,27 @@ function lG(E14, A, I, g, C, B, i) {
     const eA = J.isWebGLCubeRenderTarget === true, aA = J.isWebGLMultipleRenderTargets === true, pA = D(J) || Q;
     if (eA) {
       j.__webglFramebuffer = [];
-      for (let wA = 0; wA < 6; wA++) if (Q && K.mipmaps && K.mipmaps.length > 0) {
-        j.__webglFramebuffer[wA] = [];
-        for (let yA = 0; yA < K.mipmaps.length; yA++) j.__webglFramebuffer[wA][yA] = E14.createFramebuffer();
-      } else j.__webglFramebuffer[wA] = E14.createFramebuffer();
+      for (let SA = 0; SA < 6; SA++) if (Q && K.mipmaps && K.mipmaps.length > 0) {
+        j.__webglFramebuffer[SA] = [];
+        for (let yA = 0; yA < K.mipmaps.length; yA++) j.__webglFramebuffer[SA][yA] = E14.createFramebuffer();
+      } else j.__webglFramebuffer[SA] = E14.createFramebuffer();
     } else {
       if (Q && K.mipmaps && K.mipmaps.length > 0) {
         j.__webglFramebuffer = [];
-        for (let wA = 0; wA < K.mipmaps.length; wA++) j.__webglFramebuffer[wA] = E14.createFramebuffer();
+        for (let SA = 0; SA < K.mipmaps.length; SA++) j.__webglFramebuffer[SA] = E14.createFramebuffer();
       } else j.__webglFramebuffer = E14.createFramebuffer();
       if (aA) if (C.drawBuffers) {
-        const wA = J.texture;
-        for (let yA = 0, fA = wA.length; yA < fA; yA++) {
-          const AI = g.get(wA[yA]);
+        const SA = J.texture;
+        for (let yA = 0, fA = SA.length; yA < fA; yA++) {
+          const AI = g.get(SA[yA]);
           AI.__webglTexture === void 0 && (AI.__webglTexture = E14.createTexture(), i.memory.textures++);
         }
       } else console.warn("THREE.WebGLRenderer: WebGLMultipleRenderTargets can only be used with WebGL2 or WEBGL_draw_buffers extension.");
       if (Q && J.samples > 0 && MA(J) === false) {
-        const wA = aA ? K : [K];
+        const SA = aA ? K : [K];
         j.__webglMultisampledFramebuffer = E14.createFramebuffer(), j.__webglColorRenderbuffer = [], I.bindFramebuffer(E14.FRAMEBUFFER, j.__webglMultisampledFramebuffer);
-        for (let yA = 0; yA < wA.length; yA++) {
-          const fA = wA[yA];
+        for (let yA = 0; yA < SA.length; yA++) {
+          const fA = SA[yA];
           j.__webglColorRenderbuffer[yA] = E14.createRenderbuffer(), E14.bindRenderbuffer(E14.RENDERBUFFER, j.__webglColorRenderbuffer[yA]);
           const AI = B.convert(fA.format, fA.colorSpace), oA = B.convert(fA.type), hI = k(fA.internalFormat, AI, oA, fA.colorSpace, J.isXRRenderTarget === true), QI = OA(J);
           E14.renderbufferStorageMultisample(E14.RENDERBUFFER, QI, hI, J.width, J.height), E14.framebufferRenderbuffer(E14.FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + yA, E14.RENDERBUFFER, j.__webglColorRenderbuffer[yA]);
@@ -9646,21 +9646,21 @@ function lG(E14, A, I, g, C, B, i) {
     }
     if (eA) {
       I.bindTexture(E14.TEXTURE_CUBE_MAP, tA.__webglTexture), IA(E14.TEXTURE_CUBE_MAP, K, pA);
-      for (let wA = 0; wA < 6; wA++) if (Q && K.mipmaps && K.mipmaps.length > 0) for (let yA = 0; yA < K.mipmaps.length; yA++) NA(j.__webglFramebuffer[wA][yA], J, K, E14.COLOR_ATTACHMENT0, E14.TEXTURE_CUBE_MAP_POSITIVE_X + wA, yA);
-      else NA(j.__webglFramebuffer[wA], J, K, E14.COLOR_ATTACHMENT0, E14.TEXTURE_CUBE_MAP_POSITIVE_X + wA, 0);
+      for (let SA = 0; SA < 6; SA++) if (Q && K.mipmaps && K.mipmaps.length > 0) for (let yA = 0; yA < K.mipmaps.length; yA++) NA(j.__webglFramebuffer[SA][yA], J, K, E14.COLOR_ATTACHMENT0, E14.TEXTURE_CUBE_MAP_POSITIVE_X + SA, yA);
+      else NA(j.__webglFramebuffer[SA], J, K, E14.COLOR_ATTACHMENT0, E14.TEXTURE_CUBE_MAP_POSITIVE_X + SA, 0);
       S(K, pA) && G(E14.TEXTURE_CUBE_MAP), I.unbindTexture();
     } else if (aA) {
-      const wA = J.texture;
-      for (let yA = 0, fA = wA.length; yA < fA; yA++) {
-        const AI = wA[yA], oA = g.get(AI);
+      const SA = J.texture;
+      for (let yA = 0, fA = SA.length; yA < fA; yA++) {
+        const AI = SA[yA], oA = g.get(AI);
         I.bindTexture(E14.TEXTURE_2D, oA.__webglTexture), IA(E14.TEXTURE_2D, AI, pA), NA(j.__webglFramebuffer, J, AI, E14.COLOR_ATTACHMENT0 + yA, E14.TEXTURE_2D, 0), S(AI, pA) && G(E14.TEXTURE_2D);
       }
       I.unbindTexture();
     } else {
-      let wA = E14.TEXTURE_2D;
-      if ((J.isWebGL3DRenderTarget || J.isWebGLArrayRenderTarget) && (Q ? wA = J.isWebGL3DRenderTarget ? E14.TEXTURE_3D : E14.TEXTURE_2D_ARRAY : console.error("THREE.WebGLTextures: THREE.Data3DTexture and THREE.DataArrayTexture only supported with WebGL2.")), I.bindTexture(wA, tA.__webglTexture), IA(wA, K, pA), Q && K.mipmaps && K.mipmaps.length > 0) for (let yA = 0; yA < K.mipmaps.length; yA++) NA(j.__webglFramebuffer[yA], J, K, E14.COLOR_ATTACHMENT0, wA, yA);
-      else NA(j.__webglFramebuffer, J, K, E14.COLOR_ATTACHMENT0, wA, 0);
-      S(K, pA) && G(wA), I.unbindTexture();
+      let SA = E14.TEXTURE_2D;
+      if ((J.isWebGL3DRenderTarget || J.isWebGLArrayRenderTarget) && (Q ? SA = J.isWebGL3DRenderTarget ? E14.TEXTURE_3D : E14.TEXTURE_2D_ARRAY : console.error("THREE.WebGLTextures: THREE.Data3DTexture and THREE.DataArrayTexture only supported with WebGL2.")), I.bindTexture(SA, tA.__webglTexture), IA(SA, K, pA), Q && K.mipmaps && K.mipmaps.length > 0) for (let yA = 0; yA < K.mipmaps.length; yA++) NA(j.__webglFramebuffer[yA], J, K, E14.COLOR_ATTACHMENT0, SA, yA);
+      else NA(j.__webglFramebuffer, J, K, E14.COLOR_ATTACHMENT0, SA, 0);
+      S(K, pA) && G(SA), I.unbindTexture();
     }
     J.depthBuffer && YA(J);
   }
@@ -9669,8 +9669,8 @@ function lG(E14, A, I, g, C, B, i) {
     for (let tA = 0, eA = j.length; tA < eA; tA++) {
       const aA = j[tA];
       if (S(aA, K)) {
-        const pA = J.isWebGLCubeRenderTarget ? E14.TEXTURE_CUBE_MAP : E14.TEXTURE_2D, wA = g.get(aA).__webglTexture;
-        I.bindTexture(pA, wA), G(pA), I.unbindTexture();
+        const pA = J.isWebGLCubeRenderTarget ? E14.TEXTURE_CUBE_MAP : E14.TEXTURE_2D, SA = g.get(aA).__webglTexture;
+        I.bindTexture(pA, SA), G(pA), I.unbindTexture();
       }
     }
   }
@@ -9678,24 +9678,24 @@ function lG(E14, A, I, g, C, B, i) {
     if (Q && J.samples > 0 && MA(J) === false) {
       const K = J.isWebGLMultipleRenderTargets ? J.texture : [J.texture], j = J.width, tA = J.height;
       let eA = E14.COLOR_BUFFER_BIT;
-      const aA = [], pA = J.stencilBuffer ? E14.DEPTH_STENCIL_ATTACHMENT : E14.DEPTH_ATTACHMENT, wA = g.get(J), yA = J.isWebGLMultipleRenderTargets === true;
-      if (yA) for (let fA = 0; fA < K.length; fA++) I.bindFramebuffer(E14.FRAMEBUFFER, wA.__webglMultisampledFramebuffer), E14.framebufferRenderbuffer(E14.FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.RENDERBUFFER, null), I.bindFramebuffer(E14.FRAMEBUFFER, wA.__webglFramebuffer), E14.framebufferTexture2D(E14.DRAW_FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.TEXTURE_2D, null, 0);
-      I.bindFramebuffer(E14.READ_FRAMEBUFFER, wA.__webglMultisampledFramebuffer), I.bindFramebuffer(E14.DRAW_FRAMEBUFFER, wA.__webglFramebuffer);
+      const aA = [], pA = J.stencilBuffer ? E14.DEPTH_STENCIL_ATTACHMENT : E14.DEPTH_ATTACHMENT, SA = g.get(J), yA = J.isWebGLMultipleRenderTargets === true;
+      if (yA) for (let fA = 0; fA < K.length; fA++) I.bindFramebuffer(E14.FRAMEBUFFER, SA.__webglMultisampledFramebuffer), E14.framebufferRenderbuffer(E14.FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.RENDERBUFFER, null), I.bindFramebuffer(E14.FRAMEBUFFER, SA.__webglFramebuffer), E14.framebufferTexture2D(E14.DRAW_FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.TEXTURE_2D, null, 0);
+      I.bindFramebuffer(E14.READ_FRAMEBUFFER, SA.__webglMultisampledFramebuffer), I.bindFramebuffer(E14.DRAW_FRAMEBUFFER, SA.__webglFramebuffer);
       for (let fA = 0; fA < K.length; fA++) {
         aA.push(E14.COLOR_ATTACHMENT0 + fA), J.depthBuffer && aA.push(pA);
-        const AI = wA.__ignoreDepthValues !== void 0 ? wA.__ignoreDepthValues : false;
-        if (AI === false && (J.depthBuffer && (eA |= E14.DEPTH_BUFFER_BIT), J.stencilBuffer && (eA |= E14.STENCIL_BUFFER_BIT)), yA && E14.framebufferRenderbuffer(E14.READ_FRAMEBUFFER, E14.COLOR_ATTACHMENT0, E14.RENDERBUFFER, wA.__webglColorRenderbuffer[fA]), AI === true && (E14.invalidateFramebuffer(E14.READ_FRAMEBUFFER, [pA]), E14.invalidateFramebuffer(E14.DRAW_FRAMEBUFFER, [pA])), yA) {
+        const AI = SA.__ignoreDepthValues !== void 0 ? SA.__ignoreDepthValues : false;
+        if (AI === false && (J.depthBuffer && (eA |= E14.DEPTH_BUFFER_BIT), J.stencilBuffer && (eA |= E14.STENCIL_BUFFER_BIT)), yA && E14.framebufferRenderbuffer(E14.READ_FRAMEBUFFER, E14.COLOR_ATTACHMENT0, E14.RENDERBUFFER, SA.__webglColorRenderbuffer[fA]), AI === true && (E14.invalidateFramebuffer(E14.READ_FRAMEBUFFER, [pA]), E14.invalidateFramebuffer(E14.DRAW_FRAMEBUFFER, [pA])), yA) {
           const oA = g.get(K[fA]).__webglTexture;
           E14.framebufferTexture2D(E14.DRAW_FRAMEBUFFER, E14.COLOR_ATTACHMENT0, E14.TEXTURE_2D, oA, 0);
         }
         E14.blitFramebuffer(0, 0, j, tA, 0, 0, j, tA, eA, E14.NEAREST), e && E14.invalidateFramebuffer(E14.READ_FRAMEBUFFER, aA);
       }
       if (I.bindFramebuffer(E14.READ_FRAMEBUFFER, null), I.bindFramebuffer(E14.DRAW_FRAMEBUFFER, null), yA) for (let fA = 0; fA < K.length; fA++) {
-        I.bindFramebuffer(E14.FRAMEBUFFER, wA.__webglMultisampledFramebuffer), E14.framebufferRenderbuffer(E14.FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.RENDERBUFFER, wA.__webglColorRenderbuffer[fA]);
+        I.bindFramebuffer(E14.FRAMEBUFFER, SA.__webglMultisampledFramebuffer), E14.framebufferRenderbuffer(E14.FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.RENDERBUFFER, SA.__webglColorRenderbuffer[fA]);
         const AI = g.get(K[fA]).__webglTexture;
-        I.bindFramebuffer(E14.FRAMEBUFFER, wA.__webglFramebuffer), E14.framebufferTexture2D(E14.DRAW_FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.TEXTURE_2D, AI, 0);
+        I.bindFramebuffer(E14.FRAMEBUFFER, SA.__webglFramebuffer), E14.framebufferTexture2D(E14.DRAW_FRAMEBUFFER, E14.COLOR_ATTACHMENT0 + fA, E14.TEXTURE_2D, AI, 0);
       }
-      I.bindFramebuffer(E14.DRAW_FRAMEBUFFER, wA.__webglMultisampledFramebuffer);
+      I.bindFramebuffer(E14.DRAW_FRAMEBUFFER, SA.__webglMultisampledFramebuffer);
     }
   }
   function OA(J) {
@@ -9705,13 +9705,13 @@ function lG(E14, A, I, g, C, B, i) {
     const K = g.get(J);
     return Q && J.samples > 0 && A.has("WEBGL_multisampled_render_to_texture") === true && K.__useRenderToTexture !== false;
   }
-  function JI(J) {
+  function uI(J) {
     const K = i.render.frame;
     t.get(J) !== K && (t.set(J, K), J.update());
   }
   function $A(J, K) {
     const j = J.colorSpace, tA = J.format, eA = J.type;
-    return J.isCompressedTexture === true || J.isVideoTexture === true || J.format === ye || j !== og && j !== CC && (DI.getTransfer(j) === UI ? Q === false ? A.has("EXT_sRGB") === true && tA === gC ? (J.format = ye, J.minFilter = Rg, J.generateMipmaps = false) : K = Zn.sRGBToLinear(K) : (tA !== gC || eA !== EB) && console.warn("THREE.WebGLTextures: sRGB encoded textures have to use RGBAFormat and UnsignedByteType.") : console.error("THREE.WebGLTextures: Unsupported texture color space:", j)), K;
+    return J.isCompressedTexture === true || J.isVideoTexture === true || J.format === de || j !== eg && j !== CC && (DI.getTransfer(j) === UI ? Q === false ? A.has("EXT_sRGB") === true && tA === gC ? (J.format = de, J.minFilter = Rg, J.generateMipmaps = false) : K = Zn.sRGBToLinear(K) : (tA !== gC || eA !== EB) && console.warn("THREE.WebGLTextures: sRGB encoded textures have to use RGBAFormat and UnsignedByteType.") : console.error("THREE.WebGLTextures: Unsupported texture color space:", j)), K;
   }
   this.allocateTextureUnit = m, this.resetTextureUnits = Z, this.setTexture2D = v, this.setTexture2DArray = AA, this.setTexture3D = gA, this.setTextureCube = CA, this.rebindTextures = aI, this.setupRenderTarget = P, this.updateRenderTargetMipmap = kg, this.updateMultisampleRenderTarget = JA, this.setupDepthRenderbuffer = YA, this.setupFrameBufferTexture = NA, this.useMultisampledRTT = MA;
 }
@@ -9736,23 +9736,23 @@ function wG(E14, A, I) {
     if (B === xc) return E14.LUMINANCE_ALPHA;
     if (B === fB) return E14.DEPTH_COMPONENT;
     if (B === Fi) return E14.DEPTH_STENCIL;
-    if (B === ye) return Q = A.get("EXT_sRGB"), Q !== null ? Q.SRGB_ALPHA_EXT : null;
+    if (B === de) return Q = A.get("EXT_sRGB"), Q !== null ? Q.SRGB_ALPHA_EXT : null;
     if (B === _c) return E14.RED;
     if (B === Ln) return E14.RED_INTEGER;
     if (B === Oc) return E14.RG;
     if (B === Hn) return E14.RG_INTEGER;
     if (B === bn) return E14.RGBA_INTEGER;
-    if (B === So || B === Go || B === ko || B === yo) if (o === UI) if (Q = A.get("WEBGL_compressed_texture_s3tc_srgb"), Q !== null) {
-      if (B === So) return Q.COMPRESSED_SRGB_S3TC_DXT1_EXT;
-      if (B === Go) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT;
-      if (B === ko) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT;
-      if (B === yo) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT;
+    if (B === Go || B === ko || B === yo || B === Mo) if (o === UI) if (Q = A.get("WEBGL_compressed_texture_s3tc_srgb"), Q !== null) {
+      if (B === Go) return Q.COMPRESSED_SRGB_S3TC_DXT1_EXT;
+      if (B === ko) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT;
+      if (B === yo) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT;
+      if (B === Mo) return Q.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT;
     } else return null;
     else if (Q = A.get("WEBGL_compressed_texture_s3tc"), Q !== null) {
-      if (B === So) return Q.COMPRESSED_RGB_S3TC_DXT1_EXT;
-      if (B === Go) return Q.COMPRESSED_RGBA_S3TC_DXT1_EXT;
-      if (B === ko) return Q.COMPRESSED_RGBA_S3TC_DXT3_EXT;
-      if (B === yo) return Q.COMPRESSED_RGBA_S3TC_DXT5_EXT;
+      if (B === Go) return Q.COMPRESSED_RGB_S3TC_DXT1_EXT;
+      if (B === ko) return Q.COMPRESSED_RGBA_S3TC_DXT1_EXT;
+      if (B === yo) return Q.COMPRESSED_RGBA_S3TC_DXT3_EXT;
+      if (B === Mo) return Q.COMPRESSED_RGBA_S3TC_DXT5_EXT;
     } else return null;
     if (B === Sa || B === Ga || B === ka || B === ya) if (Q = A.get("WEBGL_compressed_texture_pvrtc"), Q !== null) {
       if (B === Sa) return Q.COMPRESSED_RGB_PVRTC_4BPPV1_IMG;
@@ -9781,13 +9781,13 @@ function wG(E14, A, I) {
       if (B === La) return o === UI ? Q.COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR : Q.COMPRESSED_RGBA_ASTC_12x10_KHR;
       if (B === Ha) return o === UI ? Q.COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR : Q.COMPRESSED_RGBA_ASTC_12x12_KHR;
     } else return null;
-    if (B === Mo || B === ba || B === Ta) if (Q = A.get("EXT_texture_compression_bptc"), Q !== null) {
-      if (B === Mo) return o === UI ? Q.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT : Q.COMPRESSED_RGBA_BPTC_UNORM_EXT;
+    if (B === po || B === ba || B === Ta) if (Q = A.get("EXT_texture_compression_bptc"), Q !== null) {
+      if (B === po) return o === UI ? Q.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT : Q.COMPRESSED_RGBA_BPTC_UNORM_EXT;
       if (B === ba) return Q.COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT;
       if (B === Ta) return Q.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT;
     } else return null;
     if (B === vc || B === xa || B === _a || B === Oa) if (Q = A.get("EXT_texture_compression_rgtc"), Q !== null) {
-      if (B === Mo) return Q.COMPRESSED_RED_RGTC1_EXT;
+      if (B === po) return Q.COMPRESSED_RED_RGTC1_EXT;
       if (B === xa) return Q.COMPRESSED_SIGNED_RED_RGTC1_EXT;
       if (B === _a) return Q.COMPRESSED_RED_GREEN_RGTC2_EXT;
       if (B === Oa) return Q.COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT;
@@ -9801,13 +9801,13 @@ class SG extends Ug {
     super(), this.isArrayCamera = true, this.cameras = A;
   }
 }
-class f extends HI {
+class f extends bI {
   constructor() {
     super(), this.isGroup = true, this.type = "Group";
   }
 }
 const GG = { type: "move" };
-class jo {
+class Vo {
   constructor() {
     this._targetRay = null, this._grip = null, this._hand = null;
   }
@@ -9866,37 +9866,37 @@ class kG extends PB {
     const c = I.getContextAttributes();
     let D = null, h = null;
     const S = [], G = [], k = new ZA();
-    let U = null;
+    let M = null;
+    const U = new Ug();
+    U.layers.enable(1), U.viewport = new yI();
     const p = new Ug();
-    p.layers.enable(1), p.viewport = new yI();
-    const M = new Ug();
-    M.layers.enable(2), M.viewport = new yI();
-    const F = [p, M], y = new SG();
+    p.layers.enable(2), p.viewport = new yI();
+    const F = [U, p], y = new SG();
     y.layers.enable(1), y.layers.enable(2);
     let N = null, q = null;
     this.cameraAutoUpdate = true, this.enabled = false, this.isPresenting = false, this.getController = function(IA) {
-      let iA = S[IA];
-      return iA === void 0 && (iA = new jo(), S[IA] = iA), iA.getTargetRaySpace();
+      let EA = S[IA];
+      return EA === void 0 && (EA = new Vo(), S[IA] = EA), EA.getTargetRaySpace();
     }, this.getControllerGrip = function(IA) {
-      let iA = S[IA];
-      return iA === void 0 && (iA = new jo(), S[IA] = iA), iA.getGripSpace();
+      let EA = S[IA];
+      return EA === void 0 && (EA = new Vo(), S[IA] = EA), EA.getGripSpace();
     }, this.getHand = function(IA) {
-      let iA = S[IA];
-      return iA === void 0 && (iA = new jo(), S[IA] = iA), iA.getHandSpace();
+      let EA = S[IA];
+      return EA === void 0 && (EA = new Vo(), S[IA] = EA), EA.getHandSpace();
     };
     function L(IA) {
-      const iA = G.indexOf(IA.inputSource);
-      if (iA === -1) return;
-      const cA = S[iA];
+      const EA = G.indexOf(IA.inputSource);
+      if (EA === -1) return;
+      const cA = S[EA];
       cA !== void 0 && (cA.update(IA.inputSource, IA.frame, e || i), cA.dispatchEvent({ type: IA.type, data: IA.inputSource }));
     }
     function Z() {
       C.removeEventListener("select", L), C.removeEventListener("selectstart", L), C.removeEventListener("selectend", L), C.removeEventListener("squeeze", L), C.removeEventListener("squeezestart", L), C.removeEventListener("squeezeend", L), C.removeEventListener("end", Z), C.removeEventListener("inputsourceschange", m);
       for (let IA = 0; IA < S.length; IA++) {
-        const iA = G[IA];
-        iA !== null && (G[IA] = null, S[IA].disconnect(iA));
+        const EA = G[IA];
+        EA !== null && (G[IA] = null, S[IA].disconnect(EA));
       }
-      N = null, q = null, A.setRenderTarget(D), n = null, s = null, a = null, C = null, h = null, nA.stop(), g.isPresenting = false, A.setPixelRatio(U), A.setSize(k.width, k.height, false), g.dispatchEvent({ type: "sessionend" });
+      N = null, q = null, A.setRenderTarget(D), n = null, s = null, a = null, C = null, h = null, nA.stop(), g.isPresenting = false, A.setPixelRatio(M), A.setSize(k.width, k.height, false), g.dispatchEvent({ type: "sessionend" });
     }
     this.setFramebufferScaleFactor = function(IA) {
       B = IA, g.isPresenting === true && console.warn("THREE.WebXRManager: Cannot change framebuffer scale while presenting.");
@@ -9916,14 +9916,14 @@ class kG extends PB {
       return C;
     }, this.setSession = async function(IA) {
       if (C = IA, C !== null) {
-        if (D = A.getRenderTarget(), C.addEventListener("select", L), C.addEventListener("selectstart", L), C.addEventListener("selectend", L), C.addEventListener("squeeze", L), C.addEventListener("squeezestart", L), C.addEventListener("squeezeend", L), C.addEventListener("end", Z), C.addEventListener("inputsourceschange", m), c.xrCompatible !== true && await I.makeXRCompatible(), U = A.getPixelRatio(), A.getSize(k), C.renderState.layers === void 0 || A.capabilities.isWebGL2 === false) {
-          const iA = { antialias: C.renderState.layers === void 0 ? c.antialias : true, alpha: true, depth: c.depth, stencil: c.stencil, framebufferScaleFactor: B };
-          n = new XRWebGLLayer(C, I, iA), C.updateRenderState({ baseLayer: n }), A.setPixelRatio(1), A.setSize(n.framebufferWidth, n.framebufferHeight, false), h = new xB(n.framebufferWidth, n.framebufferHeight, { format: gC, type: EB, colorSpace: A.outputColorSpace, stencilBuffer: c.stencil });
+        if (D = A.getRenderTarget(), C.addEventListener("select", L), C.addEventListener("selectstart", L), C.addEventListener("selectend", L), C.addEventListener("squeeze", L), C.addEventListener("squeezestart", L), C.addEventListener("squeezeend", L), C.addEventListener("end", Z), C.addEventListener("inputsourceschange", m), c.xrCompatible !== true && await I.makeXRCompatible(), M = A.getPixelRatio(), A.getSize(k), C.renderState.layers === void 0 || A.capabilities.isWebGL2 === false) {
+          const EA = { antialias: C.renderState.layers === void 0 ? c.antialias : true, alpha: true, depth: c.depth, stencil: c.stencil, framebufferScaleFactor: B };
+          n = new XRWebGLLayer(C, I, EA), C.updateRenderState({ baseLayer: n }), A.setPixelRatio(1), A.setSize(n.framebufferWidth, n.framebufferHeight, false), h = new xB(n.framebufferWidth, n.framebufferHeight, { format: gC, type: EB, colorSpace: A.outputColorSpace, stencilBuffer: c.stencil });
         } else {
-          let iA = null, cA = null, KA = null;
-          c.depth && (KA = c.stencil ? I.DEPTH24_STENCIL8 : I.DEPTH_COMPONENT24, iA = c.stencil ? Fi : fB, cA = c.stencil ? qB : AB);
+          let EA = null, cA = null, KA = null;
+          c.depth && (KA = c.stencil ? I.DEPTH24_STENCIL8 : I.DEPTH_COMPONENT24, EA = c.stencil ? Fi : fB, cA = c.stencil ? qB : AB);
           const NA = { colorFormat: I.RGBA8, depthFormat: KA, scaleFactor: B };
-          a = new XRWebGLBinding(C, I), s = a.createProjectionLayer(NA), C.updateRenderState({ layers: [s] }), A.setPixelRatio(1), A.setSize(s.textureWidth, s.textureHeight, false), h = new xB(s.textureWidth, s.textureHeight, { format: gC, type: EB, depthTexture: new gr(s.textureWidth, s.textureHeight, cA, void 0, void 0, void 0, void 0, void 0, void 0, iA), stencilBuffer: c.stencil, colorSpace: A.outputColorSpace, samples: c.antialias ? 4 : 0 });
+          a = new XRWebGLBinding(C, I), s = a.createProjectionLayer(NA), C.updateRenderState({ layers: [s] }), A.setPixelRatio(1), A.setSize(s.textureWidth, s.textureHeight, false), h = new xB(s.textureWidth, s.textureHeight, { format: gC, type: EB, depthTexture: new gr(s.textureWidth, s.textureHeight, cA, void 0, void 0, void 0, void 0, void 0, void 0, EA), stencilBuffer: c.stencil, colorSpace: A.outputColorSpace, samples: c.antialias ? 4 : 0 });
           const PA = A.properties.get(h);
           PA.__ignoreDepthValues = s.ignoreDepthValues;
         }
@@ -9933,12 +9933,12 @@ class kG extends PB {
       if (C !== null) return C.environmentBlendMode;
     };
     function m(IA) {
-      for (let iA = 0; iA < IA.removed.length; iA++) {
-        const cA = IA.removed[iA], KA = G.indexOf(cA);
+      for (let EA = 0; EA < IA.removed.length; EA++) {
+        const cA = IA.removed[EA], KA = G.indexOf(cA);
         KA >= 0 && (G[KA] = null, S[KA].disconnect(cA));
       }
-      for (let iA = 0; iA < IA.added.length; iA++) {
-        const cA = IA.added[iA];
+      for (let EA = 0; EA < IA.added.length; EA++) {
+        const cA = IA.added[EA];
         let KA = G.indexOf(cA);
         if (KA === -1) {
           for (let PA = 0; PA < S.length; PA++) if (PA >= G.length) {
@@ -9955,26 +9955,26 @@ class kG extends PB {
       }
     }
     const _ = new H(), v = new H();
-    function AA(IA, iA, cA) {
-      _.setFromMatrixPosition(iA.matrixWorld), v.setFromMatrixPosition(cA.matrixWorld);
-      const KA = _.distanceTo(v), NA = iA.projectionMatrix.elements, PA = cA.projectionMatrix.elements, jA = NA[14] / (NA[10] - 1), YA = NA[14] / (NA[10] + 1), aI = (NA[9] + 1) / NA[5], P = (NA[9] - 1) / NA[5], kg = (NA[8] - 1) / NA[0], JA = (PA[8] + 1) / PA[0], OA = jA * kg, MA = jA * JA, JI = KA / (-kg + JA), $A = JI * -kg;
-      iA.matrixWorld.decompose(IA.position, IA.quaternion, IA.scale), IA.translateX($A), IA.translateZ(JI), IA.matrixWorld.compose(IA.position, IA.quaternion, IA.scale), IA.matrixWorldInverse.copy(IA.matrixWorld).invert();
-      const J = jA + JI, K = YA + JI, j = OA - $A, tA = MA + (KA - $A), eA = aI * YA / K * J, aA = P * YA / K * J;
+    function AA(IA, EA, cA) {
+      _.setFromMatrixPosition(EA.matrixWorld), v.setFromMatrixPosition(cA.matrixWorld);
+      const KA = _.distanceTo(v), NA = EA.projectionMatrix.elements, PA = cA.projectionMatrix.elements, jA = NA[14] / (NA[10] - 1), YA = NA[14] / (NA[10] + 1), aI = (NA[9] + 1) / NA[5], P = (NA[9] - 1) / NA[5], kg = (NA[8] - 1) / NA[0], JA = (PA[8] + 1) / PA[0], OA = jA * kg, MA = jA * JA, uI = KA / (-kg + JA), $A = uI * -kg;
+      EA.matrixWorld.decompose(IA.position, IA.quaternion, IA.scale), IA.translateX($A), IA.translateZ(uI), IA.matrixWorld.compose(IA.position, IA.quaternion, IA.scale), IA.matrixWorldInverse.copy(IA.matrixWorld).invert();
+      const J = jA + uI, K = YA + uI, j = OA - $A, tA = MA + (KA - $A), eA = aI * YA / K * J, aA = P * YA / K * J;
       IA.projectionMatrix.makePerspective(j, tA, eA, aA, J, K), IA.projectionMatrixInverse.copy(IA.projectionMatrix).invert();
     }
-    function gA(IA, iA) {
-      iA === null ? IA.matrixWorld.copy(IA.matrix) : IA.matrixWorld.multiplyMatrices(iA.matrixWorld, IA.matrix), IA.matrixWorldInverse.copy(IA.matrixWorld).invert();
+    function gA(IA, EA) {
+      EA === null ? IA.matrixWorld.copy(IA.matrix) : IA.matrixWorld.multiplyMatrices(EA.matrixWorld, IA.matrix), IA.matrixWorldInverse.copy(IA.matrixWorld).invert();
     }
     this.updateCamera = function(IA) {
       if (C === null) return;
-      y.near = M.near = p.near = IA.near, y.far = M.far = p.far = IA.far, (N !== y.near || q !== y.far) && (C.updateRenderState({ depthNear: y.near, depthFar: y.far }), N = y.near, q = y.far);
-      const iA = IA.parent, cA = y.cameras;
-      gA(y, iA);
-      for (let KA = 0; KA < cA.length; KA++) gA(cA[KA], iA);
-      cA.length === 2 ? AA(y, p, M) : y.projectionMatrix.copy(p.projectionMatrix), CA(IA, y, iA);
+      y.near = p.near = U.near = IA.near, y.far = p.far = U.far = IA.far, (N !== y.near || q !== y.far) && (C.updateRenderState({ depthNear: y.near, depthFar: y.far }), N = y.near, q = y.far);
+      const EA = IA.parent, cA = y.cameras;
+      gA(y, EA);
+      for (let KA = 0; KA < cA.length; KA++) gA(cA[KA], EA);
+      cA.length === 2 ? AA(y, U, p) : y.projectionMatrix.copy(U.projectionMatrix), CA(IA, y, EA);
     };
-    function CA(IA, iA, cA) {
-      cA === null ? IA.matrix.copy(iA.matrixWorld) : (IA.matrix.copy(cA.matrixWorld), IA.matrix.invert(), IA.matrix.multiply(iA.matrixWorld)), IA.matrix.decompose(IA.position, IA.quaternion, IA.scale), IA.updateMatrixWorld(true), IA.projectionMatrix.copy(iA.projectionMatrix), IA.projectionMatrixInverse.copy(iA.projectionMatrixInverse), IA.isPerspectiveCamera && (IA.fov = Ji * 2 * Math.atan(1 / IA.projectionMatrix.elements[5]), IA.zoom = 1);
+    function CA(IA, EA, cA) {
+      cA === null ? IA.matrix.copy(EA.matrixWorld) : (IA.matrix.copy(cA.matrixWorld), IA.matrix.invert(), IA.matrix.multiply(EA.matrixWorld)), IA.matrix.decompose(IA.position, IA.quaternion, IA.scale), IA.updateMatrixWorld(true), IA.projectionMatrix.copy(EA.projectionMatrix), IA.projectionMatrixInverse.copy(EA.projectionMatrixInverse), IA.isPerspectiveCamera && (IA.fov = Ji * 2 * Math.atan(1 / IA.projectionMatrix.elements[5]), IA.zoom = 1);
     }
     this.getCamera = function() {
       return y;
@@ -9983,9 +9983,9 @@ class kG extends PB {
     }, this.setFoveation = function(IA) {
       o = IA, s !== null && (s.fixedFoveation = IA), n !== null && n.fixedFoveation !== void 0 && (n.fixedFoveation = IA);
     };
-    let QA = null;
-    function sA(IA, iA) {
-      if (t = iA.getViewerPose(e || i), r = iA, t !== null) {
+    let iA = null;
+    function sA(IA, EA) {
+      if (t = EA.getViewerPose(e || i), r = EA, t !== null) {
         const cA = t.views;
         n !== null && (A.setRenderTargetFramebuffer(h, n.framebuffer), A.setRenderTarget(h));
         let KA = false;
@@ -10004,13 +10004,13 @@ class kG extends PB {
       }
       for (let cA = 0; cA < S.length; cA++) {
         const KA = G[cA], NA = S[cA];
-        KA !== null && NA !== void 0 && NA.update(KA, iA, e || i);
+        KA !== null && NA !== void 0 && NA.update(KA, EA, e || i);
       }
-      QA && QA(IA, iA), iA.detectedPlanes && g.dispatchEvent({ type: "planesdetected", data: iA }), r = null;
+      iA && iA(IA, EA), EA.detectedPlanes && g.dispatchEvent({ type: "planesdetected", data: EA }), r = null;
     }
     const nA = new Ir();
     nA.setAnimationLoop(sA), this.setAnimationLoop = function(IA) {
-      QA = IA;
+      iA = IA;
     }, this.dispose = function() {
     };
   }
@@ -10078,29 +10078,29 @@ function dG(E14, A, I, g) {
   function e(S, G) {
     let k = C[S.id];
     k === void 0 && (r(S), k = t(S), C[S.id] = k, S.addEventListener("dispose", D));
-    const U = G.program;
-    g.updateUBOMapping(S, U);
-    const p = A.render.frame;
-    B[S.id] !== p && (s(S), B[S.id] = p);
+    const M = G.program;
+    g.updateUBOMapping(S, M);
+    const U = A.render.frame;
+    B[S.id] !== U && (s(S), B[S.id] = U);
   }
   function t(S) {
     const G = a();
     S.__bindingPointIndex = G;
-    const k = E14.createBuffer(), U = S.__size, p = S.usage;
-    return E14.bindBuffer(E14.UNIFORM_BUFFER, k), E14.bufferData(E14.UNIFORM_BUFFER, U, p), E14.bindBuffer(E14.UNIFORM_BUFFER, null), E14.bindBufferBase(E14.UNIFORM_BUFFER, G, k), k;
+    const k = E14.createBuffer(), M = S.__size, U = S.usage;
+    return E14.bindBuffer(E14.UNIFORM_BUFFER, k), E14.bufferData(E14.UNIFORM_BUFFER, M, U), E14.bindBuffer(E14.UNIFORM_BUFFER, null), E14.bindBufferBase(E14.UNIFORM_BUFFER, G, k), k;
   }
   function a() {
     for (let S = 0; S < Q; S++) if (i.indexOf(S) === -1) return i.push(S), S;
     return console.error("THREE.WebGLRenderer: Maximum number of simultaneously usable uniforms groups reached."), 0;
   }
   function s(S) {
-    const G = C[S.id], k = S.uniforms, U = S.__cache;
+    const G = C[S.id], k = S.uniforms, M = S.__cache;
     E14.bindBuffer(E14.UNIFORM_BUFFER, G);
-    for (let p = 0, M = k.length; p < M; p++) {
-      const F = Array.isArray(k[p]) ? k[p] : [k[p]];
+    for (let U = 0, p = k.length; U < p; U++) {
+      const F = Array.isArray(k[U]) ? k[U] : [k[U]];
       for (let y = 0, N = F.length; y < N; y++) {
         const q = F[y];
-        if (n(q, p, y, U) === true) {
+        if (n(q, U, y, M) === true) {
           const L = q.__offset, Z = Array.isArray(q.value) ? q.value : [q.value];
           let m = 0;
           for (let _ = 0; _ < Z.length; _++) {
@@ -10113,33 +10113,33 @@ function dG(E14, A, I, g) {
     }
     E14.bindBuffer(E14.UNIFORM_BUFFER, null);
   }
-  function n(S, G, k, U) {
-    const p = S.value, M = G + "_" + k;
-    if (U[M] === void 0) return typeof p == "number" || typeof p == "boolean" ? U[M] = p : U[M] = p.clone(), true;
+  function n(S, G, k, M) {
+    const U = S.value, p = G + "_" + k;
+    if (M[p] === void 0) return typeof U == "number" || typeof U == "boolean" ? M[p] = U : M[p] = U.clone(), true;
     {
-      const F = U[M];
-      if (typeof p == "number" || typeof p == "boolean") {
-        if (F !== p) return U[M] = p, true;
-      } else if (F.equals(p) === false) return F.copy(p), true;
+      const F = M[p];
+      if (typeof U == "number" || typeof U == "boolean") {
+        if (F !== U) return M[p] = U, true;
+      } else if (F.equals(U) === false) return F.copy(U), true;
     }
     return false;
   }
   function r(S) {
     const G = S.uniforms;
     let k = 0;
-    const U = 16;
-    for (let M = 0, F = G.length; M < F; M++) {
-      const y = Array.isArray(G[M]) ? G[M] : [G[M]];
+    const M = 16;
+    for (let p = 0, F = G.length; p < F; p++) {
+      const y = Array.isArray(G[p]) ? G[p] : [G[p]];
       for (let N = 0, q = y.length; N < q; N++) {
         const L = y[N], Z = Array.isArray(L.value) ? L.value : [L.value];
         for (let m = 0, _ = Z.length; m < _; m++) {
-          const v = Z[m], AA = c(v), gA = k % U;
-          gA !== 0 && U - gA < AA.boundary && (k += U - gA), L.__data = new Float32Array(AA.storage / Float32Array.BYTES_PER_ELEMENT), L.__offset = k, k += AA.storage;
+          const v = Z[m], AA = c(v), gA = k % M;
+          gA !== 0 && M - gA < AA.boundary && (k += M - gA), L.__data = new Float32Array(AA.storage / Float32Array.BYTES_PER_ELEMENT), L.__offset = k, k += AA.storage;
         }
       }
     }
-    const p = k % U;
-    return p > 0 && (k += U - p), S.__size = k, S.__cache = {}, this;
+    const U = k % M;
+    return U > 0 && (k += M - U), S.__size = k, S.__cache = {}, this;
   }
   function c(S) {
     const G = { boundary: 0, storage: 0 };
@@ -10166,25 +10166,25 @@ class or {
     const n = new Uint32Array(4), r = new Int32Array(4);
     let c = null, D = null;
     const h = [], S = [];
-    this.domElement = I, this.debug = { checkShaderErrors: true, onShaderError: null }, this.autoClear = true, this.autoClearColor = true, this.autoClearDepth = true, this.autoClearStencil = true, this.sortObjects = true, this.clippingPlanes = [], this.localClippingEnabled = false, this._outputColorSpace = _I, this._useLegacyLights = false, this.toneMapping = QB, this.toneMappingExposure = 1;
+    this.domElement = I, this.debug = { checkShaderErrors: true, onShaderError: null }, this.autoClear = true, this.autoClearColor = true, this.autoClearDepth = true, this.autoClearStencil = true, this.sortObjects = true, this.clippingPlanes = [], this.localClippingEnabled = false, this._outputColorSpace = OI, this._useLegacyLights = false, this.toneMapping = QB, this.toneMappingExposure = 1;
     const G = this;
-    let k = false, U = 0, p = 0, M = null, F = -1, y = null;
+    let k = false, M = 0, U = 0, p = null, F = -1, y = null;
     const N = new yI(), q = new yI();
     let L = null;
     const Z = new mA(0);
     let m = 0, _ = I.width, v = I.height, AA = 1, gA = null, CA = null;
-    const QA = new yI(0, 0, _, v), sA = new yI(0, 0, _, v);
+    const iA = new yI(0, 0, _, v), sA = new yI(0, 0, _, v);
     let nA = false;
     const IA = new at();
-    let iA = false, cA = false, KA = null;
+    let EA = false, cA = false, KA = null;
     const NA = new iI(), PA = new ZA(), jA = new H(), YA = { background: null, fog: null, environment: null, overrideMaterial: null, isScene: true };
     function aI() {
-      return M === null ? AA : 1;
+      return p === null ? AA : 1;
     }
     let P = g;
     function kg(R, O) {
       for (let V = 0; V < R.length; V++) {
-        const X = R[V], W = I.getContext(X, O);
+        const z = R[V], W = I.getContext(z, O);
         if (W !== null) return W;
       }
       return null;
@@ -10201,11 +10201,11 @@ class or {
     } catch (R) {
       throw console.error("THREE.WebGLRenderer: " + R.message), R;
     }
-    let JA, OA, MA, JI, $A, J, K, j, tA, eA, aA, pA, wA, yA, fA, AI, oA, hI, QI, _A, FA, dA, VA, cI;
-    function bI() {
-      JA = new q0(P), OA = new N0(P, JA, A), JA.init(OA), dA = new wG(P, JA, OA), MA = new hG(P, JA, OA), JI = new Y0(P), $A = new CG(), J = new lG(P, JA, MA, $A, OA, dA, JI), K = new F0(G), j = new u0(G), tA = new vh(P, OA), VA = new p0(P, JA, tA, OA), eA = new f0(P, tA, JI, VA), aA = new T0(P, eA, tA, JI), QI = new b0(P, OA, J), AI = new K0($A), pA = new gG(G, K, j, JA, OA, VA, AI), wA = new yG(G, $A), yA = new iG(), fA = new aG(JA, OA), hI = new M0(G, K, j, MA, aA, s, o), oA = new cG(G, aA, OA), cI = new dG(P, JI, OA, MA), _A = new U0(P, JA, JI, OA), FA = new m0(P, JA, JI, OA), JI.programs = pA.programs, G.capabilities = OA, G.extensions = JA, G.properties = $A, G.renderLists = yA, G.shadowMap = oA, G.state = MA, G.info = JI;
+    let JA, OA, MA, uI, $A, J, K, j, tA, eA, aA, pA, SA, yA, fA, AI, oA, hI, QI, _A, FA, dA, VA, cI;
+    function TI() {
+      JA = new qw(P), OA = new Nw(P, JA, A), JA.init(OA), dA = new wG(P, JA, OA), MA = new hG(P, JA, OA), uI = new Yw(P), $A = new CG(), J = new lG(P, JA, MA, $A, OA, dA, uI), K = new Fw(G), j = new uw(G), tA = new vh(P, OA), VA = new pw(P, JA, tA, OA), eA = new fw(P, tA, uI, VA), aA = new Tw(P, eA, tA, uI), QI = new bw(P, OA, J), AI = new Kw($A), pA = new gG(G, K, j, JA, OA, VA, AI), SA = new yG(G, $A), yA = new iG(), fA = new aG(JA, OA), hI = new Mw(G, K, j, MA, aA, s, o), oA = new cG(G, aA, OA), cI = new dG(P, uI, OA, MA), _A = new Uw(P, JA, uI, OA), FA = new mw(P, JA, uI, OA), uI.programs = pA.programs, G.capabilities = OA, G.extensions = JA, G.properties = $A, G.renderLists = yA, G.shadowMap = oA, G.state = MA, G.info = uI;
     }
-    bI();
+    TI();
     const gI = new kG(G, P);
     this.xr = gI, this.getContext = function() {
       return P;
@@ -10236,13 +10236,13 @@ class or {
     }, this.getCurrentViewport = function(R) {
       return R.copy(N);
     }, this.getViewport = function(R) {
-      return R.copy(QA);
-    }, this.setViewport = function(R, O, V, X) {
-      R.isVector4 ? QA.set(R.x, R.y, R.z, R.w) : QA.set(R, O, V, X), MA.viewport(N.copy(QA).multiplyScalar(AA).floor());
+      return R.copy(iA);
+    }, this.setViewport = function(R, O, V, z) {
+      R.isVector4 ? iA.set(R.x, R.y, R.z, R.w) : iA.set(R, O, V, z), MA.viewport(N.copy(iA).multiplyScalar(AA).floor());
     }, this.getScissor = function(R) {
       return R.copy(sA);
-    }, this.setScissor = function(R, O, V, X) {
-      R.isVector4 ? sA.set(R.x, R.y, R.z, R.w) : sA.set(R, O, V, X), MA.scissor(q.copy(sA).multiplyScalar(AA).floor());
+    }, this.setScissor = function(R, O, V, z) {
+      R.isVector4 ? sA.set(R.x, R.y, R.z, R.w) : sA.set(R, O, V, z), MA.scissor(q.copy(sA).multiplyScalar(AA).floor());
     }, this.getScissorTest = function() {
       return nA;
     }, this.setScissorTest = function(R) {
@@ -10260,19 +10260,19 @@ class or {
     }, this.setClearAlpha = function() {
       hI.setClearAlpha.apply(hI, arguments);
     }, this.clear = function(R = true, O = true, V = true) {
-      let X = 0;
+      let z = 0;
       if (R) {
         let W = false;
-        if (M !== null) {
-          const GA = M.texture.format;
+        if (p !== null) {
+          const GA = p.texture.format;
           W = GA === bn || GA === Hn || GA === Ln;
         }
         if (W) {
-          const GA = M.texture.type, UA = GA === EB || GA === AB || GA === it || GA === qB || GA === mn || GA === Yn, qA = hI.getClearColor(), bA = hI.getClearAlpha(), II = qA.r, vA = qA.g, WA = qA.b;
+          const GA = p.texture.type, UA = GA === EB || GA === AB || GA === it || GA === qB || GA === mn || GA === Yn, qA = hI.getClearColor(), bA = hI.getClearAlpha(), II = qA.r, vA = qA.g, WA = qA.b;
           UA ? (n[0] = II, n[1] = vA, n[2] = WA, n[3] = bA, P.clearBufferuiv(P.COLOR, 0, n)) : (r[0] = II, r[1] = vA, r[2] = WA, r[3] = bA, P.clearBufferiv(P.COLOR, 0, r));
-        } else X |= P.COLOR_BUFFER_BIT;
+        } else z |= P.COLOR_BUFFER_BIT;
       }
-      O && (X |= P.DEPTH_BUFFER_BIT), V && (X |= P.STENCIL_BUFFER_BIT, this.state.buffers.stencil.setMask(4294967295)), P.clear(X);
+      O && (z |= P.DEPTH_BUFFER_BIT), V && (z |= P.STENCIL_BUFFER_BIT, this.state.buffers.stencil.setMask(4294967295)), P.clear(z);
     }, this.clearColor = function() {
       this.clear(true, false, false);
     }, this.clearDepth = function() {
@@ -10287,8 +10287,8 @@ class or {
     }
     function b() {
       console.log("THREE.WebGLRenderer: Context Restored."), k = false;
-      const R = JI.autoReset, O = oA.enabled, V = oA.autoUpdate, X = oA.needsUpdate, W = oA.type;
-      bI(), JI.autoReset = R, oA.enabled = O, oA.autoUpdate = V, oA.needsUpdate = X, oA.type = W;
+      const R = uI.autoReset, O = oA.enabled, V = oA.autoUpdate, z = oA.needsUpdate, W = oA.type;
+      TI(), uI.autoReset = R, oA.enabled = O, oA.autoUpdate = V, oA.needsUpdate = z, oA.type = W;
     }
     function hA(R) {
       console.error("THREE.WebGLRenderer: A WebGL context could not be created. Reason: ", R.statusMessage);
@@ -10306,33 +10306,33 @@ class or {
         pA.releaseProgram(V);
       }), R.isShaderMaterial && pA.releaseShaderCache(R));
     }
-    this.renderBufferDirect = function(R, O, V, X, W, GA) {
+    this.renderBufferDirect = function(R, O, V, z, W, GA) {
       O === null && (O = YA);
-      const UA = W.isMesh && W.matrixWorld.determinant() < 0, qA = Ac(R, O, V, X, W);
-      MA.setMaterial(X, UA);
+      const UA = W.isMesh && W.matrixWorld.determinant() < 0, qA = Ac(R, O, V, z, W);
+      MA.setMaterial(z, UA);
       let bA = V.index, II = 1;
-      if (X.wireframe === true) {
+      if (z.wireframe === true) {
         if (bA = eA.getWireframeAttribute(V), bA === void 0) return;
         II = 2;
       }
       const vA = V.drawRange, WA = V.attributes.position;
-      let ZI = vA.start * II, Hg = (vA.start + vA.count) * II;
-      GA !== null && (ZI = Math.max(ZI, GA.start * II), Hg = Math.min(Hg, (GA.start + GA.count) * II)), bA !== null ? (ZI = Math.max(ZI, 0), Hg = Math.min(Hg, bA.count)) : WA != null && (ZI = Math.max(ZI, 0), Hg = Math.min(Hg, WA.count));
-      const Bg = Hg - ZI;
-      if (Bg < 0 || Bg === 1 / 0) return;
-      VA.setup(W, X, qA, V, bA);
-      let NC, uI = _A;
-      if (bA !== null && (NC = tA.get(bA), uI = FA, uI.setIndex(NC)), W.isMesh) X.wireframe === true ? (MA.setLineWidth(X.wireframeLinewidth * aI()), uI.setMode(P.LINES)) : uI.setMode(P.TRIANGLES);
+      let PI = vA.start * II, Hg = (vA.start + vA.count) * II;
+      GA !== null && (PI = Math.max(PI, GA.start * II), Hg = Math.min(Hg, (GA.start + GA.count) * II)), bA !== null ? (PI = Math.max(PI, 0), Hg = Math.min(Hg, bA.count)) : WA != null && (PI = Math.max(PI, 0), Hg = Math.min(Hg, WA.count));
+      const ig = Hg - PI;
+      if (ig < 0 || ig === 1 / 0) return;
+      VA.setup(W, z, qA, V, bA);
+      let NC, qI = _A;
+      if (bA !== null && (NC = tA.get(bA), qI = FA, qI.setIndex(NC)), W.isMesh) z.wireframe === true ? (MA.setLineWidth(z.wireframeLinewidth * aI()), qI.setMode(P.LINES)) : qI.setMode(P.TRIANGLES);
       else if (W.isLine) {
-        let CI = X.linewidth;
-        CI === void 0 && (CI = 1), MA.setLineWidth(CI * aI()), W.isLineSegments ? uI.setMode(P.LINES) : W.isLineLoop ? uI.setMode(P.LINE_LOOP) : uI.setMode(P.LINE_STRIP);
-      } else W.isPoints ? uI.setMode(P.POINTS) : W.isSprite && uI.setMode(P.TRIANGLES);
-      if (W.isBatchedMesh) uI.renderMultiDraw(W._multiDrawStarts, W._multiDrawCounts, W._multiDrawCount);
-      else if (W.isInstancedMesh) uI.renderInstances(ZI, Bg, W.count);
+        let CI = z.linewidth;
+        CI === void 0 && (CI = 1), MA.setLineWidth(CI * aI()), W.isLineSegments ? qI.setMode(P.LINES) : W.isLineLoop ? qI.setMode(P.LINE_LOOP) : qI.setMode(P.LINE_STRIP);
+      } else W.isPoints ? qI.setMode(P.POINTS) : W.isSprite && qI.setMode(P.TRIANGLES);
+      if (W.isBatchedMesh) qI.renderMultiDraw(W._multiDrawStarts, W._multiDrawCounts, W._multiDrawCount);
+      else if (W.isInstancedMesh) qI.renderInstances(PI, ig, W.count);
       else if (V.isInstancedBufferGeometry) {
-        const CI = V._maxInstanceCount !== void 0 ? V._maxInstanceCount : 1 / 0, co = Math.min(V.instanceCount, CI);
-        uI.renderInstances(ZI, Bg, co);
-      } else uI.render(ZI, Bg);
+        const CI = V._maxInstanceCount !== void 0 ? V._maxInstanceCount : 1 / 0, ho = Math.min(V.instanceCount, CI);
+        qI.renderInstances(PI, ig, ho);
+      } else qI.render(PI, ig);
     };
     function dI(R, O, V) {
       R.transparent === true && R.side === Jg && R.forceSinglePass === false ? (R.side = Ng, R.needsUpdate = true, ZQ(R, O, V), R.side = TC, R.needsUpdate = true, ZQ(R, O, V), R.side = Jg) : ZQ(R, O, V);
@@ -10343,22 +10343,22 @@ class or {
       }), R !== V && R.traverseVisible(function(W) {
         W.isLight && W.layers.test(O.layers) && (D.pushLight(W), W.castShadow && D.pushShadow(W));
       }), D.setupLights(G._useLegacyLights);
-      const X = /* @__PURE__ */ new Set();
+      const z = /* @__PURE__ */ new Set();
       return R.traverse(function(W) {
         const GA = W.material;
         if (GA) if (Array.isArray(GA)) for (let UA = 0; UA < GA.length; UA++) {
           const qA = GA[UA];
-          dI(qA, V, W), X.add(qA);
+          dI(qA, V, W), z.add(qA);
         }
-        else dI(GA, V, W), X.add(GA);
-      }), S.pop(), D = null, X;
+        else dI(GA, V, W), z.add(GA);
+      }), S.pop(), D = null, z;
     }, this.compileAsync = function(R, O, V = null) {
-      const X = this.compile(R, O, V);
+      const z = this.compile(R, O, V);
       return new Promise((W) => {
         function GA() {
-          if (X.forEach(function(UA) {
-            $A.get(UA).currentProgram.isReady() && X.delete(UA);
-          }), X.size === 0) {
+          if (z.forEach(function(UA) {
+            $A.get(UA).currentProgram.isReady() && z.delete(UA);
+          }), z.size === 0) {
             W(R);
             return;
           }
@@ -10368,7 +10368,7 @@ class or {
       });
     };
     let MI = null;
-    function Cg(R) {
+    function Bg(R) {
       MI && MI(R);
     }
     function yg() {
@@ -10378,7 +10378,7 @@ class or {
       dg.start();
     }
     const dg = new Ir();
-    dg.setAnimationLoop(Cg), typeof self < "u" && dg.setContext(self), this.setAnimationLoop = function(R) {
+    dg.setAnimationLoop(Bg), typeof self < "u" && dg.setContext(self), this.setAnimationLoop = function(R) {
       MI = R, gI.setAnimationLoop(R), R === null ? dg.stop() : dg.start();
     }, gI.addEventListener("sessionstart", yg), gI.addEventListener("sessionend", pI), this.render = function(R, O) {
       if (O !== void 0 && O.isCamera !== true) {
@@ -10386,18 +10386,18 @@ class or {
         return;
       }
       if (k === true) return;
-      R.matrixWorldAutoUpdate === true && R.updateMatrixWorld(), O.parent === null && O.matrixWorldAutoUpdate === true && O.updateMatrixWorld(), gI.enabled === true && gI.isPresenting === true && (gI.cameraAutoUpdate === true && gI.updateCamera(O), O = gI.getCamera()), R.isScene === true && R.onBeforeRender(G, R, O, M), D = fA.get(R, S.length), D.init(), S.push(D), NA.multiplyMatrices(O.projectionMatrix, O.matrixWorldInverse), IA.setFromProjectionMatrix(NA), cA = this.localClippingEnabled, iA = AI.init(this.clippingPlanes, cA), c = yA.get(R, h.length), c.init(), h.push(c), cC(R, O, 0, G.sortObjects), c.finish(), G.sortObjects === true && c.sort(gA, CA), this.info.render.frame++, iA === true && AI.beginShadows();
+      R.matrixWorldAutoUpdate === true && R.updateMatrixWorld(), O.parent === null && O.matrixWorldAutoUpdate === true && O.updateMatrixWorld(), gI.enabled === true && gI.isPresenting === true && (gI.cameraAutoUpdate === true && gI.updateCamera(O), O = gI.getCamera()), R.isScene === true && R.onBeforeRender(G, R, O, p), D = fA.get(R, S.length), D.init(), S.push(D), NA.multiplyMatrices(O.projectionMatrix, O.matrixWorldInverse), IA.setFromProjectionMatrix(NA), cA = this.localClippingEnabled, EA = AI.init(this.clippingPlanes, cA), c = yA.get(R, h.length), c.init(), h.push(c), cC(R, O, 0, G.sortObjects), c.finish(), G.sortObjects === true && c.sort(gA, CA), this.info.render.frame++, EA === true && AI.beginShadows();
       const V = D.state.shadowsArray;
-      if (oA.render(V, R, O), iA === true && AI.endShadows(), this.info.autoReset === true && this.info.reset(), hI.render(c, R), D.setupLights(G._useLegacyLights), O.isArrayCamera) {
-        const X = O.cameras;
-        for (let W = 0, GA = X.length; W < GA; W++) {
-          const UA = X[W];
+      if (oA.render(V, R, O), EA === true && AI.endShadows(), this.info.autoReset === true && this.info.reset(), hI.render(c, R), D.setupLights(G._useLegacyLights), O.isArrayCamera) {
+        const z = O.cameras;
+        for (let W = 0, GA = z.length; W < GA; W++) {
+          const UA = z[W];
           Ea(c, R, UA, UA.viewport);
         }
       } else Ea(c, R, O);
-      M !== null && (J.updateMultisampleRenderTarget(M), J.updateRenderTargetMipmap(M)), R.isScene === true && R.onAfterRender(G, R, O), VA.resetDefaultState(), F = -1, y = null, S.pop(), S.length > 0 ? D = S[S.length - 1] : D = null, h.pop(), h.length > 0 ? c = h[h.length - 1] : c = null;
+      p !== null && (J.updateMultisampleRenderTarget(p), J.updateRenderTargetMipmap(p)), R.isScene === true && R.onAfterRender(G, R, O), VA.resetDefaultState(), F = -1, y = null, S.pop(), S.length > 0 ? D = S[S.length - 1] : D = null, h.pop(), h.length > 0 ? c = h[h.length - 1] : c = null;
     };
-    function cC(R, O, V, X) {
+    function cC(R, O, V, z) {
       if (R.visible === false) return;
       if (R.layers.test(O.layers)) {
         if (R.isGroup) V = R.renderOrder;
@@ -10405,67 +10405,67 @@ class or {
         else if (R.isLight) D.pushLight(R), R.castShadow && D.pushShadow(R);
         else if (R.isSprite) {
           if (!R.frustumCulled || IA.intersectsSprite(R)) {
-            X && jA.setFromMatrixPosition(R.matrixWorld).applyMatrix4(NA);
+            z && jA.setFromMatrixPosition(R.matrixWorld).applyMatrix4(NA);
             const UA = aA.update(R), qA = R.material;
             qA.visible && c.push(R, UA, qA, V, jA.z, null);
           }
         } else if ((R.isMesh || R.isLine || R.isPoints) && (!R.frustumCulled || IA.intersectsObject(R))) {
           const UA = aA.update(R), qA = R.material;
-          if (X && (R.boundingSphere !== void 0 ? (R.boundingSphere === null && R.computeBoundingSphere(), jA.copy(R.boundingSphere.center)) : (UA.boundingSphere === null && UA.computeBoundingSphere(), jA.copy(UA.boundingSphere.center)), jA.applyMatrix4(R.matrixWorld).applyMatrix4(NA)), Array.isArray(qA)) {
+          if (z && (R.boundingSphere !== void 0 ? (R.boundingSphere === null && R.computeBoundingSphere(), jA.copy(R.boundingSphere.center)) : (UA.boundingSphere === null && UA.computeBoundingSphere(), jA.copy(UA.boundingSphere.center)), jA.applyMatrix4(R.matrixWorld).applyMatrix4(NA)), Array.isArray(qA)) {
             const bA = UA.groups;
             for (let II = 0, vA = bA.length; II < vA; II++) {
-              const WA = bA[II], ZI = qA[WA.materialIndex];
-              ZI && ZI.visible && c.push(R, UA, ZI, V, jA.z, WA);
+              const WA = bA[II], PI = qA[WA.materialIndex];
+              PI && PI.visible && c.push(R, UA, PI, V, jA.z, WA);
             }
           } else qA.visible && c.push(R, UA, qA, V, jA.z, null);
         }
       }
       const GA = R.children;
-      for (let UA = 0, qA = GA.length; UA < qA; UA++) cC(GA[UA], O, V, X);
+      for (let UA = 0, qA = GA.length; UA < qA; UA++) cC(GA[UA], O, V, z);
     }
-    function Ea(R, O, V, X) {
+    function Ea(R, O, V, z) {
       const W = R.opaque, GA = R.transmissive, UA = R.transparent;
-      D.setupLightsView(V), iA === true && AI.setGlobalState(G.clippingPlanes, V), GA.length > 0 && $D(W, GA, O, V), X && MA.viewport(N.copy(X)), W.length > 0 && vQ(W, O, V), GA.length > 0 && vQ(GA, O, V), UA.length > 0 && vQ(UA, O, V), MA.buffers.depth.setTest(true), MA.buffers.depth.setMask(true), MA.buffers.color.setMask(true), MA.setPolygonOffset(false);
+      D.setupLightsView(V), EA === true && AI.setGlobalState(G.clippingPlanes, V), GA.length > 0 && $D(W, GA, O, V), z && MA.viewport(N.copy(z)), W.length > 0 && vQ(W, O, V), GA.length > 0 && vQ(GA, O, V), UA.length > 0 && vQ(UA, O, V), MA.buffers.depth.setTest(true), MA.buffers.depth.setMask(true), MA.buffers.color.setMask(true), MA.setPolygonOffset(false);
     }
-    function $D(R, O, V, X) {
+    function $D(R, O, V, z) {
       if ((V.isScene === true ? V.overrideMaterial : null) !== null) return;
       const GA = OA.isWebGL2;
       KA === null && (KA = new xB(1, 1, { generateMipmaps: true, type: JA.has("EXT_color_buffer_half_float") ? GQ : EB, minFilter: TB, samples: GA ? 4 : 0 })), G.getDrawingBufferSize(PA), GA ? KA.setSize(PA.x, PA.y) : KA.setSize(YE(PA.x), YE(PA.y));
       const UA = G.getRenderTarget();
       G.setRenderTarget(KA), G.getClearColor(Z), m = G.getClearAlpha(), m < 1 && G.setClearColor(16777215, 0.5), G.clear();
       const qA = G.toneMapping;
-      G.toneMapping = QB, vQ(R, V, X), J.updateMultisampleRenderTarget(KA), J.updateRenderTargetMipmap(KA);
+      G.toneMapping = QB, vQ(R, V, z), J.updateMultisampleRenderTarget(KA), J.updateRenderTargetMipmap(KA);
       let bA = false;
       for (let II = 0, vA = O.length; II < vA; II++) {
-        const WA = O[II], ZI = WA.object, Hg = WA.geometry, Bg = WA.material, NC = WA.group;
-        if (Bg.side === Jg && ZI.layers.test(X.layers)) {
-          const uI = Bg.side;
-          Bg.side = Ng, Bg.needsUpdate = true, oa(ZI, V, X, Hg, Bg, NC), Bg.side = uI, Bg.needsUpdate = true, bA = true;
+        const WA = O[II], PI = WA.object, Hg = WA.geometry, ig = WA.material, NC = WA.group;
+        if (ig.side === Jg && PI.layers.test(z.layers)) {
+          const qI = ig.side;
+          ig.side = Ng, ig.needsUpdate = true, oa(PI, V, z, Hg, ig, NC), ig.side = qI, ig.needsUpdate = true, bA = true;
         }
       }
       bA === true && (J.updateMultisampleRenderTarget(KA), J.updateRenderTargetMipmap(KA)), G.setRenderTarget(UA), G.setClearColor(Z, m), G.toneMapping = qA;
     }
     function vQ(R, O, V) {
-      const X = O.isScene === true ? O.overrideMaterial : null;
+      const z = O.isScene === true ? O.overrideMaterial : null;
       for (let W = 0, GA = R.length; W < GA; W++) {
-        const UA = R[W], qA = UA.object, bA = UA.geometry, II = X === null ? UA.material : X, vA = UA.group;
+        const UA = R[W], qA = UA.object, bA = UA.geometry, II = z === null ? UA.material : z, vA = UA.group;
         qA.layers.test(V.layers) && oa(qA, O, V, bA, II, vA);
       }
     }
-    function oa(R, O, V, X, W, GA) {
-      R.onBeforeRender(G, O, V, X, W, GA), R.modelViewMatrix.multiplyMatrices(V.matrixWorldInverse, R.matrixWorld), R.normalMatrix.getNormalMatrix(R.modelViewMatrix), W.onBeforeRender(G, O, V, X, R, GA), W.transparent === true && W.side === Jg && W.forceSinglePass === false ? (W.side = Ng, W.needsUpdate = true, G.renderBufferDirect(V, O, X, W, R, GA), W.side = TC, W.needsUpdate = true, G.renderBufferDirect(V, O, X, W, R, GA), W.side = Jg) : G.renderBufferDirect(V, O, X, W, R, GA), R.onAfterRender(G, O, V, X, W, GA);
+    function oa(R, O, V, z, W, GA) {
+      R.onBeforeRender(G, O, V, z, W, GA), R.modelViewMatrix.multiplyMatrices(V.matrixWorldInverse, R.matrixWorld), R.normalMatrix.getNormalMatrix(R.modelViewMatrix), W.onBeforeRender(G, O, V, z, R, GA), W.transparent === true && W.side === Jg && W.forceSinglePass === false ? (W.side = Ng, W.needsUpdate = true, G.renderBufferDirect(V, O, z, W, R, GA), W.side = TC, W.needsUpdate = true, G.renderBufferDirect(V, O, z, W, R, GA), W.side = Jg) : G.renderBufferDirect(V, O, z, W, R, GA), R.onAfterRender(G, O, V, z, W, GA);
     }
     function ZQ(R, O, V) {
       O.isScene !== true && (O = YA);
-      const X = $A.get(R), W = D.state.lights, GA = D.state.shadowsArray, UA = W.state.version, qA = pA.getParameters(R, W.state, GA, O, V), bA = pA.getProgramCacheKey(qA);
-      let II = X.programs;
-      X.environment = R.isMeshStandardMaterial ? O.environment : null, X.fog = O.fog, X.envMap = (R.isMeshStandardMaterial ? j : K).get(R.envMap || X.environment), II === void 0 && (R.addEventListener("dispose", lA), II = /* @__PURE__ */ new Map(), X.programs = II);
+      const z = $A.get(R), W = D.state.lights, GA = D.state.shadowsArray, UA = W.state.version, qA = pA.getParameters(R, W.state, GA, O, V), bA = pA.getProgramCacheKey(qA);
+      let II = z.programs;
+      z.environment = R.isMeshStandardMaterial ? O.environment : null, z.fog = O.fog, z.envMap = (R.isMeshStandardMaterial ? j : K).get(R.envMap || z.environment), II === void 0 && (R.addEventListener("dispose", lA), II = /* @__PURE__ */ new Map(), z.programs = II);
       let vA = II.get(bA);
       if (vA !== void 0) {
-        if (X.currentProgram === vA && X.lightsStateVersion === UA) return ta(R, qA), vA;
-      } else qA.uniforms = pA.getUniforms(R), R.onBuild(V, qA, G), R.onBeforeCompile(qA, G), vA = pA.acquireProgram(qA, bA), II.set(bA, vA), X.uniforms = qA.uniforms;
-      const WA = X.uniforms;
-      return (!R.isShaderMaterial && !R.isRawShaderMaterial || R.clipping === true) && (WA.clippingPlanes = AI.uniform), ta(R, qA), X.needsLights = gc(R), X.lightsStateVersion = UA, X.needsLights && (WA.ambientLightColor.value = W.state.ambient, WA.lightProbe.value = W.state.probe, WA.directionalLights.value = W.state.directional, WA.directionalLightShadows.value = W.state.directionalShadow, WA.spotLights.value = W.state.spot, WA.spotLightShadows.value = W.state.spotShadow, WA.rectAreaLights.value = W.state.rectArea, WA.ltc_1.value = W.state.rectAreaLTC1, WA.ltc_2.value = W.state.rectAreaLTC2, WA.pointLights.value = W.state.point, WA.pointLightShadows.value = W.state.pointShadow, WA.hemisphereLights.value = W.state.hemi, WA.directionalShadowMap.value = W.state.directionalShadowMap, WA.directionalShadowMatrix.value = W.state.directionalShadowMatrix, WA.spotShadowMap.value = W.state.spotShadowMap, WA.spotLightMatrix.value = W.state.spotLightMatrix, WA.spotLightMap.value = W.state.spotLightMap, WA.pointShadowMap.value = W.state.pointShadowMap, WA.pointShadowMatrix.value = W.state.pointShadowMatrix), X.currentProgram = vA, X.uniformsList = null, vA;
+        if (z.currentProgram === vA && z.lightsStateVersion === UA) return ta(R, qA), vA;
+      } else qA.uniforms = pA.getUniforms(R), R.onBuild(V, qA, G), R.onBeforeCompile(qA, G), vA = pA.acquireProgram(qA, bA), II.set(bA, vA), z.uniforms = qA.uniforms;
+      const WA = z.uniforms;
+      return (!R.isShaderMaterial && !R.isRawShaderMaterial || R.clipping === true) && (WA.clippingPlanes = AI.uniform), ta(R, qA), z.needsLights = gc(R), z.lightsStateVersion = UA, z.needsLights && (WA.ambientLightColor.value = W.state.ambient, WA.lightProbe.value = W.state.probe, WA.directionalLights.value = W.state.directional, WA.directionalLightShadows.value = W.state.directionalShadow, WA.spotLights.value = W.state.spot, WA.spotLightShadows.value = W.state.spotShadow, WA.rectAreaLights.value = W.state.rectArea, WA.ltc_1.value = W.state.rectAreaLTC1, WA.ltc_2.value = W.state.rectAreaLTC2, WA.pointLights.value = W.state.point, WA.pointLightShadows.value = W.state.pointShadow, WA.hemisphereLights.value = W.state.hemi, WA.directionalShadowMap.value = W.state.directionalShadowMap, WA.directionalShadowMatrix.value = W.state.directionalShadowMatrix, WA.spotShadowMap.value = W.state.spotShadowMap, WA.spotLightMatrix.value = W.state.spotLightMatrix, WA.spotLightMap.value = W.state.spotLightMap, WA.pointShadowMap.value = W.state.pointShadowMap, WA.pointShadowMatrix.value = W.state.pointShadowMatrix), z.currentProgram = vA, z.uniformsList = null, vA;
     }
     function ea(R) {
       if (R.uniformsList === null) {
@@ -10478,38 +10478,38 @@ class or {
       const V = $A.get(R);
       V.outputColorSpace = O.outputColorSpace, V.batching = O.batching, V.instancing = O.instancing, V.instancingColor = O.instancingColor, V.skinning = O.skinning, V.morphTargets = O.morphTargets, V.morphNormals = O.morphNormals, V.morphColors = O.morphColors, V.morphTargetsCount = O.morphTargetsCount, V.numClippingPlanes = O.numClippingPlanes, V.numIntersection = O.numClipIntersection, V.vertexAlphas = O.vertexAlphas, V.vertexTangents = O.vertexTangents, V.toneMapping = O.toneMapping;
     }
-    function Ac(R, O, V, X, W) {
+    function Ac(R, O, V, z, W) {
       O.isScene !== true && (O = YA), J.resetTextureUnits();
-      const GA = O.fog, UA = X.isMeshStandardMaterial ? O.environment : null, qA = M === null ? G.outputColorSpace : M.isXRRenderTarget === true ? M.texture.colorSpace : og, bA = (X.isMeshStandardMaterial ? j : K).get(X.envMap || UA), II = X.vertexColors === true && !!V.attributes.color && V.attributes.color.itemSize === 4, vA = !!V.attributes.tangent && (!!X.normalMap || X.anisotropy > 0), WA = !!V.morphAttributes.position, ZI = !!V.morphAttributes.normal, Hg = !!V.morphAttributes.color;
-      let Bg = QB;
-      X.toneMapped && (M === null || M.isXRRenderTarget === true) && (Bg = G.toneMapping);
-      const NC = V.morphAttributes.position || V.morphAttributes.normal || V.morphAttributes.color, uI = NC !== void 0 ? NC.length : 0, CI = $A.get(X), co = D.state.lights;
-      if (iA === true && (cA === true || R !== y)) {
-        const Vg = R === y && X.id === F;
-        AI.setState(X, R, Vg);
+      const GA = O.fog, UA = z.isMeshStandardMaterial ? O.environment : null, qA = p === null ? G.outputColorSpace : p.isXRRenderTarget === true ? p.texture.colorSpace : eg, bA = (z.isMeshStandardMaterial ? j : K).get(z.envMap || UA), II = z.vertexColors === true && !!V.attributes.color && V.attributes.color.itemSize === 4, vA = !!V.attributes.tangent && (!!z.normalMap || z.anisotropy > 0), WA = !!V.morphAttributes.position, PI = !!V.morphAttributes.normal, Hg = !!V.morphAttributes.color;
+      let ig = QB;
+      z.toneMapped && (p === null || p.isXRRenderTarget === true) && (ig = G.toneMapping);
+      const NC = V.morphAttributes.position || V.morphAttributes.normal || V.morphAttributes.color, qI = NC !== void 0 ? NC.length : 0, CI = $A.get(z), ho = D.state.lights;
+      if (EA === true && (cA === true || R !== y)) {
+        const Vg = R === y && z.id === F;
+        AI.setState(z, R, Vg);
       }
-      let TI = false;
-      X.version === CI.__version ? (CI.needsLights && CI.lightsStateVersion !== co.state.version || CI.outputColorSpace !== qA || W.isBatchedMesh && CI.batching === false || !W.isBatchedMesh && CI.batching === true || W.isInstancedMesh && CI.instancing === false || !W.isInstancedMesh && CI.instancing === true || W.isSkinnedMesh && CI.skinning === false || !W.isSkinnedMesh && CI.skinning === true || W.isInstancedMesh && CI.instancingColor === true && W.instanceColor === null || W.isInstancedMesh && CI.instancingColor === false && W.instanceColor !== null || CI.envMap !== bA || X.fog === true && CI.fog !== GA || CI.numClippingPlanes !== void 0 && (CI.numClippingPlanes !== AI.numPlanes || CI.numIntersection !== AI.numIntersection) || CI.vertexAlphas !== II || CI.vertexTangents !== vA || CI.morphTargets !== WA || CI.morphNormals !== ZI || CI.morphColors !== Hg || CI.toneMapping !== Bg || OA.isWebGL2 === true && CI.morphTargetsCount !== uI) && (TI = true) : (TI = true, CI.__version = X.version);
+      let xI = false;
+      z.version === CI.__version ? (CI.needsLights && CI.lightsStateVersion !== ho.state.version || CI.outputColorSpace !== qA || W.isBatchedMesh && CI.batching === false || !W.isBatchedMesh && CI.batching === true || W.isInstancedMesh && CI.instancing === false || !W.isInstancedMesh && CI.instancing === true || W.isSkinnedMesh && CI.skinning === false || !W.isSkinnedMesh && CI.skinning === true || W.isInstancedMesh && CI.instancingColor === true && W.instanceColor === null || W.isInstancedMesh && CI.instancingColor === false && W.instanceColor !== null || CI.envMap !== bA || z.fog === true && CI.fog !== GA || CI.numClippingPlanes !== void 0 && (CI.numClippingPlanes !== AI.numPlanes || CI.numIntersection !== AI.numIntersection) || CI.vertexAlphas !== II || CI.vertexTangents !== vA || CI.morphTargets !== WA || CI.morphNormals !== PI || CI.morphColors !== Hg || CI.toneMapping !== ig || OA.isWebGL2 === true && CI.morphTargetsCount !== qI) && (xI = true) : (xI = true, CI.__version = z.version);
       let cB = CI.currentProgram;
-      TI === true && (cB = ZQ(X, O, W));
-      let aa = false, ji = false, ho = false;
-      const rg = cB.getUniforms(), hB = CI.uniforms;
-      if (MA.useProgram(cB.program) && (aa = true, ji = true, ho = true), X.id !== F && (F = X.id, ji = true), aa || y !== R) {
-        rg.setValue(P, "projectionMatrix", R.projectionMatrix), rg.setValue(P, "viewMatrix", R.matrixWorldInverse);
-        const Vg = rg.map.cameraPosition;
-        Vg !== void 0 && Vg.setValue(P, jA.setFromMatrixPosition(R.matrixWorld)), OA.logarithmicDepthBuffer && rg.setValue(P, "logDepthBufFC", 2 / (Math.log(R.far + 1) / Math.LN2)), (X.isMeshPhongMaterial || X.isMeshToonMaterial || X.isMeshLambertMaterial || X.isMeshBasicMaterial || X.isMeshStandardMaterial || X.isShaderMaterial) && rg.setValue(P, "isOrthographic", R.isOrthographicCamera === true), y !== R && (y = R, ji = true, ho = true);
+      xI === true && (cB = ZQ(z, O, W));
+      let aa = false, ji = false, lo = false;
+      const Dg = cB.getUniforms(), hB = CI.uniforms;
+      if (MA.useProgram(cB.program) && (aa = true, ji = true, lo = true), z.id !== F && (F = z.id, ji = true), aa || y !== R) {
+        Dg.setValue(P, "projectionMatrix", R.projectionMatrix), Dg.setValue(P, "viewMatrix", R.matrixWorldInverse);
+        const Vg = Dg.map.cameraPosition;
+        Vg !== void 0 && Vg.setValue(P, jA.setFromMatrixPosition(R.matrixWorld)), OA.logarithmicDepthBuffer && Dg.setValue(P, "logDepthBufFC", 2 / (Math.log(R.far + 1) / Math.LN2)), (z.isMeshPhongMaterial || z.isMeshToonMaterial || z.isMeshLambertMaterial || z.isMeshBasicMaterial || z.isMeshStandardMaterial || z.isShaderMaterial) && Dg.setValue(P, "isOrthographic", R.isOrthographicCamera === true), y !== R && (y = R, ji = true, lo = true);
       }
       if (W.isSkinnedMesh) {
-        rg.setOptional(P, W, "bindMatrix"), rg.setOptional(P, W, "bindMatrixInverse");
+        Dg.setOptional(P, W, "bindMatrix"), Dg.setOptional(P, W, "bindMatrixInverse");
         const Vg = W.skeleton;
-        Vg && (OA.floatVertexTextures ? (Vg.boneTexture === null && Vg.computeBoneTexture(), rg.setValue(P, "boneTexture", Vg.boneTexture, J)) : console.warn("THREE.WebGLRenderer: SkinnedMesh can only be used with WebGL 2. With WebGL 1 OES_texture_float and vertex textures support is required."));
+        Vg && (OA.floatVertexTextures ? (Vg.boneTexture === null && Vg.computeBoneTexture(), Dg.setValue(P, "boneTexture", Vg.boneTexture, J)) : console.warn("THREE.WebGLRenderer: SkinnedMesh can only be used with WebGL 2. With WebGL 1 OES_texture_float and vertex textures support is required."));
       }
-      W.isBatchedMesh && (rg.setOptional(P, W, "batchingTexture"), rg.setValue(P, "batchingTexture", W._matricesTexture, J));
-      const lo = V.morphAttributes;
-      if ((lo.position !== void 0 || lo.normal !== void 0 || lo.color !== void 0 && OA.isWebGL2 === true) && QI.update(W, V, cB), (ji || CI.receiveShadow !== W.receiveShadow) && (CI.receiveShadow = W.receiveShadow, rg.setValue(P, "receiveShadow", W.receiveShadow)), X.isMeshGouraudMaterial && X.envMap !== null && (hB.envMap.value = bA, hB.flipEnvMap.value = bA.isCubeTexture && bA.isRenderTargetTexture === false ? -1 : 1), ji && (rg.setValue(P, "toneMappingExposure", G.toneMappingExposure), CI.needsLights && Ic(hB, ho), GA && X.fog === true && wA.refreshFogUniforms(hB, GA), wA.refreshMaterialUniforms(hB, X, AA, v, KA), pE.upload(P, ea(CI), hB, J)), X.isShaderMaterial && X.uniformsNeedUpdate === true && (pE.upload(P, ea(CI), hB, J), X.uniformsNeedUpdate = false), X.isSpriteMaterial && rg.setValue(P, "center", W.center), rg.setValue(P, "modelViewMatrix", W.modelViewMatrix), rg.setValue(P, "normalMatrix", W.normalMatrix), rg.setValue(P, "modelMatrix", W.matrixWorld), X.isShaderMaterial || X.isRawShaderMaterial) {
-        const Vg = X.uniformsGroups;
-        for (let wo = 0, Cc = Vg.length; wo < Cc; wo++) if (OA.isWebGL2) {
-          const sa = Vg[wo];
+      W.isBatchedMesh && (Dg.setOptional(P, W, "batchingTexture"), Dg.setValue(P, "batchingTexture", W._matricesTexture, J));
+      const wo = V.morphAttributes;
+      if ((wo.position !== void 0 || wo.normal !== void 0 || wo.color !== void 0 && OA.isWebGL2 === true) && QI.update(W, V, cB), (ji || CI.receiveShadow !== W.receiveShadow) && (CI.receiveShadow = W.receiveShadow, Dg.setValue(P, "receiveShadow", W.receiveShadow)), z.isMeshGouraudMaterial && z.envMap !== null && (hB.envMap.value = bA, hB.flipEnvMap.value = bA.isCubeTexture && bA.isRenderTargetTexture === false ? -1 : 1), ji && (Dg.setValue(P, "toneMappingExposure", G.toneMappingExposure), CI.needsLights && Ic(hB, lo), GA && z.fog === true && SA.refreshFogUniforms(hB, GA), SA.refreshMaterialUniforms(hB, z, AA, v, KA), pE.upload(P, ea(CI), hB, J)), z.isShaderMaterial && z.uniformsNeedUpdate === true && (pE.upload(P, ea(CI), hB, J), z.uniformsNeedUpdate = false), z.isSpriteMaterial && Dg.setValue(P, "center", W.center), Dg.setValue(P, "modelViewMatrix", W.modelViewMatrix), Dg.setValue(P, "normalMatrix", W.normalMatrix), Dg.setValue(P, "modelMatrix", W.matrixWorld), z.isShaderMaterial || z.isRawShaderMaterial) {
+        const Vg = z.uniformsGroups;
+        for (let So = 0, Cc = Vg.length; So < Cc; So++) if (OA.isWebGL2) {
+          const sa = Vg[So];
           cI.update(sa, cB), cI.bind(sa, cB);
         } else console.warn("THREE.WebGLRenderer: Uniform Buffer Objects can only be used with WebGL 2.");
       }
@@ -10522,30 +10522,30 @@ class or {
       return R.isMeshLambertMaterial || R.isMeshToonMaterial || R.isMeshPhongMaterial || R.isMeshStandardMaterial || R.isShadowMaterial || R.isShaderMaterial && R.lights === true;
     }
     this.getActiveCubeFace = function() {
-      return U;
-    }, this.getActiveMipmapLevel = function() {
-      return p;
-    }, this.getRenderTarget = function() {
       return M;
+    }, this.getActiveMipmapLevel = function() {
+      return U;
+    }, this.getRenderTarget = function() {
+      return p;
     }, this.setRenderTargetTextures = function(R, O, V) {
       $A.get(R.texture).__webglTexture = O, $A.get(R.depthTexture).__webglTexture = V;
-      const X = $A.get(R);
-      X.__hasExternalTextures = true, X.__hasExternalTextures && (X.__autoAllocateDepthBuffer = V === void 0, X.__autoAllocateDepthBuffer || JA.has("WEBGL_multisampled_render_to_texture") === true && (console.warn("THREE.WebGLRenderer: Render-to-texture extension was disabled because an external texture was provided"), X.__useRenderToTexture = false));
+      const z = $A.get(R);
+      z.__hasExternalTextures = true, z.__hasExternalTextures && (z.__autoAllocateDepthBuffer = V === void 0, z.__autoAllocateDepthBuffer || JA.has("WEBGL_multisampled_render_to_texture") === true && (console.warn("THREE.WebGLRenderer: Render-to-texture extension was disabled because an external texture was provided"), z.__useRenderToTexture = false));
     }, this.setRenderTargetFramebuffer = function(R, O) {
       const V = $A.get(R);
       V.__webglFramebuffer = O, V.__useDefaultFramebuffer = O === void 0;
     }, this.setRenderTarget = function(R, O = 0, V = 0) {
-      M = R, U = O, p = V;
-      let X = true, W = null, GA = false, UA = false;
+      p = R, M = O, U = V;
+      let z = true, W = null, GA = false, UA = false;
       if (R) {
         const bA = $A.get(R);
-        bA.__useDefaultFramebuffer !== void 0 ? (MA.bindFramebuffer(P.FRAMEBUFFER, null), X = false) : bA.__webglFramebuffer === void 0 ? J.setupRenderTarget(R) : bA.__hasExternalTextures && J.rebindTextures(R, $A.get(R.texture).__webglTexture, $A.get(R.depthTexture).__webglTexture);
+        bA.__useDefaultFramebuffer !== void 0 ? (MA.bindFramebuffer(P.FRAMEBUFFER, null), z = false) : bA.__webglFramebuffer === void 0 ? J.setupRenderTarget(R) : bA.__hasExternalTextures && J.rebindTextures(R, $A.get(R.texture).__webglTexture, $A.get(R.depthTexture).__webglTexture);
         const II = R.texture;
         (II.isData3DTexture || II.isDataArrayTexture || II.isCompressedArrayTexture) && (UA = true);
         const vA = $A.get(R).__webglFramebuffer;
         R.isWebGLCubeRenderTarget ? (Array.isArray(vA[O]) ? W = vA[O][V] : W = vA[O], GA = true) : OA.isWebGL2 && R.samples > 0 && J.useMultisampledRTT(R) === false ? W = $A.get(R).__webglMultisampledFramebuffer : Array.isArray(vA) ? W = vA[V] : W = vA, N.copy(R.viewport), q.copy(R.scissor), L = R.scissorTest;
-      } else N.copy(QA).multiplyScalar(AA).floor(), q.copy(sA).multiplyScalar(AA).floor(), L = nA;
-      if (MA.bindFramebuffer(P.FRAMEBUFFER, W) && OA.drawBuffers && X && MA.drawBuffers(R, W), MA.viewport(N), MA.scissor(q), MA.setScissorTest(L), GA) {
+      } else N.copy(iA).multiplyScalar(AA).floor(), q.copy(sA).multiplyScalar(AA).floor(), L = nA;
+      if (MA.bindFramebuffer(P.FRAMEBUFFER, W) && OA.drawBuffers && z && MA.drawBuffers(R, W), MA.viewport(N), MA.scissor(q), MA.setScissorTest(L), GA) {
         const bA = $A.get(R.texture);
         P.framebufferTexture2D(P.FRAMEBUFFER, P.COLOR_ATTACHMENT0, P.TEXTURE_CUBE_MAP_POSITIVE_X + O, bA.__webglTexture, V);
       } else if (UA) {
@@ -10553,7 +10553,7 @@ class or {
         P.framebufferTextureLayer(P.FRAMEBUFFER, P.COLOR_ATTACHMENT0, bA.__webglTexture, V || 0, II);
       }
       F = -1;
-    }, this.readRenderTargetPixels = function(R, O, V, X, W, GA, UA) {
+    }, this.readRenderTargetPixels = function(R, O, V, z, W, GA, UA) {
       if (!(R && R.isWebGLRenderTarget)) {
         console.error("THREE.WebGLRenderer.readRenderTargetPixels: renderTarget is not THREE.WebGLRenderTarget.");
         return;
@@ -10572,38 +10572,38 @@ class or {
             console.error("THREE.WebGLRenderer.readRenderTargetPixels: renderTarget is not in UnsignedByteType or implementation defined type.");
             return;
           }
-          O >= 0 && O <= R.width - X && V >= 0 && V <= R.height - W && P.readPixels(O, V, X, W, dA.convert(II), dA.convert(vA), GA);
+          O >= 0 && O <= R.width - z && V >= 0 && V <= R.height - W && P.readPixels(O, V, z, W, dA.convert(II), dA.convert(vA), GA);
         } finally {
-          const bA = M !== null ? $A.get(M).__webglFramebuffer : null;
+          const bA = p !== null ? $A.get(p).__webglFramebuffer : null;
           MA.bindFramebuffer(P.FRAMEBUFFER, bA);
         }
       }
     }, this.copyFramebufferToTexture = function(R, O, V = 0) {
-      const X = Math.pow(2, -V), W = Math.floor(O.image.width * X), GA = Math.floor(O.image.height * X);
+      const z = Math.pow(2, -V), W = Math.floor(O.image.width * z), GA = Math.floor(O.image.height * z);
       J.setTexture2D(O, 0), P.copyTexSubImage2D(P.TEXTURE_2D, V, 0, 0, R.x, R.y, W, GA), MA.unbindTexture();
-    }, this.copyTextureToTexture = function(R, O, V, X = 0) {
+    }, this.copyTextureToTexture = function(R, O, V, z = 0) {
       const W = O.image.width, GA = O.image.height, UA = dA.convert(V.format), qA = dA.convert(V.type);
-      J.setTexture2D(V, 0), P.pixelStorei(P.UNPACK_FLIP_Y_WEBGL, V.flipY), P.pixelStorei(P.UNPACK_PREMULTIPLY_ALPHA_WEBGL, V.premultiplyAlpha), P.pixelStorei(P.UNPACK_ALIGNMENT, V.unpackAlignment), O.isDataTexture ? P.texSubImage2D(P.TEXTURE_2D, X, R.x, R.y, W, GA, UA, qA, O.image.data) : O.isCompressedTexture ? P.compressedTexSubImage2D(P.TEXTURE_2D, X, R.x, R.y, O.mipmaps[0].width, O.mipmaps[0].height, UA, O.mipmaps[0].data) : P.texSubImage2D(P.TEXTURE_2D, X, R.x, R.y, UA, qA, O.image), X === 0 && V.generateMipmaps && P.generateMipmap(P.TEXTURE_2D), MA.unbindTexture();
-    }, this.copyTextureToTexture3D = function(R, O, V, X, W = 0) {
+      J.setTexture2D(V, 0), P.pixelStorei(P.UNPACK_FLIP_Y_WEBGL, V.flipY), P.pixelStorei(P.UNPACK_PREMULTIPLY_ALPHA_WEBGL, V.premultiplyAlpha), P.pixelStorei(P.UNPACK_ALIGNMENT, V.unpackAlignment), O.isDataTexture ? P.texSubImage2D(P.TEXTURE_2D, z, R.x, R.y, W, GA, UA, qA, O.image.data) : O.isCompressedTexture ? P.compressedTexSubImage2D(P.TEXTURE_2D, z, R.x, R.y, O.mipmaps[0].width, O.mipmaps[0].height, UA, O.mipmaps[0].data) : P.texSubImage2D(P.TEXTURE_2D, z, R.x, R.y, UA, qA, O.image), z === 0 && V.generateMipmaps && P.generateMipmap(P.TEXTURE_2D), MA.unbindTexture();
+    }, this.copyTextureToTexture3D = function(R, O, V, z, W = 0) {
       if (G.isWebGL1Renderer) {
         console.warn("THREE.WebGLRenderer.copyTextureToTexture3D: can only be used with WebGL2.");
         return;
       }
-      const GA = R.max.x - R.min.x + 1, UA = R.max.y - R.min.y + 1, qA = R.max.z - R.min.z + 1, bA = dA.convert(X.format), II = dA.convert(X.type);
+      const GA = R.max.x - R.min.x + 1, UA = R.max.y - R.min.y + 1, qA = R.max.z - R.min.z + 1, bA = dA.convert(z.format), II = dA.convert(z.type);
       let vA;
-      if (X.isData3DTexture) J.setTexture3D(X, 0), vA = P.TEXTURE_3D;
-      else if (X.isDataArrayTexture || X.isCompressedArrayTexture) J.setTexture2DArray(X, 0), vA = P.TEXTURE_2D_ARRAY;
+      if (z.isData3DTexture) J.setTexture3D(z, 0), vA = P.TEXTURE_3D;
+      else if (z.isDataArrayTexture || z.isCompressedArrayTexture) J.setTexture2DArray(z, 0), vA = P.TEXTURE_2D_ARRAY;
       else {
         console.warn("THREE.WebGLRenderer.copyTextureToTexture3D: only supports THREE.DataTexture3D and THREE.DataTexture2DArray.");
         return;
       }
-      P.pixelStorei(P.UNPACK_FLIP_Y_WEBGL, X.flipY), P.pixelStorei(P.UNPACK_PREMULTIPLY_ALPHA_WEBGL, X.premultiplyAlpha), P.pixelStorei(P.UNPACK_ALIGNMENT, X.unpackAlignment);
-      const WA = P.getParameter(P.UNPACK_ROW_LENGTH), ZI = P.getParameter(P.UNPACK_IMAGE_HEIGHT), Hg = P.getParameter(P.UNPACK_SKIP_PIXELS), Bg = P.getParameter(P.UNPACK_SKIP_ROWS), NC = P.getParameter(P.UNPACK_SKIP_IMAGES), uI = V.isCompressedTexture ? V.mipmaps[W] : V.image;
-      P.pixelStorei(P.UNPACK_ROW_LENGTH, uI.width), P.pixelStorei(P.UNPACK_IMAGE_HEIGHT, uI.height), P.pixelStorei(P.UNPACK_SKIP_PIXELS, R.min.x), P.pixelStorei(P.UNPACK_SKIP_ROWS, R.min.y), P.pixelStorei(P.UNPACK_SKIP_IMAGES, R.min.z), V.isDataTexture || V.isData3DTexture ? P.texSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, II, uI.data) : V.isCompressedArrayTexture ? (console.warn("THREE.WebGLRenderer.copyTextureToTexture3D: untested support for compressed srcTexture."), P.compressedTexSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, uI.data)) : P.texSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, II, uI), P.pixelStorei(P.UNPACK_ROW_LENGTH, WA), P.pixelStorei(P.UNPACK_IMAGE_HEIGHT, ZI), P.pixelStorei(P.UNPACK_SKIP_PIXELS, Hg), P.pixelStorei(P.UNPACK_SKIP_ROWS, Bg), P.pixelStorei(P.UNPACK_SKIP_IMAGES, NC), W === 0 && X.generateMipmaps && P.generateMipmap(vA), MA.unbindTexture();
+      P.pixelStorei(P.UNPACK_FLIP_Y_WEBGL, z.flipY), P.pixelStorei(P.UNPACK_PREMULTIPLY_ALPHA_WEBGL, z.premultiplyAlpha), P.pixelStorei(P.UNPACK_ALIGNMENT, z.unpackAlignment);
+      const WA = P.getParameter(P.UNPACK_ROW_LENGTH), PI = P.getParameter(P.UNPACK_IMAGE_HEIGHT), Hg = P.getParameter(P.UNPACK_SKIP_PIXELS), ig = P.getParameter(P.UNPACK_SKIP_ROWS), NC = P.getParameter(P.UNPACK_SKIP_IMAGES), qI = V.isCompressedTexture ? V.mipmaps[W] : V.image;
+      P.pixelStorei(P.UNPACK_ROW_LENGTH, qI.width), P.pixelStorei(P.UNPACK_IMAGE_HEIGHT, qI.height), P.pixelStorei(P.UNPACK_SKIP_PIXELS, R.min.x), P.pixelStorei(P.UNPACK_SKIP_ROWS, R.min.y), P.pixelStorei(P.UNPACK_SKIP_IMAGES, R.min.z), V.isDataTexture || V.isData3DTexture ? P.texSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, II, qI.data) : V.isCompressedArrayTexture ? (console.warn("THREE.WebGLRenderer.copyTextureToTexture3D: untested support for compressed srcTexture."), P.compressedTexSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, qI.data)) : P.texSubImage3D(vA, W, O.x, O.y, O.z, GA, UA, qA, bA, II, qI), P.pixelStorei(P.UNPACK_ROW_LENGTH, WA), P.pixelStorei(P.UNPACK_IMAGE_HEIGHT, PI), P.pixelStorei(P.UNPACK_SKIP_PIXELS, Hg), P.pixelStorei(P.UNPACK_SKIP_ROWS, ig), P.pixelStorei(P.UNPACK_SKIP_IMAGES, NC), W === 0 && z.generateMipmaps && P.generateMipmap(vA), MA.unbindTexture();
     }, this.initTexture = function(R) {
       R.isCubeTexture ? J.setTextureCube(R, 0) : R.isData3DTexture ? J.setTexture3D(R, 0) : R.isDataArrayTexture || R.isCompressedArrayTexture ? J.setTexture2DArray(R, 0) : J.setTexture2D(R, 0), MA.unbindTexture();
     }, this.resetState = function() {
-      U = 0, p = 0, M = null, MA.reset(), VA.reset();
+      M = 0, U = 0, p = null, MA.reset(), VA.reset();
     }, typeof __THREE_DEVTOOLS__ < "u" && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("observe", { detail: this }));
   }
   get coordinateSystem() {
@@ -10615,13 +10615,13 @@ class or {
   set outputColorSpace(A) {
     this._outputColorSpace = A;
     const I = this.getContext();
-    I.drawingBufferColorSpace = A === ot ? "display-p3" : "srgb", I.unpackColorSpace = DI.workingColorSpace === Ao ? "display-p3" : "srgb";
+    I.drawingBufferColorSpace = A === ot ? "display-p3" : "srgb", I.unpackColorSpace = DI.workingColorSpace === Io ? "display-p3" : "srgb";
   }
   get outputEncoding() {
-    return console.warn("THREE.WebGLRenderer: Property .outputEncoding has been removed. Use .outputColorSpace instead."), this.outputColorSpace === _I ? mB : _n;
+    return console.warn("THREE.WebGLRenderer: Property .outputEncoding has been removed. Use .outputColorSpace instead."), this.outputColorSpace === OI ? mB : _n;
   }
   set outputEncoding(A) {
-    console.warn("THREE.WebGLRenderer: Property .outputEncoding has been removed. Use .outputColorSpace instead."), this.outputColorSpace = A === mB ? _I : og;
+    console.warn("THREE.WebGLRenderer: Property .outputEncoding has been removed. Use .outputColorSpace instead."), this.outputColorSpace = A === mB ? OI : eg;
   }
   get useLegacyLights() {
     return console.warn("THREE.WebGLRenderer: The property .useLegacyLights has been deprecated. Migrate your lighting according to the following guide: https://discourse.threejs.org/t/updates-to-lighting-in-three-js-r155/53733."), this._useLegacyLights;
@@ -10633,7 +10633,7 @@ class or {
 class MG extends or {
 }
 MG.prototype.isWebGL1Renderer = true;
-class pG extends HI {
+class pG extends bI {
   constructor() {
     super(), this.isScene = true, this.type = "Scene", this.background = null, this.environment = null, this.fog = null, this.backgroundBlurriness = 0, this.backgroundIntensity = 1, this.overrideMaterial = null, typeof __THREE_DEVTOOLS__ < "u" && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("observe", { detail: this }));
   }
@@ -10647,7 +10647,7 @@ class pG extends HI {
 }
 class UG {
   constructor(A, I) {
-    this.isInterleavedBuffer = true, this.array = A, this.stride = I, this.count = A !== void 0 ? A.length / I : 0, this.usage = ke, this._updateRange = { offset: 0, count: -1 }, this.updateRanges = [], this.version = 0, this.uuid = sC();
+    this.isInterleavedBuffer = true, this.array = A, this.stride = I, this.count = A !== void 0 ? A.length / I : 0, this.usage = ye, this._updateRange = { offset: 0, count: -1 }, this.updateRanges = [], this.version = 0, this.uuid = sC();
   }
   onUploadCallback() {
   }
@@ -10775,7 +10775,7 @@ class rt {
     } else return A.interleavedBuffers === void 0 && (A.interleavedBuffers = {}), A.interleavedBuffers[this.data.uuid] === void 0 && (A.interleavedBuffers[this.data.uuid] = this.data.toJSON(A)), { isInterleavedBufferAttribute: true, itemSize: this.itemSize, data: this.data.uuid, offset: this.offset, normalized: this.normalized };
   }
 }
-const Js = new H(), us = new yI(), qs = new yI(), NG = new H(), fs = new iI(), DE = new H(), Vo = new pC(), ms = new iI(), Xo = new LQ();
+const Js = new H(), us = new yI(), qs = new yI(), NG = new H(), fs = new iI(), DE = new H(), Xo = new pC(), ms = new iI(), zo = new LQ();
 class KG extends l {
   constructor(A, I) {
     super(A, I), this.isSkinnedMesh = true, this.type = "SkinnedMesh", this.bindMode = wa, this.bindMatrix = new iI(), this.bindMatrixInverse = new iI(), this.boundingBox = null, this.boundingSphere = null;
@@ -10797,7 +10797,7 @@ class KG extends l {
   }
   raycast(A, I) {
     const g = this.material, C = this.matrixWorld;
-    g !== void 0 && (this.boundingSphere === null && this.computeBoundingSphere(), Vo.copy(this.boundingSphere), Vo.applyMatrix4(C), A.ray.intersectsSphere(Vo) !== false && (ms.copy(C).invert(), Xo.copy(A.ray).applyMatrix4(ms), !(this.boundingBox !== null && Xo.intersectsBox(this.boundingBox) === false) && this._computeIntersections(A, I, Xo)));
+    g !== void 0 && (this.boundingSphere === null && this.computeBoundingSphere(), Xo.copy(this.boundingSphere), Xo.applyMatrix4(C), A.ray.intersectsSphere(Xo) !== false && (ms.copy(C).invert(), zo.copy(A.ray).applyMatrix4(ms), !(this.boundingBox !== null && zo.intersectsBox(this.boundingBox) === false) && this._computeIntersections(A, I, zo)));
   }
   getVertexPosition(A, I) {
     return super.getVertexPosition(A, I), this.applyBoneTransform(A, I), I;
@@ -10835,13 +10835,13 @@ class KG extends l {
     return console.warn("THREE.SkinnedMesh: .boneTransform() was renamed to .applyBoneTransform() in r151."), this.applyBoneTransform(A, I);
   }
 }
-class er extends HI {
+class er extends bI {
   constructor() {
     super(), this.isBone = true, this.type = "Bone";
   }
 }
-class FG extends sg {
-  constructor(A = null, I = 1, g = 1, C, B, i, Q, o, e = Eg, t = Eg, a, s) {
+class FG extends ng {
+  constructor(A = null, I = 1, g = 1, C, B, i, Q, o, e = og, t = og, a, s) {
     super(null, i, Q, o, e, t, C, B, a, s), this.isDataTexture = true, this.image = { data: A, width: I, height: g }, this.generateMipmaps = false, this.flipY = false, this.unpackAlignment = 1;
   }
 }
@@ -10925,7 +10925,7 @@ class Dt {
     return A;
   }
 }
-class pe extends Kg {
+class Ue extends Kg {
   constructor(A, I, g, C = 1) {
     super(A, I, g), this.isInstancedBufferAttribute = true, this.meshPerAttribute = C;
   }
@@ -10940,7 +10940,7 @@ class pe extends Kg {
 const ai = new iI(), Ls = new iI(), cE = [], Hs = new MC(), JG = new iI(), AQ = new l(), IQ = new pC();
 class uG extends l {
   constructor(A, I, g) {
-    super(A, I), this.isInstancedMesh = true, this.instanceMatrix = new pe(new Float32Array(g * 16), 16), this.instanceColor = null, this.count = g, this.boundingBox = null, this.boundingSphere = null;
+    super(A, I), this.isInstancedMesh = true, this.instanceMatrix = new Ue(new Float32Array(g * 16), 16), this.instanceColor = null, this.count = g, this.boundingBox = null, this.boundingSphere = null;
     for (let C = 0; C < g; C++) this.setMatrixAt(C, JG);
   }
   computeBoundingBox() {
@@ -10974,7 +10974,7 @@ class uG extends l {
     }
   }
   setColorAt(A, I) {
-    this.instanceColor === null && (this.instanceColor = new pe(new Float32Array(this.instanceMatrix.count * 3), 3)), I.toArray(this.instanceColor.array, A * 3);
+    this.instanceColor === null && (this.instanceColor = new Ue(new Float32Array(this.instanceMatrix.count * 3), 3)), I.toArray(this.instanceColor.array, A * 3);
   }
   setMatrixAt(A, I) {
     I.toArray(this.instanceMatrix.array, A * 16);
@@ -10993,8 +10993,8 @@ class tr extends rC {
     return super.copy(A), this.color.copy(A.color), this.map = A.map, this.linewidth = A.linewidth, this.linecap = A.linecap, this.linejoin = A.linejoin, this.fog = A.fog, this;
   }
 }
-const bs = new H(), Ts = new H(), xs = new iI(), zo = new LQ(), hE = new pC();
-class ct extends HI {
+const bs = new H(), Ts = new H(), xs = new iI(), $o = new LQ(), hE = new pC();
+class ct extends bI {
   constructor(A = new Fg(), I = new tr()) {
     super(), this.isLine = true, this.type = "Line", this.geometry = A, this.material = I, this.updateMorphTargets();
   }
@@ -11006,20 +11006,20 @@ class ct extends HI {
     if (A.index === null) {
       const I = A.attributes.position, g = [0];
       for (let C = 1, B = I.count; C < B; C++) bs.fromBufferAttribute(I, C - 1), Ts.fromBufferAttribute(I, C), g[C] = g[C - 1], g[C] += bs.distanceTo(Ts);
-      A.setAttribute("lineDistance", new RI(g, 1));
+      A.setAttribute("lineDistance", new JI(g, 1));
     } else console.warn("THREE.Line.computeLineDistances(): Computation only possible with non-indexed BufferGeometry.");
     return this;
   }
   raycast(A, I) {
     const g = this.geometry, C = this.matrixWorld, B = A.params.Line.threshold, i = g.drawRange;
     if (g.boundingSphere === null && g.computeBoundingSphere(), hE.copy(g.boundingSphere), hE.applyMatrix4(C), hE.radius += B, A.ray.intersectsSphere(hE) === false) return;
-    xs.copy(C).invert(), zo.copy(A.ray).applyMatrix4(xs);
+    xs.copy(C).invert(), $o.copy(A.ray).applyMatrix4(xs);
     const Q = B / ((this.scale.x + this.scale.y + this.scale.z) / 3), o = Q * Q, e = new H(), t = new H(), a = new H(), s = new H(), n = this.isLineSegments ? 2 : 1, r = g.index, D = g.attributes.position;
     if (r !== null) {
       const h = Math.max(0, i.start), S = Math.min(r.count, i.start + i.count);
       for (let G = h, k = S - 1; G < k; G += n) {
-        const U = r.getX(G), p = r.getX(G + 1);
-        if (e.fromBufferAttribute(D, U), t.fromBufferAttribute(D, p), zo.distanceSqToSegment(e, t, s, a) > o) continue;
+        const M = r.getX(G), U = r.getX(G + 1);
+        if (e.fromBufferAttribute(D, M), t.fromBufferAttribute(D, U), $o.distanceSqToSegment(e, t, s, a) > o) continue;
         s.applyMatrix4(this.matrixWorld);
         const F = A.ray.origin.distanceTo(s);
         F < A.near || F > A.far || I.push({ distance: F, point: a.clone().applyMatrix4(this.matrixWorld), index: G, face: null, faceIndex: null, object: this });
@@ -11027,10 +11027,10 @@ class ct extends HI {
     } else {
       const h = Math.max(0, i.start), S = Math.min(D.count, i.start + i.count);
       for (let G = h, k = S - 1; G < k; G += n) {
-        if (e.fromBufferAttribute(D, G), t.fromBufferAttribute(D, G + 1), zo.distanceSqToSegment(e, t, s, a) > o) continue;
+        if (e.fromBufferAttribute(D, G), t.fromBufferAttribute(D, G + 1), $o.distanceSqToSegment(e, t, s, a) > o) continue;
         s.applyMatrix4(this.matrixWorld);
-        const p = A.ray.origin.distanceTo(s);
-        p < A.near || p > A.far || I.push({ distance: p, point: a.clone().applyMatrix4(this.matrixWorld), index: G, face: null, faceIndex: null, object: this });
+        const U = A.ray.origin.distanceTo(s);
+        U < A.near || U > A.far || I.push({ distance: U, point: a.clone().applyMatrix4(this.matrixWorld), index: G, face: null, faceIndex: null, object: this });
       }
     }
   }
@@ -11058,7 +11058,7 @@ class qG extends ct {
     if (A.index === null) {
       const I = A.attributes.position, g = [];
       for (let C = 0, B = I.count; C < B; C += 2) _s.fromBufferAttribute(I, C), Os.fromBufferAttribute(I, C + 1), g[C] = C === 0 ? 0 : g[C - 1], g[C + 1] = g[C] + _s.distanceTo(Os);
-      A.setAttribute("lineDistance", new RI(g, 1));
+      A.setAttribute("lineDistance", new JI(g, 1));
     } else console.warn("THREE.LineSegments.computeLineDistances(): Computation only possible with non-indexed BufferGeometry.");
     return this;
   }
@@ -11076,8 +11076,8 @@ class ar extends rC {
     return super.copy(A), this.color.copy(A.color), this.map = A.map, this.alphaMap = A.alphaMap, this.size = A.size, this.sizeAttenuation = A.sizeAttenuation, this.fog = A.fog, this;
   }
 }
-const vs = new iI(), Ue = new LQ(), lE = new pC(), wE = new H();
-class mG extends HI {
+const vs = new iI(), Ne = new LQ(), lE = new pC(), wE = new H();
+class mG extends bI {
   constructor(A = new Fg(), I = new ar()) {
     super(), this.isPoints = true, this.type = "Points", this.geometry = A, this.material = I, this.updateMorphTargets();
   }
@@ -11087,7 +11087,7 @@ class mG extends HI {
   raycast(A, I) {
     const g = this.geometry, C = this.matrixWorld, B = A.params.Points.threshold, i = g.drawRange;
     if (g.boundingSphere === null && g.computeBoundingSphere(), lE.copy(g.boundingSphere), lE.applyMatrix4(C), lE.radius += B, A.ray.intersectsSphere(lE) === false) return;
-    vs.copy(C).invert(), Ue.copy(A.ray).applyMatrix4(vs);
+    vs.copy(C).invert(), Ne.copy(A.ray).applyMatrix4(vs);
     const Q = B / ((this.scale.x + this.scale.y + this.scale.z) / 3), o = Q * Q, e = g.index, a = g.attributes.position;
     if (e !== null) {
       const s = Math.max(0, i.start), n = Math.min(e.count, i.start + i.count);
@@ -11115,10 +11115,10 @@ class mG extends HI {
   }
 }
 function Zs(E14, A, I, g, C, B, i) {
-  const Q = Ue.distanceSqToPoint(E14);
+  const Q = Ne.distanceSqToPoint(E14);
   if (Q < I) {
     const o = new H();
-    Ue.closestPointToPoint(E14, o), o.applyMatrix4(g);
+    Ne.closestPointToPoint(E14, o), o.applyMatrix4(g);
     const e = C.ray.origin.distanceTo(o);
     if (e < C.near || e > C.far) return;
     B.push({ distance: e, distanceToRay: Math.sqrt(Q), point: o, index: A, face: null, object: i });
@@ -11134,7 +11134,7 @@ class li extends Fg {
       e.x = A * Math.cos(n), e.y = A * Math.sin(n), i.push(e.x, e.y, e.z), Q.push(0, 0, 1), t.x = (i[s] / A + 1) / 2, t.y = (i[s + 1] / A + 1) / 2, o.push(t.x, t.y);
     }
     for (let a = 1; a <= I; a++) B.push(a, a + 1, 0);
-    this.setIndex(B), this.setAttribute("position", new RI(i, 3)), this.setAttribute("normal", new RI(Q, 3)), this.setAttribute("uv", new RI(o, 2));
+    this.setIndex(B), this.setAttribute("position", new JI(i, 3)), this.setAttribute("normal", new JI(Q, 3)), this.setAttribute("uv", new JI(o, 2));
   }
   copy(A) {
     return super.copy(A), this.parameters = Object.assign({}, A.parameters), this;
@@ -11152,37 +11152,37 @@ class u extends Fg {
     let r = 0;
     const c = [], D = g / 2;
     let h = 0;
-    S(), i === false && (A > 0 && G(true), I > 0 && G(false)), this.setIndex(t), this.setAttribute("position", new RI(a, 3)), this.setAttribute("normal", new RI(s, 3)), this.setAttribute("uv", new RI(n, 2));
+    S(), i === false && (A > 0 && G(true), I > 0 && G(false)), this.setIndex(t), this.setAttribute("position", new JI(a, 3)), this.setAttribute("normal", new JI(s, 3)), this.setAttribute("uv", new JI(n, 2));
     function S() {
-      const k = new H(), U = new H();
-      let p = 0;
-      const M = (I - A) / g;
+      const k = new H(), M = new H();
+      let U = 0;
+      const p = (I - A) / g;
       for (let F = 0; F <= B; F++) {
         const y = [], N = F / B, q = N * (I - A) + A;
         for (let L = 0; L <= C; L++) {
           const Z = L / C, m = Z * o + Q, _ = Math.sin(m), v = Math.cos(m);
-          U.x = q * _, U.y = -N * g + D, U.z = q * v, a.push(U.x, U.y, U.z), k.set(_, M, v).normalize(), s.push(k.x, k.y, k.z), n.push(Z, 1 - N), y.push(r++);
+          M.x = q * _, M.y = -N * g + D, M.z = q * v, a.push(M.x, M.y, M.z), k.set(_, p, v).normalize(), s.push(k.x, k.y, k.z), n.push(Z, 1 - N), y.push(r++);
         }
         c.push(y);
       }
       for (let F = 0; F < C; F++) for (let y = 0; y < B; y++) {
         const N = c[y][F], q = c[y + 1][F], L = c[y + 1][F + 1], Z = c[y][F + 1];
-        t.push(N, q, Z), t.push(q, L, Z), p += 6;
+        t.push(N, q, Z), t.push(q, L, Z), U += 6;
       }
-      e.addGroup(h, p, 0), h += p;
+      e.addGroup(h, U, 0), h += U;
     }
     function G(k) {
-      const U = r, p = new ZA(), M = new H();
+      const M = r, U = new ZA(), p = new H();
       let F = 0;
       const y = k === true ? A : I, N = k === true ? 1 : -1;
       for (let L = 1; L <= C; L++) a.push(0, D * N, 0), s.push(0, N, 0), n.push(0.5, 0.5), r++;
       const q = r;
       for (let L = 0; L <= C; L++) {
         const m = L / C * o + Q, _ = Math.cos(m), v = Math.sin(m);
-        M.x = y * v, M.y = D * N, M.z = y * _, a.push(M.x, M.y, M.z), s.push(0, N, 0), p.x = _ * 0.5 + 0.5, p.y = v * 0.5 * N + 0.5, n.push(p.x, p.y), r++;
+        p.x = y * v, p.y = D * N, p.z = y * _, a.push(p.x, p.y, p.z), s.push(0, N, 0), U.x = _ * 0.5 + 0.5, U.y = v * 0.5 * N + 0.5, n.push(U.x, U.y), r++;
       }
       for (let L = 0; L < C; L++) {
-        const Z = U + L, m = q + L;
+        const Z = M + L, m = q + L;
         k === true ? t.push(m, m + 1, Z) : t.push(m + 1, m, Z), F += 3;
       }
       e.addGroup(h, F, k === true ? 1 : 2), h += F;
@@ -11207,21 +11207,21 @@ class Oi extends Fg {
   constructor(A = [], I = [], g = 1, C = 0) {
     super(), this.type = "PolyhedronGeometry", this.parameters = { vertices: A, indices: I, radius: g, detail: C };
     const B = [], i = [];
-    Q(C), e(g), t(), this.setAttribute("position", new RI(B, 3)), this.setAttribute("normal", new RI(B.slice(), 3)), this.setAttribute("uv", new RI(i, 2)), C === 0 ? this.computeVertexNormals() : this.normalizeNormals();
+    Q(C), e(g), t(), this.setAttribute("position", new JI(B, 3)), this.setAttribute("normal", new JI(B.slice(), 3)), this.setAttribute("uv", new JI(i, 2)), C === 0 ? this.computeVertexNormals() : this.normalizeNormals();
     function Q(S) {
-      const G = new H(), k = new H(), U = new H();
-      for (let p = 0; p < I.length; p += 3) n(I[p + 0], G), n(I[p + 1], k), n(I[p + 2], U), o(G, k, U, S);
+      const G = new H(), k = new H(), M = new H();
+      for (let U = 0; U < I.length; U += 3) n(I[U + 0], G), n(I[U + 1], k), n(I[U + 2], M), o(G, k, M, S);
     }
-    function o(S, G, k, U) {
-      const p = U + 1, M = [];
-      for (let F = 0; F <= p; F++) {
-        M[F] = [];
-        const y = S.clone().lerp(k, F / p), N = G.clone().lerp(k, F / p), q = p - F;
-        for (let L = 0; L <= q; L++) L === 0 && F === p ? M[F][L] = y : M[F][L] = y.clone().lerp(N, L / q);
+    function o(S, G, k, M) {
+      const U = M + 1, p = [];
+      for (let F = 0; F <= U; F++) {
+        p[F] = [];
+        const y = S.clone().lerp(k, F / U), N = G.clone().lerp(k, F / U), q = U - F;
+        for (let L = 0; L <= q; L++) L === 0 && F === U ? p[F][L] = y : p[F][L] = y.clone().lerp(N, L / q);
       }
-      for (let F = 0; F < p; F++) for (let y = 0; y < 2 * (p - F) - 1; y++) {
+      for (let F = 0; F < U; F++) for (let y = 0; y < 2 * (U - F) - 1; y++) {
         const N = Math.floor(y / 2);
-        y % 2 === 0 ? (s(M[F][N + 1]), s(M[F + 1][N]), s(M[F][N])) : (s(M[F][N + 1]), s(M[F + 1][N + 1]), s(M[F + 1][N]));
+        y % 2 === 0 ? (s(p[F][N + 1]), s(p[F + 1][N]), s(p[F][N])) : (s(p[F][N + 1]), s(p[F + 1][N + 1]), s(p[F + 1][N]));
       }
     }
     function e(S) {
@@ -11232,15 +11232,15 @@ class Oi extends Fg {
       const S = new H();
       for (let G = 0; G < B.length; G += 3) {
         S.x = B[G + 0], S.y = B[G + 1], S.z = B[G + 2];
-        const k = D(S) / 2 / Math.PI + 0.5, U = h(S) / Math.PI + 0.5;
-        i.push(k, 1 - U);
+        const k = D(S) / 2 / Math.PI + 0.5, M = h(S) / Math.PI + 0.5;
+        i.push(k, 1 - M);
       }
       r(), a();
     }
     function a() {
       for (let S = 0; S < i.length; S += 6) {
-        const G = i[S + 0], k = i[S + 2], U = i[S + 4], p = Math.max(G, k, U), M = Math.min(G, k, U);
-        p > 0.9 && M < 0.1 && (G < 0.2 && (i[S + 0] += 1), k < 0.2 && (i[S + 2] += 1), U < 0.2 && (i[S + 4] += 1));
+        const G = i[S + 0], k = i[S + 2], M = i[S + 4], U = Math.max(G, k, M), p = Math.min(G, k, M);
+        U > 0.9 && p < 0.1 && (G < 0.2 && (i[S + 0] += 1), k < 0.2 && (i[S + 2] += 1), M < 0.2 && (i[S + 4] += 1));
       }
     }
     function s(S) {
@@ -11251,15 +11251,15 @@ class Oi extends Fg {
       G.x = A[k + 0], G.y = A[k + 1], G.z = A[k + 2];
     }
     function r() {
-      const S = new H(), G = new H(), k = new H(), U = new H(), p = new ZA(), M = new ZA(), F = new ZA();
+      const S = new H(), G = new H(), k = new H(), M = new H(), U = new ZA(), p = new ZA(), F = new ZA();
       for (let y = 0, N = 0; y < B.length; y += 9, N += 6) {
-        S.set(B[y + 0], B[y + 1], B[y + 2]), G.set(B[y + 3], B[y + 4], B[y + 5]), k.set(B[y + 6], B[y + 7], B[y + 8]), p.set(i[N + 0], i[N + 1]), M.set(i[N + 2], i[N + 3]), F.set(i[N + 4], i[N + 5]), U.copy(S).add(G).add(k).divideScalar(3);
-        const q = D(U);
-        c(p, N + 0, S, q), c(M, N + 2, G, q), c(F, N + 4, k, q);
+        S.set(B[y + 0], B[y + 1], B[y + 2]), G.set(B[y + 3], B[y + 4], B[y + 5]), k.set(B[y + 6], B[y + 7], B[y + 8]), U.set(i[N + 0], i[N + 1]), p.set(i[N + 2], i[N + 3]), F.set(i[N + 4], i[N + 5]), M.copy(S).add(G).add(k).divideScalar(3);
+        const q = D(M);
+        c(U, N + 0, S, q), c(p, N + 2, G, q), c(F, N + 4, k, q);
       }
     }
-    function c(S, G, k, U) {
-      U < 0 && S.x === 1 && (i[G] = S.x - 1), k.x === 0 && k.z === 0 && (i[G] = U / 2 / Math.PI + 0.5);
+    function c(S, G, k, M) {
+      M < 0 && S.x === 1 && (i[G] = S.x - 1), k.x === 0 && k.z === 0 && (i[G] = M / 2 / Math.PI + 0.5);
     }
     function D(S) {
       return Math.atan2(S.z, -S.x);
@@ -11293,13 +11293,13 @@ class sI extends Oi {
     return new sI(A.radius, A.detail);
   }
 }
-class qI extends Oi {
+class fI extends Oi {
   constructor(A = 1, I = 0) {
     const g = [1, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1], C = [0, 2, 4, 0, 4, 3, 0, 3, 5, 0, 5, 2, 1, 2, 5, 1, 5, 3, 1, 3, 4, 1, 4, 2];
     super(g, C, A, I), this.type = "OctahedronGeometry", this.parameters = { radius: A, detail: I };
   }
   static fromJSON(A) {
-    return new qI(A.radius, A.detail);
+    return new fI(A.radius, A.detail);
   }
 }
 class ht extends Fg {
@@ -11312,17 +11312,17 @@ class ht extends Fg {
       const S = [], G = h / g;
       let k = 0;
       h === 0 && i === 0 ? k = 0.5 / I : h === g && o === Math.PI && (k = -0.5 / I);
-      for (let U = 0; U <= I; U++) {
-        const p = U / I;
-        a.x = -A * Math.cos(C + p * B) * Math.sin(i + G * Q), a.y = A * Math.cos(i + G * Q), a.z = A * Math.sin(C + p * B) * Math.sin(i + G * Q), r.push(a.x, a.y, a.z), s.copy(a).normalize(), c.push(s.x, s.y, s.z), D.push(p + k, 1 - G), S.push(e++);
+      for (let M = 0; M <= I; M++) {
+        const U = M / I;
+        a.x = -A * Math.cos(C + U * B) * Math.sin(i + G * Q), a.y = A * Math.cos(i + G * Q), a.z = A * Math.sin(C + U * B) * Math.sin(i + G * Q), r.push(a.x, a.y, a.z), s.copy(a).normalize(), c.push(s.x, s.y, s.z), D.push(U + k, 1 - G), S.push(e++);
       }
       t.push(S);
     }
     for (let h = 0; h < g; h++) for (let S = 0; S < I; S++) {
-      const G = t[h][S + 1], k = t[h][S], U = t[h + 1][S], p = t[h + 1][S + 1];
-      (h !== 0 || i > 0) && n.push(G, k, p), (h !== g - 1 || o < Math.PI) && n.push(k, U, p);
+      const G = t[h][S + 1], k = t[h][S], M = t[h + 1][S], U = t[h + 1][S + 1];
+      (h !== 0 || i > 0) && n.push(G, k, U), (h !== g - 1 || o < Math.PI) && n.push(k, M, U);
     }
-    this.setIndex(n), this.setAttribute("position", new RI(r, 3)), this.setAttribute("normal", new RI(c, 3)), this.setAttribute("uv", new RI(D, 2));
+    this.setIndex(n), this.setAttribute("position", new JI(r, 3)), this.setAttribute("normal", new JI(c, 3)), this.setAttribute("uv", new JI(D, 2));
   }
   copy(A) {
     return super.copy(A), this.parameters = Object.assign({}, A.parameters), this;
@@ -11331,13 +11331,13 @@ class ht extends Fg {
     return new ht(A.radius, A.widthSegments, A.heightSegments, A.phiStart, A.phiLength, A.thetaStart, A.thetaLength);
   }
 }
-class jI extends Oi {
+class VI extends Oi {
   constructor(A = 1, I = 0) {
     const g = [1, 1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1], C = [2, 1, 0, 0, 3, 2, 1, 3, 0, 2, 3, 1];
     super(g, C, A, I), this.type = "TetrahedronGeometry", this.parameters = { radius: A, detail: I };
   }
   static fromJSON(A) {
-    return new jI(A.radius, A.detail);
+    return new VI(A.radius, A.detail);
   }
 }
 class xA extends Fg {
@@ -11352,7 +11352,7 @@ class xA extends Fg {
       const c = (C + 1) * n + r - 1, D = (C + 1) * (n - 1) + r - 1, h = (C + 1) * (n - 1) + r, S = (C + 1) * n + r;
       i.push(c, D, S), i.push(D, h, S);
     }
-    this.setIndex(i), this.setAttribute("position", new RI(Q, 3)), this.setAttribute("normal", new RI(o, 3)), this.setAttribute("uv", new RI(e, 2));
+    this.setIndex(i), this.setAttribute("position", new JI(Q, 3)), this.setAttribute("normal", new JI(o, 3)), this.setAttribute("uv", new JI(e, 2));
   }
   copy(A) {
     return super.copy(A), this.parameters = Object.assign({}, A.parameters), this;
@@ -11411,7 +11411,7 @@ class wI extends d {
     return super.copy(A), this.defines = { STANDARD: "", PHYSICAL: "" }, this.anisotropy = A.anisotropy, this.anisotropyRotation = A.anisotropyRotation, this.anisotropyMap = A.anisotropyMap, this.clearcoat = A.clearcoat, this.clearcoatMap = A.clearcoatMap, this.clearcoatRoughness = A.clearcoatRoughness, this.clearcoatRoughnessMap = A.clearcoatRoughnessMap, this.clearcoatNormalMap = A.clearcoatNormalMap, this.clearcoatNormalScale.copy(A.clearcoatNormalScale), this.ior = A.ior, this.iridescence = A.iridescence, this.iridescenceMap = A.iridescenceMap, this.iridescenceIOR = A.iridescenceIOR, this.iridescenceThicknessRange = [...A.iridescenceThicknessRange], this.iridescenceThicknessMap = A.iridescenceThicknessMap, this.sheen = A.sheen, this.sheenColor.copy(A.sheenColor), this.sheenColorMap = A.sheenColorMap, this.sheenRoughness = A.sheenRoughness, this.sheenRoughnessMap = A.sheenRoughnessMap, this.transmission = A.transmission, this.transmissionMap = A.transmissionMap, this.thickness = A.thickness, this.thicknessMap = A.thicknessMap, this.attenuationDistance = A.attenuationDistance, this.attenuationColor.copy(A.attenuationColor), this.specularIntensity = A.specularIntensity, this.specularIntensityMap = A.specularIntensityMap, this.specularColor.copy(A.specularColor), this.specularColorMap = A.specularColorMap, this;
   }
 }
-class $o extends rC {
+class Ae extends rC {
   constructor(A) {
     super(), this.isMeshToonMaterial = true, this.defines = { TOON: "" }, this.type = "MeshToonMaterial", this.color = new mA(16777215), this.map = null, this.gradientMap = null, this.lightMap = null, this.lightMapIntensity = 1, this.aoMap = null, this.aoMapIntensity = 1, this.emissive = new mA(0), this.emissiveIntensity = 1, this.emissiveMap = null, this.bumpMap = null, this.bumpScale = 1, this.normalMap = null, this.normalMapType = Et, this.normalScale = new ZA(1, 1), this.displacementMap = null, this.displacementScale = 1, this.displacementBias = 0, this.alphaMap = null, this.wireframe = false, this.wireframeLinewidth = 1, this.wireframeLinecap = "round", this.wireframeLinejoin = "round", this.fog = true, this.setValues(A);
   }
@@ -11549,7 +11549,7 @@ class HG extends bQ {
   }
   interpolate_(A, I, g, C) {
     const B = this.resultBuffer, i = this.sampleValues, Q = this.valueSize, o = A * Q, e = o - Q, t = this._offsetPrev, a = this._offsetNext, s = this._weightPrev, n = this._weightNext, r = (g - I) / (C - I), c = r * r, D = c * r, h = -s * D + 2 * s * c - s * r, S = (1 + s) * D + (-1.5 - 2 * s) * c + (-0.5 + s) * r + 1, G = (-1 - n) * D + (1.5 + n) * c + 0.5 * r, k = n * D - n * c;
-    for (let U = 0; U !== Q; ++U) B[U] = h * i[t + U] + S * i[e + U] + G * i[o + U] + k * i[a + U];
+    for (let M = 0; M !== Q; ++M) B[M] = h * i[t + M] + S * i[e + M] + G * i[o + M] + k * i[a + M];
     return B;
   }
 }
@@ -11606,7 +11606,7 @@ class UC {
       case Ri:
         I = this.InterpolantFactoryMethodLinear;
         break;
-      case po:
+      case Uo:
         I = this.InterpolantFactoryMethodSmooth;
         break;
     }
@@ -11625,7 +11625,7 @@ class UC {
       case this.InterpolantFactoryMethodLinear:
         return Ri;
       case this.InterpolantFactoryMethodSmooth:
-        return po;
+        return Uo;
     }
   }
   getValueSize() {
@@ -11686,7 +11686,7 @@ class UC {
     return A;
   }
   optimize() {
-    const A = this.times.slice(), I = this.values.slice(), g = this.getValueSize(), C = this.getInterpolation() === po, B = A.length - 1;
+    const A = this.times.slice(), I = this.values.slice(), g = this.getValueSize(), C = this.getInterpolation() === Uo, B = A.length - 1;
     let i = 1;
     for (let Q = 1; Q < B; ++Q) {
       let o = false;
@@ -11768,7 +11768,7 @@ Zi.prototype.InterpolantFactoryMethodSmooth = void 0;
 class fi extends UC {
 }
 fi.prototype.ValueTypeName = "vector";
-class Ne {
+class Ke {
   constructor(A, I = -1, g, C = Qt) {
     this.name = A, this.tracks = g, this.duration = I, this.blendMode = C, this.uuid = sC(), this.duration < 0 && this.resetDuration();
   }
@@ -12017,10 +12017,10 @@ class Dr extends Pi {
               if (G) h.close();
               else {
                 c += k.byteLength;
-                const U = new ProgressEvent("progress", { lengthComputable: r, loaded: c, total: n });
-                for (let p = 0, M = t.length; p < M; p++) {
-                  const F = t[p];
-                  F.onProgress && F.onProgress(U);
+                const M = new ProgressEvent("progress", { lengthComputable: r, loaded: c, total: n });
+                for (let U = 0, p = t.length; U < p; U++) {
+                  const F = t[U];
+                  F.onProgress && F.onProgress(M);
                 }
                 h.enqueue(k), S();
               }
@@ -12102,13 +12102,13 @@ class WG extends Pi {
     super(A);
   }
   load(A, I, g, C) {
-    const B = new sg(), i = new PG(this.manager);
+    const B = new ng(), i = new PG(this.manager);
     return i.setCrossOrigin(this.crossOrigin), i.setPath(this.path), i.load(A, function(Q) {
       B.image = Q, B.needsUpdate = true, I !== void 0 && I(B);
     }, g, C), B;
   }
 }
-class Co extends HI {
+class Bo extends bI {
   constructor(A, I = 1) {
     super(), this.isLight = true, this.type = "Light", this.color = new mA(A), this.intensity = I;
   }
@@ -12122,7 +12122,7 @@ class Co extends HI {
     return I.object.color = this.color.getHex(), I.object.intensity = this.intensity, this.groundColor !== void 0 && (I.object.groundColor = this.groundColor.getHex()), this.distance !== void 0 && (I.object.distance = this.distance), this.angle !== void 0 && (I.object.angle = this.angle), this.decay !== void 0 && (I.object.decay = this.decay), this.penumbra !== void 0 && (I.object.penumbra = this.penumbra), this.shadow !== void 0 && (I.object.shadow = this.shadow.toJSON()), I;
   }
 }
-const Ae = new iI(), Ws = new H(), js = new H();
+const Ie = new iI(), Ws = new H(), js = new H();
 class lt {
   constructor(A) {
     this.camera = A, this.bias = 0, this.normalBias = 0, this.radius = 1, this.blurSamples = 8, this.mapSize = new ZA(512, 512), this.map = null, this.mapPass = null, this.matrix = new iI(), this.autoUpdate = true, this.needsUpdate = false, this._frustum = new at(), this._frameExtents = new ZA(1, 1), this._viewportCount = 1, this._viewports = [new yI(0, 0, 1, 1)];
@@ -12135,7 +12135,7 @@ class lt {
   }
   updateMatrices(A) {
     const I = this.camera, g = this.matrix;
-    Ws.setFromMatrixPosition(A.matrixWorld), I.position.copy(Ws), js.setFromMatrixPosition(A.target.matrixWorld), I.lookAt(js), I.updateMatrixWorld(), Ae.multiplyMatrices(I.projectionMatrix, I.matrixWorldInverse), this._frustum.setFromProjectionMatrix(Ae), g.set(0.5, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0, 0.5, 0.5, 0, 0, 0, 1), g.multiply(Ae);
+    Ws.setFromMatrixPosition(A.matrixWorld), I.position.copy(Ws), js.setFromMatrixPosition(A.target.matrixWorld), I.lookAt(js), I.updateMatrixWorld(), Ie.multiplyMatrices(I.projectionMatrix, I.matrixWorldInverse), this._frustum.setFromProjectionMatrix(Ie), g.set(0.5, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0, 0.5, 0.5, 0, 0, 0, 1), g.multiply(Ie);
   }
   getViewport(A) {
     return this._viewports[A];
@@ -12169,9 +12169,9 @@ class jG extends lt {
     return super.copy(A), this.focus = A.focus, this;
   }
 }
-class VG extends Co {
+class VG extends Bo {
   constructor(A, I, g = 0, C = Math.PI / 3, B = 0, i = 2) {
-    super(A, I), this.isSpotLight = true, this.type = "SpotLight", this.position.copy(HI.DEFAULT_UP), this.updateMatrix(), this.target = new HI(), this.distance = g, this.angle = C, this.penumbra = B, this.decay = i, this.map = null, this.shadow = new jG();
+    super(A, I), this.isSpotLight = true, this.type = "SpotLight", this.position.copy(bI.DEFAULT_UP), this.updateMatrix(), this.target = new bI(), this.distance = g, this.angle = C, this.penumbra = B, this.decay = i, this.map = null, this.shadow = new jG();
   }
   get power() {
     return this.intensity * Math.PI;
@@ -12186,17 +12186,17 @@ class VG extends Co {
     return super.copy(A, I), this.distance = A.distance, this.angle = A.angle, this.penumbra = A.penumbra, this.decay = A.decay, this.target = A.target.clone(), this.shadow = A.shadow.clone(), this;
   }
 }
-const Vs = new iI(), gQ = new H(), Ie = new H();
+const Vs = new iI(), gQ = new H(), ge = new H();
 class XG extends lt {
   constructor() {
     super(new Ug(90, 1, 0.5, 500)), this.isPointLightShadow = true, this._frameExtents = new ZA(4, 2), this._viewportCount = 6, this._viewports = [new yI(2, 1, 1, 1), new yI(0, 1, 1, 1), new yI(3, 1, 1, 1), new yI(1, 1, 1, 1), new yI(3, 0, 1, 1), new yI(1, 0, 1, 1)], this._cubeDirections = [new H(1, 0, 0), new H(-1, 0, 0), new H(0, 0, 1), new H(0, 0, -1), new H(0, 1, 0), new H(0, -1, 0)], this._cubeUps = [new H(0, 1, 0), new H(0, 1, 0), new H(0, 1, 0), new H(0, 1, 0), new H(0, 0, 1), new H(0, 0, -1)];
   }
   updateMatrices(A, I = 0) {
     const g = this.camera, C = this.matrix, B = A.distance || g.far;
-    B !== g.far && (g.far = B, g.updateProjectionMatrix()), gQ.setFromMatrixPosition(A.matrixWorld), g.position.copy(gQ), Ie.copy(g.position), Ie.add(this._cubeDirections[I]), g.up.copy(this._cubeUps[I]), g.lookAt(Ie), g.updateMatrixWorld(), C.makeTranslation(-gQ.x, -gQ.y, -gQ.z), Vs.multiplyMatrices(g.projectionMatrix, g.matrixWorldInverse), this._frustum.setFromProjectionMatrix(Vs);
+    B !== g.far && (g.far = B, g.updateProjectionMatrix()), gQ.setFromMatrixPosition(A.matrixWorld), g.position.copy(gQ), ge.copy(g.position), ge.add(this._cubeDirections[I]), g.up.copy(this._cubeUps[I]), g.lookAt(ge), g.updateMatrixWorld(), C.makeTranslation(-gQ.x, -gQ.y, -gQ.z), Vs.multiplyMatrices(g.projectionMatrix, g.matrixWorldInverse), this._frustum.setFromProjectionMatrix(Vs);
   }
 }
-class TA extends Co {
+class TA extends Bo {
   constructor(A, I, g = 0, C = 2) {
     super(A, I), this.isPointLight = true, this.type = "PointLight", this.distance = g, this.decay = C, this.shadow = new XG();
   }
@@ -12218,9 +12218,9 @@ class zG extends lt {
     super(new st(-5, 5, 5, -5, 0.5, 500)), this.isDirectionalLightShadow = true;
   }
 }
-class Ke extends Co {
+class LE extends Bo {
   constructor(A, I) {
-    super(A, I), this.isDirectionalLight = true, this.type = "DirectionalLight", this.position.copy(HI.DEFAULT_UP), this.updateMatrix(), this.target = new HI(), this.shadow = new zG();
+    super(A, I), this.isDirectionalLight = true, this.type = "DirectionalLight", this.position.copy(bI.DEFAULT_UP), this.updateMatrix(), this.target = new bI(), this.shadow = new zG();
   }
   dispose() {
     this.shadow.dispose();
@@ -12229,7 +12229,7 @@ class Ke extends Co {
     return super.copy(A), this.target = A.target.clone(), this.shadow = A.shadow.clone(), this;
   }
 }
-class $G extends Co {
+class $G extends Bo {
   constructor(A, I) {
     super(A, I), this.isAmbientLight = true, this.type = "AmbientLight";
   }
@@ -12949,7 +12949,7 @@ class nk extends PB {
   }
   clipAction(A, I, g) {
     const C = I || this._root, B = C.uuid;
-    let i = typeof A == "string" ? Ne.findByName(C, A) : A;
+    let i = typeof A == "string" ? Ke.findByName(C, A) : A;
     const Q = i !== null ? i.uuid : A, o = this._actionsByClip[Q];
     let e = null;
     if (g === void 0 && (i !== null ? g = i.blendMode : g = Qt), o !== void 0) {
@@ -12962,7 +12962,7 @@ class nk extends PB {
     return this._bindAction(t, e), this._addInactiveAction(t, Q, B), t;
   }
   existingAction(A, I) {
-    const g = I || this._root, C = g.uuid, B = typeof A == "string" ? Ne.findByName(g, A) : A, i = B ? B.uuid : A, Q = this._actionsByClip[i];
+    const g = I || this._root, C = g.uuid, B = typeof A == "string" ? Ke.findByName(g, A) : A, i = B ? B.uuid : A, Q = this._actionsByClip[i];
     return Q !== void 0 && Q.actionByRoot[C] || null;
   }
   stopAllAction() {
@@ -13060,9 +13060,9 @@ function hr(E14, A) {
  * Subject to the terms at https://gsap.com/standard-license
  * @author: Jack Doyle, jack@greensock.com
 */
-var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeight: "" } }, dQ = { duration: 0.5, overwrite: false, delay: 0 }, Gt, ng, FI, BC = 1e8, kI = 1 / BC, Re = Math.PI * 2, Dk = Re / 4, ck = 0, lr = Math.sqrt, hk = Math.cos, lk = Math.sin, eg = function(A) {
+var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeight: "" } }, dQ = { duration: 0.5, overwrite: false, delay: 0 }, Gt, rg, RI, BC = 1e8, kI = 1 / BC, Re = Math.PI * 2, Dk = Re / 4, ck = 0, lr = Math.sqrt, hk = Math.cos, lk = Math.sin, tg = function(A) {
   return typeof A == "string";
-}, vI = function(A) {
+}, ZI = function(A) {
   return typeof A == "function";
 }, xC = function(A) {
   return typeof A == "number";
@@ -13075,21 +13075,21 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
 }, yt = function() {
   return typeof window < "u";
 }, GE = function(A) {
-  return vI(A) || eg(A);
+  return ZI(A) || tg(A);
 }, wr = typeof ArrayBuffer == "function" && ArrayBuffer.isView || function() {
-}, Gg = Array.isArray, wk = /random\([^)]+\)/g, Sk = /,\s*/g, $s = /(?:-?\.?\d|\.)+/gi, Sr = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, wi = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, ge = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, Gr = /[+-]=-?[.\d]+/, Gk = /[^,'"\[\]\s]+/gi, kk = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, YI, lC, Je, dt, Wg = {}, LE = {}, kr, yr = function(A) {
-  return (LE = mi(A, Wg)) && Lg;
+}, Gg = Array.isArray, wk = /random\([^)]+\)/g, Sk = /,\s*/g, $s = /(?:-?\.?\d|\.)+/gi, Sr = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, wi = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, Ce = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, Gr = /[+-]=-?[.\d]+/, Gk = /[^,'"\[\]\s]+/gi, kk = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, LI, lC, Je, dt, Wg = {}, HE = {}, kr, yr = function(A) {
+  return (HE = mi(A, Wg)) && Lg;
 }, Mt = function(A, I) {
   return console.warn("Invalid property", A, "set to", I, "Missing plugin? gsap.registerPlugin()");
 }, MQ = function(A, I) {
   return !I && console.warn(A);
 }, dr = function(A, I) {
-  return A && (Wg[A] = I) && LE && (LE[A] = I) || Wg;
+  return A && (Wg[A] = I) && HE && (HE[A] = I) || Wg;
 }, pQ = function() {
   return 0;
-}, yk = { suppressEvents: true, isStart: true, kill: false }, UE = { suppressEvents: true, kill: false }, dk = { suppressEvents: true }, pt = {}, oB = [], ue = {}, Mr, _g = {}, Ce = {}, An = 30, NE = [], Ut = "", Nt = function(A) {
+}, yk = { suppressEvents: true, isStart: true, kill: false }, UE = { suppressEvents: true, kill: false }, dk = { suppressEvents: true }, pt = {}, oB = [], ue = {}, Mr, _g = {}, Be = {}, An = 30, NE = [], Ut = "", Nt = function(A) {
   var I = A[0], g, C;
-  if (dC(I) || vI(I) || (A = [A]), !(g = (I._gsap || {}).harness)) {
+  if (dC(I) || ZI(I) || (A = [A]), !(g = (I._gsap || {}).harness)) {
     for (C = NE.length; C-- && !NE[C].targetTest(I); ) ;
     g = NE[C];
   }
@@ -13098,12 +13098,12 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
 }, YB = function(A) {
   return A._gsap || Nt(iC(A))[0]._gsap;
 }, pr = function(A, I, g) {
-  return (g = A[I]) && vI(g) ? A[I]() : kt(g) && A.getAttribute && A.getAttribute(I) || g;
+  return (g = A[I]) && ZI(g) ? A[I]() : kt(g) && A.getAttribute && A.getAttribute(I) || g;
 }, fg = function(A, I) {
   return (A = A.split(",")).forEach(I) || A;
-}, PI = function(A) {
+}, WI = function(A) {
   return Math.round(A * 1e5) / 1e5 || 0;
-}, mI = function(A) {
+}, YI = function(A) {
   return Math.round(A * 1e7) / 1e7 || 0;
 }, yi = function(A, I) {
   var g = I.charAt(0), C = parseFloat(I.substr(2));
@@ -13111,16 +13111,16 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
 }, Mk = function(A, I) {
   for (var g = I.length, C = 0; A.indexOf(I[C]) < 0 && ++C < g; ) ;
   return C < g;
-}, HE = function() {
+}, bE = function() {
   var A = oB.length, I = oB.slice(0), g, C;
   for (ue = {}, oB.length = 0, g = 0; g < A; g++) C = I[g], C && C._lazy && (C.render(C._lazy[0], C._lazy[1], true)._lazy = 0);
 }, Kt = function(A) {
   return !!(A._initted || A._startAt || A.add);
 }, Ur = function(A, I, g, C) {
-  oB.length && !ng && HE(), A.render(I, g, !!(ng && I < 0 && Kt(A))), oB.length && !ng && HE();
+  oB.length && !rg && bE(), A.render(I, g, !!(rg && I < 0 && Kt(A))), oB.length && !rg && bE();
 }, Nr = function(A) {
   var I = parseFloat(A);
-  return (I || I === 0) && (A + "").match(Gk).length < 2 ? I : eg(A) ? A.trim() : A;
+  return (I || I === 0) && (A + "").match(Gk).length < 2 ? I : tg(A) ? A.trim() : A;
 }, Kr = function(A) {
   return A;
 }, jg = function(A, I) {
@@ -13136,12 +13136,12 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
 }, In = function E(A, I) {
   for (var g in I) g !== "__proto__" && g !== "constructor" && g !== "prototype" && (A[g] = dC(I[g]) ? E(A[g] || (A[g] = {}), I[g]) : I[g]);
   return A;
-}, bE = function(A, I) {
+}, TE = function(A, I) {
   var g = {}, C;
   for (C in A) C in I || (g[C] = A[C]);
   return g;
 }, hQ = function(A) {
-  var I = A.parent || YI, g = A.keyframes ? pk(Gg(A.keyframes)) : jg;
+  var I = A.parent || LI, g = A.keyframes ? pk(Gg(A.keyframes)) : jg;
   if (qg(A.inherit)) for (; I; ) g(A, I.vars.defaults), I = I.parent || I._dp;
   return A;
 }, Uk = function(A, I) {
@@ -13151,7 +13151,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   var i = A[C], Q;
   if (B) for (Q = I[B]; i && i[B] > Q; ) i = i._prev;
   return i ? (I._next = i._next, i._next = I) : (I._next = A[g], A[g] = I), I._next ? I._next._prev = I : A[C] = I, I._prev = i, I.parent = I._dp = A, I;
-}, Bo = function(A, I, g, C) {
+}, io = function(A, I, g, C) {
   g === void 0 && (g = "_first"), C === void 0 && (C = "_last");
   var B = I._prev, i = I._next;
   B ? B._next = i : A[g] === I && (A[g] = i), i ? i._prev = B : A[C] === I && (A[C] = B), I._next = I._prev = I.parent = null;
@@ -13164,34 +13164,34 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   for (var I = A.parent; I && I.parent; ) I._dirty = 1, I.totalDuration(), I = I.parent;
   return A;
 }, qe = function(A, I, g, C) {
-  return A._startAt && (ng ? A._startAt.revert(UE) : A.vars.immediateRender && !A.vars.autoRevert || A._startAt.render(I, true, C));
+  return A._startAt && (rg ? A._startAt.revert(UE) : A.vars.immediateRender && !A.vars.autoRevert || A._startAt.render(I, true, C));
 }, Kk = function E2(A) {
   return !A || A._ts && E2(A.parent);
 }, gn = function(A) {
   return A._repeat ? Yi(A._tTime, A = A.duration() + A._rDelay) * A : 0;
 }, Yi = function(A, I) {
-  var g = Math.floor(A = mI(A / I));
+  var g = Math.floor(A = YI(A / I));
   return A && g === A ? g - 1 : g;
-}, TE = function(A, I) {
+}, xE = function(A, I) {
   return (A - I._start) * I._ts + (I._ts >= 0 ? 0 : I._dirty ? I.totalDuration() : I._tDur);
-}, io = function(A) {
-  return A._end = mI(A._start + (A._tDur / Math.abs(A._ts || A._rts || kI) || 0));
-}, Qo = function(A, I) {
+}, Qo = function(A) {
+  return A._end = YI(A._start + (A._tDur / Math.abs(A._ts || A._rts || kI) || 0));
+}, Eo = function(A, I) {
   var g = A._dp;
-  return g && g.smoothChildTiming && A._ts && (A._start = mI(g._time - (A._ts > 0 ? I / A._ts : ((A._dirty ? A.totalDuration() : A._tDur) - I) / -A._ts)), io(A), g._dirty || LB(g, A)), A;
+  return g && g.smoothChildTiming && A._ts && (A._start = YI(g._time - (A._ts > 0 ? I / A._ts : ((A._dirty ? A.totalDuration() : A._tDur) - I) / -A._ts)), Qo(A), g._dirty || LB(g, A)), A;
 }, Rr = function(A, I) {
   var g;
-  if ((I._time || !I._dur && I._initted || I._start < A._time && (I._dur || !I.add)) && (g = TE(A.rawTime(), I), (!I._dur || TQ(0, I.totalDuration(), g) - I._tTime > kI) && I.render(g, true)), LB(A, I)._dp && A._initted && A._time >= A._dur && A._ts) {
+  if ((I._time || !I._dur && I._initted || I._start < A._time && (I._dur || !I.add)) && (g = xE(A.rawTime(), I), (!I._dur || TQ(0, I.totalDuration(), g) - I._tTime > kI) && I.render(g, true)), LB(A, I)._dp && A._initted && A._time >= A._dur && A._ts) {
     if (A._dur < A.duration()) for (g = A; g._dp; ) g.rawTime() >= 0 && g.totalTime(g._tTime), g = g._dp;
     A._zTime = -kI;
   }
 }, kC = function(A, I, g, C) {
-  return I.parent && tB(I), I._start = mI((xC(g) ? g : g || A !== YI ? zg(A, g, I) : A._time) + I._delay), I._end = mI(I._start + (I.totalDuration() / Math.abs(I.timeScale()) || 0)), Fr(A, I, "_first", "_last", A._sort ? "_start" : 0), fe(I) || (A._recent = I), C || Rr(A, I), A._ts < 0 && Qo(A, A._tTime), A;
+  return I.parent && tB(I), I._start = YI((xC(g) ? g : g || A !== LI ? zg(A, g, I) : A._time) + I._delay), I._end = YI(I._start + (I.totalDuration() / Math.abs(I.timeScale()) || 0)), Fr(A, I, "_first", "_last", A._sort ? "_start" : 0), fe(I) || (A._recent = I), C || Rr(A, I), A._ts < 0 && Eo(A, A._tTime), A;
 }, Jr = function(A, I) {
   return (Wg.ScrollTrigger || Mt("scrollTrigger", I)) && Wg.ScrollTrigger.create(I, A);
 }, ur = function(A, I, g, C, B) {
   if (Rt(A, I, B), !A._initted) return 1;
-  if (!g && A._pt && !ng && (A._dur && A.vars.lazy !== false || !A._dur && A.vars.lazy) && Mr !== Og.frame) return oB.push(A), A._lazy = [B, C], 1;
+  if (!g && A._pt && !rg && (A._dur && A.vars.lazy !== false || !A._dur && A.vars.lazy) && Mr !== Og.frame) return oB.push(A), A._lazy = [B, C], 1;
 }, Fk = function E3(A) {
   var I = A.parent;
   return I && I._ts && I._initted && !I._lock && (I.rawTime() < 0 || E3(I));
@@ -13200,10 +13200,10 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   return I === "isFromStart" || I === "isStart";
 }, Rk = function(A, I, g, C) {
   var B = A.ratio, i = I < 0 || !I && (!A._start && Fk(A) && !(!A._initted && fe(A)) || (A._ts < 0 || A._dp._ts < 0) && !fe(A)) ? 0 : 1, Q = A._rDelay, o = 0, e, t, a;
-  if (Q && A._repeat && (o = TQ(0, A._tDur, I), t = Yi(o, Q), A._yoyo && t & 1 && (i = 1 - i), t !== Yi(A._tTime, Q) && (B = 1 - i, A.vars.repeatRefresh && A._initted && A.invalidate())), i !== B || ng || C || A._zTime === kI || !I && A._zTime) {
+  if (Q && A._repeat && (o = TQ(0, A._tDur, I), t = Yi(o, Q), A._yoyo && t & 1 && (i = 1 - i), t !== Yi(A._tTime, Q) && (B = 1 - i, A.vars.repeatRefresh && A._initted && A.invalidate())), i !== B || rg || C || A._zTime === kI || !I && A._zTime) {
     if (!A._initted && ur(A, I, C, g, o)) return;
     for (a = A._zTime, A._zTime = I || (g ? kI : 0), g || (g = I && !a), A.ratio = i, A._from && (i = 1 - i), A._time = 0, A._tTime = o, e = A._pt; e; ) e.r(i, e.d), e = e._next;
-    I < 0 && qe(A, I, g, true), A._onUpdate && !g && vg(A, "onUpdate"), o && A._repeat && !g && A.parent && vg(A, "onRepeat"), (I >= A._tDur || I < 0) && A.ratio === i && (i && tB(A, 1), !g && !ng && (vg(A, i ? "onComplete" : "onReverseComplete", true), A._prom && A._prom()));
+    I < 0 && qe(A, I, g, true), A._onUpdate && !g && vg(A, "onUpdate"), o && A._repeat && !g && A.parent && vg(A, "onRepeat"), (I >= A._tDur || I < 0) && A.ratio === i && (i && tB(A, 1), !g && !rg && (vg(A, i ? "onComplete" : "onReverseComplete", true), A._prom && A._prom()));
   } else A._zTime || (A._zTime = I);
 }, Jk = function(A, I, g) {
   var C;
@@ -13216,26 +13216,26 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
     C = C._prev;
   }
 }, Li = function(A, I, g, C) {
-  var B = A._repeat, i = mI(I) || 0, Q = A._tTime / A._tDur;
-  return Q && !C && (A._time *= i / A._dur), A._dur = i, A._tDur = B ? B < 0 ? 1e10 : mI(i * (B + 1) + A._rDelay * B) : i, Q > 0 && !C && Qo(A, A._tTime = A._tDur * Q), A.parent && io(A), g || LB(A.parent, A), A;
+  var B = A._repeat, i = YI(I) || 0, Q = A._tTime / A._tDur;
+  return Q && !C && (A._time *= i / A._dur), A._dur = i, A._tDur = B ? B < 0 ? 1e10 : YI(i * (B + 1) + A._rDelay * B) : i, Q > 0 && !C && Eo(A, A._tTime = A._tDur * Q), A.parent && Qo(A), g || LB(A.parent, A), A;
 }, Cn = function(A) {
   return A instanceof ug ? LB(A) : Li(A, A._dur);
 }, uk = { _start: 0, endTime: pQ, totalDuration: pQ }, zg = function E4(A, I, g) {
   var C = A.labels, B = A._recent || uk, i = A.duration() >= BC ? B.endTime(false) : A._dur, Q, o, e;
-  return eg(I) && (isNaN(I) || I in C) ? (o = I.charAt(0), e = I.substr(-1) === "%", Q = I.indexOf("="), o === "<" || o === ">" ? (Q >= 0 && (I = I.replace(/=/, "")), (o === "<" ? B._start : B.endTime(B._repeat >= 0)) + (parseFloat(I.substr(1)) || 0) * (e ? (Q < 0 ? B : g).totalDuration() / 100 : 1)) : Q < 0 ? (I in C || (C[I] = i), C[I]) : (o = parseFloat(I.charAt(Q - 1) + I.substr(Q + 1)), e && g && (o = o / 100 * (Gg(g) ? g[0] : g).totalDuration()), Q > 1 ? E4(A, I.substr(0, Q - 1), g) + o : i + o)) : I == null ? i : +I;
+  return tg(I) && (isNaN(I) || I in C) ? (o = I.charAt(0), e = I.substr(-1) === "%", Q = I.indexOf("="), o === "<" || o === ">" ? (Q >= 0 && (I = I.replace(/=/, "")), (o === "<" ? B._start : B.endTime(B._repeat >= 0)) + (parseFloat(I.substr(1)) || 0) * (e ? (Q < 0 ? B : g).totalDuration() / 100 : 1)) : Q < 0 ? (I in C || (C[I] = i), C[I]) : (o = parseFloat(I.charAt(Q - 1) + I.substr(Q + 1)), e && g && (o = o / 100 * (Gg(g) ? g[0] : g).totalDuration()), Q > 1 ? E4(A, I.substr(0, Q - 1), g) + o : i + o)) : I == null ? i : +I;
 }, lQ = function(A, I, g) {
   var C = xC(I[1]), B = (C ? 2 : 1) + (A < 2 ? 0 : 1), i = I[B], Q, o;
   if (C && (i.duration = I[1]), i.parent = g, A) {
     for (Q = i, o = g; o && !("immediateRender" in Q); ) Q = o.vars.defaults || {}, o = qg(o.vars.inherit) && o.parent;
     i.immediateRender = qg(Q.immediateRender), A < 2 ? i.runBackwards = 1 : i.startAt = I[B - 1];
   }
-  return new zI(I[0], i, I[B + 1]);
+  return new $I(I[0], i, I[B + 1]);
 }, DB = function(A, I) {
   return A || A === 0 ? I(A) : I;
 }, TQ = function(A, I, g) {
   return g < A ? A : g > I ? I : g;
 }, Sg = function(A, I) {
-  return !eg(A) || !(I = kk.exec(A)) ? "" : I[1];
+  return !tg(A) || !(I = kk.exec(A)) ? "" : I[1];
 }, qk = function(A, I, g) {
   return DB(g, function(C) {
     return TQ(A, I, C);
@@ -13245,10 +13245,10 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
 }, fk = function(A, I, g) {
   return g === void 0 && (g = []), A.forEach(function(C) {
     var B;
-    return eg(C) && !I || qr(C, 1) ? (B = g).push.apply(B, iC(C)) : g.push(C);
+    return tg(C) && !I || qr(C, 1) ? (B = g).push.apply(B, iC(C)) : g.push(C);
   }) || g;
 }, iC = function(A, I, g) {
-  return FI && !I && FI.selector ? FI.selector(A) : eg(A) && !g && (Je || !Hi()) ? me.call((I || dt).querySelectorAll(A), 0) : Gg(A) ? fk(A, g) : qr(A) ? me.call(A, 0) : A ? [A] : [];
+  return RI && !I && RI.selector ? RI.selector(A) : tg(A) && !g && (Je || !Hi()) ? me.call((I || dt).querySelectorAll(A), 0) : Gg(A) ? fk(A, g) : qr(A) ? me.call(A, 0) : A ? [A] : [];
 }, Ye = function(A) {
   return A = iC(A)[0] || MQ("Invalid scope") || {}, function(I) {
     var g = A.current || A.nativeElement || A;
@@ -13259,29 +13259,29 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
     return 0.5 - Math.random();
   });
 }, mr = function(A) {
-  if (vI(A)) return A;
+  if (ZI(A)) return A;
   var I = dC(A) ? A : { each: A }, g = HB(I.ease), C = I.from || 0, B = parseFloat(I.base) || 0, i = {}, Q = C > 0 && C < 1, o = isNaN(C) || Q, e = I.axis, t = C, a = C;
-  return eg(C) ? t = a = { center: 0.5, edges: 0.5, end: 1 }[C] || 0 : !Q && o && (t = C[0], a = C[1]), function(s, n, r) {
-    var c = (r || I).length, D = i[c], h, S, G, k, U, p, M, F, y;
+  return tg(C) ? t = a = { center: 0.5, edges: 0.5, end: 1 }[C] || 0 : !Q && o && (t = C[0], a = C[1]), function(s, n, r) {
+    var c = (r || I).length, D = i[c], h, S, G, k, M, U, p, F, y;
     if (!D) {
       if (y = I.grid === "auto" ? 0 : (I.grid || [1, BC])[1], !y) {
-        for (M = -BC; M < (M = r[y++].getBoundingClientRect().left) && y < c; ) ;
+        for (p = -BC; p < (p = r[y++].getBoundingClientRect().left) && y < c; ) ;
         y < c && y--;
       }
-      for (D = i[c] = [], h = o ? Math.min(y, c) * t - 0.5 : C % y, S = y === BC ? 0 : o ? c * a / y - 0.5 : C / y | 0, M = 0, F = BC, p = 0; p < c; p++) G = p % y - h, k = S - (p / y | 0), D[p] = U = e ? Math.abs(e === "y" ? k : G) : lr(G * G + k * k), U > M && (M = U), U < F && (F = U);
-      C === "random" && fr(D), D.max = M - F, D.min = F, D.v = c = (parseFloat(I.amount) || parseFloat(I.each) * (y > c ? c - 1 : e ? e === "y" ? c / y : y : Math.max(y, c / y)) || 0) * (C === "edges" ? -1 : 1), D.b = c < 0 ? B - c : B, D.u = Sg(I.amount || I.each) || 0, g = g && c < 0 ? Wk(g) : g;
+      for (D = i[c] = [], h = o ? Math.min(y, c) * t - 0.5 : C % y, S = y === BC ? 0 : o ? c * a / y - 0.5 : C / y | 0, p = 0, F = BC, U = 0; U < c; U++) G = U % y - h, k = S - (U / y | 0), D[U] = M = e ? Math.abs(e === "y" ? k : G) : lr(G * G + k * k), M > p && (p = M), M < F && (F = M);
+      C === "random" && fr(D), D.max = p - F, D.min = F, D.v = c = (parseFloat(I.amount) || parseFloat(I.each) * (y > c ? c - 1 : e ? e === "y" ? c / y : y : Math.max(y, c / y)) || 0) * (C === "edges" ? -1 : 1), D.b = c < 0 ? B - c : B, D.u = Sg(I.amount || I.each) || 0, g = g && c < 0 ? Wk(g) : g;
     }
-    return c = (D[s] - D.min) / D.max || 0, mI(D.b + (g ? g(c) : c) * D.v) + D.u;
+    return c = (D[s] - D.min) / D.max || 0, YI(D.b + (g ? g(c) : c) * D.v) + D.u;
   };
 }, Le = function(A) {
   var I = Math.pow(10, ((A + "").split(".")[1] || "").length);
   return function(g) {
-    var C = mI(Math.round(parseFloat(g) / A) * A * I);
+    var C = YI(Math.round(parseFloat(g) / A) * A * I);
     return (C - C % 1) / I + (xC(g) ? 0 : Sg(g));
   };
 }, Yr = function(A, I) {
   var g = Gg(A), C, B;
-  return !g && dC(A) && (C = g = A.radius || BC, A.values ? (A = iC(A.values), (B = !xC(A[0])) && (C *= C)) : A = Le(A.increment)), DB(I, g ? vI(A) ? function(i) {
+  return !g && dC(A) && (C = g = A.radius || BC, A.values ? (A = iC(A.values), (B = !xC(A[0])) && (C *= C)) : A = Le(A.increment)), DB(I, g ? ZI(A) ? function(i) {
     return B = A(i), Math.abs(B - i) <= C ? B : i;
   } : function(i) {
     for (var Q = parseFloat(B ? i.x : i), o = parseFloat(B ? i.y : 0), e = BC, t = 0, a = A.length, s, n; a--; ) B ? (s = A[a].x - Q, n = A[a].y - o, s = s * s + n * n) : s = Math.abs(A[a] - Q), s < e && (e = s, t = a);
@@ -13333,7 +13333,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
     return (1 - n) * A + n * I;
   };
   if (!B) {
-    var i = eg(A), Q = {}, o, e, t, a, s;
+    var i = tg(A), Q = {}, o, e, t, a, s;
     if (g === true && (C = 1) && (g = null), i) A = { p: A }, I = { p: I };
     else if (Gg(A) && !Gg(I)) {
       for (t = [], a = A.length, s = a - 2, e = 1; e < a; e++) t.push(E7(A[e - 1], A[e]));
@@ -13356,22 +13356,22 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   for (i in C) Q = C[i] - I, Q < 0 == !!g && Q && B > (Q = Math.abs(Q)) && (o = i, B = Q);
   return o;
 }, vg = function(A, I, g) {
-  var C = A.vars, B = C[I], i = FI, Q = A._ctx, o, e, t;
-  if (B) return o = C[I + "Params"], e = C.callbackScope || A, g && oB.length && HE(), Q && (FI = Q), t = o ? B.apply(e, o) : B.call(e), FI = i, t;
+  var C = A.vars, B = C[I], i = RI, Q = A._ctx, o, e, t;
+  if (B) return o = C[I + "Params"], e = C.callbackScope || A, g && oB.length && bE(), Q && (RI = Q), t = o ? B.apply(e, o) : B.call(e), RI = i, t;
 }, QQ = function(A) {
-  return tB(A), A.scrollTrigger && A.scrollTrigger.kill(!!ng), A.progress() < 1 && vg(A, "onInterrupt"), A;
+  return tB(A), A.scrollTrigger && A.scrollTrigger.kill(!!rg), A.progress() < 1 && vg(A, "onInterrupt"), A;
 }, Si, Tr = [], xr = function(A) {
   if (A) if (A = !A.name && A.default || A, yt() || A.headless) {
-    var I = A.name, g = vI(A), C = I && !g && A.init ? function() {
+    var I = A.name, g = ZI(A), C = I && !g && A.init ? function() {
       this._props = [];
     } : A, B = { init: pQ, render: qt, add: Ft, kill: By, modifier: Cy, rawVars: 0 }, i = { targetTest: 0, get: 0, getSetter: ut, aliases: {}, register: 0 };
     if (Hi(), A !== C) {
       if (_g[I]) return;
-      jg(C, jg(bE(A, B), i)), mi(C.prototype, mi(B, bE(A, i))), _g[C.prop = I] = C, A.targetTest && (NE.push(C), pt[I] = 1), I = (I === "css" ? "CSS" : I.charAt(0).toUpperCase() + I.substr(1)) + "Plugin";
+      jg(C, jg(TE(A, B), i)), mi(C.prototype, mi(B, TE(A, i))), _g[C.prop = I] = C, A.targetTest && (NE.push(C), pt[I] = 1), I = (I === "css" ? "CSS" : I.charAt(0).toUpperCase() + I.substr(1)) + "Plugin";
     }
     dr(I, C), A.register && A.register(Lg, C, mg);
   } else Tr.push(A);
-}, SI = 255, EQ = { aqua: [0, SI, SI], lime: [0, SI, 0], silver: [192, 192, 192], black: [0, 0, 0], maroon: [128, 0, 0], teal: [0, 128, 128], blue: [0, 0, SI], navy: [0, 0, 128], white: [SI, SI, SI], olive: [128, 128, 0], yellow: [SI, SI, 0], orange: [SI, 165, 0], gray: [128, 128, 128], purple: [128, 0, 128], green: [0, 128, 0], red: [SI, 0, 0], pink: [SI, 192, 203], cyan: [0, SI, SI], transparent: [SI, SI, SI, 0] }, Be = function(A, I, g) {
+}, SI = 255, EQ = { aqua: [0, SI, SI], lime: [0, SI, 0], silver: [192, 192, 192], black: [0, 0, 0], maroon: [128, 0, 0], teal: [0, 128, 128], blue: [0, 0, SI], navy: [0, 0, 128], white: [SI, SI, SI], olive: [128, 128, 0], yellow: [SI, SI, 0], orange: [SI, 165, 0], gray: [128, 128, 128], purple: [128, 0, 128], green: [0, 128, 0], red: [SI, 0, 0], pink: [SI, 192, 203], cyan: [0, SI, SI], transparent: [SI, SI, SI, 0] }, ie = function(A, I, g) {
   return A += A < 0 ? 1 : A > 1 ? -1 : 0, (A * 6 < 1 ? I + (g - I) * A * 6 : A < 0.5 ? g : A * 3 < 2 ? I + (g - I) * (2 / 3 - A) * 6 : I) * SI + 0.5 | 0;
 }, _r = function(A, I, g) {
   var C = A ? xC(A) ? [A >> 16, A >> 8 & SI, A & SI] : 0 : EQ.black, B, i, Q, o, e, t, a, s, n, r;
@@ -13381,7 +13381,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
       if (A.length < 6 && (B = A.charAt(1), i = A.charAt(2), Q = A.charAt(3), A = "#" + B + B + i + i + Q + Q + (A.length === 5 ? A.charAt(4) + A.charAt(4) : "")), A.length === 9) return C = parseInt(A.substr(1, 6), 16), [C >> 16, C >> 8 & SI, C & SI, parseInt(A.substr(7), 16) / 255];
       A = parseInt(A.substr(1), 16), C = [A >> 16, A >> 8 & SI, A & SI];
     } else if (A.substr(0, 3) === "hsl") {
-      if (C = r = A.match($s), !I) o = +C[0] % 360 / 360, e = +C[1] / 100, t = +C[2] / 100, i = t <= 0.5 ? t * (e + 1) : t + e - t * e, B = t * 2 - i, C.length > 3 && (C[3] *= 1), C[0] = Be(o + 1 / 3, B, i), C[1] = Be(o, B, i), C[2] = Be(o - 1 / 3, B, i);
+      if (C = r = A.match($s), !I) o = +C[0] % 360 / 360, e = +C[1] / 100, t = +C[2] / 100, i = t <= 0.5 ? t * (e + 1) : t + e - t * e, B = t * 2 - i, C.length > 3 && (C[3] *= 1), C[0] = ie(o + 1 / 3, B, i), C[1] = ie(o, B, i), C[2] = ie(o - 1 / 3, B, i);
       else if (~A.indexOf("=")) return C = A.match(Sr), g && C.length < 4 && (C[3] = 1), C;
     } else C = A.match($s) || EQ.transparent;
     C = C.map(Number);
@@ -13410,15 +13410,15 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   if (eB.lastIndex = 0, eB.test(I)) return g = xk.test(I), A[1] = Qn(A[1], g), A[0] = Qn(A[0], g, Or(A[1])), true;
 }, NQ, Og = function() {
   var E14 = Date.now, A = 500, I = 33, g = E14(), C = g, B = 1e3 / 240, i = B, Q = [], o, e, t, a, s, n, r = function c(D) {
-    var h = E14() - C, S = D === true, G, k, U, p;
-    if ((h > A || h < 0) && (g += h - I), C += h, U = C - g, G = U - i, (G > 0 || S) && (p = ++a.frame, s = U - a.time * 1e3, a.time = U = U / 1e3, i += G + (G >= B ? 4 : B - G), k = 1), S || (o = e(c)), k) for (n = 0; n < Q.length; n++) Q[n](U, s, p, D);
+    var h = E14() - C, S = D === true, G, k, M, U;
+    if ((h > A || h < 0) && (g += h - I), C += h, M = C - g, G = M - i, (G > 0 || S) && (U = ++a.frame, s = M - a.time * 1e3, a.time = M = M / 1e3, i += G + (G >= B ? 4 : B - G), k = 1), S || (o = e(c)), k) for (n = 0; n < Q.length; n++) Q[n](M, s, U, D);
   };
   return a = { time: 0, frame: 0, tick: function() {
     r(true);
   }, deltaRatio: function(D) {
     return s / (1e3 / (D || 60));
   }, wake: function() {
-    kr && (!Je && yt() && (lC = Je = window, dt = lC.document || {}, Wg.gsap = Lg, (lC.gsapVersions || (lC.gsapVersions = [])).push(Lg.version), yr(LE || lC.GreenSockGlobals || !lC.gsap && lC || {}), Tr.forEach(xr)), t = typeof requestAnimationFrame < "u" && requestAnimationFrame, o && a.sleep(), e = t || function(D) {
+    kr && (!Je && yt() && (lC = Je = window, dt = lC.document || {}, Wg.gsap = Lg, (lC.gsapVersions || (lC.gsapVersions = [])).push(Lg.version), yr(HE || lC.GreenSockGlobals || !lC.gsap && lC || {}), Tr.forEach(xr)), t = typeof requestAnimationFrame < "u" && requestAnimationFrame, o && a.sleep(), e = t || function(D) {
       return setTimeout(D, i - a.time * 1e3 + 1 | 0);
     }, NQ = 1, r(2));
   }, sleep: function() {
@@ -13428,8 +13428,8 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   }, fps: function(D) {
     B = 1e3 / (D || 240), i = a.time * 1e3 + B;
   }, add: function(D, h, S) {
-    var G = h ? function(k, U, p, M) {
-      D(k, U, p, M), a.remove(G);
+    var G = h ? function(k, M, U, p) {
+      D(k, M, U, p), a.remove(G);
     } : D;
     return a.remove(D), Q[S ? "unshift" : "push"](G), Hi(), G;
   }, remove: function(D, h) {
@@ -13451,7 +13451,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
     return 1 - A(1 - I);
   };
 }, HB = function(A, I) {
-  return A && (vI(A) ? A : eI[A] || Pk(A)) || I;
+  return A && (ZI(A) ? A : eI[A] || Pk(A)) || I;
 }, WB = function(A, I, g, C) {
   g === void 0 && (g = function(o) {
     return 1 - I(1 - o);
@@ -13467,7 +13467,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   return function(I) {
     return I < 0.5 ? (1 - A(1 - I * 2)) / 2 : 0.5 + A((I - 0.5) * 2) / 2;
   };
-}, ie = function E8(A, I, g) {
+}, Qe = function E8(A, I, g) {
   var C = I >= 1 ? I : 1, B = (g || (A ? 0.3 : 0.45)) / (I < 1 ? I : 1), i = B / Re * (Math.asin(1 / C) || 0), Q = function(t) {
     return t === 1 ? 1 : C * Math.pow(2, -10 * t) * lk((t - i) * B) + 1;
   }, o = A === "out" ? Q : A === "in" ? function(e) {
@@ -13476,7 +13476,7 @@ var Pg = { autoSleep: 120, force3D: "auto", nullTargetWarn: 1, units: { lineHeig
   return B = Re / B, o.config = function(e, t) {
     return E8(A, e, t);
   }, o;
-}, Qe = function E9(A, I) {
+}, Ee = function E9(A, I) {
   I === void 0 && (I = 1.70158);
   var g = function(i) {
     return i ? --i * i * ((I + 1) * i + I) + 1 : 0;
@@ -13500,7 +13500,7 @@ fg("Linear,Quad,Cubic,Quart,Quint,Strong", function(E14, A) {
   });
 });
 eI.Linear.easeNone = eI.none = eI.Linear.easeIn;
-WB("Elastic", ie("in"), ie("out"), ie());
+WB("Elastic", Qe("in"), Qe("out"), Qe());
 (function(E14, A) {
   var I = 1 / A, g = 2 * I, C = 2.5 * I, B = function(Q) {
     return Q < I ? E14 * Q * Q : Q < g ? E14 * Math.pow(Q - 1.5 / A, 2) + 0.75 : Q < C ? E14 * (Q -= 2.25 / A) * Q + 0.9375 : E14 * Math.pow(Q - 2.625 / A, 2) + 0.984375;
@@ -13518,7 +13518,7 @@ WB("Circ", function(E14) {
 WB("Sine", function(E14) {
   return E14 === 1 ? 1 : -hk(E14 * Dk) + 1;
 });
-WB("Back", Qe("in"), Qe("out"), Qe());
+WB("Back", Ee("in"), Ee("out"), Ee());
 eI.SteppedEase = eI.steps = Wg.SteppedEase = { config: function(A, I) {
   A === void 0 && (A = 1);
   var g = 1 / A, C = A + (I ? 0 : 1), B = I ? 1 : 0, i = 1 - kI;
@@ -13534,7 +13534,7 @@ var Pr = function(A, I) {
   this.id = ck++, A._gsap = this, this.target = A, this.harness = I, this.get = I ? I.get : pr, this.set = I ? I.getSetter : ut;
 }, KQ = function() {
   function E14(I) {
-    this.vars = I, this._delay = +I.delay || 0, (this._repeat = I.repeat === 1 / 0 ? -2 : I.repeat || 0) && (this._rDelay = I.repeatDelay || 0, this._yoyo = !!I.yoyo || !!I.yoyoEase), this._ts = 1, Li(this, +I.duration, 1, 1), this.data = I.data, FI && (this._ctx = FI, FI.data.push(this)), NQ || Og.wake();
+    this.vars = I, this._delay = +I.delay || 0, (this._repeat = I.repeat === 1 / 0 ? -2 : I.repeat || 0) && (this._rDelay = I.repeatDelay || 0, this._yoyo = !!I.yoyo || !!I.yoyoEase), this._ts = 1, Li(this, +I.duration, 1, 1), this.data = I.data, RI && (this._ctx = RI, RI.data.push(this)), NQ || Og.wake();
   }
   var A = E14.prototype;
   return A.delay = function(g) {
@@ -13547,7 +13547,7 @@ var Pr = function(A, I) {
     if (Hi(), !arguments.length) return this._tTime;
     var B = this._dp;
     if (B && B.smoothChildTiming && this._ts) {
-      for (Qo(this, g), !B._dp || B.parent || Rr(B, this); B && B.parent; ) B.parent._time !== B._start + (B._ts >= 0 ? B._tTime / B._ts : (B.totalDuration() - B._tTime) / -B._ts) && B.totalTime(B._tTime, true), B = B.parent;
+      for (Eo(this, g), !B._dp || B.parent || Rr(B, this); B && B.parent; ) B.parent._time !== B._start + (B._ts >= 0 ? B._tTime / B._ts : (B.totalDuration() - B._tTime) / -B._ts) && B.totalTime(B._tTime, true), B = B.parent;
       !this.parent && this._dp.autoRemoveChildren && (this._ts > 0 && g < this._tDur || this._ts < 0 && g > 0 || !this._tDur && !g) && kC(this._dp, this, this._start - this._delay);
     }
     return (this._tTime !== g || !this._dur && !C || this._initted && Math.abs(this._zTime) === kI || !this._initted && this._dur && g || !g && !this._initted && (this.add || this._ptLookup)) && (this._ts || (this._pTime = g), Ur(this, g, C)), this;
@@ -13563,13 +13563,13 @@ var Pr = function(A, I) {
   }, A.timeScale = function(g, C) {
     if (!arguments.length) return this._rts === -kI ? 0 : this._rts;
     if (this._rts === g) return this;
-    var B = this.parent && this._ts ? TE(this.parent._time, this) : this._tTime;
-    return this._rts = +g || 0, this._ts = this._ps || g === -kI ? 0 : this._rts, this.totalTime(TQ(-Math.abs(this._delay), this.totalDuration(), B), C !== false), io(this), Nk(this);
+    var B = this.parent && this._ts ? xE(this.parent._time, this) : this._tTime;
+    return this._rts = +g || 0, this._ts = this._ps || g === -kI ? 0 : this._rts, this.totalTime(TQ(-Math.abs(this._delay), this.totalDuration(), B), C !== false), Qo(this), Nk(this);
   }, A.paused = function(g) {
     return arguments.length ? (this._ps !== g && (this._ps = g, g ? (this._pTime = this._tTime || Math.max(-this._delay, this.rawTime()), this._ts = this._act = 0) : (Hi(), this._ts = this._rts, this.totalTime(this.parent && !this.parent.smoothChildTiming ? this.rawTime() : this._tTime || this._pTime, this.progress() === 1 && Math.abs(this._zTime) !== kI && (this._tTime -= kI)))), this) : this._ps;
   }, A.startTime = function(g) {
     if (arguments.length) {
-      this._start = mI(g);
+      this._start = YI(g);
       var C = this.parent || this._dp;
       return C && (C._sort || !this.parent) && kC(C, this, this._start - this._delay), this;
     }
@@ -13578,11 +13578,11 @@ var Pr = function(A, I) {
     return this._start + (qg(g) ? this.totalDuration() : this.duration()) / Math.abs(this._ts || 1);
   }, A.rawTime = function(g) {
     var C = this.parent || this._dp;
-    return C ? g && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : this._ts ? TE(C.rawTime(g), this) : this._tTime : this._tTime;
+    return C ? g && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : this._ts ? xE(C.rawTime(g), this) : this._tTime : this._tTime;
   }, A.revert = function(g) {
     g === void 0 && (g = dk);
-    var C = ng;
-    return ng = g, Kt(this) && (this.timeline && this.timeline.revert(g), this.totalTime(-0.01, g.suppressEvents)), this.data !== "nested" && g.kill !== false && this.kill(), ng = C, this;
+    var C = rg;
+    return rg = g, Kt(this) && (this.timeline && this.timeline.revert(g), this.totalTime(-0.01, g.suppressEvents)), this.data !== "nested" && g.kill !== false && this.kill(), rg = C, this;
   }, A.globalTime = function(g) {
     for (var C = this, B = arguments.length ? g : C.rawTime(); C; ) B = C._start + B / (Math.abs(C._ts) || 1), C = C._dp;
     return !this.parent && this._sat ? this._sat.globalTime(g) : B;
@@ -13621,9 +13621,9 @@ var Pr = function(A, I) {
   }, A.then = function(g) {
     var C = this, B = C._prom;
     return new Promise(function(i) {
-      var Q = vI(g) ? g : Kr, o = function() {
+      var Q = ZI(g) ? g : Kr, o = function() {
         var t = C.then;
-        C.then = null, B && B(), vI(Q) && (Q = Q(C)) && (Q.then || Q === C) && (C.then = t), i(Q), C.then = t;
+        C.then = null, B && B(), ZI(Q) && (Q = Q(C)) && (Q.then || Q === C) && (C.then = t), i(Q), C.then = t;
       };
       C._initted && C.totalProgress() === 1 && C._ts >= 0 || !C._tTime && C._ts < 0 ? o() : C._prom = o;
     });
@@ -13636,7 +13636,7 @@ var ug = function(E14) {
   hr(A, E14);
   function A(g, C) {
     var B;
-    return g === void 0 && (g = {}), B = E14.call(this, g) || this, B.labels = {}, B.smoothChildTiming = !!g.smoothChildTiming, B.autoRemoveChildren = !!g.autoRemoveChildren, B._sort = qg(g.sortChildren), YI && kC(g.parent || YI, mC(B), C), g.reversed && B.reverse(), g.paused && B.paused(true), g.scrollTrigger && Jr(mC(B), g.scrollTrigger), B;
+    return g === void 0 && (g = {}), B = E14.call(this, g) || this, B.labels = {}, B.smoothChildTiming = !!g.smoothChildTiming, B.autoRemoveChildren = !!g.autoRemoveChildren, B._sort = qg(g.sortChildren), LI && kC(g.parent || LI, mC(B), C), g.reversed && B.reverse(), g.paused && B.paused(true), g.scrollTrigger && Jr(mC(B), g.scrollTrigger), B;
   }
   var I = A.prototype;
   return I.to = function(C, B, i) {
@@ -13646,27 +13646,27 @@ var ug = function(E14) {
   }, I.fromTo = function(C, B, i, Q) {
     return lQ(2, arguments, this), this;
   }, I.set = function(C, B, i) {
-    return B.duration = 0, B.parent = this, hQ(B).repeatDelay || (B.repeat = 0), B.immediateRender = !!B.immediateRender, new zI(C, B, zg(this, i), 1), this;
+    return B.duration = 0, B.parent = this, hQ(B).repeatDelay || (B.repeat = 0), B.immediateRender = !!B.immediateRender, new $I(C, B, zg(this, i), 1), this;
   }, I.call = function(C, B, i) {
-    return kC(this, zI.delayedCall(0, C, B), i);
+    return kC(this, $I.delayedCall(0, C, B), i);
   }, I.staggerTo = function(C, B, i, Q, o, e, t) {
-    return i.duration = B, i.stagger = i.stagger || Q, i.onComplete = e, i.onCompleteParams = t, i.parent = this, new zI(C, i, zg(this, o)), this;
+    return i.duration = B, i.stagger = i.stagger || Q, i.onComplete = e, i.onCompleteParams = t, i.parent = this, new $I(C, i, zg(this, o)), this;
   }, I.staggerFrom = function(C, B, i, Q, o, e, t) {
     return i.runBackwards = 1, hQ(i).immediateRender = qg(i.immediateRender), this.staggerTo(C, B, i, Q, o, e, t);
   }, I.staggerFromTo = function(C, B, i, Q, o, e, t, a) {
     return Q.startAt = i, hQ(Q).immediateRender = qg(Q.immediateRender), this.staggerTo(C, B, Q, o, e, t, a);
   }, I.render = function(C, B, i) {
-    var Q = this._time, o = this._dirty ? this.totalDuration() : this._tDur, e = this._dur, t = C <= 0 ? 0 : mI(C), a = this._zTime < 0 != C < 0 && (this._initted || !e), s, n, r, c, D, h, S, G, k, U, p, M;
-    if (this !== YI && t > o && C >= 0 && (t = o), t !== this._tTime || i || a) {
+    var Q = this._time, o = this._dirty ? this.totalDuration() : this._tDur, e = this._dur, t = C <= 0 ? 0 : YI(C), a = this._zTime < 0 != C < 0 && (this._initted || !e), s, n, r, c, D, h, S, G, k, M, U, p;
+    if (this !== LI && t > o && C >= 0 && (t = o), t !== this._tTime || i || a) {
       if (Q !== this._time && e && (t += this._time - Q, C += this._time - Q), s = t, k = this._start, G = this._ts, h = !G, a && (e || (Q = this._zTime), (C || !B) && (this._zTime = C)), this._repeat) {
-        if (p = this._yoyo, D = e + this._rDelay, this._repeat < -1 && C < 0) return this.totalTime(D * 100 + C, B, i);
-        if (s = mI(t % D), t === o ? (c = this._repeat, s = e) : (U = mI(t / D), c = ~~U, c && c === U && (s = e, c--), s > e && (s = e)), U = Yi(this._tTime, D), !Q && this._tTime && U !== c && this._tTime - U * D - this._dur <= 0 && (U = c), p && c & 1 && (s = e - s, M = 1), c !== U && !this._lock) {
-          var F = p && U & 1, y = F === (p && c & 1);
-          if (c < U && (F = !F), Q = F ? 0 : t % e ? e : t, this._lock = 1, this.render(Q || (M ? 0 : mI(c * D)), B, !e)._lock = 0, this._tTime = t, !B && this.parent && vg(this, "onRepeat"), this.vars.repeatRefresh && !M && (this.invalidate()._lock = 1, U = c), Q && Q !== this._time || h !== !this._ts || this.vars.onRepeat && !this.parent && !this._act) return this;
-          if (e = this._dur, o = this._tDur, y && (this._lock = 2, Q = F ? e : -1e-4, this.render(Q, true), this.vars.repeatRefresh && !M && this.invalidate()), this._lock = 0, !this._ts && !h) return this;
+        if (U = this._yoyo, D = e + this._rDelay, this._repeat < -1 && C < 0) return this.totalTime(D * 100 + C, B, i);
+        if (s = YI(t % D), t === o ? (c = this._repeat, s = e) : (M = YI(t / D), c = ~~M, c && c === M && (s = e, c--), s > e && (s = e)), M = Yi(this._tTime, D), !Q && this._tTime && M !== c && this._tTime - M * D - this._dur <= 0 && (M = c), U && c & 1 && (s = e - s, p = 1), c !== M && !this._lock) {
+          var F = U && M & 1, y = F === (U && c & 1);
+          if (c < M && (F = !F), Q = F ? 0 : t % e ? e : t, this._lock = 1, this.render(Q || (p ? 0 : YI(c * D)), B, !e)._lock = 0, this._tTime = t, !B && this.parent && vg(this, "onRepeat"), this.vars.repeatRefresh && !p && (this.invalidate()._lock = 1, M = c), Q && Q !== this._time || h !== !this._ts || this.vars.onRepeat && !this.parent && !this._act) return this;
+          if (e = this._dur, o = this._tDur, y && (this._lock = 2, Q = F ? e : -1e-4, this.render(Q, true), this.vars.repeatRefresh && !p && this.invalidate()), this._lock = 0, !this._ts && !h) return this;
         }
       }
-      if (this._hasPause && !this._forcing && this._lock < 2 && (S = Jk(this, mI(Q), mI(s)), S && (t -= s - (s = S._start))), this._tTime = t, this._time = s, this._act = !!G, this._initted || (this._onUpdate = this.vars.onUpdate, this._initted = 1, this._zTime = C, Q = 0), !Q && t && e && !B && !U && (vg(this, "onStart"), this._tTime !== t)) return this;
+      if (this._hasPause && !this._forcing && this._lock < 2 && (S = Jk(this, YI(Q), YI(s)), S && (t -= s - (s = S._start))), this._tTime = t, this._time = s, this._act = !!G, this._initted || (this._onUpdate = this.vars.onUpdate, this._initted = 1, this._zTime = C, Q = 0), !Q && t && e && !B && !M && (vg(this, "onStart"), this._tTime !== t)) return this;
       if (s >= Q && C >= 0) for (n = this._first; n; ) {
         if (r = n._next, (n._act || s >= n._start) && n._ts && S !== n) {
           if (n.parent !== this) return this.render(C, B, i);
@@ -13682,7 +13682,7 @@ var ug = function(E14) {
         for (var N = C < 0 ? C : s; n; ) {
           if (r = n._prev, (n._act || N <= n._end) && n._ts && S !== n) {
             if (n.parent !== this) return this.render(C, B, i);
-            if (n.render(n._ts > 0 ? (N - n._start) * n._ts : (n._dirty ? n.totalDuration() : n._tDur) + (N - n._start) * n._ts, B, i || ng && Kt(n)), s !== this._time || !this._ts && !h) {
+            if (n.render(n._ts > 0 ? (N - n._start) * n._ts : (n._dirty ? n.totalDuration() : n._tDur) + (N - n._start) * n._ts, B, i || rg && Kt(n)), s !== this._time || !this._ts && !h) {
               S = 0, r && (t += this._zTime = N ? -kI : kI);
               break;
             }
@@ -13690,7 +13690,7 @@ var ug = function(E14) {
           n = r;
         }
       }
-      if (S && !B && (this.pause(), S.render(s >= Q ? 0 : -kI)._zTime = s >= Q ? 1 : -1, this._ts)) return this._start = k, io(this), this.render(C, B, i);
+      if (S && !B && (this.pause(), S.render(s >= Q ? 0 : -kI)._zTime = s >= Q ? 1 : -1, this._ts)) return this._start = k, Qo(this), this.render(C, B, i);
       this._onUpdate && !B && vg(this, "onUpdate", true), (t === o && this._tTime >= this.totalDuration() || !t && Q) && (k === this._start || Math.abs(G) !== Math.abs(this._ts)) && (this._lock || ((C || !e) && (t === o && this._ts > 0 || !t && this._ts < 0) && tB(this, 1), !B && !(C < 0 && !Q) && (t || Q || !o) && (vg(this, t === o && C >= 0 ? "onComplete" : "onReverseComplete", true), this._prom && !(t < o && this.timeScale() > 0) && this._prom())));
     }
     return this;
@@ -13700,27 +13700,27 @@ var ug = function(E14) {
       if (Gg(C)) return C.forEach(function(Q) {
         return i.add(Q, B);
       }), this;
-      if (eg(C)) return this.addLabel(C, B);
-      if (vI(C)) C = zI.delayedCall(0, C);
+      if (tg(C)) return this.addLabel(C, B);
+      if (ZI(C)) C = $I.delayedCall(0, C);
       else return this;
     }
     return this !== C ? kC(this, C, B) : this;
   }, I.getChildren = function(C, B, i, Q) {
     C === void 0 && (C = true), B === void 0 && (B = true), i === void 0 && (i = true), Q === void 0 && (Q = -BC);
-    for (var o = [], e = this._first; e; ) e._start >= Q && (e instanceof zI ? B && o.push(e) : (i && o.push(e), C && o.push.apply(o, e.getChildren(true, B, i)))), e = e._next;
+    for (var o = [], e = this._first; e; ) e._start >= Q && (e instanceof $I ? B && o.push(e) : (i && o.push(e), C && o.push.apply(o, e.getChildren(true, B, i)))), e = e._next;
     return o;
   }, I.getById = function(C) {
     for (var B = this.getChildren(1, 1, 1), i = B.length; i--; ) if (B[i].vars.id === C) return B[i];
   }, I.remove = function(C) {
-    return eg(C) ? this.removeLabel(C) : vI(C) ? this.killTweensOf(C) : (C.parent === this && Bo(this, C), C === this._recent && (this._recent = this._last), LB(this));
+    return tg(C) ? this.removeLabel(C) : ZI(C) ? this.killTweensOf(C) : (C.parent === this && io(this, C), C === this._recent && (this._recent = this._last), LB(this));
   }, I.totalTime = function(C, B) {
-    return arguments.length ? (this._forcing = 1, !this._dp && this._ts && (this._start = mI(Og.time - (this._ts > 0 ? C / this._ts : (this.totalDuration() - C) / -this._ts))), E14.prototype.totalTime.call(this, C, B), this._forcing = 0, this) : this._tTime;
+    return arguments.length ? (this._forcing = 1, !this._dp && this._ts && (this._start = YI(Og.time - (this._ts > 0 ? C / this._ts : (this.totalDuration() - C) / -this._ts))), E14.prototype.totalTime.call(this, C, B), this._forcing = 0, this) : this._tTime;
   }, I.addLabel = function(C, B) {
     return this.labels[C] = zg(this, B), this;
   }, I.removeLabel = function(C) {
     return delete this.labels[C], this;
   }, I.addPause = function(C, B, i) {
-    var Q = zI.delayedCall(0, B || pQ, i);
+    var Q = $I.delayedCall(0, B || pQ, i);
     return Q.data = "isPause", this._hasPause = 1, kC(this, Q, zg(this, C));
   }, I.removePause = function(C) {
     var B = this._first;
@@ -13729,11 +13729,11 @@ var ug = function(E14) {
     for (var Q = this.getTweensOf(C, i), o = Q.length; o--; ) gB !== Q[o] && Q[o].kill(C, B);
     return this;
   }, I.getTweensOf = function(C, B) {
-    for (var i = [], Q = iC(C), o = this._first, e = xC(B), t; o; ) o instanceof zI ? Mk(o._targets, Q) && (e ? (!gB || o._initted && o._ts) && o.globalTime(0) <= B && o.globalTime(o.totalDuration()) > B : !B || o.isActive()) && i.push(o) : (t = o.getTweensOf(Q, B)).length && i.push.apply(i, t), o = o._next;
+    for (var i = [], Q = iC(C), o = this._first, e = xC(B), t; o; ) o instanceof $I ? Mk(o._targets, Q) && (e ? (!gB || o._initted && o._ts) && o.globalTime(0) <= B && o.globalTime(o.totalDuration()) > B : !B || o.isActive()) && i.push(o) : (t = o.getTweensOf(Q, B)).length && i.push.apply(i, t), o = o._next;
     return i;
   }, I.tweenTo = function(C, B) {
     B = B || {};
-    var i = this, Q = zg(i, C), o = B, e = o.startAt, t = o.onStart, a = o.onStartParams, s = o.immediateRender, n, r = zI.to(i, jg({ ease: B.ease || "none", lazy: false, immediateRender: false, time: Q, overwrite: "auto", duration: B.duration || Math.abs((Q - (e && "time" in e ? e.time : i._time)) / i.timeScale()) || kI, onStart: function() {
+    var i = this, Q = zg(i, C), o = B, e = o.startAt, t = o.onStart, a = o.onStartParams, s = o.immediateRender, n, r = $I.to(i, jg({ ease: B.ease || "none", lazy: false, immediateRender: false, time: Q, overwrite: "auto", duration: B.duration || Math.abs((Q - (e && "time" in e ? e.time : i._time)) / i.timeScale()) || kI, onStart: function() {
       if (i.pause(), !n) {
         var D = B.duration || Math.abs((Q - (e && "time" in e ? e.time : i._time)) / i.timeScale());
         r._dur !== D && Li(r, D, 0, 1).render(r._time, true, true), n = 1;
@@ -13754,7 +13754,7 @@ var ug = function(E14) {
   }, I.shiftChildren = function(C, B, i) {
     i === void 0 && (i = 0);
     var Q = this._first, o = this.labels, e;
-    for (C = mI(C); Q; ) Q._start >= i && (Q._start += C, Q._end += C), Q = Q._next;
+    for (C = YI(C); Q; ) Q._start >= i && (Q._start += C, Q._end += C), Q = Q._next;
     if (B) for (e in o) o[e] >= i && (o[e] += C);
     return LB(this);
   }, I.invalidate = function(C) {
@@ -13769,14 +13769,14 @@ var ug = function(E14) {
     var B = 0, i = this, Q = i._last, o = BC, e, t, a;
     if (arguments.length) return i.timeScale((i._repeat < 0 ? i.duration() : i.totalDuration()) / (i.reversed() ? -C : C));
     if (i._dirty) {
-      for (a = i.parent; Q; ) e = Q._prev, Q._dirty && Q.totalDuration(), t = Q._start, t > o && i._sort && Q._ts && !i._lock ? (i._lock = 1, kC(i, Q, t - Q._delay, 1)._lock = 0) : o = t, t < 0 && Q._ts && (B -= t, (!a && !i._dp || a && a.smoothChildTiming) && (i._start += mI(t / i._ts), i._time -= t, i._tTime -= t), i.shiftChildren(-t, false, -1 / 0), o = 0), Q._end > B && Q._ts && (B = Q._end), Q = e;
-      Li(i, i === YI && i._time > B ? i._time : B, 1, 1), i._dirty = 0;
+      for (a = i.parent; Q; ) e = Q._prev, Q._dirty && Q.totalDuration(), t = Q._start, t > o && i._sort && Q._ts && !i._lock ? (i._lock = 1, kC(i, Q, t - Q._delay, 1)._lock = 0) : o = t, t < 0 && Q._ts && (B -= t, (!a && !i._dp || a && a.smoothChildTiming) && (i._start += YI(t / i._ts), i._time -= t, i._tTime -= t), i.shiftChildren(-t, false, -1 / 0), o = 0), Q._end > B && Q._ts && (B = Q._end), Q = e;
+      Li(i, i === LI && i._time > B ? i._time : B, 1, 1), i._dirty = 0;
     }
     return i._tDur;
   }, A.updateRoot = function(C) {
-    if (YI._ts && (Ur(YI, TE(C, YI)), Mr = Og.frame), Og.frame >= An) {
+    if (LI._ts && (Ur(LI, xE(C, LI)), Mr = Og.frame), Og.frame >= An) {
       An += Pg.autoSleep || 120;
-      var B = YI._first;
+      var B = LI._first;
       if ((!B || !B._ts) && Pg.autoSleep && Og._listeners.length < 2) {
         for (; B && !B._ts; ) B = B._next;
         B || Og.sleep();
@@ -13787,14 +13787,14 @@ var ug = function(E14) {
 jg(ug.prototype, { _lock: 0, _hasPause: 0, _forcing: 0 });
 var jk = function(A, I, g, C, B, i, Q) {
   var o = new mg(this._pt, A, I, 0, 1, $r, null, B), e = 0, t = 0, a, s, n, r, c, D, h, S;
-  for (o.b = g, o.e = C, g += "", C += "", (h = ~C.indexOf("random(")) && (C = UQ(C)), i && (S = [g, C], i(S, A, I), g = S[0], C = S[1]), s = g.match(ge) || []; a = ge.exec(C); ) r = a[0], c = C.substring(e, a.index), n ? n = (n + 1) % 5 : c.substr(-5) === "rgba(" && (n = 1), r !== s[t++] && (D = parseFloat(s[t - 1]) || 0, o._pt = { _next: o._pt, p: c || t === 1 ? c : ",", s: D, c: r.charAt(1) === "=" ? yi(D, r) - D : parseFloat(r) - D, m: n && n < 4 ? Math.round : 0 }, e = ge.lastIndex);
+  for (o.b = g, o.e = C, g += "", C += "", (h = ~C.indexOf("random(")) && (C = UQ(C)), i && (S = [g, C], i(S, A, I), g = S[0], C = S[1]), s = g.match(Ce) || []; a = Ce.exec(C); ) r = a[0], c = C.substring(e, a.index), n ? n = (n + 1) % 5 : c.substr(-5) === "rgba(" && (n = 1), r !== s[t++] && (D = parseFloat(s[t - 1]) || 0, o._pt = { _next: o._pt, p: c || t === 1 ? c : ",", s: D, c: r.charAt(1) === "=" ? yi(D, r) - D : parseFloat(r) - D, m: n && n < 4 ? Math.round : 0 }, e = Ce.lastIndex);
   return o.c = e < C.length ? C.substring(e, C.length) : "", o.fp = Q, (Gr.test(C) || h) && (o.e = 0), this._pt = o, o;
 }, Ft = function(A, I, g, C, B, i, Q, o, e, t) {
-  vI(C) && (C = C(B || 0, A, i));
-  var a = A[I], s = g !== "get" ? g : vI(a) ? e ? A[I.indexOf("set") || !vI(A["get" + I.substr(3)]) ? I : "get" + I.substr(3)](e) : A[I]() : a, n = vI(a) ? e ? Ay : Xr : Jt, r;
-  if (eg(C) && (~C.indexOf("random(") && (C = UQ(C)), C.charAt(1) === "=" && (r = yi(s, C) + (Sg(s) || 0), (r || r === 0) && (C = r))), !t || s !== C || He) return !isNaN(s * C) && C !== "" ? (r = new mg(this._pt, A, I, +s || 0, C - (s || 0), typeof a == "boolean" ? gy : zr, 0, n), e && (r.fp = e), Q && r.modifier(Q, this, A), this._pt = r) : (!a && !(I in A) && Mt(I, C), jk.call(this, A, I, s, C, n, o || Pg.stringFilter, e));
+  ZI(C) && (C = C(B || 0, A, i));
+  var a = A[I], s = g !== "get" ? g : ZI(a) ? e ? A[I.indexOf("set") || !ZI(A["get" + I.substr(3)]) ? I : "get" + I.substr(3)](e) : A[I]() : a, n = ZI(a) ? e ? Ay : Xr : Jt, r;
+  if (tg(C) && (~C.indexOf("random(") && (C = UQ(C)), C.charAt(1) === "=" && (r = yi(s, C) + (Sg(s) || 0), (r || r === 0) && (C = r))), !t || s !== C || He) return !isNaN(s * C) && C !== "" ? (r = new mg(this._pt, A, I, +s || 0, C - (s || 0), typeof a == "boolean" ? gy : zr, 0, n), e && (r.fp = e), Q && r.modifier(Q, this, A), this._pt = r) : (!a && !(I in A) && Mt(I, C), jk.call(this, A, I, s, C, n, o || Pg.stringFilter, e));
 }, Vk = function(A, I, g, C, B) {
-  if (vI(A) && (A = wQ(A, B, I, g, C)), !dC(A) || A.style && A.nodeType || Gg(A) || wr(A)) return eg(A) ? wQ(A, B, I, g, C) : A;
+  if (ZI(A) && (A = wQ(A, B, I, g, C)), !dC(A) || A.style && A.nodeType || Gg(A) || wr(A)) return tg(A) ? wQ(A, B, I, g, C) : A;
   var i = {}, Q;
   for (Q in A) i[Q] = wQ(A[Q], B, I, g, C);
   return i;
@@ -13803,24 +13803,24 @@ var jk = function(A, I, g, C, B, i, Q) {
   if (_g[A] && (Q = new _g[A]()).init(B, Q.rawVars ? I[A] : Vk(I[A], C, B, i, g), g, C, i) !== false && (g._pt = o = new mg(g._pt, B, A, 0, 1, Q.render, Q, 0, Q.priority), g !== Si)) for (e = g._ptLookup[g._targets.indexOf(B)], t = Q._props.length; t--; ) e[Q._props[t]] = o;
   return Q;
 }, gB, He, Rt = function E10(A, I, g) {
-  var C = A.vars, B = C.ease, i = C.startAt, Q = C.immediateRender, o = C.lazy, e = C.onUpdate, t = C.runBackwards, a = C.yoyoEase, s = C.keyframes, n = C.autoRevert, r = A._dur, c = A._startAt, D = A._targets, h = A.parent, S = h && h.data === "nested" ? h.vars.targets : D, G = A._overwrite === "auto" && !Gt, k = A.timeline, U = C.easeReverse || a, p, M, F, y, N, q, L, Z, m, _, v, AA, gA;
-  if (k && (!s || !B) && (B = "none"), A._ease = HB(B, dQ.ease), A._rEase = U && (HB(U) || A._ease), A._from = !k && !!C.runBackwards, A._from && (A.ratio = 1), !k || s && !C.stagger) {
-    if (Z = D[0] ? YB(D[0]).harness : 0, AA = Z && C[Z.prop], p = bE(C, pt), c && (c._zTime < 0 && c.progress(1), I < 0 && t && Q && !n ? c.render(-1, true) : c.revert(t && r ? UE : yk), c._lazy = 0), i) {
-      if (tB(A._startAt = zI.set(D, jg({ data: "isStart", overwrite: false, parent: h, immediateRender: true, lazy: !c && qg(o), startAt: null, delay: 0, onUpdate: e && function() {
+  var C = A.vars, B = C.ease, i = C.startAt, Q = C.immediateRender, o = C.lazy, e = C.onUpdate, t = C.runBackwards, a = C.yoyoEase, s = C.keyframes, n = C.autoRevert, r = A._dur, c = A._startAt, D = A._targets, h = A.parent, S = h && h.data === "nested" ? h.vars.targets : D, G = A._overwrite === "auto" && !Gt, k = A.timeline, M = C.easeReverse || a, U, p, F, y, N, q, L, Z, m, _, v, AA, gA;
+  if (k && (!s || !B) && (B = "none"), A._ease = HB(B, dQ.ease), A._rEase = M && (HB(M) || A._ease), A._from = !k && !!C.runBackwards, A._from && (A.ratio = 1), !k || s && !C.stagger) {
+    if (Z = D[0] ? YB(D[0]).harness : 0, AA = Z && C[Z.prop], U = TE(C, pt), c && (c._zTime < 0 && c.progress(1), I < 0 && t && Q && !n ? c.render(-1, true) : c.revert(t && r ? UE : yk), c._lazy = 0), i) {
+      if (tB(A._startAt = $I.set(D, jg({ data: "isStart", overwrite: false, parent: h, immediateRender: true, lazy: !c && qg(o), startAt: null, delay: 0, onUpdate: e && function() {
         return vg(A, "onUpdate");
-      }, stagger: 0 }, i))), A._startAt._dp = 0, A._startAt._sat = A, I < 0 && (ng || !Q && !n) && A._startAt.revert(UE), Q && r && I <= 0 && g <= 0) {
+      }, stagger: 0 }, i))), A._startAt._dp = 0, A._startAt._sat = A, I < 0 && (rg || !Q && !n) && A._startAt.revert(UE), Q && r && I <= 0 && g <= 0) {
         I && (A._zTime = I);
         return;
       }
     } else if (t && r && !c) {
-      if (I && (Q = false), F = jg({ overwrite: false, data: "isFromStart", lazy: Q && !c && qg(o), immediateRender: Q, stagger: 0, parent: h }, p), AA && (F[Z.prop] = AA), tB(A._startAt = zI.set(D, F)), A._startAt._dp = 0, A._startAt._sat = A, I < 0 && (ng ? A._startAt.revert(UE) : A._startAt.render(-1, true)), A._zTime = I, !Q) E10(A._startAt, kI, kI);
+      if (I && (Q = false), F = jg({ overwrite: false, data: "isFromStart", lazy: Q && !c && qg(o), immediateRender: Q, stagger: 0, parent: h }, U), AA && (F[Z.prop] = AA), tB(A._startAt = $I.set(D, F)), A._startAt._dp = 0, A._startAt._sat = A, I < 0 && (rg ? A._startAt.revert(UE) : A._startAt.render(-1, true)), A._zTime = I, !Q) E10(A._startAt, kI, kI);
       else if (!I) return;
     }
-    for (A._pt = A._ptCache = 0, o = r && qg(o) || o && !r, M = 0; M < D.length; M++) {
-      if (N = D[M], L = N._gsap || Nt(D)[M]._gsap, A._ptLookup[M] = _ = {}, ue[L.id] && oB.length && HE(), v = S === D ? M : S.indexOf(N), Z && (m = new Z()).init(N, AA || p, A, v, S) !== false && (A._pt = y = new mg(A._pt, N, m.name, 0, 1, m.render, m, 0, m.priority), m._props.forEach(function(CA) {
+    for (A._pt = A._ptCache = 0, o = r && qg(o) || o && !r, p = 0; p < D.length; p++) {
+      if (N = D[p], L = N._gsap || Nt(D)[p]._gsap, A._ptLookup[p] = _ = {}, ue[L.id] && oB.length && bE(), v = S === D ? p : S.indexOf(N), Z && (m = new Z()).init(N, AA || U, A, v, S) !== false && (A._pt = y = new mg(A._pt, N, m.name, 0, 1, m.render, m, 0, m.priority), m._props.forEach(function(CA) {
         _[CA] = y;
-      }), m.priority && (q = 1)), !Z || AA) for (F in p) _g[F] && (m = Wr(F, p, A, v, N, S)) ? m.priority && (q = 1) : _[F] = y = Ft.call(A, N, F, "get", p[F], v, S, 0, C.stringFilter);
-      A._op && A._op[M] && A.kill(N, A._op[M]), G && A._pt && (gB = A, YI.killTweensOf(N, _, A.globalTime(I)), gA = !A.parent, gB = 0), A._pt && o && (ue[L.id] = 1);
+      }), m.priority && (q = 1)), !Z || AA) for (F in U) _g[F] && (m = Wr(F, U, A, v, N, S)) ? m.priority && (q = 1) : _[F] = y = Ft.call(A, N, F, "get", U[F], v, S, 0, C.stringFilter);
+      A._op && A._op[p] && A.kill(N, A._op[p]), G && A._pt && (gB = A, LI.killTweensOf(N, _, A.globalTime(I)), gA = !A.parent, gB = 0), A._pt && o && (ue[L.id] = 1);
     }
     q && AD(A), A._onInit && A._onInit(A);
   }
@@ -13832,7 +13832,7 @@ var jk = function(A, I, g, C, B, i, Q) {
     if (!t) return He = 1, A.vars[I] = "+=0", Rt(A, Q), He = 0, o ? MQ(I + " not eligible for reset. Try splitting into individual properties") : 1;
     e.push(t);
   }
-  for (n = e.length; n--; ) a = e[n], t = a._pt || a, t.s = (C || C === 0) && !B ? C : t.s + (C || 0) + i * t.c, t.c = g - t.s, a.e && (a.e = PI(g) + Sg(a.e)), a.b && (a.b = t.s + Sg(a.b));
+  for (n = e.length; n--; ) a = e[n], t = a._pt || a, t.s = (C || C === 0) && !B ? C : t.s + (C || 0) + i * t.c, t.c = g - t.s, a.e && (a.e = WI(g) + Sg(a.e)), a.b && (a.b = t.s + Sg(a.b));
 }, zk = function(A, I) {
   var g = A[0] ? YB(A[0]).harness : 0, C = g && g.aliases, B, i, Q, o;
   if (!C) return I;
@@ -13846,23 +13846,23 @@ var jk = function(A, I, g, C, B, i, Q) {
   });
   else for (i in I) Q = g[i] || (g[i] = []), i === "ease" || Q.push({ t: parseFloat(A), v: I[i], e: B });
 }, wQ = function(A, I, g, C, B) {
-  return vI(A) ? A.call(I, g, C, B) : eg(A) && ~A.indexOf("random(") ? UQ(A) : A;
+  return ZI(A) ? A.call(I, g, C, B) : tg(A) && ~A.indexOf("random(") ? UQ(A) : A;
 }, jr = Ut + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,easeReverse,autoRevert", Vr = {};
 fg(jr + ",id,stagger,delay,duration,paused,scrollTrigger", function(E14) {
   return Vr[E14] = 1;
 });
-var zI = function(E14) {
+var $I = function(E14) {
   hr(A, E14);
   function A(g, C, B, i) {
     var Q;
     typeof C == "number" && (B.duration = C, C = B, B = null), Q = E14.call(this, i ? C : hQ(C)) || this;
-    var o = Q.vars, e = o.duration, t = o.delay, a = o.immediateRender, s = o.stagger, n = o.overwrite, r = o.keyframes, c = o.defaults, D = o.scrollTrigger, h = C.parent || YI, S = (Gg(g) || wr(g) ? xC(g[0]) : "length" in C) ? [g] : iC(g), G, k, U, p, M, F, y, N;
+    var o = Q.vars, e = o.duration, t = o.delay, a = o.immediateRender, s = o.stagger, n = o.overwrite, r = o.keyframes, c = o.defaults, D = o.scrollTrigger, h = C.parent || LI, S = (Gg(g) || wr(g) ? xC(g[0]) : "length" in C) ? [g] : iC(g), G, k, M, U, p, F, y, N;
     if (Q._targets = S.length ? Nt(S) : MQ("GSAP target " + g + " not found. https://gsap.com", !Pg.nullTargetWarn) || [], Q._ptLookup = [], Q._overwrite = n, r || s || GE(e) || GE(t)) {
       C = Q.vars;
       var q = C.easeReverse || C.yoyoEase;
       if (G = Q.timeline = new ug({ data: "nested", defaults: c || {}, targets: h && h.data === "nested" ? h.vars.targets : S }), G.kill(), G.parent = G._dp = mC(Q), G._start = 0, s || GE(e) || GE(t)) {
-        if (p = S.length, y = s && mr(s), dC(s)) for (M in s) ~jr.indexOf(M) && (N || (N = {}), N[M] = s[M]);
-        for (k = 0; k < p; k++) U = bE(C, Vr), U.stagger = 0, q && (U.easeReverse = q), N && mi(U, N), F = S[k], U.duration = +wQ(e, mC(Q), k, F, S), U.delay = (+wQ(t, mC(Q), k, F, S) || 0) - Q._delay, !s && p === 1 && U.delay && (Q._delay = t = U.delay, Q._start += t, U.delay = 0), G.to(F, U, y ? y(k, F, S) : 0), G._ease = eI.none;
+        if (U = S.length, y = s && mr(s), dC(s)) for (p in s) ~jr.indexOf(p) && (N || (N = {}), N[p] = s[p]);
+        for (k = 0; k < U; k++) M = TE(C, Vr), M.stagger = 0, q && (M.easeReverse = q), N && mi(M, N), F = S[k], M.duration = +wQ(e, mC(Q), k, F, S), M.delay = (+wQ(t, mC(Q), k, F, S) || 0) - Q._delay, !s && U === 1 && M.delay && (Q._delay = t = M.delay, Q._start += t, M.delay = 0), G.to(F, M, y ? y(k, F, S) : 0), G._ease = eI.none;
         G.duration() ? e = t = 0 : Q.timeline = 0;
       } else if (r) {
         hQ(jg(G.vars.defaults, { ease: "none" })), G._ease = HB(r.ease || C.ease || "none");
@@ -13871,17 +13871,17 @@ var zI = function(E14) {
           return G.to(S, v, ">");
         }), G.duration();
         else {
-          U = {};
-          for (M in r) M === "ease" || M === "easeEach" || $k(M, r[M], U, r.easeEach);
-          for (M in U) for (Z = U[M].sort(function(v, AA) {
+          M = {};
+          for (p in r) p === "ease" || p === "easeEach" || $k(p, r[p], M, r.easeEach);
+          for (p in M) for (Z = M[p].sort(function(v, AA) {
             return v.t - AA.t;
-          }), L = 0, k = 0; k < Z.length; k++) m = Z[k], _ = { ease: m.e, duration: (m.t - (k ? Z[k - 1].t : 0)) / 100 * e }, _[M] = m.v, G.to(S, _, L), L += _.duration;
+          }), L = 0, k = 0; k < Z.length; k++) m = Z[k], _ = { ease: m.e, duration: (m.t - (k ? Z[k - 1].t : 0)) / 100 * e }, _[p] = m.v, G.to(S, _, L), L += _.duration;
           G.duration() < e && G.to({}, { duration: e - G.duration() });
         }
       }
       e || Q.duration(e = G.duration());
     } else Q.timeline = 0;
-    return n === true && !Gt && (gB = mC(Q), YI.killTweensOf(S), gB = 0), kC(h, mC(Q), B), C.reversed && Q.reverse(), C.paused && Q.paused(true), (a || !e && !r && Q._start === mI(h._time) && qg(a) && Kk(mC(Q)) && h.data !== "nested") && (Q._tTime = -kI, Q.render(Math.max(0, -t) || 0)), D && Jr(mC(Q), D), Q;
+    return n === true && !Gt && (gB = mC(Q), LI.killTweensOf(S), gB = 0), kC(h, mC(Q), B), C.reversed && Q.reverse(), C.paused && Q.paused(true), (a || !e && !r && Q._start === YI(h._time) && qg(a) && Kk(mC(Q)) && h.data !== "nested") && (Q._tTime = -kI, Q.render(Math.max(0, -t) || 0)), D && Jr(mC(Q), D), Q;
   }
   var I = A.prototype;
   return I.render = function(C, B, i) {
@@ -13890,8 +13890,8 @@ var zI = function(E14) {
     else if (a !== this._tTime || !C || i || !this._initted && this._tTime || this._startAt && this._zTime < 0 !== t || this._lazy) {
       if (s = a, G = this.timeline, this._repeat) {
         if (c = e + this._rDelay, this._repeat < -1 && t) return this.totalTime(c * 100 + C, B, i);
-        if (s = mI(a % c), a === o ? (r = this._repeat, s = e) : (D = mI(a / c), r = ~~D, r && r === D ? (s = e, r--) : s > e && (s = e)), h = this._yoyo && r & 1, h && (s = e - s), D = Yi(this._tTime, c), s === Q && !i && this._initted && r === D) return this._tTime = a, this;
-        r !== D && this.vars.repeatRefresh && !h && !this._lock && s !== c && this._initted && (this._lock = i = 1, this.render(mI(c * r), true).invalidate()._lock = 0);
+        if (s = YI(a % c), a === o ? (r = this._repeat, s = e) : (D = YI(a / c), r = ~~D, r && r === D ? (s = e, r--) : s > e && (s = e)), h = this._yoyo && r & 1, h && (s = e - s), D = Yi(this._tTime, c), s === Q && !i && this._initted && r === D) return this._tTime = a, this;
+        r !== D && this.vars.repeatRefresh && !h && !this._lock && s !== c && this._initted && (this._lock = i = 1, this.render(YI(c * r), true).invalidate()._lock = 0);
       }
       if (!this._initted) {
         if (ur(this, t ? C : s, i, B, a)) return this._tTime = 0, this;
@@ -13901,8 +13901,8 @@ var zI = function(E14) {
       if (this._rEase) {
         var k = s < Q;
         if (k !== this._inv) {
-          var U = k ? Q : e - Q;
-          this._inv = k, this._from && (this.ratio = 1 - this.ratio), this._invRatio = this.ratio, this._invTime = Q, this._invRecip = U ? (k ? -1 : 1) / U : 0, this._invScale = k ? -this.ratio : 1 - this.ratio, this._invEase = k ? this._rEase : this._ease;
+          var M = k ? Q : e - Q;
+          this._inv = k, this._from && (this.ratio = 1 - this.ratio), this._invRatio = this.ratio, this._invTime = Q, this._invRecip = M ? (k ? -1 : 1) / M : 0, this._invScale = k ? -this.ratio : 1 - this.ratio, this._invEase = k ? this._rEase : this._ease;
         }
         this.ratio = S = this._invRatio + this._invScale * this._invEase((s - this._invTime) * this._invRecip);
       } else this.ratio = S = this._ease(s / e);
@@ -13918,20 +13918,20 @@ var zI = function(E14) {
   }, I.resetTo = function(C, B, i, Q, o) {
     NQ || Og.wake(), this._ts || this.play();
     var e = Math.min(this._dur, (this._dp._time - this._start) * this._ts), t;
-    return this._initted || Rt(this, e), t = this._ease(e / this._dur), Xk(this, C, B, i, Q, t, e, o) ? this.resetTo(C, B, i, Q, 1) : (Qo(this, 0), this.parent || Fr(this._dp, this, "_first", "_last", this._dp._sort ? "_start" : 0), this.render(0));
+    return this._initted || Rt(this, e), t = this._ease(e / this._dur), Xk(this, C, B, i, Q, t, e, o) ? this.resetTo(C, B, i, Q, 1) : (Eo(this, 0), this.parent || Fr(this._dp, this, "_first", "_last", this._dp._sort ? "_start" : 0), this.render(0));
   }, I.kill = function(C, B) {
-    if (B === void 0 && (B = "all"), !C && (!B || B === "all")) return this._lazy = this._pt = 0, this.parent ? QQ(this) : this.scrollTrigger && this.scrollTrigger.kill(!!ng), this;
+    if (B === void 0 && (B = "all"), !C && (!B || B === "all")) return this._lazy = this._pt = 0, this.parent ? QQ(this) : this.scrollTrigger && this.scrollTrigger.kill(!!rg), this;
     if (this.timeline) {
       var i = this.timeline.totalDuration();
       return this.timeline.killTweensOf(C, B, gB && gB.vars.overwrite !== true)._first || QQ(this), this.parent && i !== this.timeline.totalDuration() && Li(this, this._dur * this.timeline._tDur / i, 0, 1), this;
     }
     var Q = this._targets, o = C ? iC(C) : Q, e = this._ptLookup, t = this._pt, a, s, n, r, c, D, h;
     if ((!B || B === "all") && Uk(Q, o)) return B === "all" && (this._pt = 0), QQ(this);
-    for (a = this._op = this._op || [], B !== "all" && (eg(B) && (c = {}, fg(B, function(S) {
+    for (a = this._op = this._op || [], B !== "all" && (tg(B) && (c = {}, fg(B, function(S) {
       return c[S] = 1;
     }), B = c), B = zk(Q, B)), h = Q.length; h--; ) if (~o.indexOf(Q[h])) {
       s = e[h], B === "all" ? (a[h] = B, r = s, n = {}) : (n = a[h] = a[h] || {}, r = B);
-      for (c in r) D = s && s[c], D && ((!("kill" in D.d) || D.d.kill(c) === true) && Bo(this, D, "_pt"), delete s[c]), n !== "all" && (n[c] = 1);
+      for (c in r) D = s && s[c], D && ((!("kill" in D.d) || D.d.kill(c) === true) && io(this, D, "_pt"), delete s[c]), n !== "all" && (n[c] = 1);
     }
     return this._initted && !this._pt && t && QQ(this), this;
   }, A.to = function(C, B) {
@@ -13945,12 +13945,12 @@ var zI = function(E14) {
   }, A.set = function(C, B) {
     return B.duration = 0, B.repeatDelay || (B.repeat = 0), new A(C, B);
   }, A.killTweensOf = function(C, B, i) {
-    return YI.killTweensOf(C, B, i);
+    return LI.killTweensOf(C, B, i);
   }, A;
 }(KQ);
-jg(zI.prototype, { _targets: [], _lazy: 0, _startAt: 0, _op: 0, _onInit: 0 });
+jg($I.prototype, { _targets: [], _lazy: 0, _startAt: 0, _op: 0, _onInit: 0 });
 fg("staggerTo,staggerFrom,staggerFromTo", function(E14) {
-  zI[E14] = function() {
+  $I[E14] = function() {
     var A = new ug(), I = me.call(arguments, 0);
     return I.splice(E14 === "staggerFromTo" ? 5 : 4, 0, 0), A[E14].apply(A, I);
   };
@@ -13964,7 +13964,7 @@ var Jt = function(A, I, g) {
 }, Iy = function(A, I, g) {
   return A.setAttribute(I, g);
 }, ut = function(A, I) {
-  return vI(A[I]) ? Xr : kt(A[I]) && A.setAttribute ? Iy : Jt;
+  return ZI(A[I]) ? Xr : kt(A[I]) && A.setAttribute ? Iy : Jt;
 }, zr = function(A, I) {
   return I.set(I.t, I.p, Math.round((I.s + I.c * A) * 1e6) / 1e6, I);
 }, gy = function(A, I) {
@@ -13983,7 +13983,7 @@ var Jt = function(A, I, g) {
 }, Cy = function(A, I, g, C) {
   for (var B = this._pt, i; B; ) i = B._next, B.p === C && B.modifier(A, I, g), B = i;
 }, By = function(A) {
-  for (var I = this._pt, g, C; I; ) C = I._next, I.p === A && !I.op || I.op === A ? Bo(this, I, "_pt") : I.dep || (g = 1), I = C;
+  for (var I = this._pt, g, C; I; ) C = I._next, I.p === A && !I.op || I.op === A ? io(this, I, "_pt") : I.dep || (g = 1), I = C;
   return !g;
 }, iy = function(A, I, g, C) {
   C.mSet(A, I, C.m.call(C.tween, g, C.mt), C);
@@ -14005,46 +14005,46 @@ var Jt = function(A, I, g) {
 fg(Ut + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger,easeReverse", function(E14) {
   return pt[E14] = 1;
 });
-Wg.TweenMax = Wg.TweenLite = zI;
+Wg.TweenMax = Wg.TweenLite = $I;
 Wg.TimelineLite = Wg.TimelineMax = ug;
-YI = new ug({ sortChildren: false, defaults: dQ, autoRemoveChildren: true, id: "root", smoothChildTiming: true });
+LI = new ug({ sortChildren: false, defaults: dQ, autoRemoveChildren: true, id: "root", smoothChildTiming: true });
 Pg.stringFilter = vr;
-var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
+var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, oe = function(A) {
   return (KE[A] || Qy).map(function(I) {
     return I();
   });
 }, be = function() {
   var A = Date.now(), I = [];
-  A - En > 2 && (Ee("matchMediaInit"), bB.forEach(function(g) {
+  A - En > 2 && (oe("matchMediaInit"), bB.forEach(function(g) {
     var C = g.queries, B = g.conditions, i, Q, o, e;
     for (Q in C) i = lC.matchMedia(C[Q]).matches, i && (o = 1), i !== B[Q] && (B[Q] = i, e = 1);
     e && (g.revert(), o && I.push(g));
-  }), Ee("matchMediaRevert"), I.forEach(function(g) {
+  }), oe("matchMediaRevert"), I.forEach(function(g) {
     return g.onMatch(g, function(C) {
       return g.add(null, C);
     });
-  }), En = A, Ee("matchMedia"));
+  }), En = A, oe("matchMedia"));
 }, ID = function() {
   function E14(I, g) {
     this.selector = g && Ye(g), this.data = [], this._r = [], this.isReverted = false, this.id = Ey++, I && this.add(I);
   }
   var A = E14.prototype;
   return A.add = function(g, C, B) {
-    vI(g) && (B = C, C = g, g = vI);
+    ZI(g) && (B = C, C = g, g = ZI);
     var i = this, Q = function() {
-      var e = FI, t = i.selector, a;
-      return e && e !== i && e.data.push(i), B && (i.selector = Ye(B)), FI = i, a = C.apply(i, arguments), vI(a) && i._r.push(a), FI = e, i.selector = t, i.isReverted = false, a;
+      var e = RI, t = i.selector, a;
+      return e && e !== i && e.data.push(i), B && (i.selector = Ye(B)), RI = i, a = C.apply(i, arguments), ZI(a) && i._r.push(a), RI = e, i.selector = t, i.isReverted = false, a;
     };
-    return i.last = Q, g === vI ? Q(i, function(o) {
+    return i.last = Q, g === ZI ? Q(i, function(o) {
       return i.add(null, o);
     }) : g ? i[g] = Q : Q;
   }, A.ignore = function(g) {
-    var C = FI;
-    FI = null, g(this), FI = C;
+    var C = RI;
+    RI = null, g(this), RI = C;
   }, A.getTweens = function() {
     var g = [];
     return this.data.forEach(function(C) {
-      return C instanceof E14 ? g.push.apply(g, C.getTweens()) : C instanceof zI && !(C.parent && C.parent.data === "nested") && g.push(C);
+      return C instanceof E14 ? g.push.apply(g, C.getTweens()) : C instanceof $I && !(C.parent && C.parent.data === "nested") && g.push(C);
     }), g;
   }, A.clear = function() {
     this._r.length = this.data.length = 0;
@@ -14060,7 +14060,7 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
         return a.g - t.g || -1 / 0;
       }).forEach(function(t) {
         return t.t.revert(g);
-      }), o = B.data.length; o--; ) e = B.data[o], e instanceof ug ? e.data !== "nested" && (e.scrollTrigger && e.scrollTrigger.revert(), e.kill()) : !(e instanceof zI) && e.revert && e.revert(g);
+      }), o = B.data.length; o--; ) e = B.data[o], e instanceof ug ? e.data !== "nested" && (e.scrollTrigger && e.scrollTrigger.revert(), e.kill()) : !(e instanceof $I) && e.revert && e.revert(g);
       B._r.forEach(function(t) {
         return t(g, B);
       }), B.isReverted = true;
@@ -14072,13 +14072,13 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
   }, E14;
 }(), oy = function() {
   function E14(I) {
-    this.contexts = [], this.scope = I, FI && FI.data.push(this);
+    this.contexts = [], this.scope = I, RI && RI.data.push(this);
   }
   var A = E14.prototype;
   return A.add = function(g, C, B) {
     dC(g) || (g = { matches: g });
     var i = new ID(0, B || this.scope), Q = i.conditions = {}, o, e, t;
-    FI && !i.selector && (i.selector = FI.selector), this.contexts.push(i), C = i.add("onMatch", C), i.queries = g;
+    RI && !i.selector && (i.selector = RI.selector), this.contexts.push(i), C = i.add("onMatch", C), i.queries = g;
     for (e in g) e === "all" ? t = 1 : (o = lC.matchMedia(g[e]), o && (bB.indexOf(i) < 0 && bB.push(i), (Q[e] = o.matches) && (t = 1), o.addListener ? o.addListener(be) : o.addEventListener("change", be)));
     return t && C(i, function(a) {
       return i.add(null, a);
@@ -14090,7 +14090,7 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
       return C.kill(g, true);
     });
   }, E14;
-}(), xE = { registerPlugin: function() {
+}(), _E = { registerPlugin: function() {
   for (var A = arguments.length, I = new Array(A), g = 0; g < A; g++) I[g] = arguments[g];
   I.forEach(function(C) {
     return xr(C);
@@ -14098,9 +14098,9 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
 }, timeline: function(A) {
   return new ug(A);
 }, getTweensOf: function(A, I) {
-  return YI.getTweensOf(A, I);
+  return LI.getTweensOf(A, I);
 }, getProperty: function(A, I, g, C) {
-  eg(A) && (A = iC(A)[0]);
+  tg(A) && (A = iC(A)[0]);
   var B = YB(A || {}).get, i = g ? Kr : Nr;
   return g === "native" && (g = ""), A && (I ? i((_g[I] && _g[I].get || B)(A, I, g, C)) : function(Q, o, e) {
     return i((_g[Q] && _g[Q].get || B)(A, Q, o, e));
@@ -14128,7 +14128,7 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
   };
   return i.tween = B, i;
 }, isTweening: function(A) {
-  return YI.getTweensOf(A, true).length > 0;
+  return LI.getTweensOf(A, true).length > 0;
 }, defaults: function(A) {
   return A && A.ease && (A.ease = HB(A.ease, dQ.ease)), In(dQ, A || {});
 }, config: function(A) {
@@ -14137,24 +14137,24 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
   var I = A.name, g = A.effect, C = A.plugins, B = A.defaults, i = A.extendTimeline;
   (C || "").split(",").forEach(function(Q) {
     return Q && !_g[Q] && !Wg[Q] && MQ(I + " effect requires " + Q + " plugin.");
-  }), Ce[I] = function(Q, o, e) {
+  }), Be[I] = function(Q, o, e) {
     return g(iC(Q), jg(o || {}, B), e);
   }, i && (ug.prototype[I] = function(Q, o, e) {
-    return this.add(Ce[I](Q, dC(o) ? o : (e = o) && {}, this), e);
+    return this.add(Be[I](Q, dC(o) ? o : (e = o) && {}, this), e);
   });
 }, registerEase: function(A, I) {
   eI[A] = HB(I);
 }, parseEase: function(A, I) {
   return arguments.length ? HB(A, I) : eI;
 }, getById: function(A) {
-  return YI.getById(A);
+  return LI.getById(A);
 }, exportRoot: function(A, I) {
   A === void 0 && (A = {});
   var g = new ug(A), C, B;
-  for (g.smoothChildTiming = qg(A.smoothChildTiming), YI.remove(g), g._dp = 0, g._time = g._tTime = YI._time, C = YI._first; C; ) B = C._next, (I || !(!C._dur && C instanceof zI && C.vars.onComplete === C._targets[0])) && kC(g, C, C._start - C._delay), C = B;
-  return kC(YI, g, 0), g;
+  for (g.smoothChildTiming = qg(A.smoothChildTiming), LI.remove(g), g._dp = 0, g._time = g._tTime = LI._time, C = LI._first; C; ) B = C._next, (I || !(!C._dur && C instanceof $I && C.vars.onComplete === C._targets[0])) && kC(g, C, C._start - C._delay), C = B;
+  return kC(LI, g, 0), g;
 }, context: function(A, I) {
-  return A ? new ID(A, I) : FI;
+  return A ? new ID(A, I) : RI;
 }, matchMedia: function(A) {
   return new oy(A);
 }, matchMediaRefresh: function() {
@@ -14169,29 +14169,29 @@ var bB = [], KE = {}, Qy = [], En = 0, Ey = 0, Ee = function(A) {
 }, removeEventListener: function(A, I) {
   var g = KE[A], C = g && g.indexOf(I);
   C >= 0 && g.splice(C, 1);
-}, utils: { wrap: Hk, wrapYoyo: bk, distribute: mr, random: Lr, snap: Yr, normalize: Lk, getUnit: Sg, clamp: qk, splitColor: _r, toArray: iC, selector: Ye, mapRange: br, pipe: mk, unitize: Yk, interpolate: Tk, shuffle: fr }, install: yr, effects: Ce, ticker: Og, updateRoot: ug.updateRoot, plugins: _g, globalTimeline: YI, core: { PropTween: mg, globals: dr, Tween: zI, Timeline: ug, Animation: KQ, getCache: YB, _removeLinkedListItem: Bo, reverting: function() {
-  return ng;
+}, utils: { wrap: Hk, wrapYoyo: bk, distribute: mr, random: Lr, snap: Yr, normalize: Lk, getUnit: Sg, clamp: qk, splitColor: _r, toArray: iC, selector: Ye, mapRange: br, pipe: mk, unitize: Yk, interpolate: Tk, shuffle: fr }, install: yr, effects: Be, ticker: Og, updateRoot: ug.updateRoot, plugins: _g, globalTimeline: LI, core: { PropTween: mg, globals: dr, Tween: $I, Timeline: ug, Animation: KQ, getCache: YB, _removeLinkedListItem: io, reverting: function() {
+  return rg;
 }, context: function(A) {
-  return A && FI && (FI.data.push(A), A._ctx = FI), FI;
+  return A && RI && (RI.data.push(A), A._ctx = RI), RI;
 }, suppressOverwrites: function(A) {
   return Gt = A;
 } } };
 fg("to,from,fromTo,delayedCall,set,killTweensOf", function(E14) {
-  return xE[E14] = zI[E14];
+  return _E[E14] = $I[E14];
 });
 Og.add(ug.updateRoot);
-Si = xE.to({}, { duration: 0 });
+Si = _E.to({}, { duration: 0 });
 var ey = function(A, I) {
   for (var g = A._pt; g && g.p !== I && g.op !== I && g.fp !== I; ) g = g._next;
   return g;
 }, ty = function(A, I) {
   var g = A._targets, C, B, i;
   for (C in I) for (B = g.length; B--; ) i = A._ptLookup[B][C], i && (i = i.d) && (i._pt && (i = ey(i, C)), i && i.modifier && i.modifier(I[C], A, g[B], C));
-}, oe = function(A, I) {
+}, ee = function(A, I) {
   return { name: A, headless: 1, rawVars: 1, init: function(C, B, i) {
     i._onInit = function(Q) {
       var o, e;
-      if (eg(B) && (o = {}, fg(B, function(t) {
+      if (tg(B) && (o = {}, fg(B, function(t) {
         return o[t] = 1;
       }), B = o), I) {
         o = {};
@@ -14201,16 +14201,16 @@ var ey = function(A, I) {
       ty(Q, B);
     };
   } };
-}, Lg = xE.registerPlugin({ name: "attr", init: function(A, I, g, C, B) {
+}, Lg = _E.registerPlugin({ name: "attr", init: function(A, I, g, C, B) {
   var i, Q, o;
   this.tween = g;
   for (i in I) o = A.getAttribute(i) || "", Q = this.add(A, "setAttribute", (o || 0) + "", I[i], C, B, 0, 0, i), Q.op = i, Q.b = o, this._props.push(i);
 }, render: function(A, I) {
-  for (var g = I._pt; g; ) ng ? g.set(g.t, g.p, g.b, g) : g.r(A, g.d), g = g._next;
+  for (var g = I._pt; g; ) rg ? g.set(g.t, g.p, g.b, g) : g.r(A, g.d), g = g._next;
 } }, { name: "endArray", headless: 1, init: function(A, I) {
   for (var g = I.length; g--; ) this.add(A, g, A[g] || 0, I[g], 0, 0, 0, 0, 0, 1);
-} }, oe("roundProps", Le), oe("modifiers"), oe("snap", Yr)) || xE;
-zI.version = ug.version = Lg.version = "3.15.0";
+} }, ee("roundProps", Le), ee("modifiers"), ee("snap", Yr)) || _E;
+$I.version = ug.version = Lg.version = "3.15.0";
 kr = 1;
 yt() && Hi();
 eI.Power0;
@@ -14270,7 +14270,7 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
 }, yy = function(A, I, g, C, B) {
   var i = A._gsap;
   i[I] = g, i.renderTransform(B, i);
-}, LI = "transform", Yg = LI + "Origin", dy = function E11(A, I) {
+}, HI = "transform", Yg = HI + "Origin", dy = function E11(A, I) {
   var g = this, C = this.target, B = C.style, i = C._gsap;
   if (A in _C && B) {
     if (this.tfm = this.tfm || {}, A !== "transform") A = yC[A] || A, ~A.indexOf(",") ? A.split(",").forEach(function(Q) {
@@ -14279,8 +14279,8 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
     else return yC.transform.split(",").forEach(function(Q) {
       return E11.call(g, Q, I);
     });
-    if (this.props.indexOf(LI) >= 0) return;
-    i.svg && (this.svgo = C.getAttribute("data-svg-origin"), this.props.push(Yg, I, "")), A = LI;
+    if (this.props.indexOf(HI) >= 0) return;
+    i.svg && (this.svgo = C.getAttribute("data-svg-origin"), this.props.push(Yg, I, "")), A = HI;
   }
   (B || I) && this.props.push(A, I, B[A]);
 }, BD = function(A) {
@@ -14290,7 +14290,7 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
   for (B = 0; B < A.length; B += 3) A[B + 1] ? A[B + 1] === 2 ? I[A[B]](A[B + 2]) : I[A[B]] = A[B + 2] : A[B + 2] ? g[A[B]] = A[B + 2] : g.removeProperty(A[B].substr(0, 2) === "--" ? A[B] : A[B].replace(Yt, "-$1").toLowerCase());
   if (this.tfm) {
     for (i in this.tfm) C[i] = this.tfm[i];
-    C.svg && (C.renderTransform(), I.setAttribute("data-svg-origin", this.svgo || "")), B = mt(), (!B || !B.isStart) && !g[LI] && (BD(g), C.zOrigin && g[Yg] && (g[Yg] += " " + C.zOrigin + "px", C.zOrigin = 0, C.renderTransform()), C.uncache = 1);
+    C.svg && (C.renderTransform(), I.setAttribute("data-svg-origin", this.svgo || "")), B = mt(), (!B || !B.isStart) && !g[HI] && (BD(g), C.zOrigin && g[Yg] && (g[Yg] += " " + C.zOrigin + "px", C.zOrigin = 0, C.renderTransform()), C.uncache = 1);
   }
 }, iD = function(A, I) {
   var g = { target: A, props: [], revert: My, save: dy };
@@ -14309,7 +14309,7 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
   for (A = A.charAt(0).toUpperCase() + A.substr(1); i-- && !(an[i] + A in B); ) ;
   return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? an[i] : "") + A;
 }, _e = function() {
-  ay() && window.document && (on = window, CB = on.document, di = CB.documentElement, JB = xe("div") || { style: {} }, xe("div"), LI = bi(LI), Yg = LI + "Origin", JB.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0", QD = !!bi("perspective"), mt = Lg.core.reverting, ft = 1);
+  ay() && window.document && (on = window, CB = on.document, di = CB.documentElement, JB = xe("div") || { style: {} }, xe("div"), HI = bi(HI), Yg = HI + "Origin", JB.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0", QD = !!bi("perspective"), mt = Lg.core.reverting, ft = 1);
 }, sn = function(A) {
   var I = A.ownerSVGElement, g = xe("svg", I && I.getAttribute("xmlns") || "http://www.w3.org/2000/svg"), C = A.cloneNode(true), B;
   C.style.display = "block", g.appendChild(C), di.appendChild(g);
@@ -14333,7 +14333,7 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
 }, aB = function(A, I) {
   if (I) {
     var g = A.style, C;
-    I in _C && I !== Yg && (I = LI), g.removeProperty ? (C = I.substr(0, 2), (C === "ms" || I.substr(0, 6) === "webkit") && (I = "-" + I), g.removeProperty(C === "--" ? I : I.replace(Yt, "-$1").toLowerCase())) : g.removeAttribute(I);
+    I in _C && I !== Yg && (I = HI), g.removeProperty ? (C = I.substr(0, 2), (C === "ms" || I.substr(0, 6) === "webkit") && (I = "-" + I), g.removeProperty(C === "--" ? I : I.replace(Yt, "-$1").toLowerCase())) : g.removeAttribute(I);
   }
 }, BB = function(A, I, g, C, B, i) {
   var Q = new mg(A._pt, I, g, 0, 1, i ? CD : gD);
@@ -14341,23 +14341,23 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
 }, rn = { deg: 1, rad: 1, turn: 1 }, py = { grid: 1, flex: 1 }, sB = function E13(A, I, g, C) {
   var B = parseFloat(g) || 0, i = (g + "").trim().substr((B + "").length) || "px", Q = JB.style, o = sy.test(I), e = A.tagName.toLowerCase() === "svg", t = (e ? "client" : "offset") + (o ? "Width" : "Height"), a = 100, s = C === "px", n = C === "%", r, c, D, h;
   if (C === i || !B || rn[C] || rn[i]) return B;
-  if (i !== "px" && !s && (B = E13(A, I, g, "px")), h = A.getCTM && oD(A), (n || i === "%") && (_C[I] || ~I.indexOf("adius"))) return r = h ? A.getBBox()[o ? "width" : "height"] : A[t], PI(n ? B / r * a : B / 100 * r);
-  if (Q[o ? "width" : "height"] = a + (s ? i : C), c = C !== "rem" && ~I.indexOf("adius") || C === "em" && A.appendChild && !e ? A : A.parentNode, h && (c = (A.ownerSVGElement || {}).parentNode), (!c || c === CB || !c.appendChild) && (c = CB.body), D = c._gsap, D && n && D.width && o && D.time === Og.time && !D.uncache) return PI(B / D.width * a);
+  if (i !== "px" && !s && (B = E13(A, I, g, "px")), h = A.getCTM && oD(A), (n || i === "%") && (_C[I] || ~I.indexOf("adius"))) return r = h ? A.getBBox()[o ? "width" : "height"] : A[t], WI(n ? B / r * a : B / 100 * r);
+  if (Q[o ? "width" : "height"] = a + (s ? i : C), c = C !== "rem" && ~I.indexOf("adius") || C === "em" && A.appendChild && !e ? A : A.parentNode, h && (c = (A.ownerSVGElement || {}).parentNode), (!c || c === CB || !c.appendChild) && (c = CB.body), D = c._gsap, D && n && D.width && o && D.time === Og.time && !D.uncache) return WI(B / D.width * a);
   if (n && (I === "height" || I === "width")) {
     var S = A.style[I];
     A.style[I] = a + C, r = A[t], S ? A.style[I] = S : aB(A, I);
   } else (n || i === "%") && !py[Zg(c, "display")] && (Q.position = Zg(A, "position")), c === A && (Q.position = "static"), c.appendChild(JB), r = JB[t], c.removeChild(JB), Q.position = "absolute";
-  return o && n && (D = YB(c), D.time = Og.time, D.width = c[t]), PI(s ? r * B / a : r && B ? a / r * B : 0);
+  return o && n && (D = YB(c), D.time = Og.time, D.width = c[t]), WI(s ? r * B / a : r && B ? a / r * B : 0);
 }, LC = function(A, I, g, C) {
   var B;
-  return ft || _e(), I in yC && I !== "transform" && (I = yC[I], ~I.indexOf(",") && (I = I.split(",")[0])), _C[I] && I !== "transform" ? (B = RQ(A, C), B = I !== "transformOrigin" ? B[I] : B.svg ? B.origin : OE(Zg(A, Yg)) + " " + B.zOrigin + "px") : (B = A.style[I], (!B || B === "auto" || C || ~(B + "").indexOf("calc(")) && (B = _E[I] && _E[I](A, I, g) || Zg(A, I) || pr(A, I) || (I === "opacity" ? 1 : 0))), g && !~(B + "").trim().indexOf(" ") ? sB(A, I, B, g) + g : B;
+  return ft || _e(), I in yC && I !== "transform" && (I = yC[I], ~I.indexOf(",") && (I = I.split(",")[0])), _C[I] && I !== "transform" ? (B = RQ(A, C), B = I !== "transformOrigin" ? B[I] : B.svg ? B.origin : vE(Zg(A, Yg)) + " " + B.zOrigin + "px") : (B = A.style[I], (!B || B === "auto" || C || ~(B + "").indexOf("calc(")) && (B = OE[I] && OE[I](A, I, g) || Zg(A, I) || pr(A, I) || (I === "opacity" ? 1 : 0))), g && !~(B + "").trim().indexOf(" ") ? sB(A, I, B, g) + g : B;
 }, Uy = function(A, I, g, C) {
   if (!g || g === "none") {
     var B = bi(I, A, 1), i = B && Zg(A, B, 1);
     i && i !== g ? (I = B, g = i) : I === "borderColor" && (g = Zg(A, "borderTopColor"));
   }
-  var Q = new mg(this._pt, A.style, I, 0, 1, $r), o = 0, e = 0, t, a, s, n, r, c, D, h, S, G, k, U;
-  if (Q.b = g, Q.e = C, g += "", C += "", C.substring(0, 6) === "var(--" && (C = Zg(A, C.substring(4, C.indexOf(")")))), C === "auto" && (c = A.style[I], A.style[I] = C, C = Zg(A, I) || C, c ? A.style[I] = c : aB(A, I)), t = [g, C], vr(t), g = t[0], C = t[1], s = g.match(wi) || [], U = C.match(wi) || [], U.length) {
+  var Q = new mg(this._pt, A.style, I, 0, 1, $r), o = 0, e = 0, t, a, s, n, r, c, D, h, S, G, k, M;
+  if (Q.b = g, Q.e = C, g += "", C += "", C.substring(0, 6) === "var(--" && (C = Zg(A, C.substring(4, C.indexOf(")")))), C === "auto" && (c = A.style[I], A.style[I] = C, C = Zg(A, I) || C, c ? A.style[I] = c : aB(A, I)), t = [g, C], vr(t), g = t[0], C = t[1], s = g.match(wi) || [], M = C.match(wi) || [], M.length) {
     for (; a = wi.exec(C); ) D = a[0], S = C.substring(o, a.index), r ? r = (r + 1) % 5 : (S.substr(-5) === "rgba(" || S.substr(-5) === "hsla(") && (r = 1), D !== (c = s[e++] || "") && (n = parseFloat(c) || 0, k = c.substr((n + "").length), D.charAt(1) === "=" && (D = yi(n, D) + k), h = parseFloat(D), G = D.substr((h + "").length), o = wi.lastIndex - G.length, G || (G = G || Pg.units[I] || k, o === C.length && (C += G, Q.e += G)), k !== G && (n = sB(A, I, c, G) || 0), Q._pt = { _next: Q._pt, p: S || e === 1 ? S : ",", s: n, c: h - n, m: r && r < 4 || I === "zIndex" ? Math.round : 0 });
     Q.c = o < C.length ? C.substring(o, C.length) : "";
   } else Q.r = I === "display" && C === "none" ? CD : gD;
@@ -14369,10 +14369,10 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
   if (I.tween && I.tween._time === I.tween._dur) {
     var g = I.t, C = g.style, B = I.u, i = g._gsap, Q, o, e;
     if (B === "all" || B === true) C.cssText = "", o = 1;
-    else for (B = B.split(","), e = B.length; --e > -1; ) Q = B[e], _C[Q] && (o = 1, Q = Q === "transformOrigin" ? Yg : LI), aB(g, Q);
-    o && (aB(g, LI), i && (i.svg && g.removeAttribute("transform"), C.scale = C.rotate = C.translate = "none", RQ(g, 1), i.uncache = 1, BD(C)));
+    else for (B = B.split(","), e = B.length; --e > -1; ) Q = B[e], _C[Q] && (o = 1, Q = Q === "transformOrigin" ? Yg : HI), aB(g, Q);
+    o && (aB(g, HI), i && (i.svg && g.removeAttribute("transform"), C.scale = C.rotate = C.translate = "none", RQ(g, 1), i.uncache = 1, BD(C)));
   }
-}, _E = { clearProps: function(A, I, g, C, B) {
+}, OE = { clearProps: function(A, I, g, C, B) {
   if (B.data !== "isFromStart") {
     var i = A._pt = new mg(A._pt, I, g, 0, 0, Ky);
     return i.u = C, i.pr = -10, i.tween = B, A._props.push(g), 1;
@@ -14380,45 +14380,45 @@ var on, CB, di, ft, JB, en, mt, ay = function() {
 } }, FQ = [1, 0, 0, 1, 0, 0], eD = {}, tD = function(A) {
   return A === "matrix(1, 0, 0, 1, 0, 0)" || A === "none" || !A;
 }, cn = function(A) {
-  var I = Zg(A, LI);
-  return tD(I) ? FQ : I.substr(7).match(Sr).map(PI);
+  var I = Zg(A, HI);
+  return tD(I) ? FQ : I.substr(7).match(Sr).map(WI);
 }, Lt = function(A, I) {
   var g = A._gsap || YB(A), C = A.style, B = cn(A), i, Q, o, e;
   return g.svg && A.getAttribute("transform") ? (o = A.transform.baseVal.consolidate().matrix, B = [o.a, o.b, o.c, o.d, o.e, o.f], B.join(",") === "1,0,0,1,0,0" ? FQ : B) : (B === FQ && !A.offsetParent && A !== di && !g.svg && (o = C.display, C.display = "block", i = A.parentNode, (!i || !A.offsetParent && !A.getBoundingClientRect().width) && (e = 1, Q = A.nextElementSibling, di.appendChild(A)), B = cn(A), o ? C.display = o : aB(A, "display"), e && (Q ? i.insertBefore(A, Q) : i ? i.appendChild(A) : di.removeChild(A))), I && B.length > 6 ? [B[0], B[1], B[4], B[5], B[12], B[13]] : B);
 }, Oe = function(A, I, g, C, B, i) {
-  var Q = A._gsap, o = B || Lt(A, true), e = Q.xOrigin || 0, t = Q.yOrigin || 0, a = Q.xOffset || 0, s = Q.yOffset || 0, n = o[0], r = o[1], c = o[2], D = o[3], h = o[4], S = o[5], G = I.split(" "), k = parseFloat(G[0]) || 0, U = parseFloat(G[1]) || 0, p, M, F, y;
-  g ? o !== FQ && (M = n * D - r * c) && (F = k * (D / M) + U * (-c / M) + (c * S - D * h) / M, y = k * (-r / M) + U * (n / M) - (n * S - r * h) / M, k = F, U = y) : (p = ED(A), k = p.x + (~G[0].indexOf("%") ? k / 100 * p.width : k), U = p.y + (~(G[1] || G[0]).indexOf("%") ? U / 100 * p.height : U)), C || C !== false && Q.smooth ? (h = k - e, S = U - t, Q.xOffset = a + (h * n + S * c) - h, Q.yOffset = s + (h * r + S * D) - S) : Q.xOffset = Q.yOffset = 0, Q.xOrigin = k, Q.yOrigin = U, Q.smooth = !!C, Q.origin = I, Q.originIsAbsolute = !!g, A.style[Yg] = "0px 0px", i && (BB(i, Q, "xOrigin", e, k), BB(i, Q, "yOrigin", t, U), BB(i, Q, "xOffset", a, Q.xOffset), BB(i, Q, "yOffset", s, Q.yOffset)), A.setAttribute("data-svg-origin", k + " " + U);
+  var Q = A._gsap, o = B || Lt(A, true), e = Q.xOrigin || 0, t = Q.yOrigin || 0, a = Q.xOffset || 0, s = Q.yOffset || 0, n = o[0], r = o[1], c = o[2], D = o[3], h = o[4], S = o[5], G = I.split(" "), k = parseFloat(G[0]) || 0, M = parseFloat(G[1]) || 0, U, p, F, y;
+  g ? o !== FQ && (p = n * D - r * c) && (F = k * (D / p) + M * (-c / p) + (c * S - D * h) / p, y = k * (-r / p) + M * (n / p) - (n * S - r * h) / p, k = F, M = y) : (U = ED(A), k = U.x + (~G[0].indexOf("%") ? k / 100 * U.width : k), M = U.y + (~(G[1] || G[0]).indexOf("%") ? M / 100 * U.height : M)), C || C !== false && Q.smooth ? (h = k - e, S = M - t, Q.xOffset = a + (h * n + S * c) - h, Q.yOffset = s + (h * r + S * D) - S) : Q.xOffset = Q.yOffset = 0, Q.xOrigin = k, Q.yOrigin = M, Q.smooth = !!C, Q.origin = I, Q.originIsAbsolute = !!g, A.style[Yg] = "0px 0px", i && (BB(i, Q, "xOrigin", e, k), BB(i, Q, "yOrigin", t, M), BB(i, Q, "xOffset", a, Q.xOffset), BB(i, Q, "yOffset", s, Q.yOffset)), A.setAttribute("data-svg-origin", k + " " + M);
 }, RQ = function(A, I) {
   var g = A._gsap || new Pr(A);
   if ("x" in g && !I && !g.uncache) return g;
-  var C = A.style, B = g.scaleX < 0, i = "px", Q = "deg", o = getComputedStyle(A), e = Zg(A, Yg) || "0", t, a, s, n, r, c, D, h, S, G, k, U, p, M, F, y, N, q, L, Z, m, _, v, AA, gA, CA, QA, sA, nA, IA, iA, cA;
-  return t = a = s = c = D = h = S = G = k = 0, n = r = 1, g.svg = !!(A.getCTM && oD(A)), o.translate && ((o.translate !== "none" || o.scale !== "none" || o.rotate !== "none") && (C[LI] = (o.translate !== "none" ? "translate3d(" + (o.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (o.rotate !== "none" ? "rotate(" + o.rotate + ") " : "") + (o.scale !== "none" ? "scale(" + o.scale.split(" ").join(",") + ") " : "") + (o[LI] !== "none" ? o[LI] : "")), C.scale = C.rotate = C.translate = "none"), M = Lt(A, g.svg), g.svg && (g.uncache ? (gA = A.getBBox(), e = g.xOrigin - gA.x + "px " + (g.yOrigin - gA.y) + "px", AA = "") : AA = !I && A.getAttribute("data-svg-origin"), Oe(A, AA || e, !!AA || g.originIsAbsolute, g.smooth !== false, M)), U = g.xOrigin || 0, p = g.yOrigin || 0, M !== FQ && (q = M[0], L = M[1], Z = M[2], m = M[3], t = _ = M[4], a = v = M[5], M.length === 6 ? (n = Math.sqrt(q * q + L * L), r = Math.sqrt(m * m + Z * Z), c = q || L ? si(L, q) * KB : 0, S = Z || m ? si(Z, m) * KB + c : 0, S && (r *= Math.abs(Math.cos(S * Mi))), g.svg && (t -= U - (U * q + p * Z), a -= p - (U * L + p * m))) : (cA = M[6], IA = M[7], QA = M[8], sA = M[9], nA = M[10], iA = M[11], t = M[12], a = M[13], s = M[14], F = si(cA, nA), D = F * KB, F && (y = Math.cos(-F), N = Math.sin(-F), AA = _ * y + QA * N, gA = v * y + sA * N, CA = cA * y + nA * N, QA = _ * -N + QA * y, sA = v * -N + sA * y, nA = cA * -N + nA * y, iA = IA * -N + iA * y, _ = AA, v = gA, cA = CA), F = si(-Z, nA), h = F * KB, F && (y = Math.cos(-F), N = Math.sin(-F), AA = q * y - QA * N, gA = L * y - sA * N, CA = Z * y - nA * N, iA = m * N + iA * y, q = AA, L = gA, Z = CA), F = si(L, q), c = F * KB, F && (y = Math.cos(F), N = Math.sin(F), AA = q * y + L * N, gA = _ * y + v * N, L = L * y - q * N, v = v * y - _ * N, q = AA, _ = gA), D && Math.abs(D) + Math.abs(c) > 359.9 && (D = c = 0, h = 180 - h), n = PI(Math.sqrt(q * q + L * L + Z * Z)), r = PI(Math.sqrt(v * v + cA * cA)), F = si(_, v), S = Math.abs(F) > 2e-4 ? F * KB : 0, k = iA ? 1 / (iA < 0 ? -iA : iA) : 0), g.svg && (AA = A.getAttribute("transform"), g.forceCSS = A.setAttribute("transform", "") || !tD(Zg(A, LI)), AA && A.setAttribute("transform", AA))), Math.abs(S) > 90 && Math.abs(S) < 270 && (B ? (n *= -1, S += c <= 0 ? 180 : -180, c += c <= 0 ? 180 : -180) : (r *= -1, S += S <= 0 ? 180 : -180)), I = I || g.uncache, g.x = t - ((g.xPercent = t && (!I && g.xPercent || (Math.round(A.offsetWidth / 2) === Math.round(-t) ? -50 : 0))) ? A.offsetWidth * g.xPercent / 100 : 0) + i, g.y = a - ((g.yPercent = a && (!I && g.yPercent || (Math.round(A.offsetHeight / 2) === Math.round(-a) ? -50 : 0))) ? A.offsetHeight * g.yPercent / 100 : 0) + i, g.z = s + i, g.scaleX = PI(n), g.scaleY = PI(r), g.rotation = PI(c) + Q, g.rotationX = PI(D) + Q, g.rotationY = PI(h) + Q, g.skewX = S + Q, g.skewY = G + Q, g.transformPerspective = k + i, (g.zOrigin = parseFloat(e.split(" ")[2]) || !I && g.zOrigin || 0) && (C[Yg] = OE(e)), g.xOffset = g.yOffset = 0, g.force3D = Pg.force3D, g.renderTransform = g.svg ? Ry : QD ? aD : Fy, g.uncache = 0, g;
-}, OE = function(A) {
+  var C = A.style, B = g.scaleX < 0, i = "px", Q = "deg", o = getComputedStyle(A), e = Zg(A, Yg) || "0", t, a, s, n, r, c, D, h, S, G, k, M, U, p, F, y, N, q, L, Z, m, _, v, AA, gA, CA, iA, sA, nA, IA, EA, cA;
+  return t = a = s = c = D = h = S = G = k = 0, n = r = 1, g.svg = !!(A.getCTM && oD(A)), o.translate && ((o.translate !== "none" || o.scale !== "none" || o.rotate !== "none") && (C[HI] = (o.translate !== "none" ? "translate3d(" + (o.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (o.rotate !== "none" ? "rotate(" + o.rotate + ") " : "") + (o.scale !== "none" ? "scale(" + o.scale.split(" ").join(",") + ") " : "") + (o[HI] !== "none" ? o[HI] : "")), C.scale = C.rotate = C.translate = "none"), p = Lt(A, g.svg), g.svg && (g.uncache ? (gA = A.getBBox(), e = g.xOrigin - gA.x + "px " + (g.yOrigin - gA.y) + "px", AA = "") : AA = !I && A.getAttribute("data-svg-origin"), Oe(A, AA || e, !!AA || g.originIsAbsolute, g.smooth !== false, p)), M = g.xOrigin || 0, U = g.yOrigin || 0, p !== FQ && (q = p[0], L = p[1], Z = p[2], m = p[3], t = _ = p[4], a = v = p[5], p.length === 6 ? (n = Math.sqrt(q * q + L * L), r = Math.sqrt(m * m + Z * Z), c = q || L ? si(L, q) * KB : 0, S = Z || m ? si(Z, m) * KB + c : 0, S && (r *= Math.abs(Math.cos(S * Mi))), g.svg && (t -= M - (M * q + U * Z), a -= U - (M * L + U * m))) : (cA = p[6], IA = p[7], iA = p[8], sA = p[9], nA = p[10], EA = p[11], t = p[12], a = p[13], s = p[14], F = si(cA, nA), D = F * KB, F && (y = Math.cos(-F), N = Math.sin(-F), AA = _ * y + iA * N, gA = v * y + sA * N, CA = cA * y + nA * N, iA = _ * -N + iA * y, sA = v * -N + sA * y, nA = cA * -N + nA * y, EA = IA * -N + EA * y, _ = AA, v = gA, cA = CA), F = si(-Z, nA), h = F * KB, F && (y = Math.cos(-F), N = Math.sin(-F), AA = q * y - iA * N, gA = L * y - sA * N, CA = Z * y - nA * N, EA = m * N + EA * y, q = AA, L = gA, Z = CA), F = si(L, q), c = F * KB, F && (y = Math.cos(F), N = Math.sin(F), AA = q * y + L * N, gA = _ * y + v * N, L = L * y - q * N, v = v * y - _ * N, q = AA, _ = gA), D && Math.abs(D) + Math.abs(c) > 359.9 && (D = c = 0, h = 180 - h), n = WI(Math.sqrt(q * q + L * L + Z * Z)), r = WI(Math.sqrt(v * v + cA * cA)), F = si(_, v), S = Math.abs(F) > 2e-4 ? F * KB : 0, k = EA ? 1 / (EA < 0 ? -EA : EA) : 0), g.svg && (AA = A.getAttribute("transform"), g.forceCSS = A.setAttribute("transform", "") || !tD(Zg(A, HI)), AA && A.setAttribute("transform", AA))), Math.abs(S) > 90 && Math.abs(S) < 270 && (B ? (n *= -1, S += c <= 0 ? 180 : -180, c += c <= 0 ? 180 : -180) : (r *= -1, S += S <= 0 ? 180 : -180)), I = I || g.uncache, g.x = t - ((g.xPercent = t && (!I && g.xPercent || (Math.round(A.offsetWidth / 2) === Math.round(-t) ? -50 : 0))) ? A.offsetWidth * g.xPercent / 100 : 0) + i, g.y = a - ((g.yPercent = a && (!I && g.yPercent || (Math.round(A.offsetHeight / 2) === Math.round(-a) ? -50 : 0))) ? A.offsetHeight * g.yPercent / 100 : 0) + i, g.z = s + i, g.scaleX = WI(n), g.scaleY = WI(r), g.rotation = WI(c) + Q, g.rotationX = WI(D) + Q, g.rotationY = WI(h) + Q, g.skewX = S + Q, g.skewY = G + Q, g.transformPerspective = k + i, (g.zOrigin = parseFloat(e.split(" ")[2]) || !I && g.zOrigin || 0) && (C[Yg] = vE(e)), g.xOffset = g.yOffset = 0, g.force3D = Pg.force3D, g.renderTransform = g.svg ? Ry : QD ? aD : Fy, g.uncache = 0, g;
+}, vE = function(A) {
   return (A = A.split(" "))[0] + " " + A[1];
-}, ee = function(A, I, g) {
+}, te = function(A, I, g) {
   var C = Sg(I);
-  return PI(parseFloat(I) + parseFloat(sB(A, "x", g + "px", C))) + C;
+  return WI(parseFloat(I) + parseFloat(sB(A, "x", g + "px", C))) + C;
 }, Fy = function(A, I) {
   I.z = "0px", I.rotationY = I.rotationX = "0deg", I.force3D = 0, aD(A, I);
 }, kB = "0deg", CQ = "0px", yB = ") ", aD = function(A, I) {
-  var g = I || this, C = g.xPercent, B = g.yPercent, i = g.x, Q = g.y, o = g.z, e = g.rotation, t = g.rotationY, a = g.rotationX, s = g.skewX, n = g.skewY, r = g.scaleX, c = g.scaleY, D = g.transformPerspective, h = g.force3D, S = g.target, G = g.zOrigin, k = "", U = h === "auto" && A && A !== 1 || h === true;
+  var g = I || this, C = g.xPercent, B = g.yPercent, i = g.x, Q = g.y, o = g.z, e = g.rotation, t = g.rotationY, a = g.rotationX, s = g.skewX, n = g.skewY, r = g.scaleX, c = g.scaleY, D = g.transformPerspective, h = g.force3D, S = g.target, G = g.zOrigin, k = "", M = h === "auto" && A && A !== 1 || h === true;
   if (G && (a !== kB || t !== kB)) {
-    var p = parseFloat(t) * Mi, M = Math.sin(p), F = Math.cos(p), y;
-    p = parseFloat(a) * Mi, y = Math.cos(p), i = ee(S, i, M * y * -G), Q = ee(S, Q, -Math.sin(p) * -G), o = ee(S, o, F * y * -G + G);
+    var U = parseFloat(t) * Mi, p = Math.sin(U), F = Math.cos(U), y;
+    U = parseFloat(a) * Mi, y = Math.cos(U), i = te(S, i, p * y * -G), Q = te(S, Q, -Math.sin(U) * -G), o = te(S, o, F * y * -G + G);
   }
-  D !== CQ && (k += "perspective(" + D + yB), (C || B) && (k += "translate(" + C + "%, " + B + "%) "), (U || i !== CQ || Q !== CQ || o !== CQ) && (k += o !== CQ || U ? "translate3d(" + i + ", " + Q + ", " + o + ") " : "translate(" + i + ", " + Q + yB), e !== kB && (k += "rotate(" + e + yB), t !== kB && (k += "rotateY(" + t + yB), a !== kB && (k += "rotateX(" + a + yB), (s !== kB || n !== kB) && (k += "skew(" + s + ", " + n + yB), (r !== 1 || c !== 1) && (k += "scale(" + r + ", " + c + yB), S.style[LI] = k || "translate(0, 0)";
+  D !== CQ && (k += "perspective(" + D + yB), (C || B) && (k += "translate(" + C + "%, " + B + "%) "), (M || i !== CQ || Q !== CQ || o !== CQ) && (k += o !== CQ || M ? "translate3d(" + i + ", " + Q + ", " + o + ") " : "translate(" + i + ", " + Q + yB), e !== kB && (k += "rotate(" + e + yB), t !== kB && (k += "rotateY(" + t + yB), a !== kB && (k += "rotateX(" + a + yB), (s !== kB || n !== kB) && (k += "skew(" + s + ", " + n + yB), (r !== 1 || c !== 1) && (k += "scale(" + r + ", " + c + yB), S.style[HI] = k || "translate(0, 0)";
 }, Ry = function(A, I) {
-  var g = I || this, C = g.xPercent, B = g.yPercent, i = g.x, Q = g.y, o = g.rotation, e = g.skewX, t = g.skewY, a = g.scaleX, s = g.scaleY, n = g.target, r = g.xOrigin, c = g.yOrigin, D = g.xOffset, h = g.yOffset, S = g.forceCSS, G = parseFloat(i), k = parseFloat(Q), U, p, M, F, y;
-  o = parseFloat(o), e = parseFloat(e), t = parseFloat(t), t && (t = parseFloat(t), e += t, o += t), o || e ? (o *= Mi, e *= Mi, U = Math.cos(o) * a, p = Math.sin(o) * a, M = Math.sin(o - e) * -s, F = Math.cos(o - e) * s, e && (t *= Mi, y = Math.tan(e - t), y = Math.sqrt(1 + y * y), M *= y, F *= y, t && (y = Math.tan(t), y = Math.sqrt(1 + y * y), U *= y, p *= y)), U = PI(U), p = PI(p), M = PI(M), F = PI(F)) : (U = a, F = s, p = M = 0), (G && !~(i + "").indexOf("px") || k && !~(Q + "").indexOf("px")) && (G = sB(n, "x", i, "px"), k = sB(n, "y", Q, "px")), (r || c || D || h) && (G = PI(G + r - (r * U + c * M) + D), k = PI(k + c - (r * p + c * F) + h)), (C || B) && (y = n.getBBox(), G = PI(G + C / 100 * y.width), k = PI(k + B / 100 * y.height)), y = "matrix(" + U + "," + p + "," + M + "," + F + "," + G + "," + k + ")", n.setAttribute("transform", y), S && (n.style[LI] = y);
+  var g = I || this, C = g.xPercent, B = g.yPercent, i = g.x, Q = g.y, o = g.rotation, e = g.skewX, t = g.skewY, a = g.scaleX, s = g.scaleY, n = g.target, r = g.xOrigin, c = g.yOrigin, D = g.xOffset, h = g.yOffset, S = g.forceCSS, G = parseFloat(i), k = parseFloat(Q), M, U, p, F, y;
+  o = parseFloat(o), e = parseFloat(e), t = parseFloat(t), t && (t = parseFloat(t), e += t, o += t), o || e ? (o *= Mi, e *= Mi, M = Math.cos(o) * a, U = Math.sin(o) * a, p = Math.sin(o - e) * -s, F = Math.cos(o - e) * s, e && (t *= Mi, y = Math.tan(e - t), y = Math.sqrt(1 + y * y), p *= y, F *= y, t && (y = Math.tan(t), y = Math.sqrt(1 + y * y), M *= y, U *= y)), M = WI(M), U = WI(U), p = WI(p), F = WI(F)) : (M = a, F = s, U = p = 0), (G && !~(i + "").indexOf("px") || k && !~(Q + "").indexOf("px")) && (G = sB(n, "x", i, "px"), k = sB(n, "y", Q, "px")), (r || c || D || h) && (G = WI(G + r - (r * M + c * p) + D), k = WI(k + c - (r * U + c * F) + h)), (C || B) && (y = n.getBBox(), G = WI(G + C / 100 * y.width), k = WI(k + B / 100 * y.height)), y = "matrix(" + M + "," + U + "," + p + "," + F + "," + G + "," + k + ")", n.setAttribute("transform", y), S && (n.style[HI] = y);
 }, Jy = function(A, I, g, C, B) {
-  var i = 360, Q = eg(B), o = parseFloat(B) * (Q && ~B.indexOf("rad") ? KB : 1), e = o - C, t = C + e + "deg", a, s;
+  var i = 360, Q = tg(B), o = parseFloat(B) * (Q && ~B.indexOf("rad") ? KB : 1), e = o - C, t = C + e + "deg", a, s;
   return Q && (a = B.split("_")[1], a === "short" && (e %= i, e !== e % (i / 2) && (e += e < 0 ? i : -i)), a === "cw" && e < 0 ? e = (e + i * tn) % i - ~~(e / i) * i : a === "ccw" && e > 0 && (e = (e - i * tn) % i - ~~(e / i) * i)), A._pt = s = new mg(A._pt, I, g, C, e, ry), s.e = t, s.u = "deg", A._props.push(g), s;
 }, hn = function(A, I) {
   for (var g in I) A[g] = I[g];
   return A;
 }, uy = function(A, I, g) {
   var C = hn({}, g._gsap), B = "perspective,force3D,transformOrigin,svgOrigin", i = g.style, Q, o, e, t, a, s, n, r;
-  C.svg ? (e = g.getAttribute("transform"), g.setAttribute("transform", ""), i[LI] = I, Q = RQ(g, 1), aB(g, LI), g.setAttribute("transform", e)) : (e = getComputedStyle(g)[LI], i[LI] = I, Q = RQ(g, 1), i[LI] = e);
+  C.svg ? (e = g.getAttribute("transform"), g.setAttribute("transform", ""), i[HI] = I, Q = RQ(g, 1), aB(g, HI), g.setAttribute("transform", e)) : (e = getComputedStyle(g)[HI], i[HI] = I, Q = RQ(g, 1), i[HI] = e);
   for (o in _C) e = C[o], t = Q[o], e !== t && B.indexOf(o) < 0 && (n = Sg(e), r = Sg(t), a = n !== r ? sB(g, o, e, r) : parseFloat(e), s = parseFloat(t), A._pt = new mg(A._pt, Q, o, a, s - a, Te), A._pt.u = r || 0, A._props.push(o));
   hn(Q, C);
 };
@@ -14426,7 +14426,7 @@ fg("padding,margin,Width,Radius", function(E14, A) {
   var I = "Top", g = "Right", C = "Bottom", B = "Left", i = (A < 3 ? [I, g, C, B] : [I + B, I + g, C + g, C + B]).map(function(Q) {
     return A < 2 ? E14 + Q : "border" + Q + E14;
   });
-  _E[A > 1 ? "border" + E14 : E14] = function(Q, o, e, t, a) {
+  OE[A > 1 ? "border" + E14 : E14] = function(Q, o, e, t, a) {
     var s, n;
     if (arguments.length < 4) return s = i.map(function(r) {
       return LC(Q, r, e);
@@ -14439,13 +14439,13 @@ fg("padding,margin,Width,Radius", function(E14, A) {
 var sD = { name: "css", register: _e, targetTest: function(A) {
   return A.style && A.nodeType;
 }, init: function(A, I, g, C, B) {
-  var i = this._props, Q = A.style, o = g.vars.startAt, e, t, a, s, n, r, c, D, h, S, G, k, U, p, M, F, y;
+  var i = this._props, Q = A.style, o = g.vars.startAt, e, t, a, s, n, r, c, D, h, S, G, k, M, U, p, F, y;
   ft || _e(), this.styles = this.styles || iD(A), F = this.styles.props, this.tween = g;
   for (c in I) if (c !== "autoRound" && (t = I[c], !(_g[c] && Wr(c, I, g, C, A, B)))) {
-    if (n = typeof t, r = _E[c], n === "function" && (t = t.call(g, C, A, B), n = typeof t), n === "string" && ~t.indexOf("random(") && (t = UQ(t)), r) r(this, A, c, t, g) && (M = 1);
+    if (n = typeof t, r = OE[c], n === "function" && (t = t.call(g, C, A, B), n = typeof t), n === "string" && ~t.indexOf("random(") && (t = UQ(t)), r) r(this, A, c, t, g) && (p = 1);
     else if (c.substr(0, 2) === "--") e = (getComputedStyle(A).getPropertyValue(c) + "").trim(), t += "", eB.lastIndex = 0, eB.test(e) || (D = Sg(e), h = Sg(t), h ? D !== h && (e = sB(A, c, e, h) + h) : D && (t += D)), this.add(Q, "setProperty", e, t, C, B, 0, 0, c), i.push(c), F.push(c, 0, Q[c]);
     else if (n !== "undefined") {
-      if (o && c in o ? (e = typeof o[c] == "function" ? o[c].call(g, C, A, B) : o[c], eg(e) && ~e.indexOf("random(") && (e = UQ(e)), Sg(e + "") || e === "auto" || (e += Pg.units[c] || Sg(LC(A, c)) || ""), (e + "").charAt(1) === "=" && (e = LC(A, c))) : e = LC(A, c), s = parseFloat(e), S = n === "string" && t.charAt(1) === "=" && t.substr(0, 2), S && (t = t.substr(2)), a = parseFloat(t), c in yC && (c === "autoAlpha" && (s === 1 && LC(A, "visibility") === "hidden" && a && (s = 0), F.push("visibility", 0, Q.visibility), BB(this, Q, "visibility", s ? "inherit" : "hidden", a ? "inherit" : "hidden", !a)), c !== "scale" && c !== "transform" && (c = yC[c], ~c.indexOf(",") && (c = c.split(",")[0]))), G = c in _C, G) {
+      if (o && c in o ? (e = typeof o[c] == "function" ? o[c].call(g, C, A, B) : o[c], tg(e) && ~e.indexOf("random(") && (e = UQ(e)), Sg(e + "") || e === "auto" || (e += Pg.units[c] || Sg(LC(A, c)) || ""), (e + "").charAt(1) === "=" && (e = LC(A, c))) : e = LC(A, c), s = parseFloat(e), S = n === "string" && t.charAt(1) === "=" && t.substr(0, 2), S && (t = t.substr(2)), a = parseFloat(t), c in yC && (c === "autoAlpha" && (s === 1 && LC(A, "visibility") === "hidden" && a && (s = 0), F.push("visibility", 0, Q.visibility), BB(this, Q, "visibility", s ? "inherit" : "hidden", a ? "inherit" : "hidden", !a)), c !== "scale" && c !== "transform" && (c = yC[c], ~c.indexOf(",") && (c = c.split(",")[0]))), G = c in _C, G) {
         if (this.styles.save(c), y = t, n === "string" && t.substring(0, 6) === "var(--") {
           if (t = Zg(A, t.substring(4, t.indexOf(")"))), t.substring(0, 5) === "calc(") {
             var N = A.style.perspective;
@@ -14453,28 +14453,28 @@ var sD = { name: "css", register: _e, targetTest: function(A) {
           }
           a = parseFloat(t);
         }
-        if (k || (U = A._gsap, U.renderTransform && !I.parseTransform || RQ(A, I.parseTransform), p = I.smoothOrigin !== false && U.smooth, k = this._pt = new mg(this._pt, Q, LI, 0, 1, U.renderTransform, U, 0, -1), k.dep = 1), c === "scale") this._pt = new mg(this._pt, U, "scaleY", U.scaleY, (S ? yi(U.scaleY, S + a) : a) - U.scaleY || 0, Te), this._pt.u = 0, i.push("scaleY", c), c += "X";
+        if (k || (M = A._gsap, M.renderTransform && !I.parseTransform || RQ(A, I.parseTransform), U = I.smoothOrigin !== false && M.smooth, k = this._pt = new mg(this._pt, Q, HI, 0, 1, M.renderTransform, M, 0, -1), k.dep = 1), c === "scale") this._pt = new mg(this._pt, M, "scaleY", M.scaleY, (S ? yi(M.scaleY, S + a) : a) - M.scaleY || 0, Te), this._pt.u = 0, i.push("scaleY", c), c += "X";
         else if (c === "transformOrigin") {
-          F.push(Yg, 0, Q[Yg]), t = Ny(t), U.svg ? Oe(A, t, 0, p, 0, this) : (h = parseFloat(t.split(" ")[2]) || 0, h !== U.zOrigin && BB(this, U, "zOrigin", U.zOrigin, h), BB(this, Q, c, OE(e), OE(t)));
+          F.push(Yg, 0, Q[Yg]), t = Ny(t), M.svg ? Oe(A, t, 0, U, 0, this) : (h = parseFloat(t.split(" ")[2]) || 0, h !== M.zOrigin && BB(this, M, "zOrigin", M.zOrigin, h), BB(this, Q, c, vE(e), vE(t)));
           continue;
         } else if (c === "svgOrigin") {
-          Oe(A, t, 1, p, 0, this);
+          Oe(A, t, 1, U, 0, this);
           continue;
         } else if (c in eD) {
-          Jy(this, U, c, s, S ? yi(s, S + t) : t);
+          Jy(this, M, c, s, S ? yi(s, S + t) : t);
           continue;
         } else if (c === "smoothOrigin") {
-          BB(this, U, "smooth", U.smooth, t);
+          BB(this, M, "smooth", M.smooth, t);
           continue;
         } else if (c === "force3D") {
-          U[c] = t;
+          M[c] = t;
           continue;
         } else if (c === "transform") {
           uy(this, t, A);
           continue;
         }
       } else c in Q || (c = bi(c) || c);
-      if (G || (a || a === 0) && (s || s === 0) && !ny.test(t) && c in Q) D = (e + "").substr((s + "").length), a || (a = 0), h = Sg(t) || (c in Pg.units ? Pg.units[c] : D), D !== h && (s = sB(A, c, e, h)), this._pt = new mg(this._pt, G ? U : Q, c, s, (S ? yi(s, S + a) : a) - s, !G && (h === "px" || c === "zIndex") && I.autoRound !== false ? hy : Te), this._pt.u = h || 0, G && y !== t ? (this._pt.b = e, this._pt.e = y, this._pt.r = cy) : D !== h && h !== "%" && (this._pt.b = e, this._pt.r = Dy);
+      if (G || (a || a === 0) && (s || s === 0) && !ny.test(t) && c in Q) D = (e + "").substr((s + "").length), a || (a = 0), h = Sg(t) || (c in Pg.units ? Pg.units[c] : D), D !== h && (s = sB(A, c, e, h)), this._pt = new mg(this._pt, G ? M : Q, c, s, (S ? yi(s, S + a) : a) - s, !G && (h === "px" || c === "zIndex") && I.autoRound !== false ? hy : Te), this._pt.u = h || 0, G && y !== t ? (this._pt.b = e, this._pt.e = y, this._pt.r = cy) : D !== h && h !== "%" && (this._pt.b = e, this._pt.r = Dy);
       else if (c in Q) Uy.call(this, A, c, e, S ? S + t : t);
       else if (c in A) this.add(A, c, e || A[c], S ? S + t : t, C, B);
       else if (c !== "parseTransform") {
@@ -14484,7 +14484,7 @@ var sD = { name: "css", register: _e, targetTest: function(A) {
       G || (c in Q ? F.push(c, 0, Q[c]) : typeof A[c] == "function" ? F.push(c, 2, A[c]()) : F.push(c, 1, e || A[c])), i.push(c);
     }
   }
-  M && AD(this);
+  p && AD(this);
 }, render: function(A, I) {
   if (I.tween._time || !mt()) for (var g = I._pt; g; ) g.r(A, g.d), g = g._next;
   else I.styles.revert();
@@ -14509,8 +14509,8 @@ fg("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective
   Pg.units[E14] = "px";
 });
 Lg.registerPlugin(sD);
-var hg = Lg.registerPlugin(sD) || Lg;
-hg.core.Tween;
+var KI = Lg.registerPlugin(sD) || Lg;
+KI.core.Tween;
 class qy {
   constructor(A) {
     this.canvas = A, this.scene = new pG(), this.scene.background = new mA("#0b0f19");
@@ -14520,9 +14520,9 @@ class qy {
   _setupLighting() {
     const A = new $G(16777215, 0.6);
     this.scene.add(A);
-    const I = new Ke(16774630, 1.2);
+    const I = new LE(16774630, 1.2);
     I.position.set(4, 9, 5), I.castShadow = true, I.shadow.mapSize.width = 1024, I.shadow.mapSize.height = 1024, I.shadow.camera.near = 0.5, I.shadow.camera.far = 25, I.shadow.bias = -5e-4, this.scene.add(I);
-    const g = new Ke(8961023, 0.4);
+    const g = new LE(8961023, 0.4);
     g.position.set(-4, 5, -3), this.scene.add(g);
   }
   _setupResizeHandler() {
@@ -14543,7 +14543,7 @@ class qy {
 }
 function ln(E14, A) {
   if (A === Wc) return console.warn("THREE.BufferGeometryUtils.toTrianglesDrawMode(): Geometry already defined as triangles."), E14;
-  if (A === Ge || A === xn) {
+  if (A === ke || A === xn) {
     let I = E14.getIndex();
     if (I === null) {
       const i = [], Q = E14.getAttribute("position");
@@ -14553,7 +14553,7 @@ function ln(E14, A) {
       } else return console.error("THREE.BufferGeometryUtils.toTrianglesDrawMode(): Undefined position attribute. Processing not possible."), E14;
     }
     const g = I.count - 2, C = [];
-    if (A === Ge) for (let i = 1; i <= g; i++) C.push(I.getX(0)), C.push(I.getX(i)), C.push(I.getX(i + 1));
+    if (A === ke) for (let i = 1; i <= g; i++) C.push(I.getX(0)), C.push(I.getX(i)), C.push(I.getX(i + 1));
     else for (let i = 0; i < g; i++) i % 2 === 0 ? (C.push(I.getX(i)), C.push(I.getX(i + 1)), C.push(I.getX(i + 2))) : (C.push(I.getX(i + 2)), C.push(I.getX(i + 1)), C.push(I.getX(i)));
     C.length / 3 !== g && console.error("THREE.BufferGeometryUtils.toTrianglesDrawMode(): Unable to generate correct amount of triangles.");
     const B = E14.clone();
@@ -14719,11 +14719,11 @@ class my {
     const B = I.json, o = ((B.extensions && B.extensions[this.name] || {}).lights || [])[A];
     let e;
     const t = new mA(16777215);
-    o.color !== void 0 && t.setRGB(o.color[0], o.color[1], o.color[2], og);
+    o.color !== void 0 && t.setRGB(o.color[0], o.color[1], o.color[2], eg);
     const a = o.range !== void 0 ? o.range : 0;
     switch (o.type) {
       case "directional":
-        e = new Ke(t), e.target.position.set(0, 0, -1), e.add(e.target);
+        e = new LE(t), e.target.position.set(0, 0, -1), e.add(e.target);
         break;
       case "point":
         e = new TA(t), e.distance = a;
@@ -14751,7 +14751,7 @@ class Yy {
     this.name = oI.KHR_MATERIALS_UNLIT;
   }
   getMaterialType() {
-    return SA;
+    return wA;
   }
   extendParams(A, I, g) {
     const C = [];
@@ -14760,9 +14760,9 @@ class Yy {
     if (B) {
       if (Array.isArray(B.baseColorFactor)) {
         const i = B.baseColorFactor;
-        A.color.setRGB(i[0], i[1], i[2], og), A.opacity = i[3];
+        A.color.setRGB(i[0], i[1], i[2], eg), A.opacity = i[3];
       }
-      B.baseColorTexture !== void 0 && C.push(g.assignTexture(A, "map", B.baseColorTexture, _I));
+      B.baseColorTexture !== void 0 && C.push(g.assignTexture(A, "map", B.baseColorTexture, OI));
     }
     return Promise.all(C);
   }
@@ -14828,9 +14828,9 @@ class Ty {
     const i = C.extensions[this.name];
     if (i.sheenColorFactor !== void 0) {
       const Q = i.sheenColorFactor;
-      I.sheenColor.setRGB(Q[0], Q[1], Q[2], og);
+      I.sheenColor.setRGB(Q[0], Q[1], Q[2], eg);
     }
-    return i.sheenRoughnessFactor !== void 0 && (I.sheenRoughness = i.sheenRoughnessFactor), i.sheenColorTexture !== void 0 && B.push(g.assignTexture(I, "sheenColorMap", i.sheenColorTexture, _I)), i.sheenRoughnessTexture !== void 0 && B.push(g.assignTexture(I, "sheenRoughnessMap", i.sheenRoughnessTexture)), Promise.all(B);
+    return i.sheenRoughnessFactor !== void 0 && (I.sheenRoughness = i.sheenRoughnessFactor), i.sheenColorTexture !== void 0 && B.push(g.assignTexture(I, "sheenColorMap", i.sheenColorTexture, OI)), i.sheenRoughnessTexture !== void 0 && B.push(g.assignTexture(I, "sheenRoughnessMap", i.sheenRoughnessTexture)), Promise.all(B);
   }
 }
 class xy {
@@ -14862,7 +14862,7 @@ class _y {
     const B = [], i = C.extensions[this.name];
     I.thickness = i.thicknessFactor !== void 0 ? i.thicknessFactor : 0, i.thicknessTexture !== void 0 && B.push(g.assignTexture(I, "thicknessMap", i.thicknessTexture)), I.attenuationDistance = i.attenuationDistance || 1 / 0;
     const Q = i.attenuationColor || [1, 1, 1];
-    return I.attenuationColor = new mA().setRGB(Q[0], Q[1], Q[2], og), Promise.all(B);
+    return I.attenuationColor = new mA().setRGB(Q[0], Q[1], Q[2], eg), Promise.all(B);
   }
 }
 class Oy {
@@ -14894,7 +14894,7 @@ class vy {
     const B = [], i = C.extensions[this.name];
     I.specularIntensity = i.specularFactor !== void 0 ? i.specularFactor : 1, i.specularTexture !== void 0 && B.push(g.assignTexture(I, "specularIntensityMap", i.specularTexture));
     const Q = i.specularColorFactor || [1, 1, 1];
-    return I.specularColor = new mA().setRGB(Q[0], Q[1], Q[2], og), i.specularColorTexture !== void 0 && B.push(g.assignTexture(I, "specularColorMap", i.specularColorTexture, _I)), Promise.all(B);
+    return I.specularColor = new mA().setRGB(Q[0], Q[1], Q[2], eg), i.specularColorTexture !== void 0 && B.push(g.assignTexture(I, "specularColorMap", i.specularColorTexture, OI)), Promise.all(B);
   }
 }
 class Zy {
@@ -15039,10 +15039,10 @@ class zy {
         const c = new iI(), D = new H(), h = new nC(), S = new H(1, 1, 1), G = new uG(r.geometry, r.material, s);
         for (let k = 0; k < s; k++) o.TRANSLATION && D.fromBufferAttribute(o.TRANSLATION, k), o.ROTATION && h.fromBufferAttribute(o.ROTATION, k), o.SCALE && S.fromBufferAttribute(o.SCALE, k), G.setMatrixAt(k, c.compose(D, h, S));
         for (const k in o) if (k === "_COLOR_0") {
-          const U = o[k];
-          G.instanceColor = new pe(U.array, U.itemSize, U.normalized);
+          const M = o[k];
+          G.instanceColor = new Ue(M.array, M.itemSize, M.normalized);
         } else k !== "TRANSLATION" && k !== "ROTATION" && k !== "SCALE" && r.geometry.setAttribute(k, o[k]);
-        HI.prototype.copy.call(G, r), this.parser.assignFinalMaterial(G), n.push(G);
+        bI.prototype.copy.call(G, r), this.parser.assignFinalMaterial(G), n.push(G);
       }
       return t.isGroup ? (t.clear(), t.add(...n), t) : n[0];
     }));
@@ -15099,7 +15099,7 @@ class Ad {
             D !== void 0 && (c.normalized = D);
           }
           a(n);
-        }, Q, e, og, s);
+        }, Q, e, eg, s);
       });
     });
   }
@@ -15129,8 +15129,8 @@ class rD extends bQ {
   interpolate_(A, I, g, C) {
     const B = this.resultBuffer, i = this.sampleValues, Q = this.valueSize, o = Q * 2, e = Q * 3, t = C - I, a = (g - I) / t, s = a * a, n = s * a, r = A * e, c = r - e, D = -2 * n + 3 * s, h = n - s, S = 1 - D, G = h - s + a;
     for (let k = 0; k !== Q; k++) {
-      const U = i[c + k + Q], p = i[c + k + o] * t, M = i[r + k + Q], F = i[r + k] * t;
-      B[k] = S * U + G * p + D * M + h * F;
+      const M = i[c + k + Q], U = i[c + k + o] * t, p = i[r + k + Q], F = i[r + k] * t;
+      B[k] = S * M + G * U + D * p + h * F;
     }
     return B;
   }
@@ -15142,7 +15142,7 @@ class Bd extends rD {
     return Cd.fromArray(B).normalize().toArray(B), B;
   }
 }
-const AC = { POINTS: 0, LINES: 1, LINE_LOOP: 2, LINE_STRIP: 3, TRIANGLES: 4, TRIANGLE_STRIP: 5, TRIANGLE_FAN: 6 }, pi = { 5120: Int8Array, 5121: Uint8Array, 5122: Int16Array, 5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array }, Gn = { 9728: Eg, 9729: Rg, 9984: Se, 9985: qn, 9986: dE, 9987: TB }, kn = { 33071: IC, 33648: RE, 10497: Ki }, te = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16 }, ve = { POSITION: "position", NORMAL: "normal", TANGENT: "tangent", TEXCOORD_0: "uv", TEXCOORD_1: "uv1", TEXCOORD_2: "uv2", TEXCOORD_3: "uv3", COLOR_0: "color", WEIGHTS_0: "skinWeight", JOINTS_0: "skinIndex" }, zC = { scale: "scale", translation: "position", rotation: "quaternion", weights: "morphTargetInfluences" }, id = { CUBICSPLINE: void 0, LINEAR: Ri, STEP: kQ }, ae = { OPAQUE: "OPAQUE", MASK: "MASK", BLEND: "BLEND" };
+const AC = { POINTS: 0, LINES: 1, LINE_LOOP: 2, LINE_STRIP: 3, TRIANGLES: 4, TRIANGLE_STRIP: 5, TRIANGLE_FAN: 6 }, pi = { 5120: Int8Array, 5121: Uint8Array, 5122: Int16Array, 5123: Uint16Array, 5125: Uint32Array, 5126: Float32Array }, Gn = { 9728: og, 9729: Rg, 9984: Ge, 9985: qn, 9986: dE, 9987: TB }, kn = { 33071: IC, 33648: RE, 10497: Ki }, ae = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT2: 4, MAT3: 9, MAT4: 16 }, ve = { POSITION: "position", NORMAL: "normal", TANGENT: "tangent", TEXCOORD_0: "uv", TEXCOORD_1: "uv1", TEXCOORD_2: "uv2", TEXCOORD_3: "uv3", COLOR_0: "color", WEIGHTS_0: "skinWeight", JOINTS_0: "skinIndex" }, zC = { scale: "scale", translation: "position", rotation: "quaternion", weights: "morphTargetInfluences" }, id = { CUBICSPLINE: void 0, LINEAR: Ri, STEP: kQ }, se = { OPAQUE: "OPAQUE", MASK: "MASK", BLEND: "BLEND" };
 function Qd(E14) {
   return E14.DefaultMaterial === void 0 && (E14.DefaultMaterial = new d({ color: 16777215, emissive: 0, metalness: 1, roughness: 1, transparent: false, depthTest: true, side: TC })), E14.DefaultMaterial;
 }
@@ -15193,10 +15193,10 @@ function od(E14, A) {
 function ed(E14) {
   let A;
   const I = E14.extensions && E14.extensions[oI.KHR_DRACO_MESH_COMPRESSION];
-  if (I ? A = "draco:" + I.bufferView + ":" + I.indices + ":" + se(I.attributes) : A = E14.indices + ":" + se(E14.attributes) + ":" + E14.mode, E14.targets !== void 0) for (let g = 0, C = E14.targets.length; g < C; g++) A += ":" + se(E14.targets[g]);
+  if (I ? A = "draco:" + I.bufferView + ":" + I.indices + ":" + ne(I.attributes) : A = E14.indices + ":" + ne(E14.attributes) + ":" + E14.mode, E14.targets !== void 0) for (let g = 0, C = E14.targets.length; g < C; g++) A += ":" + ne(E14.targets[g]);
   return A;
 }
-function se(E14) {
+function ne(E14) {
   let A = "";
   const I = Object.keys(E14).sort();
   for (let g = 0, C = I.length; g < C; g++) A += I[g] + ":" + E14[I[g]] + ";";
@@ -15382,12 +15382,12 @@ class sd {
   loadAccessor(A) {
     const I = this, g = this.json, C = this.json.accessors[A];
     if (C.bufferView === void 0 && C.sparse === void 0) {
-      const i = te[C.type], Q = pi[C.componentType], o = C.normalized === true, e = new Q(C.count * i);
+      const i = ae[C.type], Q = pi[C.componentType], o = C.normalized === true, e = new Q(C.count * i);
       return Promise.resolve(new Kg(e, i, o));
     }
     const B = [];
     return C.bufferView !== void 0 ? B.push(this.getDependency("bufferView", C.bufferView)) : B.push(null), C.sparse !== void 0 && (B.push(this.getDependency("bufferView", C.sparse.indices.bufferView)), B.push(this.getDependency("bufferView", C.sparse.values.bufferView))), Promise.all(B).then(function(i) {
-      const Q = i[0], o = te[C.type], e = pi[C.componentType], t = e.BYTES_PER_ELEMENT, a = t * o, s = C.byteOffset || 0, n = C.bufferView !== void 0 ? g.bufferViews[C.bufferView].byteStride : void 0, r = C.normalized === true;
+      const Q = i[0], o = ae[C.type], e = pi[C.componentType], t = e.BYTES_PER_ELEMENT, a = t * o, s = C.byteOffset || 0, n = C.bufferView !== void 0 ? g.bufferViews[C.bufferView].byteStride : void 0, r = C.normalized === true;
       let c, D;
       if (n && n !== a) {
         const h = Math.floor(s / n), S = "InterleavedBuffer:" + C.bufferView + ":" + C.componentType + ":" + h + ":" + C.count;
@@ -15395,11 +15395,11 @@ class sd {
         G || (c = new e(Q, h * n, C.count * n / t), G = new UG(c, n / t), I.cache.add(S, G)), D = new rt(G, o, s % n / t, r);
       } else Q === null ? c = new e(C.count * o) : c = new e(Q, s, C.count * o), D = new Kg(c, o, r);
       if (C.sparse !== void 0) {
-        const h = te.SCALAR, S = pi[C.sparse.indices.componentType], G = C.sparse.indices.byteOffset || 0, k = C.sparse.values.byteOffset || 0, U = new S(i[1], G, C.sparse.count * h), p = new e(i[2], k, C.sparse.count * o);
+        const h = ae.SCALAR, S = pi[C.sparse.indices.componentType], G = C.sparse.indices.byteOffset || 0, k = C.sparse.values.byteOffset || 0, M = new S(i[1], G, C.sparse.count * h), U = new e(i[2], k, C.sparse.count * o);
         Q !== null && (D = new Kg(D.array.slice(), D.itemSize, D.normalized));
-        for (let M = 0, F = U.length; M < F; M++) {
-          const y = U[M];
-          if (D.setX(y, p[M * o]), o >= 2 && D.setY(y, p[M * o + 1]), o >= 3 && D.setZ(y, p[M * o + 2]), o >= 4 && D.setW(y, p[M * o + 3]), o >= 5) throw new Error("THREE.GLTFLoader: Unsupported itemSize in sparse BufferAttribute.");
+        for (let p = 0, F = M.length; p < F; p++) {
+          const y = M[p];
+          if (D.setX(y, U[p * o]), o >= 2 && D.setY(y, U[p * o + 1]), o >= 3 && D.setZ(y, U[p * o + 2]), o >= 4 && D.setW(y, U[p * o + 3]), o >= 5) throw new Error("THREE.GLTFLoader: Unsupported itemSize in sparse BufferAttribute.");
         }
       }
       return D;
@@ -15441,7 +15441,7 @@ class sd {
       return new Promise(function(s, n) {
         let r = s;
         I.isImageBitmapLoader === true && (r = function(c) {
-          const D = new sg(c);
+          const D = new ng(c);
           D.needsUpdate = true, s(D);
         }), I.load(cQ.resolveURL(a, B.path), r, void 0, n);
       });
@@ -15501,25 +15501,25 @@ class sd {
       const a = B.pbrMetallicRoughness || {};
       if (Q.color = new mA(1, 1, 1), Q.opacity = 1, Array.isArray(a.baseColorFactor)) {
         const s = a.baseColorFactor;
-        Q.color.setRGB(s[0], s[1], s[2], og), Q.opacity = s[3];
+        Q.color.setRGB(s[0], s[1], s[2], eg), Q.opacity = s[3];
       }
-      a.baseColorTexture !== void 0 && e.push(I.assignTexture(Q, "map", a.baseColorTexture, _I)), Q.metalness = a.metallicFactor !== void 0 ? a.metallicFactor : 1, Q.roughness = a.roughnessFactor !== void 0 ? a.roughnessFactor : 1, a.metallicRoughnessTexture !== void 0 && (e.push(I.assignTexture(Q, "metalnessMap", a.metallicRoughnessTexture)), e.push(I.assignTexture(Q, "roughnessMap", a.metallicRoughnessTexture))), i = this._invokeOne(function(s) {
+      a.baseColorTexture !== void 0 && e.push(I.assignTexture(Q, "map", a.baseColorTexture, OI)), Q.metalness = a.metallicFactor !== void 0 ? a.metallicFactor : 1, Q.roughness = a.roughnessFactor !== void 0 ? a.roughnessFactor : 1, a.metallicRoughnessTexture !== void 0 && (e.push(I.assignTexture(Q, "metalnessMap", a.metallicRoughnessTexture)), e.push(I.assignTexture(Q, "roughnessMap", a.metallicRoughnessTexture))), i = this._invokeOne(function(s) {
         return s.getMaterialType && s.getMaterialType(A);
       }), e.push(Promise.all(this._invokeAll(function(s) {
         return s.extendMaterialParams && s.extendMaterialParams(A, Q);
       })));
     }
     B.doubleSided === true && (Q.side = Jg);
-    const t = B.alphaMode || ae.OPAQUE;
-    if (t === ae.BLEND ? (Q.transparent = true, Q.depthWrite = false) : (Q.transparent = false, t === ae.MASK && (Q.alphaTest = B.alphaCutoff !== void 0 ? B.alphaCutoff : 0.5)), B.normalTexture !== void 0 && i !== SA && (e.push(I.assignTexture(Q, "normalMap", B.normalTexture)), Q.normalScale = new ZA(1, 1), B.normalTexture.scale !== void 0)) {
+    const t = B.alphaMode || se.OPAQUE;
+    if (t === se.BLEND ? (Q.transparent = true, Q.depthWrite = false) : (Q.transparent = false, t === se.MASK && (Q.alphaTest = B.alphaCutoff !== void 0 ? B.alphaCutoff : 0.5)), B.normalTexture !== void 0 && i !== wA && (e.push(I.assignTexture(Q, "normalMap", B.normalTexture)), Q.normalScale = new ZA(1, 1), B.normalTexture.scale !== void 0)) {
       const a = B.normalTexture.scale;
       Q.normalScale.set(a, a);
     }
-    if (B.occlusionTexture !== void 0 && i !== SA && (e.push(I.assignTexture(Q, "aoMap", B.occlusionTexture)), B.occlusionTexture.strength !== void 0 && (Q.aoMapIntensity = B.occlusionTexture.strength)), B.emissiveFactor !== void 0 && i !== SA) {
+    if (B.occlusionTexture !== void 0 && i !== wA && (e.push(I.assignTexture(Q, "aoMap", B.occlusionTexture)), B.occlusionTexture.strength !== void 0 && (Q.aoMapIntensity = B.occlusionTexture.strength)), B.emissiveFactor !== void 0 && i !== wA) {
       const a = B.emissiveFactor;
-      Q.emissive = new mA().setRGB(a[0], a[1], a[2], og);
+      Q.emissive = new mA().setRGB(a[0], a[1], a[2], eg);
     }
-    return B.emissiveTexture !== void 0 && i !== SA && e.push(I.assignTexture(Q, "emissiveMap", B.emissiveTexture, _I)), Promise.all(e).then(function() {
+    return B.emissiveTexture !== void 0 && i !== wA && e.push(I.assignTexture(Q, "emissiveMap", B.emissiveTexture, OI)), Promise.all(e).then(function() {
       const a = new i(Q);
       return B.name && (a.name = B.name), $C(a, B), I.associations.set(a, { materials: A }), B.extensions && dB(C, a, B), a;
     });
@@ -15558,7 +15558,7 @@ class sd {
         const c = t[n], D = i[n];
         let h;
         const S = e[n];
-        if (D.mode === AC.TRIANGLES || D.mode === AC.TRIANGLE_STRIP || D.mode === AC.TRIANGLE_FAN || D.mode === void 0) h = B.isSkinnedMesh === true ? new KG(c, S) : new l(c, S), h.isSkinnedMesh === true && h.normalizeSkinWeights(), D.mode === AC.TRIANGLE_STRIP ? h.geometry = ln(h.geometry, xn) : D.mode === AC.TRIANGLE_FAN && (h.geometry = ln(h.geometry, Ge));
+        if (D.mode === AC.TRIANGLES || D.mode === AC.TRIANGLE_STRIP || D.mode === AC.TRIANGLE_FAN || D.mode === void 0) h = B.isSkinnedMesh === true ? new KG(c, S) : new l(c, S), h.isSkinnedMesh === true && h.normalizeSkinWeights(), D.mode === AC.TRIANGLE_STRIP ? h.geometry = ln(h.geometry, xn) : D.mode === AC.TRIANGLE_FAN && (h.geometry = ln(h.geometry, ke));
         else if (D.mode === AC.LINES) h = new qG(c, S);
         else if (D.mode === AC.LINE_STRIP) h = new ct(c, S);
         else if (D.mode === AC.LINE_LOOP) h = new fG(c, S);
@@ -15608,13 +15608,13 @@ class sd {
     return Promise.all([Promise.all(i), Promise.all(Q), Promise.all(o), Promise.all(e), Promise.all(t)]).then(function(a) {
       const s = a[0], n = a[1], r = a[2], c = a[3], D = a[4], h = [];
       for (let S = 0, G = s.length; S < G; S++) {
-        const k = s[S], U = n[S], p = r[S], M = c[S], F = D[S];
+        const k = s[S], M = n[S], U = r[S], p = c[S], F = D[S];
         if (k === void 0) continue;
         k.updateMatrix && k.updateMatrix();
-        const y = g._createAnimationTracks(k, U, p, M, F);
+        const y = g._createAnimationTracks(k, M, U, p, F);
         if (y) for (let N = 0; N < y.length; N++) h.push(y[N]);
       }
-      return new Ne(B, void 0, h);
+      return new Ke(B, void 0, h);
     });
   }
   createNodeMesh(A) {
@@ -15653,7 +15653,7 @@ class sd {
       Q.push(e);
     }), this.nodeCache[A] = Promise.all(Q).then(function(e) {
       let t;
-      if (B.isBone === true ? t = new er() : e.length > 1 ? t = new f() : e.length === 1 ? t = e[0] : t = new HI(), t !== e[0]) for (let a = 0, s = e.length; a < s; a++) t.add(e[a]);
+      if (B.isBone === true ? t = new er() : e.length > 1 ? t = new f() : e.length === 1 ? t = e[0] : t = new bI(), t !== e[0]) for (let a = 0, s = e.length; a < s; a++) t.add(e[a]);
       if (B.name && (t.userData.name = B.name, t.name = i), $C(t, B), B.extensions && dB(g, t, B), B.matrix !== void 0) {
         const a = new iI();
         a.fromArray(B.matrix), t.applyMatrix4(a);
@@ -15670,7 +15670,7 @@ class sd {
       for (let t = 0, a = o.length; t < a; t++) B.add(o[t]);
       const e = (t) => {
         const a = /* @__PURE__ */ new Map();
-        for (const [s, n] of C.associations) (s instanceof rC || s instanceof sg) && a.set(s, n);
+        for (const [s, n] of C.associations) (s instanceof rC || s instanceof ng) && a.set(s, n);
         return t.traverse((s) => {
           const n = C.associations.get(s);
           n != null && a.set(s, n);
@@ -15785,77 +15785,98 @@ function yn(E14, A, I) {
     });
     C.push(i);
   }
-  return DI.workingColorSpace !== og && "COLOR_0" in g && console.warn(`THREE.GLTFLoader: Converting vertex colors from "srgb-linear" to "${DI.workingColorSpace}" not supported.`), $C(E14, A), nd(E14, A, I), Promise.all(C).then(function() {
+  return DI.workingColorSpace !== eg && "COLOR_0" in g && console.warn(`THREE.GLTFLoader: Converting vertex colors from "srgb-linear" to "${DI.workingColorSpace}" not supported.`), $C(E14, A), nd(E14, A, I), Promise.all(C).then(function() {
     return A.targets !== void 0 ? Ed(E14, A.targets, I) : E14;
   });
 }
 class rd {
   constructor() {
-    this.group = new f(), this.group.name = "MobileRoomEnvironment", this.sockets = [], this.gasLampLight = null, this.lampFlameMesh = null, this.windowMesh = null, this.phase = 1, this._buildMaterials(), this._buildExtendedFloor(), this._buildRoomStructure(), this._buildShelves(), this._buildWindow(), this._buildSideTableWithGasLamp();
+    this.group = new f(), this.group.name = "MobileRoomEnvironment", this.sockets = [], this.gasLampLight = null, this.lampFlameMesh = null, this.moonLight = null, this.stars = [], this.windowMesh = null, this.phase = 1, this._buildMaterials(), this._buildExtendedFloor(), this._buildFullRoomWalls(), this._buildShelves(), this._buildWindowWithNightSky(), this._buildSideTableWithGasLamp();
   }
   _buildMaterials() {
-    this.stoneWallMat = new d({ color: 1711655, roughness: 0.9, metalness: 0.05 }), this.stoneFloorMat = new d({ color: 1448224, roughness: 0.85, metalness: 0.1 }), this.stonePillarMat = new d({ color: 2370102, roughness: 0.8, metalness: 0.1 }), this.woodMat = new d({ color: 4007709, roughness: 0.75, metalness: 0.05 }), this.tableWoodMat = new d({ color: 2890258, roughness: 0.65, metalness: 0.05 }), this.rugMat = new d({ color: 4003616, roughness: 0.95, metalness: 0.02 }), this.goldMat = new d({ color: 13938487, roughness: 0.35, metalness: 0.8 }), this.brassMat = new d({ color: 12092939, roughness: 0.3, metalness: 0.85 }), this.lampGlassMat = new wI({ color: 16777215, transparent: true, opacity: 0.35, roughness: 0.05, transmission: 0.9, ior: 1.45 }), this.windowMat = new SA({ color: 2243166, transparent: true, opacity: 0.88 });
+    this.stoneWallMat = new d({ color: 1580068, roughness: 0.9, metalness: 0.05 }), this.stoneFloorMat = new d({ color: 1316638, roughness: 0.85, metalness: 0.1 }), this.stonePillarMat = new d({ color: 2238259, roughness: 0.8, metalness: 0.1 }), this.woodMat = new d({ color: 3810330, roughness: 0.75, metalness: 0.05 }), this.tableWoodMat = new d({ color: 2693137, roughness: 0.65, metalness: 0.05 }), this.rugMat = new d({ color: 4003616, roughness: 0.95, metalness: 0.02 }), this.goldMat = new d({ color: 13938487, roughness: 0.35, metalness: 0.8 }), this.brassMat = new d({ color: 12092939, roughness: 0.3, metalness: 0.85 }), this.lampGlassMat = new wI({ color: 16777215, transparent: true, opacity: 0.35, roughness: 0.05, transmission: 0.9, ior: 1.45 }), this.nightSkyMat = new wA({ color: 727614 });
   }
   _buildExtendedFloor() {
-    const A = new z(18, 0.4, 18), I = new l(A, this.stoneFloorMat);
-    I.position.set(0, -1.6, 1), I.receiveShadow = true, this.group.add(I);
-    const g = new z(6.6, 0.02, 5.2), C = new l(g, this.rugMat);
-    C.position.set(-0.4, -1.39, 0.2), C.receiveShadow = true, this.group.add(C);
+    const A = new X(26, 0.4, 26), I = new l(A, this.stoneFloorMat);
+    I.position.set(0, -2.2, 1), I.receiveShadow = true, this.group.add(I);
+    const g = new X(6.6, 0.02, 5.2), C = new l(g, this.rugMat);
+    C.position.set(-0.4, -1.99, 0.2), C.receiveShadow = true, this.group.add(C);
   }
-  _buildRoomStructure() {
-    const A = new z(8.5, 9.5, 0.3), I = new l(A, this.stoneWallMat);
-    I.position.set(0, 3, -4.5), I.receiveShadow = true, this.group.add(I);
-    const g = new z(0.45, 8, 0.45), C = new l(g, this.stonePillarMat);
-    C.position.set(-2.8, 2.4, -4.2), this.group.add(C);
-    const B = new l(g, this.stonePillarMat);
-    B.position.set(2.8, 2.4, -4.2), this.group.add(B);
-    const i = new z(6, 0.45, 0.45), Q = new l(i, this.stonePillarMat);
-    Q.position.set(0, 6.2, -4.2), this.group.add(Q);
+  _buildFullRoomWalls() {
+    const A = new X(26, 16, 0.4), I = new l(A, this.stoneWallMat);
+    I.position.set(0, 4.5, -4.8), I.receiveShadow = true, this.group.add(I);
+    const g = new X(0.4, 16, 26), C = new l(g, this.stoneWallMat);
+    C.position.set(-12, 4.5, 2), C.receiveShadow = true, this.group.add(C);
+    const B = new l(g, this.stoneWallMat);
+    B.position.set(12, 4.5, 2), B.receiveShadow = true, this.group.add(B);
+    const i = new X(0.45, 8.5, 0.45), Q = new l(i, this.stonePillarMat);
+    Q.position.set(-2.8, 2.6, -4.3), this.group.add(Q);
+    const o = new l(i, this.stonePillarMat);
+    o.position.set(2.8, 2.6, -4.3), this.group.add(o);
+    const e = new X(6, 0.45, 0.45), t = new l(e, this.stonePillarMat);
+    t.position.set(0, 6.4, -4.3), this.group.add(t);
   }
   _buildShelves() {
-    const A = new z(1.25, 0.08, 0.4), I = [1.2, 2, 2.8];
+    const A = new X(1.25, 0.08, 0.4), I = [1.2, 2, 2.8];
     [-1.9, 1.9].forEach((g) => {
       I.forEach((C) => {
         const B = new l(A, this.woodMat);
-        B.position.set(g, C, -4.15), B.receiveShadow = true, this.group.add(B), [-0.32, 0.32].forEach((i) => {
-          const Q = new H(g + i, C + 0.22, -4.05), o = new u(0.1, 0.12, 0.025, 12), e = new l(o, this.goldMat);
+        B.position.set(g, C, -4.2), B.receiveShadow = true, this.group.add(B), [-0.32, 0.32].forEach((i) => {
+          const Q = new H(g + i, C + 0.22, -4.1), o = new u(0.1, 0.12, 0.025, 12), e = new l(o, this.goldMat);
           e.position.set(Q.x, C + 0.02, Q.z), this.group.add(e), this.sockets.push({ id: `socket_${this.sockets.length}`, position: Q, isOccupied: false, trophyMesh: null, itemId: null });
         });
       });
     });
   }
-  _buildWindow() {
-    const A = new z(1.6, 2.2, 0.12), I = new d({ color: 1316896, roughness: 0.9 }), g = new l(A, I);
-    g.position.set(0, 3.5, -4.35), this.group.add(g);
-    const C = new HQ(1.35, 1.95);
-    this.windowMesh = new l(C, this.windowMat), this.windowMesh.position.set(0, 3.5, -4.28), this.group.add(this.windowMesh);
+  _buildWindowWithNightSky() {
+    const A = new f();
+    A.position.set(0, 3.1, -4.3);
+    const I = 1.8, g = 2.5, C = new wA({ color: 727614 }), B = new l(new HQ(I, g), C);
+    B.position.set(0, 0, 0.01), A.add(B);
+    const i = new BA(0.018, 0), Q = new wA({ color: 16777215 });
+    [[-0.6, 0.9], [-0.35, 1.05], [-0.15, 0.85], [0.2, 1], [0.55, 0.88], [-0.7, 0.65], [-0.45, 0.5], [-0.2, 0.6], [0.3, 0.55], [0.65, 0.7], [-0.55, 0.25], [-0.3, 0.35], [-0.15, 0.15], [0.15, 0.3], [0.45, 0.2], [0.68, 0.35], [-0.65, -0.2], [-0.4, -0.15], [-0.18, -0.3], [0.22, -0.18], [0.5, -0.25], [-0.55, -0.55], [-0.3, -0.7], [-0.12, -0.5], [0.18, -0.65], [0.45, -0.5], [0.65, -0.75], [-0.4, -0.95], [-0.15, -1.05], [0.25, -0.98], [0.55, -1.05]].forEach(([S, G], k) => {
+      const M = new l(i, Q.clone());
+      M.position.set(S, G, 0.025), M.userData = { phaseOffset: k * 0.45, twinkleSpeed: 2.2 + k % 4 * 0.8, baseScale: 0.8 + k % 3 * 0.4 }, M.scale.setScalar(M.userData.baseScale), A.add(M), this.stars.push(M);
+    });
+    const e = 0.06, t = 0.07, a = new d({ color: 1580587, roughness: 0.8 }), s = new l(new X(e, g + 0.04, t), a);
+    s.position.set(-I / 2, 0, 0.035), A.add(s);
+    const n = new l(new X(e, g + 0.04, t), a);
+    n.position.set(I / 2, 0, 0.035), A.add(n);
+    const r = new l(new X(I + e, e, t), a);
+    r.position.set(0, g / 2, 0.035), A.add(r);
+    const c = new l(new X(I + 0.15, e * 1.5, t * 1.4), a);
+    c.position.set(0, -g / 2, 0.045), A.add(c);
+    const D = new l(new X(0.04, g, 0.05), a);
+    D.position.set(0, 0, 0.03), A.add(D);
+    const h = new l(new X(I, 0.04, 0.05), a);
+    h.position.set(0, 0, 0.03), A.add(h), this.group.add(A), this.moonLight = new LE(9221872, 0.8), this.moonLight.position.set(0, 4, -3.5), this.moonLight.target.position.set(0, 0, 0), this.group.add(this.moonLight.target), this.group.add(this.moonLight);
   }
   _buildSideTableWithGasLamp() {
     const A = new f();
-    A.position.set(-2.35, -1.4, 0.75);
-    const I = new u(0.55, 0.52, 0.08, 16), g = new l(I, this.tableWoodMat);
-    g.position.y = 2.45, g.castShadow = true, g.receiveShadow = true, A.add(g);
-    const C = new u(0.08, 0.1, 2.4, 12), B = new l(C, this.tableWoodMat);
-    B.position.y = 1.2, B.castShadow = true, A.add(B);
-    const i = new u(0.4, 0.45, 0.08, 16), Q = new l(i, this.tableWoodMat);
-    Q.position.y = 0.04, A.add(Q);
-    const o = new f();
-    o.position.set(0, 2.49, 0);
-    const e = new u(0.16, 0.2, 0.18, 16), t = new l(e, this.brassMat);
-    t.position.y = 0.09, t.castShadow = true, o.add(t);
-    const a = new u(0.1, 0.13, 0.06, 14), s = new l(a, this.brassMat);
-    s.position.y = 0.21, o.add(s);
-    const n = new u(0.08, 0.13, 0.42, 16), r = new l(n, this.lampGlassMat);
-    r.position.y = 0.44, o.add(r);
-    const c = new $(0.035, 0.1, 8), D = new SA({ color: 16770688 });
-    this.lampFlameMesh = new l(c, D), this.lampFlameMesh.position.y = 0.31, o.add(this.lampFlameMesh);
-    const h = new u(0.06, 0.08, 0.04, 12), S = new l(h, this.brassMat);
-    S.position.y = 0.66, o.add(S);
-    const G = new xA(0.05, 0.012, 6, 12), k = new l(G, this.brassMat);
-    k.position.y = 0.72, o.add(k), A.add(o), this.group.add(A), this.gasLampLight = new TA(16754740, 1.8, 9.5, 1.4), this.gasLampLight.position.set(-2.35, 1.4, 0.75), this.gasLampLight.castShadow = false, this.group.add(this.gasLampLight);
+    A.position.set(-2.35, -2, 0.75);
+    const I = 1.95, g = new u(0.52, 0.49, 0.08, 16), C = new l(g, this.tableWoodMat);
+    C.position.y = I, C.castShadow = true, C.receiveShadow = true, A.add(C);
+    const B = new u(0.08, 0.1, I - 0.08, 12), i = new l(B, this.tableWoodMat);
+    i.position.y = I / 2, i.castShadow = true, A.add(i);
+    const Q = new u(0.4, 0.45, 0.08, 16), o = new l(Q, this.tableWoodMat);
+    o.position.y = 0.04, A.add(o);
+    const e = new f();
+    e.position.set(0, I + 0.04, 0);
+    const t = new u(0.16, 0.2, 0.18, 16), a = new l(t, this.brassMat);
+    a.position.y = 0.09, a.castShadow = true, e.add(a);
+    const s = new u(0.1, 0.13, 0.06, 14), n = new l(s, this.brassMat);
+    n.position.y = 0.21, e.add(n);
+    const r = new u(0.08, 0.13, 0.42, 16), c = new l(r, this.lampGlassMat);
+    c.position.y = 0.44, e.add(c);
+    const D = new $(0.035, 0.1, 8), h = new wA({ color: 16770688 });
+    this.lampFlameMesh = new l(D, h), this.lampFlameMesh.position.y = 0.31, e.add(this.lampFlameMesh);
+    const S = new u(0.06, 0.08, 0.04, 12), G = new l(S, this.brassMat);
+    G.position.y = 0.66, e.add(G);
+    const k = new xA(0.05, 0.012, 6, 12), M = new l(k, this.brassMat);
+    M.position.y = 0.72, e.add(M), A.add(e), this.group.add(A), this.gasLampLight = new TA(16754740, 1.8, 9.5, 1.4), this.gasLampLight.position.set(-2.35, -2 + I + 0.35, 0.75), this.gasLampLight.castShadow = false, this.group.add(this.gasLampLight);
   }
   setPhase(A) {
-    this.phase = A, A === 1 ? (this.gasLampLight.intensity = 1.6, this.gasLampLight.color.setHex(16750899), this.windowMat.color.setHex(1714238)) : A === 2 ? (this.gasLampLight.intensity = 2, this.gasLampLight.color.setHex(16755268), this.windowMat.color.setHex(2640739)) : A >= 3 && (this.gasLampLight.intensity = 2.4, this.gasLampLight.color.setHex(16760397), this.windowMat.color.setHex(4734347));
+    this.phase = A, A === 1 ? (this.gasLampLight.intensity = 1.6, this.moonLight && (this.moonLight.intensity = 1.2)) : A === 2 ? (this.gasLampLight.intensity = 2, this.moonLight && (this.moonLight.intensity = 1.6)) : A >= 3 && (this.gasLampLight.intensity = 2.4, this.moonLight && (this.moonLight.intensity = 2));
   }
   update(A) {
     if (this.gasLampLight) {
@@ -15866,6 +15887,12 @@ class rd {
       const I = 1 + Math.sin(A * 8) * 0.08;
       this.lampFlameMesh.scale.set(I, I, I);
     }
+    this.stars.forEach((I) => {
+      const g = I.userData.phaseOffset || 0, C = I.userData.twinkleSpeed || 2.4, B = I.userData.baseScale || 1, i = Math.sin(A * C + g);
+      I.material.opacity = 0.35 + (i + 1) * 0.32;
+      const Q = B * (0.85 + i * 0.22);
+      I.scale.set(Q, Q, Q);
+    });
   }
   getSockets() {
     return this.sockets;
@@ -15873,7 +15900,7 @@ class rd {
 }
 class Dd {
   constructor(A, I = "character2") {
-    this.sceneManager = A, this.group = new f(), this.roomEnvironment = new rd(), this.group.add(this.roomEnvironment.group), this.slots = [], this.mixer = null, this.clock = new cr(), this.characters = { character1: { id: "character1", name: "Simyac\u0131 \xC7\u0131ra\u011F\u0131", modelPath: "/models/character.glb", scale: 6.5, position: [0, -1, -1.8], stoolY: -1.25, gltf: null, model: null, mixer: null, actions: {} }, character2: { id: "character2", name: "G\xF6zlemci", modelPath: "/models/character2.glb", scale: 4.5, position: [0, -1.5, -1.8], stoolY: -1.55, gltf: null, model: null, mixer: null, actions: {} }, character3: { id: "character3", name: "Gezgin", modelPath: "/models/character3.glb", scale: 6.5, position: [0, -2.25, -1.8], rotation: [0, 0, 0], idleSpeed: 0.75, stoolY: -1.95, gltf: null, model: null, mixer: null, actions: {} } }, this.activeCharacterId = I, this.activeCharacterModel = null, this.stool = null, this.currentAction = null, this.isTalking = false, this.talkTimeout = null, this._buildTable(), this._buildStool(), this._loadCharacter(this.activeCharacterId), this._buildSlots(), this.sceneManager.add(this.group);
+    this.sceneManager = A, this.group = new f(), this.roomEnvironment = new rd(), this.group.add(this.roomEnvironment.group), this.slots = [], this.mixer = null, this.clock = new cr(), this.characters = { character1: { id: "character1", name: "Simyac\u0131 \xC7\u0131ra\u011F\u0131", modelPath: "/models/character.glb", scale: 6.5, position: [0, -1, -1.8], stoolY: -1.25, gltf: null, model: null, mixer: null, actions: {} }, character2: { id: "character2", name: "G\xF6zlemci", modelPath: "/models/character2.glb", scale: 4.5, position: [0, -1.5, -1.8], stoolY: -1.55, gltf: null, model: null, mixer: null, actions: {} }, character3: { id: "character3", name: "Gezgin", modelPath: "/models/character3.glb", scale: 6.5, position: [0, -2.25, -1.8], rotation: [0, 0, 0], idleSpeed: 0.75, stoolY: -1.95, gltf: null, model: null, mixer: null, actions: {} } }, this.activeCharacterId = I, this.activeCharacterModel = null, this.characterHitbox = null, this.stool = null, this.currentAction = null, this.isTalking = false, this.talkTimeout = null, this._buildTable(), this._buildStool(), this._buildCharacterHitbox(), this._loadCharacter(this.activeCharacterId), this._buildSlots(), this.sceneManager.add(this.group);
   }
   _buildTable() {
     const A = new wn();
@@ -15896,22 +15923,22 @@ class Dd {
     }), this.group.add(A);
   }
   _buildProceduralTable() {
-    const A = new z(4.2, 0.2, 2), I = new d({ color: "#3d2314", roughness: 0.7, metalness: 0.1 }), g = new l(A, I);
+    const A = new X(4.2, 0.2, 2), I = new d({ color: "#3d2314", roughness: 0.7, metalness: 0.1 }), g = new l(A, I);
     g.position.set(0, 0, 0), g.castShadow = true, g.receiveShadow = true, this.group.add(g);
     const C = new u(0.1, 0.08, 2, 16), B = new d({ color: "#24130a", roughness: 0.8 });
     [[-1.9, -1, 0.8], [1.9, -1, 0.8], [-1.9, -1, -0.8], [1.9, -1, -0.8]].forEach((t) => {
       const a = new l(C, B);
       a.position.set(...t), a.castShadow = true, this.group.add(a);
     });
-    const Q = new z(3.8, 0.02, 1.6), o = new d({ color: "#1b3b2b", roughness: 0.9 }), e = new l(Q, o);
+    const Q = new X(3.8, 0.02, 1.6), o = new d({ color: "#1b3b2b", roughness: 0.9 }), e = new l(Q, o);
     e.position.set(0, 0.11, 0), e.receiveShadow = true, this.group.add(e);
   }
   _buildStool() {
-    this.stool = new f(), this.stool.name = "CharacterStool", this.stoolWoodMat = new d({ color: "#3e2619", roughness: 0.75, metalness: 0.05 }), this._rebuildSimpleStool(1), this.stool.position.set(0, -1.6, -1.8), this.group.add(this.stool);
+    this.stool = new f(), this.stool.name = "CharacterStool", this.stoolWoodMat = new d({ color: "#3e2619", roughness: 0.75, metalness: 0.05 }), this._rebuildSimpleStool(1), this.stool.position.set(0, -2, -1.8), this.group.add(this.stool);
   }
   _rebuildSimpleStool(A = 1) {
     for (; this.stool.children.length > 0; ) this.stool.remove(this.stool.children[0]);
-    const I = 0.08, g = 0.42, C = 0.035, B = Math.max(0.2, A - I), i = new u(g, g * 0.95, I, 16), Q = new l(i, this.stoolWoodMat);
+    const I = 0.09, g = 0.462, C = 0.039, B = Math.max(0.2, A - I), i = new u(g, g * 0.95, I, 16), Q = new l(i, this.stoolWoodMat);
     Q.position.y = A - I / 2, Q.castShadow = true, Q.receiveShadow = true, this.stool.add(Q);
     const o = g * 0.55, e = g * 0.72;
     [[-o, -e, -o, -e], [o, e, -o, -e], [-o, -e, o, e], [o, e, o, e]].forEach(([n, r, c, D]) => {
@@ -15936,7 +15963,7 @@ class Dd {
       const Q = new H();
       g.getWorldPosition(Q), C = Q.y - 0.14;
     } else I && I.position && (C = I.position[1] + (I.scale ? I.scale * 0.22 : 0.8));
-    const B = -1.6, i = Math.max(0.3, C - B);
+    const B = -2, i = Math.max(0.3, C - B);
     this._rebuildSimpleStool(i), this.stool.position.set(0, B, -1.8);
   }
   _buildSlots() {
@@ -15980,9 +16007,12 @@ class Dd {
     if (!A || !A.actions) return;
     const I = A.actions.Sitting_Talking;
     if (!I) {
-      this.activeCharacterModel && gsap.to(this.activeCharacterModel.position, { y: -0.9, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.inOut", onComplete: () => {
-        this.activeCharacterModel.position.set(...A.position);
-      } });
+      if (this.activeCharacterModel) {
+        const g = A.position ? A.position[1] : -1;
+        KI.killTweensOf(this.activeCharacterModel.position), KI.to(this.activeCharacterModel.position, { y: g + 0.2, duration: 0.12, yoyo: true, repeat: 3, ease: "power1.inOut", onComplete: () => {
+          this.activeCharacterModel && this.activeCharacterModel.position.set(...A.position);
+        } });
+      }
       return;
     }
     this.talkTimeout && (clearTimeout(this.talkTimeout), this.talkTimeout = null), this.isTalking = true, I.reset(), I.setLoop(pB), I.clampWhenFinished = false, I.play(), this.currentAction && this.currentAction !== I && this.currentAction.crossFadeTo(I, 0.25, true), this.currentAction = I, this.talkTimeout = setTimeout(() => {
@@ -16006,9 +16036,12 @@ class Dd {
     if (!A || !A.actions) return;
     const I = A.actions.Success_Craft || A.actions.Sitting_Talking;
     if (!I) {
-      this.activeCharacterModel && gsap.to(this.activeCharacterModel.position, { y: -0.75, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.out", onComplete: () => {
-        this.activeCharacterModel.position.set(...A.position);
-      } });
+      if (this.activeCharacterModel) {
+        const C = A.position ? A.position[1] : -1;
+        KI.killTweensOf(this.activeCharacterModel.position), KI.to(this.activeCharacterModel.position, { y: C + 0.35, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.out", onComplete: () => {
+          this.activeCharacterModel && this.activeCharacterModel.position.set(...A.position);
+        } });
+      }
       return;
     }
     this.talkTimeout && (clearTimeout(this.talkTimeout), this.talkTimeout = null), this.isTalking = false, I.reset(), I.setLoop(ME), I.clampWhenFinished = true, I.play(), this.currentAction && this.currentAction !== I && this.currentAction.crossFadeTo(I, 0.25, true), this.currentAction = I;
@@ -16024,8 +16057,8 @@ class Dd {
     if (!I) {
       if (this.activeCharacterModel) {
         const C = A.rotation ? A.rotation[1] : 0;
-        gsap.to(this.activeCharacterModel.rotation, { y: C + 0.2, duration: 0.1, yoyo: true, repeat: 3, ease: "power1.inOut", onComplete: () => {
-          A.rotation ? this.activeCharacterModel.rotation.set(...A.rotation) : this.activeCharacterModel.rotation.set(0, 0, 0);
+        KI.killTweensOf(this.activeCharacterModel.rotation), KI.to(this.activeCharacterModel.rotation, { y: C + 0.2, duration: 0.1, yoyo: true, repeat: 3, ease: "power1.inOut", onComplete: () => {
+          this.activeCharacterModel && (A.rotation ? this.activeCharacterModel.rotation.set(...A.rotation) : this.activeCharacterModel.rotation.set(0, 0, 0));
         } });
       }
       return;
@@ -16039,10 +16072,15 @@ class Dd {
   switchCharacter(A) {
     this.characters[A] && (this.activeCharacterId === A && this.activeCharacterModel || (this.talkTimeout && (clearTimeout(this.talkTimeout), this.talkTimeout = null), this.isTalking = false, this.activeCharacterId = A, this._loadCharacter(A)));
   }
+  _buildCharacterHitbox() {
+    const A = new X(3.2, 3.6, 2), I = new wA({ transparent: true, opacity: 0, depthWrite: false });
+    this.characterHitbox = new l(A, I), this.characterHitbox.position.set(0, 1.2, -1.7), this.characterHitbox.userData.isCharacter = true, this.characterHitbox.userData.isCharacterHitbox = true, this.group.add(this.characterHitbox);
+  }
   isCharacterHit(A) {
+    if (!A) return false;
     let I = A;
-    for (; I && I !== this.group && I !== this.sceneManager.scene; ) {
-      if (I.userData && (I.userData.isCharacter || I.userData.characterId) || I === this.activeCharacterModel) return true;
+    for (; I && I !== this.sceneManager.scene; ) {
+      if (I.userData && (I.userData.isCharacter || I.userData.characterId || I.userData.isCharacterHitbox) || I === this.characterHitbox || I === this.activeCharacterModel) return true;
       I = I.parent;
     }
     return false;
@@ -16075,7 +16113,7 @@ let w;
 const tI = new Array(128).fill(void 0);
 tI.push(void 0, null, true, false);
 let SQ = tI.length;
-function XI(E14) {
+function zI(E14) {
   SQ === tI.length && tI.push(tI.length + 1);
   const A = SQ;
   return SQ = tI[A], tI[A] = E14, A;
@@ -16117,7 +16155,7 @@ function NI() {
   return aQ !== null && aQ.byteLength !== 0 || (aQ = new Float32Array(w.memory.buffer)), aQ;
 }
 let GI = 128;
-function KI(E14) {
+function FI(E14) {
   if (GI == 1) throw new Error("out of js stack");
   return tI[--GI] = E14, GI;
 }
@@ -16137,14 +16175,14 @@ function kE(E14, A) {
   const I = A(4 * E14.length, 4) >>> 0;
   return hD().set(E14, I / 4), xg = E14.length, I;
 }
-function ne(E14, A) {
+function re(E14, A) {
   try {
     return E14.apply(this, A);
   } catch (I) {
-    w.__wbindgen_exn_store(XI(I));
+    w.__wbindgen_exn_store(zI(I));
   }
 }
-const tg = Object.freeze({ Ball: 0, 0: "Ball", Cuboid: 1, 1: "Cuboid", Capsule: 2, 2: "Capsule", Segment: 3, 3: "Segment", Polyline: 4, 4: "Polyline", Triangle: 5, 5: "Triangle", TriMesh: 6, 6: "TriMesh", HeightField: 7, 7: "HeightField", Compound: 8, 8: "Compound", ConvexPolyhedron: 9, 9: "ConvexPolyhedron", Cylinder: 10, 10: "Cylinder", Cone: 11, 11: "Cone", RoundCuboid: 12, 12: "RoundCuboid", RoundTriangle: 13, 13: "RoundTriangle", RoundCylinder: 14, 14: "RoundCylinder", RoundCone: 15, 15: "RoundCone", RoundConvexPolyhedron: 16, 16: "RoundConvexPolyhedron", HalfSpace: 17, 17: "HalfSpace" }), Eo = Object.freeze({ X: 0, 0: "X", Y: 1, 1: "Y", Z: 2, 2: "Z", AngX: 3, 3: "AngX", AngY: 4, 4: "AngY", AngZ: 5, 5: "AngZ" }), tC = Object.freeze({ Revolute: 0, 0: "Revolute", Fixed: 1, 1: "Fixed", Prismatic: 2, 2: "Prismatic", Rope: 3, 3: "Rope", Spring: 4, 4: "Spring", Spherical: 5, 5: "Spherical", Generic: 6, 6: "Generic" });
+const ag = Object.freeze({ Ball: 0, 0: "Ball", Cuboid: 1, 1: "Cuboid", Capsule: 2, 2: "Capsule", Segment: 3, 3: "Segment", Polyline: 4, 4: "Polyline", Triangle: 5, 5: "Triangle", TriMesh: 6, 6: "TriMesh", HeightField: 7, 7: "HeightField", Compound: 8, 8: "Compound", ConvexPolyhedron: 9, 9: "ConvexPolyhedron", Cylinder: 10, 10: "Cylinder", Cone: 11, 11: "Cone", RoundCuboid: 12, 12: "RoundCuboid", RoundTriangle: 13, 13: "RoundTriangle", RoundCylinder: 14, 14: "RoundCylinder", RoundCone: 15, 15: "RoundCone", RoundConvexPolyhedron: 16, 16: "RoundConvexPolyhedron", HalfSpace: 17, 17: "HalfSpace" }), oo = Object.freeze({ X: 0, 0: "X", Y: 1, 1: "Y", Z: 2, 2: "Z", AngX: 3, 3: "AngX", AngY: 4, 4: "AngY", AngZ: 5, 5: "AngZ" }), tC = Object.freeze({ Revolute: 0, 0: "Revolute", Fixed: 1, 1: "Fixed", Prismatic: 2, 2: "Prismatic", Rope: 3, 3: "Rope", Spring: 4, 4: "Spring", Spherical: 5, 5: "Spherical", Generic: 6, 6: "Generic" });
 class vB {
   static __wrap(A) {
     A >>>= 0;
@@ -16222,10 +16260,10 @@ class lD {
     return x.__wrap(A);
   }
 }
-class fI {
+class mI {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(fI.prototype);
+    const I = Object.create(mI.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -16426,12 +16464,12 @@ class fI {
   coCastShape(A, I, g, C, B, i, Q, o) {
     Y(I, x), Y(g, RA), Y(C, x), Y(B, EI), Y(i, x);
     const e = w.rawcolliderset_coCastShape(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q, o);
-    return e === 0 ? void 0 : so.__wrap(e);
+    return e === 0 ? void 0 : no.__wrap(e);
   }
   coCastCollider(A, I, g, C, B, i) {
     Y(I, x), Y(C, x);
     const Q = w.rawcolliderset_coCastCollider(this.__wbg_ptr, A, I.__wbg_ptr, g, C.__wbg_ptr, B, i);
-    return Q === 0 ? void 0 : ao.__wrap(Q);
+    return Q === 0 ? void 0 : so.__wrap(Q);
   }
   coIntersectsShape(A, I, g, C) {
     return Y(I, RA), Y(g, x), Y(C, EI), w.rawcolliderset_coIntersectsShape(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr) !== 0;
@@ -16448,7 +16486,7 @@ class fI {
   coProjectPoint(A, I, g) {
     Y(I, x);
     const C = w.rawcolliderset_coProjectPoint(this.__wbg_ptr, A, I.__wbg_ptr, g);
-    return oo.__wrap(C);
+    return eo.__wrap(C);
   }
   coIntersectsRay(A, I, g, C) {
     return Y(I, x), Y(g, x), w.rawcolliderset_coIntersectsRay(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C) !== 0;
@@ -16459,7 +16497,7 @@ class fI {
   coCastRayAndGetNormal(A, I, g, C, B) {
     Y(I, x), Y(g, x);
     const i = w.rawcolliderset_coCastRayAndGetNormal(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C, B);
-    return i === 0 ? void 0 : to.__wrap(i);
+    return i === 0 ? void 0 : ao.__wrap(i);
   }
   coSetSensor(A, I) {
     w.rawcolliderset_coSetSensor(this.__wbg_ptr, A, I);
@@ -16522,10 +16560,10 @@ class fI {
   contains(A) {
     return w.rawcolliderset_contains(this.__wbg_ptr, A) !== 0;
   }
-  createCollider(A, I, g, C, B, i, Q, o, e, t, a, s, n, r, c, D, h, S, G, k, U, p, M, F) {
+  createCollider(A, I, g, C, B, i, Q, o, e, t, a, s, n, r, c, D, h, S, G, k, M, U, p, F) {
     try {
       const q = w.__wbindgen_add_to_stack_pointer(-16);
-      Y(I, RA), Y(g, x), Y(C, EI), Y(Q, x), Y(o, x), Y(e, EI), Y(F, xI), w.rawcolliderset_createCollider(q, this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t, a, s, n, r, c, D, h, S, G, k, U, p, M, F.__wbg_ptr);
+      Y(I, RA), Y(g, x), Y(C, EI), Y(Q, x), Y(o, x), Y(e, EI), Y(F, _I), w.rawcolliderset_createCollider(q, this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t, a, s, n, r, c, D, h, S, G, k, M, U, p, F.__wbg_ptr);
       var y = HA()[q / 4 + 0], N = uQ()[q / 8 + 1];
       return y === 0 ? void 0 : N;
     } finally {
@@ -16533,14 +16571,14 @@ class fI {
     }
   }
   remove(A, I, g, C) {
-    Y(I, vC), Y(g, xI), w.rawcolliderset_remove(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C);
+    Y(I, vC), Y(g, _I), w.rawcolliderset_remove(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C);
   }
   isHandleValid(A) {
     return w.rawcolliderset_contains(this.__wbg_ptr, A) !== 0;
   }
   forEachColliderHandle(A) {
     try {
-      w.rawcolliderset_forEachColliderHandle(this.__wbg_ptr, KI(A));
+      w.rawcolliderset_forEachColliderHandle(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
@@ -16711,7 +16749,7 @@ class cd {
     return JQ(w.rawdebugrenderpipeline_colors(this.__wbg_ptr));
   }
   render(A, I, g, C, B) {
-    Y(A, xI), Y(I, fI), Y(g, OC), Y(C, ZC), Y(B, nB), w.rawdebugrenderpipeline_render(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr);
+    Y(A, _I), Y(I, mI), Y(g, OC), Y(C, ZC), Y(B, nB), w.rawdebugrenderpipeline_render(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr);
   }
 }
 class xt {
@@ -16750,11 +16788,11 @@ class xt {
   }
   takeBodies() {
     const A = w.rawdeserializedworld_takeBodies(this.__wbg_ptr);
-    return A === 0 ? void 0 : xI.__wrap(A);
+    return A === 0 ? void 0 : _I.__wrap(A);
   }
   takeColliders() {
     const A = w.rawdeserializedworld_takeColliders(this.__wbg_ptr);
-    return A === 0 ? void 0 : fI.__wrap(A);
+    return A === 0 ? void 0 : mI.__wrap(A);
   }
   takeImpulseJoints() {
     const A = w.rawdeserializedworld_takeImpulseJoints(this.__wbg_ptr);
@@ -16804,7 +16842,7 @@ class hd {
   }
   update_vehicle(A, I, g, C, B, i, Q) {
     try {
-      Y(I, xI), Y(g, fI), Y(C, _t), w.rawdynamicraycastvehiclecontroller_update_vehicle(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, !kA(i), kA(i) ? 0 : i, KI(Q));
+      Y(I, _I), Y(g, mI), Y(C, _t), w.rawdynamicraycastvehiclecontroller_update_vehicle(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, !kA(i), kA(i) ? 0 : i, FI(Q));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17077,14 +17115,14 @@ class wD {
   }
   drainCollisionEvents(A) {
     try {
-      w.raweventqueue_drainCollisionEvents(this.__wbg_ptr, KI(A));
+      w.raweventqueue_drainCollisionEvents(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
   }
   drainContactForceEvents(A) {
     try {
-      w.raweventqueue_drainContactForceEvents(this.__wbg_ptr, KI(A));
+      w.raweventqueue_drainContactForceEvents(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17093,10 +17131,10 @@ class wD {
     w.raweventqueue_clear(this.__wbg_ptr);
   }
 }
-class Qg {
+class Eg {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(Qg.prototype);
+    const I = Object.create(Eg.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17110,37 +17148,37 @@ class Qg {
   static generic(A, I, g, C) {
     Y(A, x), Y(I, x), Y(g, x);
     const B = w.rawgenericjoint_generic(A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C);
-    return B === 0 ? void 0 : Qg.__wrap(B);
+    return B === 0 ? void 0 : Eg.__wrap(B);
   }
   static spring(A, I, g, C, B) {
     Y(C, x), Y(B, x);
     const i = w.rawgenericjoint_spring(A, I, g, C.__wbg_ptr, B.__wbg_ptr);
-    return Qg.__wrap(i);
+    return Eg.__wrap(i);
   }
   static rope(A, I, g) {
     Y(I, x), Y(g, x);
     const C = w.rawgenericjoint_rope(A, I.__wbg_ptr, g.__wbg_ptr);
-    return Qg.__wrap(C);
+    return Eg.__wrap(C);
   }
   static spherical(A, I) {
     Y(A, x), Y(I, x);
     const g = w.rawgenericjoint_spherical(A.__wbg_ptr, I.__wbg_ptr);
-    return Qg.__wrap(g);
+    return Eg.__wrap(g);
   }
   static prismatic(A, I, g, C, B, i) {
     Y(A, x), Y(I, x), Y(g, x);
     const Q = w.rawgenericjoint_prismatic(A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C, B, i);
-    return Q === 0 ? void 0 : Qg.__wrap(Q);
+    return Q === 0 ? void 0 : Eg.__wrap(Q);
   }
   static fixed(A, I, g, C) {
     Y(A, x), Y(I, EI), Y(g, x), Y(C, EI);
     const B = w.rawgenericjoint_fixed(A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr);
-    return Qg.__wrap(B);
+    return Eg.__wrap(B);
   }
   static revolute(A, I, g) {
     Y(A, x), Y(I, x), Y(g, x);
     const C = w.rawgenericjoint_revolute(A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr);
-    return C === 0 ? void 0 : Qg.__wrap(C);
+    return C === 0 ? void 0 : Eg.__wrap(C);
   }
 }
 class OC {
@@ -17223,7 +17261,7 @@ class OC {
     return this.__wbg_ptr = A >>> 0, this;
   }
   createJoint(A, I, g, C) {
-    return Y(A, Qg), w.rawimpulsejointset_createJoint(this.__wbg_ptr, A.__wbg_ptr, I, g, C);
+    return Y(A, Eg), w.rawimpulsejointset_createJoint(this.__wbg_ptr, A.__wbg_ptr, I, g, C);
   }
   remove(A, I) {
     w.rawimpulsejointset_remove(this.__wbg_ptr, A, I);
@@ -17236,14 +17274,14 @@ class OC {
   }
   forEachJointHandle(A) {
     try {
-      w.rawimpulsejointset_forEachJointHandle(this.__wbg_ptr, KI(A));
+      w.rawimpulsejointset_forEachJointHandle(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
   }
   forEachJointAttachedToRigidBody(A, I) {
     try {
-      w.rawimpulsejointset_forEachJointAttachedToRigidBody(this.__wbg_ptr, A, KI(I));
+      w.rawimpulsejointset_forEachJointAttachedToRigidBody(this.__wbg_ptr, A, FI(I));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17348,7 +17386,7 @@ class vC {
   }
   forEachActiveRigidBodyHandle(A) {
     try {
-      w.rawislandmanager_forEachActiveRigidBodyHandle(this.__wbg_ptr, KI(A));
+      w.rawislandmanager_forEachActiveRigidBodyHandle(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17452,7 +17490,7 @@ class ld {
   }
   computeColliderMovement(A, I, g, C, B, i, Q, o, e, t, a) {
     try {
-      Y(I, xI), Y(g, fI), Y(C, _t), Y(i, x), w.rawkinematiccharactercontroller_computeColliderMovement(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i.__wbg_ptr, Q, !kA(o), kA(o) ? 0 : o, e, !kA(t), kA(t) ? 0 : t, KI(a));
+      Y(I, _I), Y(g, mI), Y(C, _t), Y(i, x), w.rawkinematiccharactercontroller_computeColliderMovement(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i.__wbg_ptr, Q, !kA(o), kA(o) ? 0 : o, e, !kA(t), kA(t) ? 0 : t, FI(a));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17524,7 +17562,7 @@ class ZC {
     return this.__wbg_ptr = A >>> 0, this;
   }
   createJoint(A, I, g, C) {
-    return Y(A, Qg), w.rawmultibodyjointset_createJoint(this.__wbg_ptr, A.__wbg_ptr, I, g, C);
+    return Y(A, Eg), w.rawmultibodyjointset_createJoint(this.__wbg_ptr, A.__wbg_ptr, I, g, C);
   }
   remove(A, I) {
     w.rawmultibodyjointset_remove(this.__wbg_ptr, A, I);
@@ -17534,14 +17572,14 @@ class ZC {
   }
   forEachJointHandle(A) {
     try {
-      w.rawmultibodyjointset_forEachJointHandle(this.__wbg_ptr, KI(A));
+      w.rawmultibodyjointset_forEachJointHandle(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
   }
   forEachJointAttachedToRigidBody(A, I) {
     try {
-      w.rawmultibodyjointset_forEachJointAttachedToRigidBody(this.__wbg_ptr, A, KI(I));
+      w.rawmultibodyjointset_forEachJointAttachedToRigidBody(this.__wbg_ptr, A, FI(I));
     } finally {
       tI[GI++] = void 0;
     }
@@ -17566,14 +17604,14 @@ class nB {
     return this.__wbg_ptr = A >>> 0, this;
   }
   contact_pairs_with(A, I) {
-    w.rawnarrowphase_contact_pairs_with(this.__wbg_ptr, A, XI(I));
+    w.rawnarrowphase_contact_pairs_with(this.__wbg_ptr, A, zI(I));
   }
   contact_pair(A, I) {
     const g = w.rawnarrowphase_contact_pair(this.__wbg_ptr, A, I);
     return g === 0 ? void 0 : Tt.__wrap(g);
   }
   intersection_pairs_with(A, I) {
-    w.rawnarrowphase_intersection_pairs_with(this.__wbg_ptr, A, XI(I));
+    w.rawnarrowphase_intersection_pairs_with(this.__wbg_ptr, A, zI(I));
   }
   intersection_pair(A, I) {
     return w.rawnarrowphase_intersection_pair(this.__wbg_ptr, A, I) !== 0;
@@ -17593,16 +17631,16 @@ class wd {
     return this.__wbg_ptr = A >>> 0, this;
   }
   step(A, I, g, C, B, i, Q, o, e, t) {
-    Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, xI), Y(Q, fI), Y(o, OC), Y(e, ZC), Y(t, Pe), w.rawphysicspipeline_step(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr);
+    Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, _I), Y(Q, mI), Y(o, OC), Y(e, ZC), Y(t, Pe), w.rawphysicspipeline_step(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr);
   }
   stepWithEvents(A, I, g, C, B, i, Q, o, e, t, a, s, n, r) {
-    Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, xI), Y(Q, fI), Y(o, OC), Y(e, ZC), Y(t, Pe), Y(a, wD), w.rawphysicspipeline_stepWithEvents(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr, a.__wbg_ptr, XI(s), XI(n), XI(r));
+    Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, _I), Y(Q, mI), Y(o, OC), Y(e, ZC), Y(t, Pe), Y(a, wD), w.rawphysicspipeline_stepWithEvents(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr, a.__wbg_ptr, zI(s), zI(n), zI(r));
   }
 }
-class vE {
+class ZE {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(vE.prototype);
+    const I = Object.create(ZE.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17637,10 +17675,10 @@ class vE {
     }
   }
 }
-class oo {
+class eo {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(oo.prototype);
+    const I = Object.create(eo.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17673,12 +17711,12 @@ class _t {
     return this.__wbg_ptr = A >>> 0, this;
   }
   update(A, I) {
-    Y(A, xI), Y(I, fI), w.rawquerypipeline_update(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr);
+    Y(A, _I), Y(I, mI), w.rawquerypipeline_update(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr);
   }
   castRay(A, I, g, C, B, i, Q, o, e, t, a) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, x);
-      const s = w.rawquerypipeline_castRay(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, KI(a));
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, x);
+      const s = w.rawquerypipeline_castRay(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, FI(a));
       return s === 0 ? void 0 : Ot.__wrap(s);
     } finally {
       tI[GI++] = void 0;
@@ -17686,16 +17724,16 @@ class _t {
   }
   castRayAndGetNormal(A, I, g, C, B, i, Q, o, e, t, a) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, x);
-      const s = w.rawquerypipeline_castRayAndGetNormal(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, KI(a));
-      return s === 0 ? void 0 : eo.__wrap(s);
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, x);
+      const s = w.rawquerypipeline_castRayAndGetNormal(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, FI(a));
+      return s === 0 ? void 0 : to.__wrap(s);
     } finally {
       tI[GI++] = void 0;
     }
   }
   intersectionsWithRay(A, I, g, C, B, i, Q, o, e, t, a, s) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, x), w.rawquerypipeline_intersectionsWithRay(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, KI(Q), o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, !kA(a), kA(a) ? 0 : a, KI(s));
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, x), w.rawquerypipeline_intersectionsWithRay(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i, FI(Q), o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, !kA(a), kA(a) ? 0 : a, FI(s));
     } finally {
       tI[GI++] = void 0, tI[GI++] = void 0;
     }
@@ -17703,7 +17741,7 @@ class _t {
   intersectionWithShape(A, I, g, C, B, i, Q, o, e, t) {
     try {
       const n = w.__wbindgen_add_to_stack_pointer(-16);
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, EI), Y(B, RA), w.rawquerypipeline_intersectionWithShape(n, this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, KI(t));
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, EI), Y(B, RA), w.rawquerypipeline_intersectionWithShape(n, this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, FI(t));
       var a = HA()[n / 4 + 0], s = uQ()[n / 8 + 1];
       return a === 0 ? void 0 : s;
     } finally {
@@ -17712,57 +17750,57 @@ class _t {
   }
   projectPoint(A, I, g, C, B, i, Q, o, e) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x);
-      const t = w.rawquerypipeline_projectPoint(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C, B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, KI(e));
-      return t === 0 ? void 0 : vE.__wrap(t);
+      Y(A, _I), Y(I, mI), Y(g, x);
+      const t = w.rawquerypipeline_projectPoint(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C, B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, FI(e));
+      return t === 0 ? void 0 : ZE.__wrap(t);
     } finally {
       tI[GI++] = void 0;
     }
   }
   projectPointAndGetFeature(A, I, g, C, B, i, Q, o) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x);
-      const e = w.rawquerypipeline_projectPointAndGetFeature(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C, !kA(B), kA(B) ? 0 : B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, KI(o));
-      return e === 0 ? void 0 : vE.__wrap(e);
+      Y(A, _I), Y(I, mI), Y(g, x);
+      const e = w.rawquerypipeline_projectPointAndGetFeature(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C, !kA(B), kA(B) ? 0 : B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, FI(o));
+      return e === 0 ? void 0 : ZE.__wrap(e);
     } finally {
       tI[GI++] = void 0;
     }
   }
   intersectionsWithPoint(A, I, g, C, B, i, Q, o, e) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), w.rawquerypipeline_intersectionsWithPoint(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, KI(C), B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, KI(e));
+      Y(A, _I), Y(I, mI), Y(g, x), w.rawquerypipeline_intersectionsWithPoint(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, FI(C), B, !kA(i), kA(i) ? 0 : i, !kA(Q), kA(Q) ? 0 : Q, !kA(o), kA(o) ? 0 : o, FI(e));
     } finally {
       tI[GI++] = void 0, tI[GI++] = void 0;
     }
   }
   castShape(A, I, g, C, B, i, Q, o, e, t, a, s, n) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, EI), Y(B, x), Y(i, RA);
-      const r = w.rawquerypipeline_castShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q, o, e, !kA(t), kA(t) ? 0 : t, !kA(a), kA(a) ? 0 : a, !kA(s), kA(s) ? 0 : s, KI(n));
-      return r === 0 ? void 0 : ao.__wrap(r);
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, EI), Y(B, x), Y(i, RA);
+      const r = w.rawquerypipeline_castShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q, o, e, !kA(t), kA(t) ? 0 : t, !kA(a), kA(a) ? 0 : a, !kA(s), kA(s) ? 0 : s, FI(n));
+      return r === 0 ? void 0 : so.__wrap(r);
     } finally {
       tI[GI++] = void 0;
     }
   }
   intersectionsWithShape(A, I, g, C, B, i, Q, o, e, t, a) {
     try {
-      Y(A, xI), Y(I, fI), Y(g, x), Y(C, EI), Y(B, RA), w.rawquerypipeline_intersectionsWithShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, KI(i), Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, KI(a));
+      Y(A, _I), Y(I, mI), Y(g, x), Y(C, EI), Y(B, RA), w.rawquerypipeline_intersectionsWithShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, FI(i), Q, !kA(o), kA(o) ? 0 : o, !kA(e), kA(e) ? 0 : e, !kA(t), kA(t) ? 0 : t, FI(a));
     } finally {
       tI[GI++] = void 0, tI[GI++] = void 0;
     }
   }
   collidersWithAabbIntersectingAabb(A, I, g) {
     try {
-      Y(A, x), Y(I, x), w.rawquerypipeline_collidersWithAabbIntersectingAabb(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, KI(g));
+      Y(A, x), Y(I, x), w.rawquerypipeline_collidersWithAabbIntersectingAabb(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, FI(g));
     } finally {
       tI[GI++] = void 0;
     }
   }
 }
-class eo {
+class to {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(eo.prototype);
+    const I = Object.create(to.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17818,10 +17856,10 @@ class Ot {
     return w.rawraycolliderintersection_toi(this.__wbg_ptr);
   }
 }
-class to {
+class ao {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(to.prototype);
+    const I = Object.create(ao.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17853,10 +17891,10 @@ class to {
     }
   }
 }
-class xI {
+class _I {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(xI.prototype);
+    const I = Object.create(_I.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -17911,7 +17949,7 @@ class xI {
     w.rawrigidbodyset_rbSetNextKinematicRotation(this.__wbg_ptr, A, I, g, C, B);
   }
   rbRecomputeMassPropertiesFromColliders(A, I) {
-    Y(I, fI), w.rawrigidbodyset_rbRecomputeMassPropertiesFromColliders(this.__wbg_ptr, A, I.__wbg_ptr);
+    Y(I, mI), w.rawrigidbodyset_rbRecomputeMassPropertiesFromColliders(this.__wbg_ptr, A, I.__wbg_ptr);
   }
   rbSetAdditionalMass(A, I, g) {
     w.rawrigidbodyset_rbSetAdditionalMass(this.__wbg_ptr, A, I, g);
@@ -17980,11 +18018,11 @@ class xI {
   }
   rbEffectiveWorldInvInertiaSqrt(A) {
     const I = w.rawrigidbodyset_rbEffectiveWorldInvInertiaSqrt(this.__wbg_ptr, A);
-    return ZE.__wrap(I);
+    return PE.__wrap(I);
   }
   rbEffectiveAngularInertia(A) {
     const I = w.rawrigidbodyset_rbEffectiveAngularInertia(this.__wbg_ptr, A);
-    return ZE.__wrap(I);
+    return PE.__wrap(I);
   }
   rbWakeUp(A) {
     w.rawrigidbodyset_rbWakeUp(this.__wbg_ptr, A);
@@ -18077,11 +18115,11 @@ class xI {
     const A = w.rawrigidbodyset_new();
     return this.__wbg_ptr = A >>> 0, this;
   }
-  createRigidBody(A, I, g, C, B, i, Q, o, e, t, a, s, n, r, c, D, h, S, G, k, U, p, M, F, y) {
-    return Y(I, x), Y(g, EI), Y(Q, x), Y(o, x), Y(e, x), Y(t, x), Y(a, EI), w.rawrigidbodyset_createRigidBody(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C, B, i, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr, a.__wbg_ptr, s, n, r, c, D, h, S, G, k, U, p, M, F, y);
+  createRigidBody(A, I, g, C, B, i, Q, o, e, t, a, s, n, r, c, D, h, S, G, k, M, U, p, F, y) {
+    return Y(I, x), Y(g, EI), Y(Q, x), Y(o, x), Y(e, x), Y(t, x), Y(a, EI), w.rawrigidbodyset_createRigidBody(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C, B, i, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr, t.__wbg_ptr, a.__wbg_ptr, s, n, r, c, D, h, S, G, k, M, U, p, F, y);
   }
   remove(A, I, g, C, B) {
-    Y(I, vC), Y(g, fI), Y(C, OC), Y(B, ZC), w.rawrigidbodyset_remove(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr);
+    Y(I, vC), Y(g, mI), Y(C, OC), Y(B, ZC), w.rawrigidbodyset_remove(this.__wbg_ptr, A, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr);
   }
   len() {
     return w.rawcolliderset_len(this.__wbg_ptr) >>> 0;
@@ -18091,13 +18129,13 @@ class xI {
   }
   forEachRigidBodyHandle(A) {
     try {
-      w.rawrigidbodyset_forEachRigidBodyHandle(this.__wbg_ptr, KI(A));
+      w.rawrigidbodyset_forEachRigidBodyHandle(this.__wbg_ptr, FI(A));
     } finally {
       tI[GI++] = void 0;
     }
   }
   propagateModifiedBodyPositionsToColliders(A) {
-    Y(A, fI), w.rawrigidbodyset_propagateModifiedBodyPositionsToColliders(this.__wbg_ptr, A.__wbg_ptr);
+    Y(A, mI), w.rawrigidbodyset_propagateModifiedBodyPositionsToColliders(this.__wbg_ptr, A.__wbg_ptr);
   }
 }
 class EI {
@@ -18135,10 +18173,10 @@ class EI {
     return w.rawintegrationparameters_erp(this.__wbg_ptr);
   }
 }
-class ZE {
+class PE {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(ZE.prototype);
+    const I = Object.create(PE.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -18167,10 +18205,10 @@ class Sd {
     return this.__wbg_ptr = A >>> 0, this;
   }
   serializeAll(A, I, g, C, B, i, Q, o, e) {
-    return Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, xI), Y(Q, fI), Y(o, OC), Y(e, ZC), JQ(w.rawserializationpipeline_serializeAll(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr));
+    return Y(A, x), Y(I, ZB), Y(g, vC), Y(C, vB), Y(B, nB), Y(i, _I), Y(Q, mI), Y(o, OC), Y(e, ZC), JQ(w.rawserializationpipeline_serializeAll(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o.__wbg_ptr, e.__wbg_ptr));
   }
   deserializeAll(A) {
-    const I = w.rawserializationpipeline_deserializeAll(this.__wbg_ptr, XI(A));
+    const I = w.rawserializationpipeline_deserializeAll(this.__wbg_ptr, zI(A));
     return I === 0 ? void 0 : xt.__wrap(I);
   }
 }
@@ -18273,7 +18311,7 @@ class RA {
   castShape(A, I, g, C, B, i, Q, o, e) {
     Y(A, x), Y(I, EI), Y(g, x), Y(C, RA), Y(B, x), Y(i, EI), Y(Q, x);
     const t = w.rawshape_castShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr, i.__wbg_ptr, Q.__wbg_ptr, o, e);
-    return t === 0 ? void 0 : so.__wrap(t);
+    return t === 0 ? void 0 : no.__wrap(t);
   }
   intersectsShape(A, I, g, C, B) {
     return Y(A, x), Y(I, EI), Y(g, RA), Y(C, x), Y(B, EI), w.rawshape_intersectsShape(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B.__wbg_ptr) !== 0;
@@ -18289,7 +18327,7 @@ class RA {
   projectPoint(A, I, g, C) {
     Y(A, x), Y(I, EI), Y(g, x);
     const B = w.rawshape_projectPoint(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C);
-    return oo.__wrap(B);
+    return eo.__wrap(B);
   }
   intersectsRay(A, I, g, C, B) {
     return Y(A, x), Y(I, EI), Y(g, x), Y(C, x), w.rawshape_intersectsRay(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B) !== 0;
@@ -18300,13 +18338,13 @@ class RA {
   castRayAndGetNormal(A, I, g, C, B, i) {
     Y(A, x), Y(I, EI), Y(g, x), Y(C, x);
     const Q = w.rawshape_castRayAndGetNormal(this.__wbg_ptr, A.__wbg_ptr, I.__wbg_ptr, g.__wbg_ptr, C.__wbg_ptr, B, i);
-    return Q === 0 ? void 0 : to.__wrap(Q);
+    return Q === 0 ? void 0 : ao.__wrap(Q);
   }
 }
-class ao {
+class so {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(ao.prototype);
+    const I = Object.create(so.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -18374,10 +18412,10 @@ class qQ {
     return x.__wrap(A);
   }
 }
-class so {
+class no {
   static __wrap(A) {
     A >>>= 0;
-    const I = Object.create(so.prototype);
+    const I = Object.create(no.prototype);
     return I.__wbg_ptr = A, I;
   }
   __destroy_into_raw() {
@@ -18479,7 +18517,7 @@ async function SD(E14) {
   const A = function() {
     const C = { wbg: {} };
     return C.wbg.__wbindgen_number_new = function(B) {
-      return XI(B);
+      return zI(B);
     }, C.wbg.__wbindgen_boolean_get = function(B) {
       const i = nI(B);
       return typeof i == "boolean" ? i ? 1 : 0 : 2;
@@ -18491,45 +18529,45 @@ async function SD(E14) {
     }, C.wbg.__wbindgen_is_function = function(B) {
       return typeof nI(B) == "function";
     }, C.wbg.__wbg_rawraycolliderintersection_new = function(B) {
-      return XI(eo.__wrap(B));
+      return zI(to.__wrap(B));
     }, C.wbg.__wbg_rawcontactforceevent_new = function(B) {
-      return XI(Ht.__wrap(B));
+      return zI(Ht.__wrap(B));
     }, C.wbg.__wbg_call_01734de55d61e11d = function() {
-      return ne(function(B, i, Q) {
-        return XI(nI(B).call(nI(i), nI(Q)));
+      return re(function(B, i, Q) {
+        return zI(nI(B).call(nI(i), nI(Q)));
       }, arguments);
     }, C.wbg.__wbg_call_4c92f6aec1e1d6e6 = function() {
-      return ne(function(B, i, Q, o) {
-        return XI(nI(B).call(nI(i), nI(Q), nI(o)));
+      return re(function(B, i, Q, o) {
+        return zI(nI(B).call(nI(i), nI(Q), nI(o)));
       }, arguments);
     }, C.wbg.__wbg_call_776890ca77946e2f = function() {
-      return ne(function(B, i, Q, o, e) {
-        return XI(nI(B).call(nI(i), nI(Q), nI(o), nI(e)));
+      return re(function(B, i, Q, o, e) {
+        return zI(nI(B).call(nI(i), nI(Q), nI(o), nI(e)));
       }, arguments);
     }, C.wbg.__wbg_bind_60a9a80cada2f33c = function(B, i, Q, o) {
-      return XI(nI(B).bind(nI(i), nI(Q), nI(o)));
+      return zI(nI(B).bind(nI(i), nI(Q), nI(o)));
     }, C.wbg.__wbg_buffer_085ec1f694018c4f = function(B) {
-      return XI(nI(B).buffer);
+      return zI(nI(B).buffer);
     }, C.wbg.__wbg_newwithbyteoffsetandlength_6da8e527659b86aa = function(B, i, Q) {
-      return XI(new Uint8Array(nI(B), i >>> 0, Q >>> 0));
+      return zI(new Uint8Array(nI(B), i >>> 0, Q >>> 0));
     }, C.wbg.__wbg_new_8125e318e6245eed = function(B) {
-      return XI(new Uint8Array(nI(B)));
+      return zI(new Uint8Array(nI(B)));
     }, C.wbg.__wbg_set_5cf90238115182c3 = function(B, i, Q) {
       nI(B).set(nI(i), Q >>> 0);
     }, C.wbg.__wbg_length_72e2208bbc0efc61 = function(B) {
       return nI(B).length;
     }, C.wbg.__wbg_newwithbyteoffsetandlength_69193e31c844b792 = function(B, i, Q) {
-      return XI(new Float32Array(nI(B), i >>> 0, Q >>> 0));
+      return zI(new Float32Array(nI(B), i >>> 0, Q >>> 0));
     }, C.wbg.__wbg_set_6146c51d49a2c0df = function(B, i, Q) {
       nI(B).set(nI(i), Q >>> 0);
     }, C.wbg.__wbg_length_d7327c75a759af37 = function(B) {
       return nI(B).length;
     }, C.wbg.__wbg_newwithlength_68d29ab115d0099c = function(B) {
-      return XI(new Float32Array(B >>> 0));
+      return zI(new Float32Array(B >>> 0));
     }, C.wbg.__wbindgen_throw = function(B, i) {
       throw new Error(cD(B, i));
     }, C.wbg.__wbindgen_memory = function() {
-      return XI(w.memory);
+      return zI(w.memory);
     }, C;
   }();
   (typeof E14 == "string" || typeof Request == "function" && E14 instanceof Request || typeof URL == "function" && E14 instanceof URL) && (E14 = fetch(E14));
@@ -18636,7 +18674,7 @@ class je {
     return A.free(), I;
   }
 }
-var eC, ag, Ve, Xe, fQ, Ti, $I, ze, PE, WE, $e, jE, uB;
+var eC, sg, Ve, Xe, fQ, Ti, Ag, ze, WE, jE, $e, VE, uB;
 (function(E14) {
   E14[E14.Dynamic = 0] = "Dynamic", E14[E14.Fixed = 1] = "Fixed", E14[E14.KinematicPositionBased = 2] = "KinematicPositionBased", E14[E14.KinematicVelocityBased = 3] = "KinematicVelocityBased";
 })(eC || (eC = {}));
@@ -18953,7 +18991,7 @@ class hC {
     return this.userData = A, this;
   }
 }
-class no {
+class ro {
   constructor() {
     this.fconv = new Float64Array(1), this.uconv = new Uint32Array(this.fconv.buffer), this.data = new Array(), this.size = 0;
   }
@@ -18988,7 +19026,7 @@ class no {
 }
 class yD {
   constructor(A) {
-    this.raw = A || new xI(), this.map = new no(), A && A.forEachRigidBodyHandle((I) => {
+    this.raw = A || new _I(), this.map = new ro(), A && A.forEachRigidBodyHandle((I) => {
       this.map.set(I, new At(A, null, I));
     });
   }
@@ -19099,7 +19137,7 @@ class dD {
 }
 (function(E14) {
   E14[E14.Revolute = 0] = "Revolute", E14[E14.Fixed = 1] = "Fixed", E14[E14.Prismatic = 2] = "Prismatic", E14[E14.Rope = 3] = "Rope", E14[E14.Spring = 4] = "Spring", E14[E14.Spherical = 5] = "Spherical", E14[E14.Generic = 6] = "Generic";
-})(ag || (ag = {})), function(E14) {
+})(sg || (sg = {})), function(E14) {
   E14[E14.AccelerationBased = 0] = "AccelerationBased", E14[E14.ForceBased = 1] = "ForceBased";
 }(Ve || (Ve = {})), function(E14) {
   E14[E14.X = 1] = "X", E14[E14.Y = 2] = "Y", E14[E14.Z = 4] = "Z", E14[E14.AngX = 8] = "AngX", E14[E14.AngY = 16] = "AngY", E14[E14.AngZ = 32] = "AngZ";
@@ -19204,12 +19242,12 @@ class UD extends DC {
 }
 class ND extends vt {
   rawAxis() {
-    return Eo.X;
+    return oo.X;
   }
 }
 class KD extends vt {
   rawAxis() {
-    return Eo.AngX;
+    return oo.AngX;
   }
 }
 class FD extends DC {
@@ -19221,65 +19259,65 @@ class YC {
   }
   static fixed(A, I, g, C) {
     let B = new YC();
-    return B.anchor1 = A, B.anchor2 = g, B.frame1 = I, B.frame2 = C, B.jointType = ag.Fixed, B;
+    return B.anchor1 = A, B.anchor2 = g, B.frame1 = I, B.frame2 = C, B.jointType = sg.Fixed, B;
   }
   static spring(A, I, g, C, B) {
     let i = new YC();
-    return i.anchor1 = C, i.anchor2 = B, i.length = A, i.stiffness = I, i.damping = g, i.jointType = ag.Spring, i;
+    return i.anchor1 = C, i.anchor2 = B, i.length = A, i.stiffness = I, i.damping = g, i.jointType = sg.Spring, i;
   }
   static rope(A, I, g) {
     let C = new YC();
-    return C.anchor1 = I, C.anchor2 = g, C.length = A, C.jointType = ag.Rope, C;
+    return C.anchor1 = I, C.anchor2 = g, C.length = A, C.jointType = sg.Rope, C;
   }
   static generic(A, I, g, C) {
     let B = new YC();
-    return B.anchor1 = A, B.anchor2 = I, B.axis = g, B.axesMask = C, B.jointType = ag.Generic, B;
+    return B.anchor1 = A, B.anchor2 = I, B.axis = g, B.axesMask = C, B.jointType = sg.Generic, B;
   }
   static spherical(A, I) {
     let g = new YC();
-    return g.anchor1 = A, g.anchor2 = I, g.jointType = ag.Spherical, g;
+    return g.anchor1 = A, g.anchor2 = I, g.jointType = sg.Spherical, g;
   }
   static prismatic(A, I, g) {
     let C = new YC();
-    return C.anchor1 = A, C.anchor2 = I, C.axis = g, C.jointType = ag.Prismatic, C;
+    return C.anchor1 = A, C.anchor2 = I, C.axis = g, C.jointType = sg.Prismatic, C;
   }
   static revolute(A, I, g) {
     let C = new YC();
-    return C.anchor1 = A, C.anchor2 = I, C.axis = g, C.jointType = ag.Revolute, C;
+    return C.anchor1 = A, C.anchor2 = I, C.axis = g, C.jointType = sg.Revolute, C;
   }
   intoRaw() {
     let A, I, g = T.intoRaw(this.anchor1), C = T.intoRaw(this.anchor2), B = false, i = 0, Q = 0;
     switch (this.jointType) {
-      case ag.Fixed:
+      case sg.Fixed:
         let o = zA.intoRaw(this.frame1), e = zA.intoRaw(this.frame2);
-        I = Qg.fixed(g, o, C, e), o.free(), e.free();
+        I = Eg.fixed(g, o, C, e), o.free(), e.free();
         break;
-      case ag.Spring:
-        I = Qg.spring(this.length, this.stiffness, this.damping, g, C);
+      case sg.Spring:
+        I = Eg.spring(this.length, this.stiffness, this.damping, g, C);
         break;
-      case ag.Rope:
-        I = Qg.rope(this.length, g, C);
+      case sg.Rope:
+        I = Eg.rope(this.length, g, C);
         break;
-      case ag.Prismatic:
-        A = T.intoRaw(this.axis), this.limitsEnabled && (B = true, i = this.limits[0], Q = this.limits[1]), I = Qg.prismatic(g, C, A, B, i, Q), A.free();
+      case sg.Prismatic:
+        A = T.intoRaw(this.axis), this.limitsEnabled && (B = true, i = this.limits[0], Q = this.limits[1]), I = Eg.prismatic(g, C, A, B, i, Q), A.free();
         break;
-      case ag.Generic:
+      case sg.Generic:
         A = T.intoRaw(this.axis);
         let t = this.axesMask;
-        I = Qg.generic(g, C, A, t);
+        I = Eg.generic(g, C, A, t);
         break;
-      case ag.Spherical:
-        I = Qg.spherical(g, C);
+      case sg.Spherical:
+        I = Eg.spherical(g, C);
         break;
-      case ag.Revolute:
-        A = T.intoRaw(this.axis), I = Qg.revolute(g, C, A), A.free();
+      case sg.Revolute:
+        A = T.intoRaw(this.axis), I = Eg.revolute(g, C, A), A.free();
     }
     return g.free(), C.free(), I;
   }
 }
 class JD {
   constructor(A) {
-    this.raw = A || new OC(), this.map = new no(), A && A.forEachJointHandle((I) => {
+    this.raw = A || new OC(), this.map = new ro(), A && A.forEachJointHandle((I) => {
       this.map.set(I, DC.newTyped(A, null, I));
     });
   }
@@ -19354,19 +19392,19 @@ class uD extends rB {
 }
 class qD extends Zt {
   rawAxis() {
-    return Eo.X;
+    return oo.X;
   }
 }
 class fD extends Zt {
   rawAxis() {
-    return Eo.AngX;
+    return oo.AngX;
   }
 }
 class mD extends rB {
 }
 class YD {
   constructor(A) {
-    this.raw = A || new ZC(), this.map = new no(), A && A.forEachJointHandle((I) => {
+    this.raw = A || new ZC(), this.map = new ro(), A && A.forEachJointHandle((I) => {
       this.map.set(I, rB.newTyped(this.raw, I));
     });
   }
@@ -19589,13 +19627,13 @@ class YQ {
     return I.free(), g;
   }
 }
-class ro {
+class Do {
   constructor(A, I) {
     this.collider = A, this.toi = I;
   }
   static fromRaw(A, I) {
     if (!I) return null;
-    const g = new ro(A.get(I.colliderHandle()), I.toi());
+    const g = new Do(A.get(I.colliderHandle()), I.toi());
     return I.free(), g;
   }
 }
@@ -19619,45 +19657,45 @@ class OQ extends Wi {
     return I.free(), g;
   }
 }
-class gg {
+class Cg {
   static fromRaw(A, I) {
     const g = A.coShapeType(I);
     let C, B, i, Q, o, e, t;
     switch (g) {
-      case tg.Ball:
+      case ag.Ball:
         return new Pt(A.coRadius(I));
-      case tg.Cuboid:
+      case ag.Cuboid:
         return C = A.coHalfExtents(I), new Wt(C.x, C.y, C.z);
-      case tg.RoundCuboid:
+      case ag.RoundCuboid:
         return C = A.coHalfExtents(I), B = A.coRoundRadius(I), new jt(C.x, C.y, C.z, B);
-      case tg.Capsule:
+      case ag.Capsule:
         return o = A.coHalfHeight(I), e = A.coRadius(I), new Vt(o, e);
-      case tg.Segment:
+      case ag.Segment:
         return i = A.coVertices(I), new Xt(T.new(i[0], i[1], i[2]), T.new(i[3], i[4], i[5]));
-      case tg.Polyline:
+      case ag.Polyline:
         return i = A.coVertices(I), Q = A.coIndices(I), new Aa(i, Q);
-      case tg.Triangle:
+      case ag.Triangle:
         return i = A.coVertices(I), new zt(T.new(i[0], i[1], i[2]), T.new(i[3], i[4], i[5]), T.new(i[6], i[7], i[8]));
-      case tg.RoundTriangle:
+      case ag.RoundTriangle:
         return i = A.coVertices(I), B = A.coRoundRadius(I), new $t(T.new(i[0], i[1], i[2]), T.new(i[3], i[4], i[5]), T.new(i[6], i[7], i[8]), B);
-      case tg.HalfSpace:
+      case ag.HalfSpace:
         return t = T.fromRaw(A.coHalfspaceNormal(I)), new _D(t);
-      case tg.TriMesh:
+      case ag.TriMesh:
         return i = A.coVertices(I), Q = A.coIndices(I), new Ia(i, Q);
-      case tg.HeightField:
+      case ag.HeightField:
         const a = A.coHeightfieldScale(I), s = A.coHeightfieldHeights(I), n = A.coHeightfieldNRows(I), r = A.coHeightfieldNCols(I);
         return new ga(n, r, s, a);
-      case tg.ConvexPolyhedron:
-        return i = A.coVertices(I), Q = A.coIndices(I), new VE(i, Q);
-      case tg.RoundConvexPolyhedron:
-        return i = A.coVertices(I), Q = A.coIndices(I), B = A.coRoundRadius(I), new XE(i, Q, B);
-      case tg.Cylinder:
+      case ag.ConvexPolyhedron:
+        return i = A.coVertices(I), Q = A.coIndices(I), new XE(i, Q);
+      case ag.RoundConvexPolyhedron:
+        return i = A.coVertices(I), Q = A.coIndices(I), B = A.coRoundRadius(I), new zE(i, Q, B);
+      case ag.Cylinder:
         return o = A.coHalfHeight(I), e = A.coRadius(I), new Ca(o, e);
-      case tg.RoundCylinder:
+      case ag.RoundCylinder:
         return o = A.coHalfHeight(I), e = A.coRadius(I), B = A.coRoundRadius(I), new Ba(o, e, B);
-      case tg.Cone:
+      case ag.Cone:
         return o = A.coHalfHeight(I), e = A.coRadius(I), new ia(o, e);
-      case tg.RoundCone:
+      case ag.RoundCone:
         return o = A.coHalfHeight(I), e = A.coRadius(I), B = A.coRoundRadius(I), new Qa(o, e, B);
       default:
         throw new Error("unknown shape type: " + g);
@@ -19698,143 +19736,143 @@ class gg {
 }
 (function(E14) {
   E14[E14.Ball = 0] = "Ball", E14[E14.Cuboid = 1] = "Cuboid", E14[E14.Capsule = 2] = "Capsule", E14[E14.Segment = 3] = "Segment", E14[E14.Polyline = 4] = "Polyline", E14[E14.Triangle = 5] = "Triangle", E14[E14.TriMesh = 6] = "TriMesh", E14[E14.HeightField = 7] = "HeightField", E14[E14.ConvexPolyhedron = 9] = "ConvexPolyhedron", E14[E14.Cylinder = 10] = "Cylinder", E14[E14.Cone = 11] = "Cone", E14[E14.RoundCuboid = 12] = "RoundCuboid", E14[E14.RoundTriangle = 13] = "RoundTriangle", E14[E14.RoundCylinder = 14] = "RoundCylinder", E14[E14.RoundCone = 15] = "RoundCone", E14[E14.RoundConvexPolyhedron = 16] = "RoundConvexPolyhedron", E14[E14.HalfSpace = 17] = "HalfSpace";
-})($I || ($I = {}));
-class Pt extends gg {
+})(Ag || (Ag = {}));
+class Pt extends Cg {
   constructor(A) {
-    super(), this.type = $I.Ball, this.radius = A;
+    super(), this.type = Ag.Ball, this.radius = A;
   }
   intoRaw() {
     return RA.ball(this.radius);
   }
 }
-class _D extends gg {
+class _D extends Cg {
   constructor(A) {
-    super(), this.type = $I.HalfSpace, this.normal = A;
+    super(), this.type = Ag.HalfSpace, this.normal = A;
   }
   intoRaw() {
     let A = T.intoRaw(this.normal), I = RA.halfspace(A);
     return A.free(), I;
   }
 }
-class Wt extends gg {
+class Wt extends Cg {
   constructor(A, I, g) {
-    super(), this.type = $I.Cuboid, this.halfExtents = T.new(A, I, g);
+    super(), this.type = Ag.Cuboid, this.halfExtents = T.new(A, I, g);
   }
   intoRaw() {
     return RA.cuboid(this.halfExtents.x, this.halfExtents.y, this.halfExtents.z);
   }
 }
-class jt extends gg {
+class jt extends Cg {
   constructor(A, I, g, C) {
-    super(), this.type = $I.RoundCuboid, this.halfExtents = T.new(A, I, g), this.borderRadius = C;
+    super(), this.type = Ag.RoundCuboid, this.halfExtents = T.new(A, I, g), this.borderRadius = C;
   }
   intoRaw() {
     return RA.roundCuboid(this.halfExtents.x, this.halfExtents.y, this.halfExtents.z, this.borderRadius);
   }
 }
-class Vt extends gg {
+class Vt extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.Capsule, this.halfHeight = A, this.radius = I;
+    super(), this.type = Ag.Capsule, this.halfHeight = A, this.radius = I;
   }
   intoRaw() {
     return RA.capsule(this.halfHeight, this.radius);
   }
 }
-class Xt extends gg {
+class Xt extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.Segment, this.a = A, this.b = I;
+    super(), this.type = Ag.Segment, this.a = A, this.b = I;
   }
   intoRaw() {
     let A = T.intoRaw(this.a), I = T.intoRaw(this.b), g = RA.segment(A, I);
     return A.free(), I.free(), g;
   }
 }
-class zt extends gg {
+class zt extends Cg {
   constructor(A, I, g) {
-    super(), this.type = $I.Triangle, this.a = A, this.b = I, this.c = g;
+    super(), this.type = Ag.Triangle, this.a = A, this.b = I, this.c = g;
   }
   intoRaw() {
     let A = T.intoRaw(this.a), I = T.intoRaw(this.b), g = T.intoRaw(this.c), C = RA.triangle(A, I, g);
     return A.free(), I.free(), g.free(), C;
   }
 }
-class $t extends gg {
+class $t extends Cg {
   constructor(A, I, g, C) {
-    super(), this.type = $I.RoundTriangle, this.a = A, this.b = I, this.c = g, this.borderRadius = C;
+    super(), this.type = Ag.RoundTriangle, this.a = A, this.b = I, this.c = g, this.borderRadius = C;
   }
   intoRaw() {
     let A = T.intoRaw(this.a), I = T.intoRaw(this.b), g = T.intoRaw(this.c), C = RA.roundTriangle(A, I, g, this.borderRadius);
     return A.free(), I.free(), g.free(), C;
   }
 }
-class Aa extends gg {
+class Aa extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.Polyline, this.vertices = A, this.indices = I ?? new Uint32Array(0);
+    super(), this.type = Ag.Polyline, this.vertices = A, this.indices = I ?? new Uint32Array(0);
   }
   intoRaw() {
     return RA.polyline(this.vertices, this.indices);
   }
 }
-class Ia extends gg {
+class Ia extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.TriMesh, this.vertices = A, this.indices = I;
+    super(), this.type = Ag.TriMesh, this.vertices = A, this.indices = I;
   }
   intoRaw() {
     return RA.trimesh(this.vertices, this.indices);
   }
 }
-class VE extends gg {
+class XE extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.ConvexPolyhedron, this.vertices = A, this.indices = I;
+    super(), this.type = Ag.ConvexPolyhedron, this.vertices = A, this.indices = I;
   }
   intoRaw() {
     return this.indices ? RA.convexMesh(this.vertices, this.indices) : RA.convexHull(this.vertices);
   }
 }
-class XE extends gg {
+class zE extends Cg {
   constructor(A, I, g) {
-    super(), this.type = $I.RoundConvexPolyhedron, this.vertices = A, this.indices = I, this.borderRadius = g;
+    super(), this.type = Ag.RoundConvexPolyhedron, this.vertices = A, this.indices = I, this.borderRadius = g;
   }
   intoRaw() {
     return this.indices ? RA.roundConvexMesh(this.vertices, this.indices, this.borderRadius) : RA.roundConvexHull(this.vertices, this.borderRadius);
   }
 }
-class ga extends gg {
+class ga extends Cg {
   constructor(A, I, g, C) {
-    super(), this.type = $I.HeightField, this.nrows = A, this.ncols = I, this.heights = g, this.scale = C;
+    super(), this.type = Ag.HeightField, this.nrows = A, this.ncols = I, this.heights = g, this.scale = C;
   }
   intoRaw() {
     let A = T.intoRaw(this.scale), I = RA.heightfield(this.nrows, this.ncols, this.heights, A);
     return A.free(), I;
   }
 }
-class Ca extends gg {
+class Ca extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.Cylinder, this.halfHeight = A, this.radius = I;
+    super(), this.type = Ag.Cylinder, this.halfHeight = A, this.radius = I;
   }
   intoRaw() {
     return RA.cylinder(this.halfHeight, this.radius);
   }
 }
-class Ba extends gg {
+class Ba extends Cg {
   constructor(A, I, g) {
-    super(), this.type = $I.RoundCylinder, this.borderRadius = g, this.halfHeight = A, this.radius = I;
+    super(), this.type = Ag.RoundCylinder, this.borderRadius = g, this.halfHeight = A, this.radius = I;
   }
   intoRaw() {
     return RA.roundCylinder(this.halfHeight, this.radius, this.borderRadius);
   }
 }
-class ia extends gg {
+class ia extends Cg {
   constructor(A, I) {
-    super(), this.type = $I.Cone, this.halfHeight = A, this.radius = I;
+    super(), this.type = Ag.Cone, this.halfHeight = A, this.radius = I;
   }
   intoRaw() {
     return RA.cone(this.halfHeight, this.radius);
   }
 }
-class Qa extends gg {
+class Qa extends Cg {
   constructor(A, I, g) {
-    super(), this.type = $I.RoundCone, this.halfHeight = A, this.radius = I, this.borderRadius = g;
+    super(), this.type = Ag.RoundCone, this.halfHeight = A, this.radius = I, this.borderRadius = g;
   }
   intoRaw() {
     return RA.roundCone(this.halfHeight, this.radius, this.borderRadius);
@@ -19866,7 +19904,7 @@ class vD {
     this.raw.update(A.raw, I.raw);
   }
   castRay(A, I, g, C, B, i, Q, o, e, t) {
-    let a = T.intoRaw(g.origin), s = T.intoRaw(g.dir), n = ro.fromRaw(I, this.raw.castRay(A.raw, I.raw, a, s, C, B, i, Q, o, e, t));
+    let a = T.intoRaw(g.origin), s = T.intoRaw(g.dir), n = Do.fromRaw(I, this.raw.castRay(A.raw, I.raw, a, s, C, B, i, Q, o, e, t));
     return a.free(), s.free(), n;
   }
   castRayAndGetNormal(A, I, g, C, B, i, Q, o, e, t) {
@@ -19919,7 +19957,7 @@ class It {
     return t.free(), a;
   }
   deserializeAll(A) {
-    return Do.fromRaw(this.raw.deserializeAll(A));
+    return co.fromRaw(this.raw.deserializeAll(A));
   }
 }
 class ZD {
@@ -20200,7 +20238,7 @@ class VD {
     return this.colliders.get(this.raw.wheel_ground_object(A));
   }
 }
-class Do {
+class co {
   constructor(A, I, g, C, B, i, Q, o, e, t, a, s, n, r) {
     this.gravity = A, this.integrationParameters = new dD(I), this.islands = new HD(g), this.broadPhase = new bD(C), this.narrowPhase = new TD(B), this.bodies = new yD(i), this.colliders = new zD(Q), this.impulseJoints = new JD(o), this.multibodyJoints = new YD(e), this.ccdSolver = new LD(t), this.queryPipeline = new vD(a), this.physicsPipeline = new OD(s), this.serializationPipeline = new It(n), this.debugRenderPipeline = new PD(r), this.characterControllers = /* @__PURE__ */ new Set(), this.vehicleControllers = /* @__PURE__ */ new Set(), this.impulseJoints.finalizeDeserialization(this.bodies), this.bodies.finalizeDeserialization(this.colliders), this.colliders.finalizeDeserialization(this.bodies);
   }
@@ -20208,7 +20246,7 @@ class Do {
     this.integrationParameters.free(), this.islands.free(), this.broadPhase.free(), this.narrowPhase.free(), this.bodies.free(), this.colliders.free(), this.impulseJoints.free(), this.multibodyJoints.free(), this.ccdSolver.free(), this.queryPipeline.free(), this.physicsPipeline.free(), this.serializationPipeline.free(), this.debugRenderPipeline.free(), this.characterControllers.forEach((A) => A.free()), this.vehicleControllers.forEach((A) => A.free()), this.integrationParameters = void 0, this.islands = void 0, this.broadPhase = void 0, this.narrowPhase = void 0, this.bodies = void 0, this.colliders = void 0, this.ccdSolver = void 0, this.impulseJoints = void 0, this.multibodyJoints = void 0, this.queryPipeline = void 0, this.physicsPipeline = void 0, this.serializationPipeline = void 0, this.debugRenderPipeline = void 0, this.characterControllers = void 0, this.vehicleControllers = void 0;
   }
   static fromRaw(A) {
-    return A ? new Do(T.fromRaw(A.takeGravity()), A.takeIntegrationParameters(), A.takeIslandManager(), A.takeBroadPhase(), A.takeNarrowPhase(), A.takeBodies(), A.takeColliders(), A.takeImpulseJoints(), A.takeMultibodyJoints()) : null;
+    return A ? new co(T.fromRaw(A.takeGravity()), A.takeIntegrationParameters(), A.takeIslandManager(), A.takeBroadPhase(), A.takeNarrowPhase(), A.takeBodies(), A.takeColliders(), A.takeImpulseJoints(), A.takeMultibodyJoints()) : null;
   }
   takeSnapshot() {
     return this.serializationPipeline.serializeAll(this.gravity, this.integrationParameters, this.islands, this.broadPhase, this.narrowPhase, this.bodies, this.colliders, this.impulseJoints, this.multibodyJoints);
@@ -20364,7 +20402,7 @@ class Do {
 }
 (function(E14) {
   E14[E14.NONE = 0] = "NONE", E14[E14.COLLISION_EVENTS = 1] = "COLLISION_EVENTS", E14[E14.CONTACT_FORCE_EVENTS = 2] = "CONTACT_FORCE_EVENTS";
-})(PE || (PE = {}));
+})(WE || (WE = {}));
 class XD {
   free() {
     this.raw && this.raw.free(), this.raw = void 0;
@@ -20410,11 +20448,11 @@ class kd {
 }
 (function(E14) {
   E14[E14.NONE = 0] = "NONE", E14[E14.FILTER_CONTACT_PAIRS = 1] = "FILTER_CONTACT_PAIRS", E14[E14.FILTER_INTERSECTION_PAIRS = 2] = "FILTER_INTERSECTION_PAIRS";
-})(WE || (WE = {})), function(E14) {
+})(jE || (jE = {})), function(E14) {
   E14[E14.EMPTY = 0] = "EMPTY", E14[E14.COMPUTE_IMPULSE = 1] = "COMPUTE_IMPULSE";
 }($e || ($e = {})), function(E14) {
   E14[E14.DYNAMIC_DYNAMIC = 1] = "DYNAMIC_DYNAMIC", E14[E14.DYNAMIC_KINEMATIC = 12] = "DYNAMIC_KINEMATIC", E14[E14.DYNAMIC_FIXED = 2] = "DYNAMIC_FIXED", E14[E14.KINEMATIC_KINEMATIC = 52224] = "KINEMATIC_KINEMATIC", E14[E14.KINEMATIC_FIXED = 8704] = "KINEMATIC_FIXED", E14[E14.FIXED_FIXED = 32] = "FIXED_FIXED", E14[E14.DEFAULT = 15] = "DEFAULT", E14[E14.ALL = 60943] = "ALL";
-}(jE || (jE = {}));
+}(VE || (VE = {}));
 class gt {
   constructor(A, I, g, C) {
     this.colliderSet = A, this.handle = I, this._parent = g, this._shape = C;
@@ -20423,7 +20461,7 @@ class gt {
     this.handle != null && (this._parent = A.get(this.colliderSet.raw.coParent(this.handle)));
   }
   ensureShapeIsCached() {
-    this._shape || (this._shape = gg.fromRaw(this.colliderSet.raw, this.handle));
+    this._shape || (this._shape = Cg.fromRaw(this.colliderSet.raw, this.handle));
   }
   get shape() {
     return this.ensureShapeIsCached(), this._shape;
@@ -20637,81 +20675,81 @@ class gt {
 (function(E14) {
   E14[E14.Density = 0] = "Density", E14[E14.Mass = 1] = "Mass", E14[E14.MassProps = 2] = "MassProps";
 })(uB || (uB = {}));
-class VI {
+class XI {
   constructor(A) {
-    this.enabled = true, this.shape = A, this.massPropsMode = uB.Density, this.density = 1, this.friction = 0.5, this.restitution = 0, this.rotation = zA.identity(), this.translation = T.zeros(), this.isSensor = false, this.collisionGroups = 4294967295, this.solverGroups = 4294967295, this.frictionCombineRule = fQ.Average, this.restitutionCombineRule = fQ.Average, this.activeCollisionTypes = jE.DEFAULT, this.activeEvents = PE.NONE, this.activeHooks = WE.NONE, this.mass = 0, this.centerOfMass = T.zeros(), this.contactForceEventThreshold = 0, this.principalAngularInertia = T.zeros(), this.angularInertiaLocalFrame = zA.identity();
+    this.enabled = true, this.shape = A, this.massPropsMode = uB.Density, this.density = 1, this.friction = 0.5, this.restitution = 0, this.rotation = zA.identity(), this.translation = T.zeros(), this.isSensor = false, this.collisionGroups = 4294967295, this.solverGroups = 4294967295, this.frictionCombineRule = fQ.Average, this.restitutionCombineRule = fQ.Average, this.activeCollisionTypes = VE.DEFAULT, this.activeEvents = WE.NONE, this.activeHooks = jE.NONE, this.mass = 0, this.centerOfMass = T.zeros(), this.contactForceEventThreshold = 0, this.principalAngularInertia = T.zeros(), this.angularInertiaLocalFrame = zA.identity();
   }
   static ball(A) {
     const I = new Pt(A);
-    return new VI(I);
+    return new XI(I);
   }
   static capsule(A, I) {
     const g = new Vt(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static segment(A, I) {
     const g = new Xt(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static triangle(A, I, g) {
     const C = new zt(A, I, g);
-    return new VI(C);
+    return new XI(C);
   }
   static roundTriangle(A, I, g, C) {
     const B = new $t(A, I, g, C);
-    return new VI(B);
+    return new XI(B);
   }
   static polyline(A, I) {
     const g = new Aa(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static trimesh(A, I) {
     const g = new Ia(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static cuboid(A, I, g) {
     const C = new Wt(A, I, g);
-    return new VI(C);
+    return new XI(C);
   }
   static roundCuboid(A, I, g, C) {
     const B = new jt(A, I, g, C);
-    return new VI(B);
+    return new XI(B);
   }
   static heightfield(A, I, g, C) {
     const B = new ga(A, I, g, C);
-    return new VI(B);
+    return new XI(B);
   }
   static cylinder(A, I) {
     const g = new Ca(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static roundCylinder(A, I, g) {
     const C = new Ba(A, I, g);
-    return new VI(C);
+    return new XI(C);
   }
   static cone(A, I) {
     const g = new ia(A, I);
-    return new VI(g);
+    return new XI(g);
   }
   static roundCone(A, I, g) {
     const C = new Qa(A, I, g);
-    return new VI(C);
+    return new XI(C);
   }
   static convexHull(A) {
-    const I = new VE(A, null);
-    return new VI(I);
+    const I = new XE(A, null);
+    return new XI(I);
   }
   static convexMesh(A, I) {
-    const g = new VE(A, I);
-    return new VI(g);
+    const g = new XE(A, I);
+    return new XI(g);
   }
   static roundConvexHull(A, I) {
-    const g = new XE(A, null, I);
-    return new VI(g);
+    const g = new zE(A, null, I);
+    return new XI(g);
   }
   static roundConvexMesh(A, I, g) {
-    const C = new XE(A, I, g);
-    return new VI(C);
+    const C = new zE(A, I, g);
+    return new XI(C);
   }
   setTranslation(A, I, g) {
     if (typeof A != "number" || typeof I != "number" || typeof g != "number") throw TypeError("The translation components must be numbers.");
@@ -20768,7 +20806,7 @@ class VI {
 }
 class zD {
   constructor(A) {
-    this.raw = A || new fI(), this.map = new no(), A && A.forEachColliderHandle((I) => {
+    this.raw = A || new mI(), this.map = new ro(), A && A.forEachColliderHandle((I) => {
       this.map.set(I, new gt(this, I, null));
     });
   }
@@ -20848,7 +20886,7 @@ for (var dd = { byteLength: function(E14) {
 }, fromByteArray: function(E14) {
   for (var A, I = E14.length, g = I % 3, C = [], B = 16383, i = 0, Q = I - g; i < Q; i += B) C.push(Ud(E14, i, i + B > Q ? Q : i + B));
   return g === 1 ? (A = E14[I - 1], C.push(SC[A >> 2] + SC[A << 4 & 63] + "==")) : g === 2 && (A = (E14[I - 2] << 8) + E14[I - 1], C.push(SC[A >> 10] + SC[A >> 4 & 63] + SC[A << 2 & 63] + "=")), C.join("");
-} }, SC = [], $g = [], Md = typeof Uint8Array < "u" ? Uint8Array : Array, re = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", ni = 0, pd = re.length; ni < pd; ++ni) SC[ni] = re[ni], $g[re.charCodeAt(ni)] = ni;
+} }, SC = [], $g = [], Md = typeof Uint8Array < "u" ? Uint8Array : Array, De = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", ni = 0, pd = De.length; ni < pd; ++ni) SC[ni] = De[ni], $g[De.charCodeAt(ni)] = ni;
 function Mn(E14) {
   var A = E14.length;
   if (A % 4 > 0) throw new Error("Invalid string. Length must be a multiple of 4");
@@ -20881,25 +20919,25 @@ $g[45] = 62, $g[95] = 63;
 var iQ = Object.freeze({ __proto__: null, version: Kd, Vector3: GD, VectorOps: T, Quaternion: We, RotationOps: zA, SdpMatrix3: kD, SdpMatrix3Ops: je, get RigidBodyType() {
   return eC;
 }, RigidBody: At, RigidBodyDesc: hC, RigidBodySet: yD, IntegrationParameters: dD, get JointType() {
-  return ag;
+  return sg;
 }, get MotorModel() {
   return Ve;
 }, get JointAxesMask() {
   return Xe;
 }, ImpulseJoint: DC, UnitImpulseJoint: vt, FixedImpulseJoint: MD, RopeImpulseJoint: pD, SpringImpulseJoint: UD, PrismaticImpulseJoint: ND, RevoluteImpulseJoint: KD, GenericImpulseJoint: FD, SphericalImpulseJoint: RD, JointData: YC, ImpulseJointSet: JD, MultibodyJoint: rB, UnitMultibodyJoint: Zt, FixedMultibodyJoint: uD, PrismaticMultibodyJoint: qD, RevoluteMultibodyJoint: fD, SphericalMultibodyJoint: mD, MultibodyJointSet: YD, get CoefficientCombineRule() {
   return fQ;
-}, CCDSolver: LD, IslandManager: HD, BroadPhase: bD, NarrowPhase: TD, TempContactManifold: xD, Shape: gg, get ShapeType() {
-  return $I;
-}, Ball: Pt, HalfSpace: _D, Cuboid: Wt, RoundCuboid: jt, Capsule: Vt, Segment: Xt, Triangle: zt, RoundTriangle: $t, Polyline: Aa, TriMesh: Ia, ConvexPolyhedron: VE, RoundConvexPolyhedron: XE, Heightfield: ga, Cylinder: Ca, RoundCylinder: Ba, Cone: ia, RoundCone: Qa, get ActiveCollisionTypes() {
-  return jE;
+}, CCDSolver: LD, IslandManager: HD, BroadPhase: bD, NarrowPhase: TD, TempContactManifold: xD, Shape: Cg, get ShapeType() {
+  return Ag;
+}, Ball: Pt, HalfSpace: _D, Cuboid: Wt, RoundCuboid: jt, Capsule: Vt, Segment: Xt, Triangle: zt, RoundTriangle: $t, Polyline: Aa, TriMesh: Ia, ConvexPolyhedron: XE, RoundConvexPolyhedron: zE, Heightfield: ga, Cylinder: Ca, RoundCylinder: Ba, Cone: ia, RoundCone: Qa, get ActiveCollisionTypes() {
+  return VE;
 }, Collider: gt, get MassPropsMode() {
   return uB;
-}, ColliderDesc: VI, ColliderSet: zD, get FeatureType() {
+}, ColliderDesc: XI, ColliderSet: zD, get FeatureType() {
   return Ti;
-}, Ray: Gd, RayIntersection: _Q, RayColliderIntersection: YQ, RayColliderToi: ro, PointProjection: xQ, PointColliderProjection: mQ, ShapeTOI: Wi, ShapeColliderTOI: OQ, ShapeContact: xi, World: Do, PhysicsPipeline: OD, SerializationPipeline: It, get ActiveEvents() {
-  return PE;
-}, TempContactForceEvent: XD, EventQueue: kd, get ActiveHooks() {
+}, Ray: Gd, RayIntersection: _Q, RayColliderIntersection: YQ, RayColliderToi: Do, PointProjection: xQ, PointColliderProjection: mQ, ShapeTOI: Wi, ShapeColliderTOI: OQ, ShapeContact: xi, World: co, PhysicsPipeline: OD, SerializationPipeline: It, get ActiveEvents() {
   return WE;
+}, TempContactForceEvent: XD, EventQueue: kd, get ActiveHooks() {
+  return jE;
 }, get SolverFlags() {
   return $e;
 }, DebugRenderBuffers: ZD, DebugRenderPipeline: PD, get QueryFilterFlags() {
@@ -20950,25 +20988,25 @@ class Fd {
     });
   }
 }
-const OI = { ates: { id: "ates", name: "Ate\u015F", description: "Saf \u0131s\u0131 ve enerji kayna\u011F\u0131.", tier: 1, colorPalette: { primary: "#ff4500", secondary: "#ff8c00", emissive: "#ff2200" }, particles: { type: "spark", color: "#ffaa00", count: 15 }, recipe: null, icon: "\u{1F525}", category: "elements" }, su: { id: "su", name: "Su", description: "Hayat\u0131n kayna\u011F\u0131, ak\u0131\u015Fkan ve berrak.", tier: 1, colorPalette: { primary: "#0077be", secondary: "#00aaff", emissive: "#003366" }, particles: { type: "bubble", color: "#ffffff", count: 10 }, recipe: null, icon: "\u{1F4A7}", category: "elements" }, toprak: { id: "toprak", name: "Toprak", description: "Sa\u011Flam temel, kaya ve bereket.", tier: 1, colorPalette: { primary: "#5c4033", secondary: "#8b5a2b", emissive: "#2d1b0d" }, particles: { type: "dust", color: "#8b7355", count: 8 }, recipe: null, icon: "\u{1F30D}", category: "elements" }, hava: { id: "hava", name: "Hava", description: "G\xF6r\xFCnmez r\xFCzg\xE2r, nefes ve hareket.", tier: 1, colorPalette: { primary: "#e0ffff", secondary: "#b0e0e6", emissive: "#ffffff" }, particles: { type: "wind", color: "#ffffff", count: 12 }, recipe: null, icon: "\u{1F4A8}", category: "elements" }, buhar: { id: "buhar", name: "Buhar", description: "Ate\u015F ve suyun dans\u0131ndan do\u011Fan bu\u011Fu.", tier: 2, colorPalette: { primary: "#dcdcdc", secondary: "#f5f5f5", emissive: "#aaaaaa" }, particles: { type: "cloud", color: "#ffffff", count: 20 }, recipe: { inputs: ["ates", "su"] }, icon: "\u2668\uFE0F", category: "elements" }, camur: { id: "camur", name: "\xC7amur", description: "Su ve topra\u011F\u0131n yo\u011Frulmu\u015F hali.", tier: 2, colorPalette: { primary: "#4a3b32", secondary: "#3d2817", emissive: "#1f140b" }, particles: { type: "drop", color: "#5c4033", count: 8 }, recipe: { inputs: ["su", "toprak"] }, icon: "\u{1F7E4}", category: "elements" }, lav: { id: "lav", name: "Lav", description: "Ate\u015F ve topra\u011F\u0131n erimi\u015F ihti\u015Fam\u0131.", tier: 2, colorPalette: { primary: "#cf1020", secondary: "#ff4500", emissive: "#ff0000" }, particles: { type: "ember", color: "#ffcc00", count: 25 }, recipe: { inputs: ["ates", "toprak"] }, icon: "\u{1F30B}", category: "elements" }, kum: { id: "kum", name: "Kum", description: "R\xFCzgar ve ta\u015F\u0131n a\u015F\u0131nd\u0131rd\u0131\u011F\u0131 tanecikler.", tier: 4, colorPalette: { primary: "#e6ca65", secondary: "#f4d06f", emissive: "#c2a642" }, particles: { type: "grain", color: "#f4d06f", count: 15 }, recipe: { inputs: ["ruzgar", "tas"] }, icon: "\u23F3", category: "elements" }, obsidyen: { id: "obsidyen", name: "Obsidyen", description: "Su ile aniden so\u011Fuyan lav\u0131n sert cam\u0131.", tier: 3, colorPalette: { primary: "#1c1c1c", secondary: "#3b2f4f", emissive: "#4b0082" }, particles: { type: "shimmer", color: "#9370db", count: 12 }, recipe: { inputs: ["su", "lav"] }, icon: "\u2B1B", category: "elements" }, yagmur: { id: "yagmur", name: "Ya\u011Fmur", description: "Hava ve suyun bulu\u015Fmas\u0131ndan d\xFC\u015Fen damlalar.", tier: 2, colorPalette: { primary: "#87ceeb", secondary: "#00bfff", emissive: "#006699" }, particles: { type: "drop", color: "#87ceeb", count: 15 }, recipe: { inputs: ["hava", "su"] }, icon: "\u{1F327}\uFE0F", category: "elements" }, enerji: { id: "enerji", name: "Enerji", description: "Ate\u015F ve havan\u0131n saf plazma g\xFCc\xFC.", tier: 2, colorPalette: { primary: "#ffeb3b", secondary: "#ffc107", emissive: "#ff9800" }, particles: { type: "spark", color: "#ffeb3b", count: 20 }, recipe: { inputs: ["ates", "hava"] }, icon: "\u26A1", category: "elements" }, ruzgar: { id: "ruzgar", name: "R\xFCzgar", description: "G\xFC\xE7l\xFC ve h\u0131zl\u0131 hava ak\u0131m\u0131.", tier: 2, colorPalette: { primary: "#e0f7fa", secondary: "#b2ebf2", emissive: "#80deea" }, particles: { type: "wind", color: "#ffffff", count: 18 }, recipe: { inputs: ["hava", "hava"] }, icon: "\u{1F32C}\uFE0F", category: "elements" }, tas: { id: "tas", name: "Ta\u015F", description: "Topra\u011F\u0131n s\u0131k\u0131\u015F\u0131p kat\u0131la\u015Fmas\u0131yla olu\u015Fan sert kaya.", tier: 2, colorPalette: { primary: "#78909c", secondary: "#607d8b", emissive: "#37474f" }, particles: { type: "dust", color: "#78909c", count: 10 }, recipe: { inputs: ["toprak", "toprak"] }, icon: "\u{1FAA8}", category: "elements" }, cam: { id: "cam", name: "Cam", description: "Ate\u015F ve kumun eriyerek \u015Feffafla\u015Fmas\u0131.", tier: 5, colorPalette: { primary: "#e0f7fa", secondary: "#b2ebf2", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["ates", "kum"] }, icon: "\u{1F52E}", category: "elements" }, bulut: { id: "bulut", name: "Bulut", description: "Buhar ve suyun g\xF6ky\xFCz\xFCndeki pofuduk k\xFCmesi.", tier: 3, colorPalette: { primary: "#ffffff", secondary: "#f1f5f9", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 20 }, recipe: { inputs: ["buhar", "su"] }, icon: "\u2601\uFE0F", category: "elements" }, yildirim: { id: "yildirim", name: "Y\u0131ld\u0131r\u0131m", description: "Bulut ve enerjinin \xE7akan keskin \u015Fim\u015Fe\u011Fi.", tier: 4, colorPalette: { primary: "#facc15", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "spark", color: "#facc15", count: 30 }, recipe: { inputs: ["bulut", "enerji"] }, icon: "\u26A1", category: "elements" }, bitki: { id: "bitki", name: "Bitki", description: "Toprak ve ya\u011Fmurun ye\u015Ferten filizi.", tier: 3, colorPalette: { primary: "#4ade80", secondary: "#22c55e", emissive: "#15803d" }, particles: { type: "spark", color: "#4ade80", count: 10 }, recipe: { inputs: ["toprak", "yagmur"] }, icon: "\u{1F331}", category: "nature" }, agac: { id: "agac", name: "A\u011Fa\xE7", description: "Bitki ve topra\u011F\u0131n b\xFCy\xFCyen g\xFC\xE7l\xFC g\xF6vdesi.", tier: 4, colorPalette: { primary: "#16a34a", secondary: "#854d0e", emissive: "#14532d" }, particles: { type: "dust", color: "#16a34a", count: 12 }, recipe: { inputs: ["bitki", "toprak"] }, icon: "\u{1F332}", category: "nature" }, odun: { id: "odun", name: "Odun", description: "A\u011Fa\xE7 ve ta\u015F\u0131n i\u015Flenen k\xFCt\xFC\u011F\xFC.", tier: 5, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#713f12" }, particles: { type: "dust", color: "#a16207", count: 10 }, recipe: { inputs: ["agac", "tas"] }, icon: "\u{1FAB5}", category: "nature" }, kiymik: { id: "kiymik", name: "K\u0131ym\u0131k", description: "Odun ve ta\u015F\u0131n sivri tala\u015F par\xE7as\u0131.", tier: 6, colorPalette: { primary: "#d97706", secondary: "#fbbf24", emissive: "#b45309" }, particles: { type: "spark", color: "#fbbf24", count: 8 }, recipe: { inputs: ["odun", "tas"] }, icon: "\u{1F962}", category: "nature" }, lif: { id: "lif", name: "Lif", description: "Bitki ve bitkinin sar\u0131lan lif demeti.", tier: 4, colorPalette: { primary: "#a3e635", secondary: "#bef264", emissive: "#65a30d" }, particles: { type: "spark", color: "#a3e635", count: 10 }, recipe: { inputs: ["bitki", "bitki"] }, icon: "\u{1F33E}", category: "nature" }, mantar: { id: "mantar", name: "Mantar", description: "Beyaz benekli, k\u0131rm\u0131z\u0131 \u015Fapkal\u0131, bodur sapl\u0131 orman mantar\u0131.", tier: 4, colorPalette: { primary: "#e63946", secondary: "#f1faee", emissive: "#9d0208" }, particles: { type: "spark", color: "#e63946", count: 8 }, recipe: { inputs: ["bitki", "camur"] }, icon: "\u{1F344}", category: "nature" }, pamuk: { id: "pamuk", name: "Pamuk", description: "Kurumu\u015F kahverengi \xE7anak yapraklar i\xE7inde duran bembeyaz pamuk kozas\u0131.", tier: 4, colorPalette: { primary: "#ffffff", secondary: "#dda15e", emissive: "#bc6c25" }, particles: { type: "cloud", color: "#ffffff", count: 12 }, recipe: { inputs: ["toprak", "bitki", "yagmur"] }, icon: "\u2601\uFE0F", category: "nature" }, recine: { id: "recine", name: "Re\xE7ine", description: "Damla formunda kat\u0131la\u015Fm\u0131\u015F, bal sar\u0131s\u0131 kehribar cevheri.", tier: 6, colorPalette: { primary: "#ffb703", secondary: "#fb8500", emissive: "#ffb703" }, particles: { type: "shimmer", color: "#ffb703", count: 10 }, recipe: { inputs: ["ilkel_bicak", "agac"] }, icon: "\u{1F36F}", category: "nature" }, yasam: { id: "yasam", name: "Ya\u015Fam", description: "\u0130\xE7inde ye\u015Filimsi \xE7ift sarmal DNA sembol\xFC d\xF6nen \u0131\u015F\u0131ldayan \xF6z k\xFCresi.", tier: 5, colorPalette: { primary: "#52b788", secondary: "#74c69d", emissive: "#1b4332" }, particles: { type: "spark", color: "#52b788", count: 25 }, recipe: { inputs: ["enerji", "camur", "bitki"] }, icon: "\u{1F9EC}", category: "life" }, kus: { id: "kus", name: "Ku\u015F", description: "Basit geometrik g\xF6vdeli, mavi kanatl\u0131, sar\u0131 gagal\u0131 k\xFC\xE7\xFCk ser\xE7e.", tier: 6, colorPalette: { primary: "#4ea8de", secondary: "#ffb703", emissive: "#023e8a" }, particles: { type: "wind", color: "#4ea8de", count: 15 }, recipe: { inputs: ["hava", "yasam"] }, icon: "\u{1F426}", category: "life" }, hayvan: { id: "hayvan", name: "Hayvan", description: "D\xF6rt narin baca\u011F\u0131 ve k\u0131sa kuyru\u011Fu olan bloklu canl\u0131 sil\xFCeti.", tier: 6, colorPalette: { primary: "#b08968", secondary: "#dda15e", emissive: "#7f5539" }, particles: { type: "dust", color: "#b08968", count: 12 }, recipe: { inputs: ["toprak", "yasam"] }, icon: "\u{1F98C}", category: "life" }, balik: { id: "balik", name: "Bal\u0131k", description: "\xDC\xE7gen y\xFCzge\xE7li, turuncu-g\xFCm\xFC\u015F renkli k\xF6\u015Feli g\xF6vdeli sazan.", tier: 6, colorPalette: { primary: "#f77f00", secondary: "#fcbf49", emissive: "#d62828" }, particles: { type: "drop", color: "#f77f00", count: 12 }, recipe: { inputs: ["yasam", "su"] }, icon: "\u{1F41F}", category: "life" }, ip: { id: "ip", name: "\u0130p", description: "D\xFC\u011F\xFCmlenmi\u015F, halka \u015Feklinde sar\u0131l\u0131 saman sar\u0131s\u0131 halat rulosu.", tier: 5, colorPalette: { primary: "#d4a373", secondary: "#e9edc9", emissive: "#bc6c25" }, particles: { type: "dust", color: "#d4a373", count: 8 }, recipe: { inputs: ["lif", "lif"] }, icon: "\u{1FAA2}", category: "craft_tools" }, kumas: { id: "kumas", name: "Kuma\u015F", description: "D\xFCzenli katlanm\u0131\u015F, kenarlar\u0131 k\xF6\u015Feli bej renkli kuma\u015F bezi.", tier: 6, colorPalette: { primary: "#fefae0", secondary: "#dda15e", emissive: "#b08968" }, particles: { type: "dust", color: "#fefae0", count: 10 }, recipe: { inputs: ["pamuk", "ip"] }, icon: "\u{1F9F6}", category: "craft_tools" }, komur: { id: "komur", name: "K\xF6m\xFCr", description: "D\xFCzensiz y\xFCzeylere sahip, mat siyah renkli karbon par\xE7as\u0131.", tier: 5, colorPalette: { primary: "#212529", secondary: "#343a40", emissive: "#000000" }, particles: { type: "dust", color: "#212529", count: 10 }, recipe: { inputs: ["ates", "agac"] }, icon: "\u2B1B", category: "craft_tools" }, kul: { id: "kul", name: "K\xFCl", description: "\u0130\xE7inde s\xF6nmeye y\xFCz tutmu\u015F kor par\xE7alar\u0131 olan gri toz y\u0131\u011F\u0131n\u0131.", tier: 6, colorPalette: { primary: "#adb5bd", secondary: "#6c757d", emissive: "#e56b6f" }, particles: { type: "dust", color: "#adb5bd", count: 15 }, recipe: { inputs: ["komur", "ates"] }, icon: "\u{1F4A8}", category: "craft_tools" }, kagit: { id: "kagit", name: "Ka\u011F\u0131t", description: "Ucu hafif k\u0131vr\u0131lm\u0131\u015F, a\xE7\u0131k sar\u0131 renkte dikd\xF6rtgen par\u015F\xF6men tabakas\u0131.", tier: 6, colorPalette: { primary: "#faedcd", secondary: "#d4a373", emissive: "#ccd5ae" }, particles: { type: "dust", color: "#faedcd", count: 8 }, recipe: { inputs: ["tas", "agac", "su"] }, icon: "\u{1F4DC}", category: "craft_tools" }, ilkel_bicak: { id: "ilkel_bicak", name: "\u0130lkel B\u0131\xE7ak", description: "K\u0131sa ah\u015Fap sap\u0131na iple tutturulmu\u015F \xE7akmakta\u015F\u0131 u\xE7lu kaba b\u0131\xE7ak.", tier: 6, colorPalette: { primary: "#7f4f24", secondary: "#343a40", emissive: "#212529" }, particles: { type: "spark", color: "#6c757d", count: 8 }, recipe: { inputs: ["cakmaktasi", "kiymik", "odun"] }, icon: "\u{1F52A}", category: "craft_tools" }, kus_tuyu: { id: "kus_tuyu", name: "Ku\u015F T\xFCy\xFC", description: "Orta damar\u0131 belirgin, ucu beyazdan g\xF6k mavisine d\xF6nen t\xFCy.", tier: 7, colorPalette: { primary: "#e0fbfc", secondary: "#98c1d9", emissive: "#3d5a80" }, particles: { type: "wind", color: "#e0fbfc", count: 10 }, recipe: { inputs: ["kus", "ilkel_bicak"] }, icon: "\u{1FAB6}", category: "craft_tools" }, deri: { id: "deri", name: "Deri", description: "Kenarlar\u0131 asimetrik kesilmi\u015F, taba rengi i\u015Flenmemi\u015F post.", tier: 7, colorPalette: { primary: "#bc6c25", secondary: "#dda15e", emissive: "#9b5de5" }, particles: { type: "dust", color: "#bc6c25", count: 10 }, recipe: { inputs: ["hayvan", "ilkel_bicak"] }, icon: "\u{1F4DC}", category: "craft_tools" }, kavrulmus_et: { id: "kavrulmus_et", name: "Kavrulmu\u015F Et", description: "Beyaz kemik sap\u0131ndan tutulan, k\u0131zarm\u0131\u015F kahverengi et butu.", tier: 7, colorPalette: { primary: "#b05721", secondary: "#f4a261", emissive: "#e76f51" }, particles: { type: "spark", color: "#f4a261", count: 12 }, recipe: { inputs: ["hayvan", "ates"] }, icon: "\u{1F356}", category: "craft_tools" }, comlek: { id: "comlek", name: "\xC7\xF6mlek", description: "Geni\u015F g\xF6bekli, dar boyunlu kiremit k\u0131rm\u0131z\u0131s\u0131 pi\u015Fmi\u015F kil testi.", tier: 5, colorPalette: { primary: "#b83321", secondary: "#d9534f", emissive: "#802010" }, particles: { type: "dust", color: "#b83321", count: 8 }, recipe: { inputs: ["ates", "camur"] }, icon: "\u{1F3FA}", category: "craft_tools" }, su_comlegi: { id: "su_comlegi", name: "Su \xC7\xF6mle\u011Fi", description: "A\u011Fz\u0131ndan mavi su y\xFCzeyi g\xF6r\xFCnen, \u0131slak killi dolgun testi.", tier: 6, colorPalette: { primary: "#b83321", secondary: "#00bfff", emissive: "#006699" }, particles: { type: "drop", color: "#00bfff", count: 10 }, recipe: { inputs: ["comlek", "su"] }, icon: "\u{1F3FA}", category: "craft_tools" }, sise: { id: "sise", name: "\u015Ei\u015Fe", description: "Mantar t\u0131pas\u0131 olan \u015Feffaf, silindirik cam iksir t\xFCp\xFC.", tier: 6, colorPalette: { primary: "#e0f7fa", secondary: "#a3704c", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 10 }, recipe: { inputs: ["ates", "cam"] }, icon: "\u{1F9EA}", category: "craft_tools" }, cakmaktasi: { id: "cakmaktasi", name: "\xC7akmakta\u015F\u0131", description: "Bir kenar\u0131 keskinle\u015Ftirilmi\u015F, koyu antrasit renkli yontma ta\u015F.", tier: 4, colorPalette: { primary: "#343a40", secondary: "#495057", emissive: "#212529" }, particles: { type: "spark", color: "#ffffff", count: 12 }, recipe: { inputs: ["tas", "tas"] }, icon: "\u{1FAA8}", category: "craft_tools" }, yay: { id: "yay", name: "Yay", description: "U\xE7lar\u0131 gergin iple birbirine ba\u011Flanm\u0131\u015F kavisli ah\u015Fap av yay\u0131.", tier: 7, colorPalette: { primary: "#a0522d", secondary: "#f4a261", emissive: "#654321" }, particles: { type: "wind", color: "#f4a261", count: 10 }, recipe: { inputs: ["ip", "odun"] }, icon: "\u{1F3F9}", category: "craft_tools" }, ok: { id: "ok", name: "Ok", description: "Ucunda sivri ta\u015F, arkas\u0131nda t\xFCy bulunan ince tahta ok.", tier: 8, colorPalette: { primary: "#8b5a2b", secondary: "#e0fbfc", emissive: "#343a40" }, particles: { type: "wind", color: "#e0fbfc", count: 10 }, recipe: { inputs: ["kus_tuyu", "kiymik", "odun"] }, icon: "\u{1F3AF}", category: "craft_tools" }, mesale: { id: "mesale", name: "Me\u015Fale", description: "Ba\u015F\u0131na beze sar\u0131l\u0131 re\xE7ine ge\xE7irilmi\u015F, ucu yanan ah\u015Fap me\u015Fale.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#ff4500", emissive: "#ff8c00" }, particles: { type: "spark", color: "#ff4500", count: 15 }, recipe: { inputs: ["lif", "recine", "odun"] }, icon: "\u{1F56F}\uFE0F", category: "craft_tools" }, metal: { id: "metal", name: "Metal", description: "\u0130\xE7inde parlak gri damarlar par\u0131ldayan ergitilmi\u015F ta\u015F cevheri.", tier: 4, colorPalette: { primary: "#adb5bd", secondary: "#6c757d", emissive: "#495057" }, particles: { type: "shimmer", color: "#ced4da", count: 12 }, recipe: { inputs: ["ates", "tas"] }, icon: "\u{1FA99}", category: "craft_tools" }, demir_kulce: { id: "demir_kulce", name: "Demir K\xFCl\xE7e", description: "Pahlanm\u0131\u015F kenarlar\u0131yla profesyonel d\xF6k\xFCm \xE7elik k\xFCl\xE7e.", tier: 5, colorPalette: { primary: "#ced4da", secondary: "#adb5bd", emissive: "#6c757d" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["ates", "metal", "tas"] }, icon: "\u{1F9F1}", category: "craft_tools" }, metal_bicak: { id: "metal_bicak", name: "Metal B\u0131\xE7ak", description: "Deri sar\u0131l\u0131 kabzas\u0131 ve \xE7ift a\u011F\u0131zl\u0131 parlak \xE7elik namlulu b\u0131\xE7ak.", tier: 7, colorPalette: { primary: "#dee2e6", secondary: "#bc6c25", emissive: "#495057" }, particles: { type: "spark", color: "#dee2e6", count: 10 }, recipe: { inputs: ["demir_kulce", "ilkel_bicak", "odun"] }, icon: "\u{1F5E1}\uFE0F", category: "craft_tools" }, kazma: { id: "kazma", name: "Kazma", description: "Masif ah\u015Fap sapa monte edilmi\u015F kavisli \xE7ift tarafl\u0131 demir u\xE7.", tier: 6, colorPalette: { primary: "#adb5bd", secondary: "#8b5a2b", emissive: "#495057" }, particles: { type: "dust", color: "#adb5bd", count: 10 }, recipe: { inputs: ["demir_kulce", "tas", "odun"] }, icon: "\u26CF\uFE0F", category: "craft_tools" }, kilic: { id: "kilic", name: "K\u0131l\u0131\xE7", description: "\xC7apraz korumal\u0131\u011F\u0131, deri kabzas\u0131 ve par\u0131ldayan kesici g\xF6vdesi.", tier: 7, colorPalette: { primary: "#e9ecef", secondary: "#bc6c25", emissive: "#6c757d" }, particles: { type: "spark", color: "#ffffff", count: 18 }, recipe: { inputs: ["komur", "demir_kulce", "odun"] }, icon: "\u2694\uFE0F", category: "craft_tools" }, ahsap_kalkan: { id: "ahsap_kalkan", name: "Ah\u015Fap Kalkan", description: "Tahta kalaslardan birle\u015Ftirilmi\u015F, kenarlar\u0131 ham deri kalkan.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#bc6c25", emissive: "#5c4033" }, particles: { type: "dust", color: "#8b5a2b", count: 10 }, recipe: { inputs: ["deri", "odun", "odun"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, demir_kalkan: { id: "demir_kalkan", name: "Demir Kalkan", description: "Per\xE7in detayl\u0131, parlat\u0131lm\u0131\u015F damla formunda \xE7elik kalkan.", tier: 8, colorPalette: { primary: "#ced4da", secondary: "#495057", emissive: "#adb5bd" }, particles: { type: "shimmer", color: "#ffffff", count: 12 }, recipe: { inputs: ["demir_kulce", "ahsap_kalkan"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, deri_zirh: { id: "deri_zirh", name: "Deri Z\u0131rh", description: "\u0130plerle diki\u015Flenmi\u015F, omuzlar\u0131 tokal\u0131 kahverengi yelek z\u0131rh.", tier: 7, colorPalette: { primary: "#bc6c25", secondary: "#dda15e", emissive: "#7f5539" }, particles: { type: "dust", color: "#bc6c25", count: 10 }, recipe: { inputs: ["deri", "ip"] }, icon: "\u{1F9BA}", category: "craft_tools" }, demir_zirh: { id: "demir_zirh", name: "Demir Z\u0131rh", description: "Parlak \xE7elik g\xF6\u011F\xFCs plakas\u0131 ve omuzluklardan olu\u015Fan a\u011F\u0131r z\u0131rh.", tier: 8, colorPalette: { primary: "#ced4da", secondary: "#adb5bd", emissive: "#495057" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["demir_kulce", "demir_kulce", "deri"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, yatak: { id: "yatak", name: "Yatak", description: "Ah\u015Fap ayakl\u0131, \xFCzerinde beyaz yast\u0131k ve renkli \xF6rt\xFC olan yatak.", tier: 8, colorPalette: { primary: "#8b5a2b", secondary: "#ffffff", emissive: "#e76f51" }, particles: { type: "cloud", color: "#ffffff", count: 12 }, recipe: { inputs: ["kumas", "kus_tuyu", "ip"] }, icon: "\u{1F6CF}\uFE0F", category: "craft_tools" }, zehirli_sivi: { id: "zehirli_sivi", name: "Zehirli S\u0131v\u0131", description: "Mantar ve su \xE7\xF6mle\u011Finden elde edilen tehlikeli ye\u015Fil s\u0131v\u0131.", tier: 5, colorPalette: { primary: "#22c55e", secondary: "#15803d", emissive: "#00ff44" }, particles: { type: "drop", color: "#22c55e", count: 12 }, recipe: { inputs: ["mantar", "su_comlegi", null] }, icon: "\u{1F9EA}", category: 5 }, zehir_sisesi: { id: "zehir_sisesi", name: "Zehir \u015Ei\u015Fesi", description: "\u015Ei\u015Felenmi\u015F \xF6l\xFCmc\xFCl zehirli iksir.", tier: 6, colorPalette: { primary: "#16a34a", secondary: "#4ade80", emissive: "#16a34a" }, particles: { type: "spark", color: "#22c55e", count: 10 }, recipe: { inputs: ["sise", "zehirli_sivi", null] }, icon: "\u{1F37E}", category: 5 }, zehirli_kilic: { id: "zehirli_kilic", name: "Zehirli K\u0131l\u0131\xE7", description: "\xD6l\xFCmc\xFCl zehirle kaplanm\u0131\u015F \xE7elik k\u0131l\u0131\xE7.", tier: 8, colorPalette: { primary: "#15803d", secondary: "#86efac", emissive: "#22c55e" }, particles: { type: "spark", color: "#86efac", count: 15 }, recipe: { inputs: ["kilic", "zehir_sisesi", null] }, icon: "\u{1F5E1}\uFE0F", category: 5 }, sifa_iksiri: { id: "sifa_iksiri", name: "\u015Eifa \u0130ksiri", description: "Bitki, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Finden haz\u0131rlanan can verici iksir.", tier: 6, colorPalette: { primary: "#ef4444", secondary: "#f87171", emissive: "#dc2626" }, particles: { type: "spark", color: "#ef4444", count: 15 }, recipe: { inputs: ["bitki", "sise", "su_comlegi"] }, icon: "\u{1F9EA}", category: 5 }, mana_iksiri: { id: "mana_iksiri", name: "Mana \u0130ksiri", description: "Enerji, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Fi ile \xF6z\xFCtlenen b\xFCy\xFCl\xFC mana iksiri.", tier: 6, colorPalette: { primary: "#3b82f6", secondary: "#60a5fa", emissive: "#2563eb" }, particles: { type: "spark", color: "#3b82f6", count: 15 }, recipe: { inputs: ["enerji", "sise", "su_comlegi"] }, icon: "\u{1F9EA}", category: 5 }, barut: { id: "barut", name: "Barut", description: "K\xF6m\xFCr, k\xFCl ve re\xE7ineden yap\u0131lan patlay\u0131c\u0131 siyah toz.", tier: 7, colorPalette: { primary: "#374151", secondary: "#1f2937", emissive: "#f59e0b" }, particles: { type: "dust", color: "#f59e0b", count: 15 }, recipe: { inputs: ["komur", "kul", "recine"] }, icon: "\u{1F4A5}", category: 5 }, bomba: { id: "bomba", name: "Bomba", description: "Barut, demir k\xFCl\xE7e ve ip ile haz\u0131rlanan y\u0131k\u0131c\u0131 patlay\u0131c\u0131.", tier: 8, colorPalette: { primary: "#111827", secondary: "#f59e0b", emissive: "#ef4444" }, particles: { type: "spark", color: "#ef4444", count: 20 }, recipe: { inputs: ["barut", "demir_kulce", "ip"] }, icon: "\u{1F4A3}", category: 5 }, buyu_parsomeni: { id: "buyu_parsomeni", name: "B\xFCy\xFC Par\u015F\xF6meni", description: "Ka\u011F\u0131t, k\xFCl ve ku\u015F t\xFCy\xFC ile yaz\u0131lan kadim t\u0131ls\u0131ml\u0131 par\u015F\xF6men.", tier: 7, colorPalette: { primary: "#a855f7", secondary: "#c084fc", emissive: "#9333ea" }, particles: { type: "shimmer", color: "#c084fc", count: 15 }, recipe: { inputs: ["kagit", "kul", "kus_tuyu"] }, icon: "\u{1F4DC}", category: 5 }, yildirim_parsomeni: { id: "yildirim_parsomeni", name: "Y\u0131ld\u0131r\u0131m Par\u015F\xF6meni", description: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle y\xFCklenmi\u015F par\u015F\xF6men.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#fde047", emissive: "#ca8a04" }, particles: { type: "spark", color: "#fde047", count: 20 }, recipe: { inputs: ["buyu_parsomeni", "yildirim", null] }, icon: "\u26A1", category: 5 }, ates_topu_kitabi: { id: "ates_topu_kitabi", name: "Ate\u015F Topu Kitab\u0131", description: "Ate\u015F ve b\xFCy\xFC par\u015F\xF6meninden olu\u015Fan alevli b\xFCy\xFC kitab\u0131.", tier: 8, colorPalette: { primary: "#f97316", secondary: "#fb923c", emissive: "#ea580c" }, particles: { type: "ember", color: "#f97316", count: 25 }, recipe: { inputs: ["ates", "buyu_parsomeni", null] }, icon: "\u{1F4D6}", category: 5 }, buhar_motoru: { id: "buhar_motoru", name: "Buhar Motoru", description: "Buhar, demir k\xFCl\xE7e ve k\xF6m\xFCr\xFCn bas\u0131n\xE7l\u0131 g\xFCc\xFCyle \xE7al\u0131\u015Fan a\u011F\u0131r mekanik pistonlu motor.", tier: 7, colorPalette: { primary: "#475569", secondary: "#94a3b8", emissive: "#f59e0b" }, particles: { type: "cloud", color: "#ffffff", count: 15 }, recipe: { inputs: ["buhar", "demir_kulce", "komur"] }, icon: "\u2699\uFE0F", category: 6 }, tekerlek: { id: "tekerlek", name: "Tekerlek", description: "Odun ve ta\u015Ftan yontulmu\u015F, p\xFCr\xFCzs\xFCz d\xF6nen dairesel ah\u015Fap tekerlek.", tier: 6, colorPalette: { primary: "#8b5a2b", secondary: "#a0522d", emissive: "#5c4033" }, particles: { type: "dust", color: "#8b5a2b", count: 10 }, recipe: { inputs: ["odun", "odun", "tas"] }, icon: "\u{1F6DE}", category: 6 }, el_arabasi: { id: "el_arabasi", name: "El Arabas\u0131", description: "Demir k\xFCl\xE7e, odun ve tekerlekten yap\u0131lm\u0131\u015F ta\u015F\u0131ma arabas\u0131.", tier: 7, colorPalette: { primary: "#a16207", secondary: "#64748b", emissive: "#475569" }, particles: { type: "dust", color: "#a16207", count: 12 }, recipe: { inputs: ["demir_kulce", "odun", "tekerlek"] }, icon: "\u{1F6D2}", category: 6 }, lokomotif: { id: "lokomotif", name: "Lokomotif", description: "Buhar motoru, demir ve tekerleklerle in\u015Fa edilmi\u015F dev rayl\u0131 tren ba\u015F\u0131.", tier: 9, colorPalette: { primary: "#1e293b", secondary: "#ef4444", emissive: "#f59e0b" }, particles: { type: "cloud", color: "#cbd5e1", count: 20 }, recipe: { inputs: ["buhar_motoru", "demir_kulce", "tekerlek"] }, icon: "\u{1F682}", category: 6 }, ampul: { id: "ampul", name: "Ampul", description: "Cam, metal ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle akkor \u0131\u015F\u0131k sa\xE7an cam t\xFCp.", tier: 7, colorPalette: { primary: "#facc15", secondary: "#fef08a", emissive: "#eab308" }, particles: { type: "spark", color: "#facc15", count: 15 }, recipe: { inputs: ["cam", "metal", "yildirim"] }, icon: "\u{1F4A1}", category: 6 }, fener: { id: "fener", name: "Fener", description: "Ampul, demir k\xFCl\xE7e ve enerjiyle \xE7al\u0131\u015Fan par\u0131lt\u0131l\u0131 el feneri.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#38bdf8", emissive: "#fef08a" }, particles: { type: "shimmer", color: "#fde047", count: 15 }, recipe: { inputs: ["ampul", "demir_kulce", "enerji"] }, icon: "\u{1F526}", category: 6 }, pusula: { id: "pusula", name: "Pusula", description: "Cam ve demir kadran i\xE7inde y\xF6n g\xF6steren manyetik pusula.", tier: 7, colorPalette: { primary: "#0284c7", secondary: "#e2e8f0", emissive: "#38bdf8" }, particles: { type: "shimmer", color: "#38bdf8", count: 10 }, recipe: { inputs: ["cam", "cam", "demir_kulce"] }, icon: "\u{1F9ED}", category: 6 }, miknatis: { id: "miknatis", name: "M\u0131knat\u0131s", description: "Y\u0131ld\u0131r\u0131m \xE7arpmas\u0131yla manyetize olmu\u015F kavisli \xE7elik demir.", tier: 7, colorPalette: { primary: "#dc2626", secondary: "#2563eb", emissive: "#ef4444" }, particles: { type: "spark", color: "#ef4444", count: 15 }, recipe: { inputs: ["demir_kulce", "yildirim", null] }, icon: "\u{1F9F2}", category: 6 }, elektrik_motoru: { id: "elektrik_motoru", name: "Elektrik Motoru", description: "Enerji, metal ve m\u0131knat\u0131s ile d\xF6nen bobinli elektromanyetik motor.", tier: 8, colorPalette: { primary: "#0284c7", secondary: "#f59e0b", emissive: "#38bdf8" }, particles: { type: "spark", color: "#38bdf8", count: 18 }, recipe: { inputs: ["enerji", "metal", "miknatis"] }, icon: "\u26A1", category: 6 }, celik_kulce: { id: "celik_kulce", name: "\xC7elik K\xFCl\xE7e", description: "Ate\u015F, demir ve k\xF6m\xFCr\xFCn y\xFCksek \u0131s\u0131da eritilmesiyle elde edilen dayan\u0131kl\u0131 ala\u015F\u0131m.", tier: 7, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#cbd5e1" }, particles: { type: "spark", color: "#cbd5e1", count: 15 }, recipe: { inputs: ["ates", "demir_kulce", "komur"] }, icon: "\u{1F9F1}", category: 7 }, ors: { id: "ors", name: "\xD6rs", description: "\xC7elik k\xFCl\xE7e ve ta\u015Ftan yontulmu\u015F demirci \xF6rs\xFC.", tier: 8, colorPalette: { primary: "#334155", secondary: "#475569", emissive: "#1e293b" }, particles: { type: "spark", color: "#94a3b8", count: 12 }, recipe: { inputs: ["celik_kulce", "tas", null] }, icon: "\u2692\uFE0F", category: 7 }, civi: { id: "civi", name: "\xC7ivi", description: "Ocakta d\xF6v\xFClm\xFC\u015F sivri u\xE7lu \xE7elik ba\u011Flant\u0131 \xE7ivisi.", tier: 6, colorPalette: { primary: "#94a3b8", secondary: "#cbd5e1", emissive: "#64748b" }, particles: { type: "spark", color: "#cbd5e1", count: 8 }, recipe: { inputs: ["ates", "demir_kulce", null] }, icon: "\u{1F4CC}", category: 7 }, tugla: { id: "tugla", name: "Tu\u011Fla", description: "F\u0131r\u0131nlanm\u0131\u015F kiremit rengi in\u015Faat blo\u011Fu.", tier: 5, colorPalette: { primary: "#ea580c", secondary: "#c2410c", emissive: "#9a3412" }, particles: { type: "dust", color: "#ea580c", count: 10 }, recipe: { inputs: ["ates", "camur", null] }, icon: "\u{1F9F1}", category: 7 }, harc: { id: "harc", name: "Har\xE7", description: "Kum, su ve ta\u015F tozundan yo\u011Frulmu\u015F in\u015Faat ba\u011Flay\u0131c\u0131s\u0131.", tier: 6, colorPalette: { primary: "#a8a29e", secondary: "#78716c", emissive: "#57534e" }, particles: { type: "dust", color: "#a8a29e", count: 10 }, recipe: { inputs: ["kum", "su", "tas"] }, icon: "\u{1FAA8}", category: 7 }, tugla_duvar: { id: "tugla_duvar", name: "Tu\u011Fla Duvar", description: "Har\xE7 ve tu\u011Flalar\u0131n \xF6r\xFClmesiyle yap\u0131lm\u0131\u015F sa\u011Flam yap\u0131 duvar\u0131.", tier: 7, colorPalette: { primary: "#c2410c", secondary: "#a8a29e", emissive: "#7c2d12" }, particles: { type: "dust", color: "#c2410c", count: 12 }, recipe: { inputs: ["harc", "tugla", null] }, icon: "\u{1F9F1}", category: 7 }, saglam_sandik: { id: "saglam_sandik", name: "Sa\u011Flam Sand\u0131k", description: "\xC7elik k\xFCl\xE7e, \xE7ivi ve ah\u015Fapla g\xFC\xE7lendirilmi\u015F kilitli sand\u0131k.", tier: 8, colorPalette: { primary: "#854d0e", secondary: "#64748b", emissive: "#eab308" }, particles: { type: "spark", color: "#eab308", count: 12 }, recipe: { inputs: ["celik_kulce", "civi", "odun"] }, icon: "\u{1F9F0}", category: 7 }, kristal: { id: "kristal", name: "Kristal", description: "Enerji ve kazma yard\u0131m\u0131yla derinden \xE7\u0131kar\u0131lan par\u0131lt\u0131l\u0131 kristal cevheri.", tier: 7, colorPalette: { primary: "#38bdf8", secondary: "#818cf8", emissive: "#0284c7" }, particles: { type: "shimmer", color: "#38bdf8", count: 20 }, recipe: { inputs: ["enerji", "kazma", "tas"] }, icon: "\u{1F48E}", category: 7 }, teleskop: { id: "teleskop", name: "Teleskop", description: "Cam, kristal ve metal merceklerden olu\u015Fan g\xF6ky\xFCz\xFC g\xF6zlem t\xFCp\xFC.", tier: 8, colorPalette: { primary: "#f59e0b", secondary: "#38bdf8", emissive: "#eab308" }, particles: { type: "shimmer", color: "#38bdf8", count: 18 }, recipe: { inputs: ["cam", "kristal", "metal"] }, icon: "\u{1F52D}", category: 7 }, vinc: { id: "vinc", name: "Vin\xE7", description: "\xC7elik k\xFCl\xE7e, elektrik motoru ve tekerleklerle \xE7al\u0131\u015Fan a\u011F\u0131r y\xFCk kald\u0131r\u0131c\u0131 vin\xE7.", tier: 9, colorPalette: { primary: "#eab308", secondary: "#1e293b", emissive: "#ca8a04" }, particles: { type: "spark", color: "#eab308", count: 22 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "tekerlek"] }, icon: "\u{1F3D7}\uFE0F", category: 7 }, yildiz_tozu: { id: "yildiz_tozu", name: "Y\u0131ld\u0131z Tozu", description: "Teleskopla g\xF6zlemlenen ve enerjiyle toplanan par\u0131lt\u0131l\u0131 kozmik toz.", tier: 8, colorPalette: { primary: "#a855f7", secondary: "#e0e7ff", emissive: "#c084fc" }, particles: { type: "shimmer", color: "#e0e7ff", count: 20 }, recipe: { inputs: ["enerji", "teleskop", null] }, icon: "\u2728", category: 8 }, prizma_tasi: { id: "prizma_tasi", name: "Prizma Ta\u015F\u0131", description: "Kristal ve y\u0131ld\u0131z tozunun birle\u015Fimiyle \u0131\u015F\u0131\u011F\u0131 tayflara ay\u0131ran kadim ta\u015F.", tier: 9, colorPalette: { primary: "#38bdf8", secondary: "#f43f5e", emissive: "#a855f7" }, particles: { type: "shimmer", color: "#38bdf8", count: 20 }, recipe: { inputs: ["kristal", "yildiz_tozu", null] }, icon: "\u{1F48E}", category: 8 }, kahin_kuresi: { id: "kahin_kuresi", name: "Kahin K\xFCresi", description: "Prizma ta\u015F\u0131, cam ve enerjiyle gelece\u011Fi g\xF6steren mistik k\xFCre.", tier: 9, colorPalette: { primary: "#6366f1", secondary: "#a855f7", emissive: "#818cf8" }, particles: { type: "shimmer", color: "#818cf8", count: 22 }, recipe: { inputs: ["cam", "enerji", "prizma_tasi"] }, icon: "\u{1F52E}", category: 8 }, portal_runu: { id: "portal_runu", name: "Portal R\xFCn\xFC", description: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131z tozuyla m\xFCh\xFCrlenmi\u015F uzay-zaman r\xFCn\xFC.", tier: 8, colorPalette: { primary: "#ec4899", secondary: "#a855f7", emissive: "#f43f5e" }, particles: { type: "spark", color: "#ec4899", count: 18 }, recipe: { inputs: ["buyu_parsomeni", "yildiz_tozu", null] }, icon: "\u{1F9FF}", category: 8 }, bosluk_sisesi: { id: "bosluk_sisesi", name: "Bo\u015Fluk \u015Ei\u015Fesi", description: "Kristal, \u015Fi\u015Fe ve y\u0131ld\u0131r\u0131m g\xFCc\xFCyle karanl\u0131k bo\u015Flu\u011Fu hapseden iksir t\xFCp\xFC.", tier: 9, colorPalette: { primary: "#1e1b4b", secondary: "#312e81", emissive: "#4c1d95" }, particles: { type: "spark", color: "#818cf8", count: 18 }, recipe: { inputs: ["kristal", "sise", "yildirim"] }, icon: "\u{1F30C}", category: 8 }, boyut_kapisi: { id: "boyut_kapisi", name: "Boyut Kap\u0131s\u0131", description: "\xC7elik k\xFCl\xE7e, portal r\xFCn\xFC ve tu\u011Fla duvardan in\u015Fa edilmi\u015F ge\xE7it kap\u0131s\u0131.", tier: 10, colorPalette: { primary: "#7e22ce", secondary: "#3b82f6", emissive: "#a855f7" }, particles: { type: "shimmer", color: "#c084fc", count: 25 }, recipe: { inputs: ["celik_kulce", "portal_runu", "tugla_duvar"] }, icon: "\u{1F6AA}", category: 8 }, anka_kulu: { id: "anka_kulu", name: "Anka K\xFCl\xFC", description: "Kutsal ate\u015F ve k\xFCllerle sonsuz d\xF6ng\xFCde k\xFCllerinden do\u011Fan mistik anka k\xFCl\xFC.", tier: 9, colorPalette: { primary: "#ef4444", secondary: "#f97316", emissive: "#f59e0b" }, particles: { type: "ember", color: "#f59e0b", count: 25 }, recipe: { inputs: ["anka_kulu", "ates", "kul"] }, icon: "\u{1FAB6}", category: 8 }, runik_zirh: { id: "runik_zirh", name: "Runik Z\u0131rh", description: "Demir z\u0131rh\u0131n \xF6r\u015Fte prizma ta\u015F\u0131 ile i\u015Flenmi\u015F efsanevi koruyucu z\u0131rh\u0131.", tier: 10, colorPalette: { primary: "#3b82f6", secondary: "#e2e8f0", emissive: "#60a5fa" }, particles: { type: "shimmer", color: "#60a5fa", count: 20 }, recipe: { inputs: ["demir_zirh", "ors", "prizma_tasi"] }, icon: "\u{1F6E1}\uFE0F", category: 8 }, firtina_kilici: { id: "firtina_kilici", name: "F\u0131rt\u0131na K\u0131l\u0131c\u0131", description: "K\u0131l\u0131ca prizma ta\u015F\u0131 ve y\u0131ld\u0131r\u0131m \xE7ak\u0131larak d\xF6v\xFClm\xFC\u015F elektrikli k\u0131l\u0131\xE7.", tier: 10, colorPalette: { primary: "#0284c7", secondary: "#facc15", emissive: "#38bdf8" }, particles: { type: "spark", color: "#facc15", count: 22 }, recipe: { inputs: ["kilic", "prizma_tasi", "yildirim"] }, icon: "\u2694\uFE0F", category: 8 }, yildiz_gecidi_cekirdegi: { id: "yildiz_gecidi_cekirdegi", name: "Y\u0131ld\u0131z Ge\xE7idi \xC7ekirde\u011Fi", description: "Bo\u015Fluk \u015Fi\u015Fesi, kahin k\xFCresi ve portal r\xFCn\xFCn\xFCn birle\u015Fimiyle evrenin kalbi.", tier: 11, colorPalette: { primary: "#d946ef", secondary: "#06b6d4", emissive: "#f43f5e" }, particles: { type: "shimmer", color: "#d946ef", count: 30 }, recipe: { inputs: ["bosluk_sisesi", "kahin_kuresi", "portal_runu"] }, icon: "\u{1F30C}", category: 8 }, kar: { id: "kar", name: "Kar", description: "Hava ve ya\u011Fmurun dondurucu so\u011Fukta kristalle\u015Fmesi.", tier: 3, colorPalette: { primary: "#f8fafc", secondary: "#e2e8f0", emissive: "#ffffff" }, particles: { type: "cloud", color: "#ffffff", count: 15 }, recipe: { inputs: ["hava", "yagmur", null] }, icon: "\u2744\uFE0F", category: 1 }, buz: { id: "buz", name: "Buz", description: "S\u0131k\u0131\u015Fm\u0131\u015F kar tanelerinin donmas\u0131yla olu\u015Fan sert, \u015Feffaf k\xFCtle.", tier: 4, colorPalette: { primary: "#38bdf8", secondary: "#bae6fd", emissive: "#7dd3fc" }, particles: { type: "shimmer", color: "#bae6fd", count: 15 }, recipe: { inputs: ["kar", "kar", null] }, icon: "\u{1F9CA}", category: 1 }, col: { id: "col", name: "\xC7\xF6l", description: "R\xFCzgar\u0131n topra\u011F\u0131 a\u015F\u0131nd\u0131r\u0131p savurmas\u0131yla olu\u015Fan sonsuz kum denizi.", tier: 4, colorPalette: { primary: "#f59e0b", secondary: "#d97706", emissive: "#fbbf24" }, particles: { type: "grain", color: "#f59e0b", count: 15 }, recipe: { inputs: ["ruzgar", "toprak", null] }, icon: "\u{1F3DC}\uFE0F", category: 1 }, tohum: { id: "tohum", name: "Tohum", description: "Bitki, toprak ve ya\u011Fmurun bereketinden do\u011Fan hayat tanesi.", tier: 4, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#854d0e" }, particles: { type: "dust", color: "#ca8a04", count: 10 }, recipe: { inputs: ["bitki", "toprak", "yagmur"] }, icon: "\u{1F331}", category: 2 }, bugday: { id: "bugday", name: "Bu\u011Fday", description: "Tohum ve su ile yeti\u015Fen alt\u0131n sar\u0131s\u0131 ba\u015Fak.", tier: 5, colorPalette: { primary: "#eab308", secondary: "#fde047", emissive: "#ca8a04" }, particles: { type: "dust", color: "#fde047", count: 12 }, recipe: { inputs: ["bugday", "su", "tohum"] }, icon: "\u{1F33E}", category: 2 }, nane: { id: "nane", name: "Nane", description: "Buzlu so\u011Fukta ferahlat\u0131c\u0131 aromas\u0131yla yeti\u015Fen ye\u015Fil nane yapra\u011F\u0131.", tier: 4, colorPalette: { primary: "#10b981", secondary: "#34d399", emissive: "#059669" }, particles: { type: "spark", color: "#34d399", count: 10 }, recipe: { inputs: ["bitki", "buz", null] }, icon: "\u{1F33F}", category: 2 }, agac_kabugu: { id: "agac_kabugu", name: "A\u011Fa\xE7 Kabu\u011Fu", description: "Metal b\u0131\xE7akla a\u011Fa\xE7tan soyulmu\u015F sert d\u0131\u015F kabuk dokusu.", tier: 5, colorPalette: { primary: "#78350f", secondary: "#92400e", emissive: "#451a03" }, particles: { type: "dust", color: "#78350f", count: 10 }, recipe: { inputs: ["agac", "metal_bicak", null] }, icon: "\u{1FAB5}", category: 2 }, inek: { id: "inek", name: "\u0130nek", description: "Toprakta beslenen uysal ve verimli b\xFCy\xFCkba\u015F hayvan.", tier: 7, colorPalette: { primary: "#f8fafc", secondary: "#1e293b", emissive: "#cbd5e1" }, particles: { type: "dust", color: "#f8fafc", count: 10 }, recipe: { inputs: ["hayvan", "toprak", null] }, icon: "\u{1F404}", category: 3 }, sut: { id: "sut", name: "S\xFCt", description: "\xC7\xF6mle\u011Fe sa\u011F\u0131lm\u0131\u015F taze, besleyici beyaz s\xFCt.", tier: 8, colorPalette: { primary: "#ffffff", secondary: "#f1f5f9", emissive: "#e2e8f0" }, particles: { type: "drop", color: "#ffffff", count: 12 }, recipe: { inputs: ["comlek", "inek", null] }, icon: "\u{1F95B}", category: 3 }, yumurta: { id: "yumurta", name: "Yumurta", description: "Tohumla beslenen ku\u015Fun yumurtlad\u0131\u011F\u0131 p\xFCr\xFCzs\xFCz yumurta.", tier: 7, colorPalette: { primary: "#fef3c7", secondary: "#fde68a", emissive: "#fef08a" }, particles: { type: "dust", color: "#fef3c7", count: 8 }, recipe: { inputs: ["kus", "tohum", null] }, icon: "\u{1F95A}", category: 3 }, mercan: { id: "mercan", name: "Mercan", description: "Bal\u0131k ve su bitkilerinin ekosisteminde olu\u015Fan renkli deniz mercan\u0131.", tier: 7, colorPalette: { primary: "#f43f5e", secondary: "#fb7185", emissive: "#e11d48" }, particles: { type: "drop", color: "#fb7185", count: 12 }, recipe: { inputs: ["balik", "bitki", "su"] }, icon: "\u{1FAB8}", category: 3 }, olta: { id: "olta", name: "Olta", description: "Ah\u015Fap \xE7ubuk ve ipe ba\u011Fl\u0131 bal\u0131k i\u011Fnesi.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#cbd5e1", emissive: "#d4a373" }, particles: { type: "drop", color: "#38bdf8", count: 10 }, recipe: { inputs: ["balik", "ip", "odun"] }, icon: "\u{1F3A3}", category: 4 }, yelken: { id: "yelken", name: "Yelken", description: "R\xFCzgar\u0131 yakalamak i\xE7in ah\u015Fap direkte gerilmi\u015F dayan\u0131kl\u0131 kuma\u015F.", tier: 7, colorPalette: { primary: "#f8fafc", secondary: "#94a3b8", emissive: "#e2e8f0" }, particles: { type: "wind", color: "#ffffff", count: 12 }, recipe: { inputs: ["kumas", "odun", null] }, icon: "\u26F5", category: 4 }, sal: { id: "sal", name: "Sal", description: "\u0130p ve odunlarla ba\u011Flanan yelkenli deniz ta\u015F\u0131t\u0131.", tier: 8, colorPalette: { primary: "#78350f", secondary: "#f8fafc", emissive: "#92400e" }, particles: { type: "drop", color: "#38bdf8", count: 12 }, recipe: { inputs: ["ip", "odun", "yelken"] }, icon: "\u{1F6F6}", category: 4 }, obsidyen_bicak: { id: "obsidyen_bicak", name: "Obsidyen B\u0131\xE7ak", description: "Sivri obsidyen ve ah\u015Fap sap\u0131n iplerle ba\u011Flanmas\u0131yla olu\u015Fan keskin b\u0131\xE7ak.", tier: 7, colorPalette: { primary: "#0f172a", secondary: "#8b5a2b", emissive: "#334155" }, particles: { type: "spark", color: "#94a3b8", count: 10 }, recipe: { inputs: ["ip", "obsidyen", "odun"] }, icon: "\u{1F52A}", category: 4 }, peynir: { id: "peynir", name: "Peynir", description: "Is\u0131t\u0131lan s\xFCt\xFCn mayalanmas\u0131yla elde edilen lezzetli peynir blo\u011Fu.", tier: 8, colorPalette: { primary: "#facc15", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "dust", color: "#fde047", count: 10 }, recipe: { inputs: ["ates", "sut", null] }, icon: "\u{1F9C0}", category: 5 }, un: { id: "un", name: "Un", description: "Bu\u011Fday\u0131n ta\u015F de\u011Firmende \xF6\u011F\xFCt\xFClmesiyle olu\u015Fan ince beyaz toz.", tier: 6, colorPalette: { primary: "#fef3c7", secondary: "#ffffff", emissive: "#fde68a" }, particles: { type: "dust", color: "#ffffff", count: 12 }, recipe: { inputs: ["bugday", "tas", null] }, icon: "\u{1F33E}", category: 5 }, hamur: { id: "hamur", name: "Hamur", description: "Un ve suyun yo\u011Frulmas\u0131yla haz\u0131rlanan ekmek hamuru.", tier: 7, colorPalette: { primary: "#fef08a", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "dust", color: "#fef08a", count: 10 }, recipe: { inputs: ["su", "un", null] }, icon: "\u{1F35E}", category: 5 }, ekmek: { id: "ekmek", name: "Ekmek", description: "F\u0131r\u0131nda pi\u015Fen mis kokulu k\u0131zarm\u0131\u015F somun ekmek.", tier: 8, colorPalette: { primary: "#b45309", secondary: "#d97706", emissive: "#78350f" }, particles: { type: "spark", color: "#d97706", count: 10 }, recipe: { inputs: ["ates", "hamur", null] }, icon: "\u{1F35E}", category: 5 }, disli_cark: { id: "disli_cark", name: "Di\u015Fli \xC7ark", description: "Demir k\xFCl\xE7e ve \xE7ivilerden \xFCretilmi\u015F hassas mekanik di\u015Fli.", tier: 7, colorPalette: { primary: "#64748b", secondary: "#cbd5e1", emissive: "#475569" }, particles: { type: "spark", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["civi", "demir_kulce", null] }, icon: "\u2699\uFE0F", category: 6 }, degirmen: { id: "degirmen", name: "De\u011Firmen", description: "Buhar motoru ve di\u015Flilerle \xE7al\u0131\u015Fan dev \xF6\u011F\xFCtme tesisi.", tier: 9, colorPalette: { primary: "#78350f", secondary: "#64748b", emissive: "#f59e0b" }, particles: { type: "dust", color: "#f59e0b", count: 15 }, recipe: { inputs: ["buhar_motoru", "disli_cark", "odun"] }, icon: "\u{1F6DE}", category: 6 }, ayna: { id: "ayna", name: "Ayna", description: "Cam, metal ve enerji p\xFCr\xFCzs\xFCzl\xFC\u011F\xFC ile \u0131\u015F\u0131\u011F\u0131 yans\u0131tan parlak y\xFCzey.", tier: 7, colorPalette: { primary: "#e2e8f0", secondary: "#38bdf8", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["cam", "enerji", "metal"] }, icon: "\u{1FA9E}", category: 6 }, saat: { id: "saat", name: "Saat", description: "\u0130nce di\u015Fliler ve enerjiyle t\u0131k\u0131r t\u0131k\u0131r zaman\u0131 \xF6l\xE7en mekanizma.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#94a3b8", emissive: "#fde047" }, particles: { type: "spark", color: "#fde047", count: 12 }, recipe: { inputs: ["demir_kulce", "disli_cark", "enerji"] }, icon: "\u23F0", category: 6 }, demir_parmaklik: { id: "demir_parmaklik", name: "Demir Parmakl\u0131k", description: "D\xF6v\xFClm\xFC\u015F \xE7elik \xE7ubuklardan olu\u015Fan sa\u011Flam demir parmakl\u0131k.", tier: 7, colorPalette: { primary: "#334155", secondary: "#64748b", emissive: "#1e293b" }, particles: { type: "spark", color: "#94a3b8", count: 10 }, recipe: { inputs: ["ates", "demir_kulce", "demir_kulce"] }, icon: "\u{1F9F1}", category: 7 }, savas_baltasi: { id: "savas_baltasi", name: "Sava\u015F Baltas\u0131", description: "\xC7elik k\xFCl\xE7e ve ah\u015Fap saptan yap\u0131lan a\u011F\u0131r kesici balta.", tier: 8, colorPalette: { primary: "#475569", secondary: "#78350f", emissive: "#94a3b8" }, particles: { type: "spark", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["celik_kulce", "odun", null] }, icon: "\u{1FA93}", category: 7 }, gozetleme_kulesi: { id: "gozetleme_kulesi", name: "G\xF6zetleme Kulesi", description: "Har\xE7 ve tu\u011Flalardan y\xFCkselen heybetli savunma kulesi.", tier: 8, colorPalette: { primary: "#c2410c", secondary: "#78716c", emissive: "#9a3412" }, particles: { type: "dust", color: "#c2410c", count: 15 }, recipe: { inputs: ["harc", "tugla", "tugla"] }, icon: "\u{1F3F0}", category: 7 }, kale_kapisi: { id: "kale_kapisi", name: "Kale Kap\u0131s\u0131", description: "\xC7elik k\xFCl\xE7e, \xE7ivi ve demir parmakl\u0131klarla z\u0131rhlanm\u0131\u015F dev kale kap\u0131s\u0131.", tier: 9, colorPalette: { primary: "#1e293b", secondary: "#475569", emissive: "#64748b" }, particles: { type: "spark", color: "#94a3b8", count: 15 }, recipe: { inputs: ["celik_kulce", "civi", "demir_parmaklik"] }, icon: "\u{1F6AA}", category: 7 }, buz_runu: { id: "buz_runu", name: "Buz R\xFCn\xFC", description: "Buz ve b\xFCy\xFC par\u015F\xF6meniyle dondurucu so\u011Fuk m\xFCh\xFCr\xFC.", tier: 8, colorPalette: { primary: "#0284c7", secondary: "#38bdf8", emissive: "#7dd3fc" }, particles: { type: "shimmer", color: "#7dd3fc", count: 18 }, recipe: { inputs: ["buz", "buyu_parsomeni", null] }, icon: "\u2744\uFE0F", category: 8 }, cehennem_tasi: { id: "cehennem_tasi", name: "Cehennem Ta\u015F\u0131", description: "Ate\u015F, obsidyen ve portal r\xFCn\xFCn\xFCn alevli boyutsal kayas\u0131.", tier: 9, colorPalette: { primary: "#dc2626", secondary: "#1e293b", emissive: "#f97316" }, particles: { type: "ember", color: "#f97316", count: 20 }, recipe: { inputs: ["ates", "obsidyen", "portal_runu"] }, icon: "\u{1F525}", category: 8 }, zaman_kum_saati: { id: "zaman_kum_saati", name: "Zaman Kum Saati", description: "Kristal, portal r\xFCn\xFC ve saat ile zaman\u0131 ak\u0131tan mistik kum saati.", tier: 10, colorPalette: { primary: "#f59e0b", secondary: "#ec4899", emissive: "#fbbf24" }, particles: { type: "shimmer", color: "#fbbf24", count: 22 }, recipe: { inputs: ["kristal", "portal_runu", "saat"] }, icon: "\u23F3", category: 8 }, illuzyon_aynasi: { id: "illuzyon_aynasi", name: "\u0130ll\xFCzyon Aynas\u0131", description: "Ayna, prizma ta\u015F\u0131 ve y\u0131ld\u0131z tozundan ger\xE7ekli\u011Fi b\xFCken b\xFCy\xFCl\xFC ayna.", tier: 10, colorPalette: { primary: "#d946ef", secondary: "#38bdf8", emissive: "#f43f5e" }, particles: { type: "shimmer", color: "#d946ef", count: 25 }, recipe: { inputs: ["ayna", "prizma_tasi", "yildiz_tozu"] }, icon: "\u{1FA9E}", category: 8 }, siber_kristal: { id: "siber_kristal", name: "Siber Kristal", description: "Kristal, elektrik motoru ve prizma ta\u015F\u0131n\u0131n rezonans\u0131yla par\u0131ldayan veri \xE7ekirde\u011Fi.", tier: 9, colorPalette: { primary: "#06b6d4", secondary: "#3b82f6", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#38bdf8", count: 18 }, recipe: { inputs: ["kristal", "elektrik_motoru", "prizma_tasi"] }, icon: "\u{1F48E}", category: 9 }, hologram_kupu: { id: "hologram_kupu", name: "Hologram K\xFCp\xFC", description: "Cam k\xFCp i\xE7inde s\u0131k\u0131\u015Ft\u0131r\u0131lm\u0131\u015F siber kristal ve enerji \u0131\u015F\u0131k projeksiyonu.", tier: 9, colorPalette: { primary: "#10b981", secondary: "#06b6d4", emissive: "#059669" }, particles: { type: "spark", color: "#34d399", count: 16 }, recipe: { inputs: ["cam", "enerji", "siber_kristal"] }, icon: "\u{1F9CA}", category: 9 }, buhar_jeneratoru: { id: "buhar_jeneratoru", name: "Buhar Jenerat\xF6r\xFC", description: "Buhar motoru ve \xE7elik di\u015Flilerle g\xFC\xE7lendirilmi\u015F devasa pirin\xE7 tazyik makinesi.", tier: 9, colorPalette: { primary: "#d97706", secondary: "#b45309", emissive: "#f59e0b" }, particles: { type: "smoke", color: "#d1d5db", count: 20 }, recipe: { inputs: ["buhar_motoru", "celik_kulce", "disli_cark"] }, icon: "\u2699\uFE0F", category: 9 }, meka_zirhi: { id: "meka_zirhi", name: "Meka Z\u0131rh\u0131", description: "R\xFCnik z\u0131rh\u0131n \xE7elik plakalar ve plazma jenerat\xF6r\xFCyle donat\u0131lm\u0131\u015F g\xFC\xE7 g\xF6vdesi.", tier: 9, colorPalette: { primary: "#475569", secondary: "#f97316", emissive: "#ea580c" }, particles: { type: "spark", color: "#fb923c", count: 15 }, recipe: { inputs: ["celik_kulce", "runik_zirh", "buhar_jeneratoru"] }, icon: "\u{1F6E1}\uFE0F", category: 9 }, plazma_tufegi: { id: "plazma_tufegi", name: "Plazma T\xFCfe\u011Fi", description: "F\u0131rt\u0131na k\u0131l\u0131c\u0131n\u0131n enerjisi ve siber kristal ile ate\u015Flenen y\xFCksek enerjili silah.", tier: 9, colorPalette: { primary: "#3b82f6", secondary: "#ec4899", emissive: "#6366f1" }, particles: { type: "spark", color: "#f43f5e", count: 22 }, recipe: { inputs: ["celik_kulce", "firtina_kilici", "siber_kristal"] }, icon: "\u{1F52B}", category: 9 }, felsefe_tasi: { id: "felsefe_tasi", name: "Felsefe Ta\u015F\u0131", description: "Anka k\xFCl\xFC ve cehennem ta\u015F\u0131n\u0131n saf simya ile yo\u011Fruldu\u011Fu efsanevi cevher.", tier: 10, colorPalette: { primary: "#dc2626", secondary: "#f59e0b", emissive: "#ef4444" }, particles: { type: "shimmer", color: "#f87171", count: 26 }, recipe: { inputs: ["anka_kulu", "cehennem_tasi", "prizma_tasi"] }, icon: "\u{1F52E}", category: 9 }, gunes_paneli: { id: "gunes_paneli", name: "G\xFCne\u015F Paneli", description: "Cam y\xFCzey ve siber kristal katmanlar\u0131yla \u0131\u015F\u0131\u011F\u0131 do\u011Frudan elektri\u011Fe \xE7eviren panel.", tier: 9, colorPalette: { primary: "#0284c7", secondary: "#facc15", emissive: "#38bdf8" }, particles: { type: "spark", color: "#fef08a", count: 14 }, recipe: { inputs: ["cam", "elektrik_motoru", "siber_kristal"] }, icon: "\u2600\uFE0F", category: 9 }, yercekimsiz_platform: { id: "yercekimsiz_platform", name: "Yer\xE7ekimsiz Platform", description: "M\u0131knat\u0131s, portal r\xFCn\xFC ve siber kristal ile havada as\u0131l\u0131 duran ini\u015F pedi.", tier: 9, colorPalette: { primary: "#9333ea", secondary: "#c084fc", emissive: "#a855f7" }, particles: { type: "ring", color: "#c084fc", count: 20 }, recipe: { inputs: ["miknatis", "portal_runu", "siber_kristal"] }, icon: "\u{1F6F8}", category: 9 }, biyonik_kol: { id: "biyonik_kol", name: "Biyonik Kol", description: "\xC7elik eklemler ve siber kristal sinir u\xE7lar\u0131yla donat\u0131lm\u0131\u015F sibernetik uzuv.", tier: 9, colorPalette: { primary: "#64748b", secondary: "#06b6d4", emissive: "#0284c7" }, particles: { type: "spark", color: "#38bdf8", count: 12 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "siber_kristal"] }, icon: "\u{1F9BE}", category: 9 }, usturlap: { id: "usturlap", name: "Kozmik Usturlap", description: "Pusula ve teleskopun alt\u0131n y\xF6r\xFCnge halkalar\u0131yla g\xF6kcisimlerini haritalayan alet.", tier: 9, colorPalette: { primary: "#eab308", secondary: "#3b82f6", emissive: "#ca8a04" }, particles: { type: "shimmer", color: "#fde047", count: 16 }, recipe: { inputs: ["pusula", "teleskop", "yildiz_tozu"] }, icon: "\u{1F9ED}", category: 9 }, tesla_bobini: { id: "tesla_bobini", name: "Tesla Bobini", description: "Y\u0131ld\u0131r\u0131m g\xFCc\xFCn\xFC kesintisiz y\xFCksek voltaj arklar\u0131na d\xF6n\xFC\u015Ft\xFCren kule jenerat\xF6r\xFC.", tier: 9, colorPalette: { primary: "#0284c7", secondary: "#38bdf8", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#60a5fa", count: 28 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "yildirim"] }, icon: "\u26A1", category: 9 }, kuantum_islemci: { id: "kuantum_islemci", name: "Kuantum \u0130\u015Flemci", description: "Prizma ta\u015F\u0131 ve siber kristal matrisleriyle hesaplama yapan s\xFCper \xE7ip.", tier: 10, colorPalette: { primary: "#0284c7", secondary: "#22d3ee", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#38bdf8", count: 20 }, recipe: { inputs: ["elektrik_motoru", "prizma_tasi", "siber_kristal"] }, icon: "\u{1F4BB}", category: 9 }, minyatur_yildiz: { id: "minyatur_yildiz", name: "Minyat\xFCr Y\u0131ld\u0131z", description: "Manyetik muhafaza i\xE7inde kontrol alt\u0131nda tutulan mikro s\xFCpernova.", tier: 10, colorPalette: { primary: "#f97316", secondary: "#eab308", emissive: "#ef4444" }, particles: { type: "flame", color: "#fb923c", count: 30 }, recipe: { inputs: ["bosluk_sisesi", "yildiz_gecidi_cekirdegi", "yildiz_tozu"] }, icon: "\u2600\uFE0F", category: 9 }, dag: { id: "dag", name: "Da\u011F", description: "Y\xFCkselen devasa kaya k\xFCtlesi ve karl\u0131 zirveler.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#475569" }, particles: { type: "dust", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["toprak", "tas", null] }, icon: "\u26F0\uFE0F", category: 10 }, kaya: { id: "kaya", name: "Kaya", description: "Y\u0131llar\u0131n bask\u0131s\u0131yla sertle\u015Fmi\u015F yosunlu monolit ta\u015F.", tier: 2, colorPalette: { primary: "#78716c", secondary: "#a8a29e", emissive: "#57534e" }, particles: { type: "dust", color: "#a8a29e", count: 10 }, recipe: { inputs: ["tas", "tas", null] }, icon: "\u{1FAA8}", category: 10 }, gunes: { id: "gunes", name: "G\xFCne\u015F", description: "G\xF6ky\xFCz\xFCn\xFC ayd\u0131nlatan ve \u0131s\u0131tan saf ya\u015Fam \u0131\u015F\u0131\u011F\u0131.", tier: 2, colorPalette: { primary: "#eab308", secondary: "#facc15", emissive: "#ca8a04" }, particles: { type: "spark", color: "#fef08a", count: 25 }, recipe: { inputs: ["ates", "enerji", null] }, icon: "\u2600\uFE0F", category: 10 }, okyanus: { id: "okyanus", name: "Okyanus", description: "U\xE7suz bucaks\u0131z derin sular ve co\u015Fkulu dalgalar.", tier: 2, colorPalette: { primary: "#0284c7", secondary: "#0369a1", emissive: "#075985" }, particles: { type: "bubble", color: "#38bdf8", count: 20 }, recipe: { inputs: ["su", "su", null] }, icon: "\u{1F30A}", category: 10 }, volkan: { id: "volkan", name: "Volkan", description: "Zirvesinden duman ve k\u0131zg\u0131n lavlar f\u0131\u015Fk\u0131ran yanarda\u011F.", tier: 3, colorPalette: { primary: "#dc2626", secondary: "#ea580c", emissive: "#b91c1c" }, particles: { type: "flame", color: "#f97316", count: 24 }, recipe: { inputs: ["dag", "lav", null] }, icon: "\u{1F30B}", category: 10 }, ada: { id: "ada", name: "Ada", description: "Turkuaz sular\u0131n ortas\u0131nda palmiyelerle bezeli kara par\xE7as\u0131.", tier: 3, colorPalette: { primary: "#10b981", secondary: "#06b6d4", emissive: "#059669" }, particles: { type: "bubble", color: "#6ee7b7", count: 14 }, recipe: { inputs: ["okyanus", "toprak", null] }, icon: "\u{1F3DD}\uFE0F", category: 10 }, nehir: { id: "nehir", name: "Nehir", description: "Topra\u011F\u0131 yararak ak\u0131p giden co\u015Fkun su yolu.", tier: 2, colorPalette: { primary: "#0ea5e9", secondary: "#38bdf8", emissive: "#0284c7" }, particles: { type: "bubble", color: "#7dd3fc", count: 16 }, recipe: { inputs: ["su", "toprak", null] }, icon: "\u{1F3DE}\uFE0F", category: 10 }, orman: { id: "orman", name: "Orman", description: "Yemye\u015Fil a\u011Fa\xE7lar ve g\xFCr bitki \xF6rt\xFCs\xFCyle kapl\u0131 koruluk.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#22c55e", emissive: "#166534" }, particles: { type: "leaf", color: "#4ade80", count: 18 }, recipe: { inputs: ["agac", "agac", null] }, icon: "\u{1F332}", category: 10 }, firtina_bulutu: { id: "firtina_bulutu", name: "F\u0131rt\u0131na Bulutu", description: "\u015Eim\u015Fekler \xE7akt\u0131ran koyu gri f\u0131rt\u0131na k\xFCmesi.", tier: 2, colorPalette: { primary: "#475569", secondary: "#334155", emissive: "#facc15" }, particles: { type: "spark", color: "#fef08a", count: 20 }, recipe: { inputs: ["hava", "yagmur", "yildirim"] }, icon: "\u{1F329}\uFE0F", category: 10 }, magara: { id: "magara", name: "Ma\u011Fara", description: "Da\u011F\u0131n derinliklerine uzanan gizemli karanl\u0131k kovuk.", tier: 2, colorPalette: { primary: "#334155", secondary: "#1e293b", emissive: "#0f172a" }, particles: { type: "dust", color: "#64748b", count: 12 }, recipe: { inputs: ["dag", "tas", null] }, icon: "\u{1F573}\uFE0F", category: 10 }, gokkusagi: { id: "gokkusagi", name: "G\xF6kku\u015Fa\u011F\u0131", description: "G\xFCne\u015F \u0131\u015F\u0131nlar\u0131n\u0131n ya\u011Fmur damlalar\u0131nda k\u0131r\u0131lmas\u0131yla do\u011Fan renk c\xFCmb\xFC\u015F\xFC.", tier: 3, colorPalette: { primary: "#ec4899", secondary: "#3b82f6", emissive: "#eab308" }, particles: { type: "shimmer", color: "#f472b6", count: 25 }, recipe: { inputs: ["gunes", "yagmur", null] }, icon: "\u{1F308}", category: 10 }, kanyon: { id: "kanyon", name: "Kanyon", description: "Nehrin y\xFCzy\u0131llar boyu oydu\u011Fu derin k\u0131z\u0131l kanyon vadisi.", tier: 3, colorPalette: { primary: "#b45309", secondary: "#9a3412", emissive: "#78350f" }, particles: { type: "dust", color: "#d97706", count: 15 }, recipe: { inputs: ["dag", "nehir", null] }, icon: "\u{1F3DC}\uFE0F", category: 10 }, fay_hatti: { id: "fay_hatti", name: "Fay Hatt\u0131", description: "Yerkabu\u011Funun \u015Fiddetle sars\u0131l\u0131p ayr\u0131ld\u0131\u011F\u0131 derin yar\u0131k.", tier: 2, colorPalette: { primary: "#57534e", secondary: "#44403c", emissive: "#292524" }, particles: { type: "dust", color: "#78716c", count: 14 }, recipe: { inputs: ["toprak", "toprak", "tas"] }, icon: "\u26A1", category: 10 }, bulut: { id: "bulut", name: "Bulut", description: "G\xF6ky\xFCz\xFCnde s\xFCz\xFClen pamuksu beyaz su buhar\u0131 k\xFCmesi.", tier: 1, colorPalette: { primary: "#e2e8f0", secondary: "#f8fafc", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 18 }, recipe: { inputs: ["buhar", "hava", null] }, icon: "\u2601\uFE0F", category: 10 }, at: { id: "at", name: "At", description: "Sad\u0131k, g\xFC\xE7l\xFC ve r\xFCzg\xE2r gibi h\u0131zl\u0131 binek hayvan\u0131.", tier: 2, colorPalette: { primary: "#854d0e", secondary: "#a16207", emissive: "#713f12" }, particles: { type: "dust", color: "#ca8a04", count: 12 }, recipe: { inputs: ["hayvan", "toprak", null] }, icon: "\u{1F434}", category: 3 }, koyun: { id: "koyun", name: "Koyun", description: "Yumu\u015Fac\u0131k beyaz y\xFCnleriyle otlaklarda yay\u0131lan uysal hayvan.", tier: 2, colorPalette: { primary: "#f8fafc", secondary: "#e2e8f0", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 10 }, recipe: { inputs: ["bitki", "hayvan", null] }, icon: "\u{1F411}", category: 3 }, kurt: { id: "kurt", name: "Kurt", description: "Dolunaya uluyan, vah\u015Fi do\u011Fan\u0131n keskin g\xF6zl\xFC avc\u0131s\u0131.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#475569", emissive: "#334155" }, particles: { type: "spark", color: "#94a3b8", count: 14 }, recipe: { inputs: ["hayvan", "orman", null] }, icon: "\u{1F43A}", category: 3 }, ari: { id: "ari", name: "Ar\u0131", description: "\xC7i\xE7ek \xE7i\xE7ek gezip nektar toplayan \xE7al\u0131\u015Fkan bal ar\u0131s\u0131.", tier: 2, colorPalette: { primary: "#eab308", secondary: "#000000", emissive: "#ca8a04" }, particles: { type: "spark", color: "#facc15", count: 12 }, recipe: { inputs: ["kus", "nilufer", null] }, icon: "\u{1F41D}", category: 3 }, yilan: { id: "yilan", name: "Y\u0131lan", description: "Sessizce s\xFCz\xFClen, zehirli ve gizemli s\xFCr\xFCngen.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#16a34a", emissive: "#14532d" }, particles: { type: "bubble", color: "#4ade80", count: 10 }, recipe: { inputs: ["hayvan", "zehirli_sivi", null] }, icon: "\u{1F40D}", category: 3 }, baykus: { id: "baykus", name: "Bayku\u015F", description: "Gecenin karanl\u0131\u011F\u0131nda orman\u0131 g\xF6zleyen bilge gece ku\u015Fu.", tier: 2, colorPalette: { primary: "#78350f", secondary: "#b45309", emissive: "#451a03" }, particles: { type: "feather", color: "#d97706", count: 12 }, recipe: { inputs: ["kus", "orman", null] }, icon: "\u{1F989}", category: 3 }, kaplumbaga: { id: "kaplumbaga", name: "Kaplumba\u011Fa", description: "A\u011F\u0131r ad\u0131mlarla y\xFCr\xFCyen, sa\u011Flam kabuklu bilge amfibi.", tier: 2, colorPalette: { primary: "#166534", secondary: "#854d0e", emissive: "#14532d" }, particles: { type: "bubble", color: "#86efac", count: 8 }, recipe: { inputs: ["hayvan", "su", "tas"] }, icon: "\u{1F422}", category: 3 }, bal: { id: "bal", name: "Bal Kavanozu", description: "\xC7al\u0131\u015Fkan ar\u0131lar\u0131n \xE7i\xE7ek nektar\u0131ndan s\xFCzd\xFC\u011F\xFC alt\u0131n tatl\u0131l\u0131k.", tier: 3, colorPalette: { primary: "#f59e0b", secondary: "#fbbf24", emissive: "#d97706" }, particles: { type: "shimmer", color: "#fde047", count: 16 }, recipe: { inputs: ["ari", "comlek", null] }, icon: "\u{1F36F}", category: 4 }, nilufer: { id: "nilufer", name: "Nil\xFCfer", description: "Durgun sular\u0131n \xFCst\xFCnde zarafetle a\xE7an pembe \xE7i\xE7ek.", tier: 2, colorPalette: { primary: "#ec4899", secondary: "#f472b6", emissive: "#db2777" }, particles: { type: "leaf", color: "#fbcfe8", count: 14 }, recipe: { inputs: ["bitki", "su", null] }, icon: "\u{1FAB7}", category: 2 }, elma: { id: "elma", name: "Elma", description: "A\u011Fa\xE7 dallar\u0131nda olgunla\u015Fm\u0131\u015F sulu ve k\u0131pk\u0131rm\u0131z\u0131 meyve.", tier: 2, colorPalette: { primary: "#dc2626", secondary: "#ef4444", emissive: "#b91c1c" }, particles: { type: "leaf", color: "#f87171", count: 10 }, recipe: { inputs: ["agac", "gunes", null] }, icon: "\u{1F34E}", category: 2 }, kurbaga: { id: "kurbaga", name: "Kurba\u011Fa", description: "Nil\xFCfer yapraklar\u0131 aras\u0131nda ne\u015Feyle s\u0131\xE7rayan amfibi.", tier: 2, colorPalette: { primary: "#22c55e", secondary: "#16a34a", emissive: "#15803d" }, particles: { type: "bubble", color: "#86efac", count: 12 }, recipe: { inputs: ["camur", "hayvan", null] }, icon: "\u{1F438}", category: 3 }, sincap: { id: "sincap", name: "Sincap", description: "Palamut toplay\u0131p a\u011Fa\xE7 kovuklar\u0131nda saklayan sevimli kemirgen.", tier: 2, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#854d0e" }, particles: { type: "dust", color: "#eab308", count: 10 }, recipe: { inputs: ["hayvan", "tohum", null] }, icon: "\u{1F43F}\uFE0F", category: 3 }, geyik: { id: "geyik", name: "Geyik", description: "Orman\u0131n derinliklerinde s\xFCz\xFClen heybetli boynuzlu geyik.", tier: 3, colorPalette: { primary: "#92400e", secondary: "#b45309", emissive: "#78350f" }, particles: { type: "leaf", color: "#fde047", count: 14 }, recipe: { inputs: ["hayvan", "orman", "dag"] }, icon: "\u{1F98C}", category: 3 }, kelebek: { id: "kelebek", name: "Kelebek", description: "Rengarenk kanatlar\u0131yla \xE7i\xE7ekler aras\u0131nda dans eden b\xF6cek.", tier: 2, colorPalette: { primary: "#3b82f6", secondary: "#f97316", emissive: "#2563eb" }, particles: { type: "spark", color: "#93c5fd", count: 18 }, recipe: { inputs: ["kus", "nilufer", "hava"] }, icon: "\u{1F98B}", category: 3 }, sis: { id: "sis", name: "Sis", description: "Havan\u0131n su buhar\u0131 ile yo\u011Fu\u015Fmas\u0131 sonucu yery\xFCz\xFCne inen hafif pus.", tier: 2, colorPalette: { primary: "#cbd5e1", secondary: "#94a3b8", emissive: "#64748b" }, particles: { type: "cloud", color: "#e2e8f0", count: 15 }, recipe: { inputs: ["hava", "su", null] }, icon: "\u{1F32B}\uFE0F", category: "elements" }, gayzer: { id: "gayzer", name: "Gayzer", description: "Yeralt\u0131ndaki \u0131s\u0131nm\u0131\u015F su ve buhar\u0131n ta\u015Flar aras\u0131ndan f\u0131\u015Fk\u0131rmas\u0131.", tier: 2, colorPalette: { primary: "#0ea5e9", secondary: "#38bdf8", emissive: "#0284c7" }, particles: { type: "bubble", color: "#ffffff", count: 20 }, recipe: { inputs: ["ates", "toprak", "su"] }, icon: "\u2668\uFE0F", category: "elements" }, kaktus: { id: "kaktus", name: "Kakt\xFCs", description: "K\u0131zg\u0131n \xE7\xF6l kumlar\u0131nda bile dimdik duran \xE7i\xE7ekli dikenli bitki.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#22c55e", emissive: "#166534" }, particles: { type: "leaf", color: "#86efac", count: 10 }, recipe: { inputs: ["bitki", "kum", null] }, icon: "\u{1F335}", category: "nature" }, cam_agaci: { id: "cam_agaci", name: "Karl\u0131 \xC7am A\u011Fac\u0131", description: "Karl\u0131 da\u011F yama\xE7lar\u0131nda k\u0131\u015F\u0131n da beyaz karlar alt\u0131nda dimdik duran \xE7am a\u011Fac\u0131.", tier: 2, colorPalette: { primary: "#166534", secondary: "#f8fafc", emissive: "#14532d" }, particles: { type: "cloud", color: "#f8fafc", count: 12 }, recipe: { inputs: ["agac", "kar", null] }, icon: "\u{1F332}", category: "nature" }, tavuk: { id: "tavuk", name: "Tavuk", description: "Yumurtadan \xE7\u0131kan, tarlalarda dola\u015Fan sevimli k\xFCmes hayvan\u0131.", tier: 2, colorPalette: { primary: "#f59e0b", secondary: "#fbbf24", emissive: "#d97706" }, particles: { type: "spark", color: "#fef08a", count: 8 }, recipe: { inputs: ["kus", "yumurta", null] }, icon: "\u{1F414}", category: "life" }, kedi: { id: "kedi", name: "Kedi", description: "S\xFCt\xFC ve s\u0131ca\u011F\u0131 seven sevimli uysal evcil dost.", tier: 2, colorPalette: { primary: "#f97316", secondary: "#ea580c", emissive: "#c2410c" }, particles: { type: "spark", color: "#fed7aa", count: 10 }, recipe: { inputs: ["hayvan", "sut", null] }, icon: "\u{1F431}", category: "life" }, mesale: { id: "mesale", name: "Me\u015Fale", description: "Karanl\u0131k ma\u011Faralar\u0131 ve yollar\u0131 ayd\u0131nlatan alevli ah\u015Fap me\u015Fale.", tier: 2, colorPalette: { primary: "#f97316", secondary: "#ef4444", emissive: "#ea580c" }, particles: { type: "spark", color: "#ffaa00", count: 15 }, recipe: { inputs: ["ates", "odun", null] }, icon: "\u{1F526}", category: "craft_tools" }, somon: { id: "somon", name: "Somon", description: "Ak\u0131nt\u0131n\u0131n tersine nehirlerde s\u0131\xE7rayan \xE7evik tatl\u0131 su bal\u0131\u011F\u0131.", tier: 2, colorPalette: { primary: "#fb7185", secondary: "#f43f5e", emissive: "#e11d48" }, particles: { type: "bubble", color: "#fecdd3", count: 10 }, recipe: { inputs: ["balik", "nehir", null] }, icon: "\u{1F41F}", category: "life" }, yay: { id: "yay", name: "Yay", description: "Esnek bir dal ve gergin ip ile yap\u0131lan avc\u0131 silah\u0131.", tier: 2, colorPalette: { primary: "#78350f", secondary: "#92400e", emissive: "#451a03" }, particles: { type: "spark", color: "#fde047", count: 10 }, recipe: { inputs: ["ip", "odun", null] }, icon: "\u{1F3F9}", category: "craft_tools" }, barut_ficisi: { id: "barut_ficisi", name: "Barut F\u0131\xE7\u0131s\u0131", description: "Ate\u015Fle bulu\u015Ftu\u011Funda \u015Fiddetli patlama yaratan ah\u015Fap f\u0131\xE7\u0131.", tier: 3, colorPalette: { primary: "#dc2626", secondary: "#b91c1c", emissive: "#991b1b" }, particles: { type: "spark", color: "#ef4444", count: 20 }, recipe: { inputs: ["barut", "odun", null] }, icon: "\u{1F6E2}\uFE0F", category: 5 }, su_degirmeni: { id: "su_degirmeni", name: "Su De\u011Firmeni", description: "Akarsuyun ak\u0131\u015F g\xFCc\xFCyle d\xF6nen ah\u015Fap \xE7ark mekanizmas\u0131.", tier: 3, colorPalette: { primary: "#0284c7", secondary: "#0369a1", emissive: "#075985" }, particles: { type: "bubble", color: "#38bdf8", count: 12 }, recipe: { inputs: ["su", "tekerlek", null] }, icon: "\u2699\uFE0F", category: 6 }, buz_dagi: { id: "buz_dagi", name: "Buz Da\u011F\u0131", description: "Okyanusta y\xFCzen devasa par\u0131lt\u0131l\u0131 buz k\xFCtlesi.", tier: 2, colorPalette: { primary: "#38bdf8", secondary: "#bae6fd", emissive: "#0284c7" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["buz", "okyanus", null] }, icon: "\u{1F3D4}\uFE0F", category: "elements" }, kalkan: { id: "kalkan", name: "Kalkan", description: "Sald\u0131r\u0131lardan ve oklardan koruyan sa\u011Flam yuvarlak ah\u015Fap kalkan.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#334155" }, particles: { type: "spark", color: "#cbd5e1", count: 8 }, recipe: { inputs: ["odun", "demir_kulce", null] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, iksir_kazani: { id: "iksir_kazani", name: "\u0130ksir Kazan\u0131", description: "Ate\u015F \xFCzerinde iksirlerin ve simya \xF6zlerinin kaynat\u0131ld\u0131\u011F\u0131 d\xF6k\xFCm kazan.", tier: 3, colorPalette: { primary: "#1e293b", secondary: "#475569", emissive: "#0f172a" }, particles: { type: "bubble", color: "#a855f7", count: 16 }, recipe: { inputs: ["ates", "comlek", "su"] }, icon: "\u{1F372}", category: 5 } }, Ct = { fire: "ates", water: "su", earth: "toprak", air: "hava", steam: "buhar", mud: "camur", lava: "lav", sand: "kum", obsidian: "obsidyen", rain: "yagmur", energy: "enerji", wind: "ruzgar", stone: "tas", glass: "cam", cloud: "bulut", lightning: "yildirim", plant: "bitki", tree: "agac", wood: "odun", splinter: "kiymik", fiber: "lif", mushroom: "mantar", cotton: "pamuk", resin: "recine", life: "yasam", bird: "kus", animal: "hayvan", fish: "balik", rope: "ip", fabric: "kumas", coal: "komur", ash: "kul", paper: "kagit", primitive_knife: "ilkel_bicak", feather: "kus_tuyu", leather: "deri", cooked_meat: "kavrulmus_et", pottery: "comlek", water_jug: "su_comlegi", bottle: "sise", flint: "cakmaktasi", bow: "yay", arrow: "ok", torch: "mesale", raw_metal: "metal", iron_ingot: "demir_kulce", metal_knife: "metal_bicak", pickaxe: "kazma", sword: "kilic", wooden_shield: "ahsap_kalkan", iron_shield: "demir_kalkan", leather_armor: "deri_zirh", iron_armor: "demir_zirh", bed: "yatak", forest: "orman" };
+const vI = { ates: { id: "ates", name: "Ate\u015F", description: "Saf \u0131s\u0131 ve enerji kayna\u011F\u0131.", tier: 1, colorPalette: { primary: "#ff4500", secondary: "#ff8c00", emissive: "#ff2200" }, particles: { type: "spark", color: "#ffaa00", count: 15 }, recipe: null, icon: "\u{1F525}", category: "elements" }, su: { id: "su", name: "Su", description: "Hayat\u0131n kayna\u011F\u0131, ak\u0131\u015Fkan ve berrak.", tier: 1, colorPalette: { primary: "#0077be", secondary: "#00aaff", emissive: "#003366" }, particles: { type: "bubble", color: "#ffffff", count: 10 }, recipe: null, icon: "\u{1F4A7}", category: "elements" }, toprak: { id: "toprak", name: "Toprak", description: "Sa\u011Flam temel, kaya ve bereket.", tier: 1, colorPalette: { primary: "#5c4033", secondary: "#8b5a2b", emissive: "#2d1b0d" }, particles: { type: "dust", color: "#8b7355", count: 8 }, recipe: null, icon: "\u{1F30D}", category: "elements" }, hava: { id: "hava", name: "Hava", description: "G\xF6r\xFCnmez r\xFCzg\xE2r, nefes ve hareket.", tier: 1, colorPalette: { primary: "#e0ffff", secondary: "#b0e0e6", emissive: "#ffffff" }, particles: { type: "wind", color: "#ffffff", count: 12 }, recipe: null, icon: "\u{1F4A8}", category: "elements" }, buhar: { id: "buhar", name: "Buhar", description: "Ate\u015F ve suyun dans\u0131ndan do\u011Fan bu\u011Fu.", tier: 2, colorPalette: { primary: "#dcdcdc", secondary: "#f5f5f5", emissive: "#aaaaaa" }, particles: { type: "cloud", color: "#ffffff", count: 20 }, recipe: { inputs: ["ates", "su"] }, icon: "\u2668\uFE0F", category: "elements" }, camur: { id: "camur", name: "\xC7amur", description: "Su ve topra\u011F\u0131n yo\u011Frulmu\u015F hali.", tier: 2, colorPalette: { primary: "#4a3b32", secondary: "#3d2817", emissive: "#1f140b" }, particles: { type: "drop", color: "#5c4033", count: 8 }, recipe: { inputs: ["su", "toprak"] }, icon: "\u{1F7E4}", category: "elements" }, lav: { id: "lav", name: "Lav", description: "Ate\u015F ve topra\u011F\u0131n erimi\u015F ihti\u015Fam\u0131.", tier: 2, colorPalette: { primary: "#cf1020", secondary: "#ff4500", emissive: "#ff0000" }, particles: { type: "ember", color: "#ffcc00", count: 25 }, recipe: { inputs: ["ates", "toprak"] }, icon: "\u{1F30B}", category: "elements" }, kum: { id: "kum", name: "Kum", description: "R\xFCzgar ve ta\u015F\u0131n a\u015F\u0131nd\u0131rd\u0131\u011F\u0131 tanecikler.", tier: 4, colorPalette: { primary: "#e6ca65", secondary: "#f4d06f", emissive: "#c2a642" }, particles: { type: "grain", color: "#f4d06f", count: 15 }, recipe: { inputs: ["ruzgar", "tas"] }, icon: "\u23F3", category: "elements" }, obsidyen: { id: "obsidyen", name: "Obsidyen", description: "Su ile aniden so\u011Fuyan lav\u0131n sert cam\u0131.", tier: 3, colorPalette: { primary: "#1c1c1c", secondary: "#3b2f4f", emissive: "#4b0082" }, particles: { type: "shimmer", color: "#9370db", count: 12 }, recipe: { inputs: ["su", "lav"] }, icon: "\u2B1B", category: "elements" }, yagmur: { id: "yagmur", name: "Ya\u011Fmur", description: "Hava ve suyun bulu\u015Fmas\u0131ndan d\xFC\u015Fen damlalar.", tier: 2, colorPalette: { primary: "#87ceeb", secondary: "#00bfff", emissive: "#006699" }, particles: { type: "drop", color: "#87ceeb", count: 15 }, recipe: { inputs: ["hava", "su"] }, icon: "\u{1F327}\uFE0F", category: "elements" }, enerji: { id: "enerji", name: "Enerji", description: "Ate\u015F ve havan\u0131n saf plazma g\xFCc\xFC.", tier: 2, colorPalette: { primary: "#ffeb3b", secondary: "#ffc107", emissive: "#ff9800" }, particles: { type: "spark", color: "#ffeb3b", count: 20 }, recipe: { inputs: ["ates", "hava"] }, icon: "\u26A1", category: "elements" }, ruzgar: { id: "ruzgar", name: "R\xFCzgar", description: "G\xFC\xE7l\xFC ve h\u0131zl\u0131 hava ak\u0131m\u0131.", tier: 2, colorPalette: { primary: "#e0f7fa", secondary: "#b2ebf2", emissive: "#80deea" }, particles: { type: "wind", color: "#ffffff", count: 18 }, recipe: { inputs: ["hava", "hava"] }, icon: "\u{1F32C}\uFE0F", category: "elements" }, tas: { id: "tas", name: "Ta\u015F", description: "Topra\u011F\u0131n s\u0131k\u0131\u015F\u0131p kat\u0131la\u015Fmas\u0131yla olu\u015Fan sert kaya.", tier: 2, colorPalette: { primary: "#78909c", secondary: "#607d8b", emissive: "#37474f" }, particles: { type: "dust", color: "#78909c", count: 10 }, recipe: { inputs: ["toprak", "toprak"] }, icon: "\u{1FAA8}", category: "elements" }, cam: { id: "cam", name: "Cam", description: "Ate\u015F ve kumun eriyerek \u015Feffafla\u015Fmas\u0131.", tier: 5, colorPalette: { primary: "#e0f7fa", secondary: "#b2ebf2", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["ates", "kum"] }, icon: "\u{1F52E}", category: "elements" }, bulut: { id: "bulut", name: "Bulut", description: "Buhar ve suyun g\xF6ky\xFCz\xFCndeki pofuduk k\xFCmesi.", tier: 3, colorPalette: { primary: "#ffffff", secondary: "#f1f5f9", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 20 }, recipe: { inputs: ["buhar", "su"] }, icon: "\u2601\uFE0F", category: "elements" }, yildirim: { id: "yildirim", name: "Y\u0131ld\u0131r\u0131m", description: "Bulut ve enerjinin \xE7akan keskin \u015Fim\u015Fe\u011Fi.", tier: 4, colorPalette: { primary: "#facc15", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "spark", color: "#facc15", count: 30 }, recipe: { inputs: ["bulut", "enerji"] }, icon: "\u26A1", category: "elements" }, bitki: { id: "bitki", name: "Bitki", description: "Toprak ve ya\u011Fmurun ye\u015Ferten filizi.", tier: 3, colorPalette: { primary: "#4ade80", secondary: "#22c55e", emissive: "#15803d" }, particles: { type: "spark", color: "#4ade80", count: 10 }, recipe: { inputs: ["toprak", "yagmur"] }, icon: "\u{1F331}", category: "nature" }, agac: { id: "agac", name: "A\u011Fa\xE7", description: "Bitki ve topra\u011F\u0131n b\xFCy\xFCyen g\xFC\xE7l\xFC g\xF6vdesi.", tier: 4, colorPalette: { primary: "#16a34a", secondary: "#854d0e", emissive: "#14532d" }, particles: { type: "dust", color: "#16a34a", count: 12 }, recipe: { inputs: ["bitki", "toprak"] }, icon: "\u{1F332}", category: "nature" }, odun: { id: "odun", name: "Odun", description: "A\u011Fa\xE7 ve ta\u015F\u0131n i\u015Flenen k\xFCt\xFC\u011F\xFC.", tier: 5, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#713f12" }, particles: { type: "dust", color: "#a16207", count: 10 }, recipe: { inputs: ["agac", "tas"] }, icon: "\u{1FAB5}", category: "nature" }, kiymik: { id: "kiymik", name: "K\u0131ym\u0131k", description: "Odun ve ta\u015F\u0131n sivri tala\u015F par\xE7as\u0131.", tier: 6, colorPalette: { primary: "#d97706", secondary: "#fbbf24", emissive: "#b45309" }, particles: { type: "spark", color: "#fbbf24", count: 8 }, recipe: { inputs: ["odun", "tas"] }, icon: "\u{1F962}", category: "nature" }, lif: { id: "lif", name: "Lif", description: "Bitki ve bitkinin sar\u0131lan lif demeti.", tier: 4, colorPalette: { primary: "#a3e635", secondary: "#bef264", emissive: "#65a30d" }, particles: { type: "spark", color: "#a3e635", count: 10 }, recipe: { inputs: ["bitki", "bitki"] }, icon: "\u{1F33E}", category: "nature" }, mantar: { id: "mantar", name: "Mantar", description: "Beyaz benekli, k\u0131rm\u0131z\u0131 \u015Fapkal\u0131, bodur sapl\u0131 orman mantar\u0131.", tier: 4, colorPalette: { primary: "#e63946", secondary: "#f1faee", emissive: "#9d0208" }, particles: { type: "spark", color: "#e63946", count: 8 }, recipe: { inputs: ["bitki", "camur"] }, icon: "\u{1F344}", category: "nature" }, pamuk: { id: "pamuk", name: "Pamuk", description: "Kurumu\u015F kahverengi \xE7anak yapraklar i\xE7inde duran bembeyaz pamuk kozas\u0131.", tier: 4, colorPalette: { primary: "#ffffff", secondary: "#dda15e", emissive: "#bc6c25" }, particles: { type: "cloud", color: "#ffffff", count: 12 }, recipe: { inputs: ["toprak", "bitki", "yagmur"] }, icon: "\u2601\uFE0F", category: "nature" }, recine: { id: "recine", name: "Re\xE7ine", description: "Damla formunda kat\u0131la\u015Fm\u0131\u015F, bal sar\u0131s\u0131 kehribar cevheri.", tier: 6, colorPalette: { primary: "#ffb703", secondary: "#fb8500", emissive: "#ffb703" }, particles: { type: "shimmer", color: "#ffb703", count: 10 }, recipe: { inputs: ["ilkel_bicak", "agac"] }, icon: "\u{1F36F}", category: "nature" }, yasam: { id: "yasam", name: "Ya\u015Fam", description: "\u0130\xE7inde ye\u015Filimsi \xE7ift sarmal DNA sembol\xFC d\xF6nen \u0131\u015F\u0131ldayan \xF6z k\xFCresi.", tier: 5, colorPalette: { primary: "#52b788", secondary: "#74c69d", emissive: "#1b4332" }, particles: { type: "spark", color: "#52b788", count: 25 }, recipe: { inputs: ["enerji", "camur", "bitki"] }, icon: "\u{1F9EC}", category: "life" }, kus: { id: "kus", name: "Ku\u015F", description: "Basit geometrik g\xF6vdeli, mavi kanatl\u0131, sar\u0131 gagal\u0131 k\xFC\xE7\xFCk ser\xE7e.", tier: 6, colorPalette: { primary: "#4ea8de", secondary: "#ffb703", emissive: "#023e8a" }, particles: { type: "wind", color: "#4ea8de", count: 15 }, recipe: { inputs: ["hava", "yasam"] }, icon: "\u{1F426}", category: "life" }, hayvan: { id: "hayvan", name: "Hayvan", description: "D\xF6rt narin baca\u011F\u0131 ve k\u0131sa kuyru\u011Fu olan bloklu canl\u0131 sil\xFCeti.", tier: 6, colorPalette: { primary: "#b08968", secondary: "#dda15e", emissive: "#7f5539" }, particles: { type: "dust", color: "#b08968", count: 12 }, recipe: { inputs: ["toprak", "yasam"] }, icon: "\u{1F98C}", category: "life" }, balik: { id: "balik", name: "Bal\u0131k", description: "\xDC\xE7gen y\xFCzge\xE7li, turuncu-g\xFCm\xFC\u015F renkli k\xF6\u015Feli g\xF6vdeli sazan.", tier: 6, colorPalette: { primary: "#f77f00", secondary: "#fcbf49", emissive: "#d62828" }, particles: { type: "drop", color: "#f77f00", count: 12 }, recipe: { inputs: ["yasam", "su"] }, icon: "\u{1F41F}", category: "life" }, ip: { id: "ip", name: "\u0130p", description: "D\xFC\u011F\xFCmlenmi\u015F, halka \u015Feklinde sar\u0131l\u0131 saman sar\u0131s\u0131 halat rulosu.", tier: 5, colorPalette: { primary: "#d4a373", secondary: "#e9edc9", emissive: "#bc6c25" }, particles: { type: "dust", color: "#d4a373", count: 8 }, recipe: { inputs: ["lif", "lif"] }, icon: "\u{1FAA2}", category: "craft_tools" }, kumas: { id: "kumas", name: "Kuma\u015F", description: "D\xFCzenli katlanm\u0131\u015F, kenarlar\u0131 k\xF6\u015Feli bej renkli kuma\u015F bezi.", tier: 6, colorPalette: { primary: "#fefae0", secondary: "#dda15e", emissive: "#b08968" }, particles: { type: "dust", color: "#fefae0", count: 10 }, recipe: { inputs: ["pamuk", "ip"] }, icon: "\u{1F9F6}", category: "craft_tools" }, komur: { id: "komur", name: "K\xF6m\xFCr", description: "D\xFCzensiz y\xFCzeylere sahip, mat siyah renkli karbon par\xE7as\u0131.", tier: 5, colorPalette: { primary: "#212529", secondary: "#343a40", emissive: "#000000" }, particles: { type: "dust", color: "#212529", count: 10 }, recipe: { inputs: ["ates", "agac"] }, icon: "\u2B1B", category: "craft_tools" }, kul: { id: "kul", name: "K\xFCl", description: "\u0130\xE7inde s\xF6nmeye y\xFCz tutmu\u015F kor par\xE7alar\u0131 olan gri toz y\u0131\u011F\u0131n\u0131.", tier: 6, colorPalette: { primary: "#adb5bd", secondary: "#6c757d", emissive: "#e56b6f" }, particles: { type: "dust", color: "#adb5bd", count: 15 }, recipe: { inputs: ["komur", "ates"] }, icon: "\u{1F4A8}", category: "craft_tools" }, kagit: { id: "kagit", name: "Ka\u011F\u0131t", description: "Ucu hafif k\u0131vr\u0131lm\u0131\u015F, a\xE7\u0131k sar\u0131 renkte dikd\xF6rtgen par\u015F\xF6men tabakas\u0131.", tier: 6, colorPalette: { primary: "#faedcd", secondary: "#d4a373", emissive: "#ccd5ae" }, particles: { type: "dust", color: "#faedcd", count: 8 }, recipe: { inputs: ["tas", "agac", "su"] }, icon: "\u{1F4DC}", category: "craft_tools" }, ilkel_bicak: { id: "ilkel_bicak", name: "\u0130lkel B\u0131\xE7ak", description: "K\u0131sa ah\u015Fap sap\u0131na iple tutturulmu\u015F \xE7akmakta\u015F\u0131 u\xE7lu kaba b\u0131\xE7ak.", tier: 6, colorPalette: { primary: "#7f4f24", secondary: "#343a40", emissive: "#212529" }, particles: { type: "spark", color: "#6c757d", count: 8 }, recipe: { inputs: ["cakmaktasi", "kiymik", "odun"] }, icon: "\u{1F52A}", category: "craft_tools" }, kus_tuyu: { id: "kus_tuyu", name: "Ku\u015F T\xFCy\xFC", description: "Orta damar\u0131 belirgin, ucu beyazdan g\xF6k mavisine d\xF6nen t\xFCy.", tier: 7, colorPalette: { primary: "#e0fbfc", secondary: "#98c1d9", emissive: "#3d5a80" }, particles: { type: "wind", color: "#e0fbfc", count: 10 }, recipe: { inputs: ["kus", "ilkel_bicak"] }, icon: "\u{1FAB6}", category: "craft_tools" }, deri: { id: "deri", name: "Deri", description: "Kenarlar\u0131 asimetrik kesilmi\u015F, taba rengi i\u015Flenmemi\u015F post.", tier: 7, colorPalette: { primary: "#bc6c25", secondary: "#dda15e", emissive: "#9b5de5" }, particles: { type: "dust", color: "#bc6c25", count: 10 }, recipe: { inputs: ["hayvan", "ilkel_bicak"] }, icon: "\u{1F4DC}", category: "craft_tools" }, kavrulmus_et: { id: "kavrulmus_et", name: "Kavrulmu\u015F Et", description: "Beyaz kemik sap\u0131ndan tutulan, k\u0131zarm\u0131\u015F kahverengi et butu.", tier: 7, colorPalette: { primary: "#b05721", secondary: "#f4a261", emissive: "#e76f51" }, particles: { type: "spark", color: "#f4a261", count: 12 }, recipe: { inputs: ["hayvan", "ates"] }, icon: "\u{1F356}", category: "craft_tools" }, comlek: { id: "comlek", name: "\xC7\xF6mlek", description: "Geni\u015F g\xF6bekli, dar boyunlu kiremit k\u0131rm\u0131z\u0131s\u0131 pi\u015Fmi\u015F kil testi.", tier: 5, colorPalette: { primary: "#b83321", secondary: "#d9534f", emissive: "#802010" }, particles: { type: "dust", color: "#b83321", count: 8 }, recipe: { inputs: ["ates", "camur"] }, icon: "\u{1F3FA}", category: "craft_tools" }, su_comlegi: { id: "su_comlegi", name: "Su \xC7\xF6mle\u011Fi", description: "A\u011Fz\u0131ndan mavi su y\xFCzeyi g\xF6r\xFCnen, \u0131slak killi dolgun testi.", tier: 6, colorPalette: { primary: "#b83321", secondary: "#00bfff", emissive: "#006699" }, particles: { type: "drop", color: "#00bfff", count: 10 }, recipe: { inputs: ["comlek", "su"] }, icon: "\u{1F3FA}", category: "craft_tools" }, sise: { id: "sise", name: "\u015Ei\u015Fe", description: "Mantar t\u0131pas\u0131 olan \u015Feffaf, silindirik cam iksir t\xFCp\xFC.", tier: 6, colorPalette: { primary: "#e0f7fa", secondary: "#a3704c", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 10 }, recipe: { inputs: ["ates", "cam"] }, icon: "\u{1F9EA}", category: "craft_tools" }, cakmaktasi: { id: "cakmaktasi", name: "\xC7akmakta\u015F\u0131", description: "Bir kenar\u0131 keskinle\u015Ftirilmi\u015F, koyu antrasit renkli yontma ta\u015F.", tier: 4, colorPalette: { primary: "#343a40", secondary: "#495057", emissive: "#212529" }, particles: { type: "spark", color: "#ffffff", count: 12 }, recipe: { inputs: ["tas", "tas"] }, icon: "\u{1FAA8}", category: "craft_tools" }, yay: { id: "yay", name: "Yay", description: "U\xE7lar\u0131 gergin iple birbirine ba\u011Flanm\u0131\u015F kavisli ah\u015Fap av yay\u0131.", tier: 7, colorPalette: { primary: "#a0522d", secondary: "#f4a261", emissive: "#654321" }, particles: { type: "wind", color: "#f4a261", count: 10 }, recipe: { inputs: ["ip", "odun"] }, icon: "\u{1F3F9}", category: "craft_tools" }, ok: { id: "ok", name: "Ok", description: "Ucunda sivri ta\u015F, arkas\u0131nda t\xFCy bulunan ince tahta ok.", tier: 8, colorPalette: { primary: "#8b5a2b", secondary: "#e0fbfc", emissive: "#343a40" }, particles: { type: "wind", color: "#e0fbfc", count: 10 }, recipe: { inputs: ["kus_tuyu", "kiymik", "odun"] }, icon: "\u{1F3AF}", category: "craft_tools" }, mesale: { id: "mesale", name: "Me\u015Fale", description: "Ba\u015F\u0131na beze sar\u0131l\u0131 re\xE7ine ge\xE7irilmi\u015F, ucu yanan ah\u015Fap me\u015Fale.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#ff4500", emissive: "#ff8c00" }, particles: { type: "spark", color: "#ff4500", count: 15 }, recipe: { inputs: ["lif", "recine", "odun"] }, icon: "\u{1F56F}\uFE0F", category: "craft_tools" }, metal: { id: "metal", name: "Metal", description: "\u0130\xE7inde parlak gri damarlar par\u0131ldayan ergitilmi\u015F ta\u015F cevheri.", tier: 4, colorPalette: { primary: "#adb5bd", secondary: "#6c757d", emissive: "#495057" }, particles: { type: "shimmer", color: "#ced4da", count: 12 }, recipe: { inputs: ["ates", "tas"] }, icon: "\u{1FA99}", category: "craft_tools" }, demir_kulce: { id: "demir_kulce", name: "Demir K\xFCl\xE7e", description: "Pahlanm\u0131\u015F kenarlar\u0131yla profesyonel d\xF6k\xFCm \xE7elik k\xFCl\xE7e.", tier: 5, colorPalette: { primary: "#ced4da", secondary: "#adb5bd", emissive: "#6c757d" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["ates", "metal", "tas"] }, icon: "\u{1F9F1}", category: "craft_tools" }, metal_bicak: { id: "metal_bicak", name: "Metal B\u0131\xE7ak", description: "Deri sar\u0131l\u0131 kabzas\u0131 ve \xE7ift a\u011F\u0131zl\u0131 parlak \xE7elik namlulu b\u0131\xE7ak.", tier: 7, colorPalette: { primary: "#dee2e6", secondary: "#bc6c25", emissive: "#495057" }, particles: { type: "spark", color: "#dee2e6", count: 10 }, recipe: { inputs: ["demir_kulce", "ilkel_bicak", "odun"] }, icon: "\u{1F5E1}\uFE0F", category: "craft_tools" }, kazma: { id: "kazma", name: "Kazma", description: "Masif ah\u015Fap sapa monte edilmi\u015F kavisli \xE7ift tarafl\u0131 demir u\xE7.", tier: 6, colorPalette: { primary: "#adb5bd", secondary: "#8b5a2b", emissive: "#495057" }, particles: { type: "dust", color: "#adb5bd", count: 10 }, recipe: { inputs: ["demir_kulce", "tas", "odun"] }, icon: "\u26CF\uFE0F", category: "craft_tools" }, kilic: { id: "kilic", name: "K\u0131l\u0131\xE7", description: "\xC7apraz korumal\u0131\u011F\u0131, deri kabzas\u0131 ve par\u0131ldayan kesici g\xF6vdesi.", tier: 7, colorPalette: { primary: "#e9ecef", secondary: "#bc6c25", emissive: "#6c757d" }, particles: { type: "spark", color: "#ffffff", count: 18 }, recipe: { inputs: ["komur", "demir_kulce", "odun"] }, icon: "\u2694\uFE0F", category: "craft_tools" }, ahsap_kalkan: { id: "ahsap_kalkan", name: "Ah\u015Fap Kalkan", description: "Tahta kalaslardan birle\u015Ftirilmi\u015F, kenarlar\u0131 ham deri kalkan.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#bc6c25", emissive: "#5c4033" }, particles: { type: "dust", color: "#8b5a2b", count: 10 }, recipe: { inputs: ["deri", "odun", "odun"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, demir_kalkan: { id: "demir_kalkan", name: "Demir Kalkan", description: "Per\xE7in detayl\u0131, parlat\u0131lm\u0131\u015F damla formunda \xE7elik kalkan.", tier: 8, colorPalette: { primary: "#ced4da", secondary: "#495057", emissive: "#adb5bd" }, particles: { type: "shimmer", color: "#ffffff", count: 12 }, recipe: { inputs: ["demir_kulce", "ahsap_kalkan"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, deri_zirh: { id: "deri_zirh", name: "Deri Z\u0131rh", description: "\u0130plerle diki\u015Flenmi\u015F, omuzlar\u0131 tokal\u0131 kahverengi yelek z\u0131rh.", tier: 7, colorPalette: { primary: "#bc6c25", secondary: "#dda15e", emissive: "#7f5539" }, particles: { type: "dust", color: "#bc6c25", count: 10 }, recipe: { inputs: ["deri", "ip"] }, icon: "\u{1F9BA}", category: "craft_tools" }, demir_zirh: { id: "demir_zirh", name: "Demir Z\u0131rh", description: "Parlak \xE7elik g\xF6\u011F\xFCs plakas\u0131 ve omuzluklardan olu\u015Fan a\u011F\u0131r z\u0131rh.", tier: 8, colorPalette: { primary: "#ced4da", secondary: "#adb5bd", emissive: "#495057" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["demir_kulce", "demir_kulce", "deri"] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, yatak: { id: "yatak", name: "Yatak", description: "Ah\u015Fap ayakl\u0131, \xFCzerinde beyaz yast\u0131k ve renkli \xF6rt\xFC olan yatak.", tier: 8, colorPalette: { primary: "#8b5a2b", secondary: "#ffffff", emissive: "#e76f51" }, particles: { type: "cloud", color: "#ffffff", count: 12 }, recipe: { inputs: ["kumas", "kus_tuyu", "ip"] }, icon: "\u{1F6CF}\uFE0F", category: "craft_tools" }, zehirli_sivi: { id: "zehirli_sivi", name: "Zehirli S\u0131v\u0131", description: "Mantar ve su \xE7\xF6mle\u011Finden elde edilen tehlikeli ye\u015Fil s\u0131v\u0131.", tier: 5, colorPalette: { primary: "#22c55e", secondary: "#15803d", emissive: "#00ff44" }, particles: { type: "drop", color: "#22c55e", count: 12 }, recipe: { inputs: ["mantar", "su_comlegi", null] }, icon: "\u{1F9EA}", category: 5 }, zehir_sisesi: { id: "zehir_sisesi", name: "Zehir \u015Ei\u015Fesi", description: "\u015Ei\u015Felenmi\u015F \xF6l\xFCmc\xFCl zehirli iksir.", tier: 6, colorPalette: { primary: "#16a34a", secondary: "#4ade80", emissive: "#16a34a" }, particles: { type: "spark", color: "#22c55e", count: 10 }, recipe: { inputs: ["sise", "zehirli_sivi", null] }, icon: "\u{1F37E}", category: 5 }, zehirli_kilic: { id: "zehirli_kilic", name: "Zehirli K\u0131l\u0131\xE7", description: "\xD6l\xFCmc\xFCl zehirle kaplanm\u0131\u015F \xE7elik k\u0131l\u0131\xE7.", tier: 8, colorPalette: { primary: "#15803d", secondary: "#86efac", emissive: "#22c55e" }, particles: { type: "spark", color: "#86efac", count: 15 }, recipe: { inputs: ["kilic", "zehir_sisesi", null] }, icon: "\u{1F5E1}\uFE0F", category: 5 }, sifa_iksiri: { id: "sifa_iksiri", name: "\u015Eifa \u0130ksiri", description: "Bitki, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Finden haz\u0131rlanan can verici iksir.", tier: 6, colorPalette: { primary: "#ef4444", secondary: "#f87171", emissive: "#dc2626" }, particles: { type: "spark", color: "#ef4444", count: 15 }, recipe: { inputs: ["bitki", "sise", "su_comlegi"] }, icon: "\u{1F9EA}", category: 5 }, mana_iksiri: { id: "mana_iksiri", name: "Mana \u0130ksiri", description: "Enerji, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Fi ile \xF6z\xFCtlenen b\xFCy\xFCl\xFC mana iksiri.", tier: 6, colorPalette: { primary: "#3b82f6", secondary: "#60a5fa", emissive: "#2563eb" }, particles: { type: "spark", color: "#3b82f6", count: 15 }, recipe: { inputs: ["enerji", "sise", "su_comlegi"] }, icon: "\u{1F9EA}", category: 5 }, barut: { id: "barut", name: "Barut", description: "K\xF6m\xFCr, k\xFCl ve re\xE7ineden yap\u0131lan patlay\u0131c\u0131 siyah toz.", tier: 7, colorPalette: { primary: "#374151", secondary: "#1f2937", emissive: "#f59e0b" }, particles: { type: "dust", color: "#f59e0b", count: 15 }, recipe: { inputs: ["komur", "kul", "recine"] }, icon: "\u{1F4A5}", category: 5 }, bomba: { id: "bomba", name: "Bomba", description: "Barut, demir k\xFCl\xE7e ve ip ile haz\u0131rlanan y\u0131k\u0131c\u0131 patlay\u0131c\u0131.", tier: 8, colorPalette: { primary: "#111827", secondary: "#f59e0b", emissive: "#ef4444" }, particles: { type: "spark", color: "#ef4444", count: 20 }, recipe: { inputs: ["barut", "demir_kulce", "ip"] }, icon: "\u{1F4A3}", category: 5 }, buyu_parsomeni: { id: "buyu_parsomeni", name: "B\xFCy\xFC Par\u015F\xF6meni", description: "Ka\u011F\u0131t, k\xFCl ve ku\u015F t\xFCy\xFC ile yaz\u0131lan kadim t\u0131ls\u0131ml\u0131 par\u015F\xF6men.", tier: 7, colorPalette: { primary: "#a855f7", secondary: "#c084fc", emissive: "#9333ea" }, particles: { type: "shimmer", color: "#c084fc", count: 15 }, recipe: { inputs: ["kagit", "kul", "kus_tuyu"] }, icon: "\u{1F4DC}", category: 5 }, yildirim_parsomeni: { id: "yildirim_parsomeni", name: "Y\u0131ld\u0131r\u0131m Par\u015F\xF6meni", description: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle y\xFCklenmi\u015F par\u015F\xF6men.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#fde047", emissive: "#ca8a04" }, particles: { type: "spark", color: "#fde047", count: 20 }, recipe: { inputs: ["buyu_parsomeni", "yildirim", null] }, icon: "\u26A1", category: 5 }, ates_topu_kitabi: { id: "ates_topu_kitabi", name: "Ate\u015F Topu Kitab\u0131", description: "Ate\u015F ve b\xFCy\xFC par\u015F\xF6meninden olu\u015Fan alevli b\xFCy\xFC kitab\u0131.", tier: 8, colorPalette: { primary: "#f97316", secondary: "#fb923c", emissive: "#ea580c" }, particles: { type: "ember", color: "#f97316", count: 25 }, recipe: { inputs: ["ates", "buyu_parsomeni", null] }, icon: "\u{1F4D6}", category: 5 }, buhar_motoru: { id: "buhar_motoru", name: "Buhar Motoru", description: "Buhar, demir k\xFCl\xE7e ve k\xF6m\xFCr\xFCn bas\u0131n\xE7l\u0131 g\xFCc\xFCyle \xE7al\u0131\u015Fan a\u011F\u0131r mekanik pistonlu motor.", tier: 7, colorPalette: { primary: "#475569", secondary: "#94a3b8", emissive: "#f59e0b" }, particles: { type: "cloud", color: "#ffffff", count: 15 }, recipe: { inputs: ["buhar", "demir_kulce", "komur"] }, icon: "\u2699\uFE0F", category: 6 }, tekerlek: { id: "tekerlek", name: "Tekerlek", description: "Odun ve ta\u015Ftan yontulmu\u015F, p\xFCr\xFCzs\xFCz d\xF6nen dairesel ah\u015Fap tekerlek.", tier: 6, colorPalette: { primary: "#8b5a2b", secondary: "#a0522d", emissive: "#5c4033" }, particles: { type: "dust", color: "#8b5a2b", count: 10 }, recipe: { inputs: ["odun", "odun", "tas"] }, icon: "\u{1F6DE}", category: 6 }, el_arabasi: { id: "el_arabasi", name: "El Arabas\u0131", description: "Demir k\xFCl\xE7e, odun ve tekerlekten yap\u0131lm\u0131\u015F ta\u015F\u0131ma arabas\u0131.", tier: 7, colorPalette: { primary: "#a16207", secondary: "#64748b", emissive: "#475569" }, particles: { type: "dust", color: "#a16207", count: 12 }, recipe: { inputs: ["demir_kulce", "odun", "tekerlek"] }, icon: "\u{1F6D2}", category: 6 }, lokomotif: { id: "lokomotif", name: "Lokomotif", description: "Buhar motoru, demir ve tekerleklerle in\u015Fa edilmi\u015F dev rayl\u0131 tren ba\u015F\u0131.", tier: 9, colorPalette: { primary: "#1e293b", secondary: "#ef4444", emissive: "#f59e0b" }, particles: { type: "cloud", color: "#cbd5e1", count: 20 }, recipe: { inputs: ["buhar_motoru", "demir_kulce", "tekerlek"] }, icon: "\u{1F682}", category: 6 }, ampul: { id: "ampul", name: "Ampul", description: "Cam, metal ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle akkor \u0131\u015F\u0131k sa\xE7an cam t\xFCp.", tier: 7, colorPalette: { primary: "#facc15", secondary: "#fef08a", emissive: "#eab308" }, particles: { type: "spark", color: "#facc15", count: 15 }, recipe: { inputs: ["cam", "metal", "yildirim"] }, icon: "\u{1F4A1}", category: 6 }, fener: { id: "fener", name: "Fener", description: "Ampul, demir k\xFCl\xE7e ve enerjiyle \xE7al\u0131\u015Fan par\u0131lt\u0131l\u0131 el feneri.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#38bdf8", emissive: "#fef08a" }, particles: { type: "shimmer", color: "#fde047", count: 15 }, recipe: { inputs: ["ampul", "demir_kulce", "enerji"] }, icon: "\u{1F526}", category: 6 }, pusula: { id: "pusula", name: "Pusula", description: "Cam ve demir kadran i\xE7inde y\xF6n g\xF6steren manyetik pusula.", tier: 7, colorPalette: { primary: "#0284c7", secondary: "#e2e8f0", emissive: "#38bdf8" }, particles: { type: "shimmer", color: "#38bdf8", count: 10 }, recipe: { inputs: ["cam", "cam", "demir_kulce"] }, icon: "\u{1F9ED}", category: 6 }, miknatis: { id: "miknatis", name: "M\u0131knat\u0131s", description: "Y\u0131ld\u0131r\u0131m \xE7arpmas\u0131yla manyetize olmu\u015F kavisli \xE7elik demir.", tier: 7, colorPalette: { primary: "#dc2626", secondary: "#2563eb", emissive: "#ef4444" }, particles: { type: "spark", color: "#ef4444", count: 15 }, recipe: { inputs: ["demir_kulce", "yildirim", null] }, icon: "\u{1F9F2}", category: 6 }, elektrik_motoru: { id: "elektrik_motoru", name: "Elektrik Motoru", description: "Enerji, metal ve m\u0131knat\u0131s ile d\xF6nen bobinli elektromanyetik motor.", tier: 8, colorPalette: { primary: "#0284c7", secondary: "#f59e0b", emissive: "#38bdf8" }, particles: { type: "spark", color: "#38bdf8", count: 18 }, recipe: { inputs: ["enerji", "metal", "miknatis"] }, icon: "\u26A1", category: 6 }, celik_kulce: { id: "celik_kulce", name: "\xC7elik K\xFCl\xE7e", description: "Ate\u015F, demir ve k\xF6m\xFCr\xFCn y\xFCksek \u0131s\u0131da eritilmesiyle elde edilen dayan\u0131kl\u0131 ala\u015F\u0131m.", tier: 7, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#cbd5e1" }, particles: { type: "spark", color: "#cbd5e1", count: 15 }, recipe: { inputs: ["ates", "demir_kulce", "komur"] }, icon: "\u{1F9F1}", category: 7 }, ors: { id: "ors", name: "\xD6rs", description: "\xC7elik k\xFCl\xE7e ve ta\u015Ftan yontulmu\u015F demirci \xF6rs\xFC.", tier: 8, colorPalette: { primary: "#334155", secondary: "#475569", emissive: "#1e293b" }, particles: { type: "spark", color: "#94a3b8", count: 12 }, recipe: { inputs: ["celik_kulce", "tas", null] }, icon: "\u2692\uFE0F", category: 7 }, civi: { id: "civi", name: "\xC7ivi", description: "Ocakta d\xF6v\xFClm\xFC\u015F sivri u\xE7lu \xE7elik ba\u011Flant\u0131 \xE7ivisi.", tier: 6, colorPalette: { primary: "#94a3b8", secondary: "#cbd5e1", emissive: "#64748b" }, particles: { type: "spark", color: "#cbd5e1", count: 8 }, recipe: { inputs: ["ates", "demir_kulce", null] }, icon: "\u{1F4CC}", category: 7 }, tugla: { id: "tugla", name: "Tu\u011Fla", description: "F\u0131r\u0131nlanm\u0131\u015F kiremit rengi in\u015Faat blo\u011Fu.", tier: 5, colorPalette: { primary: "#ea580c", secondary: "#c2410c", emissive: "#9a3412" }, particles: { type: "dust", color: "#ea580c", count: 10 }, recipe: { inputs: ["ates", "camur", null] }, icon: "\u{1F9F1}", category: 7 }, harc: { id: "harc", name: "Har\xE7", description: "Kum, su ve ta\u015F tozundan yo\u011Frulmu\u015F in\u015Faat ba\u011Flay\u0131c\u0131s\u0131.", tier: 6, colorPalette: { primary: "#a8a29e", secondary: "#78716c", emissive: "#57534e" }, particles: { type: "dust", color: "#a8a29e", count: 10 }, recipe: { inputs: ["kum", "su", "tas"] }, icon: "\u{1FAA8}", category: 7 }, tugla_duvar: { id: "tugla_duvar", name: "Tu\u011Fla Duvar", description: "Har\xE7 ve tu\u011Flalar\u0131n \xF6r\xFClmesiyle yap\u0131lm\u0131\u015F sa\u011Flam yap\u0131 duvar\u0131.", tier: 7, colorPalette: { primary: "#c2410c", secondary: "#a8a29e", emissive: "#7c2d12" }, particles: { type: "dust", color: "#c2410c", count: 12 }, recipe: { inputs: ["harc", "tugla", null] }, icon: "\u{1F9F1}", category: 7 }, saglam_sandik: { id: "saglam_sandik", name: "Sa\u011Flam Sand\u0131k", description: "\xC7elik k\xFCl\xE7e, \xE7ivi ve ah\u015Fapla g\xFC\xE7lendirilmi\u015F kilitli sand\u0131k.", tier: 8, colorPalette: { primary: "#854d0e", secondary: "#64748b", emissive: "#eab308" }, particles: { type: "spark", color: "#eab308", count: 12 }, recipe: { inputs: ["celik_kulce", "civi", "odun"] }, icon: "\u{1F9F0}", category: 7 }, kristal: { id: "kristal", name: "Kristal", description: "Enerji ve kazma yard\u0131m\u0131yla derinden \xE7\u0131kar\u0131lan par\u0131lt\u0131l\u0131 kristal cevheri.", tier: 7, colorPalette: { primary: "#38bdf8", secondary: "#818cf8", emissive: "#0284c7" }, particles: { type: "shimmer", color: "#38bdf8", count: 20 }, recipe: { inputs: ["enerji", "kazma", "tas"] }, icon: "\u{1F48E}", category: 7 }, teleskop: { id: "teleskop", name: "Teleskop", description: "Cam, kristal ve metal merceklerden olu\u015Fan g\xF6ky\xFCz\xFC g\xF6zlem t\xFCp\xFC.", tier: 8, colorPalette: { primary: "#f59e0b", secondary: "#38bdf8", emissive: "#eab308" }, particles: { type: "shimmer", color: "#38bdf8", count: 18 }, recipe: { inputs: ["cam", "kristal", "metal"] }, icon: "\u{1F52D}", category: 7 }, vinc: { id: "vinc", name: "Vin\xE7", description: "\xC7elik k\xFCl\xE7e, elektrik motoru ve tekerleklerle \xE7al\u0131\u015Fan a\u011F\u0131r y\xFCk kald\u0131r\u0131c\u0131 vin\xE7.", tier: 9, colorPalette: { primary: "#eab308", secondary: "#1e293b", emissive: "#ca8a04" }, particles: { type: "spark", color: "#eab308", count: 22 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "tekerlek"] }, icon: "\u{1F3D7}\uFE0F", category: 7 }, yildiz_tozu: { id: "yildiz_tozu", name: "Y\u0131ld\u0131z Tozu", description: "Teleskopla g\xF6zlemlenen ve enerjiyle toplanan par\u0131lt\u0131l\u0131 kozmik toz.", tier: 8, colorPalette: { primary: "#a855f7", secondary: "#e0e7ff", emissive: "#c084fc" }, particles: { type: "shimmer", color: "#e0e7ff", count: 20 }, recipe: { inputs: ["enerji", "teleskop", null] }, icon: "\u2728", category: 8 }, prizma_tasi: { id: "prizma_tasi", name: "Prizma Ta\u015F\u0131", description: "Kristal ve y\u0131ld\u0131z tozunun birle\u015Fimiyle \u0131\u015F\u0131\u011F\u0131 tayflara ay\u0131ran kadim ta\u015F.", tier: 9, colorPalette: { primary: "#38bdf8", secondary: "#f43f5e", emissive: "#a855f7" }, particles: { type: "shimmer", color: "#38bdf8", count: 20 }, recipe: { inputs: ["kristal", "yildiz_tozu", null] }, icon: "\u{1F48E}", category: 8 }, kahin_kuresi: { id: "kahin_kuresi", name: "Kahin K\xFCresi", description: "Prizma ta\u015F\u0131, cam ve enerjiyle gelece\u011Fi g\xF6steren mistik k\xFCre.", tier: 9, colorPalette: { primary: "#6366f1", secondary: "#a855f7", emissive: "#818cf8" }, particles: { type: "shimmer", color: "#818cf8", count: 22 }, recipe: { inputs: ["cam", "enerji", "prizma_tasi"] }, icon: "\u{1F52E}", category: 8 }, portal_runu: { id: "portal_runu", name: "Portal R\xFCn\xFC", description: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131z tozuyla m\xFCh\xFCrlenmi\u015F uzay-zaman r\xFCn\xFC.", tier: 8, colorPalette: { primary: "#ec4899", secondary: "#a855f7", emissive: "#f43f5e" }, particles: { type: "spark", color: "#ec4899", count: 18 }, recipe: { inputs: ["buyu_parsomeni", "yildiz_tozu", null] }, icon: "\u{1F9FF}", category: 8 }, bosluk_sisesi: { id: "bosluk_sisesi", name: "Bo\u015Fluk \u015Ei\u015Fesi", description: "Kristal, \u015Fi\u015Fe ve y\u0131ld\u0131r\u0131m g\xFCc\xFCyle karanl\u0131k bo\u015Flu\u011Fu hapseden iksir t\xFCp\xFC.", tier: 9, colorPalette: { primary: "#1e1b4b", secondary: "#312e81", emissive: "#4c1d95" }, particles: { type: "spark", color: "#818cf8", count: 18 }, recipe: { inputs: ["kristal", "sise", "yildirim"] }, icon: "\u{1F30C}", category: 8 }, boyut_kapisi: { id: "boyut_kapisi", name: "Boyut Kap\u0131s\u0131", description: "\xC7elik k\xFCl\xE7e, portal r\xFCn\xFC ve tu\u011Fla duvardan in\u015Fa edilmi\u015F ge\xE7it kap\u0131s\u0131.", tier: 10, colorPalette: { primary: "#7e22ce", secondary: "#3b82f6", emissive: "#a855f7" }, particles: { type: "shimmer", color: "#c084fc", count: 25 }, recipe: { inputs: ["celik_kulce", "portal_runu", "tugla_duvar"] }, icon: "\u{1F6AA}", category: 8 }, anka_kulu: { id: "anka_kulu", name: "Anka K\xFCl\xFC", description: "Kutsal ate\u015F ve k\xFCllerle sonsuz d\xF6ng\xFCde k\xFCllerinden do\u011Fan mistik anka k\xFCl\xFC.", tier: 9, colorPalette: { primary: "#ef4444", secondary: "#f97316", emissive: "#f59e0b" }, particles: { type: "ember", color: "#f59e0b", count: 25 }, recipe: { inputs: ["anka_kulu", "ates", "kul"] }, icon: "\u{1FAB6}", category: 8 }, runik_zirh: { id: "runik_zirh", name: "Runik Z\u0131rh", description: "Demir z\u0131rh\u0131n \xF6r\u015Fte prizma ta\u015F\u0131 ile i\u015Flenmi\u015F efsanevi koruyucu z\u0131rh\u0131.", tier: 10, colorPalette: { primary: "#3b82f6", secondary: "#e2e8f0", emissive: "#60a5fa" }, particles: { type: "shimmer", color: "#60a5fa", count: 20 }, recipe: { inputs: ["demir_zirh", "ors", "prizma_tasi"] }, icon: "\u{1F6E1}\uFE0F", category: 8 }, firtina_kilici: { id: "firtina_kilici", name: "F\u0131rt\u0131na K\u0131l\u0131c\u0131", description: "K\u0131l\u0131ca prizma ta\u015F\u0131 ve y\u0131ld\u0131r\u0131m \xE7ak\u0131larak d\xF6v\xFClm\xFC\u015F elektrikli k\u0131l\u0131\xE7.", tier: 10, colorPalette: { primary: "#0284c7", secondary: "#facc15", emissive: "#38bdf8" }, particles: { type: "spark", color: "#facc15", count: 22 }, recipe: { inputs: ["kilic", "prizma_tasi", "yildirim"] }, icon: "\u2694\uFE0F", category: 8 }, yildiz_gecidi_cekirdegi: { id: "yildiz_gecidi_cekirdegi", name: "Y\u0131ld\u0131z Ge\xE7idi \xC7ekirde\u011Fi", description: "Bo\u015Fluk \u015Fi\u015Fesi, kahin k\xFCresi ve portal r\xFCn\xFCn\xFCn birle\u015Fimiyle evrenin kalbi.", tier: 11, colorPalette: { primary: "#d946ef", secondary: "#06b6d4", emissive: "#f43f5e" }, particles: { type: "shimmer", color: "#d946ef", count: 30 }, recipe: { inputs: ["bosluk_sisesi", "kahin_kuresi", "portal_runu"] }, icon: "\u{1F30C}", category: 8 }, kar: { id: "kar", name: "Kar", description: "Hava ve ya\u011Fmurun dondurucu so\u011Fukta kristalle\u015Fmesi.", tier: 3, colorPalette: { primary: "#f8fafc", secondary: "#e2e8f0", emissive: "#ffffff" }, particles: { type: "cloud", color: "#ffffff", count: 15 }, recipe: { inputs: ["hava", "yagmur", null] }, icon: "\u2744\uFE0F", category: 1 }, buz: { id: "buz", name: "Buz", description: "S\u0131k\u0131\u015Fm\u0131\u015F kar tanelerinin donmas\u0131yla olu\u015Fan sert, \u015Feffaf k\xFCtle.", tier: 4, colorPalette: { primary: "#38bdf8", secondary: "#bae6fd", emissive: "#7dd3fc" }, particles: { type: "shimmer", color: "#bae6fd", count: 15 }, recipe: { inputs: ["kar", "kar", null] }, icon: "\u{1F9CA}", category: 1 }, col: { id: "col", name: "\xC7\xF6l", description: "R\xFCzgar\u0131n topra\u011F\u0131 a\u015F\u0131nd\u0131r\u0131p savurmas\u0131yla olu\u015Fan sonsuz kum denizi.", tier: 4, colorPalette: { primary: "#f59e0b", secondary: "#d97706", emissive: "#fbbf24" }, particles: { type: "grain", color: "#f59e0b", count: 15 }, recipe: { inputs: ["ruzgar", "toprak", null] }, icon: "\u{1F3DC}\uFE0F", category: 1 }, tohum: { id: "tohum", name: "Tohum", description: "Bitki, toprak ve ya\u011Fmurun bereketinden do\u011Fan hayat tanesi.", tier: 4, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#854d0e" }, particles: { type: "dust", color: "#ca8a04", count: 10 }, recipe: { inputs: ["bitki", "toprak", "yagmur"] }, icon: "\u{1F331}", category: 2 }, bugday: { id: "bugday", name: "Bu\u011Fday", description: "Tohum ve su ile yeti\u015Fen alt\u0131n sar\u0131s\u0131 ba\u015Fak.", tier: 5, colorPalette: { primary: "#eab308", secondary: "#fde047", emissive: "#ca8a04" }, particles: { type: "dust", color: "#fde047", count: 12 }, recipe: { inputs: ["bugday", "su", "tohum"] }, icon: "\u{1F33E}", category: 2 }, nane: { id: "nane", name: "Nane", description: "Buzlu so\u011Fukta ferahlat\u0131c\u0131 aromas\u0131yla yeti\u015Fen ye\u015Fil nane yapra\u011F\u0131.", tier: 4, colorPalette: { primary: "#10b981", secondary: "#34d399", emissive: "#059669" }, particles: { type: "spark", color: "#34d399", count: 10 }, recipe: { inputs: ["bitki", "buz", null] }, icon: "\u{1F33F}", category: 2 }, agac_kabugu: { id: "agac_kabugu", name: "A\u011Fa\xE7 Kabu\u011Fu", description: "Metal b\u0131\xE7akla a\u011Fa\xE7tan soyulmu\u015F sert d\u0131\u015F kabuk dokusu.", tier: 5, colorPalette: { primary: "#78350f", secondary: "#92400e", emissive: "#451a03" }, particles: { type: "dust", color: "#78350f", count: 10 }, recipe: { inputs: ["agac", "metal_bicak", null] }, icon: "\u{1FAB5}", category: 2 }, inek: { id: "inek", name: "\u0130nek", description: "Toprakta beslenen uysal ve verimli b\xFCy\xFCkba\u015F hayvan.", tier: 7, colorPalette: { primary: "#f8fafc", secondary: "#1e293b", emissive: "#cbd5e1" }, particles: { type: "dust", color: "#f8fafc", count: 10 }, recipe: { inputs: ["hayvan", "toprak", null] }, icon: "\u{1F404}", category: 3 }, sut: { id: "sut", name: "S\xFCt", description: "\xC7\xF6mle\u011Fe sa\u011F\u0131lm\u0131\u015F taze, besleyici beyaz s\xFCt.", tier: 8, colorPalette: { primary: "#ffffff", secondary: "#f1f5f9", emissive: "#e2e8f0" }, particles: { type: "drop", color: "#ffffff", count: 12 }, recipe: { inputs: ["comlek", "inek", null] }, icon: "\u{1F95B}", category: 3 }, yumurta: { id: "yumurta", name: "Yumurta", description: "Tohumla beslenen ku\u015Fun yumurtlad\u0131\u011F\u0131 p\xFCr\xFCzs\xFCz yumurta.", tier: 7, colorPalette: { primary: "#fef3c7", secondary: "#fde68a", emissive: "#fef08a" }, particles: { type: "dust", color: "#fef3c7", count: 8 }, recipe: { inputs: ["kus", "tohum", null] }, icon: "\u{1F95A}", category: 3 }, mercan: { id: "mercan", name: "Mercan", description: "Bal\u0131k ve su bitkilerinin ekosisteminde olu\u015Fan renkli deniz mercan\u0131.", tier: 7, colorPalette: { primary: "#f43f5e", secondary: "#fb7185", emissive: "#e11d48" }, particles: { type: "drop", color: "#fb7185", count: 12 }, recipe: { inputs: ["balik", "bitki", "su"] }, icon: "\u{1FAB8}", category: 3 }, olta: { id: "olta", name: "Olta", description: "Ah\u015Fap \xE7ubuk ve ipe ba\u011Fl\u0131 bal\u0131k i\u011Fnesi.", tier: 7, colorPalette: { primary: "#8b5a2b", secondary: "#cbd5e1", emissive: "#d4a373" }, particles: { type: "drop", color: "#38bdf8", count: 10 }, recipe: { inputs: ["balik", "ip", "odun"] }, icon: "\u{1F3A3}", category: 4 }, yelken: { id: "yelken", name: "Yelken", description: "R\xFCzgar\u0131 yakalamak i\xE7in ah\u015Fap direkte gerilmi\u015F dayan\u0131kl\u0131 kuma\u015F.", tier: 7, colorPalette: { primary: "#f8fafc", secondary: "#94a3b8", emissive: "#e2e8f0" }, particles: { type: "wind", color: "#ffffff", count: 12 }, recipe: { inputs: ["kumas", "odun", null] }, icon: "\u26F5", category: 4 }, sal: { id: "sal", name: "Sal", description: "\u0130p ve odunlarla ba\u011Flanan yelkenli deniz ta\u015F\u0131t\u0131.", tier: 8, colorPalette: { primary: "#78350f", secondary: "#f8fafc", emissive: "#92400e" }, particles: { type: "drop", color: "#38bdf8", count: 12 }, recipe: { inputs: ["ip", "odun", "yelken"] }, icon: "\u{1F6F6}", category: 4 }, obsidyen_bicak: { id: "obsidyen_bicak", name: "Obsidyen B\u0131\xE7ak", description: "Sivri obsidyen ve ah\u015Fap sap\u0131n iplerle ba\u011Flanmas\u0131yla olu\u015Fan keskin b\u0131\xE7ak.", tier: 7, colorPalette: { primary: "#0f172a", secondary: "#8b5a2b", emissive: "#334155" }, particles: { type: "spark", color: "#94a3b8", count: 10 }, recipe: { inputs: ["ip", "obsidyen", "odun"] }, icon: "\u{1F52A}", category: 4 }, peynir: { id: "peynir", name: "Peynir", description: "Is\u0131t\u0131lan s\xFCt\xFCn mayalanmas\u0131yla elde edilen lezzetli peynir blo\u011Fu.", tier: 8, colorPalette: { primary: "#facc15", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "dust", color: "#fde047", count: 10 }, recipe: { inputs: ["ates", "sut", null] }, icon: "\u{1F9C0}", category: 5 }, un: { id: "un", name: "Un", description: "Bu\u011Fday\u0131n ta\u015F de\u011Firmende \xF6\u011F\xFCt\xFClmesiyle olu\u015Fan ince beyaz toz.", tier: 6, colorPalette: { primary: "#fef3c7", secondary: "#ffffff", emissive: "#fde68a" }, particles: { type: "dust", color: "#ffffff", count: 12 }, recipe: { inputs: ["bugday", "tas", null] }, icon: "\u{1F33E}", category: 5 }, hamur: { id: "hamur", name: "Hamur", description: "Un ve suyun yo\u011Frulmas\u0131yla haz\u0131rlanan ekmek hamuru.", tier: 7, colorPalette: { primary: "#fef08a", secondary: "#fde047", emissive: "#eab308" }, particles: { type: "dust", color: "#fef08a", count: 10 }, recipe: { inputs: ["su", "un", null] }, icon: "\u{1F35E}", category: 5 }, ekmek: { id: "ekmek", name: "Ekmek", description: "F\u0131r\u0131nda pi\u015Fen mis kokulu k\u0131zarm\u0131\u015F somun ekmek.", tier: 8, colorPalette: { primary: "#b45309", secondary: "#d97706", emissive: "#78350f" }, particles: { type: "spark", color: "#d97706", count: 10 }, recipe: { inputs: ["ates", "hamur", null] }, icon: "\u{1F35E}", category: 5 }, disli_cark: { id: "disli_cark", name: "Di\u015Fli \xC7ark", description: "Demir k\xFCl\xE7e ve \xE7ivilerden \xFCretilmi\u015F hassas mekanik di\u015Fli.", tier: 7, colorPalette: { primary: "#64748b", secondary: "#cbd5e1", emissive: "#475569" }, particles: { type: "spark", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["civi", "demir_kulce", null] }, icon: "\u2699\uFE0F", category: 6 }, degirmen: { id: "degirmen", name: "De\u011Firmen", description: "Buhar motoru ve di\u015Flilerle \xE7al\u0131\u015Fan dev \xF6\u011F\xFCtme tesisi.", tier: 9, colorPalette: { primary: "#78350f", secondary: "#64748b", emissive: "#f59e0b" }, particles: { type: "dust", color: "#f59e0b", count: 15 }, recipe: { inputs: ["buhar_motoru", "disli_cark", "odun"] }, icon: "\u{1F6DE}", category: 6 }, ayna: { id: "ayna", name: "Ayna", description: "Cam, metal ve enerji p\xFCr\xFCzs\xFCzl\xFC\u011F\xFC ile \u0131\u015F\u0131\u011F\u0131 yans\u0131tan parlak y\xFCzey.", tier: 7, colorPalette: { primary: "#e2e8f0", secondary: "#38bdf8", emissive: "#ffffff" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["cam", "enerji", "metal"] }, icon: "\u{1FA9E}", category: 6 }, saat: { id: "saat", name: "Saat", description: "\u0130nce di\u015Fliler ve enerjiyle t\u0131k\u0131r t\u0131k\u0131r zaman\u0131 \xF6l\xE7en mekanizma.", tier: 8, colorPalette: { primary: "#eab308", secondary: "#94a3b8", emissive: "#fde047" }, particles: { type: "spark", color: "#fde047", count: 12 }, recipe: { inputs: ["demir_kulce", "disli_cark", "enerji"] }, icon: "\u23F0", category: 6 }, demir_parmaklik: { id: "demir_parmaklik", name: "Demir Parmakl\u0131k", description: "D\xF6v\xFClm\xFC\u015F \xE7elik \xE7ubuklardan olu\u015Fan sa\u011Flam demir parmakl\u0131k.", tier: 7, colorPalette: { primary: "#334155", secondary: "#64748b", emissive: "#1e293b" }, particles: { type: "spark", color: "#94a3b8", count: 10 }, recipe: { inputs: ["ates", "demir_kulce", "demir_kulce"] }, icon: "\u{1F9F1}", category: 7 }, savas_baltasi: { id: "savas_baltasi", name: "Sava\u015F Baltas\u0131", description: "\xC7elik k\xFCl\xE7e ve ah\u015Fap saptan yap\u0131lan a\u011F\u0131r kesici balta.", tier: 8, colorPalette: { primary: "#475569", secondary: "#78350f", emissive: "#94a3b8" }, particles: { type: "spark", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["celik_kulce", "odun", null] }, icon: "\u{1FA93}", category: 7 }, gozetleme_kulesi: { id: "gozetleme_kulesi", name: "G\xF6zetleme Kulesi", description: "Har\xE7 ve tu\u011Flalardan y\xFCkselen heybetli savunma kulesi.", tier: 8, colorPalette: { primary: "#c2410c", secondary: "#78716c", emissive: "#9a3412" }, particles: { type: "dust", color: "#c2410c", count: 15 }, recipe: { inputs: ["harc", "tugla", "tugla"] }, icon: "\u{1F3F0}", category: 7 }, kale_kapisi: { id: "kale_kapisi", name: "Kale Kap\u0131s\u0131", description: "\xC7elik k\xFCl\xE7e, \xE7ivi ve demir parmakl\u0131klarla z\u0131rhlanm\u0131\u015F dev kale kap\u0131s\u0131.", tier: 9, colorPalette: { primary: "#1e293b", secondary: "#475569", emissive: "#64748b" }, particles: { type: "spark", color: "#94a3b8", count: 15 }, recipe: { inputs: ["celik_kulce", "civi", "demir_parmaklik"] }, icon: "\u{1F6AA}", category: 7 }, buz_runu: { id: "buz_runu", name: "Buz R\xFCn\xFC", description: "Buz ve b\xFCy\xFC par\u015F\xF6meniyle dondurucu so\u011Fuk m\xFCh\xFCr\xFC.", tier: 8, colorPalette: { primary: "#0284c7", secondary: "#38bdf8", emissive: "#7dd3fc" }, particles: { type: "shimmer", color: "#7dd3fc", count: 18 }, recipe: { inputs: ["buz", "buyu_parsomeni", null] }, icon: "\u2744\uFE0F", category: 8 }, cehennem_tasi: { id: "cehennem_tasi", name: "Cehennem Ta\u015F\u0131", description: "Ate\u015F, obsidyen ve portal r\xFCn\xFCn\xFCn alevli boyutsal kayas\u0131.", tier: 9, colorPalette: { primary: "#dc2626", secondary: "#1e293b", emissive: "#f97316" }, particles: { type: "ember", color: "#f97316", count: 20 }, recipe: { inputs: ["ates", "obsidyen", "portal_runu"] }, icon: "\u{1F525}", category: 8 }, zaman_kum_saati: { id: "zaman_kum_saati", name: "Zaman Kum Saati", description: "Kristal, portal r\xFCn\xFC ve saat ile zaman\u0131 ak\u0131tan mistik kum saati.", tier: 10, colorPalette: { primary: "#f59e0b", secondary: "#ec4899", emissive: "#fbbf24" }, particles: { type: "shimmer", color: "#fbbf24", count: 22 }, recipe: { inputs: ["kristal", "portal_runu", "saat"] }, icon: "\u23F3", category: 8 }, illuzyon_aynasi: { id: "illuzyon_aynasi", name: "\u0130ll\xFCzyon Aynas\u0131", description: "Ayna, prizma ta\u015F\u0131 ve y\u0131ld\u0131z tozundan ger\xE7ekli\u011Fi b\xFCken b\xFCy\xFCl\xFC ayna.", tier: 10, colorPalette: { primary: "#d946ef", secondary: "#38bdf8", emissive: "#f43f5e" }, particles: { type: "shimmer", color: "#d946ef", count: 25 }, recipe: { inputs: ["ayna", "prizma_tasi", "yildiz_tozu"] }, icon: "\u{1FA9E}", category: 8 }, siber_kristal: { id: "siber_kristal", name: "Siber Kristal", description: "Kristal, elektrik motoru ve prizma ta\u015F\u0131n\u0131n rezonans\u0131yla par\u0131ldayan veri \xE7ekirde\u011Fi.", tier: 9, colorPalette: { primary: "#06b6d4", secondary: "#3b82f6", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#38bdf8", count: 18 }, recipe: { inputs: ["kristal", "elektrik_motoru", "prizma_tasi"] }, icon: "\u{1F48E}", category: 9 }, hologram_kupu: { id: "hologram_kupu", name: "Hologram K\xFCp\xFC", description: "Cam k\xFCp i\xE7inde s\u0131k\u0131\u015Ft\u0131r\u0131lm\u0131\u015F siber kristal ve enerji \u0131\u015F\u0131k projeksiyonu.", tier: 9, colorPalette: { primary: "#10b981", secondary: "#06b6d4", emissive: "#059669" }, particles: { type: "spark", color: "#34d399", count: 16 }, recipe: { inputs: ["cam", "enerji", "siber_kristal"] }, icon: "\u{1F9CA}", category: 9 }, buhar_jeneratoru: { id: "buhar_jeneratoru", name: "Buhar Jenerat\xF6r\xFC", description: "Buhar motoru ve \xE7elik di\u015Flilerle g\xFC\xE7lendirilmi\u015F devasa pirin\xE7 tazyik makinesi.", tier: 9, colorPalette: { primary: "#d97706", secondary: "#b45309", emissive: "#f59e0b" }, particles: { type: "smoke", color: "#d1d5db", count: 20 }, recipe: { inputs: ["buhar_motoru", "celik_kulce", "disli_cark"] }, icon: "\u2699\uFE0F", category: 9 }, meka_zirhi: { id: "meka_zirhi", name: "Meka Z\u0131rh\u0131", description: "R\xFCnik z\u0131rh\u0131n \xE7elik plakalar ve plazma jenerat\xF6r\xFCyle donat\u0131lm\u0131\u015F g\xFC\xE7 g\xF6vdesi.", tier: 9, colorPalette: { primary: "#475569", secondary: "#f97316", emissive: "#ea580c" }, particles: { type: "spark", color: "#fb923c", count: 15 }, recipe: { inputs: ["celik_kulce", "runik_zirh", "buhar_jeneratoru"] }, icon: "\u{1F6E1}\uFE0F", category: 9 }, plazma_tufegi: { id: "plazma_tufegi", name: "Plazma T\xFCfe\u011Fi", description: "F\u0131rt\u0131na k\u0131l\u0131c\u0131n\u0131n enerjisi ve siber kristal ile ate\u015Flenen y\xFCksek enerjili silah.", tier: 9, colorPalette: { primary: "#3b82f6", secondary: "#ec4899", emissive: "#6366f1" }, particles: { type: "spark", color: "#f43f5e", count: 22 }, recipe: { inputs: ["celik_kulce", "firtina_kilici", "siber_kristal"] }, icon: "\u{1F52B}", category: 9 }, felsefe_tasi: { id: "felsefe_tasi", name: "Felsefe Ta\u015F\u0131", description: "Anka k\xFCl\xFC ve cehennem ta\u015F\u0131n\u0131n saf simya ile yo\u011Fruldu\u011Fu efsanevi cevher.", tier: 10, colorPalette: { primary: "#dc2626", secondary: "#f59e0b", emissive: "#ef4444" }, particles: { type: "shimmer", color: "#f87171", count: 26 }, recipe: { inputs: ["anka_kulu", "cehennem_tasi", "prizma_tasi"] }, icon: "\u{1F52E}", category: 9 }, gunes_paneli: { id: "gunes_paneli", name: "G\xFCne\u015F Paneli", description: "Cam y\xFCzey ve siber kristal katmanlar\u0131yla \u0131\u015F\u0131\u011F\u0131 do\u011Frudan elektri\u011Fe \xE7eviren panel.", tier: 9, colorPalette: { primary: "#0284c7", secondary: "#facc15", emissive: "#38bdf8" }, particles: { type: "spark", color: "#fef08a", count: 14 }, recipe: { inputs: ["cam", "elektrik_motoru", "siber_kristal"] }, icon: "\u2600\uFE0F", category: 9 }, yercekimsiz_platform: { id: "yercekimsiz_platform", name: "Yer\xE7ekimsiz Platform", description: "M\u0131knat\u0131s, portal r\xFCn\xFC ve siber kristal ile havada as\u0131l\u0131 duran ini\u015F pedi.", tier: 9, colorPalette: { primary: "#9333ea", secondary: "#c084fc", emissive: "#a855f7" }, particles: { type: "ring", color: "#c084fc", count: 20 }, recipe: { inputs: ["miknatis", "portal_runu", "siber_kristal"] }, icon: "\u{1F6F8}", category: 9 }, biyonik_kol: { id: "biyonik_kol", name: "Biyonik Kol", description: "\xC7elik eklemler ve siber kristal sinir u\xE7lar\u0131yla donat\u0131lm\u0131\u015F sibernetik uzuv.", tier: 9, colorPalette: { primary: "#64748b", secondary: "#06b6d4", emissive: "#0284c7" }, particles: { type: "spark", color: "#38bdf8", count: 12 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "siber_kristal"] }, icon: "\u{1F9BE}", category: 9 }, usturlap: { id: "usturlap", name: "Kozmik Usturlap", description: "Pusula ve teleskopun alt\u0131n y\xF6r\xFCnge halkalar\u0131yla g\xF6kcisimlerini haritalayan alet.", tier: 9, colorPalette: { primary: "#eab308", secondary: "#3b82f6", emissive: "#ca8a04" }, particles: { type: "shimmer", color: "#fde047", count: 16 }, recipe: { inputs: ["pusula", "teleskop", "yildiz_tozu"] }, icon: "\u{1F9ED}", category: 9 }, tesla_bobini: { id: "tesla_bobini", name: "Tesla Bobini", description: "Y\u0131ld\u0131r\u0131m g\xFCc\xFCn\xFC kesintisiz y\xFCksek voltaj arklar\u0131na d\xF6n\xFC\u015Ft\xFCren kule jenerat\xF6r\xFC.", tier: 9, colorPalette: { primary: "#0284c7", secondary: "#38bdf8", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#60a5fa", count: 28 }, recipe: { inputs: ["celik_kulce", "elektrik_motoru", "yildirim"] }, icon: "\u26A1", category: 9 }, kuantum_islemci: { id: "kuantum_islemci", name: "Kuantum \u0130\u015Flemci", description: "Prizma ta\u015F\u0131 ve siber kristal matrisleriyle hesaplama yapan s\xFCper \xE7ip.", tier: 10, colorPalette: { primary: "#0284c7", secondary: "#22d3ee", emissive: "#0ea5e9" }, particles: { type: "spark", color: "#38bdf8", count: 20 }, recipe: { inputs: ["elektrik_motoru", "prizma_tasi", "siber_kristal"] }, icon: "\u{1F4BB}", category: 9 }, minyatur_yildiz: { id: "minyatur_yildiz", name: "Minyat\xFCr Y\u0131ld\u0131z", description: "Manyetik muhafaza i\xE7inde kontrol alt\u0131nda tutulan mikro s\xFCpernova.", tier: 10, colorPalette: { primary: "#f97316", secondary: "#eab308", emissive: "#ef4444" }, particles: { type: "flame", color: "#fb923c", count: 30 }, recipe: { inputs: ["bosluk_sisesi", "yildiz_gecidi_cekirdegi", "yildiz_tozu"] }, icon: "\u2600\uFE0F", category: 9 }, dag: { id: "dag", name: "Da\u011F", description: "Y\xFCkselen devasa kaya k\xFCtlesi ve karl\u0131 zirveler.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#475569" }, particles: { type: "dust", color: "#cbd5e1", count: 12 }, recipe: { inputs: ["toprak", "tas", null] }, icon: "\u26F0\uFE0F", category: 10 }, kaya: { id: "kaya", name: "Kaya", description: "Y\u0131llar\u0131n bask\u0131s\u0131yla sertle\u015Fmi\u015F yosunlu monolit ta\u015F.", tier: 2, colorPalette: { primary: "#78716c", secondary: "#a8a29e", emissive: "#57534e" }, particles: { type: "dust", color: "#a8a29e", count: 10 }, recipe: { inputs: ["tas", "tas", null] }, icon: "\u{1FAA8}", category: 10 }, gunes: { id: "gunes", name: "G\xFCne\u015F", description: "G\xF6ky\xFCz\xFCn\xFC ayd\u0131nlatan ve \u0131s\u0131tan saf ya\u015Fam \u0131\u015F\u0131\u011F\u0131.", tier: 2, colorPalette: { primary: "#eab308", secondary: "#facc15", emissive: "#ca8a04" }, particles: { type: "spark", color: "#fef08a", count: 25 }, recipe: { inputs: ["ates", "enerji", null] }, icon: "\u2600\uFE0F", category: 10 }, okyanus: { id: "okyanus", name: "Okyanus", description: "U\xE7suz bucaks\u0131z derin sular ve co\u015Fkulu dalgalar.", tier: 2, colorPalette: { primary: "#0284c7", secondary: "#0369a1", emissive: "#075985" }, particles: { type: "bubble", color: "#38bdf8", count: 20 }, recipe: { inputs: ["su", "su", null] }, icon: "\u{1F30A}", category: 10 }, volkan: { id: "volkan", name: "Volkan", description: "Zirvesinden duman ve k\u0131zg\u0131n lavlar f\u0131\u015Fk\u0131ran yanarda\u011F.", tier: 3, colorPalette: { primary: "#dc2626", secondary: "#ea580c", emissive: "#b91c1c" }, particles: { type: "flame", color: "#f97316", count: 24 }, recipe: { inputs: ["dag", "lav", null] }, icon: "\u{1F30B}", category: 10 }, ada: { id: "ada", name: "Ada", description: "Turkuaz sular\u0131n ortas\u0131nda palmiyelerle bezeli kara par\xE7as\u0131.", tier: 3, colorPalette: { primary: "#10b981", secondary: "#06b6d4", emissive: "#059669" }, particles: { type: "bubble", color: "#6ee7b7", count: 14 }, recipe: { inputs: ["okyanus", "toprak", null] }, icon: "\u{1F3DD}\uFE0F", category: 10 }, nehir: { id: "nehir", name: "Nehir", description: "Topra\u011F\u0131 yararak ak\u0131p giden co\u015Fkun su yolu.", tier: 2, colorPalette: { primary: "#0ea5e9", secondary: "#38bdf8", emissive: "#0284c7" }, particles: { type: "bubble", color: "#7dd3fc", count: 16 }, recipe: { inputs: ["su", "toprak", null] }, icon: "\u{1F3DE}\uFE0F", category: 10 }, orman: { id: "orman", name: "Orman", description: "Yemye\u015Fil a\u011Fa\xE7lar ve g\xFCr bitki \xF6rt\xFCs\xFCyle kapl\u0131 koruluk.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#22c55e", emissive: "#166534" }, particles: { type: "leaf", color: "#4ade80", count: 18 }, recipe: { inputs: ["agac", "agac", null] }, icon: "\u{1F332}", category: 10 }, firtina_bulutu: { id: "firtina_bulutu", name: "F\u0131rt\u0131na Bulutu", description: "\u015Eim\u015Fekler \xE7akt\u0131ran koyu gri f\u0131rt\u0131na k\xFCmesi.", tier: 2, colorPalette: { primary: "#475569", secondary: "#334155", emissive: "#facc15" }, particles: { type: "spark", color: "#fef08a", count: 20 }, recipe: { inputs: ["hava", "yagmur", "yildirim"] }, icon: "\u{1F329}\uFE0F", category: 10 }, magara: { id: "magara", name: "Ma\u011Fara", description: "Da\u011F\u0131n derinliklerine uzanan gizemli karanl\u0131k kovuk.", tier: 2, colorPalette: { primary: "#334155", secondary: "#1e293b", emissive: "#0f172a" }, particles: { type: "dust", color: "#64748b", count: 12 }, recipe: { inputs: ["dag", "tas", null] }, icon: "\u{1F573}\uFE0F", category: 10 }, gokkusagi: { id: "gokkusagi", name: "G\xF6kku\u015Fa\u011F\u0131", description: "G\xFCne\u015F \u0131\u015F\u0131nlar\u0131n\u0131n ya\u011Fmur damlalar\u0131nda k\u0131r\u0131lmas\u0131yla do\u011Fan renk c\xFCmb\xFC\u015F\xFC.", tier: 3, colorPalette: { primary: "#ec4899", secondary: "#3b82f6", emissive: "#eab308" }, particles: { type: "shimmer", color: "#f472b6", count: 25 }, recipe: { inputs: ["gunes", "yagmur", null] }, icon: "\u{1F308}", category: 10 }, kanyon: { id: "kanyon", name: "Kanyon", description: "Nehrin y\xFCzy\u0131llar boyu oydu\u011Fu derin k\u0131z\u0131l kanyon vadisi.", tier: 3, colorPalette: { primary: "#b45309", secondary: "#9a3412", emissive: "#78350f" }, particles: { type: "dust", color: "#d97706", count: 15 }, recipe: { inputs: ["dag", "nehir", null] }, icon: "\u{1F3DC}\uFE0F", category: 10 }, fay_hatti: { id: "fay_hatti", name: "Fay Hatt\u0131", description: "Yerkabu\u011Funun \u015Fiddetle sars\u0131l\u0131p ayr\u0131ld\u0131\u011F\u0131 derin yar\u0131k.", tier: 2, colorPalette: { primary: "#57534e", secondary: "#44403c", emissive: "#292524" }, particles: { type: "dust", color: "#78716c", count: 14 }, recipe: { inputs: ["toprak", "toprak", "tas"] }, icon: "\u26A1", category: 10 }, bulut: { id: "bulut", name: "Bulut", description: "G\xF6ky\xFCz\xFCnde s\xFCz\xFClen pamuksu beyaz su buhar\u0131 k\xFCmesi.", tier: 1, colorPalette: { primary: "#e2e8f0", secondary: "#f8fafc", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 18 }, recipe: { inputs: ["buhar", "hava", null] }, icon: "\u2601\uFE0F", category: 10 }, at: { id: "at", name: "At", description: "Sad\u0131k, g\xFC\xE7l\xFC ve r\xFCzg\xE2r gibi h\u0131zl\u0131 binek hayvan\u0131.", tier: 2, colorPalette: { primary: "#854d0e", secondary: "#a16207", emissive: "#713f12" }, particles: { type: "dust", color: "#ca8a04", count: 12 }, recipe: { inputs: ["hayvan", "toprak", null] }, icon: "\u{1F434}", category: 3 }, koyun: { id: "koyun", name: "Koyun", description: "Yumu\u015Fac\u0131k beyaz y\xFCnleriyle otlaklarda yay\u0131lan uysal hayvan.", tier: 2, colorPalette: { primary: "#f8fafc", secondary: "#e2e8f0", emissive: "#cbd5e1" }, particles: { type: "cloud", color: "#ffffff", count: 10 }, recipe: { inputs: ["bitki", "hayvan", null] }, icon: "\u{1F411}", category: 3 }, kurt: { id: "kurt", name: "Kurt", description: "Dolunaya uluyan, vah\u015Fi do\u011Fan\u0131n keskin g\xF6zl\xFC avc\u0131s\u0131.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#475569", emissive: "#334155" }, particles: { type: "spark", color: "#94a3b8", count: 14 }, recipe: { inputs: ["hayvan", "orman", null] }, icon: "\u{1F43A}", category: 3 }, ari: { id: "ari", name: "Ar\u0131", description: "\xC7i\xE7ek \xE7i\xE7ek gezip nektar toplayan \xE7al\u0131\u015Fkan bal ar\u0131s\u0131.", tier: 2, colorPalette: { primary: "#eab308", secondary: "#000000", emissive: "#ca8a04" }, particles: { type: "spark", color: "#facc15", count: 12 }, recipe: { inputs: ["kus", "nilufer", null] }, icon: "\u{1F41D}", category: 3 }, yilan: { id: "yilan", name: "Y\u0131lan", description: "Sessizce s\xFCz\xFClen, zehirli ve gizemli s\xFCr\xFCngen.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#16a34a", emissive: "#14532d" }, particles: { type: "bubble", color: "#4ade80", count: 10 }, recipe: { inputs: ["hayvan", "zehirli_sivi", null] }, icon: "\u{1F40D}", category: 3 }, baykus: { id: "baykus", name: "Bayku\u015F", description: "Gecenin karanl\u0131\u011F\u0131nda orman\u0131 g\xF6zleyen bilge gece ku\u015Fu.", tier: 2, colorPalette: { primary: "#78350f", secondary: "#b45309", emissive: "#451a03" }, particles: { type: "feather", color: "#d97706", count: 12 }, recipe: { inputs: ["kus", "orman", null] }, icon: "\u{1F989}", category: 3 }, kaplumbaga: { id: "kaplumbaga", name: "Kaplumba\u011Fa", description: "A\u011F\u0131r ad\u0131mlarla y\xFCr\xFCyen, sa\u011Flam kabuklu bilge amfibi.", tier: 2, colorPalette: { primary: "#166534", secondary: "#854d0e", emissive: "#14532d" }, particles: { type: "bubble", color: "#86efac", count: 8 }, recipe: { inputs: ["hayvan", "su", "tas"] }, icon: "\u{1F422}", category: 3 }, bal: { id: "bal", name: "Bal Kavanozu", description: "\xC7al\u0131\u015Fkan ar\u0131lar\u0131n \xE7i\xE7ek nektar\u0131ndan s\xFCzd\xFC\u011F\xFC alt\u0131n tatl\u0131l\u0131k.", tier: 3, colorPalette: { primary: "#f59e0b", secondary: "#fbbf24", emissive: "#d97706" }, particles: { type: "shimmer", color: "#fde047", count: 16 }, recipe: { inputs: ["ari", "comlek", null] }, icon: "\u{1F36F}", category: 4 }, nilufer: { id: "nilufer", name: "Nil\xFCfer", description: "Durgun sular\u0131n \xFCst\xFCnde zarafetle a\xE7an pembe \xE7i\xE7ek.", tier: 2, colorPalette: { primary: "#ec4899", secondary: "#f472b6", emissive: "#db2777" }, particles: { type: "leaf", color: "#fbcfe8", count: 14 }, recipe: { inputs: ["bitki", "su", null] }, icon: "\u{1FAB7}", category: 2 }, elma: { id: "elma", name: "Elma", description: "A\u011Fa\xE7 dallar\u0131nda olgunla\u015Fm\u0131\u015F sulu ve k\u0131pk\u0131rm\u0131z\u0131 meyve.", tier: 2, colorPalette: { primary: "#dc2626", secondary: "#ef4444", emissive: "#b91c1c" }, particles: { type: "leaf", color: "#f87171", count: 10 }, recipe: { inputs: ["agac", "gunes", null] }, icon: "\u{1F34E}", category: 2 }, kurbaga: { id: "kurbaga", name: "Kurba\u011Fa", description: "Nil\xFCfer yapraklar\u0131 aras\u0131nda ne\u015Feyle s\u0131\xE7rayan amfibi.", tier: 2, colorPalette: { primary: "#22c55e", secondary: "#16a34a", emissive: "#15803d" }, particles: { type: "bubble", color: "#86efac", count: 12 }, recipe: { inputs: ["camur", "hayvan", null] }, icon: "\u{1F438}", category: 3 }, sincap: { id: "sincap", name: "Sincap", description: "Palamut toplay\u0131p a\u011Fa\xE7 kovuklar\u0131nda saklayan sevimli kemirgen.", tier: 2, colorPalette: { primary: "#a16207", secondary: "#ca8a04", emissive: "#854d0e" }, particles: { type: "dust", color: "#eab308", count: 10 }, recipe: { inputs: ["hayvan", "tohum", null] }, icon: "\u{1F43F}\uFE0F", category: 3 }, geyik: { id: "geyik", name: "Geyik", description: "Orman\u0131n derinliklerinde s\xFCz\xFClen heybetli boynuzlu geyik.", tier: 3, colorPalette: { primary: "#92400e", secondary: "#b45309", emissive: "#78350f" }, particles: { type: "leaf", color: "#fde047", count: 14 }, recipe: { inputs: ["hayvan", "orman", "dag"] }, icon: "\u{1F98C}", category: 3 }, kelebek: { id: "kelebek", name: "Kelebek", description: "Rengarenk kanatlar\u0131yla \xE7i\xE7ekler aras\u0131nda dans eden b\xF6cek.", tier: 2, colorPalette: { primary: "#3b82f6", secondary: "#f97316", emissive: "#2563eb" }, particles: { type: "spark", color: "#93c5fd", count: 18 }, recipe: { inputs: ["kus", "nilufer", "hava"] }, icon: "\u{1F98B}", category: 3 }, sis: { id: "sis", name: "Sis", description: "Havan\u0131n su buhar\u0131 ile yo\u011Fu\u015Fmas\u0131 sonucu yery\xFCz\xFCne inen hafif pus.", tier: 2, colorPalette: { primary: "#cbd5e1", secondary: "#94a3b8", emissive: "#64748b" }, particles: { type: "cloud", color: "#e2e8f0", count: 15 }, recipe: { inputs: ["hava", "su", null] }, icon: "\u{1F32B}\uFE0F", category: "elements" }, gayzer: { id: "gayzer", name: "Gayzer", description: "Yeralt\u0131ndaki \u0131s\u0131nm\u0131\u015F su ve buhar\u0131n ta\u015Flar aras\u0131ndan f\u0131\u015Fk\u0131rmas\u0131.", tier: 2, colorPalette: { primary: "#0ea5e9", secondary: "#38bdf8", emissive: "#0284c7" }, particles: { type: "bubble", color: "#ffffff", count: 20 }, recipe: { inputs: ["ates", "toprak", "su"] }, icon: "\u2668\uFE0F", category: "elements" }, kaktus: { id: "kaktus", name: "Kakt\xFCs", description: "K\u0131zg\u0131n \xE7\xF6l kumlar\u0131nda bile dimdik duran \xE7i\xE7ekli dikenli bitki.", tier: 2, colorPalette: { primary: "#15803d", secondary: "#22c55e", emissive: "#166534" }, particles: { type: "leaf", color: "#86efac", count: 10 }, recipe: { inputs: ["bitki", "kum", null] }, icon: "\u{1F335}", category: "nature" }, cam_agaci: { id: "cam_agaci", name: "Karl\u0131 \xC7am A\u011Fac\u0131", description: "Karl\u0131 da\u011F yama\xE7lar\u0131nda k\u0131\u015F\u0131n da beyaz karlar alt\u0131nda dimdik duran \xE7am a\u011Fac\u0131.", tier: 2, colorPalette: { primary: "#166534", secondary: "#f8fafc", emissive: "#14532d" }, particles: { type: "cloud", color: "#f8fafc", count: 12 }, recipe: { inputs: ["agac", "kar", null] }, icon: "\u{1F332}", category: "nature" }, tavuk: { id: "tavuk", name: "Tavuk", description: "Yumurtadan \xE7\u0131kan, tarlalarda dola\u015Fan sevimli k\xFCmes hayvan\u0131.", tier: 2, colorPalette: { primary: "#f59e0b", secondary: "#fbbf24", emissive: "#d97706" }, particles: { type: "spark", color: "#fef08a", count: 8 }, recipe: { inputs: ["kus", "yumurta", null] }, icon: "\u{1F414}", category: "life" }, kedi: { id: "kedi", name: "Kedi", description: "S\xFCt\xFC ve s\u0131ca\u011F\u0131 seven sevimli uysal evcil dost.", tier: 2, colorPalette: { primary: "#f97316", secondary: "#ea580c", emissive: "#c2410c" }, particles: { type: "spark", color: "#fed7aa", count: 10 }, recipe: { inputs: ["hayvan", "sut", null] }, icon: "\u{1F431}", category: "life" }, mesale: { id: "mesale", name: "Me\u015Fale", description: "Karanl\u0131k ma\u011Faralar\u0131 ve yollar\u0131 ayd\u0131nlatan alevli ah\u015Fap me\u015Fale.", tier: 2, colorPalette: { primary: "#f97316", secondary: "#ef4444", emissive: "#ea580c" }, particles: { type: "spark", color: "#ffaa00", count: 15 }, recipe: { inputs: ["ates", "odun", null] }, icon: "\u{1F526}", category: "craft_tools" }, somon: { id: "somon", name: "Somon", description: "Ak\u0131nt\u0131n\u0131n tersine nehirlerde s\u0131\xE7rayan \xE7evik tatl\u0131 su bal\u0131\u011F\u0131.", tier: 2, colorPalette: { primary: "#fb7185", secondary: "#f43f5e", emissive: "#e11d48" }, particles: { type: "bubble", color: "#fecdd3", count: 10 }, recipe: { inputs: ["balik", "nehir", null] }, icon: "\u{1F41F}", category: "life" }, yay: { id: "yay", name: "Yay", description: "Esnek bir dal ve gergin ip ile yap\u0131lan avc\u0131 silah\u0131.", tier: 2, colorPalette: { primary: "#78350f", secondary: "#92400e", emissive: "#451a03" }, particles: { type: "spark", color: "#fde047", count: 10 }, recipe: { inputs: ["ip", "odun", null] }, icon: "\u{1F3F9}", category: "craft_tools" }, barut_ficisi: { id: "barut_ficisi", name: "Barut F\u0131\xE7\u0131s\u0131", description: "Ate\u015Fle bulu\u015Ftu\u011Funda \u015Fiddetli patlama yaratan ah\u015Fap f\u0131\xE7\u0131.", tier: 3, colorPalette: { primary: "#dc2626", secondary: "#b91c1c", emissive: "#991b1b" }, particles: { type: "spark", color: "#ef4444", count: 20 }, recipe: { inputs: ["barut", "odun", null] }, icon: "\u{1F6E2}\uFE0F", category: 5 }, su_degirmeni: { id: "su_degirmeni", name: "Su De\u011Firmeni", description: "Akarsuyun ak\u0131\u015F g\xFCc\xFCyle d\xF6nen ah\u015Fap \xE7ark mekanizmas\u0131.", tier: 3, colorPalette: { primary: "#0284c7", secondary: "#0369a1", emissive: "#075985" }, particles: { type: "bubble", color: "#38bdf8", count: 12 }, recipe: { inputs: ["su", "tekerlek", null] }, icon: "\u2699\uFE0F", category: 6 }, buz_dagi: { id: "buz_dagi", name: "Buz Da\u011F\u0131", description: "Okyanusta y\xFCzen devasa par\u0131lt\u0131l\u0131 buz k\xFCtlesi.", tier: 2, colorPalette: { primary: "#38bdf8", secondary: "#bae6fd", emissive: "#0284c7" }, particles: { type: "shimmer", color: "#ffffff", count: 15 }, recipe: { inputs: ["buz", "okyanus", null] }, icon: "\u{1F3D4}\uFE0F", category: "elements" }, kalkan: { id: "kalkan", name: "Kalkan", description: "Sald\u0131r\u0131lardan ve oklardan koruyan sa\u011Flam yuvarlak ah\u015Fap kalkan.", tier: 2, colorPalette: { primary: "#64748b", secondary: "#94a3b8", emissive: "#334155" }, particles: { type: "spark", color: "#cbd5e1", count: 8 }, recipe: { inputs: ["odun", "demir_kulce", null] }, icon: "\u{1F6E1}\uFE0F", category: "craft_tools" }, iksir_kazani: { id: "iksir_kazani", name: "\u0130ksir Kazan\u0131", description: "Ate\u015F \xFCzerinde iksirlerin ve simya \xF6zlerinin kaynat\u0131ld\u0131\u011F\u0131 d\xF6k\xFCm kazan.", tier: 3, colorPalette: { primary: "#1e293b", secondary: "#475569", emissive: "#0f172a" }, particles: { type: "bubble", color: "#a855f7", count: 16 }, recipe: { inputs: ["ates", "comlek", "su"] }, icon: "\u{1F372}", category: 5 } }, Ct = { fire: "ates", water: "su", earth: "toprak", air: "hava", steam: "buhar", mud: "camur", lava: "lav", sand: "kum", obsidian: "obsidyen", rain: "yagmur", energy: "enerji", wind: "ruzgar", stone: "tas", glass: "cam", cloud: "bulut", lightning: "yildirim", plant: "bitki", tree: "agac", wood: "odun", splinter: "kiymik", fiber: "lif", mushroom: "mantar", cotton: "pamuk", resin: "recine", life: "yasam", bird: "kus", animal: "hayvan", fish: "balik", rope: "ip", fabric: "kumas", coal: "komur", ash: "kul", paper: "kagit", primitive_knife: "ilkel_bicak", feather: "kus_tuyu", leather: "deri", cooked_meat: "kavrulmus_et", pottery: "comlek", water_jug: "su_comlegi", bottle: "sise", flint: "cakmaktasi", bow: "yay", arrow: "ok", torch: "mesale", raw_metal: "metal", iron_ingot: "demir_kulce", metal_knife: "metal_bicak", pickaxe: "kazma", sword: "kilic", wooden_shield: "ahsap_kalkan", iron_shield: "demir_kalkan", leather_armor: "deri_zirh", iron_armor: "demir_zirh", bed: "yatak", forest: "orman" };
 function lg(E14) {
   return E14 ? Ct[E14] || E14 : null;
 }
 Object.keys(Ct).forEach((E14) => {
   const A = Ct[E14];
-  OI[A] && !OI[E14] && (OI[E14] = OI[A]);
+  vI[A] && !vI[E14] && (vI[E14] = vI[A]);
 });
 const Rd = [{ inputs: ["hava", "yagmur", null], output: "kar", category: 1 }, { inputs: ["kar", "kar", null], output: "buz", category: 1 }, { inputs: ["lav", "su", null], output: "obsidyen", category: 1 }, { inputs: ["ruzgar", "toprak", null], output: "col", category: 1 }], Jd = [{ inputs: ["bitki", "toprak", "yagmur"], output: "tohum", category: 2 }, { inputs: ["bugday", "su", "tohum"], output: "bugday", category: 2 }, { inputs: ["bitki", "buz", null], output: "nane", category: 2 }, { inputs: ["agac", "metal_bicak", null], output: "agac_kabugu", category: 2 }], ud = [{ inputs: ["hayvan", "toprak", null], output: "inek", category: 3 }, { inputs: ["comlek", "inek", null], output: "sut", category: 3 }, { inputs: ["kus", "tohum", null], output: "yumurta", category: 3 }, { inputs: ["balik", "bitki", "su"], output: "mercan", category: 3 }], qd = [{ inputs: ["balik", "ip", "odun"], output: "olta", category: 4 }, { inputs: ["kumas", "odun", null], output: "yelken", category: 4 }, { inputs: ["ip", "odun", "yelken"], output: "sal", category: 4 }, { inputs: ["ip", "obsidyen", "odun"], output: "obsidyen_bicak", category: 4 }], fd = [{ inputs: ["mantar", "su_comlegi", null], output: "zehirli_sivi", category: 5 }, { inputs: ["sise", "zehirli_sivi", null], output: "zehir_sisesi", category: 5 }, { inputs: ["kilic", "zehir_sisesi", null], output: "zehirli_kilic", category: 5 }, { inputs: ["bitki", "sise", "su_comlegi"], output: "sifa_iksiri", category: 5 }, { inputs: ["enerji", "sise", "su_comlegi"], output: "mana_iksiri", category: 5 }, { inputs: ["komur", "kul", "recine"], output: "barut", category: 5 }, { inputs: ["barut", "demir_kulce", "ip"], output: "bomba", category: 5 }, { inputs: ["kagit", "kul", "kus_tuyu"], output: "buyu_parsomeni", category: 5 }, { inputs: ["buyu_parsomeni", "yildirim", null], output: "yildirim_parsomeni", category: 5 }, { inputs: ["ates", "buyu_parsomeni", null], output: "ates_topu_kitabi", category: 5 }, { inputs: ["ates", "sut", null], output: "peynir", category: 5 }, { inputs: ["bugday", "tas", null], output: "un", category: 5 }, { inputs: ["su", "un", null], output: "hamur", category: 5 }, { inputs: ["ates", "hamur", null], output: "ekmek", category: 5 }], md = [{ inputs: ["buhar", "demir_kulce", "komur"], output: "buhar_motoru", category: 6 }, { inputs: ["odun", "odun", "tas"], output: "tekerlek", category: 6 }, { inputs: ["demir_kulce", "odun", "tekerlek"], output: "el_arabasi", category: 6 }, { inputs: ["buhar_motoru", "demir_kulce", "tekerlek"], output: "lokomotif", category: 6 }, { inputs: ["cam", "metal", "yildirim"], output: "ampul", category: 6 }, { inputs: ["ampul", "demir_kulce", "enerji"], output: "fener", category: 6 }, { inputs: ["cam", "cam", "demir_kulce"], output: "pusula", category: 6 }, { inputs: ["demir_kulce", "yildirim", null], output: "miknatis", category: 6 }, { inputs: ["enerji", "metal", "miknatis"], output: "elektrik_motoru", category: 6 }, { inputs: ["civi", "demir_kulce", null], output: "disli_cark", category: 6 }, { inputs: ["buhar_motoru", "disli_cark", "odun"], output: "degirmen", category: 6 }, { inputs: ["cam", "enerji", "metal"], output: "ayna", category: 6 }, { inputs: ["demir_kulce", "disli_cark", "enerji"], output: "saat", category: 6 }], Yd = [{ inputs: ["ates", "demir_kulce", "komur"], output: "celik_kulce", category: 7 }, { inputs: ["celik_kulce", "tas", null], output: "ors", category: 7 }, { inputs: ["ates", "demir_kulce", null], output: "civi", category: 7 }, { inputs: ["ates", "camur", null], output: "tugla", category: 7 }, { inputs: ["kum", "su", "tas"], output: "harc", category: 7 }, { inputs: ["harc", "tugla", null], output: "tugla_duvar", category: 7 }, { inputs: ["celik_kulce", "civi", "odun"], output: "saglam_sandik", category: 7 }, { inputs: ["enerji", "kazma", "tas"], output: "kristal", category: 7 }, { inputs: ["cam", "kristal", "metal"], output: "teleskop", category: 7 }, { inputs: ["celik_kulce", "elektrik_motoru", "tekerlek"], output: "vinc", category: 7 }, { inputs: ["ates", "demir_kulce", "demir_kulce"], output: "demir_parmaklik", category: 7 }, { inputs: ["celik_kulce", "odun", null], output: "savas_baltasi", category: 7 }, { inputs: ["harc", "tugla", "tugla"], output: "gozetleme_kulesi", category: 7 }, { inputs: ["celik_kulce", "civi", "demir_parmaklik"], output: "kale_kapisi", category: 7 }], Ld = [{ inputs: ["enerji", "teleskop", null], output: "yildiz_tozu", category: 8 }, { inputs: ["kristal", "yildiz_tozu", null], output: "prizma_tasi", category: 8 }, { inputs: ["cam", "enerji", "prizma_tasi"], output: "kahin_kuresi", category: 8 }, { inputs: ["buyu_parsomeni", "yildiz_tozu", null], output: "portal_runu", category: 8 }, { inputs: ["kristal", "sise", "yildirim"], output: "bosluk_sisesi", category: 8 }, { inputs: ["celik_kulce", "portal_runu", "tugla_duvar"], output: "boyut_kapisi", category: 8 }, { inputs: ["anka_kulu", "ates", "kul"], output: "anka_kulu", category: 8 }, { inputs: ["demir_zirh", "ors", "prizma_tasi"], output: "runik_zirh", category: 8 }, { inputs: ["kilic", "prizma_tasi", "yildirim"], output: "firtina_kilici", category: 8 }, { inputs: ["bosluk_sisesi", "kahin_kuresi", "portal_runu"], output: "yildiz_gecidi_cekirdegi", category: 8 }, { inputs: ["buz", "buyu_parsomeni", null], output: "buz_runu", category: 8 }, { inputs: ["ates", "obsidyen", "portal_runu"], output: "cehennem_tasi", category: 8 }, { inputs: ["kristal", "portal_runu", "saat"], output: "zaman_kum_saati", category: 8 }, { inputs: ["ayna", "prizma_tasi", "yildiz_tozu"], output: "illuzyon_aynasi", category: 8 }], pn = [{ inputs: ["kristal", "elektrik_motoru", "prizma_tasi"], output: "siber_kristal", category: 9 }, { inputs: ["cam", "enerji", "siber_kristal"], output: "hologram_kupu", category: 9 }, { inputs: ["buhar_motoru", "celik_kulce", "disli_cark"], output: "buhar_jeneratoru", category: 9 }, { inputs: ["celik_kulce", "runik_zirh", "buhar_jeneratoru"], output: "meka_zirhi", category: 9 }, { inputs: ["celik_kulce", "firtina_kilici", "siber_kristal"], output: "plazma_tufegi", category: 9 }, { inputs: ["anka_kulu", "cehennem_tasi", "prizma_tasi"], output: "felsefe_tasi", category: 9 }, { inputs: ["cam", "elektrik_motoru", "siber_kristal"], output: "gunes_paneli", category: 9 }, { inputs: ["miknatis", "portal_runu", "siber_kristal"], output: "yercekimsiz_platform", category: 9 }, { inputs: ["celik_kulce", "elektrik_motoru", "siber_kristal"], output: "biyonik_kol", category: 9 }, { inputs: ["pusula", "teleskop", "yildiz_tozu"], output: "usturlap", category: 9 }, { inputs: ["celik_kulce", "elektrik_motoru", "yildirim"], output: "tesla_bobini", category: 9 }, { inputs: ["elektrik_motoru", "prizma_tasi", "siber_kristal"], output: "kuantum_islemci", category: 9 }, { inputs: ["bosluk_sisesi", "yildiz_gecidi_cekirdegi", "yildiz_tozu"], output: "minyatur_yildiz", category: 9 }], Un = [{ inputs: ["toprak", "tas", null], output: "dag", category: 10 }, { inputs: ["tas", "tas", null], output: "kaya", category: 10 }, { inputs: ["ates", "enerji", null], output: "gunes", category: 10 }, { inputs: ["su", "su", null], output: "okyanus", category: 10 }, { inputs: ["dag", "lav", null], output: "volkan", category: 10 }, { inputs: ["okyanus", "toprak", null], output: "ada", category: 10 }, { inputs: ["su", "toprak", null], output: "nehir", category: 10 }, { inputs: ["agac", "agac", null], output: "orman", category: 10 }, { inputs: ["hava", "yagmur", "yildirim"], output: "firtina_bulutu", category: 10 }, { inputs: ["dag", "tas", null], output: "magara", category: 10 }, { inputs: ["gunes", "yagmur", null], output: "gokkusagi", category: 10 }, { inputs: ["dag", "nehir", null], output: "kanyon", category: 10 }, { inputs: ["toprak", "toprak", "tas"], output: "fay_hatti", category: 10 }, { inputs: ["buhar", "hava", null], output: "bulut", category: 10 }], Nn = [{ inputs: ["hayvan", "toprak", null], output: "at", category: 3 }, { inputs: ["bitki", "hayvan", null], output: "koyun", category: 3 }, { inputs: ["hayvan", "orman", null], output: "kurt", category: 3 }, { inputs: ["kus", "nilufer", null], output: "ari", category: 3 }, { inputs: ["hayvan", "zehirli_sivi", null], output: "yilan", category: 3 }, { inputs: ["kus", "orman", null], output: "baykus", category: 3 }, { inputs: ["hayvan", "su", "tas"], output: "kaplumbaga", category: 3 }, { inputs: ["ari", "comlek", null], output: "bal", category: 4 }, { inputs: ["bitki", "su", null], output: "nilufer", category: 2 }, { inputs: ["agac", "gunes", null], output: "elma", category: 2 }, { inputs: ["camur", "hayvan", null], output: "kurbaga", category: 3 }, { inputs: ["hayvan", "tohum", null], output: "sincap", category: 3 }, { inputs: ["hayvan", "orman", "dag"], output: "geyik", category: 3 }, { inputs: ["kus", "nilufer", "hava"], output: "kelebek", category: 3 }], Kn = [{ inputs: ["hava", "su", null], output: "sis", category: 1 }, { inputs: ["ates", "toprak", "su"], output: "gayzer", category: 1 }, { inputs: ["bitki", "kum", null], output: "kaktus", category: 2 }, { inputs: ["agac", "kar", null], output: "cam_agaci", category: 2 }, { inputs: ["kus", "yumurta", null], output: "tavuk", category: 3 }, { inputs: ["hayvan", "sut", null], output: "kedi", category: 3 }, { inputs: ["ates", "odun", null], output: "mesale", category: 4 }, { inputs: ["balik", "nehir", null], output: "somon", category: 3 }, { inputs: ["ip", "odun", null], output: "yay", category: 4 }, { inputs: ["barut", "odun", null], output: "barut_ficisi", category: 5 }, { inputs: ["su", "tekerlek", null], output: "su_degirmeni", category: 6 }, { inputs: ["buz", "okyanus", null], output: "buz_dagi", category: 1 }, { inputs: ["odun", "demir_kulce", null], output: "kalkan", category: 4 }, { inputs: ["ates", "comlek", "su"], output: "iksir_kazani", category: 5 }];
-class zE {
+class $E {
   constructor() {
   }
   static _createOutline(A, I = 1976635, g = 0.035) {
-    const C = new SA({ color: I, side: Ng }), B = new l(A, C);
+    const C = new wA({ color: I, side: Ng }), B = new l(A, C);
     return B.scale.multiplyScalar(1 + g), B;
   }
   static createItemMesh(A) {
     var _a2;
-    const I = lg(A) || A, g = OI[I] || OI[A] || OI.fire, C = new f();
+    const I = lg(A) || A, g = vI[I] || vI[A] || vI.fire, C = new f();
     C.userData.itemId = I, C.userData.definition = g;
     let B;
     switch (I) {
@@ -21594,16 +21632,16 @@ class zE {
     S.position.set(0.02, 0.42, 0.02), I.add(S);
     const G = new $(0.18, 0.52, 4), k = new l(G, t);
     k.position.set(-0.16, 0.42, -0.06), k.rotation.z = 0.28, k.rotation.x = -0.15, I.add(k);
-    const U = new TA(16742144, 2.8, 3.5);
-    U.position.set(0, 0.65, 0.2), I.add(U);
-    const p = 8, M = new jI(0.042, 0), F = new SA({ color: 16773280 }), y = [];
-    for (let N = 0; N < p; N++) {
-      const q = new l(M, F), L = N / p * Math.PI * 2 + Math.random() * 0.5, Z = 0.15 + Math.random() * 0.22, m = 0.3 + Math.random() * 0.7;
+    const M = new TA(16742144, 2.8, 3.5);
+    M.position.set(0, 0.65, 0.2), I.add(M);
+    const U = 8, p = new VI(0.042, 0), F = new wA({ color: 16773280 }), y = [];
+    for (let N = 0; N < U; N++) {
+      const q = new l(p, F), L = N / U * Math.PI * 2 + Math.random() * 0.5, Z = 0.15 + Math.random() * 0.22, m = 0.3 + Math.random() * 0.7;
       q.position.set(Math.cos(L) * Z, m, Math.sin(L) * Z), q.userData = { angle: L, radius: Z, speed: 0.9 + Math.random() * 0.8, rotSpeed: (Math.random() - 0.5) * 6, maxHeight: 1.35 + Math.random() * 0.4, baseScale: 0.7 + Math.random() * 0.5 }, I.add(q), y.push(q);
     }
     return I.userData.update = (N, q) => {
       const L = q || 0.016, Z = N * 4;
-      I.rotation.y += L * 1, r.scale.y = 1 + Math.sin(Z * 1.8) * 0.08, r.scale.x = 1 + Math.cos(Z * 2.2) * 0.06, r.rotation.y += L * 0.3, D.scale.y = 1 + Math.sin(Z * 2.4 + 1) * 0.12, D.rotation.z = -0.15 + Math.sin(Z * 2) * 0.06, k.scale.y = 1 + Math.sin(Z * 2.8 + 2) * 0.14, k.rotation.x = -0.15 + Math.cos(Z * 2.2) * 0.08, U.intensity = 2.5 + Math.sin(Z * 5.5) * 0.5 + (Math.random() - 0.5) * 0.3, y.forEach((m) => {
+      I.rotation.y += L * 1, r.scale.y = 1 + Math.sin(Z * 1.8) * 0.08, r.scale.x = 1 + Math.cos(Z * 2.2) * 0.06, r.rotation.y += L * 0.3, D.scale.y = 1 + Math.sin(Z * 2.4 + 1) * 0.12, D.rotation.z = -0.15 + Math.sin(Z * 2) * 0.06, k.scale.y = 1 + Math.sin(Z * 2.8 + 2) * 0.14, k.rotation.x = -0.15 + Math.cos(Z * 2.2) * 0.08, M.intensity = 2.5 + Math.sin(Z * 5.5) * 0.5 + (Math.random() - 0.5) * 0.3, y.forEach((m) => {
         const _ = m.userData;
         m.position.y += _.speed * L, _.angle += _.rotSpeed * L, m.rotation.x += L * 3, m.rotation.y += L * 4;
         const v = Math.min(1, m.position.y / _.maxHeight);
@@ -21626,18 +21664,18 @@ class zE {
     s.castShadow = true, e.add(s);
     const n = new $(0.44, 0.65, 7), r = new l(n, a);
     r.position.y = 0.32, r.castShadow = true, e.add(r);
-    const c = new $(0.12, 0.32, 4), D = new SA({ color: 16777215, transparent: true, opacity: 0.85 }), h = new l(c, D);
+    const c = new $(0.12, 0.32, 4), D = new wA({ color: 16777215, transparent: true, opacity: 0.85 }), h = new l(c, D);
     h.position.set(-0.22, 0.22, 0.28), h.rotation.set(0.3, 0.2, 0.35), e.add(h), I.add(e);
     const S = new sI(0.075, 0), G = new d({ color: 8246268, emissive: 165063, emissiveIntensity: 0.5, roughness: 0.1, flatShading: true }), k = [];
-    return [{ angle: 0.8, radius: 0.52, y: 0.42, speed: 1.2 }, { angle: 2.8, radius: 0.48, y: 0.68, speed: 1.5 }, { angle: 4.6, radius: 0.56, y: 0.35, speed: 1 }].forEach((p) => {
-      const M = new l(S, G);
-      M.position.set(Math.cos(p.angle) * p.radius, p.y, Math.sin(p.angle) * p.radius), M.userData = p, I.add(M), k.push(M);
-    }), I.userData.update = (p, M) => {
-      const F = M || 0.016, y = p * 2.2;
+    return [{ angle: 0.8, radius: 0.52, y: 0.42, speed: 1.2 }, { angle: 2.8, radius: 0.48, y: 0.68, speed: 1.5 }, { angle: 4.6, radius: 0.56, y: 0.35, speed: 1 }].forEach((U) => {
+      const p = new l(S, G);
+      p.position.set(Math.cos(U.angle) * U.radius, U.y, Math.sin(U.angle) * U.radius), p.userData = U, I.add(p), k.push(p);
+    }), I.userData.update = (U, p) => {
+      const F = p || 0.016, y = U * 2.2;
       I.rotation.y += F * 1, e.position.y = 0.52 + Math.sin(y) * 0.06, e.rotation.y += F * 1, o.rotation.z += F * 0.8;
       const N = 1 + Math.sin(y * 1.5) * 0.08;
       o.scale.set(N, N, 1), k.forEach((q) => {
-        q.userData.angle += q.userData.speed * F, q.position.x = Math.cos(q.userData.angle) * q.userData.radius, q.position.z = Math.sin(q.userData.angle) * q.userData.radius, q.position.y = q.userData.y + Math.sin(p * 3 + q.userData.angle) * 0.05, q.rotation.x += F * 2, q.rotation.y += F * 2.5;
+        q.userData.angle += q.userData.speed * F, q.position.x = Math.cos(q.userData.angle) * q.userData.radius, q.position.z = Math.sin(q.userData.angle) * q.userData.radius, q.position.y = q.userData.y + Math.sin(U * 3 + q.userData.angle) * 0.05, q.rotation.x += F * 2, q.rotation.y += F * 2.5;
       });
     }, I;
   }
@@ -21662,9 +21700,9 @@ class zE {
     h.position.y = 0.16, h.rotation.z = -0.12, h.castShadow = true, r.add(h);
     const S = new $(0.075, 0.22, 3), G = new d({ color: 4906624, roughness: 0.4, flatShading: true }), k = new l(S, G);
     k.position.set(-0.09, 0.24, 0.02), k.rotation.set(0.2, 0, 1.15), r.add(k);
-    const U = new l(S, G);
-    U.position.set(0.09, 0.2, -0.02), U.rotation.set(-0.2, 0, -1.25), r.add(U);
-    const p = new sI(0.075, 0), M = new d({ color: 16498468, emissive: 14251782, emissiveIntensity: 0.4, roughness: 0.3, flatShading: true }), F = new l(p, M);
+    const M = new l(S, G);
+    M.position.set(0.09, 0.2, -0.02), M.rotation.set(-0.2, 0, -1.25), r.add(M);
+    const U = new sI(0.075, 0), p = new d({ color: 16498468, emissive: 14251782, emissiveIntensity: 0.4, roughness: 0.3, flatShading: true }), F = new l(U, p);
     return F.position.set(0.02, 0.33, 0), r.add(F), I.add(r), I.userData.update = (y, N) => {
       const q = N || 0.016, L = y * 2;
       I.rotation.y += q * 1, r.rotation.z = Math.sin(L) * 0.08, r.rotation.x = Math.cos(L * 1.2) * 0.05;
@@ -21689,11 +21727,11 @@ class zE {
       const G = new l(r, c);
       G.position.set(Math.cos(S.angle) * S.radius, S.y, Math.sin(S.angle) * S.radius), G.userData = S, I.add(G), D.push(G);
     }), I.userData.update = (S, G) => {
-      const k = G || 0.016, U = S * 2.5;
-      I.rotation.y += k * 1, g.position.y = 0.62 + Math.sin(U) * 0.05;
-      const p = 1 + Math.sin(U * 1.5) * 0.04;
-      g.scale.set(p, 1 + Math.cos(U * 1.5) * 0.05, p), i.rotation.y += k * 1.6, e.rotation.z += k * 0.6, n.rotation.z -= k * 0.5, D.forEach((M) => {
-        M.userData.angle += M.userData.speed * k, M.position.x = Math.cos(M.userData.angle) * M.userData.radius, M.position.z = Math.sin(M.userData.angle) * M.userData.radius, M.position.y = M.userData.y + Math.sin(S * 3.5 + M.userData.angle) * 0.06, M.rotation.x += k * 3.5, M.rotation.y += k * 4, M.rotation.z += k * 2.5;
+      const k = G || 0.016, M = S * 2.5;
+      I.rotation.y += k * 1, g.position.y = 0.62 + Math.sin(M) * 0.05;
+      const U = 1 + Math.sin(M * 1.5) * 0.04;
+      g.scale.set(U, 1 + Math.cos(M * 1.5) * 0.05, U), i.rotation.y += k * 1.6, e.rotation.z += k * 0.6, n.rotation.z -= k * 0.5, D.forEach((p) => {
+        p.userData.angle += p.userData.speed * k, p.position.x = Math.cos(p.userData.angle) * p.userData.radius, p.position.z = Math.sin(p.userData.angle) * p.userData.radius, p.position.y = p.userData.y + Math.sin(S * 3.5 + p.userData.angle) * 0.06, p.rotation.x += k * 3.5, p.rotation.y += k * 4, p.rotation.z += k * 2.5;
       });
     }, I;
   }
@@ -21723,7 +21761,7 @@ class zE {
     t.position.set(0.18, 0.52, 0.12), I.add(t);
     const a = new BA(0.12, 0), s = new l(a, o);
     s.position.set(-0.22, 0.44, -0.15), I.add(s);
-    const n = new jI(0.07, 0);
+    const n = new VI(0.07, 0);
     return [{ pos: [0.45, 0.22, 0.25] }, { pos: [-0.42, 0.2, -0.3] }, { pos: [-0.15, 0.62, 0.2] }].forEach((c) => {
       const D = new l(n, C);
       D.position.set(...c.pos), I.add(D);
@@ -21759,7 +21797,7 @@ class zE {
     B.position.set(-0.05, 0.35, 0), B.rotation.y = 0.2, B.castShadow = true, B.receiveShadow = true, I.add(B);
     const i = new $(0.46, 0.48, 5), Q = new l(i, g);
     Q.position.set(0.38, 0.24, 0.15), Q.rotation.y = -0.4, Q.castShadow = true, I.add(Q);
-    const o = new qI(0.065, 0), e = new d({ color: 16707722, emissive: 14251782, emissiveIntensity: 0.6, roughness: 0.3, flatShading: true }), t = [];
+    const o = new fI(0.065, 0), e = new d({ color: 16707722, emissive: 14251782, emissiveIntensity: 0.6, roughness: 0.3, flatShading: true }), t = [];
     return [{ angle: 0.5, r: 0.48, y: 0.45, speed: 1.4 }, { angle: 2.5, r: 0.52, y: 0.62, speed: 1.8 }, { angle: 4.5, r: 0.42, y: 0.32, speed: 1.2 }].forEach((s) => {
       const n = new l(o, e);
       n.position.set(Math.cos(s.angle) * s.r, s.y, Math.sin(s.angle) * s.r), n.userData = s, I.add(n), t.push(n);
@@ -21771,19 +21809,19 @@ class zE {
     }, I;
   }
   static _createObsidianMesh(A) {
-    const I = new f(), g = new qI(0.58, 0);
+    const I = new f(), g = new fI(0.58, 0);
     g.scale(0.85, 1.35, 0.85);
     const C = new d({ color: 1444390, emissive: 7020968, emissiveIntensity: 0.45, roughness: 0.15, metalness: 0.65, flatShading: true }), B = new l(g, C);
     B.position.y = 0.6, B.rotation.y = Math.PI / 4, B.castShadow = true, I.add(B);
-    const i = new qI(0.32, 0);
+    const i = new fI(0.32, 0);
     i.scale(0.6, 1.1, 0.6);
     const Q = new l(i, C);
     Q.position.set(0.32, 0.38, 0.12), Q.rotation.set(0.1, 0.4, -0.35), Q.castShadow = true, I.add(Q);
-    const o = new qI(0.24, 0);
+    const o = new fI(0.24, 0);
     o.scale(0.6, 1, 0.6);
     const e = new l(o, C);
     e.position.set(-0.28, 0.32, -0.15), e.rotation.set(-0.2, -0.3, 0.4), e.castShadow = true, I.add(e);
-    const t = new $(0.12, 0.42, 4), a = new SA({ color: 14202110, transparent: true, opacity: 0.75 }), s = new l(t, a);
+    const t = new $(0.12, 0.42, 4), a = new wA({ color: 14202110, transparent: true, opacity: 0.75 }), s = new l(t, a);
     return s.position.set(-0.16, 0.65, 0.28), s.rotation.set(0.2, 0.3, 0.25), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
       I.rotation.y += c * 1.1, B.scale.y = 1 + Math.sin(n * 2.2) * 0.03;
@@ -21847,7 +21885,7 @@ class zE {
     g.scale(0.9, 1.15, 0.85);
     const C = new d({ color: 4674921, roughness: 0.8, metalness: 0.05, flatShading: true }), B = new l(g, C);
     B.position.y = 0.52, B.rotation.y = 0.35, B.castShadow = true, B.receiveShadow = true, I.add(B);
-    const i = new jI(0.24, 0), Q = new d({ color: 9741240, roughness: 0.7, flatShading: true }), o = new l(i, Q);
+    const i = new VI(0.24, 0), Q = new d({ color: 9741240, roughness: 0.7, flatShading: true }), o = new l(i, Q);
     o.position.set(0.22, 0.58, 0.36), o.rotation.set(0.2, 0.5, 0.1), I.add(o);
     const e = new u(0.42, 0.48, 0.08, 6), t = new d({ color: 1483594, roughness: 0.8, flatShading: true }), a = new l(e, t);
     return a.position.set(-0.1, 0.08, 0.1), a.receiveShadow = true, I.add(a), I.userData.update = (s, n) => {
@@ -21858,9 +21896,9 @@ class zE {
   static _createGlassMesh(A) {
     const I = new f(), g = new u(0.44, 0.44, 0.72, 6), C = new wI({ color: 14742270, transmission: 0.9, roughness: 0.08, metalness: 0.05, transparent: true, opacity: 0.95, ior: 1.5, emissive: 165063, emissiveIntensity: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.48, B.rotation.y = Math.PI / 6, B.castShadow = true, I.add(B);
-    const i = new qI(0.18, 0), Q = new SA({ color: 3718648, transparent: true, opacity: 0.8 }), o = new l(i, Q);
+    const i = new fI(0.18, 0), Q = new wA({ color: 3718648, transparent: true, opacity: 0.8 }), o = new l(i, Q);
     o.position.y = 0.48, I.add(o);
-    const e = new $(0.08, 0.35, 4), t = new SA({ color: 16777215, transparent: true, opacity: 0.85 }), a = new l(e, t);
+    const e = new $(0.08, 0.35, 4), t = new wA({ color: 16777215, transparent: true, opacity: 0.85 }), a = new l(e, t);
     return a.position.set(-0.25, 0.58, 0.22), a.rotation.set(0.2, 0.1, 0.3), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1.1, o.rotation.x += r * 1.5, o.rotation.y += r * 2;
@@ -21877,9 +21915,9 @@ class zE {
     }, I;
   }
   static _createLightningMesh(A) {
-    const I = new f(), g = new d({ color: 16436245, emissive: 16770560, emissiveIntensity: 1.6, roughness: 0.15, flatShading: true }), C = new z(0.14, 0.52, 0.1), B = new l(C, g);
+    const I = new f(), g = new d({ color: 16436245, emissive: 16770560, emissiveIntensity: 1.6, roughness: 0.15, flatShading: true }), C = new X(0.14, 0.52, 0.1), B = new l(C, g);
     B.position.set(-0.1, 0.78, 0), B.rotation.z = -0.42, B.castShadow = true, I.add(B);
-    const i = new z(0.16, 0.42, 0.1), Q = new l(i, g);
+    const i = new X(0.16, 0.42, 0.1), Q = new l(i, g);
     Q.position.set(0.08, 0.52, 0), Q.rotation.z = 0.75, Q.castShadow = true, I.add(Q);
     const o = new $(0.14, 0.52, 4), e = new l(o, g);
     e.position.set(0.02, 0.22, 0), e.rotation.z = -0.25, e.castShadow = true, I.add(e);
@@ -21970,7 +22008,7 @@ class zE {
     B.position.y = 0.22, B.castShadow = true, B.receiveShadow = true, I.add(B);
     const i = new $(0.52, 0.38, 7), Q = new d({ color: 15680580, emissive: 10033947, emissiveIntensity: 0.25, roughness: 0.35, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.52, o.castShadow = true, I.add(o);
-    const e = new SA({ color: 16777215 }), t = new jI(0.065, 0);
+    const e = new wA({ color: 16777215 }), t = new VI(0.065, 0);
     return [[0, 0.72, 0.08], [0.24, 0.52, 0.22], [-0.24, 0.52, 0.22], [0.28, 0.48, -0.16], [-0.28, 0.48, -0.16]].forEach(([s, n, r]) => {
       const c = new l(t, e);
       c.position.set(s, n, r), I.add(c);
@@ -21989,7 +22027,7 @@ class zE {
       const t = new l(e, g);
       t.position.set(...o.pos), t.castShadow = true, t.receiveShadow = true, I.add(t);
     });
-    const B = new SA({ color: 12318672 }), i = new jI(0.045, 0);
+    const B = new wA({ color: 12318672 }), i = new VI(0.045, 0);
     return [[-0.1, 0.42, 0.1], [0.18, 0.34, 0.2], [-0.15, 0.28, -0.18]].forEach(([o, e, t]) => {
       const a = new l(i, B);
       a.position.set(o, e, t), I.add(a);
@@ -22018,7 +22056,7 @@ class zE {
   static _createFabricMesh(A) {
     const I = new f(), g = new d({ color: 3900150, emissive: 1920728, emissiveIntensity: 0.2, roughness: 0.55, flatShading: true }), C = new u(0.24, 0.24, 0.72, 6), B = new l(C, g);
     B.position.y = 0.28, B.rotation.z = Math.PI / 2, B.rotation.y = 0.25, B.castShadow = true, B.receiveShadow = true, I.add(B);
-    const i = new z(0.68, 0.08, 0.32), Q = new l(i, g);
+    const i = new X(0.68, 0.08, 0.32), Q = new l(i, g);
     Q.position.set(0, 0.44, 0.08), Q.rotation.y = 0.25, Q.castShadow = true, I.add(Q);
     const o = new u(0.26, 0.26, 0.12, 6), e = new d({ color: 16498468, roughness: 0.4, flatShading: true }), t = new l(o, e);
     return t.position.y = 0.28, t.rotation.z = Math.PI / 2, t.rotation.y = 0.25, I.add(t), I.userData.update = (a, s) => {
@@ -22031,11 +22069,11 @@ class zE {
     g.scale(1.15, 0.88, 1);
     const C = new d({ color: 1579035, roughness: 0.85, metalness: 0.2, flatShading: true }), B = new l(g, C);
     B.position.y = 0.42, B.rotation.y = 0.3, B.castShadow = true, B.receiveShadow = true, I.add(B);
-    const i = new jI(0.18, 0), Q = new l(i, C);
+    const i = new VI(0.18, 0), Q = new l(i, C);
     Q.position.set(0.38, 0.25, 0.2), Q.rotation.set(0.2, 0.5, -0.3), Q.castShadow = true, I.add(Q);
     const o = new l(i, C);
     o.position.set(-0.35, 0.22, -0.18), o.rotation.set(-0.4, 0.2, 0.5), o.castShadow = true, I.add(o);
-    const e = new SA({ color: 16726784 }), t = new jI(0.08, 0), a = new l(t, e);
+    const e = new wA({ color: 16726784 }), t = new VI(0.08, 0), a = new l(t, e);
     return a.position.set(0.15, 0.48, 0.25), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1;
@@ -22046,7 +22084,7 @@ class zE {
   static _createAshMesh(A) {
     const I = new f(), g = new $(0.68, 0.38, 7), C = new d({ color: 6583435, roughness: 0.95, flatShading: true }), B = new l(g, C);
     B.position.y = 0.19, B.castShadow = true, B.receiveShadow = true, B.add(this._createOutline(g, 3359061, 0.035)), I.add(B);
-    const i = new SA({ color: 15680580 }), Q = new BA(0.06, 0), o = new l(Q, i);
+    const i = new wA({ color: 15680580 }), Q = new BA(0.06, 0), o = new l(Q, i);
     o.position.set(0.18, 0.25, 0.1), I.add(o);
     const e = new l(new BA(0.04, 0), i);
     return e.position.set(-0.15, 0.22, -0.1), I.add(e), I.userData.update = (t, a) => {
@@ -22055,7 +22093,7 @@ class zE {
     }, I;
   }
   static _createPaperMesh(A) {
-    const I = new f(), g = new d({ color: 16708551, roughness: 0.75, flatShading: true }), C = new z(0.72, 0.04, 0.52), B = new l(C, g);
+    const I = new f(), g = new d({ color: 16708551, roughness: 0.75, flatShading: true }), C = new X(0.72, 0.04, 0.52), B = new l(C, g);
     B.position.y = 0.22, B.rotation.set(0.06, 0.2, 0.04), B.castShadow = true, B.receiveShadow = true, I.add(B);
     const i = new u(0.08, 0.08, 0.52, 6), Q = new l(i, g);
     Q.position.set(0.36, 0.26, 0.06), Q.rotation.set(Math.PI / 2, 0, -0.2), Q.castShadow = true, I.add(Q);
@@ -22091,25 +22129,25 @@ class zE {
     e.scale(0.85, 0.95, 1.2);
     const t = new d({ color: 959977, emissive: 165063, emissiveIntensity: 0.25, roughness: 0.4, flatShading: true }), a = new l(e, t);
     a.position.set(0, 0.42, -0.04), a.add(this._createOutline(e, 223649, 0.035)), I.add(a);
-    const s = new jI(0.18, 0), n = new d({ color: 16707722, roughness: 0.45, flatShading: true }), r = new l(s, n);
+    const s = new VI(0.18, 0), n = new d({ color: 16707722, roughness: 0.45, flatShading: true }), r = new l(s, n);
     r.position.set(0, 0.38, 0.14), I.add(r);
     const c = new BA(0.16, 0), D = new l(c, t);
     D.position.set(0, 0.54, 0.16), D.add(this._createOutline(c, 223649, 0.03)), I.add(D);
-    const h = new SA({ color: 988970 });
+    const h = new wA({ color: 988970 });
     [-0.11, 0.11].forEach((N) => {
-      const q = new l(new z(0.04, 0.04, 0.04), h);
+      const q = new l(new X(0.04, 0.04, 0.04), h);
       q.position.set(N, 0.56, 0.24), I.add(q);
     });
     const S = new $(0.06, 0.18, 4);
     S.rotateX(Math.PI / 2);
     const G = new d({ color: 16096779, flatShading: true }), k = new l(S, G);
     k.position.set(0, 0.52, 0.32), I.add(k);
-    const U = new $(0.12, 0.38, 4);
-    U.scale(0.3, 1, 0.85);
-    const p = new l(U, t);
-    p.position.set(-0.24, 0.44, -0.04), p.rotation.set(Math.PI / 2.6, 0, 0.35), I.add(p);
-    const M = new l(U, t);
-    M.position.set(0.24, 0.44, -0.04), M.rotation.set(Math.PI / 2.6, 0, -0.35), I.add(M);
+    const M = new $(0.12, 0.38, 4);
+    M.scale(0.3, 1, 0.85);
+    const U = new l(M, t);
+    U.position.set(-0.24, 0.44, -0.04), U.rotation.set(Math.PI / 2.6, 0, 0.35), I.add(U);
+    const p = new l(M, t);
+    p.position.set(0.24, 0.44, -0.04), p.rotation.set(Math.PI / 2.6, 0, -0.35), I.add(p);
     const F = new $(0.1, 0.28, 3);
     F.rotateX(-Math.PI / 2.4);
     const y = new l(F, t);
@@ -22117,7 +22155,7 @@ class zE {
       const L = q || 0.016;
       I.rotation.y += L * 1;
       const Z = Math.sin(N * 3.5) * 0.06;
-      p.rotation.z = 0.35 + Z, M.rotation.z = -0.35 - Z, D.position.y = 0.54 + Math.sin(N * 2) * 0.015;
+      U.rotation.z = 0.35 + Z, p.rotation.z = -0.35 - Z, D.position.y = 0.54 + Math.sin(N * 2) * 0.015;
     }, I;
   }
   static _createAnimalMesh(A) {
@@ -22135,12 +22173,12 @@ class zE {
     n.position.set(0, 0.58, 0.24), I.add(n);
     const r = new BA(0.16, 0), c = new l(r, e);
     c.position.set(0, 0.72, 0.34), c.add(this._createOutline(r, 7877903, 0.035)), I.add(c);
-    const D = new SA({ color: 1841431 });
+    const D = new wA({ color: 1841431 });
     [-0.1, 0.1].forEach((F) => {
-      const y = new l(new z(0.035, 0.035, 0.035), D);
+      const y = new l(new X(0.035, 0.035, 0.035), D);
       y.position.set(F, 0.74, 0.42), I.add(y);
     });
-    const h = new l(new z(0.06, 0.05, 0.06), D);
+    const h = new l(new X(0.06, 0.05, 0.06), D);
     h.position.set(0, 0.67, 0.48), I.add(h);
     const S = new $(0.05, 0.14, 4);
     [-0.12, 0.12].forEach((F, y) => {
@@ -22154,17 +22192,17 @@ class zE {
       const L = new $(0.025, 0.14, 4), Z = new l(L, G);
       Z.position.set(F < 0 ? F - 0.06 : F + 0.06, 0.94, 0.32), Z.rotation.set(-0.1, 0, y === 0 ? -0.8 : 0.8), I.add(Z);
     });
-    const k = new u(0.04, 0.035, 0.36, 5), U = new d({ color: 2696484, flatShading: true });
+    const k = new u(0.04, 0.035, 0.36, 5), M = new d({ color: 2696484, flatShading: true });
     [[-0.14, -0.2], [0.14, -0.2], [-0.14, 0.2], [0.14, 0.2]].forEach(([F, y]) => {
       const N = new l(k, e);
       N.position.set(F, 0.24, y), I.add(N);
-      const q = new l(new z(0.06, 0.06, 0.06), U);
+      const q = new l(new X(0.06, 0.06, 0.06), M);
       q.position.set(F, 0.08, y), I.add(q);
     });
-    const p = new d({ color: 16317180, flatShading: true }), M = new l(new $(0.06, 0.16, 4), p);
-    return M.position.set(0, 0.48, -0.34), M.rotation.x = -Math.PI / 2.8, I.add(M), I.userData.update = (F, y) => {
+    const U = new d({ color: 16317180, flatShading: true }), p = new l(new $(0.06, 0.16, 4), U);
+    return p.position.set(0, 0.48, -0.34), p.rotation.x = -Math.PI / 2.8, I.add(p), I.userData.update = (F, y) => {
       const N = y || 0.016;
-      I.rotation.y += N * 1, c.position.y = 0.72 + Math.sin(F * 2.5) * 0.02, M.rotation.z = Math.sin(F * 4) * 0.2;
+      I.rotation.y += N * 1, c.position.y = 0.72 + Math.sin(F * 2.5) * 0.02, p.rotation.z = Math.sin(F * 4) * 0.2;
     }, I;
   }
   static _createFishMesh(A) {
@@ -22180,9 +22218,9 @@ class zE {
     a.position.y = 0.36, a.add(this._createOutline(t, 10105874, 0.035)), I.add(a);
     const s = new d({ color: 16777215, roughness: 0.4, flatShading: true }), n = new l(new BA(0.12, 0), s);
     n.position.set(0.05, 0.46, 0.05), I.add(n);
-    const r = new SA({ color: 988970 });
+    const r = new wA({ color: 988970 });
     [-0.14, 0.14].forEach((F) => {
-      const y = new l(new z(0.035, 0.035, 0.035), r);
+      const y = new l(new X(0.035, 0.035, 0.035), r);
       y.position.set(F, 0.4, 0.28), I.add(y);
     });
     const c = new d({ color: 16486972, flatShading: true }), D = new $(0.08, 0.22, 3);
@@ -22193,14 +22231,14 @@ class zE {
     G.position.set(-0.2, 0.32, 0.1), G.rotation.set(0.5, 0, 0.8), I.add(G);
     const k = new l(S, c);
     k.position.set(0.2, 0.32, 0.1), k.rotation.set(0.5, 0, -0.8), I.add(k);
-    const U = new f();
-    U.position.set(0, 0.36, -0.38);
-    const p = new $(0.18, 0.32, 3);
-    p.rotateX(-Math.PI / 2);
-    const M = new l(p, c);
-    return M.position.z = -0.12, U.add(M), I.add(U), I.userData.update = (F, y) => {
+    const M = new f();
+    M.position.set(0, 0.36, -0.38);
+    const U = new $(0.18, 0.32, 3);
+    U.rotateX(-Math.PI / 2);
+    const p = new l(U, c);
+    return p.position.z = -0.12, M.add(p), I.add(M), I.userData.update = (F, y) => {
       const N = y || 0.016;
-      I.rotation.y += N * 1, U.rotation.y = Math.sin(F * 5) * 0.4, a.rotation.y = Math.sin(F * 5 + 1.2) * 0.1, G.rotation.z = 0.8 + Math.sin(F * 6) * 0.2, k.rotation.z = -0.8 - Math.sin(F * 6) * 0.2;
+      I.rotation.y += N * 1, M.rotation.y = Math.sin(F * 5) * 0.4, a.rotation.y = Math.sin(F * 5 + 1.2) * 0.1, G.rotation.z = 0.8 + Math.sin(F * 6) * 0.2, k.rotation.z = -0.8 - Math.sin(F * 6) * 0.2;
     }, I;
   }
   static _createPrimitiveKnifeMesh(A) {
@@ -22252,9 +22290,9 @@ class zE {
     r.scale(1.1, 1.4, 0.2);
     const c = new l(r, n);
     c.position.set(0, 0.43, 0), c.add(this._createOutline(r, 7877903, 0.035)), I.add(c);
-    const D = new SA({ color: 14251782 });
+    const D = new wA({ color: 14251782 });
     return [[-0.24, 0.68], [0.24, 0.68], [-0.24, 0.18], [0.24, 0.18]].forEach(([h, S]) => {
-      const G = new l(new z(0.02, 0.08, 0.02), D);
+      const G = new l(new X(0.02, 0.08, 0.02), D);
       G.position.set(h * 0.75, S, 0), I.add(G);
     }), I.userData.update = (h, S) => {
       const G = S || 0.016;
@@ -22274,7 +22312,7 @@ class zE {
     e.position.set(0.3, 0.04, 0), g.add(e);
     const t = new l(new BA(0.08, 0), Q);
     t.position.set(0.46, 0.12, 0), g.add(t);
-    const a = new SA({ color: 14870768, transparent: true, opacity: 0.75 }), s = new l(new BA(0.07, 0), a);
+    const a = new wA({ color: 14870768, transparent: true, opacity: 0.75 }), s = new l(new BA(0.07, 0), a);
     return s.position.set(-0.08, 0.22, 0), g.add(s), I.add(g), I.userData.update = (n, r) => {
       const c = r || 0.016;
       I.rotation.y += c * 1, s.position.y = 0.22 + Math.sin(n * 3.5) * 0.08, s.scale.setScalar(0.85 + Math.sin(n * 3.5) * 0.25);
@@ -22285,7 +22323,7 @@ class zE {
     B.position.y = 0.52, B.castShadow = true, I.add(B);
     const i = new sI(0.42, 1), Q = new l(i, C);
     Q.position.y = 0.32, Q.castShadow = true, I.add(Q);
-    const o = new jI(0.09, 0), e = new SA({ color: 1409085 }), t = new l(o, e);
+    const o = new VI(0.09, 0), e = new wA({ color: 1409085 }), t = new l(o, e);
     return t.position.set(0.04, 0.38, 0.02), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
       I.rotation.y += n * 1;
@@ -22309,7 +22347,7 @@ class zE {
     Q.position.y = 0.74, I.add(Q);
     const o = new xA(0.22, 0.045, 4, 8, Math.PI), e = new l(o, g);
     e.position.set(-0.32, 0.54, 0), e.rotation.z = -Math.PI / 2;
-    const t = new li(0.18, 12), a = new SA({ color: 3718648 }), s = new l(t, a);
+    const t = new li(0.18, 12), a = new wA({ color: 3718648 }), s = new l(t, a);
     return s.position.set(0, 0.94, 0), s.rotation.x = -Math.PI / 2, I.add(s), I;
   }
   static _createBottleMesh(A) {
@@ -22330,7 +22368,7 @@ class zE {
     g.scale(1.1, 0.7, 0.5);
     const C = new d({ color: 3359061, roughness: 0.65, metalness: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.38, B.rotation.set(0.2, 0.3, -0.2), B.add(this._createOutline(g, 988970, 0.04)), I.add(B);
-    const i = new jI(0.09, 0), Q = new d({ color: 16498468, emissive: 16096779, emissiveIntensity: 0.8, flatShading: true }), o = new l(i, Q);
+    const i = new VI(0.09, 0), Q = new d({ color: 16498468, emissive: 16096779, emissiveIntensity: 0.8, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.35, 0.55, 0.1), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
       I.rotation.y += a * 1, o.position.y = 0.55 + Math.sin(e * 5) * 0.06, o.rotation.x += a * 2;
@@ -22345,7 +22383,7 @@ class zE {
     i.add(this._createOutline(B, 7421714, 0.035)), g.add(i);
     const Q = new d({ color: 4528643, flatShading: true }), o = new l(new u(0.065, 0.065, 0.16, 6), Q);
     o.position.set(-0.43, 0, 0), g.add(o);
-    const e = new SA({ color: 16317180 }), t = new u(0.014, 0.014, 0.86, 4), a = new l(t, e);
+    const e = new wA({ color: 16317180 }), t = new u(0.014, 0.014, 0.86, 4), a = new l(t, e);
     return a.position.set(-0.06, 0, 0), g.add(a), I.add(g), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1, a.position.x = -0.06 + Math.sin(s * 5) * 0.015;
@@ -22358,7 +22396,7 @@ class zE {
     o.position.y = 0.98, o.add(this._createOutline(i, 1976635, 0.035)), I.add(o);
     const e = new d({ color: 15680580, flatShading: true });
     for (let t = 0; t < 3; t++) {
-      const a = t * Math.PI * 2 / 3, s = new z(0.08, 0.22, 0.015), n = new l(s, e);
+      const a = t * Math.PI * 2 / 3, s = new X(0.08, 0.22, 0.015), n = new l(s, e);
       n.position.set(Math.cos(a) * 0.05, 0.12, Math.sin(a) * 0.05), n.rotation.y = -a, I.add(n);
     }
     return I.userData.update = (t, a) => {
@@ -22373,7 +22411,7 @@ class zE {
     o.position.y = 0.68, I.add(o);
     const e = new $(0.18, 0.42, 5), t = new d({ color: 16347926, emissive: 15357964, emissiveIntensity: 0.8, flatShading: true }), a = new l(e, t);
     a.position.y = 0.9, I.add(a);
-    const s = new $(0.1, 0.26, 5), n = new SA({ color: 16707722 }), r = new l(s, n);
+    const s = new $(0.1, 0.26, 5), n = new wA({ color: 16707722 }), r = new l(s, n);
     r.position.y = 0.88, I.add(r);
     const c = new TA(16742144, 1.8, 3);
     return c.position.set(0, 0.95, 0.1), I.add(c), I.userData.update = (D, h) => {
@@ -22395,9 +22433,9 @@ class zE {
   }
   static _createIronIngotMesh(A) {
     const I = new f(), g = new d({ color: 9741240, metalness: 0.85, roughness: 0.3, flatShading: true }), C = (i, Q, o, e, t = 1) => {
-      const a = new f(), s = new z(0.54 * t, 0.16 * t, 0.28 * t), n = new l(s, g);
+      const a = new f(), s = new X(0.54 * t, 0.16 * t, 0.28 * t), n = new l(s, g);
       n.add(this._createOutline(s, 4674921, 0.035)), a.add(n);
-      const r = new SA({ color: 3359061 }), c = new l(new z(0.24 * t, 0.02, 0.1 * t), r);
+      const r = new wA({ color: 3359061 }), c = new l(new X(0.24 * t, 0.02, 0.1 * t), r);
       return c.position.y = 0.085 * t, a.add(c), a.position.set(i, Q, o), a.rotation.y = e, a;
     };
     I.add(C(-0.14, 0.22, -0.06, 0.12, 1.05)), I.add(C(0.14, 0.22, 0.08, -0.15, 1.05)), I.add(C(0, 0.38, 0.02, 0.28, 1));
@@ -22410,7 +22448,7 @@ class zE {
   static _createMetalKnifeMesh(A) {
     const I = new f(), g = new u(0.06, 0.055, 0.4, 6), C = new d({ color: 8736014, roughness: 0.7, flatShading: true }), B = new l(g, C);
     B.position.y = 0.18, B.add(this._createOutline(g, 4528643, 0.035)), I.add(B);
-    const i = new z(0.24, 0.05, 0.08), Q = new d({ color: 6583435, metalness: 0.85, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.24, 0.05, 0.08), Q = new d({ color: 6583435, metalness: 0.85, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.4, I.add(o);
     const e = new $(0.12, 0.65, 4);
     e.scale(1, 1, 0.25);
@@ -22451,7 +22489,7 @@ class zE {
     g.scale(1, 1, 0.3);
     const C = new d({ color: 16317180, roughness: 0.2, metalness: 0.95, emissive: 3718648, emissiveIntensity: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.7, B.add(this._createOutline(g, 4674921, 0.04)), I.add(B);
-    const i = new z(0.48, 0.08, 0.1), Q = new d({ color: 16096779, metalness: 0.8, roughness: 0.3, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.48, 0.08, 0.1), Q = new d({ color: 16096779, metalness: 0.8, roughness: 0.3, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.22, o.add(this._createOutline(i, 11817737, 0.035)), I.add(o);
     const e = new u(0.045, 0.045, 0.26, 6), t = new d({ color: 7877903, roughness: 0.8, flatShading: true }), a = new l(e, t);
     a.position.y = 0.08, a.add(this._createOutline(e, 4528643, 0.03)), I.add(a);
@@ -22506,9 +22544,9 @@ class zE {
       const c = new l(a, Q);
       c.position.set(r, 0.7, 0), c.add(this._createOutline(a, 4528643, 0.03)), I.add(c);
     });
-    const s = new l(new z(0.64, 0.09, 0.44), Q);
+    const s = new l(new X(0.64, 0.09, 0.44), Q);
     s.position.set(0, 0.32, 0), I.add(s);
-    const n = new l(new z(0.11, 0.11, 0.46), o);
+    const n = new l(new X(0.11, 0.11, 0.46), o);
     return n.position.set(0, 0.32, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
       I.rotation.y += D * 1, t.scale.x = 1.15 + Math.sin(r * 2.5) * 0.02;
@@ -22524,20 +22562,20 @@ class zE {
       const t = new l(e, C);
       t.position.set(o, 0.72, 0), t.add(this._createOutline(e, 3359061, 0.035)), I.add(t);
     });
-    const i = new z(0.06, 0.6, 0.38), Q = new l(i, C);
+    const i = new X(0.06, 0.6, 0.38), Q = new l(i, C);
     return Q.position.set(0, 0.46, 0.1), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
       I.rotation.y += t * 1;
     }, I;
   }
   static _createBedMesh(A) {
-    const I = new f(), g = new z(0.85, 0.2, 1.15), C = new d({ color: 7877903, roughness: 0.8, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.85, 0.2, 1.15), C = new d({ color: 7877903, roughness: 0.8, flatShading: true }), B = new l(g, C);
     B.position.y = 0.16, B.add(this._createOutline(g, 4528643, 0.035)), I.add(B);
-    const i = new z(0.85, 0.45, 0.12), Q = new l(i, C);
+    const i = new X(0.85, 0.45, 0.12), Q = new l(i, C);
     Q.position.set(0, 0.35, -0.52), Q.add(this._createOutline(i, 4528643, 0.035)), I.add(Q);
-    const o = new z(0.78, 0.16, 0.75), e = new d({ color: 15680580, roughness: 0.7, flatShading: true }), t = new l(o, e);
+    const o = new X(0.78, 0.16, 0.75), e = new d({ color: 15680580, roughness: 0.7, flatShading: true }), t = new l(o, e);
     t.position.set(0, 0.28, 0.14), t.add(this._createOutline(o, 10033947, 0.035)), I.add(t);
-    const a = new z(0.62, 0.14, 0.26), s = new d({ color: 16317180, roughness: 0.6, flatShading: true }), n = new l(a, s);
+    const a = new X(0.62, 0.14, 0.26), s = new d({ color: 16317180, roughness: 0.6, flatShading: true }), n = new l(a, s);
     return n.position.set(0, 0.3, -0.34), n.add(this._createOutline(a, 9741240, 0.03)), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
       I.rotation.y += D * 1;
@@ -22578,11 +22616,11 @@ class zE {
     g.scale(1, 1, 0.3);
     const C = new d({ color: 8843180, emissive: 2278750, emissiveIntensity: 0.7, metalness: 0.85, roughness: 0.2, flatShading: true }), B = new l(g, C);
     B.position.y = 0.7, B.add(this._createOutline(g, 1332013, 0.04)), I.add(B);
-    const i = new z(0.48, 0.08, 0.1), Q = new d({ color: 1332013, roughness: 0.5, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.48, 0.08, 0.1), Q = new d({ color: 1332013, roughness: 0.5, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.22, I.add(o);
     const e = new u(0.045, 0.045, 0.28, 6), t = new l(e, Q);
     t.position.y = 0.08, t.add(this._createOutline(e, 339478, 0.03)), I.add(t);
-    const a = new jI(0.08, 0), s = new SA({ color: 4906624 }), n = new l(a, s);
+    const a = new VI(0.08, 0), s = new wA({ color: 4906624 }), n = new l(a, s);
     return n.position.set(0.1, 0.5, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
       I.rotation.y += D * 1, n.position.y = 0.4 + Math.sin(r * 4) * 0.15;
@@ -22595,9 +22633,9 @@ class zE {
     Q.position.y = 0.78, Q.add(this._createOutline(i, 10033947, 0.035)), I.add(Q);
     const o = new u(0.14, 0.1, 0.15, 6), e = new d({ color: 11817737, roughness: 0.8, flatShading: true }), t = new l(o, e);
     t.position.y = 0.94, I.add(t);
-    const a = new SA({ color: 16773618 }), s = new z(0.06, 0.22, 0.04), n = new l(s, a);
+    const a = new wA({ color: 16773618 }), s = new X(0.06, 0.22, 0.04), n = new l(s, a);
     n.position.set(0, 0.42, 0.4), I.add(n);
-    const r = new z(0.22, 0.06, 0.04), c = new l(r, a);
+    const r = new X(0.22, 0.06, 0.04), c = new l(r, a);
     c.position.set(0, 0.42, 0.4), I.add(c);
     const D = new TA(15680580, 1.8, 3);
     return D.position.set(0, 0.45, 0.1), I.add(D), I.userData.update = (h, S) => {
@@ -22612,9 +22650,9 @@ class zE {
     Q.position.y = 0.78, Q.add(this._createOutline(i, 223649, 0.035)), I.add(Q);
     const o = new u(0.14, 0.1, 0.15, 6), e = new d({ color: 16096779, metalness: 0.8, roughness: 0.3, flatShading: true }), t = new l(o, e);
     t.position.y = 0.94, I.add(t);
-    const a = new SA({ color: 8246268 }), s = [];
+    const a = new wA({ color: 8246268 }), s = [];
     for (let r = 0; r < 3; r++) {
-      const c = new qI(0.06, 0), D = new l(c, a);
+      const c = new fI(0.06, 0), D = new l(c, a);
       I.add(D), s.push({ mesh: D, angle: r * Math.PI * 2 / 3 });
     }
     const n = new TA(3718648, 1.8, 3);
@@ -22632,7 +22670,7 @@ class zE {
     o.rotation.x = Math.PI / 2, o.position.y = 0.48, I.add(o);
     const e = new $(0.3, 0.24, 6), t = new d({ color: 1976635, roughness: 0.9, metalness: 0.2, flatShading: true }), a = new l(e, t);
     a.position.y = 0.56, I.add(a);
-    const s = new jI(0.06, 0), n = new SA({ color: 16096779 }), r = new l(s, n);
+    const s = new VI(0.06, 0), n = new wA({ color: 16096779 }), r = new l(s, n);
     return r.position.set(0.18, 0.65, 0.1), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
       I.rotation.y += h * 1, r.position.y = 0.65 + Math.sin(c * 6) * 0.04;
@@ -22647,7 +22685,7 @@ class zE {
     e.rotateZ(0.4);
     const t = new l(e, o);
     t.position.set(0.06, 0.84, 0), I.add(t);
-    const a = new SA({ color: 16347926 }), s = new l(new BA(0.065, 0), a);
+    const a = new wA({ color: 16347926 }), s = new l(new BA(0.065, 0), a);
     s.position.set(0.12, 0.95, 0), I.add(s);
     const n = new TA(16347926, 2.5, 2.2);
     return n.position.set(0.12, 0.95, 0), I.add(n), I.userData.update = (r, c) => {
@@ -22660,7 +22698,7 @@ class zE {
     B.rotation.z = Math.PI / 2.2, B.position.y = 0.36, B.add(this._createOutline(g, 8141549, 0.04)), I.add(B);
     const i = new u(0.2, 0.2, 0.16, 6), Q = new d({ color: 9647082, roughness: 0.4, flatShading: true }), o = new l(i, Q);
     o.rotation.z = Math.PI / 2.2, o.position.y = 0.36, I.add(o);
-    const e = new qI(0.08, 0), t = new SA({ color: 14202110 }), a = new l(e, t);
+    const e = new fI(0.08, 0), t = new wA({ color: 14202110 }), a = new l(e, t);
     return a.position.set(0, 0.65, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1, a.position.y = 0.65 + Math.sin(s * 3) * 0.05, a.rotation.y += r * 2;
@@ -22669,22 +22707,22 @@ class zE {
   static _createYildirimParsomeniMesh(A) {
     const I = new f(), g = new u(0.18, 0.18, 0.85, 6), C = new d({ color: 16707722, emissive: 15381256, roughness: 0.4 }), B = new l(g, C);
     B.rotation.z = Math.PI / 2.2, B.position.y = 0.35, B.add(this._createOutline(g, 13273604, 0.04)), I.add(B);
-    const i = new u(0.2, 0.2, 0.16, 12), Q = new $o({ color: 16096779 }), o = new l(i, Q);
+    const i = new u(0.2, 0.2, 0.16, 12), Q = new Ae({ color: 16096779 }), o = new l(i, Q);
     return o.rotation.z = Math.PI / 2.2, o.position.y = 0.35, I.add(o), I;
   }
   static _createAtesTopuKitabiMesh(A) {
-    const I = new f(), g = new z(0.72, 0.14, 0.92), C = new d({ color: 14427686, emissive: 10033947, emissiveIntensity: 0.35, roughness: 0.6, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.72, 0.14, 0.92), C = new d({ color: 14427686, emissive: 10033947, emissiveIntensity: 0.35, roughness: 0.6, flatShading: true }), B = new l(g, C);
     B.position.y = 0.22, B.add(this._createOutline(g, 8330525, 0.04)), I.add(B);
-    const i = new z(0.66, 0.1, 0.86), Q = new d({ color: 16708551, roughness: 0.8, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.66, 0.1, 0.86), Q = new d({ color: 16708551, roughness: 0.8, flatShading: true }), o = new l(i, Q);
     o.position.set(0.02, 0.22, 0), I.add(o);
-    const e = new qI(0.14, 0), t = new d({ color: 16498468, emissive: 16347926, emissiveIntensity: 0.85, flatShading: true }), a = new l(e, t);
+    const e = new fI(0.14, 0), t = new d({ color: 16498468, emissive: 16347926, emissiveIntensity: 0.85, flatShading: true }), a = new l(e, t);
     return a.position.set(0, 0.32, 0), a.rotation.y = Math.PI / 4, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1, a.rotation.y += r * 2, a.scale.setScalar(1 + Math.sin(s * 4) * 0.12);
     }, I;
   }
   static _createBuharMotoruMesh(A) {
-    const I = new f(), g = new z(0.76, 0.1, 0.64), C = new d({ color: 1976635, metalness: 0.8, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.76, 0.1, 0.64), C = new d({ color: 1976635, metalness: 0.8, flatShading: true }), B = new l(g, C);
     B.position.y = 0.06, B.add(this._createOutline(g, 988970, 0.035)), I.add(B);
     const i = new d({ color: 11817737, metalness: 0.8, roughness: 0.35, flatShading: true }), Q = new u(0.18, 0.18, 0.48, 6);
     Q.rotateZ(Math.PI / 2);
@@ -22697,11 +22735,11 @@ class zE {
     const s = new xA(0.2, 0.035, 4, 8), n = new l(s, t);
     n.add(this._createOutline(s, 11817737, 0.03)), a.add(n);
     for (let D = 0; D < 3; D++) {
-      const h = new l(new z(0.03, 0.38, 0.02), t);
+      const h = new l(new X(0.03, 0.38, 0.02), t);
       h.rotation.z = D * Math.PI / 3, a.add(h);
     }
     I.add(a);
-    const r = new z(0.24, 0.04, 0.04), c = new l(r, i);
+    const r = new X(0.24, 0.04, 0.04), c = new l(r, i);
     return c.position.set(0.08, 0.32, 0.08), I.add(c), I.userData.update = (D, h) => {
       const S = h || 0.016;
       I.rotation.y += S * 1, a.rotation.z -= S * 4, c.position.x = 0.08 + Math.sin(D * 6) * 0.05;
@@ -22734,11 +22772,11 @@ class zE {
     t.rotateX(Math.PI / 2);
     const a = new l(t, e);
     a.position.set(0.36, -0.1, 0), g.add(a);
-    const s = new z(0.86, 0.04, 0.04);
+    const s = new X(0.86, 0.04, 0.04);
     return [-0.16, 0.16].forEach((n) => {
       const r = new l(s, C);
       r.position.set(0, 0, n), r.rotation.z = -0.15, g.add(r);
-      const c = new l(new z(0.04, 0.2, 0.04), C);
+      const c = new l(new X(0.04, 0.2, 0.04), C);
       c.position.set(-0.22, -0.12, n), g.add(c);
     }), I.add(g), I.userData.update = (n, r) => {
       const c = r || 0.016;
@@ -22748,13 +22786,13 @@ class zE {
   static _createLokomotifMesh(A) {
     const I = new f(), g = new u(0.3, 0.3, 0.72, 6), C = new d({ color: 1976635, roughness: 0.45, metalness: 0.5, flatShading: true }), B = new l(g, C);
     B.rotation.z = Math.PI / 2, B.position.set(-0.08, 0.44, 0), B.add(this._createOutline(g, 132631, 0.04)), I.add(B);
-    const i = new z(0.42, 0.52, 0.5), Q = new d({ color: 15680580, roughness: 0.6, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.42, 0.52, 0.5), Q = new d({ color: 15680580, roughness: 0.6, flatShading: true }), o = new l(i, Q);
     o.position.set(-0.35, 0.56, 0), o.add(this._createOutline(i, 10033947, 0.04)), I.add(o);
     const e = new u(0.09, 0.12, 0.32, 6), t = new d({ color: 988970, flatShading: true }), a = new l(e, t);
     a.position.set(0.24, 0.76, 0), a.add(this._createOutline(e, 132631, 0.035)), I.add(a);
     const s = new $(0.08, 0.12, 5);
     s.rotateZ(-Math.PI / 2);
-    const n = new SA({ color: 16707722 }), r = new l(s, n);
+    const n = new wA({ color: 16707722 }), r = new l(s, n);
     return r.position.set(0.3, 0.44, 0), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
       I.rotation.y += h * 1, I.position.y = Math.sin(c * 3) * 0.02;
@@ -22838,9 +22876,9 @@ class zE {
   }
   static _createCelikKulceMesh(A) {
     const I = new f(), g = new d({ color: 3718648, emissive: 165063, emissiveIntensity: 0.35, metalness: 0.95, roughness: 0.15, flatShading: true }), C = (i, Q, o, e, t = 1) => {
-      const a = new f(), s = new z(0.56 * t, 0.16 * t, 0.28 * t), n = new l(s, g);
+      const a = new f(), s = new X(0.56 * t, 0.16 * t, 0.28 * t), n = new l(s, g);
       n.add(this._createOutline(s, 223649, 0.035)), a.add(n);
-      const r = new l(new z(0.24 * t, 0.02, 0.1 * t), new SA({ color: 805486 }));
+      const r = new l(new X(0.24 * t, 0.02, 0.1 * t), new wA({ color: 805486 }));
       return r.position.y = 0.085 * t, a.add(r), a.position.set(i, Q, o), a.rotation.y = e, a;
     };
     I.add(C(-0.14, 0.22, -0.06, 0.12, 1.05)), I.add(C(0.14, 0.22, 0.08, -0.15, 1.05)), I.add(C(0, 0.38, 0.02, 0.25, 1));
@@ -22853,9 +22891,9 @@ class zE {
   static _createOrsMesh(A) {
     const I = new f(), g = new d({ color: 3359061, metalness: 0.85, roughness: 0.3, flatShading: true }), C = new u(0.35, 0.45, 0.22, 4), B = new l(C, g);
     B.position.y = 0.11, B.rotation.y = Math.PI / 4, B.add(this._createOutline(C, 988970, 0.04)), I.add(B);
-    const i = new z(0.32, 0.2, 0.28), Q = new l(i, g);
+    const i = new X(0.32, 0.2, 0.28), Q = new l(i, g);
     Q.position.y = 0.28, I.add(Q);
-    const o = new z(0.68, 0.22, 0.36), e = new l(o, g);
+    const o = new X(0.68, 0.22, 0.36), e = new l(o, g);
     e.position.y = 0.46, e.add(this._createOutline(o, 988970, 0.04)), I.add(e);
     const t = new $(0.16, 0.38, 8);
     t.scale(0.8, 1, 0.6);
@@ -22872,7 +22910,7 @@ class zE {
     }, I;
   }
   static _createTuglaMesh(A) {
-    const I = new f(), g = new z(0.65, 0.26, 0.36), C = new d({ color: 12730636, roughness: 0.8, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.65, 0.26, 0.36), C = new d({ color: 12730636, roughness: 0.8, flatShading: true }), B = new l(g, C);
     B.position.y = 0.14, B.add(this._createOutline(g, 8138002, 0.035)), I.add(B);
     const i = new d({ color: 10105874, roughness: 0.9, flatShading: true });
     return [-0.18, 0, 0.18].forEach((Q) => {
@@ -22899,11 +22937,11 @@ class zE {
     }, I;
   }
   static _createTuglaDuvarMesh(A) {
-    const I = new f(), g = new z(0.82, 0.65, 0.22), C = new d({ color: 12131356, roughness: 0.75, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.82, 0.65, 0.22), C = new d({ color: 12131356, roughness: 0.75, flatShading: true }), B = new l(g, C);
     B.position.y = 0.33, B.add(this._createOutline(g, 8330525, 0.04)), I.add(B);
     const i = new d({ color: 14870768, roughness: 0.8, flatShading: true });
     return [-0.12, 0.12].forEach((Q) => {
-      const o = new z(0.83, 0.03, 0.23), e = new l(o, i);
+      const o = new X(0.83, 0.03, 0.23), e = new l(o, i);
       e.position.set(0, 0.33 + Q, 0), I.add(e);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
@@ -22911,25 +22949,25 @@ class zE {
     }, I;
   }
   static _createSaglamSandikMesh(A) {
-    const I = new f(), g = new z(0.74, 0.45, 0.48), C = new d({ color: 7877903, roughness: 0.75, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.74, 0.45, 0.48), C = new d({ color: 7877903, roughness: 0.75, flatShading: true }), B = new l(g, C);
     B.position.y = 0.24, B.add(this._createOutline(g, 4528643, 0.04)), I.add(B);
     const i = new d({ color: 3359061, metalness: 0.85, roughness: 0.3, flatShading: true });
     [-0.22, 0.22].forEach((t) => {
-      const a = new z(0.06, 0.47, 0.5), s = new l(a, i);
+      const a = new X(0.06, 0.47, 0.5), s = new l(a, i);
       s.position.set(t, 0.24, 0), I.add(s);
     });
-    const Q = new z(0.09, 0.11, 0.05), o = new d({ color: 16096779, metalness: 0.9, roughness: 0.25, flatShading: true }), e = new l(Q, o);
+    const Q = new X(0.09, 0.11, 0.05), o = new d({ color: 16096779, metalness: 0.9, roughness: 0.25, flatShading: true }), e = new l(Q, o);
     return e.position.set(0, 0.24, 0.25), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
       I.rotation.y += s * 1;
     }, I;
   }
   static _createKristalMesh(A) {
-    const I = new f(), g = new qI(0.42, 0);
+    const I = new f(), g = new fI(0.42, 0);
     g.scale(0.8, 1.4, 0.8);
     const C = new wI({ color: 3718648, emissive: 165063, emissiveIntensity: 0.65, roughness: 0.15, metalness: 0.1, transmission: 0.7, transparent: true, opacity: 0.9, flatShading: true }), B = new l(g, C);
     B.position.y = 0.45, B.add(this._createOutline(g, 223649, 0.04)), I.add(B);
-    const i = new qI(0.24, 0);
+    const i = new fI(0.24, 0);
     return i.scale(0.7, 1.3, 0.7), [[-0.22, 0.26, 0.12, 0.4], [0.2, 0.22, -0.1, -0.45]].forEach(([Q, o, e, t]) => {
       const a = new l(i, C);
       a.position.set(Q, o, e), a.rotation.z = t, I.add(a);
@@ -22941,7 +22979,7 @@ class zE {
   static _createTeleskopMesh(A) {
     const I = new f(), g = new u(0.08, 0.14, 0.8, 6), C = new d({ color: 16096779, metalness: 0.9, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.rotation.z = Math.PI / 4, B.position.set(0, 0.55, 0), B.add(this._createOutline(g, 11817737, 0.035)), I.add(B);
-    const i = new u(0.13, 0.13, 0.02, 6), Q = new SA({ color: 3718648 }), o = new l(i, Q);
+    const i = new u(0.13, 0.13, 0.02, 6), Q = new wA({ color: 3718648 }), o = new l(i, Q);
     o.position.set(0.29, 0.84, 0), o.rotation.z = Math.PI / 4, I.add(o);
     const e = new u(0.025, 0.02, 0.55, 4), t = new d({ color: 7877903, roughness: 0.8, flatShading: true });
     return [-0.3, 0, 0.3].forEach((a, s) => {
@@ -22953,11 +22991,11 @@ class zE {
     }, I;
   }
   static _createVincMesh(A) {
-    const I = new f(), g = new z(0.16, 0.85, 0.16), C = new d({ color: 15381256, roughness: 0.5, metalness: 0.2, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.16, 0.85, 0.16), C = new d({ color: 15381256, roughness: 0.5, metalness: 0.2, flatShading: true }), B = new l(g, C);
     B.position.set(-0.15, 0.44, 0), B.add(this._createOutline(g, 10576391, 0.035)), I.add(B);
-    const i = new z(0.85, 0.12, 0.12), Q = new l(i, C);
+    const i = new X(0.85, 0.12, 0.12), Q = new l(i, C);
     Q.position.set(0.18, 0.82, 0), Q.add(this._createOutline(i, 10576391, 0.035)), I.add(Q);
-    const o = new u(0.01, 0.01, 0.35, 4), e = new SA({ color: 3359061 }), t = new l(o, e);
+    const o = new u(0.01, 0.01, 0.35, 4), e = new wA({ color: 3359061 }), t = new l(o, e);
     t.position.set(0.48, 0.62, 0), I.add(t);
     const a = new xA(0.06, 0.02, 4, 8, Math.PI * 1.3), s = new d({ color: 9741240, metalness: 0.9, roughness: 0.2, flatShading: true }), n = new l(a, s);
     return n.position.set(0.48, 0.43, 0), I.add(n), I.userData.update = (r, c) => {
@@ -22968,7 +23006,7 @@ class zE {
   static _createYildizTozuMesh(A) {
     const I = new f(), g = new sI(0.35, 0), C = new wI({ color: 11032055, emissive: 12616956, emissiveIntensity: 0.9, roughness: 0.15, transparent: true, opacity: 0.88, flatShading: true }), B = new l(g, C);
     B.position.y = 0.4, B.add(this._createOutline(g, 7020968, 0.04)), I.add(B);
-    const i = new qI(0.07, 0), Q = new SA({ color: 16638023 }), o = [];
+    const i = new fI(0.07, 0), Q = new wA({ color: 16638023 }), o = [];
     for (let t = 0; t < 6; t++) {
       const a = new l(i, Q);
       I.add(a), o.push({ mesh: a, angle: t / 6 * Math.PI * 2 });
@@ -23004,9 +23042,9 @@ class zE {
   static _createPortalRunuMesh(A) {
     const I = new f(), g = new xA(0.42, 0.07, 5, 8), C = new d({ color: 15485081, emissive: 16007006, emissiveIntensity: 0.95, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.rotation.x = Math.PI / 2, B.position.y = 0.22, B.add(this._createOutline(g, 10295117, 0.035)), I.add(B);
-    const i = new u(0.36, 0.36, 0.02, 8), Q = new SA({ color: 16007006 }), o = new l(i, Q);
+    const i = new u(0.36, 0.36, 0.02, 8), Q = new wA({ color: 16007006 }), o = new l(i, Q);
     o.position.y = 0.22, I.add(o);
-    const e = new qI(0.08, 0), t = new SA({ color: 16502760 }), a = new l(e, t);
+    const e = new fI(0.08, 0), t = new wA({ color: 16502760 }), a = new l(e, t);
     return a.position.set(0, 0.45, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1, o.rotation.y += r * 1.5, a.position.y = 0.45 + Math.sin(s * 4) * 0.08, a.rotation.x += r * 3;
@@ -23017,16 +23055,16 @@ class zE {
     B.position.y = 0.32, B.add(this._createOutline(g, 988970, 0.035)), I.add(B);
     const i = new u(0.12, 0.1, 0.14, 6), Q = new d({ color: 14251782, roughness: 0.7, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.66, I.add(o);
-    const e = new qI(0.08, 0), t = new SA({ color: 3718648 }), a = new l(e, t);
+    const e = new fI(0.08, 0), t = new wA({ color: 3718648 }), a = new l(e, t);
     return a.position.set(0, 0.32, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
       I.rotation.y += r * 1, a.position.y = 0.32 + Math.sin(s * 3) * 0.04, a.rotation.y += r * 2;
     }, I;
   }
   static _createBoyutKapisiMesh(A) {
-    const I = new f(), g = new z(0.85, 1.05, 0.16), C = new d({ color: 1973067, roughness: 0.7, metalness: 0.4, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.85, 1.05, 0.16), C = new d({ color: 1973067, roughness: 0.7, metalness: 0.4, flatShading: true }), B = new l(g, C);
     B.position.y = 0.52, B.add(this._createOutline(g, 988970, 0.04)), I.add(B);
-    const i = new z(0.55, 0.82, 0.04), Q = new d({ color: 11032055, emissive: 12616956, emissiveIntensity: 1.1, roughness: 0.2, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.55, 0.82, 0.04), Q = new d({ color: 11032055, emissive: 12616956, emissiveIntensity: 1.1, roughness: 0.2, flatShading: true }), o = new l(i, Q);
     return o.position.set(0, 0.5, 0.02), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
       I.rotation.y += a * 1, o.scale.set(1 + Math.sin(e * 3) * 0.03, 1 + Math.cos(e * 4) * 0.03, 1);
@@ -23046,7 +23084,7 @@ class zE {
     B.scale(1.15, 1, 0.8);
     const i = new l(B, g);
     i.position.y = 0.44, i.add(this._createOutline(B, 165063, 0.04)), I.add(i);
-    const Q = new qI(0.14, 0), o = new l(Q, C);
+    const Q = new fI(0.14, 0), o = new l(Q, C);
     o.position.set(0, 0.48, 0.24), I.add(o), [-0.42, 0.42].forEach((t) => {
       const a = new BA(0.18, 0);
       a.scale(1.2, 0.8, 1);
@@ -23066,11 +23104,11 @@ class zE {
     g.scale(1, 1, 0.3);
     const C = new d({ color: 3718648, metalness: 0.95, roughness: 0.15, emissive: 959977, emissiveIntensity: 0.95, flatShading: true }), B = new l(g, C);
     B.position.y = 0.72, B.add(this._createOutline(g, 223649, 0.035)), I.add(B);
-    const i = new z(0.48, 0.08, 0.1), Q = new d({ color: 16096779, metalness: 0.9, roughness: 0.2, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.48, 0.08, 0.1), Q = new d({ color: 16096779, metalness: 0.9, roughness: 0.2, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.22, o.add(this._createOutline(i, 11817737, 0.03)), I.add(o);
     const e = new u(0.04, 0.04, 0.25, 6), t = new d({ color: 1976635, roughness: 0.8, flatShading: true }), a = new l(e, t);
     a.position.y = 0.08, I.add(a);
-    const s = new jI(0.08, 0), n = new SA({ color: 16436245 }), r = new l(s, n);
+    const s = new VI(0.08, 0), n = new wA({ color: 16436245 }), r = new l(s, n);
     return r.position.set(0.12, 0.6, 0), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
       I.rotation.y += h * 1, r.position.y = 0.6 + Math.sin(c * 6) * 0.15, r.rotation.z += h * 4;
@@ -23093,9 +23131,9 @@ class zE {
     for (let i = 0; i < 6; i++) {
       const Q = new f();
       Q.position.y = 0.45, Q.rotation.z = i * Math.PI / 3;
-      const o = new z(0.08, 0.65, 0.06), e = new l(o, g);
+      const o = new X(0.08, 0.65, 0.06), e = new l(o, g);
       e.position.y = 0.35, e.add(this._createOutline(o, 9741240, 0.035)), Q.add(e);
-      const t = new z(0.05, 0.22, 0.05), a = new l(t, g);
+      const t = new X(0.05, 0.22, 0.05), a = new l(t, g);
       a.position.set(-0.08, 0.45, 0), a.rotation.z = 0.6, Q.add(a);
       const s = new l(t, g);
       s.position.set(0.08, 0.45, 0), s.rotation.z = -0.6, Q.add(s), I.add(Q);
@@ -23106,9 +23144,9 @@ class zE {
     }, I;
   }
   static _createBuzMesh(A) {
-    const I = new f(), g = new z(0.68, 0.68, 0.68), C = new wI({ color: 3718648, roughness: 0.15, metalness: 0.1, transmission: 0.85, opacity: 0.88, transparent: true, ior: 1.31, emissive: 8246268, emissiveIntensity: 0.35, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.68, 0.68, 0.68), C = new wI({ color: 3718648, roughness: 0.15, metalness: 0.1, transmission: 0.85, opacity: 0.88, transparent: true, ior: 1.31, emissive: 8246268, emissiveIntensity: 0.35, flatShading: true }), B = new l(g, C);
     B.position.y = 0.42, B.rotation.y = 0.2, B.add(this._createOutline(g, 165063, 0.035)), I.add(B);
-    const i = new jI(0.22, 0), Q = new d({ color: 15792639, roughness: 0.4, flatShading: true }), o = new l(i, Q);
+    const i = new VI(0.22, 0), Q = new d({ color: 15792639, roughness: 0.4, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.2, 0.68, 0.2), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
       I.rotation.y += a * 1, B.rotation.x = Math.sin(e * 1.5) * 0.05;
@@ -23137,7 +23175,7 @@ class zE {
       const t = new l(e, g);
       t.position.set(o.x, o.y, o.z), t.rotation.z = o.x * 0.8, t.add(this._createOutline(e, 7421714, 0.04)), I.add(t);
     });
-    const B = new jI(0.08, 0), i = new SA({ color: 4906624 }), Q = new l(B, i);
+    const B = new VI(0.08, 0), i = new wA({ color: 4906624 }), Q = new l(B, i);
     return Q.position.set(0, 0.44, 0.12), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
       I.rotation.y += t * 1, Q.position.y = 0.44 + Math.sin(o * 3) * 0.03;
@@ -23165,7 +23203,7 @@ class zE {
       const r = new l(Q, C);
       r.position.set(t, a, s), r.rotation.z = n, r.add(this._createOutline(Q, 292951, 0.03)), g.add(r);
     });
-    const o = new SA({ color: 11006928 }), e = new l(new BA(0.08, 0), o);
+    const o = new wA({ color: 11006928 }), e = new l(new BA(0.08, 0), o);
     return e.position.set(0.05, 0.32, 0.1), g.add(e), I.add(g), I.userData.update = (t, a) => {
       const s = a || 0.016;
       I.rotation.y += s * 1, e.position.y = 0.32 + Math.sin(t * 3) * 0.025, g.position.y = 0.42 + Math.sin(t * 2) * 0.02;
@@ -23181,42 +23219,42 @@ class zE {
   static _createInekMesh(A) {
     const I = new f(), g = new u(0.54, 0.58, 0.08, 6), C = new d({ color: 1409085, roughness: 0.8, flatShading: true }), B = new l(g, C);
     B.position.y = 0.06, B.add(this._createOutline(g, 1332013, 0.035)), I.add(B);
-    const i = new d({ color: 16317180, roughness: 0.65, flatShading: true }), Q = new d({ color: 1579035, roughness: 0.7, flatShading: true }), o = new d({ color: 16020150, roughness: 0.6, flatShading: true }), e = new z(0.5, 0.44, 0.72), t = new l(e, i);
+    const i = new d({ color: 16317180, roughness: 0.65, flatShading: true }), Q = new d({ color: 1579035, roughness: 0.7, flatShading: true }), o = new d({ color: 16020150, roughness: 0.6, flatShading: true }), e = new X(0.5, 0.44, 0.72), t = new l(e, i);
     t.position.set(0, 0.48, 0), t.add(this._createOutline(e, 592139, 0.035)), I.add(t);
-    const a = new l(new z(0.24, 0.3, 0.32), Q);
+    const a = new l(new X(0.24, 0.3, 0.32), Q);
     a.position.set(0.18, 0.52, -0.1), I.add(a);
-    const s = new l(new z(0.22, 0.26, 0.28), Q);
+    const s = new l(new X(0.22, 0.26, 0.28), Q);
     s.position.set(-0.16, 0.46, 0.12), I.add(s);
-    const n = new l(new z(0.2, 0.1, 0.24), o);
+    const n = new l(new X(0.2, 0.1, 0.24), o);
     n.position.set(0, 0.24, -0.12), I.add(n);
     const r = new u(0.055, 0.05, 0.34, 5), c = new d({ color: 2565930, flatShading: true });
     [[-0.18, -0.24], [0.18, -0.24], [-0.18, 0.24], [0.18, 0.24]].forEach(([q, L]) => {
       const Z = new l(r, i);
       Z.position.set(q, 0.23, L), I.add(Z);
-      const m = new l(new z(0.08, 0.06, 0.08), c);
+      const m = new l(new X(0.08, 0.06, 0.08), c);
       m.position.set(q, 0.08, L), I.add(m);
     });
-    const D = new z(0.3, 0.3, 0.32), h = new l(D, i);
+    const D = new X(0.3, 0.3, 0.32), h = new l(D, i);
     h.position.set(0, 0.65, 0.42), h.add(this._createOutline(D, 592139, 0.035)), I.add(h);
-    const S = new l(new z(0.14, 0.2, 0.33), Q);
+    const S = new l(new X(0.14, 0.2, 0.33), Q);
     S.position.set(0.09, 0.7, 0.42), I.add(S);
-    const G = new l(new z(0.26, 0.16, 0.16), o);
+    const G = new l(new X(0.26, 0.16, 0.16), o);
     G.position.set(0, 0.56, 0.6), I.add(G);
-    const k = new SA({ color: 592139 });
+    const k = new wA({ color: 592139 });
     [-0.07, 0.07].forEach((q) => {
-      const L = new l(new z(0.03, 0.03, 0.03), k);
+      const L = new l(new X(0.03, 0.03, 0.03), k);
       L.position.set(q, 0.58, 0.68), I.add(L);
     }), [-0.12, 0.12].forEach((q) => {
-      const L = new l(new z(0.035, 0.035, 0.035), k);
+      const L = new l(new X(0.035, 0.035, 0.035), k);
       L.position.set(q, 0.72, 0.52), I.add(L);
     });
-    const U = new d({ color: 16707722, flatShading: true });
+    const M = new d({ color: 16707722, flatShading: true });
     [-0.14, 0.14].forEach((q, L) => {
-      const Z = new l(new $(0.035, 0.12, 4), U);
+      const Z = new l(new $(0.035, 0.12, 4), M);
       Z.position.set(q, 0.85, 0.38), Z.rotation.set(-0.2, 0, L === 0 ? -0.4 : 0.4), I.add(Z);
     });
-    const p = new d({ color: 16436245, metalness: 0.6, flatShading: true }), M = new l(new $(0.06, 0.1, 5), p);
-    M.position.set(0, 0.46, 0.52), I.add(M);
+    const U = new d({ color: 16436245, metalness: 0.6, flatShading: true }), p = new l(new $(0.06, 0.1, 5), U);
+    p.position.set(0, 0.46, 0.52), I.add(p);
     const F = new u(0.025, 0.025, 0.36, 4), y = new l(F, i);
     y.position.set(0, 0.44, -0.38), y.rotation.x = -0.3, I.add(y);
     const N = new l(new $(0.05, 0.12, 4), Q);
@@ -23230,7 +23268,7 @@ class zE {
     B.position.y = 0.32, B.add(this._createOutline(g, 7877903, 0.04)), I.add(B);
     const i = new u(0.26, 0.26, 0.02, 6), Q = new d({ color: 16777215, roughness: 0.3, flatShading: true }), o = new l(i, Q);
     o.position.set(0, 0.59, 0), I.add(o);
-    const e = new jI(0.08, 0), t = new l(e, Q);
+    const e = new VI(0.08, 0), t = new l(e, Q);
     return t.position.set(0, 0.75, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
       I.rotation.y += n * 1, t.position.y = 0.75 + Math.sin(a * 4) * 0.05;
@@ -23258,7 +23296,7 @@ class zE {
   static _createOltaMesh(A) {
     const I = new f(), g = new u(0.025, 0.04, 1.15, 5), C = new d({ color: 8736014, roughness: 0.75, flatShading: true }), B = new l(g, C);
     B.position.set(-0.15, 0.45, 0), B.rotation.z = -Math.PI / 4, B.add(this._createOutline(g, 4528643, 0.035)), I.add(B);
-    const i = new u(8e-3, 8e-3, 0.55, 4), Q = new SA({ color: 16317180 }), o = new l(i, Q);
+    const i = new u(8e-3, 8e-3, 0.55, 4), Q = new wA({ color: 16317180 }), o = new l(i, Q);
     o.position.set(0.25, 0.55, 0), I.add(o);
     const e = new xA(0.06, 0.015, 4, 8, Math.PI * 1.3), t = new d({ color: 9741240, metalness: 0.9, roughness: 0.2, flatShading: true }), a = new l(e, t);
     return a.position.set(0.25, 0.28, 0), I.add(a), I.userData.update = (s, n) => {
@@ -23283,7 +23321,7 @@ class zE {
       const o = new l(g, C);
       o.rotation.x = Math.PI / 2, o.position.set(Q * 0.18, 0.15, 0), o.add(this._createOutline(g, 4528643, 0.035)), I.add(o);
     }
-    const B = new z(0.95, 0.04, 0.06), i = new d({ color: 14251782, roughness: 0.7, flatShading: true });
+    const B = new X(0.95, 0.04, 0.06), i = new d({ color: 14251782, roughness: 0.7, flatShading: true });
     return [-0.25, 0.25].forEach((Q) => {
       const o = new l(B, i);
       o.position.set(0, 0.26, Q), I.add(o);
@@ -23317,7 +23355,7 @@ class zE {
     B.position.y = 0.28, B.add(this._createOutline(g, 14251782, 0.035)), I.add(B);
     const i = new $(0.28, 0.22, 6), Q = new d({ color: 16777215, roughness: 0.9, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.62, I.add(o);
-    const e = new jI(0.06, 0), t = new l(e, Q);
+    const e = new VI(0.06, 0), t = new l(e, Q);
     return t.position.set(0.12, 0.78, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
       I.rotation.y += n * 1, t.position.y = 0.78 + Math.sin(a * 3) * 0.04, t.rotation.x += n * 2;
@@ -23339,9 +23377,9 @@ class zE {
     i.position.set(0, 0.36, 0), i.add(this._createOutline(B, 9584654, 0.035)), I.add(i);
     const Q = new l(new BA(0.22, 0), C);
     Q.position.set(0, 0.54, 0), Q.scale.set(1.2, 0.3, 0.8), I.add(Q);
-    const o = new SA({ color: 7877903 });
+    const o = new wA({ color: 7877903 });
     return [-0.18, 0, 0.18].forEach((e) => {
-      const t = new l(new z(0.035, 0.045, 0.28), o);
+      const t = new l(new X(0.035, 0.045, 0.28), o);
       t.position.set(e, 0.56, 0), t.rotation.y = 0.25, I.add(t);
     }), I.userData.update = (e, t) => {
       const a = t || 0.016;
@@ -23351,7 +23389,7 @@ class zE {
   static _createDisliCarkMesh(A) {
     const I = new f(), g = new u(0.38, 0.38, 0.1, 8), C = new d({ color: 6583435, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.25, B.rotation.x = Math.PI / 2, B.add(this._createOutline(g, 1976635, 0.035)), I.add(B);
-    const i = new z(0.1, 0.12, 0.12);
+    const i = new X(0.1, 0.12, 0.12);
     for (let t = 0; t < 8; t++) {
       const a = t / 8 * Math.PI * 2, s = new l(i, C);
       s.position.set(Math.cos(a) * 0.42, 0.25 + Math.sin(a) * 0.42, 0), s.rotation.z = a, I.add(s);
@@ -23369,7 +23407,7 @@ class zE {
     o.position.y = 0.76, o.add(this._createOutline(i, 8330525, 0.035)), I.add(o);
     const e = new f();
     e.position.set(0, 0.52, 0.3);
-    const t = new z(0.08, 0.58, 0.02), a = new d({ color: 16708551, roughness: 0.6, flatShading: true });
+    const t = new X(0.08, 0.58, 0.02), a = new d({ color: 16708551, roughness: 0.6, flatShading: true });
     return [0, Math.PI / 2].forEach((s) => {
       const n = new l(t, a);
       n.rotation.z = s, n.add(this._createOutline(t, 14251782, 0.025)), e.add(n);
@@ -23379,11 +23417,11 @@ class zE {
     }, I;
   }
   static _createAynaMesh(A) {
-    const I = new f(), g = new z(0.52, 0.72, 0.06), C = new d({ color: 16096779, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.52, 0.72, 0.06), C = new d({ color: 16096779, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.38, B.add(this._createOutline(g, 11817737, 0.04)), I.add(B);
     const i = new HQ(0.42, 0.62), Q = new wI({ color: 14742270, metalness: 0.95, roughness: 0.05, reflectivity: 1, clearcoat: 1, flatShading: true }), o = new l(i, Q);
     o.position.set(0, 0.38, 0.032), I.add(o);
-    const e = new qI(0.09, 0), t = new l(e, C);
+    const e = new fI(0.09, 0), t = new l(e, C);
     return t.position.set(0, 0.76, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
       I.rotation.y += n * 1, t.rotation.y += n * 2;
@@ -23394,9 +23432,9 @@ class zE {
     B.position.y = 0.1, B.add(this._createOutline(g, 11817737, 0.04)), I.add(B);
     const i = new u(0.36, 0.36, 0.02, 8), Q = new d({ color: 16777215, roughness: 0.4, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.16, I.add(o);
-    const e = new SA({ color: 988970 }), t = new z(0.03, 0.02, 0.16), a = new l(t, e);
+    const e = new wA({ color: 988970 }), t = new X(0.03, 0.02, 0.16), a = new l(t, e);
     a.position.set(0, 0.18, 0.08), I.add(a);
-    const s = new z(0.02, 0.02, 0.24), n = new l(s, e);
+    const s = new X(0.02, 0.02, 0.24), n = new l(s, e);
     n.position.set(0.08, 0.18, 0), n.rotation.y = Math.PI / 3, I.add(n);
     const r = new xA(0.1, 0.025, 4, 8), c = new l(r, C);
     return c.position.set(0, 0.1, -0.48), I.add(c), I.userData.update = (D, h) => {
@@ -23405,7 +23443,7 @@ class zE {
     }, I;
   }
   static _createDemirParmaklikMesh(A) {
-    const I = new f(), g = new z(0.72, 0.08, 0.08), C = new d({ color: 3359061, metalness: 0.9, roughness: 0.25, flatShading: true });
+    const I = new f(), g = new X(0.72, 0.08, 0.08), C = new d({ color: 3359061, metalness: 0.9, roughness: 0.25, flatShading: true });
     [-0.28, 0.28].forEach((Q) => {
       const o = new l(g, C);
       o.position.y = 0.38 + Q, o.add(this._createOutline(g, 988970, 0.035)), I.add(o);
@@ -23446,9 +23484,9 @@ class zE {
     }, I;
   }
   static _createKaleKapisiMesh(A) {
-    const I = new f(), g = new z(0.85, 0.82, 0.18), C = new $o({ color: 6583435, roughness: 0.8 }), B = new l(g, C);
+    const I = new f(), g = new X(0.85, 0.82, 0.18), C = new Ae({ color: 6583435, roughness: 0.8 }), B = new l(g, C);
     B.position.y = 0.42, B.add(this._createOutline(g, 1976635, 0.04)), I.add(B);
-    const i = new z(0.48, 0.62, 0.2), Q = new $o({ color: 7877903 }), o = new l(i, Q);
+    const i = new X(0.48, 0.62, 0.2), Q = new Ae({ color: 7877903 }), o = new l(i, Q);
     o.position.set(0, 0.32, 0), o.add(this._createOutline(i, 4528643, 0.035)), I.add(o);
     const e = new d({ color: 988970, metalness: 0.9 });
     return [-0.15, 0.15].forEach((t) => {
@@ -23526,24 +23564,24 @@ class zE {
   }
   static _createDefaultMesh(A) {
     var _a2;
-    const I = new z(0.6, 0.6, 0.6), g = new d({ color: ((_a2 = A.colorPalette) == null ? void 0 : _a2.primary) || 6514417, roughness: 0.4, flatShading: true }), C = new l(I, g);
+    const I = new X(0.6, 0.6, 0.6), g = new d({ color: ((_a2 = A.colorPalette) == null ? void 0 : _a2.primary) || 6514417, roughness: 0.4, flatShading: true }), C = new l(I, g);
     return C.position.y = 0.35, C.add(this._createOutline(I, 1973067, 0.035)), C;
   }
   static _generateFracturePieces(A) {
     var _a2, _b;
     const I = [], g = new d({ color: ((_a2 = A.colorPalette) == null ? void 0 : _a2.primary) || 6514417, roughness: 0.5, emissive: ((_b = A.colorPalette) == null ? void 0 : _b.emissive) || "#000000", emissiveIntensity: 0.3, flatShading: true });
     for (let C = 0; C < 5; C++) {
-      const B = new jI(0.22 + Math.random() * 0.12, 0), i = new l(B, g);
+      const B = new VI(0.22 + Math.random() * 0.12, 0), i = new l(B, g);
       i.userData.breakVelocity = new H((Math.random() - 0.5) * 4, Math.random() * 3 + 1, (Math.random() - 0.5) * 4), I.push(i);
     }
     return I;
   }
   static _createSiberKristalMesh(A) {
-    const I = new f(), g = new qI(0.48, 0);
+    const I = new f(), g = new fI(0.48, 0);
     g.scale(0.75, 1.4, 0.75);
     const C = new d({ color: 440020, emissive: 959977, emissiveIntensity: 0.65, roughness: 0.15, metalness: 0.2, flatShading: true }), B = new l(g, C);
     B.position.y = 0.45, B.add(this._createOutline(g, 165063, 0.035)), I.add(B);
-    const i = new qI(0.18, 0), Q = new d({ color: 16777215, emissive: 3718648, emissiveIntensity: 1, flatShading: true }), o = new l(i, Q);
+    const i = new fI(0.18, 0), Q = new d({ color: 16777215, emissive: 3718648, emissiveIntensity: 1, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.45, I.add(o);
     const e = new TA(3718648, 2.5, 3);
     return e.position.set(0, 0.45, 0.1), I.add(e), I.userData.update = (t, a) => {
@@ -23552,9 +23590,9 @@ class zE {
     }, I;
   }
   static _createHologramKupuMesh(A) {
-    const I = new f(), g = new z(0.68, 0.68, 0.68), C = new d({ color: 3359061, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.68, 0.68, 0.68), C = new d({ color: 3359061, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
     B.position.y = 0.42, B.add(this._createOutline(g, 988970, 0.035)), I.add(B);
-    const i = new z(0.44, 0.44, 0.44), Q = new d({ color: 1096065, emissive: 366185, emissiveIntensity: 0.95, roughness: 0.2, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.44, 0.44, 0.44), Q = new d({ color: 1096065, emissive: 366185, emissiveIntensity: 0.95, roughness: 0.2, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.42, o.rotation.set(0.4, 0.4, 0.2), I.add(o);
     const e = new TA(3462041, 2.2, 2.5);
     return e.position.set(0, 0.42, 0.2), I.add(e), I.userData.update = (t, a) => {
@@ -23576,9 +23614,9 @@ class zE {
     }, I;
   }
   static _createMekaZirhiMesh(A) {
-    const I = new f(), g = new z(0.7, 0.62, 0.34), C = new d({ color: 4674921, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.7, 0.62, 0.34), C = new d({ color: 4674921, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
     B.position.y = 0.42, B.add(this._createOutline(g, 1976635, 0.04)), I.add(B);
-    const i = new z(0.25, 0.28, 0.36);
+    const i = new X(0.25, 0.28, 0.36);
     [-0.44, 0.44].forEach((a) => {
       const s = new l(i, C);
       s.position.set(a, 0.6, 0), s.add(this._createOutline(i, 1976635, 0.035)), I.add(s);
@@ -23594,7 +23632,7 @@ class zE {
     }, I;
   }
   static _createPlazmaTufegiMesh(A) {
-    const I = new f(), g = new z(0.82, 0.22, 0.14), C = new d({ color: 1976635, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.82, 0.22, 0.14), C = new d({ color: 1976635, metalness: 0.8, roughness: 0.3, flatShading: true }), B = new l(g, C);
     B.position.set(0, 0.38, 0), B.add(this._createOutline(g, 988970, 0.035)), I.add(B);
     const i = new u(0.06, 0.07, 0.46, 6);
     i.rotateZ(Math.PI / 2);
@@ -23624,7 +23662,7 @@ class zE {
     }, I;
   }
   static _createGunesPaneliMesh(A) {
-    const I = new f(), g = new z(0.76, 0.58, 0.06);
+    const I = new f(), g = new X(0.76, 0.58, 0.06);
     g.rotateX(0.45);
     const C = new d({ color: 165063, emissive: 223649, emissiveIntensity: 0.45, metalness: 0.6, roughness: 0.2, flatShading: true }), B = new l(g, C);
     B.position.y = 0.42, B.add(this._createOutline(g, 805486, 0.035)), I.add(B);
@@ -23643,7 +23681,7 @@ class zE {
     o.position.y = 0.35, I.add(o);
     const e = new $(0.45, 0.5, 16, 1, true);
     e.rotateX(Math.PI);
-    const t = new SA({ color: 12616956, transparent: true, opacity: 0.35, side: Jg }), a = new l(e, t);
+    const t = new wA({ color: 12616956, transparent: true, opacity: 0.35, side: Jg }), a = new l(e, t);
     a.position.y = 0.62, I.add(a);
     const s = new TA(11032055, 2.4, 2.5);
     return s.position.set(0, 0.45, 0), I.add(s), I;
@@ -23653,7 +23691,7 @@ class zE {
     g.rotateZ(-0.4);
     const C = new d({ color: 6583435, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.position.set(-0.08, 0.38, 0), B.add(this._createOutline(g, 1976635, 0.035)), I.add(B);
-    const i = new z(0.2, 0.22, 0.12);
+    const i = new X(0.2, 0.22, 0.12);
     i.rotateZ(-0.4);
     const Q = new l(i, C);
     Q.position.set(0.14, 0.62, 0), Q.add(this._createOutline(i, 1976635, 0.035)), I.add(Q);
@@ -23696,11 +23734,11 @@ class zE {
     }, I;
   }
   static _createKuantumIslemciMesh(A) {
-    const I = new f(), g = new z(0.68, 0.1, 0.68), C = new d({ color: 988970, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
+    const I = new f(), g = new X(0.68, 0.1, 0.68), C = new d({ color: 988970, metalness: 0.85, roughness: 0.25, flatShading: true }), B = new l(g, C);
     B.position.y = 0.32, B.add(this._createOutline(g, 165063, 0.035)), I.add(B);
-    const i = new z(0.32, 0.14, 0.32), Q = new d({ color: 440020, emissive: 959977, emissiveIntensity: 1.1, roughness: 0.2, flatShading: true }), o = new l(i, Q);
+    const i = new X(0.32, 0.14, 0.32), Q = new d({ color: 440020, emissive: 959977, emissiveIntensity: 1.1, roughness: 0.2, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.34, o.rotation.y = Math.PI / 4, I.add(o);
-    const e = new z(0.76, 0.03, 0.76), t = new d({ color: 3718648, metalness: 0.95, roughness: 0.2, flatShading: true }), a = new l(e, t);
+    const e = new X(0.76, 0.03, 0.76), t = new d({ color: 3718648, metalness: 0.95, roughness: 0.2, flatShading: true }), a = new l(e, t);
     a.position.y = 0.3, I.add(a);
     const s = new TA(3718648, 2.4, 2.8);
     return s.position.set(0, 0.42, 0.1), I.add(s), I.userData.update = (n, r) => {
@@ -23773,7 +23811,7 @@ class zE {
     B.position.y = 0.35, B.add(this._createOutline(g, 1841431, 0.035)), I.add(B);
     const i = new u(0.15, 0.15, 0.06, 7), Q = new d({ color: 15680580, emissive: 14427686, emissiveIntensity: 1.4, flatShading: true }), o = new l(i, Q);
     o.position.y = 0.68, I.add(o);
-    const e = new qI(0.06, 0), t = new l(e, Q);
+    const e = new fI(0.06, 0), t = new l(e, Q);
     t.position.set(0, 0.8, 0), I.add(t);
     const a = new TA(16347926, 2.5, 2.5);
     return a.position.set(0, 0.72, 0), I.add(a), I.userData.update = (s, n) => {
@@ -23799,7 +23837,7 @@ class zE {
       const D = new l(new BA(0.07, 0), i);
       D.position.set(n, r, c), I.add(D);
     });
-    const Q = new d({ color: 165063, emissive: 223649, emissiveIntensity: 0.45, roughness: 0.2, flatShading: true }), o = new z(0.32, 0.06, 0.95);
+    const Q = new d({ color: 165063, emissive: 223649, emissiveIntensity: 0.45, roughness: 0.2, flatShading: true }), o = new X(0.32, 0.06, 0.95);
     o.rotateY(0.4);
     const e = new l(o, Q);
     e.position.set(0, 0.12, 0), e.add(this._createOutline(o, 805486, 0.035)), I.add(e);
@@ -23853,9 +23891,9 @@ class zE {
     t.position.set(-0.28, 0.58, 0.15), I.add(t);
     const a = new u(0.18, 0.22, 0.32, 5);
     a.rotateX(Math.PI / 2);
-    const s = new SA({ color: 132631 }), n = new l(a, s);
+    const s = new wA({ color: 132631 }), n = new l(a, s);
     n.position.set(0, 0.32, 0.18), I.add(n);
-    const r = new d({ color: 12616956, emissive: 9647082, emissiveIntensity: 0.9, flatShading: true }), c = new l(new qI(0.08, 0), r);
+    const r = new d({ color: 12616956, emissive: 9647082, emissiveIntensity: 0.9, flatShading: true }), c = new l(new fI(0.08, 0), r);
     c.position.set(0.06, 0.34, 0.14), I.add(c);
     const D = new TA(11032055, 2.2, 2.2);
     return D.position.set(0, 0.36, 0.2), I.add(D), I.userData.update = (h, S) => {
@@ -23877,7 +23915,7 @@ class zE {
     }, I;
   }
   static _createKanyonMesh(A) {
-    const I = new f(), g = new d({ color: 10105874, roughness: 0.85, flatShading: true }), C = new z(0.28, 0.65, 0.6), B = new l(C, g);
+    const I = new f(), g = new d({ color: 10105874, roughness: 0.85, flatShading: true }), C = new X(0.28, 0.65, 0.6), B = new l(C, g);
     B.position.set(-0.25, 0.38, 0), B.rotation.z = 0.08, B.add(this._createOutline(C, 4396039, 0.035)), I.add(B);
     const i = new l(C, g);
     return i.position.set(0.25, 0.38, 0), i.rotation.z = -0.08, i.add(this._createOutline(C, 4396039, 0.035)), I.add(i), I.userData.update = (Q, o) => {
@@ -23886,9 +23924,9 @@ class zE {
     }, I;
   }
   static _createFayHattiMesh(A) {
-    const I = new f(), g = new d({ color: 5722958, roughness: 0.9, flatShading: true }), C = new z(0.34, 0.16, 0.68), B = new l(C, g);
+    const I = new f(), g = new d({ color: 5722958, roughness: 0.9, flatShading: true }), C = new X(0.34, 0.16, 0.68), B = new l(C, g);
     B.position.set(-0.2, 0.25, 0), B.rotation.y = 0.15, B.rotation.z = -0.05, B.add(this._createOutline(C, 1841431, 0.035)), I.add(B);
-    const i = new z(0.34, 0.16, 0.68), Q = new l(i, g);
+    const i = new X(0.34, 0.16, 0.68), Q = new l(i, g);
     return Q.position.set(0.2, 0.25, 0), Q.rotation.y = -0.15, Q.rotation.z = 0.05, Q.add(this._createOutline(i, 1841431, 0.035)), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
       I.rotation.y += t * 1;
@@ -23913,17 +23951,17 @@ class zE {
     const e = new l(o, i);
     e.position.set(0, 0.48, 0), e.add(this._createOutline(o, 7421714, 0.035)), I.add(e);
     const t = new u(0.045, 0.038, 0.38, 5), a = new d({ color: 1579035, flatShading: true });
-    [[-0.14, -0.22], [0.14, -0.22], [-0.14, 0.22], [0.14, 0.22]].forEach(([p, M]) => {
+    [[-0.14, -0.22], [0.14, -0.22], [-0.14, 0.22], [0.14, 0.22]].forEach(([U, p]) => {
       const F = new l(t, i);
-      F.position.set(p, 0.24, M), I.add(F);
-      const y = new l(new z(0.065, 0.06, 0.075), a);
-      y.position.set(p, 0.08, M), I.add(y);
+      F.position.set(U, 0.24, p), I.add(F);
+      const y = new l(new X(0.065, 0.06, 0.075), a);
+      y.position.set(U, 0.08, p), I.add(y);
     });
     const s = new u(0.12, 0.16, 0.38, 5);
     s.rotateX(0.45);
     const n = new l(s, i);
     n.position.set(0, 0.66, 0.26), I.add(n);
-    const r = new z(0.07, 0.36, 0.15);
+    const r = new X(0.07, 0.36, 0.15);
     r.rotateX(0.45);
     const c = new l(r, Q);
     c.position.set(0, 0.72, 0.2), I.add(c);
@@ -23931,22 +23969,22 @@ class zE {
     D.scale(0.85, 1, 1.3);
     const h = new l(D, i);
     h.position.set(0, 0.82, 0.4), h.add(this._createOutline(D, 7421714, 0.035)), I.add(h);
-    const S = new SA({ color: 592139 });
-    [-0.09, 0.09].forEach((p) => {
-      const M = new l(new z(0.035, 0.035, 0.035), S);
-      M.position.set(p, 0.85, 0.45), I.add(M);
+    const S = new wA({ color: 592139 });
+    [-0.09, 0.09].forEach((U) => {
+      const p = new l(new X(0.035, 0.035, 0.035), S);
+      p.position.set(U, 0.85, 0.45), I.add(p);
     });
     const G = new $(0.04, 0.14, 4);
-    [-0.07, 0.07].forEach((p, M) => {
+    [-0.07, 0.07].forEach((U, p) => {
       const F = new l(G, i);
-      F.position.set(p, 0.96, 0.34), F.rotation.set(-0.2, 0, M === 0 ? -0.2 : 0.2), I.add(F);
+      F.position.set(U, 0.96, 0.34), F.rotation.set(-0.2, 0, p === 0 ? -0.2 : 0.2), I.add(F);
     });
     const k = new $(0.08, 0.42, 4);
     k.rotateX(-Math.PI / 2.3);
-    const U = new l(k, Q);
-    return U.position.set(0, 0.52, -0.38), I.add(U), I.userData.update = (p, M) => {
-      const F = M || 0.016;
-      I.rotation.y += F * 1, h.position.y = 0.82 + Math.sin(p * 2.8) * 0.02, U.rotation.z = Math.sin(p * 3.8) * 0.2;
+    const M = new l(k, Q);
+    return M.position.set(0, 0.52, -0.38), I.add(M), I.userData.update = (U, p) => {
+      const F = p || 0.016;
+      I.rotation.y += F * 1, h.position.y = 0.82 + Math.sin(U * 2.8) * 0.02, M.rotation.z = Math.sin(U * 3.8) * 0.2;
     }, I;
   }
   static _createKoyunMesh(A) {
@@ -23960,11 +23998,11 @@ class zE {
     e.position.set(0, 0.52, 0.08), I.add(e);
     const t = new d({ color: 1976635, roughness: 0.7, flatShading: true }), a = new BA(0.14, 0), s = new l(a, t);
     s.position.set(0, 0.44, 0.36), s.scale.set(0.9, 1.1, 1), s.add(this._createOutline(a, 988970, 0.035)), I.add(s);
-    const n = new SA({ color: 16777215 }), r = new SA({ color: 0 });
+    const n = new wA({ color: 16777215 }), r = new wA({ color: 0 });
     [-0.08, 0.08].forEach((S) => {
-      const G = new l(new z(0.035, 0.035, 0.02), n);
+      const G = new l(new X(0.035, 0.035, 0.02), n);
       G.position.set(S, 0.47, 0.45), I.add(G);
-      const k = new l(new z(0.018, 0.018, 0.025), r);
+      const k = new l(new X(0.018, 0.018, 0.025), r);
       k.position.set(S, 0.47, 0.46), I.add(k);
     });
     const c = new $(0.045, 0.14, 4);
@@ -24000,7 +24038,7 @@ class zE {
     [[-0.13, -0.2], [0.13, -0.2], [-0.13, 0.2], [0.13, 0.2]].forEach(([N, q]) => {
       const L = new l(n, Q);
       L.position.set(N, 0.22, q), I.add(L);
-      const Z = new l(new z(0.065, 0.05, 0.08), r);
+      const Z = new l(new X(0.065, 0.05, 0.08), r);
       Z.position.set(N, 0.08, q + 0.02), I.add(Z);
     });
     const c = new u(0.11, 0.16, 0.28, 5);
@@ -24013,16 +24051,16 @@ class zE {
     G.add(this._createOutline(S, 1976635, 0.035)), h.add(G);
     const k = new $(0.08, 0.24, 4);
     k.rotateX(Math.PI / 3);
-    const U = new l(k, o);
-    U.position.set(0, 0.08, 0.14), h.add(U);
-    const p = new SA({ color: 16498468 });
+    const M = new l(k, o);
+    M.position.set(0, 0.08, 0.14), h.add(M);
+    const U = new wA({ color: 16498468 });
     [-0.08, 0.08].forEach((N) => {
-      const q = new l(new z(0.03, 0.03, 0.03), p);
+      const q = new l(new X(0.03, 0.03, 0.03), U);
       q.position.set(N, 0.06, 0.12), h.add(q);
     });
-    const M = new $(0.05, 0.15, 4);
+    const p = new $(0.05, 0.15, 4);
     [-0.09, 0.09].forEach((N, q) => {
-      const L = new l(M, o);
+      const L = new l(p, o);
       L.position.set(N, 0.16, -0.04), L.rotation.set(-0.35, 0, q === 0 ? -0.3 : 0.3), h.add(L);
     }), I.add(h);
     const F = new $(0.09, 0.36, 5);
@@ -24048,19 +24086,19 @@ class zE {
     n.rotateX(Math.PI / 2), n.position.z = 0.02, e.add(n);
     const r = new l(new BA(0.12, 0), a);
     r.position.set(0, 0, 0.24), e.add(r);
-    const c = new SA({ color: 3718648 });
-    [-0.07, 0.07].forEach((U) => {
-      const p = new l(new z(0.035, 0.035, 0.035), c);
-      p.position.set(U, 0.04, 0.32), e.add(p);
+    const c = new wA({ color: 3718648 });
+    [-0.07, 0.07].forEach((M) => {
+      const U = new l(new X(0.035, 0.035, 0.035), c);
+      U.position.set(M, 0.04, 0.32), e.add(U);
     });
     const D = new l(new $(0.04, 0.12, 4), a);
     D.rotateX(-Math.PI / 2), D.position.set(0, -0.02, -0.32), e.add(D);
     const h = new d({ color: 14742270, transparent: true, opacity: 0.75, side: Jg, flatShading: true }), S = new li(0.18, 5), G = new l(S, h);
     G.position.set(-0.16, 0.16, 0.02), G.rotation.set(-0.3, 0.2, 0.4), e.add(G);
     const k = new l(S, h);
-    return k.position.set(0.16, 0.16, 0.02), k.rotation.set(-0.3, -0.2, -0.4), e.add(k), I.add(e), I.userData.update = (U, p) => {
-      const M = p || 0.016;
-      I.rotation.y += M * 1, e.position.y = 0.46 + Math.sin(U * 5) * 0.06, e.position.x = Math.cos(U * 3) * 0.05, G.rotation.z = 0.4 + Math.sin(U * 26) * 0.45, k.rotation.z = -0.4 - Math.sin(U * 26) * 0.45;
+    return k.position.set(0.16, 0.16, 0.02), k.rotation.set(-0.3, -0.2, -0.4), e.add(k), I.add(e), I.userData.update = (M, U) => {
+      const p = U || 0.016;
+      I.rotation.y += p * 1, e.position.y = 0.46 + Math.sin(M * 5) * 0.06, e.position.x = Math.cos(M * 3) * 0.05, G.rotation.z = 0.4 + Math.sin(M * 26) * 0.45, k.rotation.z = -0.4 - Math.sin(M * 26) * 0.45;
     }, I;
   }
   static _createYilanMesh(A) {
@@ -24084,15 +24122,15 @@ class zE {
     h.scale(0.9, 0.7, 1.3);
     const S = new l(h, Q);
     S.position.set(0, 0.68, 0.22), S.add(this._createOutline(h, 1332013, 0.035)), I.add(S);
-    const G = new SA({ color: 16436245 });
-    [-0.08, 0.08].forEach((p) => {
-      const M = new l(new z(0.03, 0.03, 0.03), G);
-      M.position.set(p, 0.7, 0.28), I.add(M);
+    const G = new wA({ color: 16436245 });
+    [-0.08, 0.08].forEach((U) => {
+      const p = new l(new X(0.03, 0.03, 0.03), G);
+      p.position.set(U, 0.7, 0.28), I.add(p);
     });
-    const k = new SA({ color: 15680580 }), U = new l(new z(0.025, 0.015, 0.14), k);
-    return U.position.set(0, 0.66, 0.38), I.add(U), I.userData.update = (p, M) => {
-      const F = M || 0.016;
-      I.rotation.y += F * 1, s.rotation.z = Math.sin(p * 3) * 0.12, S.rotation.z = Math.sin(p * 3) * 0.14, U.scale.z = 0.8 + Math.sin(p * 8) * 0.4;
+    const k = new wA({ color: 15680580 }), M = new l(new X(0.025, 0.015, 0.14), k);
+    return M.position.set(0, 0.66, 0.38), I.add(M), I.userData.update = (U, p) => {
+      const F = p || 0.016;
+      I.rotation.y += F * 1, s.rotation.z = Math.sin(U * 3) * 0.12, S.rotation.z = Math.sin(U * 3) * 0.14, M.scale.z = 0.8 + Math.sin(U * 8) * 0.4;
     }, I;
   }
   static _createBaykusMesh(A) {
@@ -24122,22 +24160,22 @@ class zE {
       const q = new l(S, n);
       q.position.set(y, 0.18, 0), q.rotation.set(-0.2, 0, N === 0 ? -0.3 : 0.3), c.add(q);
     });
-    const G = new d({ color: 16707722, flatShading: true }), k = new d({ color: 16096779, emissive: 14251782, emissiveIntensity: 0.5, flatShading: true }), U = new SA({ color: 592139 });
+    const G = new d({ color: 16707722, flatShading: true }), k = new d({ color: 16096779, emissive: 14251782, emissiveIntensity: 0.5, flatShading: true }), M = new wA({ color: 592139 });
     [-0.09, 0.09].forEach((y) => {
       const N = new l(new u(0.07, 0.07, 0.02, 6), G);
       N.rotateX(Math.PI / 2), N.position.set(y, 0.04, 0.16), c.add(N);
       const q = new l(new u(0.05, 0.05, 0.025, 6), k);
       q.rotateX(Math.PI / 2), q.position.set(y, 0.04, 0.17), c.add(q);
-      const L = new l(new z(0.035, 0.035, 0.035), U);
+      const L = new l(new X(0.035, 0.035, 0.035), M);
       L.position.set(y, 0.04, 0.18), c.add(L);
     });
-    const p = new $(0.045, 0.12, 4);
-    p.rotateX(Math.PI / 2.3);
-    const M = new l(p, new d({ color: 14251782, flatShading: true }));
-    M.position.set(0, -0.04, 0.19), c.add(M), I.add(c);
+    const U = new $(0.045, 0.12, 4);
+    U.rotateX(Math.PI / 2.3);
+    const p = new l(U, new d({ color: 14251782, flatShading: true }));
+    p.position.set(0, -0.04, 0.19), c.add(p), I.add(c);
     const F = new d({ color: 14251782, flatShading: true });
     return [-0.1, 0.1].forEach((y) => {
-      const N = new l(new z(0.08, 0.04, 0.09), F);
+      const N = new l(new X(0.08, 0.04, 0.09), F);
       N.position.set(y, 0.14, 0.14), I.add(N);
     }), I.userData.update = (y, N) => {
       const q = N || 0.016;
@@ -24163,20 +24201,20 @@ class zE {
     c.scale(0.85, 0.8, 1.25);
     const D = new l(c, n);
     D.add(this._createOutline(c, 1409085, 0.035)), r.add(D);
-    const h = new SA({ color: 592139 });
+    const h = new wA({ color: 592139 });
     [-0.07, 0.07].forEach((k) => {
-      const U = new l(new z(0.028, 0.028, 0.028), h);
-      U.position.set(k, 0.04, 0.1), r.add(U);
+      const M = new l(new X(0.028, 0.028, 0.028), h);
+      M.position.set(k, 0.04, 0.1), r.add(M);
     }), I.add(r);
-    const S = new z(0.16, 0.04, 0.12);
-    [[-0.24, -0.16], [0.24, -0.16], [-0.26, 0.16], [0.26, 0.16]].forEach(([k, U], p) => {
-      const M = new l(S, n);
-      M.position.set(k, 0.12, U), M.rotation.y = p < 2 ? k < 0 ? 0.4 : -0.4 : k < 0 ? -0.5 : 0.5, I.add(M);
+    const S = new X(0.16, 0.04, 0.12);
+    [[-0.24, -0.16], [0.24, -0.16], [-0.26, 0.16], [0.26, 0.16]].forEach(([k, M], U) => {
+      const p = new l(S, n);
+      p.position.set(k, 0.12, M), p.rotation.y = U < 2 ? k < 0 ? 0.4 : -0.4 : k < 0 ? -0.5 : 0.5, I.add(p);
     });
     const G = new l(new $(0.04, 0.12, 4), n);
-    return G.rotateX(-Math.PI / 2.2), G.position.set(0, 0.16, -0.4), I.add(G), I.userData.update = (k, U) => {
-      const p = U || 0.016;
-      I.rotation.y += p * 1, r.position.z = 0.36 + Math.sin(k * 2) * 0.035;
+    return G.rotateX(-Math.PI / 2.2), G.position.set(0, 0.16, -0.4), I.add(G), I.userData.update = (k, M) => {
+      const U = M || 0.016;
+      I.rotation.y += U * 1, r.position.z = 0.36 + Math.sin(k * 2) * 0.035;
     }, I;
   }
   static _createBalMesh(A) {
@@ -24184,7 +24222,7 @@ class zE {
     B.position.y = 0.32, B.add(this._createOutline(C, 7877903, 0.035)), I.add(B);
     const i = new d({ color: 16096779, emissive: 14251782, emissiveIntensity: 0.8, roughness: 0.2, flatShading: true }), Q = new u(0.26, 0.28, 0.1, 8), o = new l(Q, i);
     o.position.y = 0.56, I.add(o);
-    const e = new qI(0.08, 0);
+    const e = new fI(0.08, 0);
     e.scale(0.8, 1.4, 0.8);
     const t = new l(e, i);
     t.position.set(0.24, 0.4, 0), I.add(t);
@@ -24236,27 +24274,27 @@ class zE {
     r.position.set(0, 0.23, 0.08), I.add(r);
     const c = new u(0.06, 0.09, 0.28, 5);
     [-0.22, 0.22].forEach((G, k) => {
-      const U = new l(c, e);
-      U.position.set(G, 0.2, -0.06), U.rotation.set(0.6, 0, k === 0 ? -0.8 : 0.8), I.add(U);
-      const p = new l(new z(0.09, 0.03, 0.12), e);
-      p.position.set(G < 0 ? G - 0.06 : G + 0.06, 0.1, 0.04), I.add(p);
+      const M = new l(c, e);
+      M.position.set(G, 0.2, -0.06), M.rotation.set(0.6, 0, k === 0 ? -0.8 : 0.8), I.add(M);
+      const U = new l(new X(0.09, 0.03, 0.12), e);
+      U.position.set(G < 0 ? G - 0.06 : G + 0.06, 0.1, 0.04), I.add(U);
     }), [-0.14, 0.14].forEach((G) => {
       const k = new l(new u(0.04, 0.04, 0.18, 4), e);
       k.position.set(G, 0.16, 0.18), I.add(k);
     });
-    const D = new BA(0.09, 0), h = new SA({ color: 988970 }), S = new SA({ color: 16436245 });
+    const D = new BA(0.09, 0), h = new wA({ color: 988970 }), S = new wA({ color: 16436245 });
     return [-0.12, 0.12].forEach((G) => {
       const k = new l(D, e);
       k.position.set(G, 0.42, 0.12), I.add(k);
-      const U = new l(new z(0.06, 0.06, 0.03), S);
-      U.position.set(G, 0.44, 0.19), I.add(U);
-      const p = new l(new z(0.03, 0.03, 0.035), h);
-      p.position.set(G, 0.44, 0.2), I.add(p);
+      const M = new l(new X(0.06, 0.06, 0.03), S);
+      M.position.set(G, 0.44, 0.19), I.add(M);
+      const U = new l(new X(0.03, 0.03, 0.035), h);
+      U.position.set(G, 0.44, 0.2), I.add(U);
     }), I.userData.update = (G, k) => {
-      const U = k || 0.016;
-      I.rotation.y += U * 1;
-      const p = Math.sin(G * 3.5) * 0.04;
-      s.scale.set(1.1 + p, 0.85 + p, 1.25);
+      const M = k || 0.016;
+      I.rotation.y += M * 1;
+      const U = Math.sin(G * 3.5) * 0.04;
+      s.scale.set(1.1 + U, 0.85 + U, 1.25);
     }, I;
   }
   static _createSincapMesh(A) {
@@ -24284,23 +24322,23 @@ class zE {
       const q = new l(c, Q);
       q.position.set(y, 0.72, 0.1), q.rotation.set(-0.2, 0, N === 0 ? -0.25 : 0.25), I.add(q);
     });
-    const D = new SA({ color: 592139 });
+    const D = new wA({ color: 592139 });
     [-0.09, 0.09].forEach((y) => {
-      const N = new l(new z(0.035, 0.035, 0.035), D);
+      const N = new l(new X(0.035, 0.035, 0.035), D);
       N.position.set(y, 0.6, 0.24), I.add(N);
     });
     const h = new f();
     h.position.set(0, 0.38, 0.22);
     const S = new BA(0.07, 0), G = new l(S, new d({ color: 9584654, flatShading: true }));
     h.add(G);
-    const k = new $(0.08, 0.06, 5), U = new l(k, new d({ color: 4528643, flatShading: true }));
-    U.position.y = 0.06, h.add(U), I.add(h);
-    const p = new f();
-    p.position.set(0, 0.28, -0.16);
-    const M = new xA(0.24, 0.12, 5, 8, Math.PI * 1.3), F = new l(M, Q);
-    return F.rotation.set(0, Math.PI / 2, 0.6), F.add(this._createOutline(M, 8138002, 0.035)), p.add(F), I.add(p), I.userData.update = (y, N) => {
+    const k = new $(0.08, 0.06, 5), M = new l(k, new d({ color: 4528643, flatShading: true }));
+    M.position.y = 0.06, h.add(M), I.add(h);
+    const U = new f();
+    U.position.set(0, 0.28, -0.16);
+    const p = new xA(0.24, 0.12, 5, 8, Math.PI * 1.3), F = new l(p, Q);
+    return F.rotation.set(0, Math.PI / 2, 0.6), F.add(this._createOutline(p, 8138002, 0.035)), U.add(F), I.add(U), I.userData.update = (y, N) => {
       const q = N || 0.016;
-      I.rotation.y += q * 1, h.position.y = 0.38 + Math.sin(y * 8) * 0.015, p.rotation.x = Math.sin(y * 4) * 0.15;
+      I.rotation.y += q * 1, h.position.y = 0.38 + Math.sin(y * 8) * 0.015, U.rotation.x = Math.sin(y * 4) * 0.15;
     }, I;
   }
   static _createGeyikMesh(A) {
@@ -24311,16 +24349,16 @@ class zE {
     const o = new l(Q, i);
     o.position.set(0, 0.46, 0), o.add(this._createOutline(Q, 7877903, 0.035)), I.add(o);
     const e = new d({ color: 16708551, flatShading: true });
-    [[-0.06, -0.1], [0.06, -0.1], [-0.05, 0.08], [0.05, 0.08]].forEach(([k, U]) => {
-      const p = new l(new BA(0.04, 0), e);
-      p.position.set(k, 0.57, U), I.add(p);
+    [[-0.06, -0.1], [0.06, -0.1], [-0.05, 0.08], [0.05, 0.08]].forEach(([k, M]) => {
+      const U = new l(new BA(0.04, 0), e);
+      U.position.set(k, 0.57, M), I.add(U);
     });
     const t = new u(0.038, 0.032, 0.38, 5), a = new d({ color: 1841431, flatShading: true });
-    [[-0.13, -0.2], [0.13, -0.2], [-0.13, 0.2], [0.13, 0.2]].forEach(([k, U]) => {
-      const p = new l(t, i);
-      p.position.set(k, 0.23, U), I.add(p);
-      const M = new l(new z(0.055, 0.05, 0.065), a);
-      M.position.set(k, 0.08, U), I.add(M);
+    [[-0.13, -0.2], [0.13, -0.2], [-0.13, 0.2], [0.13, 0.2]].forEach(([k, M]) => {
+      const U = new l(t, i);
+      U.position.set(k, 0.23, M), I.add(U);
+      const p = new l(new X(0.055, 0.05, 0.065), a);
+      p.position.set(k, 0.08, M), I.add(p);
     });
     const s = new u(0.09, 0.13, 0.32, 5);
     s.rotateX(0.45);
@@ -24330,27 +24368,27 @@ class zE {
     r.scale(0.85, 0.95, 1.3);
     const c = new l(r, i);
     c.position.set(0, 0.78, 0.36), c.add(this._createOutline(r, 7877903, 0.035)), I.add(c);
-    const D = new SA({ color: 592139 });
+    const D = new wA({ color: 592139 });
     [-0.08, 0.08].forEach((k) => {
-      const U = new l(new z(0.03, 0.03, 0.03), D);
-      U.position.set(k, 0.81, 0.42), I.add(U);
+      const M = new l(new X(0.03, 0.03, 0.03), D);
+      M.position.set(k, 0.81, 0.42), I.add(M);
     });
     const h = new $(0.04, 0.16, 4);
-    [-0.1, 0.1].forEach((k, U) => {
-      const p = new l(h, i);
-      p.position.set(k, 0.88, 0.3), p.rotation.set(-0.3, 0, U === 0 ? -0.4 : 0.4), I.add(p);
+    [-0.1, 0.1].forEach((k, M) => {
+      const U = new l(h, i);
+      U.position.set(k, 0.88, 0.3), U.rotation.set(-0.3, 0, M === 0 ? -0.4 : 0.4), I.add(U);
     });
     const S = new d({ color: 16707722, roughness: 0.4, flatShading: true });
-    [-0.09, 0.09].forEach((k, U) => {
-      const p = new l(new $(0.035, 0.36, 4), S);
-      p.position.set(k, 0.98, 0.3), p.rotation.set(-0.25, 0, U === 0 ? -0.35 : 0.35), I.add(p);
-      const M = new l(new $(0.025, 0.16, 4), S);
-      M.position.set(k < 0 ? k - 0.07 : k + 0.07, 1.02, 0.34), M.rotation.set(-0.1, 0, U === 0 ? -0.7 : 0.7), I.add(M);
+    [-0.09, 0.09].forEach((k, M) => {
+      const U = new l(new $(0.035, 0.36, 4), S);
+      U.position.set(k, 0.98, 0.3), U.rotation.set(-0.25, 0, M === 0 ? -0.35 : 0.35), I.add(U);
+      const p = new l(new $(0.025, 0.16, 4), S);
+      p.position.set(k < 0 ? k - 0.07 : k + 0.07, 1.02, 0.34), p.rotation.set(-0.1, 0, M === 0 ? -0.7 : 0.7), I.add(p);
     });
     const G = new l(new $(0.05, 0.14, 4), e);
-    return G.rotateX(-Math.PI / 2.5), G.position.set(0, 0.48, -0.34), I.add(G), I.userData.update = (k, U) => {
-      const p = U || 0.016;
-      I.rotation.y += p * 1, c.position.y = 0.78 + Math.sin(k * 2.2) * 0.02, G.rotation.z = Math.sin(k * 4) * 0.2;
+    return G.rotateX(-Math.PI / 2.5), G.position.set(0, 0.48, -0.34), I.add(G), I.userData.update = (k, M) => {
+      const U = M || 0.016;
+      I.rotation.y += U * 1, c.position.y = 0.78 + Math.sin(k * 2.2) * 0.02, G.rotation.z = Math.sin(k * 4) * 0.2;
     }, I;
   }
   static _createKelebekMesh(A) {
@@ -24415,43 +24453,43 @@ class zE {
   static _createTavukMesh(A) {
     const I = new f(), g = new u(0.46, 0.5, 0.08, 6), C = new d({ color: 11817737, roughness: 0.9, flatShading: true }), B = new l(g, C);
     B.position.y = 0.06, B.add(this._createOutline(g, 7877903, 0.035)), I.add(B);
-    const i = new l(new z(0.18, 0.05, 0.08), new d({ color: 16638023, flatShading: true }));
+    const i = new l(new X(0.18, 0.05, 0.08), new d({ color: 16638023, flatShading: true }));
     i.position.set(-0.2, 0.11, 0.15), i.rotation.y = 0.4, I.add(i);
     const Q = new d({ color: 16317180, roughness: 0.7, flatShading: true }), o = new BA(0.28, 0);
     o.scale(0.9, 1, 1.3);
     const e = new l(o, Q);
     e.position.set(0, 0.38, 0), e.add(this._createOutline(o, 9741240, 0.035)), I.add(e);
     const t = new $(0.12, 0.32, 4);
-    t.scale(0.35, 1, 0.8), [-0.22, 0.22].forEach((p, M) => {
+    t.scale(0.35, 1, 0.8), [-0.22, 0.22].forEach((U, p) => {
       const F = new l(t, Q);
-      F.position.set(p, 0.4, 0.02), F.rotation.set(0.4, 0, M === 0 ? 0.3 : -0.3), I.add(F);
+      F.position.set(U, 0.4, 0.02), F.rotation.set(0.4, 0, p === 0 ? 0.3 : -0.3), I.add(F);
     });
     const a = new f();
     a.position.set(0, 0.58, 0.24);
     const s = new BA(0.15, 0), n = new l(s, Q);
     n.add(this._createOutline(s, 9741240, 0.035)), a.add(n);
-    const r = new d({ color: 15680580, flatShading: true }), c = new l(new z(0.05, 0.14, 0.18), r);
+    const r = new d({ color: 15680580, flatShading: true }), c = new l(new X(0.05, 0.14, 0.18), r);
     c.position.set(0, 0.18, -0.02), a.add(c);
-    const D = new l(new z(0.04, 0.08, 0.06), r);
+    const D = new l(new X(0.04, 0.08, 0.06), r);
     D.position.set(0, -0.1, 0.14), a.add(D);
     const h = new d({ color: 16096779, flatShading: true }), S = new $(0.05, 0.14, 4);
     S.rotateX(Math.PI / 2);
     const G = new l(S, h);
     G.position.set(0, 0.02, 0.18), a.add(G);
-    const k = new SA({ color: 988970 });
-    [-0.08, 0.08].forEach((p) => {
-      const M = new l(new z(0.03, 0.03, 0.03), k);
-      M.position.set(p, 0.06, 0.1), a.add(M);
+    const k = new wA({ color: 988970 });
+    [-0.08, 0.08].forEach((U) => {
+      const p = new l(new X(0.03, 0.03, 0.03), k);
+      p.position.set(U, 0.06, 0.1), a.add(p);
     }), I.add(a);
-    const U = new u(0.03, 0.03, 0.24, 4);
-    return [[-0.1, 0], [0.1, 0]].forEach(([p, M]) => {
-      const F = new l(U, h);
-      F.position.set(p, 0.18, M), I.add(F);
-      const y = new l(new z(0.07, 0.03, 0.1), h);
-      y.position.set(p, 0.08, M + 0.03), I.add(y);
-    }), I.userData.update = (p, M) => {
-      const F = M || 0.016;
-      I.rotation.y += F * 1, a.position.y = 0.58 + Math.sin(p * 4.5) * 0.04, a.rotation.x = Math.sin(p * 4.5) * 0.15;
+    const M = new u(0.03, 0.03, 0.24, 4);
+    return [[-0.1, 0], [0.1, 0]].forEach(([U, p]) => {
+      const F = new l(M, h);
+      F.position.set(U, 0.18, p), I.add(F);
+      const y = new l(new X(0.07, 0.03, 0.1), h);
+      y.position.set(U, 0.08, p + 0.03), I.add(y);
+    }), I.userData.update = (U, p) => {
+      const F = p || 0.016;
+      I.rotation.y += F * 1, a.position.y = 0.58 + Math.sin(U * 4.5) * 0.04, a.rotation.x = Math.sin(U * 4.5) * 0.15;
     }, I;
   }
   static _createKediMesh(A) {
@@ -24464,36 +24502,36 @@ class zE {
     const t = new l(new BA(0.14, 0), Q);
     t.position.set(0, 0.36, 0.22), I.add(t);
     const a = new u(0.04, 0.035, 0.24, 5);
-    [[-0.12, -0.16], [0.12, -0.16], [-0.12, 0.16], [0.12, 0.16]].forEach(([U, p]) => {
-      const M = new l(a, i);
-      M.position.set(U, 0.18, p), I.add(M);
-      const F = new l(new z(0.06, 0.04, 0.07), Q);
-      F.position.set(U, 0.08, p + 0.02), I.add(F);
+    [[-0.12, -0.16], [0.12, -0.16], [-0.12, 0.16], [0.12, 0.16]].forEach(([M, U]) => {
+      const p = new l(a, i);
+      p.position.set(M, 0.18, U), I.add(p);
+      const F = new l(new X(0.06, 0.04, 0.07), Q);
+      F.position.set(M, 0.08, U + 0.02), I.add(F);
     });
     const s = new BA(0.17, 0), n = new l(s, i);
     n.position.set(0, 0.54, 0.26), n.add(this._createOutline(s, 12730636, 0.035)), I.add(n);
     const r = new $(0.06, 0.15, 4), c = new d({ color: 16020150, flatShading: true });
-    [-0.1, 0.1].forEach((U, p) => {
-      const M = new l(r, i);
-      M.position.set(U, 0.7, 0.24), M.rotation.set(-0.25, 0, p === 0 ? -0.3 : 0.3), I.add(M);
+    [-0.1, 0.1].forEach((M, U) => {
+      const p = new l(r, i);
+      p.position.set(M, 0.7, 0.24), p.rotation.set(-0.25, 0, U === 0 ? -0.3 : 0.3), I.add(p);
       const F = new l(new $(0.035, 0.1, 4), c);
-      F.position.set(U, 0.69, 0.27), F.rotation.set(-0.25, 0, p === 0 ? -0.3 : 0.3), I.add(F);
+      F.position.set(M, 0.69, 0.27), F.rotation.set(-0.25, 0, U === 0 ? -0.3 : 0.3), I.add(F);
     });
-    const D = new SA({ color: 1096065 });
-    [-0.08, 0.08].forEach((U) => {
-      const p = new l(new z(0.035, 0.035, 0.035), D);
-      p.position.set(U, 0.56, 0.38), I.add(p);
+    const D = new wA({ color: 1096065 });
+    [-0.08, 0.08].forEach((M) => {
+      const U = new l(new X(0.035, 0.035, 0.035), D);
+      U.position.set(M, 0.56, 0.38), I.add(U);
     });
-    const h = new l(new z(0.03, 0.025, 0.03), c);
+    const h = new l(new X(0.03, 0.025, 0.03), c);
     h.position.set(0, 0.5, 0.42), I.add(h);
     const S = new f();
     S.position.set(0, 0.38, -0.3);
     const G = new u(0.035, 0.03, 0.38, 5);
     G.rotateX(-0.7);
     const k = new l(G, i);
-    return k.position.set(0, 0.14, -0.1), S.add(k), I.add(S), I.userData.update = (U, p) => {
-      const M = p || 0.016;
-      I.rotation.y += M * 1, S.rotation.y = Math.sin(U * 3.5) * 0.35, n.position.y = 0.54 + Math.sin(U * 2) * 0.015;
+    return k.position.set(0, 0.14, -0.1), S.add(k), I.add(S), I.userData.update = (M, U) => {
+      const p = U || 0.016;
+      I.rotation.y += p * 1, S.rotation.y = Math.sin(M * 3.5) * 0.35, n.position.y = 0.54 + Math.sin(M * 2) * 0.015;
     }, I;
   }
   static _createMesaleMesh(A) {
@@ -24525,9 +24563,9 @@ class zE {
     a.rotation.x = -0.3, a.add(this._createOutline(t, 8917815, 0.035)), e.add(a);
     const s = new l(new BA(0.16, 0), o);
     s.position.set(0, -0.06, 0.08), e.add(s);
-    const n = new SA({ color: 988970 });
+    const n = new wA({ color: 988970 });
     [-0.12, 0.12].forEach((G) => {
-      const k = new l(new z(0.03, 0.03, 0.03), n);
+      const k = new l(new X(0.03, 0.03, 0.03), n);
       k.position.set(G, 0.06, 0.32), e.add(k);
     });
     const r = new d({ color: 16478597, flatShading: true }), c = new $(0.07, 0.2, 3);
@@ -24538,14 +24576,14 @@ class zE {
     h.rotateX(-Math.PI / 2);
     const S = new l(h, r);
     return S.position.set(0, -0.08, -0.42), e.add(S), I.add(e), I.userData.update = (G, k) => {
-      const U = k || 0.016;
-      I.rotation.y += U * 1, e.position.y = 0.38 + Math.sin(G * 5) * 0.08, S.rotation.y = Math.sin(G * 7) * 0.35;
+      const M = k || 0.016;
+      I.rotation.y += M * 1, e.position.y = 0.38 + Math.sin(G * 5) * 0.08, S.rotation.y = Math.sin(G * 7) * 0.35;
     }, I;
   }
   static _createYayMesh(A) {
     const I = new f(), g = new d({ color: 9584654, roughness: 0.7, flatShading: true }), C = new xA(0.4, 0.04, 4, 10, Math.PI), B = new l(C, g);
     B.position.set(0, 0.45, 0), B.rotation.z = -Math.PI / 2, B.add(this._createOutline(C, 4528643, 0.035)), I.add(B);
-    const i = new SA({ color: 16777215 }), Q = new l(new u(0.01, 0.01, 0.8, 4), i);
+    const i = new wA({ color: 16777215 }), Q = new l(new u(0.01, 0.01, 0.8, 4), i);
     return Q.position.set(0, 0.45, 0), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
       I.rotation.y += t * 1;
@@ -24561,7 +24599,7 @@ class zE {
     });
     const Q = new d({ color: 7877903, flatShading: true }), o = new l(new u(0.02, 0.02, 0.12, 4), Q);
     o.position.set(0, 0.72, 0), I.add(o);
-    const e = new d({ color: 16436245, emissive: 16347926, emissiveIntensity: 1.5, flatShading: true }), t = new l(new qI(0.05, 0), e);
+    const e = new d({ color: 16436245, emissive: 16347926, emissiveIntensity: 1.5, flatShading: true }), t = new l(new fI(0.05, 0), e);
     return t.position.set(0, 0.79, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
       I.rotation.y += n * 1, t.scale.setScalar(0.8 + Math.sin(a * 12) * 0.3);
@@ -24570,7 +24608,7 @@ class zE {
   static _createSuDegirmeniMesh(A) {
     const I = new f(), g = new u(0.52, 0.56, 0.1, 7), C = new d({ color: 165063, emissive: 223649, emissiveIntensity: 0.3, flatShading: true }), B = new l(g, C);
     B.position.y = 0.07, B.add(this._createOutline(g, 805486, 0.035)), I.add(B);
-    const i = new d({ color: 7877903, roughness: 0.8, flatShading: true }), Q = new d({ color: 10033947, roughness: 0.7, flatShading: true }), o = new l(new z(0.36, 0.38, 0.44), i);
+    const i = new d({ color: 7877903, roughness: 0.8, flatShading: true }), Q = new d({ color: 10033947, roughness: 0.7, flatShading: true }), o = new l(new X(0.36, 0.38, 0.44), i);
     o.position.set(-0.16, 0.28, 0), o.add(this._createOutline(o.geometry, 4528643, 0.035)), I.add(o);
     const e = new $(0.34, 0.24, 4);
     e.rotateY(Math.PI / 4);
@@ -24582,7 +24620,7 @@ class zE {
     n.rotateX(Math.PI / 2);
     const r = new l(n, s);
     r.add(this._createOutline(n, 7421714, 0.035)), a.add(r);
-    const c = new z(0.06, 0.54, 0.06);
+    const c = new X(0.06, 0.54, 0.06);
     for (let S = 0; S < 3; S++) {
       const G = new l(c, s);
       G.rotation.z = S * Math.PI / 3, a.add(G);
@@ -24659,8 +24697,8 @@ class Hd {
       const B = [I[0] ?? null, I[1] ?? null, I[2] ?? null].map((Q) => Q ? lg(Q) : null), i = this._sortAndKey(B);
       this.recipes[i] = g;
     };
-    Rd.forEach((I) => A(I.inputs, I.output)), Jd.forEach((I) => A(I.inputs, I.output)), ud.forEach((I) => A(I.inputs, I.output)), qd.forEach((I) => A(I.inputs, I.output)), fd.forEach((I) => A(I.inputs, I.output)), md.forEach((I) => A(I.inputs, I.output)), Yd.forEach((I) => A(I.inputs, I.output)), Ld.forEach((I) => A(I.inputs, I.output)), typeof pn < "u" && pn.forEach((I) => A(I.inputs, I.output)), typeof Un < "u" && Un.forEach((I) => A(I.inputs, I.output)), typeof Nn < "u" && Nn.forEach((I) => A(I.inputs, I.output)), typeof Kn < "u" && Kn.forEach((I) => A(I.inputs, I.output)), Object.keys(OI).forEach((I) => {
-      const g = OI[I];
+    Rd.forEach((I) => A(I.inputs, I.output)), Jd.forEach((I) => A(I.inputs, I.output)), ud.forEach((I) => A(I.inputs, I.output)), qd.forEach((I) => A(I.inputs, I.output)), fd.forEach((I) => A(I.inputs, I.output)), md.forEach((I) => A(I.inputs, I.output)), Yd.forEach((I) => A(I.inputs, I.output)), Ld.forEach((I) => A(I.inputs, I.output)), typeof pn < "u" && pn.forEach((I) => A(I.inputs, I.output)), typeof Un < "u" && Un.forEach((I) => A(I.inputs, I.output)), typeof Nn < "u" && Nn.forEach((I) => A(I.inputs, I.output)), typeof Kn < "u" && Kn.forEach((I) => A(I.inputs, I.output)), Object.keys(vI).forEach((I) => {
+      const g = vI[I];
       g && g.recipe && g.recipe.inputs && A(g.recipe.inputs, g.id || I);
     });
   }
@@ -24674,7 +24712,7 @@ class Hd {
     return this.recipes[C] || null;
   }
 }
-const yE = { tr: { ui: { search_placeholder: "\u{1F50D} Ara...", all_categories: "\u{1F4C1} T\xFCm\xFC", cat_elements: "\u{1F525} Element", cat_nature: "\u{1F331} Do\u011Fa", cat_life: "\u{1F9EC} Canl\u0131", cat_craft_tools: "\u2694\uFE0F Zanaat", cat_5: "\u{1F9EA} Simya & B\xFCy\xFC", cat_6: "\u2699\uFE0F Mekanik", cat_7: "\u{1F3D7}\uFE0F A\u011F\u0131r Sanayi", cat_8: "\u{1F30C} Kozmoloji & Boyut", cat_9: "\u{1F52C} Y\xFCksek Bilim", cat_10: "\u{1F304} Do\u011Fa & Co\u011Frafya", sort_discovery: "\u23F3 Ke\u015Fif", sort_category: "\u{1F4C2} Kategori", cleanup: "\u{1F9F9} Temizlik", char_apprentice: "\u{1F9D9}\u200D\u2642\uFE0F \xC7\u0131rak", char_observer: "\u{1F3AD} G\xF6zlemci", char_wanderer: "\u{1F9D9} Gezgin", hints_title: "\u{1F4A1} \u0130pu\xE7lar\u0131", hint_rights: "Hak: {n}", hint_get: "\u0130pucu Al (-1 Hak)", hint_opened: "\u2713 Tam \u0130pucu A\xE7\u0131k", hint_no_craftable: "\u015Eu an ke\u015Ffedilebilir yeni ipucu yok. Farkl\u0131 kombinasyonlar deneyin!", hint_click_to_open: "\u0130pucu a\xE7mak i\xE7in t\u0131klay\u0131n", hint_consists_of: "<strong>{name}</strong>: {count} bile\u015Fenden olu\u015Fur.", hint_basic_element: "Bu temel bir elementtir.", discovery_title: "Yeni Ke\u015Fif", ad_title: "\u{1F4FA} Reklam \u0130zle", ad_desc: "\u0130pucu hakk\u0131n\u0131z bitti! K\u0131sa bir reklam izleyerek hemen +1 \u0130pucu kazanabilirsiniz.", ad_watch_btn: "Reklam\u0131 \u0130zle (+1 \u0130pucu)", ad_cancel_btn: "Vazge\xE7", ad_watched_alert: "\u{1F4FA} Reklam ba\u015Far\u0131yla izlendi! +1 \u0130pucu hakk\u0131 harcanarak detayl\u0131 ipucu a\xE7\u0131ld\u0131.", lang_btn: "\u{1F310} Dil: TR", music_1: "\u{1F3B5} M\xFCzik 1", music_2: "\u{1F3B5} M\xFCzik 2", music_3: "\u{1F3B5} M\xFCzik 3", music_none: "\u{1F507} M\xFCzik Yok", settings_btn: "\u2699\uFE0F Ayarlar", settings_title: "\u2699\uFE0F Oyun Ayarlar\u0131", settings_close: "Kapat", tab_general: "\u{1F3AE} Genel", tab_credits: "\u{1F4DC} Lisanslar", tab_debug: "\u{1F6E0}\uFE0F Debug Modu", credits_title: "Karakter Atf\u0131 & Lisans", credits_character_heading: "3D Karakter Modelleri", credits_character_desc: "Oyundaki 3D karakter modelleri (Simyac\u0131 \xC7\u0131ra\u011F\u0131 & G\xF6zlemci) Creative Commons Attribution 4.0 International (CC BY 4.0) lisans\u0131 kapsam\u0131nda kullan\u0131lmaktad\u0131r.", credits_view_license: "Lisans Detaylar\u0131 (CC BY 4.0)", credits_terms_summary: "Bu lisans uyar\u0131nca materyaller uygun at\u0131f yap\u0131larak ve lisans ba\u011Flant\u0131s\u0131 sa\u011Flanarak serbest\xE7e payla\u015F\u0131labilir ve uyarlanabilir.", debug_warning: "\u26A0\uFE0F Geli\u015Ftirici ve test ara\xE7lar\u0131", debug_infinite_hints: "\u{1F4A1} S\u0131n\u0131rs\u0131z \u0130pucu", debug_unlock_all: "\u{1F513} T\xFCm Tarifleri A\xE7", debug_reveal_hints: "\u{1F4DC} T\xFCm \u0130pu\xE7lar\u0131n\u0131 \xC7\xF6z", debug_fps_counter: "\u{1F4CA} FPS & Performans Sayac\u0131", debug_spawn_basics: "\u{1F9EA} 4 Temel Elementi Koy", debug_reset_progress: "\u{1F504} \u0130lerlemeyi S\u0131f\u0131rla", debug_reset_confirm: "T\xFCm ilerlemeniz s\u0131f\u0131rlanacak ve sadece 4 temel element kalacak. Emin misiniz?", debug_all_unlocked_msg: "Oyundaki t\xFCm tarif ve e\u015Fyalar a\xE7\u0131ld\u0131!", debug_all_hints_revealed_msg: "T\xFCm tarif ipu\xE7lar\u0131 a\xE7\u0131\u011Fa \xE7\u0131kar\u0131ld\u0131!", debug_spawn_success: "Temel elementler masaya yerle\u015Ftirildi!" }, items: { ates: { name: "Ate\u015F", desc: "Saf \u0131s\u0131 ve enerji kayna\u011F\u0131." }, su: { name: "Su", desc: "Hayat\u0131n kayna\u011F\u0131, ak\u0131\u015Fkan ve berrak." }, toprak: { name: "Toprak", desc: "Sa\u011Flam temel, kaya ve bereket." }, hava: { name: "Hava", desc: "G\xF6r\xFCnmez r\xFCzg\xE2r, nefes ve hareket." }, buhar: { name: "Buhar", desc: "Ate\u015F ve suyun dans\u0131ndan do\u011Fan bu\u011Fu." }, camur: { name: "\xC7amur", desc: "Su ve topra\u011F\u0131n yo\u011Frulmu\u015F hali." }, lav: { name: "Lav", desc: "Ate\u015F ve topra\u011F\u0131n erimi\u015F ihti\u015Fam\u0131." }, kum: { name: "Kum", desc: "R\xFCzgar ve ta\u015F\u0131n a\u015F\u0131nd\u0131rd\u0131\u011F\u0131 tanecikler." }, obsidyen: { name: "Obsidyen", desc: "Su ile aniden so\u011Fuyan lav\u0131n sert cam\u0131." }, yagmur: { name: "Ya\u011Fmur", desc: "Hava ve suyun bulu\u015Fmas\u0131ndan d\xFC\u015Fen damlalar." }, enerji: { name: "Enerji", desc: "Ate\u015F ve havan\u0131n saf plazma g\xFCc\xFC." }, ruzgar: { name: "R\xFCzgar", desc: "G\xFC\xE7l\xFC ve h\u0131zl\u0131 hava ak\u0131m\u0131." }, tas: { name: "Ta\u015F", desc: "Topra\u011F\u0131n s\u0131k\u0131\u015F\u0131p kat\u0131la\u015Fmas\u0131yla olu\u015Fan sert kaya." }, cam: { name: "Cam", desc: "Ate\u015F ve kumun eriyerek \u015Feffafla\u015Fmas\u0131." }, bulut: { name: "Bulut", desc: "G\xF6ky\xFCz\xFCnde s\xFCz\xFClen pamuksu beyaz su buhar\u0131 k\xFCmesi." }, yildirim: { name: "Y\u0131ld\u0131r\u0131m", desc: "Bulut ve enerjinin \xE7akan keskin \u015Fim\u015Fe\u011Fi." }, bitki: { name: "Bitki", desc: "Toprak ve ya\u011Fmurun ye\u015Ferten filizi." }, agac: { name: "A\u011Fa\xE7", desc: "Bitki ve topra\u011F\u0131n b\xFCy\xFCyen g\xFC\xE7l\xFC g\xF6vdesi." }, odun: { name: "Odun", desc: "A\u011Fa\xE7 ve ta\u015F\u0131n i\u015Flenen k\xFCt\xFC\u011F\xFC." }, kiymik: { name: "K\u0131ym\u0131k", desc: "Odun ve ta\u015F\u0131n sivri tala\u015F par\xE7as\u0131." }, lif: { name: "Lif", desc: "Bitki ve bitkinin sar\u0131lan lif demeti." }, mantar: { name: "Mantar", desc: "Beyaz benekli, k\u0131rm\u0131z\u0131 \u015Fapkal\u0131, bodur sapl\u0131 orman mantar\u0131." }, pamuk: { name: "Pamuk", desc: "Kurumu\u015F kahverengi \xE7anak yapraklar i\xE7inde duran bembeyaz pamuk kozas\u0131." }, recine: { name: "Re\xE7ine", desc: "Damla formunda kat\u0131la\u015Fm\u0131\u015F, bal sar\u0131s\u0131 kehribar cevheri." }, yasam: { name: "Ya\u015Fam", desc: "\u0130\xE7inde ye\u015Filimsi \xE7ift sarmal DNA sembol\xFC d\xF6nen \u0131\u015F\u0131ldayan \xF6z k\xFCresi." }, kus: { name: "Ku\u015F", desc: "Basit geometrik g\xF6vdeli, mavi kanatl\u0131, sar\u0131 gagal\u0131 k\xFC\xE7\xFCk ser\xE7e." }, hayvan: { name: "Hayvan", desc: "D\xF6rt narin baca\u011F\u0131 ve k\u0131sa kuyru\u011Fu olan bloklu canl\u0131 sil\xFCeti." }, balik: { name: "Bal\u0131k", desc: "\xDC\xE7gen y\xFCzge\xE7li, turuncu-g\xFCm\xFC\u015F renkli k\xF6\u015Feli g\xF6vdeli sazan." }, ip: { name: "\u0130p", desc: "D\xFC\u011F\xFCmlenmi\u015F, halka \u015Feklinde sar\u0131l\u0131 saman sar\u0131s\u0131 halat rulosu." }, kumas: { name: "Kuma\u015F", desc: "D\xFCzenli katlanm\u0131\u015F, kenarlar\u0131 k\xF6\u015Feli bej renkli kuma\u015F bezi." }, komur: { name: "K\xF6m\xFCr", desc: "D\xFCzensiz y\xFCzeylere sahip, mat siyah renkli karbon par\xE7as\u0131." }, kul: { name: "K\xFCl", desc: "\u0130\xE7inde s\xF6nmeye y\xFCz tutmu\u015F kor par\xE7alar\u0131 olan gri toz y\u0131\u011F\u0131n\u0131." }, kagit: { name: "Ka\u011F\u0131t", desc: "Ucu hafif k\u0131vr\u0131lm\u0131\u015F, a\xE7\u0131k sar\u0131 renkte dikd\xF6rtgen par\u015F\xF6men tabakas\u0131." }, ilkel_bicak: { name: "\u0130lkel B\u0131\xE7ak", desc: "K\u0131sa ah\u015Fap sap\u0131na iple tutturulmu\u015F \xE7akmakta\u015F\u0131 u\xE7lu kaba b\u0131\xE7ak." }, kus_tuyu: { name: "Ku\u015F T\xFCy\xFC", desc: "Orta damar\u0131 belirgin, ucu beyazdan g\xF6k mavisine d\xF6nen t\xFCy." }, deri: { name: "Deri", desc: "Kenarlar\u0131 asimetrik kesilmi\u015F, taba rengi i\u015Flenmemi\u015F post." }, kavrulmus_et: { name: "Kavrulmu\u015F Et", desc: "Beyaz kemik sap\u0131ndan tutulan, k\u0131zarm\u0131\u015F kahverengi et butu." }, comlek: { name: "\xC7\xF6mlek", desc: "Geni\u015F g\xF6bekli, dar boyunlu kiremit k\u0131rm\u0131z\u0131s\u0131 pi\u015Fmi\u015F kil testi." }, su_comlegi: { name: "Su \xC7\xF6mle\u011Fi", desc: "A\u011Fz\u0131ndan mavi su y\xFCzeyi g\xF6r\xFCnen, \u0131slak killi dolgun testi." }, sise: { name: "\u015Ei\u015Fe", desc: "Mantar t\u0131pas\u0131 olan \u015Feffaf, silindirik cam iksir t\xFCp\xFC." }, cakmaktasi: { name: "\xC7akmakta\u015F\u0131", desc: "Bir kenar\u0131 keskinle\u015Ftirilmi\u015F, koyu antrasit renkli yontma ta\u015F." }, yay: { name: "Yay", desc: "Esnek bir dal ve gergin ip ile yap\u0131lan avc\u0131 silah\u0131." }, ok: { name: "Ok", desc: "Ucunda sivri ta\u015F, arkas\u0131nda t\xFCy bulunan ince tahta ok." }, mesale: { name: "Me\u015Fale", desc: "Karanl\u0131k ma\u011Faralar\u0131 ve yollar\u0131 ayd\u0131nlatan alevli ah\u015Fap me\u015Fale." }, metal: { name: "Metal", desc: "\u0130\xE7inde parlak gri damarlar par\u0131ldayan ergitilmi\u015F ta\u015F cevheri." }, demir_kulce: { name: "Demir K\xFCl\xE7e", desc: "Pahlanm\u0131\u015F kenarlar\u0131yla profesyonel d\xF6k\xFCm \xE7elik k\xFCl\xE7e." }, metal_bicak: { name: "Metal B\u0131\xE7ak", desc: "Deri sar\u0131l\u0131 kabzas\u0131 ve \xE7ift a\u011F\u0131zl\u0131 parlak \xE7elik namlulu b\u0131\xE7ak." }, kazma: { name: "Kazma", desc: "Masif ah\u015Fap sapa monte edilmi\u015F kavisli \xE7ift tarafl\u0131 demir u\xE7." }, kilic: { name: "K\u0131l\u0131\xE7", desc: "\xC7apraz korumal\u0131\u011F\u0131, deri kabzas\u0131 ve par\u0131ldayan kesici g\xF6vdesi." }, ahsap_kalkan: { name: "Ah\u015Fap Kalkan", desc: "Tahta kalaslardan birle\u015Ftirilmi\u015F, kenarlar\u0131 ham deri kalkan." }, demir_kalkan: { name: "Demir Kalkan", desc: "Per\xE7in detayl\u0131, parlat\u0131lm\u0131\u015F damla formunda \xE7elik kalkan." }, deri_zirh: { name: "Deri Z\u0131rh", desc: "\u0130plerle diki\u015Flenmi\u015F, omuzlar\u0131 tokal\u0131 kahverengi yelek z\u0131rh." }, demir_zirh: { name: "Demir Z\u0131rh", desc: "Parlak \xE7elik g\xF6\u011F\xFCs plakas\u0131 ve omuzluklardan olu\u015Fan a\u011F\u0131r z\u0131rh." }, yatak: { name: "Yatak", desc: "Ah\u015Fap ayakl\u0131, \xFCzerinde beyaz yast\u0131k ve renkli \xF6rt\xFC olan yatak." }, zehirli_sivi: { name: "Zehirli S\u0131v\u0131", desc: "Mantar ve su \xE7\xF6mle\u011Finden elde edilen tehlikeli ye\u015Fil s\u0131v\u0131." }, zehir_sisesi: { name: "Zehir \u015Ei\u015Fesi", desc: "\u015Ei\u015Felenmi\u015F \xF6l\xFCmc\xFCl zehirli iksir." }, zehirli_kilic: { name: "Zehirli K\u0131l\u0131\xE7", desc: "\xD6l\xFCmc\xFCl zehirle kaplanm\u0131\u015F \xE7elik k\u0131l\u0131\xE7." }, sifa_iksiri: { name: "\u015Eifa \u0130ksiri", desc: "Bitki, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Finden haz\u0131rlanan can verici iksir." }, mana_iksiri: { name: "Mana \u0130ksiri", desc: "Enerji, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Fi ile \xF6z\xFCtlenen b\xFCy\xFCl\xFC mana iksiri." }, barut: { name: "Barut", desc: "K\xF6m\xFCr, k\xFCl ve re\xE7ineden yap\u0131lan patlay\u0131c\u0131 siyah toz." }, bomba: { name: "Bomba", desc: "Barut, demir k\xFCl\xE7e ve ip ile haz\u0131rlanan y\u0131k\u0131c\u0131 patlay\u0131c\u0131." }, buyu_parsomeni: { name: "B\xFCy\xFC Par\u015F\xF6meni", desc: "Ka\u011F\u0131t, k\xFCl ve ku\u015F t\xFCy\xFC ile yaz\u0131lan kadim t\u0131ls\u0131ml\u0131 par\u015F\xF6men." }, yildirim_parsomeni: { name: "Y\u0131ld\u0131r\u0131m Par\u015F\xF6meni", desc: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle y\xFCklenmi\u015F par\u015F\xF6men." }, ates_topu_kitabi: { name: "Ate\u015F Topu Kitab\u0131", desc: "Ate\u015F ve b\xFCy\xFC par\u015F\xF6meninden olu\u015Fan alevli b\xFCy\xFC kitab\u0131." }, buhar_motoru: { name: "Buhar Motoru", desc: "Buhar, demir k\xFCl\xE7e ve k\xF6m\xFCr\xFCn bas\u0131n\xE7l\u0131 g\xFCc\xFCyle \xE7al\u0131\u015Fan a\u011F\u0131r mekanik pistonlu motor." }, tekerlek: { name: "Tekerlek", desc: "Odun ve ta\u015Ftan yontulmu\u015F, p\xFCr\xFCzs\xFCz d\xF6nen dairesel ah\u015Fap tekerlek." }, el_arabasi: { name: "El Arabas\u0131", desc: "Demir k\xFCl\xE7e, odun ve tekerlekten yap\u0131lm\u0131\u015F ta\u015F\u0131ma arabas\u0131." }, lokomotif: { name: "Lokomotif", desc: "Buhar motoru, demir ve tekerleklerle in\u015Fa edilmi\u015F dev rayl\u0131 tren ba\u015F\u0131." }, ampul: { name: "Ampul", desc: "Cam, metal ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle akkor \u0131\u015F\u0131k sa\xE7an cam t\xFCp." }, fener: { name: "Fener", desc: "Ampul, demir k\xFCl\xE7e ve enerjiyle \xE7al\u0131\u015Fan par\u0131lt\u0131l\u0131 el feneri." }, pusula: { name: "Pusula", desc: "Cam ve demir kadran i\xE7inde y\xF6n g\xF6steren manyetik pusula." }, miknatis: { name: "M\u0131knat\u0131s", desc: "Y\u0131ld\u0131r\u0131m \xE7arpmas\u0131yla manyetize olmu\u015F kavisli \xE7elik demir." }, elektrik_motoru: { name: "Elektrik Motoru", desc: "Enerji, metal ve m\u0131knat\u0131s ile d\xF6nen bobinli elektromanyetik motor." }, celik_kulce: { name: "\xC7elik K\xFCl\xE7e", desc: "Ate\u015F, demir ve k\xF6m\xFCr\xFCn y\xFCksek \u0131s\u0131da eritilmesiyle elde edilen dayan\u0131kl\u0131 ala\u015F\u0131m." }, ors: { name: "\xD6rs", desc: "\xC7elik k\xFCl\xE7e ve ta\u015Ftan yontulmu\u015F demirci \xF6rs\xFC." }, civi: { name: "\xC7ivi", desc: "Ocakta d\xF6v\xFClm\xFC\u015F sivri u\xE7lu \xE7elik ba\u011Flant\u0131 \xE7ivisi." }, tugla: { name: "Tu\u011Fla", desc: "F\u0131r\u0131nlanm\u0131\u015F kiremit rengi in\u015Faat blo\u011Fu." }, harc: { name: "Har\xE7", desc: "Kum, su ve ta\u015F tozundan yo\u011Frulmu\u015F in\u015Faat ba\u011Flay\u0131c\u0131s\u0131." }, tugla_duvar: { name: "Tu\u011Fla Duvar", desc: "Har\xE7 ve tu\u011Flalar\u0131n \xF6r\xFClmesiyle yap\u0131lm\u0131\u015F sa\u011Flam yap\u0131 duvar\u0131." }, saglam_sandik: { name: "Sa\u011Flam Sand\u0131k", desc: "\xC7elik k\xFCl\xE7e, \xE7ivi ve ah\u015Fapla g\xFC\xE7lendirilmi\u015F kilitli sand\u0131k." }, kristal: { name: "Kristal", desc: "Enerji ve kazma yard\u0131m\u0131yla derinden \xE7\u0131kar\u0131lan par\u0131lt\u0131l\u0131 kristal cevheri." }, teleskop: { name: "Teleskop", desc: "Cam, kristal ve metal merceklerden olu\u015Fan g\xF6ky\xFCz\xFC g\xF6zlem t\xFCp\xFC." }, vinc: { name: "Vin\xE7", desc: "\xC7elik k\xFCl\xE7e, elektrik motoru ve tekerleklerle \xE7al\u0131\u015Fan a\u011F\u0131r y\xFCk kald\u0131r\u0131c\u0131 vin\xE7." }, yildiz_tozu: { name: "Y\u0131ld\u0131z Tozu", desc: "Teleskopla g\xF6zlemlenen ve enerjiyle toplanan par\u0131lt\u0131l\u0131 kozmik toz." }, prizma_tasi: { name: "Prizma Ta\u015F\u0131", desc: "Kristal ve y\u0131ld\u0131z tozunun birle\u015Fimiyle \u0131\u015F\u0131\u011F\u0131 tayflara ay\u0131ran kadim ta\u015F." }, kahin_kuresi: { name: "Kahin K\xFCresi", desc: "Prizma ta\u015F\u0131, cam ve enerjiyle gelece\u011Fi g\xF6steren mistik k\xFCre." }, portal_runu: { name: "Portal R\xFCn\xFC", desc: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131z tozuyla m\xFCh\xFCrlenmi\u015F uzay-zaman r\xFCn\xFC." }, bosluk_sisesi: { name: "Bo\u015Fluk \u015Ei\u015Fesi", desc: "Kristal, \u015Fi\u015Fe ve y\u0131ld\u0131r\u0131m g\xFCc\xFCyle karanl\u0131k bo\u015Flu\u011Fu hapseden iksir t\xFCp\xFC." }, boyut_kapisi: { name: "Boyut Kap\u0131s\u0131", desc: "\xC7elik k\xFCl\xE7e, portal r\xFCn\xFC ve tu\u011Fla duvardan in\u015Fa edilmi\u015F ge\xE7it kap\u0131s\u0131." }, anka_kulu: { name: "Anka K\xFCl\xFC", desc: "Kutsal ate\u015F ve k\xFCllerle sonsuz d\xF6ng\xFCde k\xFCllerinden do\u011Fan mistik anka k\xFCl\xFC." }, runik_zirh: { name: "Runik Z\u0131rh", desc: "Demir z\u0131rh\u0131n \xF6r\u015Fte prizma ta\u015F\u0131 ile i\u015Flenmi\u015F efsanevi koruyucu z\u0131rh\u0131." }, firtina_kilici: { name: "F\u0131rt\u0131na K\u0131l\u0131c\u0131", desc: "K\u0131l\u0131ca prizma ta\u015F\u0131 ve y\u0131ld\u0131r\u0131m \xE7ak\u0131larak d\xF6v\xFClm\xFC\u015F elektrikli k\u0131l\u0131\xE7." }, yildiz_gecidi_cekirdegi: { name: "Y\u0131ld\u0131z Ge\xE7idi \xC7ekirde\u011Fi", desc: "Bo\u015Fluk \u015Fi\u015Fesi, kahin k\xFCresi ve portal r\xFCn\xFCn\xFCn birle\u015Fimiyle evrenin kalbi." }, kar: { name: "Kar", desc: "Hava ve ya\u011Fmurun dondurucu so\u011Fukta kristalle\u015Fmesi." }, buz: { name: "Buz", desc: "S\u0131k\u0131\u015Fm\u0131\u015F kar tanelerinin donmas\u0131yla olu\u015Fan sert, \u015Feffaf k\xFCtle." }, col: { name: "\xC7\xF6l", desc: "R\xFCzgar\u0131n topra\u011F\u0131 a\u015F\u0131nd\u0131r\u0131p savurmas\u0131yla olu\u015Fan sonsuz kum denizi." }, tohum: { name: "Tohum", desc: "Bitki, toprak ve ya\u011Fmurun bereketinden do\u011Fan hayat tanesi." }, bugday: { name: "Bu\u011Fday", desc: "Tohum ve su ile yeti\u015Fen alt\u0131n sar\u0131s\u0131 ba\u015Fak." }, nane: { name: "Nane", desc: "Buzlu so\u011Fukta ferahlat\u0131c\u0131 aromas\u0131yla yeti\u015Fen ye\u015Fil nane yapra\u011F\u0131." }, agac_kabugu: { name: "A\u011Fa\xE7 Kabu\u011Fu", desc: "Metal b\u0131\xE7akla a\u011Fa\xE7tan soyulmu\u015F sert d\u0131\u015F kabuk dokusu." }, inek: { name: "\u0130nek", desc: "Toprakta beslenen uysal ve verimli b\xFCy\xFCkba\u015F hayvan." }, sut: { name: "S\xFCt", desc: "\xC7\xF6mle\u011Fe sa\u011F\u0131lm\u0131\u015F taze, besleyici beyaz s\xFCt." }, yumurta: { name: "Yumurta", desc: "Tohumla beslenen ku\u015Fun yumurtlad\u0131\u011F\u0131 p\xFCr\xFCzs\xFCz yumurta." }, mercan: { name: "Mercan", desc: "Bal\u0131k ve su bitkilerinin ekosisteminde olu\u015Fan renkli deniz mercan\u0131." }, olta: { name: "Olta", desc: "Ah\u015Fap \xE7ubuk ve ipe ba\u011Fl\u0131 bal\u0131k i\u011Fnesi." }, yelken: { name: "Yelken", desc: "R\xFCzgar\u0131 yakalamak i\xE7in ah\u015Fap direkte gerilmi\u015F dayan\u0131kl\u0131 kuma\u015F." }, sal: { name: "Sal", desc: "\u0130p ve odunlarla ba\u011Flanan yelkenli deniz ta\u015F\u0131t\u0131." }, obsidyen_bicak: { name: "Obsidyen B\u0131\xE7ak", desc: "Sivri obsidyen ve ah\u015Fap sap\u0131n iplerle ba\u011Flanmas\u0131yla olu\u015Fan keskin b\u0131\xE7ak." }, peynir: { name: "Peynir", desc: "Is\u0131t\u0131lan s\xFCt\xFCn mayalanmas\u0131yla elde edilen lezzetli peynir blo\u011Fu." }, un: { name: "Un", desc: "Bu\u011Fday\u0131n ta\u015F de\u011Firmende \xF6\u011F\xFCt\xFClmesiyle olu\u015Fan ince beyaz toz." }, hamur: { name: "Hamur", desc: "Un ve suyun yo\u011Frulmas\u0131yla haz\u0131rlanan ekmek hamuru." }, ekmek: { name: "Ekmek", desc: "F\u0131r\u0131nda pi\u015Fen mis kokulu k\u0131zarm\u0131\u015F somun ekmek." }, disli_cark: { name: "Di\u015Fli \xC7ark", desc: "Demir k\xFCl\xE7e ve \xE7ivilerden \xFCretilmi\u015F hassas mekanik di\u015Fli." }, degirmen: { name: "De\u011Firmen", desc: "Buhar motoru ve di\u015Flilerle \xE7al\u0131\u015Fan dev \xF6\u011F\xFCtme tesisi." }, ayna: { name: "Ayna", desc: "Cam, metal ve enerji p\xFCr\xFCzs\xFCzl\xFC\u011F\xFC ile \u0131\u015F\u0131\u011F\u0131 yans\u0131tan parlak y\xFCzey." }, saat: { name: "Saat", desc: "\u0130nce di\u015Fliler ve enerjiyle t\u0131k\u0131r t\u0131k\u0131r zaman\u0131 \xF6l\xE7en mekanizma." }, demir_parmaklik: { name: "Demir Parmakl\u0131k", desc: "D\xF6v\xFClm\xFC\u015F \xE7elik \xE7ubuklardan olu\u015Fan sa\u011Flam demir parmakl\u0131k." }, savas_baltasi: { name: "Sava\u015F Baltas\u0131", desc: "\xC7elik k\xFCl\xE7e ve ah\u015Fap saptan yap\u0131lan a\u011F\u0131r kesici balta." }, gozetleme_kulesi: { name: "G\xF6zetleme Kulesi", desc: "Har\xE7 ve tu\u011Flalardan y\xFCkselen heybetli savunma kulesi." }, kale_kapisi: { name: "Kale Kap\u0131s\u0131", desc: "\xC7elik k\xFCl\xE7e, \xE7ivi ve demir parmakl\u0131klarla z\u0131rhlanm\u0131\u015F dev kale kap\u0131s\u0131." }, buz_runu: { name: "Buz R\xFCn\xFC", desc: "Buz ve b\xFCy\xFC par\u015F\xF6meniyle dondurucu so\u011Fuk m\xFCh\xFCr\xFC." }, cehennem_tasi: { name: "Cehennem Ta\u015F\u0131", desc: "Ate\u015F, obsidyen ve portal r\xFCn\xFCn\xFCn alevli boyutsal kayas\u0131." }, zaman_kum_saati: { name: "Zaman Kum Saati", desc: "Kristal, portal r\xFCn\xFC ve saat ile zaman\u0131 ak\u0131tan mistik kum saati." }, illuzyon_aynasi: { name: "\u0130ll\xFCzyon Aynas\u0131", desc: "Ayna, prizma ta\u015F\u0131 ve y\u0131ld\u0131z tozundan ger\xE7ekli\u011Fi b\xFCken b\xFCy\xFCl\xFC ayna." }, siber_kristal: { name: "Siber Kristal", desc: "Kristal, elektrik motoru ve prizma ta\u015F\u0131n\u0131n rezonans\u0131yla par\u0131ldayan veri \xE7ekirde\u011Fi." }, hologram_kupu: { name: "Hologram K\xFCp\xFC", desc: "Cam k\xFCp i\xE7inde s\u0131k\u0131\u015Ft\u0131r\u0131lm\u0131\u015F siber kristal ve enerji \u0131\u015F\u0131k projeksiyonu." }, buhar_jeneratoru: { name: "Buhar Jenerat\xF6r\xFC", desc: "Buhar motoru ve \xE7elik di\u015Flilerle g\xFC\xE7lendirilmi\u015F devasa pirin\xE7 tazyik makinesi." }, meka_zirhi: { name: "Meka Z\u0131rh\u0131", desc: "R\xFCnik z\u0131rh\u0131n \xE7elik plakalar ve plazma jenerat\xF6r\xFCyle donat\u0131lm\u0131\u015F g\xFC\xE7 g\xF6vdesi." }, plazma_tufegi: { name: "Plazma T\xFCfe\u011Fi", desc: "F\u0131rt\u0131na k\u0131l\u0131c\u0131n\u0131n enerjisi ve siber kristal ile ate\u015Flenen y\xFCksek enerjili silah." }, felsefe_tasi: { name: "Felsefe Ta\u015F\u0131", desc: "Anka k\xFCl\xFC ve cehennem ta\u015F\u0131n\u0131n saf simya ile yo\u011Fruldu\u011Fu efsanevi cevher." }, gunes_paneli: { name: "G\xFCne\u015F Paneli", desc: "Cam y\xFCzey ve siber kristal katmanlar\u0131yla \u0131\u015F\u0131\u011F\u0131 do\u011Frudan elektri\u011Fe \xE7eviren panel." }, yercekimsiz_platform: { name: "Yer\xE7ekimsiz Platform", desc: "M\u0131knat\u0131s, portal r\xFCn\xFC ve siber kristal ile havada as\u0131l\u0131 duran ini\u015F pedi." }, biyonik_kol: { name: "Biyonik Kol", desc: "\xC7elik eklemler ve siber kristal sinir u\xE7lar\u0131yla donat\u0131lm\u0131\u015F sibernetik uzuv." }, usturlap: { name: "Kozmik Usturlap", desc: "Pusula ve teleskopun alt\u0131n y\xF6r\xFCnge halkalar\u0131yla g\xF6kcisimlerini haritalayan alet." }, tesla_bobini: { name: "Tesla Bobini", desc: "Y\u0131ld\u0131r\u0131m g\xFCc\xFCn\xFC kesintisiz y\xFCksek voltaj arklar\u0131na d\xF6n\xFC\u015Ft\xFCren kule jenerat\xF6r\xFC." }, kuantum_islemci: { name: "Kuantum \u0130\u015Flemci", desc: "Prizma ta\u015F\u0131 ve siber kristal matrisleriyle hesaplama yapan s\xFCper \xE7ip." }, minyatur_yildiz: { name: "Minyat\xFCr Y\u0131ld\u0131z", desc: "Manyetik muhafaza i\xE7inde kontrol alt\u0131nda tutulan mikro s\xFCpernova." }, dag: { name: "Da\u011F", desc: "Y\xFCkselen devasa kaya k\xFCtlesi ve karl\u0131 zirveler." }, kaya: { name: "Kaya", desc: "Y\u0131llar\u0131n bask\u0131s\u0131yla sertle\u015Fmi\u015F yosunlu monolit ta\u015F." }, gunes: { name: "G\xFCne\u015F", desc: "G\xF6ky\xFCz\xFCn\xFC ayd\u0131nlatan ve \u0131s\u0131tan saf ya\u015Fam \u0131\u015F\u0131\u011F\u0131." }, okyanus: { name: "Okyanus", desc: "U\xE7suz bucaks\u0131z derin sular ve co\u015Fkulu dalgalar." }, volkan: { name: "Volkan", desc: "Zirvesinden duman ve k\u0131zg\u0131n lavlar f\u0131\u015Fk\u0131ran yanarda\u011F." }, ada: { name: "Ada", desc: "Turkuaz sular\u0131n ortas\u0131nda palmiyelerle bezeli kara par\xE7as\u0131." }, nehir: { name: "Nehir", desc: "Topra\u011F\u0131 yararak ak\u0131p giden co\u015Fkun su yolu." }, orman: { name: "Orman", desc: "Yemye\u015Fil a\u011Fa\xE7lar ve g\xFCr bitki \xF6rt\xFCs\xFCyle kapl\u0131 koruluk." }, firtina_bulutu: { name: "F\u0131rt\u0131na Bulutu", desc: "\u015Eim\u015Fekler \xE7akt\u0131ran koyu gri f\u0131rt\u0131na k\xFCmesi." }, magara: { name: "Ma\u011Fara", desc: "Da\u011F\u0131n derinliklerine uzanan gizemli karanl\u0131k kovuk." }, gokkusagi: { name: "G\xF6kku\u015Fa\u011F\u0131", desc: "G\xFCne\u015F \u0131\u015F\u0131nlar\u0131n\u0131n ya\u011Fmur damlalar\u0131nda k\u0131r\u0131lmas\u0131yla do\u011Fan renk c\xFCmb\xFC\u015F\xFC." }, kanyon: { name: "Kanyon", desc: "Nehrin y\xFCzy\u0131llar boyu oydu\u011Fu derin k\u0131z\u0131l kanyon vadisi." }, fay_hatti: { name: "Fay Hatt\u0131", desc: "Yerkabu\u011Funun \u015Fiddetle sars\u0131l\u0131p ayr\u0131ld\u0131\u011F\u0131 derin yar\u0131k." }, at: { name: "At", desc: "Sad\u0131k, g\xFC\xE7l\xFC ve r\xFCzg\xE2r gibi h\u0131zl\u0131 binek hayvan\u0131." }, koyun: { name: "Koyun", desc: "Yumu\u015Fac\u0131k beyaz y\xFCnleriyle otlaklarda yay\u0131lan uysal hayvan." }, kurt: { name: "Kurt", desc: "Dolunaya uluyan, vah\u015Fi do\u011Fan\u0131n keskin g\xF6zl\xFC avc\u0131s\u0131." }, ari: { name: "Ar\u0131", desc: "\xC7i\xE7ek \xE7i\xE7ek gezip nektar toplayan \xE7al\u0131\u015Fkan bal ar\u0131s\u0131." }, yilan: { name: "Y\u0131lan", desc: "Sessizce s\xFCz\xFClen, zehirli ve gizemli s\xFCr\xFCngen." }, baykus: { name: "Bayku\u015F", desc: "Gecenin karanl\u0131\u011F\u0131nda orman\u0131 g\xF6zleyen bilge gece ku\u015Fu." }, kaplumbaga: { name: "Kaplumba\u011Fa", desc: "A\u011F\u0131r ad\u0131mlarla y\xFCr\xFCyen, sa\u011Flam kabuklu bilge amfibi." }, bal: { name: "Bal Kavanozu", desc: "\xC7al\u0131\u015Fkan ar\u0131lar\u0131n \xE7i\xE7ek nektar\u0131ndan s\xFCzd\xFC\u011F\xFC alt\u0131n tatl\u0131l\u0131k." }, nilufer: { name: "Nil\xFCfer", desc: "Durgun sular\u0131n \xFCst\xFCnde zarafetle a\xE7an pembe \xE7i\xE7ek." }, elma: { name: "Elma", desc: "A\u011Fa\xE7 dallar\u0131nda olgunla\u015Fm\u0131\u015F sulu ve k\u0131pk\u0131rm\u0131z\u0131 meyve." }, kurbaga: { name: "Kurba\u011Fa", desc: "Nil\xFCfer yapraklar\u0131 aras\u0131nda ne\u015Feyle s\u0131\xE7rayan amfibi." }, sincap: { name: "Sincap", desc: "Palamut toplay\u0131p a\u011Fa\xE7 kovuklar\u0131nda saklayan sevimli kemirgen." }, geyik: { name: "Geyik", desc: "Orman\u0131n derinliklerinde s\xFCz\xFClen heybetli boynuzlu geyik." }, kelebek: { name: "Kelebek", desc: "Rengarenk kanatlar\u0131yla \xE7i\xE7ekler aras\u0131nda dans eden b\xF6cek." }, sis: { name: "Sis", desc: "Havan\u0131n su buhar\u0131 ile yo\u011Fu\u015Fmas\u0131 sonucu yery\xFCz\xFCne inen hafif pus." }, gayzer: { name: "Gayzer", desc: "Yeralt\u0131ndaki \u0131s\u0131nm\u0131\u015F su ve buhar\u0131n ta\u015Flar aras\u0131ndan f\u0131\u015Fk\u0131rmas\u0131." }, kaktus: { name: "Kakt\xFCs", desc: "K\u0131zg\u0131n \xE7\xF6l kumlar\u0131nda bile dimdik duran \xE7i\xE7ekli dikenli bitki." }, cam_agaci: { name: "Karl\u0131 \xC7am A\u011Fac\u0131", desc: "Karl\u0131 da\u011F yama\xE7lar\u0131nda k\u0131\u015F\u0131n da beyaz karlar alt\u0131nda dimdik duran \xE7am a\u011Fac\u0131." }, tavuk: { name: "Tavuk", desc: "Yumurtadan \xE7\u0131kan, tarlalarda dola\u015Fan sevimli k\xFCmes hayvan\u0131." }, kedi: { name: "Kedi", desc: "S\xFCt\xFC ve s\u0131ca\u011F\u0131 seven sevimli uysal evcil dost." }, somon: { name: "Somon", desc: "Ak\u0131nt\u0131n\u0131n tersine nehirlerde s\u0131\xE7rayan \xE7evik tatl\u0131 su bal\u0131\u011F\u0131." }, barut_ficisi: { name: "Barut F\u0131\xE7\u0131s\u0131", desc: "Ate\u015Fle bulu\u015Ftu\u011Funda \u015Fiddetli patlama yaratan ah\u015Fap f\u0131\xE7\u0131." }, su_degirmeni: { name: "Su De\u011Firmeni", desc: "Akarsuyun ak\u0131\u015F g\xFCc\xFCyle d\xF6nen ah\u015Fap \xE7ark mekanizmas\u0131." }, buz_dagi: { name: "Buz Da\u011F\u0131", desc: "Okyanusta y\xFCzen devasa par\u0131lt\u0131l\u0131 buz k\xFCtlesi." }, kalkan: { name: "Kalkan", desc: "Sald\u0131r\u0131lardan ve oklardan koruyan sa\u011Flam yuvarlak ah\u015Fap kalkan." }, iksir_kazani: { name: "\u0130ksir Kazan\u0131", desc: "Ate\u015F \xFCzerinde iksirlerin ve simya \xF6zlerinin kaynat\u0131ld\u0131\u011F\u0131 d\xF6k\xFCm kazan." } } }, en: { ui: { search_placeholder: "\u{1F50D} Search...", all_categories: "\u{1F4C1} All", cat_elements: "\u{1F525} Elements", cat_nature: "\u{1F331} Nature", cat_life: "\u{1F9EC} Life", cat_craft_tools: "\u2694\uFE0F Craft & Tools", cat_5: "\u{1F9EA} Alchemy & Magic", cat_6: "\u2699\uFE0F Mechanics", cat_7: "\u{1F3D7}\uFE0F Heavy Industry", cat_8: "\u{1F30C} Cosmology & Void", cat_9: "\u{1F52C} High Science", cat_10: "\u{1F304} Geography", sort_discovery: "\u23F3 Discovered", sort_category: "\u{1F4C2} Category", cleanup: "\u{1F9F9} Clear Table", char_apprentice: "\u{1F9D9}\u200D\u2642\uFE0F Apprentice", char_observer: "\u{1F3AD} Observer", char_wanderer: "\u{1F9D9} Wanderer", hints_title: "\u{1F4A1} Hints", hint_rights: "Rights: {n}", hint_get: "Get Hint (-1 Right)", hint_opened: "\u2713 Full Hint Revealed", hint_no_craftable: "No new craftable items to discover right now. Try combining different items!", hint_click_to_open: "Click to unlock hint", hint_consists_of: "<strong>{name}</strong>: consists of {count} components.", hint_basic_element: "This is a basic element.", discovery_title: "New Discovery", ad_title: "\u{1F4FA} Watch Ad", ad_desc: "Out of hint rights! Watch a short ad to earn +1 Hint right immediately.", ad_watch_btn: "Watch Ad (+1 Hint)", ad_cancel_btn: "Cancel", ad_watched_alert: "\u{1F4FA} Ad watched successfully! Used +1 hint right to reveal detailed clue.", lang_btn: "\u{1F310} Lang: EN", music_1: "\u{1F3B5} Music 1", music_2: "\u{1F3B5} Music 2", music_3: "\u{1F3B5} Music 3", music_none: "\u{1F507} No Music", settings_btn: "\u2699\uFE0F Settings", settings_title: "\u2699\uFE0F Game Settings", settings_close: "Close", tab_general: "\u{1F3AE} General", tab_credits: "\u{1F4DC} Licenses", tab_debug: "\u{1F6E0}\uFE0F Debug Mode", credits_title: "Character Attribution & License", credits_character_heading: "3D Character Models", credits_character_desc: "The 3D character models in the game (Apprentice & Observer) are used under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.", credits_view_license: "View License (CC BY 4.0)", credits_terms_summary: "Under this license, the materials may be freely shared and adapted provided appropriate credit and license link are given.", debug_warning: "\u26A0\uFE0F Developer & testing tools", debug_infinite_hints: "\u{1F4A1} Infinite Hints", debug_unlock_all: "\u{1F513} Unlock All Items", debug_reveal_hints: "\u{1F4DC} Reveal All Recipes", debug_fps_counter: "\u{1F4CA} FPS & Stats Overlay", debug_spawn_basics: "\u{1F9EA} Spawn 4 Basic Elements", debug_reset_progress: "\u{1F504} Reset Progress", debug_reset_confirm: "All your progress will be reset and only 4 basic elements will remain. Are you sure?", debug_all_unlocked_msg: "All recipes and items have been unlocked!", debug_all_hints_revealed_msg: "All recipe clues revealed!", debug_spawn_success: "Basic elements placed on table!" }, items: { ates: { name: "Fire", desc: "Source of pure heat and energy." }, su: { name: "Water", desc: "The essence of life, fluid and crystal clear." }, toprak: { name: "Earth", desc: "Solid foundation, rock and fertile soil." }, hava: { name: "Air", desc: "Invisible wind, breath and gentle motion." }, buhar: { name: "Steam", desc: "Vapor born from the fiery dance of heat and water." }, camur: { name: "Mud", desc: "A rich blend of water and earth." }, lav: { name: "Lava", desc: "Molten majesty of earth ignited by intense fire." }, kum: { name: "Sand", desc: "Fine grains weathered by wind and stone." }, obsidyen: { name: "Obsidian", desc: "Dark volcanic glass formed by rapidly cooled lava." }, yagmur: { name: "Rain", desc: "Gentle droplets falling from clouds in the sky." }, enerji: { name: "Energy", desc: "Pure plasma power derived from air and fire." }, ruzgar: { name: "Wind", desc: "Strong, fast-flowing currents of moving air." }, tas: { name: "Stone", desc: "Dense solid rock hardened over ages." }, cam: { name: "Glass", desc: "Transparent solid forged by melting sand under heat." }, bulut: { name: "Cloud", desc: "Fluffy floating accumulation of condensed vapor." }, yildirim: { name: "Lightning", desc: "Sharp flash of electrical discharge from stormy skies." }, bitki: { name: "Plant", desc: "A fresh green sprout nurtured by fertile soil and rain." }, agac: { name: "Tree", desc: "A sturdy wooden giant with lush foliage and deep roots." }, odun: { name: "Wood", desc: "Timber harvested from strong tree trunks." }, kiymik: { name: "Splinter", desc: "A sharp fragment chipped from dry wood." }, lif: { name: "Fiber", desc: "Strands of plant tissue spun for crafting." }, mantar: { name: "Mushroom", desc: "A woodland fungus with a spotted cap growing in damp shade." }, pamuk: { name: "Cotton", desc: "Soft white fluffy fibers harvested from shrub pods." }, recine: { name: "Resin", desc: "Golden aromatic sap hardened from tree bark." }, yasam: { name: "Life", desc: "The miraculous glowing spark that animates the universe." }, kus: { name: "Bird", desc: "Winged creature soaring through open skies." }, hayvan: { name: "Animal", desc: "A four-legged creature walking across wild terrains." }, balik: { name: "Fish", desc: "Aquatic swimmer gliding through currents and tides." }, ip: { name: "Rope", desc: "Strong twisted cord braided from plant fibers." }, kumas: { name: "Fabric", desc: "Woven cloth woven from soft natural threads." }, komur: { name: "Coal", desc: "Combustible dark fossil fuel fueling fierce heat." }, kul: { name: "Ash", desc: "Fine powdery residue left after a glowing fire burns out." }, kagit: { name: "Paper", desc: "Smooth parchment sheet pressed from fibrous pulp." }, ilkel_bicak: { name: "Primitive Knife", desc: "A flint blade fastened to an unrefined wooden handle." }, kus_tuyu: { name: "Feather", desc: "Light aerodynamic quill shed from avian wings." }, deri: { name: "Leather", desc: "Supple tanned animal hide treated for crafting." }, kavrulmus_et: { name: "Cooked Meat", desc: "Hearty roasted meat prepared over blazing embers." }, comlek: { name: "Pottery", desc: "Fired earthenware vessel sculpted from clay." }, su_comlegi: { name: "Water Jug", desc: "A sturdy ceramic jug filled with cool mountain water." }, sise: { name: "Bottle", desc: "A sealed glass flask designed to hold precious liquids." }, cakmaktasi: { name: "Flint", desc: "Hard sedimentary stone that sparks sparks upon impact." }, yay: { name: "Bow", desc: "Flexible curved wooden weapon strung under tension." }, ok: { name: "Arrow", desc: "Straight shaft fletched with feathers and tipped with flint." }, mesale: { name: "Torch", desc: "A resinous wooden torch illuminating murky corridors." }, metal: { name: "Metal", desc: "Malleable lustrous ore extracted from minerals." }, demir_kulce: { name: "Iron Ingot", desc: "Purified rectangular bar of forged solid iron." }, metal_bicak: { name: "Metal Knife", desc: "Sharp steel blade fitted with a secure grip." }, kazma: { name: "Pickaxe", desc: "Pointed tool designed for shattering rock and mining ores." }, kilic: { name: "Sword", desc: "Finely balanced steel blade forged for combat and defense." }, ahsap_kalkan: { name: "Wooden Shield", desc: "Plank shield reinforced with leather trimming." }, demir_kalkan: { name: "Iron Shield", desc: "Heavy riveted steel shield deflecting fierce strikes." }, deri_zirh: { name: "Leather Armor", desc: "Flexible lightweight vest stitched from cured hide." }, demir_zirh: { name: "Iron Armor", desc: "Solid plate harness protecting against heavy blows." }, yatak: { name: "Bed", desc: "Comfortable resting mattress framed in polished wood." }, zehirli_sivi: { name: "Toxic Liquid", desc: "Noxious green brew distilled from wild mushrooms." }, zehir_sisesi: { name: "Poison Flask", desc: "Sealed vial filled with potent corrosive venom." }, zehirli_kilic: { name: "Poisoned Blade", desc: "Sword coated in deadly venom dealing lingering harm." }, sifa_iksiri: { name: "Healing Potion", desc: "Soothing herbal elixir that restores vitality and health." }, mana_iksiri: { name: "Mana Potion", desc: "Glowing azure draught replenishing arcane spiritual energy." }, barut: { name: "Gunpowder", desc: "Explosive chemical mixture of sulfur, carbon and ash." }, bomba: { name: "Bomb", desc: "Volatile iron canister primed with black powder." }, buyu_parsomeni: { name: "Spell Scroll", desc: "Ancient parchment inscribed with mystical incantations." }, yildirim_parsomeni: { name: "Lightning Scroll", desc: "Crackling parchment unleashing focused electric fury." }, ates_topu_kitabi: { name: "Fireball Tome", desc: "Grimoire containing the ancient secrets of fiery devastation." }, buhar_motoru: { name: "Steam Engine", desc: "Mechanical engine converting pressurized vapor into drive." }, tekerlek: { name: "Wheel", desc: "Circular revolving rim that revolutionized overland transit." }, el_arabasi: { name: "Wheelbarrow", desc: "Hand-propelled cart transporting heavy loads with ease." }, lokomotif: { name: "Locomotive", desc: "Mighty steam-powered iron horse chugging on steel tracks." }, ampul: { name: "Lightbulb", desc: "Incandescent glass bulb illuminating darkness with filament glow." }, fener: { name: "Lantern", desc: "Portable lamp casting warm light onto shadowy paths." }, pusula: { name: "Compass", desc: "Navigational dial whose magnetized needle points true north." }, miknatis: { name: "Magnet", desc: "Polarized alloy drawing ferromagnetic metals toward it." }, elektrik_motoru: { name: "Electric Motor", desc: "Electromagnetic rotor generating continuous rotational torque." }, celik_kulce: { name: "Steel Ingot", desc: "High-tensile refined iron-carbon alloy bar." }, ors: { name: "Anvil", desc: "Heavy forged steel block upon which weapons take shape." }, civi: { name: "Nail", desc: "Sharp pointed metal spike securing timber constructs." }, tugla: { name: "Brick", desc: "Kiln-baked rectangular block designed for masonry." }, harc: { name: "Mortar", desc: "Binding paste of sand, water and mineral paste." }, tugla_duvar: { name: "Brick Wall", desc: "Solid defensive barricade built from mortared bricks." }, saglam_sandik: { name: "Sturdy Chest", desc: "Iron-banded timber trunk safeguarding valuable treasures." }, kristal: { name: "Crystal", desc: "Faceted translucent mineral radiating prismatic gleams." }, teleskop: { name: "Telescope", desc: "Optical tube magnifying distant stars and cosmic sights." }, vinc: { name: "Crane", desc: "Towering mechanical derrick hoisting monumental weights." }, yildiz_tozu: { name: "Stardust", desc: "Shimmering cosmic particulate harvested from stellar tails." }, prizma_tasi: { name: "Prism Gem", desc: "Geometric crystal splitting illumination into rainbow hues." }, kahin_kuresi: { name: "Scrying Orb", desc: "Mystical crystal sphere granting glimpses of unseen horizons." }, portal_runu: { name: "Portal Rune", desc: "Carved runic glyph resonating with dimensional harmonics." }, bosluk_sisesi: { name: "Void Flask", desc: "Hermetic phial containing a swirling miniature abyss." }, boyut_kapisi: { name: "Dimensional Gate", desc: "Stone archway warping space to bridge remote realities." }, anka_kulu: { name: "Phoenix Ash", desc: "Sacred burning embers from which life rises renewed." }, runik_zirh: { name: "Runic Armor", desc: "Suit of enchanted steel inlaid with glowing wards." }, firtina_kilici: { name: "Stormblade", desc: "Crackling broadsword enveloped in fierce electric arcing." }, yildiz_gecidi_cekirdegi: { name: "Stargate Core", desc: "Hyper-dense cosmic nexus powering interstellar passages." }, kar: { name: "Snow", desc: "Crystalline frozen water flakes drifting softly." }, buz: { name: "Ice", desc: "Solid frozen water, glassy and cold." }, col: { name: "Desert", desc: "Endless expanse of windswept golden sand." }, tohum: { name: "Seed", desc: "A potent embryo holding the future of new life." }, bugday: { name: "Wheat", desc: "Golden cereal grain rippling across cultivated fields." }, nane: { name: "Mint", desc: "Fragrant aromatic herb with refreshing coolness." }, agac_kabugu: { name: "Tree Bark", desc: "Protective tough outer layer of wooden trunks." }, inek: { name: "Cow", desc: "Gentle domesticated ruminant grazing on pastures." }, sut: { name: "Milk", desc: "Pure nutritious white liquid produced by livestock." }, yumurta: { name: "Egg", desc: "Fragile shell encasing developing fledgling life." }, mercan: { name: "Coral", desc: "Vibrant marine organism building underwater reefs." }, olta: { name: "Fishing Rod", desc: "Slender rod rigged with line and hook for catching fish." }, yelken: { name: "Sail", desc: "Sturdy canvas sheet catching offshore breezes." }, sal: { name: "Raft", desc: "Buoyant log platform lashed together for water travel." }, obsidyen_bicak: { name: "Obsidian Dagger", desc: "Razor-sharp edge crafted from dark volcanic glass." }, peynir: { name: "Cheese", desc: "Aged dairy wheel curdled with delicate care." }, un: { name: "Flour", desc: "Fine white powder ground from ripe wheat ears." }, hamur: { name: "Dough", desc: "Kneaded mixture of flour and water ready for baking." }, ekmek: { name: "Bread", desc: "Golden baked loaf with a crispy crust and warm crumb." }, disli_cark: { name: "Gear Cog", desc: "Toothed machine wheel interlocking to transfer mechanical power." }, degirmen: { name: "Windmill", desc: "Towering structure harnessing air currents to turn millstones." }, ayna: { name: "Mirror", desc: "Smooth reflective surface echoing light and crystal reflections." }, saat: { name: "Clock", desc: "Intricate tick-tock mechanism measuring the march of time." }, demir_parmaklik: { name: "Iron Bars", desc: "Heavy steel grates barring intrusion and passage." }, savas_baltasi: { name: "Battleaxe", desc: "Double-bladed cleaver delivering devastating overhead swings." }, gozetleme_kulesi: { name: "Watchtower", desc: "High observation post keeping vigil over surrounding borders." }, kale_kapisi: { name: "Fortress Gate", desc: "Massive reinforced portcullis withstanding siege assaults." }, buz_runu: { name: "Frost Rune", desc: "Inscribed glacial talisman emitting biting sub-zero cold." }, cehennem_tasi: { name: "Nether Stone", desc: "Scorching brimstone pulsing with inner volcanic fires." }, zaman_kum_saati: { name: "Hourglass of Time", desc: "Chrono-relic whose celestial sands bend the flow of moments." }, illuzyon_aynasi: { name: "Mirror of Illusions", desc: "Spectral glass reflecting phantom mirages and optical tricks." }, siber_kristal: { name: "Cyber Crystal", desc: "Synthetically structured micro-matrix computing data beams." }, hologram_kupu: { name: "Hologram Cube", desc: "High-tech photonic projector beaming 3D light holographs." }, buhar_jeneratoru: { name: "Steam Dynamo", desc: "Heavy-duty power generator converting high-pressure steam into current." }, meka_zirhi: { name: "Mecha Exoskeleton", desc: "Hydraulic powered combat suit boosting strength tenfold." }, plazma_tufegi: { name: "Plasma Rifle", desc: "Advanced energy firearm discharging superheated ionized rounds." }, felsefe_tasi: { name: "Philosopher's Stone", desc: "Legendary alchemical catalyst transmuting elements and extending vitality." }, gunes_paneli: { name: "Solar Array", desc: "Photovoltaic grid converting solar radiation into clean electric flow." }, yercekimsiz_platform: { name: "Antigravity Plate", desc: "Floating magnetic disc negating local gravitational pull." }, biyonik_kol: { name: "Bionic Arm", desc: "Prosthetic mechanical limb with servo-assisted dexterity." }, usturlap: { name: "Astrolabe", desc: "Precision brass astronomical instrument charting constellations." }, tesla_bobini: { name: "Tesla Coil", desc: "Resonant induction transformer casting crackling high-voltage bolts." }, kuantum_islemci: { name: "Quantum Processor", desc: "Superconducting qubit matrix performing hyper-dimensional calculations." }, minyatur_yildiz: { name: "Miniature Star", desc: "Self-sustaining micro-fusion sphere radiating cosmic radiance." }, dag: { name: "Mountain", desc: "Majestic rocky summit towering high above low valleys." }, kaya: { name: "Boulder", desc: "Massive eroded crag resting solidly on earthen soil." }, gunes: { name: "Sun", desc: "Blazing golden star radiating daylight warmth and solar energy." }, okyanus: { name: "Ocean", desc: "Boundless expanse of deep tidal waters cradling marine depths." }, volkan: { name: "Volcano", desc: "Fissured mountain peak spewing molten lava and smoke into skies." }, ada: { name: "Island", desc: "Isolated paradise of verdant land surrounded by open waters." }, nehir: { name: "River", desc: "Winding freshwater current carving paths through wilderness." }, orman: { name: "Forest", desc: "Sprawling woodland grove thriving with ancient trees and wildlife." }, firtina_bulutu: { name: "Stormcloud", desc: "Dark rumbling cumulonimbus crackling with sudden lightning." }, magara: { name: "Cave", desc: "Subterranean cavern carved through rocky depths." }, gokkusagi: { name: "Rainbow", desc: "Vibrant chromatic arc painted by sunlight parting the rain." }, kanyon: { name: "Canyon", desc: "Deep monumental gorge sculpted by ancient riverbeds." }, fay_hatti: { name: "Fault Line", desc: "Tectonic earth fissure vibrating with geological energy." }, at: { name: "Horse", desc: "Majestic noble steed known for power and speed." }, koyun: { name: "Sheep", desc: "Woolly fleece-bearing herd animal." }, kurt: { name: "Wolf", desc: "Fierce pack predator howling under moonlit skies." }, ari: { name: "Bee", desc: "Industrious buzzing pollinator harvesting nectar." }, yilan: { name: "Snake", desc: "Slithering reptile navigating quietly through brush." }, baykus: { name: "Owl", desc: "Wise nocturnal avian raptor watching in the dark." }, kaplumbaga: { name: "Turtle", desc: "Ancient shelled reptile moving at a steady pace." }, bal: { name: "Honey", desc: "Golden sweet nectar produced by industrious bees." }, nilufer: { name: "Water Lily", desc: "An aquatic blooming blossom floating calmly on water." }, elma: { name: "Apple", desc: "Sweet, crisp red orchard fruit ripened under the sun." }, kurbaga: { name: "Frog", desc: "Amphibian leaper thriving by pond reeds." }, sincap: { name: "Squirrel", desc: "Agile woodland rodent gathering nuts in the canopy." }, geyik: { name: "Deer", desc: "Graceful herbivore with crowned branching antlers." }, kelebek: { name: "Butterfly", desc: "Delicate winged insect decorated with painted patterns." }, sis: { name: "Fog", desc: "Dense mist shrouding the landscape in mystery." }, gayzer: { name: "Geyser", desc: "A natural boiling spring erupting hot water and steam." }, kaktus: { name: "Cactus", desc: "Spiny succulent storing water beneath the desert heat." }, cam_agaci: { name: "Pine Tree", desc: "Evergreen conifer standing tall through harsh winter snows." }, tavuk: { name: "Chicken", desc: "Domestic barnyard fowl laying fresh eggs every morning." }, kedi: { name: "Cat", desc: "Curious agile feline companion with keen instincts." }, somon: { name: "Salmon", desc: "Resilient fish leaping upstream against rushing rivers." }, barut_ficisi: { name: "Powder Keg", desc: "Wooden barrel packed with high explosives." }, su_degirmeni: { name: "Watermill", desc: "Rotating waterwheel converting stream flow into work." }, buz_dagi: { name: "Iceberg", desc: "A colossal glacier floating gracefully in deep waters." }, kalkan: { name: "Shield", desc: "Solid round wooden shield fending off enemy arrows." }, iksir_kazani: { name: "Alchemy Cauldron", desc: "Cast-iron vat simmering mystical potions over open heat." } } } };
+const yE = { tr: { ui: { search_placeholder: "\u{1F50D} Ara...", all_categories: "\u{1F4C1} T\xFCm\xFC", cat_elements: "\u{1F525} Element", cat_nature: "\u{1F331} Do\u011Fa", cat_life: "\u{1F9EC} Canl\u0131", cat_craft_tools: "\u2694\uFE0F Zanaat", cat_5: "\u{1F9EA} Simya & B\xFCy\xFC", cat_6: "\u2699\uFE0F Mekanik", cat_7: "\u{1F3D7}\uFE0F A\u011F\u0131r Sanayi", cat_8: "\u{1F30C} Kozmoloji & Boyut", cat_9: "\u{1F52C} Y\xFCksek Bilim", cat_10: "\u{1F304} Do\u011Fa & Co\u011Frafya", sort_discovery: "\u23F3 Ke\u015Fif", sort_category: "\u{1F4C2} Kategori", cleanup: "\u{1F9F9} Temizlik", char_apprentice: "\u{1F9D9}\u200D\u2642\uFE0F \xC7\u0131rak", char_observer: "\u{1F3AD} G\xF6zlemci", char_wanderer: "\u{1F9D9} Gezgin", hints_title: "\u{1F4A1} \u0130pu\xE7lar\u0131", hint_rights: "Hak: {n}", hint_get: "\u0130pucu Al (-1 Hak)", hint_opened: "\u2713 Tam \u0130pucu A\xE7\u0131k", hint_no_craftable: "\u015Eu an ke\u015Ffedilebilir yeni ipucu yok. Farkl\u0131 kombinasyonlar deneyin!", hint_click_to_open: "\u0130pucu a\xE7mak i\xE7in t\u0131klay\u0131n", hint_consists_of: "<strong>{name}</strong>: {count} bile\u015Fenden olu\u015Fur.", hint_basic_element: "Bu temel bir elementtir.", discovery_title: "Yeni Ke\u015Fif", ad_title: "\u{1F4FA} Reklam \u0130zle", ad_desc: "\u0130pucu hakk\u0131n\u0131z bitti! K\u0131sa bir reklam izleyerek hemen +1 \u0130pucu kazanabilirsiniz.", ad_watch_btn: "Reklam\u0131 \u0130zle (+1 \u0130pucu)", ad_cancel_btn: "Vazge\xE7", ad_watched_alert: "\u{1F4FA} Reklam ba\u015Far\u0131yla izlendi! +1 \u0130pucu hakk\u0131 harcanarak detayl\u0131 ipucu a\xE7\u0131ld\u0131.", lang_btn: "\u{1F310} Dil: TR", music_1: "\u{1F3B5} M\xFCzik 1", music_2: "\u{1F3B5} M\xFCzik 2", music_3: "\u{1F3B5} M\xFCzik 3", music_none: "\u{1F507} M\xFCzik Yok", settings_btn: "\u2699\uFE0F Ayarlar", settings_title: "\u2699\uFE0F Oyun Ayarlar\u0131", settings_close: "Kapat", tab_general: "\u{1F3AE} Genel", tab_credits: "\u{1F4DC} Lisanslar", tab_debug: "\u{1F6E0}\uFE0F Debug Modu", credits_title: "Karakter Atf\u0131 & Lisans", credits_character_heading: "3D Karakter Modelleri", credits_character_desc: "Oyundaki 3D karakter modelleri (Simyac\u0131 \xC7\u0131ra\u011F\u0131 & G\xF6zlemci) Creative Commons Attribution 4.0 International (CC BY 4.0) lisans\u0131 kapsam\u0131nda kullan\u0131lmaktad\u0131r.", credits_view_license: "Lisans Detaylar\u0131 (CC BY 4.0)", credits_terms_summary: "Bu lisans uyar\u0131nca materyaller uygun at\u0131f yap\u0131larak ve lisans ba\u011Flant\u0131s\u0131 sa\u011Flanarak serbest\xE7e payla\u015F\u0131labilir ve uyarlanabilir.", debug_warning: "\u26A0\uFE0F Geli\u015Ftirici ve test ara\xE7lar\u0131", debug_infinite_hints: "\u{1F4A1} S\u0131n\u0131rs\u0131z \u0130pucu", debug_unlock_all: "\u{1F513} T\xFCm Tarifleri A\xE7", debug_reveal_hints: "\u{1F4DC} T\xFCm \u0130pu\xE7lar\u0131n\u0131 \xC7\xF6z", debug_fps_counter: "\u{1F4CA} FPS & Performans Sayac\u0131", debug_spawn_basics: "\u{1F9EA} 4 Temel Elementi Koy", debug_reset_progress: "\u{1F504} \u0130lerlemeyi S\u0131f\u0131rla", debug_reset_confirm: "T\xFCm ilerlemeniz s\u0131f\u0131rlanacak ve sadece 4 temel element kalacak. Emin misiniz?", debug_all_unlocked_msg: "Oyundaki t\xFCm tarif ve e\u015Fyalar a\xE7\u0131ld\u0131!", debug_all_hints_revealed_msg: "T\xFCm tarif ipu\xE7lar\u0131 a\xE7\u0131\u011Fa \xE7\u0131kar\u0131ld\u0131!", debug_spawn_success: "Temel elementler masaya yerle\u015Ftirildi!", craft_btn: "\u2728 B\u0130RLE\u015ET\u0130R", craft_hint: "Karaktere dokun veya Birle\u015Ftir'e bas", craft_no_items: "\xD6nce masaya element yerle\u015Ftirin!", craft_no_recipe: "Bu elementler birbiriyle tepki vermiyor!", craft_success: "B\xFCy\xFC ba\u015Far\u0131l\u0131! Yeni bir element do\u011Fdu!" }, items: { ates: { name: "Ate\u015F", desc: "Saf \u0131s\u0131 ve enerji kayna\u011F\u0131." }, su: { name: "Su", desc: "Hayat\u0131n kayna\u011F\u0131, ak\u0131\u015Fkan ve berrak." }, toprak: { name: "Toprak", desc: "Sa\u011Flam temel, kaya ve bereket." }, hava: { name: "Hava", desc: "G\xF6r\xFCnmez r\xFCzg\xE2r, nefes ve hareket." }, buhar: { name: "Buhar", desc: "Ate\u015F ve suyun dans\u0131ndan do\u011Fan bu\u011Fu." }, camur: { name: "\xC7amur", desc: "Su ve topra\u011F\u0131n yo\u011Frulmu\u015F hali." }, lav: { name: "Lav", desc: "Ate\u015F ve topra\u011F\u0131n erimi\u015F ihti\u015Fam\u0131." }, kum: { name: "Kum", desc: "R\xFCzgar ve ta\u015F\u0131n a\u015F\u0131nd\u0131rd\u0131\u011F\u0131 tanecikler." }, obsidyen: { name: "Obsidyen", desc: "Su ile aniden so\u011Fuyan lav\u0131n sert cam\u0131." }, yagmur: { name: "Ya\u011Fmur", desc: "Hava ve suyun bulu\u015Fmas\u0131ndan d\xFC\u015Fen damlalar." }, enerji: { name: "Enerji", desc: "Ate\u015F ve havan\u0131n saf plazma g\xFCc\xFC." }, ruzgar: { name: "R\xFCzgar", desc: "G\xFC\xE7l\xFC ve h\u0131zl\u0131 hava ak\u0131m\u0131." }, tas: { name: "Ta\u015F", desc: "Topra\u011F\u0131n s\u0131k\u0131\u015F\u0131p kat\u0131la\u015Fmas\u0131yla olu\u015Fan sert kaya." }, cam: { name: "Cam", desc: "Ate\u015F ve kumun eriyerek \u015Feffafla\u015Fmas\u0131." }, bulut: { name: "Bulut", desc: "G\xF6ky\xFCz\xFCnde s\xFCz\xFClen pamuksu beyaz su buhar\u0131 k\xFCmesi." }, yildirim: { name: "Y\u0131ld\u0131r\u0131m", desc: "Bulut ve enerjinin \xE7akan keskin \u015Fim\u015Fe\u011Fi." }, bitki: { name: "Bitki", desc: "Toprak ve ya\u011Fmurun ye\u015Ferten filizi." }, agac: { name: "A\u011Fa\xE7", desc: "Bitki ve topra\u011F\u0131n b\xFCy\xFCyen g\xFC\xE7l\xFC g\xF6vdesi." }, odun: { name: "Odun", desc: "A\u011Fa\xE7 ve ta\u015F\u0131n i\u015Flenen k\xFCt\xFC\u011F\xFC." }, kiymik: { name: "K\u0131ym\u0131k", desc: "Odun ve ta\u015F\u0131n sivri tala\u015F par\xE7as\u0131." }, lif: { name: "Lif", desc: "Bitki ve bitkinin sar\u0131lan lif demeti." }, mantar: { name: "Mantar", desc: "Beyaz benekli, k\u0131rm\u0131z\u0131 \u015Fapkal\u0131, bodur sapl\u0131 orman mantar\u0131." }, pamuk: { name: "Pamuk", desc: "Kurumu\u015F kahverengi \xE7anak yapraklar i\xE7inde duran bembeyaz pamuk kozas\u0131." }, recine: { name: "Re\xE7ine", desc: "Damla formunda kat\u0131la\u015Fm\u0131\u015F, bal sar\u0131s\u0131 kehribar cevheri." }, yasam: { name: "Ya\u015Fam", desc: "\u0130\xE7inde ye\u015Filimsi \xE7ift sarmal DNA sembol\xFC d\xF6nen \u0131\u015F\u0131ldayan \xF6z k\xFCresi." }, kus: { name: "Ku\u015F", desc: "Basit geometrik g\xF6vdeli, mavi kanatl\u0131, sar\u0131 gagal\u0131 k\xFC\xE7\xFCk ser\xE7e." }, hayvan: { name: "Hayvan", desc: "D\xF6rt narin baca\u011F\u0131 ve k\u0131sa kuyru\u011Fu olan bloklu canl\u0131 sil\xFCeti." }, balik: { name: "Bal\u0131k", desc: "\xDC\xE7gen y\xFCzge\xE7li, turuncu-g\xFCm\xFC\u015F renkli k\xF6\u015Feli g\xF6vdeli sazan." }, ip: { name: "\u0130p", desc: "D\xFC\u011F\xFCmlenmi\u015F, halka \u015Feklinde sar\u0131l\u0131 saman sar\u0131s\u0131 halat rulosu." }, kumas: { name: "Kuma\u015F", desc: "D\xFCzenli katlanm\u0131\u015F, kenarlar\u0131 k\xF6\u015Feli bej renkli kuma\u015F bezi." }, komur: { name: "K\xF6m\xFCr", desc: "D\xFCzensiz y\xFCzeylere sahip, mat siyah renkli karbon par\xE7as\u0131." }, kul: { name: "K\xFCl", desc: "\u0130\xE7inde s\xF6nmeye y\xFCz tutmu\u015F kor par\xE7alar\u0131 olan gri toz y\u0131\u011F\u0131n\u0131." }, kagit: { name: "Ka\u011F\u0131t", desc: "Ucu hafif k\u0131vr\u0131lm\u0131\u015F, a\xE7\u0131k sar\u0131 renkte dikd\xF6rtgen par\u015F\xF6men tabakas\u0131." }, ilkel_bicak: { name: "\u0130lkel B\u0131\xE7ak", desc: "K\u0131sa ah\u015Fap sap\u0131na iple tutturulmu\u015F \xE7akmakta\u015F\u0131 u\xE7lu kaba b\u0131\xE7ak." }, kus_tuyu: { name: "Ku\u015F T\xFCy\xFC", desc: "Orta damar\u0131 belirgin, ucu beyazdan g\xF6k mavisine d\xF6nen t\xFCy." }, deri: { name: "Deri", desc: "Kenarlar\u0131 asimetrik kesilmi\u015F, taba rengi i\u015Flenmemi\u015F post." }, kavrulmus_et: { name: "Kavrulmu\u015F Et", desc: "Beyaz kemik sap\u0131ndan tutulan, k\u0131zarm\u0131\u015F kahverengi et butu." }, comlek: { name: "\xC7\xF6mlek", desc: "Geni\u015F g\xF6bekli, dar boyunlu kiremit k\u0131rm\u0131z\u0131s\u0131 pi\u015Fmi\u015F kil testi." }, su_comlegi: { name: "Su \xC7\xF6mle\u011Fi", desc: "A\u011Fz\u0131ndan mavi su y\xFCzeyi g\xF6r\xFCnen, \u0131slak killi dolgun testi." }, sise: { name: "\u015Ei\u015Fe", desc: "Mantar t\u0131pas\u0131 olan \u015Feffaf, silindirik cam iksir t\xFCp\xFC." }, cakmaktasi: { name: "\xC7akmakta\u015F\u0131", desc: "Bir kenar\u0131 keskinle\u015Ftirilmi\u015F, koyu antrasit renkli yontma ta\u015F." }, yay: { name: "Yay", desc: "Esnek bir dal ve gergin ip ile yap\u0131lan avc\u0131 silah\u0131." }, ok: { name: "Ok", desc: "Ucunda sivri ta\u015F, arkas\u0131nda t\xFCy bulunan ince tahta ok." }, mesale: { name: "Me\u015Fale", desc: "Karanl\u0131k ma\u011Faralar\u0131 ve yollar\u0131 ayd\u0131nlatan alevli ah\u015Fap me\u015Fale." }, metal: { name: "Metal", desc: "\u0130\xE7inde parlak gri damarlar par\u0131ldayan ergitilmi\u015F ta\u015F cevheri." }, demir_kulce: { name: "Demir K\xFCl\xE7e", desc: "Pahlanm\u0131\u015F kenarlar\u0131yla profesyonel d\xF6k\xFCm \xE7elik k\xFCl\xE7e." }, metal_bicak: { name: "Metal B\u0131\xE7ak", desc: "Deri sar\u0131l\u0131 kabzas\u0131 ve \xE7ift a\u011F\u0131zl\u0131 parlak \xE7elik namlulu b\u0131\xE7ak." }, kazma: { name: "Kazma", desc: "Masif ah\u015Fap sapa monte edilmi\u015F kavisli \xE7ift tarafl\u0131 demir u\xE7." }, kilic: { name: "K\u0131l\u0131\xE7", desc: "\xC7apraz korumal\u0131\u011F\u0131, deri kabzas\u0131 ve par\u0131ldayan kesici g\xF6vdesi." }, ahsap_kalkan: { name: "Ah\u015Fap Kalkan", desc: "Tahta kalaslardan birle\u015Ftirilmi\u015F, kenarlar\u0131 ham deri kalkan." }, demir_kalkan: { name: "Demir Kalkan", desc: "Per\xE7in detayl\u0131, parlat\u0131lm\u0131\u015F damla formunda \xE7elik kalkan." }, deri_zirh: { name: "Deri Z\u0131rh", desc: "\u0130plerle diki\u015Flenmi\u015F, omuzlar\u0131 tokal\u0131 kahverengi yelek z\u0131rh." }, demir_zirh: { name: "Demir Z\u0131rh", desc: "Parlak \xE7elik g\xF6\u011F\xFCs plakas\u0131 ve omuzluklardan olu\u015Fan a\u011F\u0131r z\u0131rh." }, yatak: { name: "Yatak", desc: "Ah\u015Fap ayakl\u0131, \xFCzerinde beyaz yast\u0131k ve renkli \xF6rt\xFC olan yatak." }, zehirli_sivi: { name: "Zehirli S\u0131v\u0131", desc: "Mantar ve su \xE7\xF6mle\u011Finden elde edilen tehlikeli ye\u015Fil s\u0131v\u0131." }, zehir_sisesi: { name: "Zehir \u015Ei\u015Fesi", desc: "\u015Ei\u015Felenmi\u015F \xF6l\xFCmc\xFCl zehirli iksir." }, zehirli_kilic: { name: "Zehirli K\u0131l\u0131\xE7", desc: "\xD6l\xFCmc\xFCl zehirle kaplanm\u0131\u015F \xE7elik k\u0131l\u0131\xE7." }, sifa_iksiri: { name: "\u015Eifa \u0130ksiri", desc: "Bitki, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Finden haz\u0131rlanan can verici iksir." }, mana_iksiri: { name: "Mana \u0130ksiri", desc: "Enerji, \u015Fi\u015Fe ve su \xE7\xF6mle\u011Fi ile \xF6z\xFCtlenen b\xFCy\xFCl\xFC mana iksiri." }, barut: { name: "Barut", desc: "K\xF6m\xFCr, k\xFCl ve re\xE7ineden yap\u0131lan patlay\u0131c\u0131 siyah toz." }, bomba: { name: "Bomba", desc: "Barut, demir k\xFCl\xE7e ve ip ile haz\u0131rlanan y\u0131k\u0131c\u0131 patlay\u0131c\u0131." }, buyu_parsomeni: { name: "B\xFCy\xFC Par\u015F\xF6meni", desc: "Ka\u011F\u0131t, k\xFCl ve ku\u015F t\xFCy\xFC ile yaz\u0131lan kadim t\u0131ls\u0131ml\u0131 par\u015F\xF6men." }, yildirim_parsomeni: { name: "Y\u0131ld\u0131r\u0131m Par\u015F\xF6meni", desc: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle y\xFCklenmi\u015F par\u015F\xF6men." }, ates_topu_kitabi: { name: "Ate\u015F Topu Kitab\u0131", desc: "Ate\u015F ve b\xFCy\xFC par\u015F\xF6meninden olu\u015Fan alevli b\xFCy\xFC kitab\u0131." }, buhar_motoru: { name: "Buhar Motoru", desc: "Buhar, demir k\xFCl\xE7e ve k\xF6m\xFCr\xFCn bas\u0131n\xE7l\u0131 g\xFCc\xFCyle \xE7al\u0131\u015Fan a\u011F\u0131r mekanik pistonlu motor." }, tekerlek: { name: "Tekerlek", desc: "Odun ve ta\u015Ftan yontulmu\u015F, p\xFCr\xFCzs\xFCz d\xF6nen dairesel ah\u015Fap tekerlek." }, el_arabasi: { name: "El Arabas\u0131", desc: "Demir k\xFCl\xE7e, odun ve tekerlekten yap\u0131lm\u0131\u015F ta\u015F\u0131ma arabas\u0131." }, lokomotif: { name: "Lokomotif", desc: "Buhar motoru, demir ve tekerleklerle in\u015Fa edilmi\u015F dev rayl\u0131 tren ba\u015F\u0131." }, ampul: { name: "Ampul", desc: "Cam, metal ve y\u0131ld\u0131r\u0131m\u0131n g\xFCc\xFCyle akkor \u0131\u015F\u0131k sa\xE7an cam t\xFCp." }, fener: { name: "Fener", desc: "Ampul, demir k\xFCl\xE7e ve enerjiyle \xE7al\u0131\u015Fan par\u0131lt\u0131l\u0131 el feneri." }, pusula: { name: "Pusula", desc: "Cam ve demir kadran i\xE7inde y\xF6n g\xF6steren manyetik pusula." }, miknatis: { name: "M\u0131knat\u0131s", desc: "Y\u0131ld\u0131r\u0131m \xE7arpmas\u0131yla manyetize olmu\u015F kavisli \xE7elik demir." }, elektrik_motoru: { name: "Elektrik Motoru", desc: "Enerji, metal ve m\u0131knat\u0131s ile d\xF6nen bobinli elektromanyetik motor." }, celik_kulce: { name: "\xC7elik K\xFCl\xE7e", desc: "Ate\u015F, demir ve k\xF6m\xFCr\xFCn y\xFCksek \u0131s\u0131da eritilmesiyle elde edilen dayan\u0131kl\u0131 ala\u015F\u0131m." }, ors: { name: "\xD6rs", desc: "\xC7elik k\xFCl\xE7e ve ta\u015Ftan yontulmu\u015F demirci \xF6rs\xFC." }, civi: { name: "\xC7ivi", desc: "Ocakta d\xF6v\xFClm\xFC\u015F sivri u\xE7lu \xE7elik ba\u011Flant\u0131 \xE7ivisi." }, tugla: { name: "Tu\u011Fla", desc: "F\u0131r\u0131nlanm\u0131\u015F kiremit rengi in\u015Faat blo\u011Fu." }, harc: { name: "Har\xE7", desc: "Kum, su ve ta\u015F tozundan yo\u011Frulmu\u015F in\u015Faat ba\u011Flay\u0131c\u0131s\u0131." }, tugla_duvar: { name: "Tu\u011Fla Duvar", desc: "Har\xE7 ve tu\u011Flalar\u0131n \xF6r\xFClmesiyle yap\u0131lm\u0131\u015F sa\u011Flam yap\u0131 duvar\u0131." }, saglam_sandik: { name: "Sa\u011Flam Sand\u0131k", desc: "\xC7elik k\xFCl\xE7e, \xE7ivi ve ah\u015Fapla g\xFC\xE7lendirilmi\u015F kilitli sand\u0131k." }, kristal: { name: "Kristal", desc: "Enerji ve kazma yard\u0131m\u0131yla derinden \xE7\u0131kar\u0131lan par\u0131lt\u0131l\u0131 kristal cevheri." }, teleskop: { name: "Teleskop", desc: "Cam, kristal ve metal merceklerden olu\u015Fan g\xF6ky\xFCz\xFC g\xF6zlem t\xFCp\xFC." }, vinc: { name: "Vin\xE7", desc: "\xC7elik k\xFCl\xE7e, elektrik motoru ve tekerleklerle \xE7al\u0131\u015Fan a\u011F\u0131r y\xFCk kald\u0131r\u0131c\u0131 vin\xE7." }, yildiz_tozu: { name: "Y\u0131ld\u0131z Tozu", desc: "Teleskopla g\xF6zlemlenen ve enerjiyle toplanan par\u0131lt\u0131l\u0131 kozmik toz." }, prizma_tasi: { name: "Prizma Ta\u015F\u0131", desc: "Kristal ve y\u0131ld\u0131z tozunun birle\u015Fimiyle \u0131\u015F\u0131\u011F\u0131 tayflara ay\u0131ran kadim ta\u015F." }, kahin_kuresi: { name: "Kahin K\xFCresi", desc: "Prizma ta\u015F\u0131, cam ve enerjiyle gelece\u011Fi g\xF6steren mistik k\xFCre." }, portal_runu: { name: "Portal R\xFCn\xFC", desc: "B\xFCy\xFC par\u015F\xF6meni ve y\u0131ld\u0131z tozuyla m\xFCh\xFCrlenmi\u015F uzay-zaman r\xFCn\xFC." }, bosluk_sisesi: { name: "Bo\u015Fluk \u015Ei\u015Fesi", desc: "Kristal, \u015Fi\u015Fe ve y\u0131ld\u0131r\u0131m g\xFCc\xFCyle karanl\u0131k bo\u015Flu\u011Fu hapseden iksir t\xFCp\xFC." }, boyut_kapisi: { name: "Boyut Kap\u0131s\u0131", desc: "\xC7elik k\xFCl\xE7e, portal r\xFCn\xFC ve tu\u011Fla duvardan in\u015Fa edilmi\u015F ge\xE7it kap\u0131s\u0131." }, anka_kulu: { name: "Anka K\xFCl\xFC", desc: "Kutsal ate\u015F ve k\xFCllerle sonsuz d\xF6ng\xFCde k\xFCllerinden do\u011Fan mistik anka k\xFCl\xFC." }, runik_zirh: { name: "Runik Z\u0131rh", desc: "Demir z\u0131rh\u0131n \xF6r\u015Fte prizma ta\u015F\u0131 ile i\u015Flenmi\u015F efsanevi koruyucu z\u0131rh\u0131." }, firtina_kilici: { name: "F\u0131rt\u0131na K\u0131l\u0131c\u0131", desc: "K\u0131l\u0131ca prizma ta\u015F\u0131 ve y\u0131ld\u0131r\u0131m \xE7ak\u0131larak d\xF6v\xFClm\xFC\u015F elektrikli k\u0131l\u0131\xE7." }, yildiz_gecidi_cekirdegi: { name: "Y\u0131ld\u0131z Ge\xE7idi \xC7ekirde\u011Fi", desc: "Bo\u015Fluk \u015Fi\u015Fesi, kahin k\xFCresi ve portal r\xFCn\xFCn\xFCn birle\u015Fimiyle evrenin kalbi." }, kar: { name: "Kar", desc: "Hava ve ya\u011Fmurun dondurucu so\u011Fukta kristalle\u015Fmesi." }, buz: { name: "Buz", desc: "S\u0131k\u0131\u015Fm\u0131\u015F kar tanelerinin donmas\u0131yla olu\u015Fan sert, \u015Feffaf k\xFCtle." }, col: { name: "\xC7\xF6l", desc: "R\xFCzgar\u0131n topra\u011F\u0131 a\u015F\u0131nd\u0131r\u0131p savurmas\u0131yla olu\u015Fan sonsuz kum denizi." }, tohum: { name: "Tohum", desc: "Bitki, toprak ve ya\u011Fmurun bereketinden do\u011Fan hayat tanesi." }, bugday: { name: "Bu\u011Fday", desc: "Tohum ve su ile yeti\u015Fen alt\u0131n sar\u0131s\u0131 ba\u015Fak." }, nane: { name: "Nane", desc: "Buzlu so\u011Fukta ferahlat\u0131c\u0131 aromas\u0131yla yeti\u015Fen ye\u015Fil nane yapra\u011F\u0131." }, agac_kabugu: { name: "A\u011Fa\xE7 Kabu\u011Fu", desc: "Metal b\u0131\xE7akla a\u011Fa\xE7tan soyulmu\u015F sert d\u0131\u015F kabuk dokusu." }, inek: { name: "\u0130nek", desc: "Toprakta beslenen uysal ve verimli b\xFCy\xFCkba\u015F hayvan." }, sut: { name: "S\xFCt", desc: "\xC7\xF6mle\u011Fe sa\u011F\u0131lm\u0131\u015F taze, besleyici beyaz s\xFCt." }, yumurta: { name: "Yumurta", desc: "Tohumla beslenen ku\u015Fun yumurtlad\u0131\u011F\u0131 p\xFCr\xFCzs\xFCz yumurta." }, mercan: { name: "Mercan", desc: "Bal\u0131k ve su bitkilerinin ekosisteminde olu\u015Fan renkli deniz mercan\u0131." }, olta: { name: "Olta", desc: "Ah\u015Fap \xE7ubuk ve ipe ba\u011Fl\u0131 bal\u0131k i\u011Fnesi." }, yelken: { name: "Yelken", desc: "R\xFCzgar\u0131 yakalamak i\xE7in ah\u015Fap direkte gerilmi\u015F dayan\u0131kl\u0131 kuma\u015F." }, sal: { name: "Sal", desc: "\u0130p ve odunlarla ba\u011Flanan yelkenli deniz ta\u015F\u0131t\u0131." }, obsidyen_bicak: { name: "Obsidyen B\u0131\xE7ak", desc: "Sivri obsidyen ve ah\u015Fap sap\u0131n iplerle ba\u011Flanmas\u0131yla olu\u015Fan keskin b\u0131\xE7ak." }, peynir: { name: "Peynir", desc: "Is\u0131t\u0131lan s\xFCt\xFCn mayalanmas\u0131yla elde edilen lezzetli peynir blo\u011Fu." }, un: { name: "Un", desc: "Bu\u011Fday\u0131n ta\u015F de\u011Firmende \xF6\u011F\xFCt\xFClmesiyle olu\u015Fan ince beyaz toz." }, hamur: { name: "Hamur", desc: "Un ve suyun yo\u011Frulmas\u0131yla haz\u0131rlanan ekmek hamuru." }, ekmek: { name: "Ekmek", desc: "F\u0131r\u0131nda pi\u015Fen mis kokulu k\u0131zarm\u0131\u015F somun ekmek." }, disli_cark: { name: "Di\u015Fli \xC7ark", desc: "Demir k\xFCl\xE7e ve \xE7ivilerden \xFCretilmi\u015F hassas mekanik di\u015Fli." }, degirmen: { name: "De\u011Firmen", desc: "Buhar motoru ve di\u015Flilerle \xE7al\u0131\u015Fan dev \xF6\u011F\xFCtme tesisi." }, ayna: { name: "Ayna", desc: "Cam, metal ve enerji p\xFCr\xFCzs\xFCzl\xFC\u011F\xFC ile \u0131\u015F\u0131\u011F\u0131 yans\u0131tan parlak y\xFCzey." }, saat: { name: "Saat", desc: "\u0130nce di\u015Fliler ve enerjiyle t\u0131k\u0131r t\u0131k\u0131r zaman\u0131 \xF6l\xE7en mekanizma." }, demir_parmaklik: { name: "Demir Parmakl\u0131k", desc: "D\xF6v\xFClm\xFC\u015F \xE7elik \xE7ubuklardan olu\u015Fan sa\u011Flam demir parmakl\u0131k." }, savas_baltasi: { name: "Sava\u015F Baltas\u0131", desc: "\xC7elik k\xFCl\xE7e ve ah\u015Fap saptan yap\u0131lan a\u011F\u0131r kesici balta." }, gozetleme_kulesi: { name: "G\xF6zetleme Kulesi", desc: "Har\xE7 ve tu\u011Flalardan y\xFCkselen heybetli savunma kulesi." }, kale_kapisi: { name: "Kale Kap\u0131s\u0131", desc: "\xC7elik k\xFCl\xE7e, \xE7ivi ve demir parmakl\u0131klarla z\u0131rhlanm\u0131\u015F dev kale kap\u0131s\u0131." }, buz_runu: { name: "Buz R\xFCn\xFC", desc: "Buz ve b\xFCy\xFC par\u015F\xF6meniyle dondurucu so\u011Fuk m\xFCh\xFCr\xFC." }, cehennem_tasi: { name: "Cehennem Ta\u015F\u0131", desc: "Ate\u015F, obsidyen ve portal r\xFCn\xFCn\xFCn alevli boyutsal kayas\u0131." }, zaman_kum_saati: { name: "Zaman Kum Saati", desc: "Kristal, portal r\xFCn\xFC ve saat ile zaman\u0131 ak\u0131tan mistik kum saati." }, illuzyon_aynasi: { name: "\u0130ll\xFCzyon Aynas\u0131", desc: "Ayna, prizma ta\u015F\u0131 ve y\u0131ld\u0131z tozundan ger\xE7ekli\u011Fi b\xFCken b\xFCy\xFCl\xFC ayna." }, siber_kristal: { name: "Siber Kristal", desc: "Kristal, elektrik motoru ve prizma ta\u015F\u0131n\u0131n rezonans\u0131yla par\u0131ldayan veri \xE7ekirde\u011Fi." }, hologram_kupu: { name: "Hologram K\xFCp\xFC", desc: "Cam k\xFCp i\xE7inde s\u0131k\u0131\u015Ft\u0131r\u0131lm\u0131\u015F siber kristal ve enerji \u0131\u015F\u0131k projeksiyonu." }, buhar_jeneratoru: { name: "Buhar Jenerat\xF6r\xFC", desc: "Buhar motoru ve \xE7elik di\u015Flilerle g\xFC\xE7lendirilmi\u015F devasa pirin\xE7 tazyik makinesi." }, meka_zirhi: { name: "Meka Z\u0131rh\u0131", desc: "R\xFCnik z\u0131rh\u0131n \xE7elik plakalar ve plazma jenerat\xF6r\xFCyle donat\u0131lm\u0131\u015F g\xFC\xE7 g\xF6vdesi." }, plazma_tufegi: { name: "Plazma T\xFCfe\u011Fi", desc: "F\u0131rt\u0131na k\u0131l\u0131c\u0131n\u0131n enerjisi ve siber kristal ile ate\u015Flenen y\xFCksek enerjili silah." }, felsefe_tasi: { name: "Felsefe Ta\u015F\u0131", desc: "Anka k\xFCl\xFC ve cehennem ta\u015F\u0131n\u0131n saf simya ile yo\u011Fruldu\u011Fu efsanevi cevher." }, gunes_paneli: { name: "G\xFCne\u015F Paneli", desc: "Cam y\xFCzey ve siber kristal katmanlar\u0131yla \u0131\u015F\u0131\u011F\u0131 do\u011Frudan elektri\u011Fe \xE7eviren panel." }, yercekimsiz_platform: { name: "Yer\xE7ekimsiz Platform", desc: "M\u0131knat\u0131s, portal r\xFCn\xFC ve siber kristal ile havada as\u0131l\u0131 duran ini\u015F pedi." }, biyonik_kol: { name: "Biyonik Kol", desc: "\xC7elik eklemler ve siber kristal sinir u\xE7lar\u0131yla donat\u0131lm\u0131\u015F sibernetik uzuv." }, usturlap: { name: "Kozmik Usturlap", desc: "Pusula ve teleskopun alt\u0131n y\xF6r\xFCnge halkalar\u0131yla g\xF6kcisimlerini haritalayan alet." }, tesla_bobini: { name: "Tesla Bobini", desc: "Y\u0131ld\u0131r\u0131m g\xFCc\xFCn\xFC kesintisiz y\xFCksek voltaj arklar\u0131na d\xF6n\xFC\u015Ft\xFCren kule jenerat\xF6r\xFC." }, kuantum_islemci: { name: "Kuantum \u0130\u015Flemci", desc: "Prizma ta\u015F\u0131 ve siber kristal matrisleriyle hesaplama yapan s\xFCper \xE7ip." }, minyatur_yildiz: { name: "Minyat\xFCr Y\u0131ld\u0131z", desc: "Manyetik muhafaza i\xE7inde kontrol alt\u0131nda tutulan mikro s\xFCpernova." }, dag: { name: "Da\u011F", desc: "Y\xFCkselen devasa kaya k\xFCtlesi ve karl\u0131 zirveler." }, kaya: { name: "Kaya", desc: "Y\u0131llar\u0131n bask\u0131s\u0131yla sertle\u015Fmi\u015F yosunlu monolit ta\u015F." }, gunes: { name: "G\xFCne\u015F", desc: "G\xF6ky\xFCz\xFCn\xFC ayd\u0131nlatan ve \u0131s\u0131tan saf ya\u015Fam \u0131\u015F\u0131\u011F\u0131." }, okyanus: { name: "Okyanus", desc: "U\xE7suz bucaks\u0131z derin sular ve co\u015Fkulu dalgalar." }, volkan: { name: "Volkan", desc: "Zirvesinden duman ve k\u0131zg\u0131n lavlar f\u0131\u015Fk\u0131ran yanarda\u011F." }, ada: { name: "Ada", desc: "Turkuaz sular\u0131n ortas\u0131nda palmiyelerle bezeli kara par\xE7as\u0131." }, nehir: { name: "Nehir", desc: "Topra\u011F\u0131 yararak ak\u0131p giden co\u015Fkun su yolu." }, orman: { name: "Orman", desc: "Yemye\u015Fil a\u011Fa\xE7lar ve g\xFCr bitki \xF6rt\xFCs\xFCyle kapl\u0131 koruluk." }, firtina_bulutu: { name: "F\u0131rt\u0131na Bulutu", desc: "\u015Eim\u015Fekler \xE7akt\u0131ran koyu gri f\u0131rt\u0131na k\xFCmesi." }, magara: { name: "Ma\u011Fara", desc: "Da\u011F\u0131n derinliklerine uzanan gizemli karanl\u0131k kovuk." }, gokkusagi: { name: "G\xF6kku\u015Fa\u011F\u0131", desc: "G\xFCne\u015F \u0131\u015F\u0131nlar\u0131n\u0131n ya\u011Fmur damlalar\u0131nda k\u0131r\u0131lmas\u0131yla do\u011Fan renk c\xFCmb\xFC\u015F\xFC." }, kanyon: { name: "Kanyon", desc: "Nehrin y\xFCzy\u0131llar boyu oydu\u011Fu derin k\u0131z\u0131l kanyon vadisi." }, fay_hatti: { name: "Fay Hatt\u0131", desc: "Yerkabu\u011Funun \u015Fiddetle sars\u0131l\u0131p ayr\u0131ld\u0131\u011F\u0131 derin yar\u0131k." }, at: { name: "At", desc: "Sad\u0131k, g\xFC\xE7l\xFC ve r\xFCzg\xE2r gibi h\u0131zl\u0131 binek hayvan\u0131." }, koyun: { name: "Koyun", desc: "Yumu\u015Fac\u0131k beyaz y\xFCnleriyle otlaklarda yay\u0131lan uysal hayvan." }, kurt: { name: "Kurt", desc: "Dolunaya uluyan, vah\u015Fi do\u011Fan\u0131n keskin g\xF6zl\xFC avc\u0131s\u0131." }, ari: { name: "Ar\u0131", desc: "\xC7i\xE7ek \xE7i\xE7ek gezip nektar toplayan \xE7al\u0131\u015Fkan bal ar\u0131s\u0131." }, yilan: { name: "Y\u0131lan", desc: "Sessizce s\xFCz\xFClen, zehirli ve gizemli s\xFCr\xFCngen." }, baykus: { name: "Bayku\u015F", desc: "Gecenin karanl\u0131\u011F\u0131nda orman\u0131 g\xF6zleyen bilge gece ku\u015Fu." }, kaplumbaga: { name: "Kaplumba\u011Fa", desc: "A\u011F\u0131r ad\u0131mlarla y\xFCr\xFCyen, sa\u011Flam kabuklu bilge amfibi." }, bal: { name: "Bal Kavanozu", desc: "\xC7al\u0131\u015Fkan ar\u0131lar\u0131n \xE7i\xE7ek nektar\u0131ndan s\xFCzd\xFC\u011F\xFC alt\u0131n tatl\u0131l\u0131k." }, nilufer: { name: "Nil\xFCfer", desc: "Durgun sular\u0131n \xFCst\xFCnde zarafetle a\xE7an pembe \xE7i\xE7ek." }, elma: { name: "Elma", desc: "A\u011Fa\xE7 dallar\u0131nda olgunla\u015Fm\u0131\u015F sulu ve k\u0131pk\u0131rm\u0131z\u0131 meyve." }, kurbaga: { name: "Kurba\u011Fa", desc: "Nil\xFCfer yapraklar\u0131 aras\u0131nda ne\u015Feyle s\u0131\xE7rayan amfibi." }, sincap: { name: "Sincap", desc: "Palamut toplay\u0131p a\u011Fa\xE7 kovuklar\u0131nda saklayan sevimli kemirgen." }, geyik: { name: "Geyik", desc: "Orman\u0131n derinliklerinde s\xFCz\xFClen heybetli boynuzlu geyik." }, kelebek: { name: "Kelebek", desc: "Rengarenk kanatlar\u0131yla \xE7i\xE7ekler aras\u0131nda dans eden b\xF6cek." }, sis: { name: "Sis", desc: "Havan\u0131n su buhar\u0131 ile yo\u011Fu\u015Fmas\u0131 sonucu yery\xFCz\xFCne inen hafif pus." }, gayzer: { name: "Gayzer", desc: "Yeralt\u0131ndaki \u0131s\u0131nm\u0131\u015F su ve buhar\u0131n ta\u015Flar aras\u0131ndan f\u0131\u015Fk\u0131rmas\u0131." }, kaktus: { name: "Kakt\xFCs", desc: "K\u0131zg\u0131n \xE7\xF6l kumlar\u0131nda bile dimdik duran \xE7i\xE7ekli dikenli bitki." }, cam_agaci: { name: "Karl\u0131 \xC7am A\u011Fac\u0131", desc: "Karl\u0131 da\u011F yama\xE7lar\u0131nda k\u0131\u015F\u0131n da beyaz karlar alt\u0131nda dimdik duran \xE7am a\u011Fac\u0131." }, tavuk: { name: "Tavuk", desc: "Yumurtadan \xE7\u0131kan, tarlalarda dola\u015Fan sevimli k\xFCmes hayvan\u0131." }, kedi: { name: "Kedi", desc: "S\xFCt\xFC ve s\u0131ca\u011F\u0131 seven sevimli uysal evcil dost." }, somon: { name: "Somon", desc: "Ak\u0131nt\u0131n\u0131n tersine nehirlerde s\u0131\xE7rayan \xE7evik tatl\u0131 su bal\u0131\u011F\u0131." }, barut_ficisi: { name: "Barut F\u0131\xE7\u0131s\u0131", desc: "Ate\u015Fle bulu\u015Ftu\u011Funda \u015Fiddetli patlama yaratan ah\u015Fap f\u0131\xE7\u0131." }, su_degirmeni: { name: "Su De\u011Firmeni", desc: "Akarsuyun ak\u0131\u015F g\xFCc\xFCyle d\xF6nen ah\u015Fap \xE7ark mekanizmas\u0131." }, buz_dagi: { name: "Buz Da\u011F\u0131", desc: "Okyanusta y\xFCzen devasa par\u0131lt\u0131l\u0131 buz k\xFCtlesi." }, kalkan: { name: "Kalkan", desc: "Sald\u0131r\u0131lardan ve oklardan koruyan sa\u011Flam yuvarlak ah\u015Fap kalkan." }, iksir_kazani: { name: "\u0130ksir Kazan\u0131", desc: "Ate\u015F \xFCzerinde iksirlerin ve simya \xF6zlerinin kaynat\u0131ld\u0131\u011F\u0131 d\xF6k\xFCm kazan." } } }, en: { ui: { search_placeholder: "\u{1F50D} Search...", all_categories: "\u{1F4C1} All", cat_elements: "\u{1F525} Elements", cat_nature: "\u{1F331} Nature", cat_life: "\u{1F9EC} Life", cat_craft_tools: "\u2694\uFE0F Craft & Tools", cat_5: "\u{1F9EA} Alchemy & Magic", cat_6: "\u2699\uFE0F Mechanics", cat_7: "\u{1F3D7}\uFE0F Heavy Industry", cat_8: "\u{1F30C} Cosmology & Void", cat_9: "\u{1F52C} High Science", cat_10: "\u{1F304} Geography", sort_discovery: "\u23F3 Discovered", sort_category: "\u{1F4C2} Category", cleanup: "\u{1F9F9} Clear Table", char_apprentice: "\u{1F9D9}\u200D\u2642\uFE0F Apprentice", char_observer: "\u{1F3AD} Observer", char_wanderer: "\u{1F9D9} Wanderer", hints_title: "\u{1F4A1} Hints", hint_rights: "Rights: {n}", hint_get: "Get Hint (-1 Right)", hint_opened: "\u2713 Full Hint Revealed", hint_no_craftable: "No new craftable items to discover right now. Try combining different items!", hint_click_to_open: "Click to unlock hint", hint_consists_of: "<strong>{name}</strong>: consists of {count} components.", hint_basic_element: "This is a basic element.", discovery_title: "New Discovery", ad_title: "\u{1F4FA} Watch Ad", ad_desc: "Out of hint rights! Watch a short ad to earn +1 Hint right immediately.", ad_watch_btn: "Watch Ad (+1 Hint)", ad_cancel_btn: "Cancel", ad_watched_alert: "\u{1F4FA} Ad watched successfully! Used +1 hint right to reveal detailed clue.", lang_btn: "\u{1F310} Lang: EN", music_1: "\u{1F3B5} Music 1", music_2: "\u{1F3B5} Music 2", music_3: "\u{1F3B5} Music 3", music_none: "\u{1F507} No Music", settings_btn: "\u2699\uFE0F Settings", settings_title: "\u2699\uFE0F Game Settings", settings_close: "Close", tab_general: "\u{1F3AE} General", tab_credits: "\u{1F4DC} Licenses", tab_debug: "\u{1F6E0}\uFE0F Debug Mode", credits_title: "Character Attribution & License", credits_character_heading: "3D Character Models", credits_character_desc: "The 3D character models in the game (Apprentice & Observer) are used under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.", credits_view_license: "View License (CC BY 4.0)", credits_terms_summary: "Under this license, the materials may be freely shared and adapted provided appropriate credit and license link are given.", debug_warning: "\u26A0\uFE0F Developer & testing tools", debug_infinite_hints: "\u{1F4A1} Infinite Hints", debug_unlock_all: "\u{1F513} Unlock All Items", debug_reveal_hints: "\u{1F4DC} Reveal All Recipes", debug_fps_counter: "\u{1F4CA} FPS & Stats Overlay", debug_spawn_basics: "\u{1F9EA} Spawn 4 Basic Elements", debug_reset_progress: "\u{1F504} Reset Progress", debug_reset_confirm: "All your progress will be reset and only 4 basic elements will remain. Are you sure?", debug_all_unlocked_msg: "All recipes and items have been unlocked!", debug_all_hints_revealed_msg: "All recipe clues revealed!", debug_spawn_success: "Basic elements placed on table!", craft_btn: "\u2728 COMBINE", craft_hint: "Tap character or press Combine", craft_no_items: "Place elements on the table first!", craft_no_recipe: "These elements do not react together!", craft_success: "Magic succeeded! A new element is born!" }, items: { ates: { name: "Fire", desc: "Source of pure heat and energy." }, su: { name: "Water", desc: "The essence of life, fluid and crystal clear." }, toprak: { name: "Earth", desc: "Solid foundation, rock and fertile soil." }, hava: { name: "Air", desc: "Invisible wind, breath and gentle motion." }, buhar: { name: "Steam", desc: "Vapor born from the fiery dance of heat and water." }, camur: { name: "Mud", desc: "A rich blend of water and earth." }, lav: { name: "Lava", desc: "Molten majesty of earth ignited by intense fire." }, kum: { name: "Sand", desc: "Fine grains weathered by wind and stone." }, obsidyen: { name: "Obsidian", desc: "Dark volcanic glass formed by rapidly cooled lava." }, yagmur: { name: "Rain", desc: "Gentle droplets falling from clouds in the sky." }, enerji: { name: "Energy", desc: "Pure plasma power derived from air and fire." }, ruzgar: { name: "Wind", desc: "Strong, fast-flowing currents of moving air." }, tas: { name: "Stone", desc: "Dense solid rock hardened over ages." }, cam: { name: "Glass", desc: "Transparent solid forged by melting sand under heat." }, bulut: { name: "Cloud", desc: "Fluffy floating accumulation of condensed vapor." }, yildirim: { name: "Lightning", desc: "Sharp flash of electrical discharge from stormy skies." }, bitki: { name: "Plant", desc: "A fresh green sprout nurtured by fertile soil and rain." }, agac: { name: "Tree", desc: "A sturdy wooden giant with lush foliage and deep roots." }, odun: { name: "Wood", desc: "Timber harvested from strong tree trunks." }, kiymik: { name: "Splinter", desc: "A sharp fragment chipped from dry wood." }, lif: { name: "Fiber", desc: "Strands of plant tissue spun for crafting." }, mantar: { name: "Mushroom", desc: "A woodland fungus with a spotted cap growing in damp shade." }, pamuk: { name: "Cotton", desc: "Soft white fluffy fibers harvested from shrub pods." }, recine: { name: "Resin", desc: "Golden aromatic sap hardened from tree bark." }, yasam: { name: "Life", desc: "The miraculous glowing spark that animates the universe." }, kus: { name: "Bird", desc: "Winged creature soaring through open skies." }, hayvan: { name: "Animal", desc: "A four-legged creature walking across wild terrains." }, balik: { name: "Fish", desc: "Aquatic swimmer gliding through currents and tides." }, ip: { name: "Rope", desc: "Strong twisted cord braided from plant fibers." }, kumas: { name: "Fabric", desc: "Woven cloth woven from soft natural threads." }, komur: { name: "Coal", desc: "Combustible dark fossil fuel fueling fierce heat." }, kul: { name: "Ash", desc: "Fine powdery residue left after a glowing fire burns out." }, kagit: { name: "Paper", desc: "Smooth parchment sheet pressed from fibrous pulp." }, ilkel_bicak: { name: "Primitive Knife", desc: "A flint blade fastened to an unrefined wooden handle." }, kus_tuyu: { name: "Feather", desc: "Light aerodynamic quill shed from avian wings." }, deri: { name: "Leather", desc: "Supple tanned animal hide treated for crafting." }, kavrulmus_et: { name: "Cooked Meat", desc: "Hearty roasted meat prepared over blazing embers." }, comlek: { name: "Pottery", desc: "Fired earthenware vessel sculpted from clay." }, su_comlegi: { name: "Water Jug", desc: "A sturdy ceramic jug filled with cool mountain water." }, sise: { name: "Bottle", desc: "A sealed glass flask designed to hold precious liquids." }, cakmaktasi: { name: "Flint", desc: "Hard sedimentary stone that sparks sparks upon impact." }, yay: { name: "Bow", desc: "Flexible curved wooden weapon strung under tension." }, ok: { name: "Arrow", desc: "Straight shaft fletched with feathers and tipped with flint." }, mesale: { name: "Torch", desc: "A resinous wooden torch illuminating murky corridors." }, metal: { name: "Metal", desc: "Malleable lustrous ore extracted from minerals." }, demir_kulce: { name: "Iron Ingot", desc: "Purified rectangular bar of forged solid iron." }, metal_bicak: { name: "Metal Knife", desc: "Sharp steel blade fitted with a secure grip." }, kazma: { name: "Pickaxe", desc: "Pointed tool designed for shattering rock and mining ores." }, kilic: { name: "Sword", desc: "Finely balanced steel blade forged for combat and defense." }, ahsap_kalkan: { name: "Wooden Shield", desc: "Plank shield reinforced with leather trimming." }, demir_kalkan: { name: "Iron Shield", desc: "Heavy riveted steel shield deflecting fierce strikes." }, deri_zirh: { name: "Leather Armor", desc: "Flexible lightweight vest stitched from cured hide." }, demir_zirh: { name: "Iron Armor", desc: "Solid plate harness protecting against heavy blows." }, yatak: { name: "Bed", desc: "Comfortable resting mattress framed in polished wood." }, zehirli_sivi: { name: "Toxic Liquid", desc: "Noxious green brew distilled from wild mushrooms." }, zehir_sisesi: { name: "Poison Flask", desc: "Sealed vial filled with potent corrosive venom." }, zehirli_kilic: { name: "Poisoned Blade", desc: "Sword coated in deadly venom dealing lingering harm." }, sifa_iksiri: { name: "Healing Potion", desc: "Soothing herbal elixir that restores vitality and health." }, mana_iksiri: { name: "Mana Potion", desc: "Glowing azure draught replenishing arcane spiritual energy." }, barut: { name: "Gunpowder", desc: "Explosive chemical mixture of sulfur, carbon and ash." }, bomba: { name: "Bomb", desc: "Volatile iron canister primed with black powder." }, buyu_parsomeni: { name: "Spell Scroll", desc: "Ancient parchment inscribed with mystical incantations." }, yildirim_parsomeni: { name: "Lightning Scroll", desc: "Crackling parchment unleashing focused electric fury." }, ates_topu_kitabi: { name: "Fireball Tome", desc: "Grimoire containing the ancient secrets of fiery devastation." }, buhar_motoru: { name: "Steam Engine", desc: "Mechanical engine converting pressurized vapor into drive." }, tekerlek: { name: "Wheel", desc: "Circular revolving rim that revolutionized overland transit." }, el_arabasi: { name: "Wheelbarrow", desc: "Hand-propelled cart transporting heavy loads with ease." }, lokomotif: { name: "Locomotive", desc: "Mighty steam-powered iron horse chugging on steel tracks." }, ampul: { name: "Lightbulb", desc: "Incandescent glass bulb illuminating darkness with filament glow." }, fener: { name: "Lantern", desc: "Portable lamp casting warm light onto shadowy paths." }, pusula: { name: "Compass", desc: "Navigational dial whose magnetized needle points true north." }, miknatis: { name: "Magnet", desc: "Polarized alloy drawing ferromagnetic metals toward it." }, elektrik_motoru: { name: "Electric Motor", desc: "Electromagnetic rotor generating continuous rotational torque." }, celik_kulce: { name: "Steel Ingot", desc: "High-tensile refined iron-carbon alloy bar." }, ors: { name: "Anvil", desc: "Heavy forged steel block upon which weapons take shape." }, civi: { name: "Nail", desc: "Sharp pointed metal spike securing timber constructs." }, tugla: { name: "Brick", desc: "Kiln-baked rectangular block designed for masonry." }, harc: { name: "Mortar", desc: "Binding paste of sand, water and mineral paste." }, tugla_duvar: { name: "Brick Wall", desc: "Solid defensive barricade built from mortared bricks." }, saglam_sandik: { name: "Sturdy Chest", desc: "Iron-banded timber trunk safeguarding valuable treasures." }, kristal: { name: "Crystal", desc: "Faceted translucent mineral radiating prismatic gleams." }, teleskop: { name: "Telescope", desc: "Optical tube magnifying distant stars and cosmic sights." }, vinc: { name: "Crane", desc: "Towering mechanical derrick hoisting monumental weights." }, yildiz_tozu: { name: "Stardust", desc: "Shimmering cosmic particulate harvested from stellar tails." }, prizma_tasi: { name: "Prism Gem", desc: "Geometric crystal splitting illumination into rainbow hues." }, kahin_kuresi: { name: "Scrying Orb", desc: "Mystical crystal sphere granting glimpses of unseen horizons." }, portal_runu: { name: "Portal Rune", desc: "Carved runic glyph resonating with dimensional harmonics." }, bosluk_sisesi: { name: "Void Flask", desc: "Hermetic phial containing a swirling miniature abyss." }, boyut_kapisi: { name: "Dimensional Gate", desc: "Stone archway warping space to bridge remote realities." }, anka_kulu: { name: "Phoenix Ash", desc: "Sacred burning embers from which life rises renewed." }, runik_zirh: { name: "Runic Armor", desc: "Suit of enchanted steel inlaid with glowing wards." }, firtina_kilici: { name: "Stormblade", desc: "Crackling broadsword enveloped in fierce electric arcing." }, yildiz_gecidi_cekirdegi: { name: "Stargate Core", desc: "Hyper-dense cosmic nexus powering interstellar passages." }, kar: { name: "Snow", desc: "Crystalline frozen water flakes drifting softly." }, buz: { name: "Ice", desc: "Solid frozen water, glassy and cold." }, col: { name: "Desert", desc: "Endless expanse of windswept golden sand." }, tohum: { name: "Seed", desc: "A potent embryo holding the future of new life." }, bugday: { name: "Wheat", desc: "Golden cereal grain rippling across cultivated fields." }, nane: { name: "Mint", desc: "Fragrant aromatic herb with refreshing coolness." }, agac_kabugu: { name: "Tree Bark", desc: "Protective tough outer layer of wooden trunks." }, inek: { name: "Cow", desc: "Gentle domesticated ruminant grazing on pastures." }, sut: { name: "Milk", desc: "Pure nutritious white liquid produced by livestock." }, yumurta: { name: "Egg", desc: "Fragile shell encasing developing fledgling life." }, mercan: { name: "Coral", desc: "Vibrant marine organism building underwater reefs." }, olta: { name: "Fishing Rod", desc: "Slender rod rigged with line and hook for catching fish." }, yelken: { name: "Sail", desc: "Sturdy canvas sheet catching offshore breezes." }, sal: { name: "Raft", desc: "Buoyant log platform lashed together for water travel." }, obsidyen_bicak: { name: "Obsidian Dagger", desc: "Razor-sharp edge crafted from dark volcanic glass." }, peynir: { name: "Cheese", desc: "Aged dairy wheel curdled with delicate care." }, un: { name: "Flour", desc: "Fine white powder ground from ripe wheat ears." }, hamur: { name: "Dough", desc: "Kneaded mixture of flour and water ready for baking." }, ekmek: { name: "Bread", desc: "Golden baked loaf with a crispy crust and warm crumb." }, disli_cark: { name: "Gear Cog", desc: "Toothed machine wheel interlocking to transfer mechanical power." }, degirmen: { name: "Windmill", desc: "Towering structure harnessing air currents to turn millstones." }, ayna: { name: "Mirror", desc: "Smooth reflective surface echoing light and crystal reflections." }, saat: { name: "Clock", desc: "Intricate tick-tock mechanism measuring the march of time." }, demir_parmaklik: { name: "Iron Bars", desc: "Heavy steel grates barring intrusion and passage." }, savas_baltasi: { name: "Battleaxe", desc: "Double-bladed cleaver delivering devastating overhead swings." }, gozetleme_kulesi: { name: "Watchtower", desc: "High observation post keeping vigil over surrounding borders." }, kale_kapisi: { name: "Fortress Gate", desc: "Massive reinforced portcullis withstanding siege assaults." }, buz_runu: { name: "Frost Rune", desc: "Inscribed glacial talisman emitting biting sub-zero cold." }, cehennem_tasi: { name: "Nether Stone", desc: "Scorching brimstone pulsing with inner volcanic fires." }, zaman_kum_saati: { name: "Hourglass of Time", desc: "Chrono-relic whose celestial sands bend the flow of moments." }, illuzyon_aynasi: { name: "Mirror of Illusions", desc: "Spectral glass reflecting phantom mirages and optical tricks." }, siber_kristal: { name: "Cyber Crystal", desc: "Synthetically structured micro-matrix computing data beams." }, hologram_kupu: { name: "Hologram Cube", desc: "High-tech photonic projector beaming 3D light holographs." }, buhar_jeneratoru: { name: "Steam Dynamo", desc: "Heavy-duty power generator converting high-pressure steam into current." }, meka_zirhi: { name: "Mecha Exoskeleton", desc: "Hydraulic powered combat suit boosting strength tenfold." }, plazma_tufegi: { name: "Plasma Rifle", desc: "Advanced energy firearm discharging superheated ionized rounds." }, felsefe_tasi: { name: "Philosopher's Stone", desc: "Legendary alchemical catalyst transmuting elements and extending vitality." }, gunes_paneli: { name: "Solar Array", desc: "Photovoltaic grid converting solar radiation into clean electric flow." }, yercekimsiz_platform: { name: "Antigravity Plate", desc: "Floating magnetic disc negating local gravitational pull." }, biyonik_kol: { name: "Bionic Arm", desc: "Prosthetic mechanical limb with servo-assisted dexterity." }, usturlap: { name: "Astrolabe", desc: "Precision brass astronomical instrument charting constellations." }, tesla_bobini: { name: "Tesla Coil", desc: "Resonant induction transformer casting crackling high-voltage bolts." }, kuantum_islemci: { name: "Quantum Processor", desc: "Superconducting qubit matrix performing hyper-dimensional calculations." }, minyatur_yildiz: { name: "Miniature Star", desc: "Self-sustaining micro-fusion sphere radiating cosmic radiance." }, dag: { name: "Mountain", desc: "Majestic rocky summit towering high above low valleys." }, kaya: { name: "Boulder", desc: "Massive eroded crag resting solidly on earthen soil." }, gunes: { name: "Sun", desc: "Blazing golden star radiating daylight warmth and solar energy." }, okyanus: { name: "Ocean", desc: "Boundless expanse of deep tidal waters cradling marine depths." }, volkan: { name: "Volcano", desc: "Fissured mountain peak spewing molten lava and smoke into skies." }, ada: { name: "Island", desc: "Isolated paradise of verdant land surrounded by open waters." }, nehir: { name: "River", desc: "Winding freshwater current carving paths through wilderness." }, orman: { name: "Forest", desc: "Sprawling woodland grove thriving with ancient trees and wildlife." }, firtina_bulutu: { name: "Stormcloud", desc: "Dark rumbling cumulonimbus crackling with sudden lightning." }, magara: { name: "Cave", desc: "Subterranean cavern carved through rocky depths." }, gokkusagi: { name: "Rainbow", desc: "Vibrant chromatic arc painted by sunlight parting the rain." }, kanyon: { name: "Canyon", desc: "Deep monumental gorge sculpted by ancient riverbeds." }, fay_hatti: { name: "Fault Line", desc: "Tectonic earth fissure vibrating with geological energy." }, at: { name: "Horse", desc: "Majestic noble steed known for power and speed." }, koyun: { name: "Sheep", desc: "Woolly fleece-bearing herd animal." }, kurt: { name: "Wolf", desc: "Fierce pack predator howling under moonlit skies." }, ari: { name: "Bee", desc: "Industrious buzzing pollinator harvesting nectar." }, yilan: { name: "Snake", desc: "Slithering reptile navigating quietly through brush." }, baykus: { name: "Owl", desc: "Wise nocturnal avian raptor watching in the dark." }, kaplumbaga: { name: "Turtle", desc: "Ancient shelled reptile moving at a steady pace." }, bal: { name: "Honey", desc: "Golden sweet nectar produced by industrious bees." }, nilufer: { name: "Water Lily", desc: "An aquatic blooming blossom floating calmly on water." }, elma: { name: "Apple", desc: "Sweet, crisp red orchard fruit ripened under the sun." }, kurbaga: { name: "Frog", desc: "Amphibian leaper thriving by pond reeds." }, sincap: { name: "Squirrel", desc: "Agile woodland rodent gathering nuts in the canopy." }, geyik: { name: "Deer", desc: "Graceful herbivore with crowned branching antlers." }, kelebek: { name: "Butterfly", desc: "Delicate winged insect decorated with painted patterns." }, sis: { name: "Fog", desc: "Dense mist shrouding the landscape in mystery." }, gayzer: { name: "Geyser", desc: "A natural boiling spring erupting hot water and steam." }, kaktus: { name: "Cactus", desc: "Spiny succulent storing water beneath the desert heat." }, cam_agaci: { name: "Pine Tree", desc: "Evergreen conifer standing tall through harsh winter snows." }, tavuk: { name: "Chicken", desc: "Domestic barnyard fowl laying fresh eggs every morning." }, kedi: { name: "Cat", desc: "Curious agile feline companion with keen instincts." }, somon: { name: "Salmon", desc: "Resilient fish leaping upstream against rushing rivers." }, barut_ficisi: { name: "Powder Keg", desc: "Wooden barrel packed with high explosives." }, su_degirmeni: { name: "Watermill", desc: "Rotating waterwheel converting stream flow into work." }, buz_dagi: { name: "Iceberg", desc: "A colossal glacier floating gracefully in deep waters." }, kalkan: { name: "Shield", desc: "Solid round wooden shield fending off enemy arrows." }, iksir_kazani: { name: "Alchemy Cauldron", desc: "Cast-iron vat simmering mystical potions over open heat." } } } };
 class bd {
   constructor() {
     let A = null;
@@ -24724,7 +24762,7 @@ class bd {
     return ((_a2 = this.getItem(A)) == null ? void 0 : _a2.desc) || I || "";
   }
 }
-const EA = new bd();
+const QA = new bd();
 class Td {
   constructor() {
     this.hintRights = 3, this.discoveryCount = 0, this.successfulMatches = 0, this.hintLevels = {}, this.infiniteHints = false;
@@ -24734,7 +24772,7 @@ class Td {
   }
   revealAllHints(A) {
     A.forEach((I) => {
-      const g = OI[I];
+      const g = vI[I];
       if (g && g.recipe && g.recipe.inputs) {
         const C = g.recipe.inputs.filter((B) => B != null);
         this.hintLevels[I] = C.length + 1;
@@ -24750,7 +24788,7 @@ class Td {
   getCraftableLockedItems(A, I) {
     const g = new Set(A.map((C) => lg(C)));
     return I.filter((C) => {
-      const B = OI[C];
+      const B = vI[C];
       return !B || !B.recipe || !B.recipe.inputs ? false : B.recipe.inputs.filter((Q) => Q != null).every((Q) => {
         const o = lg(Q);
         return A.includes(Q) || g.has(o);
@@ -24758,24 +24796,24 @@ class Td {
     });
   }
   getHint(A) {
-    const I = OI[A], g = EA.getItemName(A, I == null ? void 0 : I.name);
-    if (!I || !I.recipe) return { text: EA.t("hint_basic_element"), level: 0, maxLevel: 0 };
+    const I = vI[A], g = QA.getItemName(A, I == null ? void 0 : I.name);
+    if (!I || !I.recipe) return { text: QA.t("hint_basic_element"), level: 0, maxLevel: 0 };
     const C = this.hintLevels[A] || 0, B = I.recipe.inputs.filter((o) => o != null), i = B.length, Q = i + 1;
-    if (C === 0) return { text: `<i>${EA.t("hint_click_to_open")}</i>`, level: 0, maxLevel: Q };
-    if (C === 1) return { text: EA.t("hint_consists_of", { name: g, count: i }), level: 1, maxLevel: Q };
+    if (C === 0) return { text: `<i>${QA.t("hint_click_to_open")}</i>`, level: 0, maxLevel: Q };
+    if (C === 1) return { text: QA.t("hint_consists_of", { name: g, count: i }), level: 1, maxLevel: Q };
     {
       const o = C - 1, e = B.map((t, a) => {
         var _a2;
         if (a < o) {
           const s = lg(t);
-          return EA.getItemName(s, ((_a2 = OI[s]) == null ? void 0 : _a2.name) || t);
+          return QA.getItemName(s, ((_a2 = vI[s]) == null ? void 0 : _a2.name) || t);
         } else return "?";
       });
       return { text: `<strong>${g}</strong>: ${e.join(" + ")}`, level: C, maxLevel: Q };
     }
   }
   canUseHint(A) {
-    const I = OI[A];
+    const I = vI[A];
     if (!I || !I.recipe) return false;
     const g = I.recipe.inputs.filter((B) => B != null).length;
     return (this.hintLevels[A] || 0) <= g;
@@ -24808,7 +24846,7 @@ class xd {
     A.slice(0, I.length).forEach((C, B) => {
       const i = I[B];
       if (i) try {
-        const Q = zE.createItemMesh(C);
+        const Q = $E.createItemMesh(C);
         Q.scale.set(0.26, 0.26, 0.26), Q.position.copy(i.position), Q.rotation.y = Math.PI * 0.15, this.sceneManager.add(Q), this.trophyMeshes.push(Q), i.isOccupied = true, i.itemId = C, i.trophyMesh = Q;
       } catch (Q) {
         console.warn(`Trofe olu\u015Fturulamad\u0131: ${C}`, Q);
@@ -24818,13 +24856,13 @@ class xd {
   flyItemToShelf(A, I = new H(0, 1.2, 0)) {
     const g = this.room.getSockets(), C = g.find((B) => !B.isOccupied) || g[g.length - 1];
     if (C) try {
-      const B = zE.createItemMesh(A);
+      const B = $E.createItemMesh(A);
       B.position.copy(I), B.scale.set(0.4, 0.4, 0.4), this.sceneManager.add(B);
       const i = C.position, Q = Math.max(I.y, i.y) + 1.2;
-      hg.to(B.position, { x: i.x, z: i.z, duration: 0.85, ease: "power2.inOut" }), hg.to(B.position, { y: Q, duration: 0.4, ease: "power1.out", onComplete: () => {
-        hg.to(B.position, { y: i.y, duration: 0.45, ease: "bounce.out" });
-      } }), hg.to(B.scale, { x: 0.26, y: 0.26, z: 0.26, duration: 0.85, ease: "power2.inOut" }), hg.to(B.rotation, { y: Math.PI * 2 + 0.3, duration: 0.85, ease: "power1.out", onComplete: () => {
-        C.trophyMesh && this.sceneManager.remove(C.trophyMesh), C.isOccupied = true, C.itemId = A, C.trophyMesh = B, this.trophyMeshes.push(B), hg.to(B.scale, { x: 0.32, y: 0.32, z: 0.32, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" });
+      KI.to(B.position, { x: i.x, z: i.z, duration: 0.85, ease: "power2.inOut" }), KI.to(B.position, { y: Q, duration: 0.4, ease: "power1.out", onComplete: () => {
+        KI.to(B.position, { y: i.y, duration: 0.45, ease: "bounce.out" });
+      } }), KI.to(B.scale, { x: 0.26, y: 0.26, z: 0.26, duration: 0.85, ease: "power2.inOut" }), KI.to(B.rotation, { y: Math.PI * 2 + 0.3, duration: 0.85, ease: "power1.out", onComplete: () => {
+        C.trophyMesh && this.sceneManager.remove(C.trophyMesh), C.isOccupied = true, C.itemId = A, C.trophyMesh = B, this.trophyMeshes.push(B), KI.to(B.scale, { x: 0.32, y: 0.32, z: 0.32, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" });
       } });
     } catch (B) {
       console.warn(`U\xE7u\u015F trofesi olu\u015Fturulamad\u0131: ${A}`, B);
@@ -24842,10 +24880,10 @@ class xd {
   }
 }
 class _d {
-  constructor(A, I, g, C, B, i, Q = {}) {
-    this.onItemSelect = A, this.onGetHint = I, this.onWatchAd = g, this.onCleanup = C, this.onCharacterSwitch = B, this.onMusicToggle = i, this.debugHandlers = Q;
-    const o = parseInt(localStorage.getItem("alchemy_music_mode"), 10);
-    this.musicMode = isNaN(o) ? 1 : o, this.currentCharacterId = "character2", this.filterCategory = "all", this.sortMode = "discovery", this.searchQuery = "", this.lastItemIds = [], this.infiniteHintsEnabled = false, this.fpsHudEnabled = false, this._injectStyles(), this._createUI();
+  constructor(A, I, g, C, B, i, Q = {}, o = null) {
+    this.onItemSelect = A, this.onGetHint = I, this.onWatchAd = g, this.onCleanup = C, this.onCharacterSwitch = B, this.onMusicToggle = i, this.debugHandlers = Q, this.onCraftClick = o;
+    const e = parseInt(localStorage.getItem("alchemy_music_mode"), 10);
+    this.musicMode = isNaN(e) ? 1 : e, this.currentCharacterId = "character2", this.filterCategory = "all", this.sortMode = "discovery", this.searchQuery = "", this.lastItemIds = [], this.infiniteHintsEnabled = false, this.fpsHudEnabled = false, this._injectStyles(), this._createUI();
   }
   _injectStyles() {
     if (document.getElementById("alchemy-ui-styles")) return;
@@ -25081,17 +25119,56 @@ class _d {
         cursor: not-allowed;
       }
 
-      /* Alt Bar: \u015E\u0131k Ayarlar Butonu */
+      /* Alt Bar: \u015E\u0131k Ayarlar ve B\xFCy\xFCl\xFC Birle\u015Ftir Butonu */
       #bottom-action-bar {
         position: absolute;
         bottom: 24px;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        gap: 12px;
+        gap: 14px;
         align-items: center;
         pointer-events: auto;
         z-index: 15;
+      }
+
+      /* B\xFCy\xFCl\xFC Birle\u015Ftir (Craft) Butonu */
+      #craft-action-btn {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        border-radius: 28px;
+        padding: 10px 22px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.65), 0 8px 24px rgba(0, 0, 0, 0.45);
+        transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        user-select: none;
+        pointer-events: auto;
+        animation: craftBtnPulse 2s infinite alternate ease-in-out;
+      }
+
+      #craft-action-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 35px rgba(236, 72, 153, 0.8), 0 12px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      #craft-action-btn:active {
+        transform: scale(0.95);
+      }
+
+      @keyframes craftBtnPulse {
+        0% {
+          box-shadow: 0 0 15px rgba(168, 85, 247, 0.45), 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 32px rgba(236, 72, 153, 0.85), 0 8px 25px rgba(0, 0, 0, 0.55);
+        }
       }
 
       .action-pill-btn {
@@ -25524,6 +25601,44 @@ class _d {
         transform: translateX(-50%) translateY(0) scale(1);
       }
 
+      /* Toast Bildirimi */
+      #alchemy-toast {
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-20px);
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 8px 18px;
+        color: #f8fafc;
+        font-size: 13px;
+        font-weight: 700;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 99;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      #alchemy-toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      #alchemy-toast.warn {
+        border-color: rgba(245, 158, 11, 0.6);
+        color: #fef08a;
+      }
+      #alchemy-toast.success {
+        border-color: rgba(52, 211, 153, 0.6);
+        color: #6ee7b7;
+      }
+
       .discovery-icon {
         width: 44px;
         height: 44px;
@@ -25560,8 +25675,8 @@ class _d {
       <div id="left-drawer">
         <div id="drawer-toggle">\u2630</div>
         <div class="drawer-header">
-          <span id="drawer-hints-title">${EA.t("hints_title")}</span>
-          <span class="hint-badge" id="hint-rights-badge">${EA.t("hint_rights", { n: 3 })}</span>
+          <span id="drawer-hints-title">${QA.t("hints_title")}</span>
+          <span class="hint-badge" id="hint-rights-badge">${QA.t("hint_rights", { n: 3 })}</span>
         </div>
         <div class="drawer-content" id="drawer-hints-list">
           <!-- Kilitli e\u015Fyalar dinamik y\xFCklenecek -->
@@ -25570,7 +25685,7 @@ class _d {
 
       <div id="right-panel">
         <div id="inv-controls" style="display: flex; flex-direction: column; gap: 5px; width: 100%; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.15);">
-          <input type="text" id="item-search-input" placeholder="${EA.t("search_placeholder")}" autocomplete="off" spellcheck="false">
+          <input type="text" id="item-search-input" placeholder="${QA.t("search_placeholder")}" autocomplete="off" spellcheck="false">
           <div style="display: flex; gap: 3px; width: 100%;">
             <button id="filter-btn" title="Filter by Category" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getFilterLabel("all")}</button>
             <button id="sort-btn" title="Sort Order" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getSortLabel("discovery")}</button>
@@ -25584,9 +25699,14 @@ class _d {
       <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
 
       <div id="bottom-action-bar">
+        <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
+          <span style="font-size: 16px;">\u2728</span>
+          <span id="craft-btn-label">${QA.t("craft_btn")}</span>
+          <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/3</span>
+        </button>
         <button id="settings-open-btn" class="action-pill-btn">
           <span style="font-size: 15px;">\u2699\uFE0F</span>
-          <span id="settings-open-btn-label">${EA.t("settings_btn")}</span>
+          <span id="settings-open-btn-label">${QA.t("settings_btn")}</span>
         </button>
       </div>
 
@@ -25595,25 +25715,25 @@ class _d {
           <div class="settings-header">
             <div class="settings-title">
               <span>\u2699\uFE0F</span>
-              <span id="settings-modal-title">${EA.t("settings_title")}</span>
+              <span id="settings-modal-title">${QA.t("settings_title")}</span>
             </div>
-            <button class="settings-close-icon" id="settings-close-btn" title="${EA.t("settings_close")}">\u2715</button>
+            <button class="settings-close-icon" id="settings-close-btn" title="${QA.t("settings_close")}">\u2715</button>
           </div>
 
           <div class="settings-tabs">
-            <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${EA.t("tab_general")}</button>
-            <button class="settings-tab-btn" id="tab-credits-btn" data-tab="credits">${EA.t("tab_credits")}</button>
-            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${EA.t("tab_debug")}</button>
+            <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${QA.t("tab_general")}</button>
+            <button class="settings-tab-btn" id="tab-credits-btn" data-tab="credits">${QA.t("tab_credits")}</button>
+            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${QA.t("tab_debug")}</button>
           </div>
 
           <!-- Genel Ayarlar Sekmesi -->
           <div class="settings-tab-pane" id="pane-general">
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-cleanup">${EA.t("cleanup")}</span>
+                <span class="settings-btn-label" id="label-cleanup">${QA.t("cleanup")}</span>
                 <span class="settings-btn-sub" id="sub-cleanup">Masadaki t\xFCm e\u015Fyalar\u0131 ve k\u0131r\u0131klar\u0131 temizle</span>
               </div>
-              <button id="cleanup-btn" class="settings-action-btn btn-danger">${EA.t("cleanup")}</button>
+              <button id="cleanup-btn" class="settings-action-btn btn-danger">${QA.t("cleanup")}</button>
             </div>
 
             <div class="settings-btn-row">
@@ -25642,23 +25762,23 @@ class _d {
                 <span class="settings-btn-label" id="label-lang">Dil / Language</span>
                 <span class="settings-btn-sub" id="sub-lang">Oyun dilini de\u011Fi\u015Ftir</span>
               </div>
-              <button id="lang-toggle-btn" class="settings-action-btn btn-blue">${EA.t("lang_btn")}</button>
+              <button id="lang-toggle-btn" class="settings-action-btn btn-blue">${QA.t("lang_btn")}</button>
             </div>
 
             <!-- Karakter Lisans\u0131 & At\u0131f Kart\u0131 -->
             <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
                 <span style="font-size: 12px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
-                  <span>\u{1F3A8}</span> <span id="general-credits-heading">${EA.t("credits_character_heading")}</span>
+                  <span>\u{1F3A8}</span> <span id="general-credits-heading">${QA.t("credits_character_heading")}</span>
                 </span>
                 <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 6px; border-radius: 4px;">CC BY 4.0</span>
               </div>
               <p style="font-size: 11px; color: #94a3b8; line-height: 1.4; margin: 0;" id="general-credits-desc">
-                ${EA.t("credits_character_desc")}
+                ${QA.t("credits_character_desc")}
               </p>
               <div style="display: flex; justify-content: flex-end; margin-top: 2px;">
                 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #38bdf8; text-decoration: none; padding: 4px 8px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; transition: all 0.2s;">
-                  <span id="general-credits-link-text">${EA.t("credits_view_license")}</span>
+                  <span id="general-credits-link-text">${QA.t("credits_view_license")}</span>
                   <span style="font-size: 9px;">\u2197</span>
                 </a>
               </div>
@@ -25670,23 +25790,23 @@ class _d {
             <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
                 <h4 style="font-size: 13px; font-weight: 700; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 6px;">
-                  <span>\u{1F4DC}</span> <span id="pane-credits-title">${EA.t("credits_title")}</span>
+                  <span>\u{1F4DC}</span> <span id="pane-credits-title">${QA.t("credits_title")}</span>
                 </h4>
                 <span style="font-size: 10px; font-weight: 700; background: rgba(56, 189, 248, 0.25); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.5); padding: 3px 7px; border-radius: 6px;">CC BY 4.0</span>
               </div>
               
               <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; margin: 0;" id="pane-credits-desc">
-                ${EA.t("credits_character_desc")}
+                ${QA.t("credits_character_desc")}
               </p>
 
               <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 11px; color: #94a3b8; line-height: 1.4;">
                 <div style="font-weight: 700; color: #e2e8f0; margin-bottom: 4px;" id="pane-credits-summary-title">Creative Commons Attribution 4.0:</div>
-                <div id="pane-credits-summary-text">${EA.t("credits_terms_summary")}</div>
+                <div id="pane-credits-summary-text">${QA.t("credits_terms_summary")}</div>
               </div>
 
               <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
                 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="settings-action-btn btn-blue" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 8px 14px;">
-                  <span id="pane-credits-link-btn">${EA.t("credits_view_license")}</span>
+                  <span id="pane-credits-link-btn">${QA.t("credits_view_license")}</span>
                   <span style="font-size: 11px;">\u2197</span>
                 </a>
               </div>
@@ -25697,12 +25817,12 @@ class _d {
           <div class="settings-tab-pane" id="pane-debug" style="display: none;">
             <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 10px; padding: 7px 12px; font-size: 11px; color: #fef08a; display: flex; align-items: center; gap: 8px;">
               <span>\u26A0\uFE0F</span>
-              <span id="debug-warning-text">${EA.t("debug_warning")}</span>
+              <span id="debug-warning-text">${QA.t("debug_warning")}</span>
             </div>
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-hints">${EA.t("debug_infinite_hints")}</span>
+                <span class="settings-btn-label" id="label-debug-hints">${QA.t("debug_infinite_hints")}</span>
                 <span class="settings-btn-sub" id="sub-debug-hints">\u0130pucu hakk\u0131 hi\xE7 eksilmez (999)</span>
               </div>
               <button id="debug-infinite-hints-btn" class="settings-action-btn btn-amber">${this.infiniteHintsEnabled ? "A\xE7\u0131k (S\u0131n\u0131rs\u0131z)" : "Aktif Et"}</button>
@@ -25710,31 +25830,31 @@ class _d {
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-unlock">${EA.t("debug_unlock_all")}</span>
+                <span class="settings-btn-label" id="label-debug-unlock">${QA.t("debug_unlock_all")}</span>
                 <span class="settings-btn-sub" id="sub-debug-unlock">T\xFCm 180+ e\u015Fyay\u0131 an\u0131nda a\xE7</span>
               </div>
-              <button id="debug-unlock-all-btn" class="settings-action-btn btn-cyan">${EA.t("debug_unlock_all")}</button>
+              <button id="debug-unlock-all-btn" class="settings-action-btn btn-cyan">${QA.t("debug_unlock_all")}</button>
             </div>
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-reveal">${EA.t("debug_reveal_hints")}</span>
+                <span class="settings-btn-label" id="label-debug-reveal">${QA.t("debug_reveal_hints")}</span>
                 <span class="settings-btn-sub" id="sub-debug-reveal">T\xFCm tarifleri ipucunda g\xF6ster</span>
               </div>
-              <button id="debug-reveal-hints-btn" class="settings-action-btn btn-indigo">${EA.t("debug_reveal_hints")}</button>
+              <button id="debug-reveal-hints-btn" class="settings-action-btn btn-indigo">${QA.t("debug_reveal_hints")}</button>
             </div>
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-spawn">${EA.t("debug_spawn_basics")}</span>
+                <span class="settings-btn-label" id="label-debug-spawn">${QA.t("debug_spawn_basics")}</span>
                 <span class="settings-btn-sub" id="sub-debug-spawn">4 elementi masaya koy</span>
               </div>
-              <button id="debug-spawn-basics-btn" class="settings-action-btn btn-emerald">${EA.t("debug_spawn_basics")}</button>
+              <button id="debug-spawn-basics-btn" class="settings-action-btn btn-emerald">${QA.t("debug_spawn_basics")}</button>
             </div>
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-fps">${EA.t("debug_fps_counter")}</span>
+                <span class="settings-btn-label" id="label-debug-fps">${QA.t("debug_fps_counter")}</span>
                 <span class="settings-btn-sub" id="sub-debug-fps">FPS ve sahne nesne say\u0131s\u0131</span>
               </div>
               <button id="debug-fps-toggle-btn" class="settings-action-btn btn-slate ${this.fpsHudEnabled ? "active" : ""}">${this.fpsHudEnabled ? "A\xE7\u0131k" : "Kapal\u0131"}</button>
@@ -25742,10 +25862,10 @@ class _d {
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-reset" style="color: #f87171;">${EA.t("debug_reset_progress")}</span>
+                <span class="settings-btn-label" id="label-debug-reset" style="color: #f87171;">${QA.t("debug_reset_progress")}</span>
                 <span class="settings-btn-sub" id="sub-debug-reset">Kay\u0131tlar\u0131 temizle ve s\u0131f\u0131rla</span>
               </div>
-              <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${EA.t("debug_reset_progress")}</button>
+              <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${QA.t("debug_reset_progress")}</button>
             </div>
           </div>
         </div>
@@ -25754,110 +25874,126 @@ class _d {
       <div id="discovery-banner">
         <div class="discovery-icon" id="discovery-icon"></div>
         <div>
-          <div class="discovery-title" id="discovery-title">${EA.t("discovery_title")}</div>
+          <div class="discovery-title" id="discovery-title">${QA.t("discovery_title")}</div>
           <div class="discovery-desc" id="discovery-desc">...</div>
         </div>
       </div>
 
+      <div id="alchemy-toast"></div>
+
       <div id="ad-modal">
         <div class="ad-box">
-          <h3 id="ad-title">${EA.t("ad_title")}</h3>
-          <p id="ad-desc">${EA.t("ad_desc")}</p>
-          <button class="ad-btn" id="watch-ad-btn">${EA.t("ad_watch_btn")}</button>
-          <button class="ad-close" id="close-ad-btn">${EA.t("ad_cancel_btn")}</button>
+          <h3 id="ad-title">${QA.t("ad_title")}</h3>
+          <p id="ad-desc">${QA.t("ad_desc")}</p>
+          <button class="ad-btn" id="watch-ad-btn">${QA.t("ad_watch_btn")}</button>
+          <button class="ad-close" id="close-ad-btn">${QA.t("ad_cancel_btn")}</button>
         </div>
       </div>
-    `, document.body.appendChild(A), this._setupDrawerLogic(), this._setupInventoryControls(), this._setupLanguageToggle(), this._setupMusicToggle(), this._setupSettingsLogic();
+    `, document.body.appendChild(A), this._setupDrawerLogic(), this._setupInventoryControls(), this._setupLanguageToggle(), this._setupMusicToggle(), this._setupSettingsLogic(), this._setupCraftButton();
+  }
+  _setupCraftButton() {
+    const A = document.getElementById("craft-action-btn");
+    A && this.onCraftClick && A.addEventListener("click", (I) => {
+      I.stopPropagation(), KI.to(A, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1, onComplete: () => {
+        this.onCraftClick();
+      } });
+    });
+  }
+  updateCraftButton(A) {
+    const I = document.getElementById("craft-action-btn"), g = document.getElementById("craft-btn-counter");
+    I && (A >= 1 ? (I.style.display = "inline-flex", g && (g.textContent = `${A}/3`), KI.killTweensOf(I), KI.fromTo(I, { scale: 0.8 }, { scale: 1, duration: 0.3, ease: "back.out(2)" })) : I.style.display = "none");
   }
   _getFilterLabel(A) {
     const g = { all: "all_categories", elements: "cat_elements", nature: "cat_nature", life: "cat_life", craft_tools: "cat_craft_tools", 5: "cat_5", 6: "cat_6", 7: "cat_7", 8: "cat_8", 9: "cat_9", 10: "cat_10" }[A] || "all_categories";
-    return EA.t(g);
+    return QA.t(g);
   }
   _getSortLabel(A) {
-    return A === "category" ? EA.t("sort_category") : EA.t("sort_discovery");
+    return A === "category" ? QA.t("sort_category") : QA.t("sort_discovery");
   }
   _getMusicButtonLabel() {
-    return this.musicMode === 1 ? EA.t("music_1") : this.musicMode === 2 ? EA.t("music_2") : this.musicMode === 3 ? EA.t("music_3") : EA.t("music_none");
+    return this.musicMode === 1 ? QA.t("music_1") : this.musicMode === 2 ? QA.t("music_2") : this.musicMode === 3 ? QA.t("music_3") : QA.t("music_none");
   }
   _setupLanguageToggle() {
     const A = document.getElementById("lang-toggle-btn");
     A && A.addEventListener("click", () => {
-      EA.toggleLanguage(), this._updateUILanguage();
-    }), EA.onLanguageChange(() => {
+      QA.toggleLanguage(), this._updateUILanguage();
+    }), QA.onLanguageChange(() => {
       this._updateUILanguage();
     });
   }
   _updateUILanguage() {
     const A = document.getElementById("lang-toggle-btn");
-    A && (A.textContent = EA.t("lang_btn"));
+    A && (A.textContent = QA.t("lang_btn"));
     const I = document.getElementById("cleanup-btn");
-    I && (I.textContent = EA.t("cleanup"));
+    I && (I.textContent = QA.t("cleanup"));
     const g = document.getElementById("character-switch-btn");
     g && (g.textContent = this._getCharacterLabel());
     const C = document.getElementById("music-toggle-btn");
     C && (C.textContent = this._getMusicButtonLabel(), C.classList.toggle("muted", this.musicMode === 0));
-    const B = document.getElementById("item-search-input");
-    B && (B.placeholder = EA.t("search_placeholder"));
-    const i = document.getElementById("filter-btn");
-    i && (i.textContent = this._getFilterLabel(this.filterCategory));
-    const Q = document.getElementById("sort-btn");
-    Q && (Q.textContent = this._getSortLabel(this.sortMode));
-    const o = document.getElementById("drawer-hints-title");
-    o && (o.textContent = EA.t("hints_title"));
-    const e = document.getElementById("ad-title");
-    e && (e.textContent = EA.t("ad_title"));
-    const t = document.getElementById("ad-desc");
-    t && (t.textContent = EA.t("ad_desc"));
-    const a = document.getElementById("watch-ad-btn");
-    a && (a.textContent = EA.t("ad_watch_btn"));
-    const s = document.getElementById("close-ad-btn");
-    s && (s.textContent = EA.t("ad_cancel_btn"));
-    const n = document.getElementById("settings-open-btn-label");
-    n && (n.textContent = EA.t("settings_btn"));
-    const r = document.getElementById("settings-modal-title");
-    r && (r.textContent = EA.t("settings_title"));
-    const c = document.getElementById("tab-general-btn");
-    c && (c.textContent = EA.t("tab_general"));
-    const D = document.getElementById("tab-credits-btn");
-    D && (D.textContent = EA.t("tab_credits"));
-    const h = document.getElementById("tab-debug-btn");
-    h && (h.textContent = EA.t("tab_debug"));
-    const S = document.getElementById("general-credits-heading");
-    S && (S.textContent = EA.t("credits_character_heading"));
-    const G = document.getElementById("general-credits-desc");
-    G && (G.textContent = EA.t("credits_character_desc"));
-    const k = document.getElementById("general-credits-link-text");
-    k && (k.textContent = EA.t("credits_view_license"));
+    const B = document.getElementById("craft-btn-label");
+    B && (B.textContent = QA.t("craft_btn"));
+    const i = document.getElementById("item-search-input");
+    i && (i.placeholder = QA.t("search_placeholder"));
+    const Q = document.getElementById("filter-btn");
+    Q && (Q.textContent = this._getFilterLabel(this.filterCategory));
+    const o = document.getElementById("sort-btn");
+    o && (o.textContent = this._getSortLabel(this.sortMode));
+    const e = document.getElementById("drawer-hints-title");
+    e && (e.textContent = QA.t("hints_title"));
+    const t = document.getElementById("ad-title");
+    t && (t.textContent = QA.t("ad_title"));
+    const a = document.getElementById("ad-desc");
+    a && (a.textContent = QA.t("ad_desc"));
+    const s = document.getElementById("watch-ad-btn");
+    s && (s.textContent = QA.t("ad_watch_btn"));
+    const n = document.getElementById("close-ad-btn");
+    n && (n.textContent = QA.t("ad_cancel_btn"));
+    const r = document.getElementById("settings-open-btn-label");
+    r && (r.textContent = QA.t("settings_btn"));
+    const c = document.getElementById("settings-modal-title");
+    c && (c.textContent = QA.t("settings_title"));
+    const D = document.getElementById("tab-general-btn");
+    D && (D.textContent = QA.t("tab_general"));
+    const h = document.getElementById("tab-credits-btn");
+    h && (h.textContent = QA.t("tab_credits"));
+    const S = document.getElementById("tab-debug-btn");
+    S && (S.textContent = QA.t("tab_debug"));
+    const G = document.getElementById("general-credits-heading");
+    G && (G.textContent = QA.t("credits_character_heading"));
+    const k = document.getElementById("general-credits-desc");
+    k && (k.textContent = QA.t("credits_character_desc"));
+    const M = document.getElementById("general-credits-link-text");
+    M && (M.textContent = QA.t("credits_view_license"));
     const U = document.getElementById("pane-credits-title");
-    U && (U.textContent = EA.t("credits_title"));
+    U && (U.textContent = QA.t("credits_title"));
     const p = document.getElementById("pane-credits-desc");
-    p && (p.textContent = EA.t("credits_character_desc"));
-    const M = document.getElementById("pane-credits-summary-text");
-    M && (M.textContent = EA.t("credits_terms_summary"));
-    const F = document.getElementById("pane-credits-link-btn");
-    F && (F.textContent = EA.t("credits_view_license"));
-    const y = document.getElementById("debug-warning-text");
-    y && (y.textContent = EA.t("debug_warning"));
-    const N = document.getElementById("label-debug-hints");
-    N && (N.textContent = EA.t("debug_infinite_hints"));
-    const q = document.getElementById("label-debug-unlock");
-    q && (q.textContent = EA.t("debug_unlock_all"));
-    const L = document.getElementById("debug-unlock-all-btn");
-    L && (L.textContent = EA.t("debug_unlock_all"));
-    const Z = document.getElementById("label-debug-reveal");
-    Z && (Z.textContent = EA.t("debug_reveal_hints"));
-    const m = document.getElementById("debug-reveal-hints-btn");
-    m && (m.textContent = EA.t("debug_reveal_hints"));
-    const _ = document.getElementById("label-debug-spawn");
-    _ && (_.textContent = EA.t("debug_spawn_basics"));
-    const v = document.getElementById("debug-spawn-basics-btn");
-    v && (v.textContent = EA.t("debug_spawn_basics"));
-    const AA = document.getElementById("label-debug-fps");
-    AA && (AA.textContent = EA.t("debug_fps_counter"));
-    const gA = document.getElementById("label-debug-reset");
-    gA && (gA.textContent = EA.t("debug_reset_progress"));
-    const CA = document.getElementById("debug-reset-progress-btn");
-    CA && (CA.textContent = EA.t("debug_reset_progress")), this._populateInventory(), this._lastHintsArgs && this.populateHints(...this._lastHintsArgs);
+    p && (p.textContent = QA.t("credits_character_desc"));
+    const F = document.getElementById("pane-credits-summary-text");
+    F && (F.textContent = QA.t("credits_terms_summary"));
+    const y = document.getElementById("pane-credits-link-btn");
+    y && (y.textContent = QA.t("credits_view_license"));
+    const N = document.getElementById("debug-warning-text");
+    N && (N.textContent = QA.t("debug_warning"));
+    const q = document.getElementById("label-debug-hints");
+    q && (q.textContent = QA.t("debug_infinite_hints"));
+    const L = document.getElementById("label-debug-unlock");
+    L && (L.textContent = QA.t("debug_unlock_all"));
+    const Z = document.getElementById("debug-unlock-all-btn");
+    Z && (Z.textContent = QA.t("debug_unlock_all"));
+    const m = document.getElementById("label-debug-reveal");
+    m && (m.textContent = QA.t("debug_reveal_hints"));
+    const _ = document.getElementById("debug-reveal-hints-btn");
+    _ && (_.textContent = QA.t("debug_reveal_hints"));
+    const v = document.getElementById("label-debug-spawn");
+    v && (v.textContent = QA.t("debug_spawn_basics"));
+    const AA = document.getElementById("debug-spawn-basics-btn");
+    AA && (AA.textContent = QA.t("debug_spawn_basics"));
+    const gA = document.getElementById("label-debug-fps");
+    gA && (gA.textContent = QA.t("debug_fps_counter"));
+    const CA = document.getElementById("label-debug-reset");
+    CA && (CA.textContent = QA.t("debug_reset_progress"));
+    const iA = document.getElementById("debug-reset-progress-btn");
+    iA && (iA.textContent = QA.t("debug_reset_progress")), this._populateInventory(), this._lastHintsArgs && this.populateHints(...this._lastHintsArgs);
   }
   _setupDrawerLogic() {
     const A = document.getElementById("left-drawer"), I = document.getElementById("drawer-toggle");
@@ -25894,15 +26030,15 @@ class _d {
     C == null ? void 0 : C.addEventListener("click", () => t("general")), B == null ? void 0 : B.addEventListener("click", () => t("credits")), i == null ? void 0 : i.addEventListener("click", () => t("debug"));
     const a = document.getElementById("debug-infinite-hints-btn");
     a && a.addEventListener("click", () => {
-      this.infiniteHintsEnabled = !this.infiniteHintsEnabled, this.debugHandlers.onSetInfiniteHints && this.debugHandlers.onSetInfiniteHints(this.infiniteHintsEnabled), a.classList.toggle("active", this.infiniteHintsEnabled), a.textContent = this.infiniteHintsEnabled ? EA.currentLang === "tr" ? "A\xE7\u0131k (S\u0131n\u0131rs\u0131z)" : "Enabled (Unlimited)" : EA.currentLang === "tr" ? "Aktif Et" : "Enable";
+      this.infiniteHintsEnabled = !this.infiniteHintsEnabled, this.debugHandlers.onSetInfiniteHints && this.debugHandlers.onSetInfiniteHints(this.infiniteHintsEnabled), a.classList.toggle("active", this.infiniteHintsEnabled), a.textContent = this.infiniteHintsEnabled ? QA.currentLang === "tr" ? "A\xE7\u0131k (S\u0131n\u0131rs\u0131z)" : "Enabled (Unlimited)" : QA.currentLang === "tr" ? "Aktif Et" : "Enable";
     });
     const s = document.getElementById("debug-unlock-all-btn");
     s && s.addEventListener("click", () => {
-      this.debugHandlers.onUnlockAll && this.debugHandlers.onUnlockAll(), alert(EA.t("debug_all_unlocked_msg"));
+      this.debugHandlers.onUnlockAll && this.debugHandlers.onUnlockAll(), alert(QA.t("debug_all_unlocked_msg"));
     });
     const n = document.getElementById("debug-reveal-hints-btn");
     n && n.addEventListener("click", () => {
-      this.debugHandlers.onRevealAllHints && this.debugHandlers.onRevealAllHints(), alert(EA.t("debug_all_hints_revealed_msg"));
+      this.debugHandlers.onRevealAllHints && this.debugHandlers.onRevealAllHints(), alert(QA.t("debug_all_hints_revealed_msg"));
     });
     const r = document.getElementById("debug-spawn-basics-btn");
     r && r.addEventListener("click", () => {
@@ -25910,11 +26046,11 @@ class _d {
     });
     const c = document.getElementById("debug-fps-toggle-btn"), D = document.getElementById("fps-counter-hud");
     c && c.addEventListener("click", () => {
-      this.fpsHudEnabled = !this.fpsHudEnabled, D && (D.style.display = this.fpsHudEnabled ? "block" : "none"), c.classList.toggle("active", this.fpsHudEnabled), c.textContent = this.fpsHudEnabled ? EA.currentLang === "tr" ? "A\xE7\u0131k" : "ON" : EA.currentLang === "tr" ? "Kapal\u0131" : "OFF", this.debugHandlers.onToggleFps && this.debugHandlers.onToggleFps(this.fpsHudEnabled);
+      this.fpsHudEnabled = !this.fpsHudEnabled, D && (D.style.display = this.fpsHudEnabled ? "block" : "none"), c.classList.toggle("active", this.fpsHudEnabled), c.textContent = this.fpsHudEnabled ? QA.currentLang === "tr" ? "A\xE7\u0131k" : "ON" : QA.currentLang === "tr" ? "Kapal\u0131" : "OFF", this.debugHandlers.onToggleFps && this.debugHandlers.onToggleFps(this.fpsHudEnabled);
     });
     const h = document.getElementById("debug-reset-progress-btn");
     h && h.addEventListener("click", () => {
-      confirm(EA.t("debug_reset_confirm")) && (this.debugHandlers.onResetProgress && this.debugHandlers.onResetProgress(), A.classList.remove("show"));
+      confirm(QA.t("debug_reset_confirm")) && (this.debugHandlers.onResetProgress && this.debugHandlers.onResetProgress(), A.classList.remove("show"));
     });
   }
   updateFpsHud(A, I = 0) {
@@ -25941,10 +26077,10 @@ class _d {
   updateHintRights(A) {
     this._lastHintRights = A;
     const I = document.getElementById("hint-rights-badge");
-    I && (I.textContent = EA.t("hint_rights", { n: A }));
+    I && (I.textContent = QA.t("hint_rights", { n: A }));
   }
   _getCharacterLabel(A = this.currentCharacterId) {
-    return A === "character3" ? EA.t("char_wanderer") : A === "character2" ? EA.t("char_observer") : EA.t("char_apprentice");
+    return A === "character3" ? QA.t("char_wanderer") : A === "character2" ? QA.t("char_observer") : QA.t("char_apprentice");
   }
   _getNextCharacterId(A = this.currentCharacterId) {
     const I = ["character1", "character2", "character3"], g = I.indexOf(A);
@@ -25961,14 +26097,14 @@ class _d {
     C.innerHTML = "";
     const B = g.getCraftableLockedItems(A, I);
     if (B.length === 0) {
-      C.innerHTML = `<p style="text-align: center; color: #94a3b8; font-size: 12px; padding: 10px;">${EA.t("hint_no_craftable")}</p>`;
+      C.innerHTML = `<p style="text-align: center; color: #94a3b8; font-size: 12px; padding: 10px;">${QA.t("hint_no_craftable")}</p>`;
       return;
     }
     B.forEach((i) => {
       var _a2;
-      const Q = OI[i];
+      const Q = vI[i];
       if (!Q) return;
-      const o = EA.getItemName(i, Q.name), e = g.getHint(i), t = g.canUseHint(i), a = e.level > 0, s = document.createElement("div");
+      const o = QA.getItemName(i, Q.name), e = g.getHint(i), t = g.canUseHint(i), a = e.level > 0, s = document.createElement("div");
       s.className = "locked-item-card", s.style.display = "flex", s.style.alignItems = "flex-start", s.style.gap = "10px";
       const n = a ? "none" : "brightness(0)", r = a ? `0 0 10px ${((_a2 = Q.colorPalette) == null ? void 0 : _a2.primary) || "#38bdf8"}` : "none", c = a ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.35)", h = `<img src="/textures/items/${lg(i) || i}.png" class="item-img-icon" alt="${o}" style="filter: ${n};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${n};\\'>${Q.icon || "\u2728"}</span>';">`;
       s.innerHTML = `
@@ -25976,7 +26112,7 @@ class _d {
         <div style="flex: 1; min-width: 0;">
           <h4 style="font-size: 13px; color: #f8fafc; margin-bottom: 2px;">${a ? o : "???"}</h4>
           <p style="font-size: 11px; color: #94a3b8; margin-bottom: 6px; line-height: 1.4;">${e.text}</p>
-          ${t ? `<button class="hint-btn" data-id="${i}">${EA.t("hint_get")}</button>` : `<span style="font-size:11px; color:#10b981; font-weight:600;">${EA.t("hint_opened")}</span>`}
+          ${t ? `<button class="hint-btn" data-id="${i}">${QA.t("hint_get")}</button>` : `<span style="font-size:11px; color:#10b981; font-weight:600;">${QA.t("hint_opened")}</span>`}
         </div>
       `;
       const S = s.querySelector(".hint-btn");
@@ -25985,8 +26121,8 @@ class _d {
         if (G && G.needsAd) {
           const k = document.getElementById("ad-modal");
           k.style.display = "flex";
-          const U = document.getElementById("watch-ad-btn"), p = U.cloneNode(true);
-          U.parentNode.replaceChild(p, U), p.addEventListener("click", () => {
+          const M = document.getElementById("watch-ad-btn"), U = M.cloneNode(true);
+          M.parentNode.replaceChild(U, M), U.addEventListener("click", () => {
             k.style.display = "none", this.onWatchAd(i);
           });
         }
@@ -25996,9 +26132,9 @@ class _d {
   _populateInventory(A) {
     A && (this.lastItemIds = A);
     let g = (this.lastItemIds || []).filter((B) => {
-      const i = OI[B];
+      const i = vI[B];
       if (!i) return false;
-      const Q = EA.getItemName(B, i.name);
+      const Q = QA.getItemName(B, i.name);
       if (this.searchQuery) {
         const e = this.searchQuery;
         if (!(Q.toLowerCase().includes(e) || (i.name || "").toLowerCase().includes(e))) return false;
@@ -26011,39 +26147,45 @@ class _d {
       const B = { elements: 1, nature: 2, life: 3, craft_tools: 4, 5: 5, 5: 5, 6: 6, 6: 6, 7: 7, 7: 7, 8: 8, 8: 8, 9: 9, 9: 9, 10: 10, 10: 10 };
       g.sort((i, Q) => {
         var _a2, _b;
-        const o = B[(_a2 = OI[i]) == null ? void 0 : _a2.category] || 99, e = B[(_b = OI[Q]) == null ? void 0 : _b.category] || 99;
+        const o = B[(_a2 = vI[i]) == null ? void 0 : _a2.category] || 99, e = B[(_b = vI[Q]) == null ? void 0 : _b.category] || 99;
         return o !== e ? o - e : 0;
       });
     }
     const C = document.getElementById("inv-items-container") || document.getElementById("right-panel");
     C.innerHTML = "", g.forEach((B) => {
       var _a2;
-      const i = lg(B) || B, Q = OI[i] || OI[B];
+      const i = lg(B) || B, Q = vI[i] || vI[B];
       if (!Q) return;
-      const o = EA.getItemName(i, Q.name), e = document.createElement("div");
+      const o = QA.getItemName(i, Q.name), e = document.createElement("div");
       e.className = "item-icon-btn", e.innerHTML = `
         <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${((_a2 = Q.colorPalette) == null ? void 0 : _a2.primary) || "#38bdf8"};">
           <img src="/textures/items/${i}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='${Q.icon || "\u2728"}';">
         </div>
         <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${o}</span>
       `, e.addEventListener("click", () => {
-        hg.to(e, { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 }), this.onItemSelect && this.onItemSelect(B);
+        KI.to(e, { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 }), this.onItemSelect && this.onItemSelect(B);
       }), C.appendChild(e);
     });
   }
   showDiscoveryAnnouncement(A) {
     var _a2;
-    const I = OI[A];
+    const I = vI[A];
     if (!I) return;
     const g = document.getElementById("discovery-banner"), C = document.getElementById("discovery-icon"), B = document.getElementById("discovery-title"), i = document.getElementById("discovery-desc");
     if (!g || !C || !B || !i) return;
-    const Q = lg(A) || A, o = EA.getItemName(Q, I.name), e = EA.getItemDescription(Q, I.description);
-    C.innerHTML = `<img src="/textures/items/${Q}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${o ? o[0].toUpperCase() : ""}</span>';">`, ((_a2 = I.colorPalette) == null ? void 0 : _a2.primary) && (C.style.boxShadow = `0 0 16px ${I.colorPalette.primary}`), B.innerHTML = `${EA.t("discovery_title")}: <span style="color: #67e8f9; margin-left: 4px;">"${o}"</span>`, i.textContent = e, this._discoveryTimeout && clearTimeout(this._discoveryTimeout), g.classList.add("show"), this._discoveryTimeout = setTimeout(() => {
+    const Q = lg(A) || A, o = QA.getItemName(Q, I.name), e = QA.getItemDescription(Q, I.description);
+    C.innerHTML = `<img src="/textures/items/${Q}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${o ? o[0].toUpperCase() : ""}</span>';">`, ((_a2 = I.colorPalette) == null ? void 0 : _a2.primary) && (C.style.boxShadow = `0 0 16px ${I.colorPalette.primary}`), B.innerHTML = `${QA.t("discovery_title")}: <span style="color: #67e8f9; margin-left: 4px;">"${o}"</span>`, i.textContent = e, this._discoveryTimeout && clearTimeout(this._discoveryTimeout), g.classList.add("show"), this._discoveryTimeout = setTimeout(() => {
       g.classList.remove("show");
     }, 4200);
   }
+  showToast(A, I = "info") {
+    const g = document.getElementById("alchemy-toast");
+    g && (this.toastTimeout && (clearTimeout(this.toastTimeout), this.toastTimeout = null), g.className = "show " + (I || "info"), g.textContent = A, this.toastTimeout = setTimeout(() => {
+      g.className = "", this.toastTimeout = null;
+    }, 2200));
+  }
 }
-const De = [{ id: 1, name: "Stride of the Traveler", src: "/audio/music1.mp3" }, { id: 2, name: "Beneath The Northern Peak", src: "/audio/music2.mp3" }, { id: 3, name: "Morning in the Clearing", src: "/audio/music3.mp3" }];
+const ce = [{ id: 1, name: "Stride of the Traveler", src: "/audio/music1.mp3" }, { id: 2, name: "Beneath The Northern Peak", src: "/audio/music2.mp3" }, { id: 3, name: "Morning in the Clearing", src: "/audio/music3.mp3" }];
 class Od {
   constructor() {
     this.bgm = null;
@@ -26053,7 +26195,7 @@ class Od {
   _setupAudio() {
     try {
       this.bgm && (this.bgm.pause(), this.bgm.src = "");
-      const A = De.find((I) => I.id === this.musicMode);
+      const A = ce.find((I) => I.id === this.musicMode);
       A ? (this.bgm = new Audio(A.src), this.bgm.loop = true, this.bgm.volume = this.volume, this.bgm.preload = "auto") : this.bgm = null;
     } catch (A) {
       console.warn("Audio deste\u011Fi ba\u015Flat\u0131lamad\u0131:", A);
@@ -26082,14 +26224,14 @@ class Od {
     });
   }
   cycleMusicMode() {
-    return this.musicMode === 0 ? this.setMusicMode(1) : this.musicMode < De.length ? this.setMusicMode(this.musicMode + 1) : this.setMusicMode(0), this.musicMode;
+    return this.musicMode === 0 ? this.setMusicMode(1) : this.musicMode < ce.length ? this.setMusicMode(this.musicMode + 1) : this.setMusicMode(0), this.musicMode;
   }
   setMusicMode(A) {
     const I = this.bgm;
     this.musicMode = A, localStorage.setItem("alchemy_music_mode", this.musicMode.toString()), I && this._fadeOut(400, () => {
       I.pause(), I.src = "";
     });
-    const g = De.find((C) => C.id === this.musicMode);
+    const g = ce.find((C) => C.id === this.musicMode);
     g ? (this.bgm = new Audio(g.src), this.bgm.loop = true, this.bgm.volume = 0, this.bgm.preload = "auto", this.audioUnlocked && this.bgm.play().then(() => {
       this.isPlaying = true, this._fadeIn(800);
     }).catch(() => {
@@ -26148,7 +26290,9 @@ class Zd {
     } };
     this.ui = new _d((Q) => this.onInventoryItemSelect(Q), (Q) => this.onGetHint(Q), (Q) => this.onWatchAd(Q), () => this.clearTableAndPieces(), (Q) => {
       this.tableScene.switchCharacter(Q), this._saveGame();
-    }, () => vd.cycleMusicMode(), i), this.ui.updateCharacterButton(B), this.ui._populateInventory(this.unlockedItems), this.ui.updateHintRights(this.hintSystem.hintRights), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._setupRaycasting(A), this._startLoop();
+    }, () => vd.cycleMusicMode(), i, () => {
+      this.tableScene.playTalkingAnimation(), this.triggerCrafting();
+    }), this.ui.updateCharacterButton(B), this.ui._populateInventory(this.unlockedItems), this.ui.updateHintRights(this.hintSystem.hintRights), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._setupRaycasting(A), this._startLoop();
   }
   _loadSavedGame() {
     try {
@@ -26182,90 +26326,118 @@ class Zd {
     const B = this.tableScene.getSlots().find((Q) => !Q.userData.isOccupied);
     if (!B) return;
     B.userData.isOccupied = true, B.userData.currentItem = A;
-    const i = zE.createItemMesh(A);
-    i.position.set(B.position.x, 3, B.position.z), i.scale.set(0, 0, 0), this.sceneManager.add(i), B.userData.mesh = i, i.userData.slot = B, hg.to(i.position, { y: B.position.y + 0.3, duration: 0.6, ease: "bounce.out" }), hg.to(i.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 0.4, ease: "back.out(1.7)" });
+    const i = $E.createItemMesh(A);
+    i.position.set(B.position.x, 3, B.position.z), i.scale.set(0, 0, 0), this.sceneManager.add(i), B.userData.mesh = i, i.userData.slot = B, KI.to(i.position, { y: B.position.y + 0.3, duration: 0.6, ease: "bounce.out" }), KI.to(i.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 0.4, ease: "back.out(1.7)" }), this._updateCraftButtonState();
+  }
+  _updateCraftButtonState() {
+    if (!this.tableScene || !this.ui) return;
+    const I = this.tableScene.getSlots().filter((g) => g.userData && g.userData.isOccupied).length;
+    this.ui.updateCraftButton(I);
   }
   onGetHint(A) {
     const I = this.hintSystem.useHint(A);
     return I.success && (this.ui.updateHintRights(this.hintSystem.hintRights), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._saveGame()), I;
   }
   onWatchAd(A) {
-    this.hintSystem.watchAdForHint(A), this.ui.updateHintRights(this.hintSystem.hintRights), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._saveGame(), alert(EA.t("ad_watched_alert"));
+    this.hintSystem.watchAdForHint(A), this.ui.updateHintRights(this.hintSystem.hintRights), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._saveGame(), alert(QA.t("ad_watched_alert"));
   }
   _setupRaycasting(A) {
     const I = new rk(), g = new ZA();
     A.addEventListener("pointerdown", (C) => {
+      if (C.button !== void 0 && C.button !== 0) return;
       const B = A.getBoundingClientRect();
       g.x = (C.clientX - B.left) / B.width * 2 - 1, g.y = -((C.clientY - B.top) / B.height) * 2 + 1, I.setFromCamera(g, this.sceneManager.camera);
       const i = I.intersectObjects(this.sceneManager.scene.children, true);
       if (i.length === 0) return;
       const Q = i[0];
-      let o = Q.object, e = null;
-      for (; o && o.parent && o !== this.sceneManager.scene; ) {
-        if (o.userData) {
-          if (o.userData.slot) {
-            e = o.userData.slot;
+      let o = null, e = Q.object;
+      for (; e && e !== this.sceneManager.scene; ) {
+        if (e.userData) {
+          if (e.userData.slot) {
+            o = e.userData.slot;
             break;
-          } else if (o.userData.slotIndex !== void 0 && o.userData.isOccupied) {
-            e = o;
+          } else if (e.userData.slotIndex !== void 0 && e.userData.isOccupied) {
+            o = e;
             break;
           }
         }
-        o = o.parent;
+        e = e.parent;
       }
-      if (e && e.userData && e.userData.isOccupied && e.userData.mesh) {
-        this.throwAndBreakItem(e);
+      if (o && o.userData && o.userData.isOccupied && o.userData.mesh) {
+        this.throwAndBreakItem(o);
         return;
       }
-      (this.tableScene.isCharacterHit(o) || Q.point && Q.point.z < -1) && (this.tableScene.playTalkingAnimation(), this.triggerCrafting());
+      console.log("Karakter/Masa etkile\u015Fimi alg\u0131land\u0131! Craft tetikleniyor...");
+      try {
+        this.tableScene.playTalkingAnimation();
+      } catch (t) {
+        console.warn("Karakter konu\u015Fma animasyonu hatas\u0131:", t);
+      }
+      this.triggerCrafting();
     });
   }
   throwAndBreakItem(A) {
     const I = A.userData.mesh;
-    I && (A.userData.isOccupied = false, A.userData.currentItem = null, A.userData.mesh = null, I.userData.slot = null, hg.to(I.position, { y: 3.5, z: -2, duration: 0.4, ease: "power1.out", onComplete: () => {
-      this.sceneManager.remove(I), I.userData.fracturePieces && I.userData.fracturePieces.forEach((g) => {
+    I && (A.userData.isOccupied = false, A.userData.currentItem = null, A.userData.mesh = null, I.userData.slot = null, KI.to(I.position, { y: 3.5, z: -2, duration: 0.4, ease: "power1.out", onComplete: () => {
+      this.sceneManager.remove(I), this._updateCraftButtonState(), I.userData.fracturePieces && I.userData.fracturePieces.forEach((g) => {
         const C = g.clone();
         delete C.userData.slot, C.position.copy(I.position), C.scale.set(0.5, 0.5, 0.5), this.sceneManager.add(C), this.physics.addPiece(C, I.position, g.userData.breakVelocity);
       });
-    } }));
+    } }), this._updateCraftButtonState());
   }
   triggerCrafting() {
     const A = this.tableScene.getSlots(), I = A.map((C) => C.userData.currentItem || null);
-    if (I.every((C) => C === null)) return;
+    if (I.every((C) => C === null)) {
+      this.ui.showToast(QA.t("craft_no_items"), "warn");
+      return;
+    }
     const g = this.crafting.checkRecipe(I);
     if (g) {
-      this.failedCraftAttempts = 0, this.tableScene.playSuccessAnimation();
+      this.failedCraftAttempts = 0, this.ui.showToast(QA.t("craft_success"), "success");
+      try {
+        this.tableScene.playSuccessAnimation();
+      } catch (B) {
+        console.warn("Karakter ba\u015Far\u0131 animasyonu hatas\u0131:", B);
+      }
       const C = [];
       A.forEach((B) => {
         B.userData.mesh && (C.push(B.userData.mesh), B.userData.isOccupied = false, B.userData.currentItem = null, B.userData.mesh = null);
       }), C.forEach((B) => {
-        hg.to(B.position, { x: 0, y: 0.8, z: 0, duration: 0.3 }), hg.to(B.scale, { x: 0, y: 0, z: 0, duration: 0.3, onComplete: () => {
+        KI.to(B.position, { x: 0, y: 0.8, z: 0, duration: 0.3 }), KI.to(B.scale, { x: 0, y: 0, z: 0, duration: 0.3, onComplete: () => {
           this.sceneManager.remove(B);
         } });
       }), setTimeout(() => {
         const B = A[1] || A[0];
         B.userData.mesh && this.sceneManager.remove(B.userData.mesh), B.userData.isOccupied = true, B.userData.currentItem = g;
-        const i = zE.createItemMesh(g);
-        i.position.set(0, 0.8, 0), i.scale.set(0, 0, 0), this.sceneManager.add(i), B.userData.mesh = i, i.userData.slot = B, hg.to(i.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 0.4, ease: "back.out(1.7)" }), hg.to(i.position, { x: B.position.x, y: B.position.y + 0.3, z: B.position.z, duration: 0.4, ease: "power2.out" });
+        const i = $E.createItemMesh(g);
+        i.position.set(0, 0.8, 0), i.scale.set(0, 0, 0), this.sceneManager.add(i), B.userData.mesh = i, i.userData.slot = B, KI.to(i.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 0.4, ease: "back.out(1.7)" }), KI.to(i.position, { x: B.position.x, y: B.position.y + 0.3, z: B.position.z, duration: 0.4, ease: "power2.out" });
         const Q = lg(g) || g;
         if (!this.unlockedItems.includes(Q)) {
           this.unlockedItems.push(Q), this.envProgression && this.envProgression.flyItemToShelf(Q, new H(0, 1.2, 0)), this.ui.showDiscoveryAnnouncement(Q);
           const e = this.hintSystem.recordDiscovery();
           this.ui.updateHintRights(this.hintSystem.hintRights), e && console.log("3 yeni ke\u015Fif tamamland\u0131! +1 \u0130pucu Hakk\u0131 kazan\u0131ld\u0131.");
         }
-        this.lockedItems = this.lockedItems.filter((e) => e !== g && lg(e) !== Q), this.ui._populateInventory(this.unlockedItems), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._saveGame();
+        this.lockedItems = this.lockedItems.filter((e) => e !== g && lg(e) !== Q), this.ui._populateInventory(this.unlockedItems), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this._saveGame(), this._updateCraftButtonState();
       }, 320);
-    } else this.failedCraftAttempts++, console.log(`Ba\u015Far\u0131s\u0131z \xFCretim denemesi: ${this.failedCraftAttempts}/20`), this.failedCraftAttempts >= 20 ? (console.log("20 kez ba\u015Far\u0131s\u0131z \xFCretim yap\u0131ld\u0131! Karakter \xF6l\xFCm animasyonu tetikleniyor."), this.tableScene.playDeathAnimation(), this.failedCraftAttempts = 0) : this.tableScene.playFailAnimation(), A.forEach((C) => {
-      C.userData.mesh && hg.to(C.userData.mesh.position, { x: C.position.x + (Math.random() - 0.5) * 0.3, y: 0.5, duration: 0.1, yoyo: true, repeat: 3 });
-    });
+    } else {
+      this.failedCraftAttempts++, this.ui.showToast(QA.t("craft_no_recipe"), "warn"), console.log(`Ba\u015Far\u0131s\u0131z \xFCretim denemesi: ${this.failedCraftAttempts}/20`);
+      try {
+        this.failedCraftAttempts >= 20 ? (console.log("20 kez ba\u015Far\u0131s\u0131z \xFCretim yap\u0131ld\u0131! Karakter \xF6l\xFCm animasyonu tetikleniyor."), this.tableScene.playDeathAnimation(), this.failedCraftAttempts = 0) : this.tableScene.playFailAnimation();
+      } catch (C) {
+        console.warn("Karakter ba\u015Far\u0131s\u0131zl\u0131k animasyonu hatas\u0131:", C);
+      }
+      A.forEach((C) => {
+        C.userData.mesh && KI.to(C.userData.mesh.position, { x: C.position.x + (Math.random() - 0.5) * 0.3, y: 0.5, duration: 0.1, yoyo: true, repeat: 3 });
+      });
+    }
   }
   clearTableAndPieces() {
     this.physics.clearPieces(this.sceneManager.scene), this.tableScene.getSlots().forEach((I) => {
       I.userData.mesh && (this.sceneManager.remove(I.userData.mesh), I.userData.mesh = null), I.userData.isOccupied = false, I.userData.currentItem = null;
-    });
+    }), this._updateCraftButtonState();
   }
   unlockAllItems() {
-    Object.keys(OI).forEach((I) => {
+    Object.keys(vI).forEach((I) => {
       const g = lg(I) || I;
       !this.unlockedItems.includes(I) && !this.unlockedItems.includes(g) && this.unlockedItems.push(g);
     }), this.lockedItems = [], this.ui._populateInventory(this.unlockedItems), this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem), this.envProgression && this.envProgression.syncWithUnlockedItems(this.unlockedItems), this._saveGame();

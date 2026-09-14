@@ -3,7 +3,7 @@ import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
@@ -11,6 +11,7 @@ export class UIManager {
     this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
     this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
     this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
+    this.onCraftClick = onCraftClick; // () => void
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.currentCharacterId = 'character2';
@@ -260,17 +261,56 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* Alt Bar: Şık Ayarlar Butonu */
+      /* Alt Bar: Şık Ayarlar ve Büyülü Birleştir Butonu */
       #bottom-action-bar {
         position: absolute;
         bottom: 24px;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        gap: 12px;
+        gap: 14px;
         align-items: center;
         pointer-events: auto;
         z-index: 15;
+      }
+
+      /* Büyülü Birleştir (Craft) Butonu */
+      #craft-action-btn {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        border-radius: 28px;
+        padding: 10px 22px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.65), 0 8px 24px rgba(0, 0, 0, 0.45);
+        transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        user-select: none;
+        pointer-events: auto;
+        animation: craftBtnPulse 2s infinite alternate ease-in-out;
+      }
+
+      #craft-action-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 35px rgba(236, 72, 153, 0.8), 0 12px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      #craft-action-btn:active {
+        transform: scale(0.95);
+      }
+
+      @keyframes craftBtnPulse {
+        0% {
+          box-shadow: 0 0 15px rgba(168, 85, 247, 0.45), 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 32px rgba(236, 72, 153, 0.85), 0 8px 25px rgba(0, 0, 0, 0.55);
+        }
       }
 
       .action-pill-btn {
@@ -703,6 +743,44 @@ export class UIManager {
         transform: translateX(-50%) translateY(0) scale(1);
       }
 
+      /* Toast Bildirimi */
+      #alchemy-toast {
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-20px);
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 8px 18px;
+        color: #f8fafc;
+        font-size: 13px;
+        font-weight: 700;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 99;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      #alchemy-toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      #alchemy-toast.warn {
+        border-color: rgba(245, 158, 11, 0.6);
+        color: #fef08a;
+      }
+      #alchemy-toast.success {
+        border-color: rgba(52, 211, 153, 0.6);
+        color: #6ee7b7;
+      }
+
       .discovery-icon {
         width: 44px;
         height: 44px;
@@ -766,6 +844,11 @@ export class UIManager {
       <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
 
       <div id="bottom-action-bar">
+        <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
+          <span style="font-size: 16px;">✨</span>
+          <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
+          <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/3</span>
+        </button>
         <button id="settings-open-btn" class="action-pill-btn">
           <span style="font-size: 15px;">⚙️</span>
           <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
@@ -941,6 +1024,8 @@ export class UIManager {
         </div>
       </div>
 
+      <div id="alchemy-toast"></div>
+
       <div id="ad-modal">
         <div class="ad-box">
           <h3 id="ad-title">${i18n.t('ad_title')}</h3>
@@ -957,6 +1042,42 @@ export class UIManager {
     this._setupLanguageToggle();
     this._setupMusicToggle();
     this._setupSettingsLogic();
+    this._setupCraftButton();
+  }
+
+  _setupCraftButton() {
+    const craftBtn = document.getElementById('craft-action-btn');
+    if (craftBtn && this.onCraftClick) {
+      craftBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        gsap.to(craftBtn, {
+          scale: 0.9,
+          duration: 0.1,
+          yoyo: true,
+          repeat: 1,
+          onComplete: () => {
+            this.onCraftClick();
+          }
+        });
+      });
+    }
+  }
+
+  updateCraftButton(occupiedCount) {
+    const btn = document.getElementById('craft-action-btn');
+    const counter = document.getElementById('craft-btn-counter');
+    if (!btn) return;
+
+    if (occupiedCount >= 1) {
+      btn.style.display = 'inline-flex';
+      if (counter) {
+        counter.textContent = `${occupiedCount}/3`;
+      }
+      gsap.killTweensOf(btn);
+      gsap.fromTo(btn, { scale: 0.8 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+    } else {
+      btn.style.display = 'none';
+    }
   }
 
   _getFilterLabel(cat) {
@@ -1021,6 +1142,9 @@ export class UIManager {
       musicBtn.textContent = this._getMusicButtonLabel();
       musicBtn.classList.toggle('muted', this.musicMode === 0);
     }
+
+    const craftLabel = document.getElementById('craft-btn-label');
+    if (craftLabel) craftLabel.textContent = i18n.t('craft_btn');
 
     // 3. Search placeholder
     const searchInput = document.getElementById('item-search-input');
@@ -1535,5 +1659,24 @@ export class UIManager {
       banner.classList.remove('show');
     }, 4200);
   }
+
+  showToast(message, type = 'info') {
+    const toast = document.getElementById('alchemy-toast');
+    if (!toast) return;
+
+    if (this.toastTimeout) {
+      clearTimeout(this.toastTimeout);
+      this.toastTimeout = null;
+    }
+
+    toast.className = 'show ' + (type || 'info');
+    toast.textContent = message;
+
+    this.toastTimeout = setTimeout(() => {
+      toast.className = '';
+      this.toastTimeout = null;
+    }, 2200);
+  }
 }
+
 

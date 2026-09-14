@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import gsap from 'gsap';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MobileRoomEnvironment } from './MobileRoomEnvironment.js';
 
@@ -53,6 +54,7 @@ export class TableScene {
     };
     this.activeCharacterId = initialCharacterId;
     this.activeCharacterModel = null;
+    this.characterHitbox = null;
     this.stool = null;
     this.currentAction = null;
     this.isTalking = false;
@@ -60,6 +62,7 @@ export class TableScene {
 
     this._buildTable();
     this._buildStool();
+    this._buildCharacterHitbox();
     this._loadCharacter(this.activeCharacterId);
     this._buildSlots();
 
@@ -180,7 +183,7 @@ export class TableScene {
     });
 
     this._rebuildSimpleStool(1.0);
-    this.stool.position.set(0, -1.6, -1.8);
+    this.stool.position.set(0, -2.0, -1.8);
     this.group.add(this.stool);
   }
 
@@ -266,7 +269,7 @@ export class TableScene {
       seatWorldY = config.position[1] + (config.scale ? config.scale * 0.22 : 0.8);
     }
 
-    const floorY = -1.6;
+    const floorY = -2.0;
     const stoolHeight = Math.max(0.3, seatWorldY - floorY);
 
     this._rebuildSimpleStool(stoolHeight);
@@ -426,16 +429,20 @@ export class TableScene {
 
     const talkingAction = config.actions['Sitting_Talking'];
     if (!talkingAction) {
-      // Modelde konuşma animasyonu yoksa (örneğin Karakter 1) küçük bir tepki ver
+      // Modelde konuşma animasyonu yoksa (örneğin Karakter 1 ve Karakter 3) küçük bir zıplama tepkisi ver
       if (this.activeCharacterModel) {
+        const baseY = config.position ? config.position[1] : -1.0;
+        gsap.killTweensOf(this.activeCharacterModel.position);
         gsap.to(this.activeCharacterModel.position, {
-          y: -0.9,
-          duration: 0.15,
+          y: baseY + 0.2,
+          duration: 0.12,
           yoyo: true,
           repeat: 3,
           ease: 'power1.inOut',
           onComplete: () => {
-            this.activeCharacterModel.position.set(...config.position);
+            if (this.activeCharacterModel) {
+              this.activeCharacterModel.position.set(...config.position);
+            }
           }
         });
       }
@@ -508,14 +515,18 @@ export class TableScene {
     const successAction = config.actions['Success_Craft'] || config.actions['Sitting_Talking'];
     if (!successAction) {
       if (this.activeCharacterModel) {
+        const baseY = config.position ? config.position[1] : -1.0;
+        gsap.killTweensOf(this.activeCharacterModel.position);
         gsap.to(this.activeCharacterModel.position, {
-          y: -0.75,
+          y: baseY + 0.35,
           duration: 0.15,
           yoyo: true,
           repeat: 3,
           ease: 'power1.out',
           onComplete: () => {
-            this.activeCharacterModel.position.set(...config.position);
+            if (this.activeCharacterModel) {
+              this.activeCharacterModel.position.set(...config.position);
+            }
           }
         });
       }
@@ -554,6 +565,7 @@ export class TableScene {
     if (!failAction) {
       if (this.activeCharacterModel) {
         const baseY = config.rotation ? config.rotation[1] : 0;
+        gsap.killTweensOf(this.activeCharacterModel.rotation);
         gsap.to(this.activeCharacterModel.rotation, {
           y: baseY + 0.2,
           duration: 0.1,
@@ -561,8 +573,10 @@ export class TableScene {
           repeat: 3,
           ease: 'power1.inOut',
           onComplete: () => {
-            if (config.rotation) this.activeCharacterModel.rotation.set(...config.rotation);
-            else this.activeCharacterModel.rotation.set(0, 0, 0);
+            if (this.activeCharacterModel) {
+              if (config.rotation) this.activeCharacterModel.rotation.set(...config.rotation);
+              else this.activeCharacterModel.rotation.set(0, 0, 0);
+            }
           }
         });
       }
@@ -606,13 +620,29 @@ export class TableScene {
     this._loadCharacter(charId);
   }
 
+  _buildCharacterHitbox() {
+    // Karakterin masanın arkasında oturduğu ve yükseldiği bölgeyi kapsayan geniş şeffaf dokunmatik etkileşim alanı
+    const hitboxGeo = new THREE.BoxGeometry(3.2, 3.6, 2.0);
+    const hitboxMat = new THREE.MeshBasicMaterial({
+      transparent: true,
+      opacity: 0.0,
+      depthWrite: false
+    });
+    this.characterHitbox = new THREE.Mesh(hitboxGeo, hitboxMat);
+    this.characterHitbox.position.set(0, 1.2, -1.7);
+    this.characterHitbox.userData.isCharacter = true;
+    this.characterHitbox.userData.isCharacterHitbox = true;
+    this.group.add(this.characterHitbox);
+  }
+
   isCharacterHit(object) {
+    if (!object) return false;
     let curr = object;
-    while (curr && curr !== this.group && curr !== this.sceneManager.scene) {
-      if (curr.userData && (curr.userData.isCharacter || curr.userData.characterId)) {
+    while (curr && curr !== this.sceneManager.scene) {
+      if (curr.userData && (curr.userData.isCharacter || curr.userData.characterId || curr.userData.isCharacterHitbox)) {
         return true;
       }
-      if (curr === this.activeCharacterModel) {
+      if (curr === this.characterHitbox || curr === this.activeCharacterModel) {
         return true;
       }
       curr = curr.parent;
