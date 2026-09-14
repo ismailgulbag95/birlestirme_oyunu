@@ -1,0 +1,56 @@
+name: Web Build & Test
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# GitHub Pages dağıtımı için gerekli izinler
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodu Çek (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Node.js Ortamını Kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Bağımlılıkları Yükle
+        run: npm ci
+
+      - name: Web Uygulamasını Derle (Vite Build)
+        run: npm run build
+
+      - name: Build Dosyalarını Artifact Olarak Yükle (İndirilebilir Zip)
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist-build
+          path: dist/
+          retention-days: 14
+
+      # GitHub Pages üzerinden doğrudan tarayıcıda test edebilmek için
+      - name: GitHub Pages Yapılandır
+        uses: actions/configure-pages@v5
+
+      - name: Pages İçin Artifact Yükle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: GitHub Pages'e Dağıt (Deploy)
+        id: deployment
+        uses: actions/deploy-pages@v4

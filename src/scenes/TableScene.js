@@ -511,6 +511,11 @@ export class TableScene {
     const config = this.characters[this.activeCharacterId];
     if (!config || !config.actions) return;
 
+    // Çırak (character1): Birleştirmelerde kendi mevcut salınım animasyonu haricinde hiçbir hareket yapmasın
+    if (this.activeCharacterId === 'character1') {
+      return;
+    }
+
     // character3 için 'Success_Craft' (Throwing Dice), diğer karakterler için konuşma veya zıplama
     const successAction = config.actions['Success_Craft'] || config.actions['Sitting_Talking'];
     if (!successAction) {
@@ -549,8 +554,31 @@ export class TableScene {
     }
     this.currentAction = successAction;
 
+    // Gezgin (character3) birleştirme animasyonunu (Throwing Dice) masa üstüne yukarı taşı
+    if (this.activeCharacterId === 'character3' && this.activeCharacterModel) {
+      const baseY = config.position ? config.position[1] : -2.25;
+      const baseZ = config.position ? config.position[2] : -1.8;
+      gsap.killTweensOf(this.activeCharacterModel.position);
+      gsap.to(this.activeCharacterModel.position, {
+        y: baseY + 0.7, // Masanın üstünde net görünmesi için yukarı kaldır
+        z: baseZ + 0.2, // Masaya hafif yaklaştır
+        duration: 0.35,
+        ease: 'power2.out'
+      });
+    }
+
     const clipDuration = (successAction.getClip() ? successAction.getClip().duration : 3.0) * 1000;
     this.talkTimeout = setTimeout(() => {
+      // Animasyon bittiğinde Gezgin'i tekrar orijinal bekleme pozisyonuna geri indir
+      if (this.activeCharacterId === 'character3' && this.activeCharacterModel) {
+        gsap.killTweensOf(this.activeCharacterModel.position);
+        gsap.to(this.activeCharacterModel.position, {
+          y: config.position[1],
+          z: config.position[2],
+          duration: 0.5,
+          ease: 'power2.inOut'
+        });
+      }
       this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.4);
       this.talkTimeout = null;
     }, Math.min(clipDuration, 4000));
@@ -559,6 +587,11 @@ export class TableScene {
   playFailAnimation() {
     const config = this.characters[this.activeCharacterId];
     if (!config || !config.actions) return;
+
+    // Çırak (character1): Başarısız birleştirmelerde kendi mevcut salınım animasyonu haricinde hiçbir hareket yapmasın
+    if (this.activeCharacterId === 'character1') {
+      return;
+    }
 
     // character3 için 'Wrong_Craft' (Sitting Dodges)
     const failAction = config.actions['Wrong_Craft'];
@@ -599,8 +632,31 @@ export class TableScene {
     }
     this.currentAction = failAction;
 
+    // Gezgin (character3) başarısız animasyonunu (Sitting Dodges) masanın üstünde net görünmesi için biraz yukarı taşı
+    if (this.activeCharacterId === 'character3' && this.activeCharacterModel) {
+      const baseY = config.position ? config.position[1] : -2.25;
+      const baseZ = config.position ? config.position[2] : -1.8;
+      gsap.killTweensOf(this.activeCharacterModel.position);
+      gsap.to(this.activeCharacterModel.position, {
+        y: baseY + 0.55, // Masanın arkasında kaybolmaması için yukarı yükselt
+        z: baseZ + 0.1,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    }
+
     const clipDuration = (failAction.getClip() ? failAction.getClip().duration : 2.5) * 1000;
     this.talkTimeout = setTimeout(() => {
+      // Animasyon bitince Gezgin'i tekrar normal bekleme konumuna indir
+      if (this.activeCharacterId === 'character3' && this.activeCharacterModel) {
+        gsap.killTweensOf(this.activeCharacterModel.position);
+        gsap.to(this.activeCharacterModel.position, {
+          y: config.position[1],
+          z: config.position[2],
+          duration: 0.5,
+          ease: 'power2.inOut'
+        });
+      }
       this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.4);
       this.talkTimeout = null;
     }, Math.min(clipDuration, 3500));
