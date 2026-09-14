@@ -511,30 +511,11 @@ export class TableScene {
     const config = this.characters[this.activeCharacterId];
     if (!config || !config.actions) return;
 
-    // Çırak (character1): Birleştirmelerde kendi mevcut salınım animasyonu haricinde hiçbir hareket yapmasın
-    if (this.activeCharacterId === 'character1') {
-      return;
-    }
-
-    // character3 için 'Success_Craft' (Throwing Dice), diğer karakterler için konuşma veya zıplama
+    // character3 için 'Success_Craft' (Throwing Dice), character2 için 'Sitting_Talking'
     const successAction = config.actions['Success_Craft'] || config.actions['Sitting_Talking'];
     if (!successAction) {
-      if (this.activeCharacterModel) {
-        const baseY = config.position ? config.position[1] : -1.0;
-        gsap.killTweensOf(this.activeCharacterModel.position);
-        gsap.to(this.activeCharacterModel.position, {
-          y: baseY + 0.35,
-          duration: 0.15,
-          yoyo: true,
-          repeat: 3,
-          ease: 'power1.out',
-          onComplete: () => {
-            if (this.activeCharacterModel) {
-              this.activeCharacterModel.position.set(...config.position);
-            }
-          }
-        });
-      }
+      // Karakterin özel birleştirme animasyonu yoksa (örneğin sadece Sitting_Idle varsa),
+      // modelin pozisyonunu eşyalarla birlikte yapay olarak zıplatma; mevcut salınımına devam etsin.
       return;
     }
 
@@ -588,31 +569,11 @@ export class TableScene {
     const config = this.characters[this.activeCharacterId];
     if (!config || !config.actions) return;
 
-    // Çırak (character1): Başarısız birleştirmelerde kendi mevcut salınım animasyonu haricinde hiçbir hareket yapmasın
-    if (this.activeCharacterId === 'character1') {
-      return;
-    }
-
     // character3 için 'Wrong_Craft' (Sitting Dodges)
     const failAction = config.actions['Wrong_Craft'];
     if (!failAction) {
-      if (this.activeCharacterModel) {
-        const baseY = config.rotation ? config.rotation[1] : 0;
-        gsap.killTweensOf(this.activeCharacterModel.rotation);
-        gsap.to(this.activeCharacterModel.rotation, {
-          y: baseY + 0.2,
-          duration: 0.1,
-          yoyo: true,
-          repeat: 3,
-          ease: 'power1.inOut',
-          onComplete: () => {
-            if (this.activeCharacterModel) {
-              if (config.rotation) this.activeCharacterModel.rotation.set(...config.rotation);
-              else this.activeCharacterModel.rotation.set(0, 0, 0);
-            }
-          }
-        });
-      }
+      // Karakterin özel başarısızlık animasyonu yoksa modeli yapay olarak sağa-sola sarsma;
+      // mevcut salınımına devam etsin.
       return;
     }
 
