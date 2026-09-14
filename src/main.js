@@ -479,12 +479,16 @@ class Game {
         this.ui.updateFpsHud(currentFps, sceneObjs);
       }
 
-      // Masadaki slotlarda bulunan animasyonlu eşyaları güncelle (örneğin dans eden ateş)
+      // Masadaki slotlarda bulunan animasyonlu eşyaları güncelle (örneğin dans eden ateş ve dönme)
       const slots = this.tableScene.getSlots();
       slots.forEach(slot => {
         const mesh = slot.userData?.mesh;
-        if (mesh && typeof mesh.userData?.update === 'function') {
-          mesh.userData.update(elapsedTime, delta);
+        if (mesh) {
+          if (typeof mesh.userData?.update === 'function') {
+            mesh.userData.update(elapsedTime, delta);
+          } else if (mesh.children && mesh.children[0] && typeof mesh.children[0].userData?.update === 'function') {
+            mesh.children[0].userData.update(elapsedTime, delta);
+          }
         }
       });
 

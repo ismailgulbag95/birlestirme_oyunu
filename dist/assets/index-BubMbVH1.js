@@ -20812,6 +20812,7 @@ class Nn {
     return B.scale.multiplyScalar(1 + g), B;
   }
   static createItemMesh(A) {
+    var _a2;
     const I = hg(A) || A, g = OI[I] || OI[A] || OI.fire, C = new f();
     C.userData.itemId = I, C.userData.definition = g;
     let B;
@@ -21414,7 +21415,10 @@ class Nn {
         B = this._createDefaultMesh(g);
         break;
     }
-    return C.add(B), C.userData.fracturePieces = this._generateFracturePieces(g), C;
+    return C.add(B), B && typeof ((_a2 = B.userData) == null ? void 0 : _a2.update) == "function" ? C.userData.update = (i, Q) => B.userData.update(i, Q) : C.userData.update = (i, Q) => {
+      const o = Q || 0.016;
+      C.rotation.y += o * 1;
+    }, C.userData.fracturePieces = this._generateFracturePieces(g), C;
   }
   static _createFireMesh(A) {
     const I = new f(), g = new q(0.08, 0.09, 0.72, 5), C = new d({ color: 6040598, roughness: 0.85, flatShading: true }), B = new d({ color: 2232588, roughness: 0.9, flatShading: true });
@@ -21444,7 +21448,7 @@ class Nn {
     }
     return I.userData.update = (N, u) => {
       const L = u || 0.016, Z = N * 4;
-      I.rotation.y += L * 0.35, r.scale.y = 1 + Math.sin(Z * 1.8) * 0.08, r.scale.x = 1 + Math.cos(Z * 2.2) * 0.06, r.rotation.y += L * 0.3, D.scale.y = 1 + Math.sin(Z * 2.4 + 1) * 0.12, D.rotation.z = -0.15 + Math.sin(Z * 2) * 0.06, k.scale.y = 1 + Math.sin(Z * 2.8 + 2) * 0.14, k.rotation.x = -0.15 + Math.cos(Z * 2.2) * 0.08, U.intensity = 2.5 + Math.sin(Z * 5.5) * 0.5 + (Math.random() - 0.5) * 0.3, y.forEach((m) => {
+      I.rotation.y += L * 1, r.scale.y = 1 + Math.sin(Z * 1.8) * 0.08, r.scale.x = 1 + Math.cos(Z * 2.2) * 0.06, r.rotation.y += L * 0.3, D.scale.y = 1 + Math.sin(Z * 2.4 + 1) * 0.12, D.rotation.z = -0.15 + Math.sin(Z * 2) * 0.06, k.scale.y = 1 + Math.sin(Z * 2.8 + 2) * 0.14, k.rotation.x = -0.15 + Math.cos(Z * 2.2) * 0.08, U.intensity = 2.5 + Math.sin(Z * 5.5) * 0.5 + (Math.random() - 0.5) * 0.3, y.forEach((m) => {
         const _ = m.userData;
         m.position.y += _.speed * L, _.angle += _.rotSpeed * L, m.rotation.x += L * 3, m.rotation.y += L * 4;
         const v = Math.min(1, m.position.y / _.maxHeight);
@@ -21475,7 +21479,7 @@ class Nn {
       M.position.set(Math.cos(p.angle) * p.radius, p.y, Math.sin(p.angle) * p.radius), M.userData = p, I.add(M), k.push(M);
     }), I.userData.update = (p, M) => {
       const F = M || 0.016, y = p * 2.2;
-      I.rotation.y += F * 0.35, e.position.y = 0.52 + Math.sin(y) * 0.06, e.rotation.y += F * 0.35, o.rotation.z += F * 0.8;
+      I.rotation.y += F * 1, e.position.y = 0.52 + Math.sin(y) * 0.06, e.rotation.y += F * 1, o.rotation.z += F * 0.8;
       const N = 1 + Math.sin(y * 1.5) * 0.08;
       o.scale.set(N, N, 1), k.forEach((u) => {
         u.userData.angle += u.userData.speed * F, u.position.x = Math.cos(u.userData.angle) * u.userData.radius, u.position.z = Math.sin(u.userData.angle) * u.userData.radius, u.position.y = u.userData.y + Math.sin(p * 3 + u.userData.angle) * 0.05, u.rotation.x += F * 2, u.rotation.y += F * 2.5;
@@ -21508,7 +21512,7 @@ class Nn {
     const p = new sI(0.075, 0), M = new d({ color: 16498468, emissive: 14251782, emissiveIntensity: 0.4, roughness: 0.3, flatShading: true }), F = new l(p, M);
     return F.position.set(0.02, 0.33, 0), r.add(F), I.add(r), I.userData.update = (y, N) => {
       const u = N || 0.016, L = y * 2;
-      I.rotation.y += u * 0.35, r.rotation.z = Math.sin(L) * 0.08, r.rotation.x = Math.cos(L * 1.2) * 0.05;
+      I.rotation.y += u * 1, r.rotation.z = Math.sin(L) * 0.08, r.rotation.x = Math.cos(L * 1.2) * 0.05;
     }, I;
   }
   static _createAirMesh(A) {
@@ -21531,7 +21535,7 @@ class Nn {
       G.position.set(Math.cos(S.angle) * S.radius, S.y, Math.sin(S.angle) * S.radius), G.userData = S, I.add(G), D.push(G);
     }), I.userData.update = (S, G) => {
       const k = G || 0.016, U = S * 2.5;
-      I.rotation.y += k * 0.35, g.position.y = 0.62 + Math.sin(U) * 0.05;
+      I.rotation.y += k * 1, g.position.y = 0.62 + Math.sin(U) * 0.05;
       const p = 1 + Math.sin(U * 1.5) * 0.04;
       g.scale.set(p, 1 + Math.cos(U * 1.5) * 0.05, p), i.rotation.y += k * 1.6, e.rotation.z += k * 0.6, n.rotation.z -= k * 0.5, D.forEach((M) => {
         M.userData.angle += M.userData.speed * k, M.position.x = Math.cos(M.userData.angle) * M.userData.radius, M.position.z = Math.sin(M.userData.angle) * M.userData.radius, M.position.y = M.userData.y + Math.sin(S * 3.5 + M.userData.angle) * 0.06, M.rotation.x += k * 3.5, M.rotation.y += k * 4, M.rotation.z += k * 2.5;
@@ -21547,7 +21551,7 @@ class Nn {
     const i = new TA(14870768, 1.8, 2.5);
     return i.position.set(0, 0.5, 0.2), I.add(i), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.4, B.forEach((t, a) => {
+      I.rotation.y += e * 1.1, B.forEach((t, a) => {
         const s = a * 0.8;
         t.position.y = C[a].pos[1] + Math.sin(Q * 2.5 + s) * 0.04, t.scale.setScalar(1 + Math.sin(Q * 2 + s) * 0.06);
       });
@@ -21570,7 +21574,7 @@ class Nn {
       D.position.set(...c.pos), I.add(D);
     }), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35;
+      I.rotation.y += h * 1;
       const S = 1 + Math.sin(c * 3) * 0.15;
       t.scale.set(S, S * 0.9, S);
       const G = 1 + Math.cos(c * 2.6) * 0.12;
@@ -21590,7 +21594,7 @@ class Nn {
     const e = new TA(16733440, 2.6, 3.5);
     return e.position.set(0, 0.75, 0.2), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.4;
+      I.rotation.y += s * 1.1;
       const n = 1 + Math.sin(t * 4) * 0.08;
       o.forEach((r) => r.scale.set(n, 1 + Math.sin(t * 3.5) * 0.12, n)), e.intensity = 2.4 + Math.sin(t * 5) * 0.4 + (Math.random() - 0.5) * 0.2;
     }, I;
@@ -21606,7 +21610,7 @@ class Nn {
       n.position.set(Math.cos(s.angle) * s.r, s.y, Math.sin(s.angle) * s.r), n.userData = s, I.add(n), t.push(n);
     }), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.4, t.forEach((c) => {
+      I.rotation.y += r * 1.1, t.forEach((c) => {
         c.userData.angle += c.userData.speed * r, c.position.x = Math.cos(c.userData.angle) * c.userData.r, c.position.z = Math.sin(c.userData.angle) * c.userData.r, c.position.y = c.userData.y + Math.sin(s * 3 + c.userData.angle) * 0.04, c.rotation.x += r * 3, c.rotation.y += r * 2.5;
       });
     }, I;
@@ -21627,7 +21631,7 @@ class Nn {
     const t = new AA(0.12, 0.42, 4), a = new GA({ color: 14202110, transparent: true, opacity: 0.75 }), s = new l(t, a);
     return s.position.set(-0.16, 0.65, 0.28), s.rotation.set(0.2, 0.3, 0.25), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.4, B.scale.y = 1 + Math.sin(n * 2.2) * 0.03;
+      I.rotation.y += c * 1.1, B.scale.y = 1 + Math.sin(n * 2.2) * 0.03;
     }, I;
   }
   static _createRainMesh(A) {
@@ -21648,7 +21652,7 @@ class Nn {
     const o = new q(0.42, 0.48, 0.05, 8), e = new d({ color: 8246268, transparent: true, opacity: 0.6, flatShading: true }), t = new l(o, e);
     return t.position.y = 0.05, I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.4, Q.forEach((r) => {
+      I.rotation.y += n * 1.1, Q.forEach((r) => {
         r.position.y = r.userData.y + Math.sin(a * 3.5 * r.userData.speed) * 0.06;
       });
     }, I;
@@ -21663,7 +21667,7 @@ class Nn {
     const a = new TA(16771584, 2.6, 3.5);
     return a.position.set(0, 0.58, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.4, o.rotation.x += r * 2, o.rotation.y += r * 2.5, t.rotation.y -= r * 2.2, t.rotation.z += r * 1.8;
+      I.rotation.y += r * 1.1, o.rotation.x += r * 2, o.rotation.y += r * 2.5, t.rotation.y -= r * 2.2, t.rotation.z += r * 1.8;
       const c = 1 + Math.sin(s * 5) * 0.08;
       B.scale.setScalar(c), a.intensity = 2.4 + Math.sin(s * 6) * 0.5;
     }, I;
@@ -21680,7 +21684,7 @@ class Nn {
     const n = new l(t, a);
     return n.position.set(-0.35, 0.72, -0.15), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.5, B.rotation.z += D * 1.2, Q.rotation.z -= D * 1.5, e.rotation.z += D * 1.8, s.rotation.x += D * 3, n.rotation.y += D * 2.5;
+      I.rotation.y += D * 1.2, B.rotation.z += D * 1.2, Q.rotation.z -= D * 1.5, e.rotation.z += D * 1.8, s.rotation.x += D * 3, n.rotation.y += D * 2.5;
     }, I;
   }
   static _createStoneMesh(A) {
@@ -21693,7 +21697,7 @@ class Nn {
     const e = new q(0.42, 0.48, 0.08, 6), t = new d({ color: 1483594, roughness: 0.8, flatShading: true }), a = new l(e, t);
     return a.position.set(-0.1, 0.08, 0.1), a.receiveShadow = true, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createGlassMesh(A) {
@@ -21704,7 +21708,7 @@ class Nn {
     const e = new AA(0.08, 0.35, 4), t = new GA({ color: 16777215, transparent: true, opacity: 0.85 }), a = new l(e, t);
     return a.position.set(-0.25, 0.58, 0.22), a.rotation.set(0.2, 0.1, 0.3), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.4, o.rotation.x += r * 1.5, o.rotation.y += r * 2;
+      I.rotation.y += r * 1.1, o.rotation.x += r * 1.5, o.rotation.y += r * 2;
     }, I;
   }
   static _createCloudMesh(A) {
@@ -21714,7 +21718,7 @@ class Nn {
       Q.position.set(...B.pos), Q.castShadow = true, I.add(Q);
     }), I.userData.update = (B, i) => {
       const Q = i || 0.016;
-      I.rotation.y += Q * 0.35, I.position.y = Math.sin(B * 2) * 0.04;
+      I.rotation.y += Q * 1, I.position.y = Math.sin(B * 2) * 0.04;
     }, I;
   }
   static _createLightningMesh(A) {
@@ -21741,7 +21745,7 @@ class Nn {
     const n = new AA(0.06, 0.18, 4), r = new l(n, t);
     return r.position.set(0.02, 0.48, 0), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35;
+      I.rotation.y += h * 1;
       const S = Math.sin(c * 2.2) * 0.06;
       o.rotation.z = -0.1 + S, a.rotation.z = 0.95 + S * 0.8, s.rotation.z = -1.05 + S * 0.8;
     }, I;
@@ -21755,7 +21759,7 @@ class Nn {
       a.position.y = e.y, a.rotation.y = e.rot, a.castShadow = true, I.add(a), o.push(a);
     }), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, o[2].rotation.z = Math.sin(e * 2) * 0.04, o[1].rotation.z = Math.sin(e * 2 + 0.5) * 0.02;
+      I.rotation.y += a * 1, o[2].rotation.z = Math.sin(e * 2) * 0.04, o[1].rotation.z = Math.sin(e * 2 + 0.5) * 0.02;
     }, I;
   }
   static _createWoodMesh(A) {
@@ -21769,7 +21773,7 @@ class Nn {
     const Q = new AA(0.05, 0.18, 4), o = new d({ color: 4906624, flatShading: true }), e = new l(Q, o);
     return e.position.set(0.05, 0.6, 0.05), e.rotation.z = 0.25, I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createSplinterMesh(A) {
@@ -21780,7 +21784,7 @@ class Nn {
     const o = new AA(0.06, 0.42, 4), e = new l(o, g);
     return e.position.set(0.02, 0.28, -0.12), e.rotation.set(0.35, 0, 0.2), e.castShadow = true, I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createFiberMesh(A) {
@@ -21792,7 +21796,7 @@ class Nn {
     const B = new _A(0.24, 0.045, 4, 8), i = new d({ color: 6660877, roughness: 0.7, flatShading: true }), Q = new l(B, i);
     return Q.position.y = 0.4, Q.rotation.x = Math.PI / 2, I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35, C.forEach((a, s) => {
+      I.rotation.y += t * 1, C.forEach((a, s) => {
         a.rotation.z = (s - 1.5) * 0.2 + Math.sin(o * 2.5 + s) * 0.04;
       });
     }, I;
@@ -21803,7 +21807,7 @@ class Nn {
     const i = new q(0.09, 0.07, 0.38, 5), Q = new l(i, g);
     return Q.position.set(0.36, 0.26, 0.14), Q.rotation.set(0.2, 0.4, 0.65), Q.castShadow = true, I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createMushroomMesh(A) {
@@ -21817,7 +21821,7 @@ class Nn {
       c.position.set(s, n, r), I.add(c);
     }), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
       const c = 1 + Math.sin(s * 2.2) * 0.04;
       o.scale.set(c, 1 + Math.cos(s * 2.2) * 0.03, c);
     }, I;
@@ -21836,7 +21840,7 @@ class Nn {
       a.position.set(o, e, t), I.add(a);
     }), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createCottonMesh(A) {
@@ -21851,7 +21855,7 @@ class Nn {
       s.position.set(Q, o, e), s.castShadow = true, I.add(s), i.push(s);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
       const t = 1 + Math.sin(Q * 2) * 0.04;
       i.forEach((a) => a.scale.set(t, t, t));
     }, I;
@@ -21864,7 +21868,7 @@ class Nn {
     const o = new q(0.26, 0.26, 0.12, 6), e = new d({ color: 16498468, roughness: 0.4, flatShading: true }), t = new l(o, e);
     return t.position.y = 0.28, t.rotation.z = Math.PI / 2, t.rotation.y = 0.25, I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createCoalMesh(A) {
@@ -21879,7 +21883,7 @@ class Nn {
     const e = new GA({ color: 16726784 }), t = new jI(0.08, 0), a = new l(t, e);
     return a.position.set(0.15, 0.48, 0.25), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
       const c = 1 + Math.sin(s * 3.5) * 0.2;
       a.scale.setScalar(c);
     }, I;
@@ -21892,7 +21896,7 @@ class Nn {
     const e = new l(new BA(0.04, 0), i);
     return e.position.set(-0.15, 0.22, -0.1), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, o.scale.setScalar(0.9 + Math.sin(t * 5) * 0.2);
+      I.rotation.y += s * 1, o.scale.setScalar(0.9 + Math.sin(t * 5) * 0.2);
     }, I;
   }
   static _createPaperMesh(A) {
@@ -21903,7 +21907,7 @@ class Nn {
     const o = new q(0.08, 0.08, 0.03, 6), e = new d({ color: 14427686, emissive: 10033947, emissiveIntensity: 0.3, roughness: 0.4, flatShading: true }), t = new l(o, e);
     return t.position.set(-0.16, 0.25, -0.05), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createLifeMesh(A) {
@@ -21916,7 +21920,7 @@ class Nn {
     const a = new TA(4906624, 2.4, 3.5);
     return a.position.set(0, 0.52, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, o.rotation.z += r * 1.8, t.rotation.x += r * 1.6;
+      I.rotation.y += r * 1, o.rotation.z += r * 1.8, t.rotation.x += r * 1.6;
       const c = 1 + Math.sin(s * 3.5) * 0.06;
       B.scale.setScalar(c);
     }, I;
@@ -21956,7 +21960,7 @@ class Nn {
     const y = new l(F, t);
     return y.position.set(0, 0.42, -0.34), I.add(y), I.userData.update = (N, u) => {
       const L = u || 0.016;
-      I.rotation.y += L * 0.35;
+      I.rotation.y += L * 1;
       const Z = Math.sin(N * 3.5) * 0.06;
       p.rotation.z = 0.35 + Z, M.rotation.z = -0.35 - Z, D.position.y = 0.54 + Math.sin(N * 2) * 0.015;
     }, I;
@@ -22005,7 +22009,7 @@ class Nn {
     const p = new d({ color: 16317180, flatShading: true }), M = new l(new AA(0.06, 0.16, 4), p);
     return M.position.set(0, 0.48, -0.34), M.rotation.x = -Math.PI / 2.8, I.add(M), I.userData.update = (F, y) => {
       const N = y || 0.016;
-      I.rotation.y += N * 0.35, c.position.y = 0.72 + Math.sin(F * 2.5) * 0.02, M.rotation.z = Math.sin(F * 4) * 0.2;
+      I.rotation.y += N * 1, c.position.y = 0.72 + Math.sin(F * 2.5) * 0.02, M.rotation.z = Math.sin(F * 4) * 0.2;
     }, I;
   }
   static _createFishMesh(A) {
@@ -22041,7 +22045,7 @@ class Nn {
     const M = new l(p, c);
     return M.position.z = -0.12, U.add(M), I.add(U), I.userData.update = (F, y) => {
       const N = y || 0.016;
-      I.rotation.y += N * 0.35, U.rotation.y = Math.sin(F * 5) * 0.4, a.rotation.y = Math.sin(F * 5 + 1.2) * 0.1, G.rotation.z = 0.8 + Math.sin(F * 6) * 0.2, k.rotation.z = -0.8 - Math.sin(F * 6) * 0.2;
+      I.rotation.y += N * 1, U.rotation.y = Math.sin(F * 5) * 0.4, a.rotation.y = Math.sin(F * 5 + 1.2) * 0.1, G.rotation.z = 0.8 + Math.sin(F * 6) * 0.2, k.rotation.z = -0.8 - Math.sin(F * 6) * 0.2;
     }, I;
   }
   static _createPrimitiveKnifeMesh(A) {
@@ -22054,7 +22058,7 @@ class Nn {
     const e = new _A(0.085, 0.025, 4, 8), t = new d({ color: 14251782, flatShading: true }), a = new l(e, t);
     return a.position.y = 0.44, a.rotation.x = Math.PI / 2, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createFeatherMesh(A) {
@@ -22073,7 +22077,7 @@ class Nn {
     const r = new l(n, o);
     return r.position.set(-0.05, 0.04, 0.02), r.rotation.z = -0.38, i.add(r), I.add(i), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35, i.rotation.z = Math.sin(c * 3) * 0.1, i.position.y = 0.48 + Math.sin(c * 2.5) * 0.02;
+      I.rotation.y += h * 1, i.rotation.z = Math.sin(c * 3) * 0.1, i.position.y = 0.48 + Math.sin(c * 2.5) * 0.02;
     }, I;
   }
   static _createLeatherMesh(A) {
@@ -22099,7 +22103,7 @@ class Nn {
       G.position.set(h * 0.75, S, 0), I.add(G);
     }), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, c.scale.x = 1.1 + Math.sin(h * 2.5) * 0.02;
+      I.rotation.y += G * 1, c.scale.x = 1.1 + Math.sin(h * 2.5) * 0.02;
     }, I;
   }
   static _createCookedMeatMesh(A) {
@@ -22118,7 +22122,7 @@ class Nn {
     const a = new GA({ color: 14870768, transparent: true, opacity: 0.75 }), s = new l(new BA(0.07, 0), a);
     return s.position.set(-0.08, 0.22, 0), g.add(s), I.add(g), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, s.position.y = 0.22 + Math.sin(n * 3.5) * 0.08, s.scale.setScalar(0.85 + Math.sin(n * 3.5) * 0.25);
+      I.rotation.y += c * 1, s.position.y = 0.22 + Math.sin(n * 3.5) * 0.08, s.scale.setScalar(0.85 + Math.sin(n * 3.5) * 0.25);
     }, I;
   }
   static _createResinMesh(A) {
@@ -22129,7 +22133,7 @@ class Nn {
     const o = new jI(0.09, 0), e = new GA({ color: 1409085 }), t = new l(o, e);
     return t.position.set(0.04, 0.38, 0.02), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createPotteryMesh(A) {
@@ -22140,7 +22144,7 @@ class Nn {
     const o = new _A(0.24, 0.045, 4, 8), e = new l(o, g);
     return e.position.y = 0.7, e.rotation.x = Math.PI / 2, I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createWaterJugMesh(A) {
@@ -22163,7 +22167,7 @@ class Nn {
     const a = new q(0.14, 0.1, 0.18, 6), s = new d({ color: 11817737, roughness: 0.8, flatShading: true }), n = new l(a, s);
     return n.position.y = 0.9, n.add(this._createOutline(a, 7877903, 0.03)), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, t.position.y = 0.26 + Math.sin(r * 3) * 0.02;
+      I.rotation.y += D * 1, t.position.y = 0.26 + Math.sin(r * 3) * 0.02;
     }, I;
   }
   static _createFlintMesh(A) {
@@ -22174,7 +22178,7 @@ class Nn {
     const i = new jI(0.09, 0), Q = new d({ color: 16498468, emissive: 16096779, emissiveIntensity: 0.8, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.35, 0.55, 0.1), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, o.position.y = 0.55 + Math.sin(e * 5) * 0.06, o.rotation.x += a * 2;
+      I.rotation.y += a * 1, o.position.y = 0.55 + Math.sin(e * 5) * 0.06, o.rotation.x += a * 2;
     }, I;
   }
   static _createBowMesh(A) {
@@ -22189,7 +22193,7 @@ class Nn {
     const e = new GA({ color: 16317180 }), t = new q(0.014, 0.014, 0.86, 4), a = new l(t, e);
     return a.position.set(-0.06, 0, 0), g.add(a), I.add(g), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.position.x = -0.06 + Math.sin(s * 5) * 0.015;
+      I.rotation.y += r * 1, a.position.x = -0.06 + Math.sin(s * 5) * 0.015;
     }, I;
   }
   static _createArrowMesh(A) {
@@ -22204,7 +22208,7 @@ class Nn {
     }
     return I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, I.position.y = Math.sin(t * 2) * 0.04;
+      I.rotation.y += s * 1, I.position.y = Math.sin(t * 2) * 0.04;
     }, I;
   }
   static _createTorchMesh(A) {
@@ -22219,7 +22223,7 @@ class Nn {
     const c = new TA(16742144, 1.8, 3);
     return c.position.set(0, 0.95, 0.1), I.add(c), I.userData.update = (D, h) => {
       const S = h || 0.016;
-      I.rotation.y += S * 0.35, a.scale.set(1 + Math.sin(D * 8) * 0.12, 1 + Math.cos(D * 10) * 0.15, 1 + Math.sin(D * 7) * 0.12), r.scale.set(1 + Math.cos(D * 9) * 0.1, 1 + Math.sin(D * 11) * 0.12, 1 + Math.cos(D * 8) * 0.1);
+      I.rotation.y += S * 1, a.scale.set(1 + Math.sin(D * 8) * 0.12, 1 + Math.cos(D * 10) * 0.15, 1 + Math.sin(D * 7) * 0.12), r.scale.set(1 + Math.cos(D * 9) * 0.1, 1 + Math.sin(D * 11) * 0.12, 1 + Math.cos(D * 8) * 0.1);
     }, I;
   }
   static _createRawMetalMesh(A) {
@@ -22231,7 +22235,7 @@ class Nn {
       n.position.set(o, e, t), n.add(this._createOutline(s, 3359061, 0.03)), I.add(n);
     }), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35, B.position.y = 0.38 + Math.sin(o * 2) * 0.02;
+      I.rotation.y += t * 1, B.position.y = 0.38 + Math.sin(o * 2) * 0.02;
     }, I;
   }
   static _createIronIngotMesh(A) {
@@ -22245,7 +22249,7 @@ class Nn {
     const B = new TA(14870768, 2, 2.2);
     return B.position.set(0, 0.45, 0.25), I.add(B), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, B.intensity = 1.8 + Math.sin(i * 3) * 0.5;
+      I.rotation.y += o * 1, B.intensity = 1.8 + Math.sin(i * 3) * 0.5;
     }, I;
   }
   static _createMetalKnifeMesh(A) {
@@ -22258,7 +22262,7 @@ class Nn {
     const t = new d({ color: 15857145, roughness: 0.2, metalness: 0.95, emissive: 9741240, emissiveIntensity: 0.2, flatShading: true }), a = new l(e, t);
     return a.position.y = 0.72, a.add(this._createOutline(e, 4674921, 0.035)), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, I.rotation.z = Math.sin(s * 2) * 0.05;
+      I.rotation.y += r * 1, I.rotation.z = Math.sin(s * 2) * 0.05;
     }, I;
   }
   static _createPickaxeMesh(A) {
@@ -22284,7 +22288,7 @@ class Nn {
       G.position.set(h, 0.28, 0), G.rotation.z = S === 0 ? 0.8 : -0.8, e.add(G);
     }), I.add(e), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, Q.scale.setScalar(0.95 + Math.sin(h * 3.5) * 0.1);
+      I.rotation.y += G * 1, Q.scale.setScalar(0.95 + Math.sin(h * 3.5) * 0.1);
     }, I;
   }
   static _createSwordMesh(A) {
@@ -22299,7 +22303,7 @@ class Nn {
     const s = new BA(0.07, 0), n = new l(s, Q);
     return n.position.y = -0.06, I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, I.position.y = Math.sin(r * 2) * 0.03;
+      I.rotation.y += D * 1, I.position.y = Math.sin(r * 2) * 0.03;
     }, I;
   }
   static _createWoodenShieldMesh(A) {
@@ -22310,7 +22314,7 @@ class Nn {
     const e = new AA(0.18, 0.18, 6), t = new l(e, Q);
     return t.rotation.x = Math.PI / 2, t.position.set(0, 0.45, 0.1), t.add(this._createOutline(e, 3359061, 0.035)), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createIronShieldMesh(A) {
@@ -22332,7 +22336,7 @@ class Nn {
     const s = new d({ color: 7877903, flatShading: true }), n = new l(new _A(0.12, 0.025, 4, 8), s);
     return n.position.set(0, 0, -0.14), g.add(n), I.add(g), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, g.position.y = 0.44 + Math.sin(r * 2.5) * 0.02;
+      I.rotation.y += D * 1, g.position.y = 0.44 + Math.sin(r * 2.5) * 0.02;
     }, I;
   }
   static _createLeatherArmorMesh(A) {
@@ -22352,7 +22356,7 @@ class Nn {
     const n = new l(new IA(0.11, 0.11, 0.46), o);
     return n.position.set(0, 0.32, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, t.scale.x = 1.15 + Math.sin(r * 2.5) * 0.02;
+      I.rotation.y += D * 1, t.scale.x = 1.15 + Math.sin(r * 2.5) * 0.02;
     }, I;
   }
   static _createIronArmorMesh(A) {
@@ -22368,7 +22372,7 @@ class Nn {
     const i = new IA(0.06, 0.6, 0.38), Q = new l(i, C);
     return Q.position.set(0, 0.46, 0.1), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createBedMesh(A) {
@@ -22381,7 +22385,7 @@ class Nn {
     const a = new IA(0.62, 0.14, 0.26), s = new d({ color: 16317180, roughness: 0.6, flatShading: true }), n = new l(a, s);
     return n.position.set(0, 0.3, -0.34), n.add(this._createOutline(a, 9741240, 0.03)), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35;
+      I.rotation.y += D * 1;
     }, I;
   }
   static _createZehirliSiviMesh(A) {
@@ -22398,7 +22402,7 @@ class Nn {
     const r = new TA(2278750, 2.4, 2.5);
     return r.position.set(0, 0, 0), g.add(r), I.add(g), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35, n.scale.setScalar(1 + Math.sin(c * 4) * 0.08), r.intensity = 2.2 + Math.sin(c * 4) * 0.6;
+      I.rotation.y += h * 1, n.scale.setScalar(1 + Math.sin(c * 4) * 0.08), r.intensity = 2.2 + Math.sin(c * 4) * 0.6;
     }, I;
   }
   static _createZehirSisesiMesh(A) {
@@ -22411,7 +22415,7 @@ class Nn {
     const a = new TA(2278750, 1.6, 2.5);
     return a.position.set(0, 0.45, 0.1), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, I.position.y = Math.sin(s * 2.5) * 0.03;
+      I.rotation.y += r * 1, I.position.y = Math.sin(s * 2.5) * 0.03;
     }, I;
   }
   static _createZehirliKilicMesh(A) {
@@ -22426,7 +22430,7 @@ class Nn {
     const a = new jI(0.08, 0), s = new GA({ color: 4906624 }), n = new l(a, s);
     return n.position.set(0.1, 0.5, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, n.position.y = 0.4 + Math.sin(r * 4) * 0.15;
+      I.rotation.y += D * 1, n.position.y = 0.4 + Math.sin(r * 4) * 0.15;
     }, I;
   }
   static _createSifaIksiriMesh(A) {
@@ -22443,7 +22447,7 @@ class Nn {
     const D = new TA(15680580, 1.8, 3);
     return D.position.set(0, 0.45, 0.1), I.add(D), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, I.position.y = Math.sin(h * 2.5) * 0.03;
+      I.rotation.y += G * 1, I.position.y = Math.sin(h * 2.5) * 0.03;
     }, I;
   }
   static _createManaIksiriMesh(A) {
@@ -22461,7 +22465,7 @@ class Nn {
     const n = new TA(3718648, 1.8, 3);
     return n.position.set(0, 0.45, 0.1), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, I.position.y = Math.sin(r * 2.5) * 0.03, s.forEach((h) => {
+      I.rotation.y += D * 1, I.position.y = Math.sin(r * 2.5) * 0.03, s.forEach((h) => {
         h.angle += D * 2, h.mesh.position.set(Math.cos(h.angle) * 0.55, 0.45 + Math.sin(h.angle * 2) * 0.1, Math.sin(h.angle) * 0.55);
       });
     }, I;
@@ -22476,7 +22480,7 @@ class Nn {
     const s = new jI(0.06, 0), n = new GA({ color: 16096779 }), r = new l(s, n);
     return r.position.set(0.18, 0.65, 0.1), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35, r.position.y = 0.65 + Math.sin(c * 6) * 0.04;
+      I.rotation.y += h * 1, r.position.y = 0.65 + Math.sin(c * 6) * 0.04;
     }, I;
   }
   static _createBombaMesh(A) {
@@ -22493,7 +22497,7 @@ class Nn {
     const n = new TA(16347926, 2.5, 2.2);
     return n.position.set(0.12, 0.95, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, s.scale.setScalar(0.9 + Math.sin(r * 12) * 0.3), n.intensity = 2.2 + Math.sin(r * 12) * 0.8;
+      I.rotation.y += D * 1, s.scale.setScalar(0.9 + Math.sin(r * 12) * 0.3), n.intensity = 2.2 + Math.sin(r * 12) * 0.8;
     }, I;
   }
   static _createBuyuParsomeniMesh(A) {
@@ -22504,7 +22508,7 @@ class Nn {
     const e = new qI(0.08, 0), t = new GA({ color: 14202110 }), a = new l(e, t);
     return a.position.set(0, 0.65, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.position.y = 0.65 + Math.sin(s * 3) * 0.05, a.rotation.y += r * 2;
+      I.rotation.y += r * 1, a.position.y = 0.65 + Math.sin(s * 3) * 0.05, a.rotation.y += r * 2;
     }, I;
   }
   static _createYildirimParsomeniMesh(A) {
@@ -22521,7 +22525,7 @@ class Nn {
     const e = new qI(0.14, 0), t = new d({ color: 16498468, emissive: 16347926, emissiveIntensity: 0.85, flatShading: true }), a = new l(e, t);
     return a.position.set(0, 0.32, 0), a.rotation.y = Math.PI / 4, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.rotation.y += r * 2, a.scale.setScalar(1 + Math.sin(s * 4) * 0.12);
+      I.rotation.y += r * 1, a.rotation.y += r * 2, a.scale.setScalar(1 + Math.sin(s * 4) * 0.12);
     }, I;
   }
   static _createBuharMotoruMesh(A) {
@@ -22545,7 +22549,7 @@ class Nn {
     const r = new IA(0.24, 0.04, 0.04), c = new l(r, i);
     return c.position.set(0.08, 0.32, 0.08), I.add(c), I.userData.update = (D, h) => {
       const S = h || 0.016;
-      I.rotation.y += S * 0.35, a.rotation.z -= S * 4, c.position.x = 0.08 + Math.sin(D * 6) * 0.05;
+      I.rotation.y += S * 1, a.rotation.z -= S * 4, c.position.x = 0.08 + Math.sin(D * 6) * 0.05;
     }, I;
   }
   static _createTekerlekMesh(A) {
@@ -22559,7 +22563,7 @@ class Nn {
     }
     return I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, B.rotation.z += a * 0.5, o.rotation.y += a * 0.5;
+      I.rotation.y += a * 1, B.rotation.z += a * 0.5, o.rotation.y += a * 0.5;
     }, I;
   }
   static _createElArabasiMesh(A) {
@@ -22583,7 +22587,7 @@ class Nn {
       c.position.set(-0.22, -0.12, n), g.add(c);
     }), I.add(g), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, g.position.y = 0.36 + Math.sin(n * 3) * 0.02;
+      I.rotation.y += c * 1, g.position.y = 0.36 + Math.sin(n * 3) * 0.02;
     }, I;
   }
   static _createLokomotifMesh(A) {
@@ -22598,7 +22602,7 @@ class Nn {
     const n = new GA({ color: 16707722 }), r = new l(s, n);
     return r.position.set(0.3, 0.44, 0), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35, I.position.y = Math.sin(c * 3) * 0.02;
+      I.rotation.y += h * 1, I.position.y = Math.sin(c * 3) * 0.02;
     }, I;
   }
   static _createAmpulMesh(A) {
@@ -22609,7 +22613,7 @@ class Nn {
     const e = new TA(16771584, 2.5, 3.5);
     return e.position.set(0, 0.58, 0), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, e.intensity = 2.2 + Math.sin(t * 8) * 0.5;
+      I.rotation.y += s * 1, e.intensity = 2.2 + Math.sin(t * 8) * 0.5;
     }, I;
   }
   static _createFenerMesh(A) {
@@ -22622,7 +22626,7 @@ class Nn {
     const a = new TA(16766720, 2.2, 3);
     return a.position.set(0, 0.45, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, B.position.y = 0.42 + Math.sin(s * 2.5) * 0.02;
+      I.rotation.y += r * 1, B.position.y = 0.42 + Math.sin(s * 2.5) * 0.02;
     }, I;
   }
   static _createPusulaMesh(A) {
@@ -22637,7 +22641,7 @@ class Nn {
     const s = new d({ color: 3900150, flatShading: true }), n = new l(e, s);
     return n.position.set(0, 0.14, -0.15), n.rotation.x = Math.PI / 2, I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, a.rotation.z = Math.sin(r * 2) * 0.2, n.rotation.z = Math.sin(r * 2) * 0.2;
+      I.rotation.y += D * 1, a.rotation.z = Math.sin(r * 2) * 0.2, n.rotation.z = Math.sin(r * 2) * 0.2;
     }, I;
   }
   static _createMiknatisMesh(A) {
@@ -22663,7 +22667,7 @@ class Nn {
       h.position.set(D, -0.38, 0), g.add(h);
     }), I.add(g), I.userData.update = (D, h) => {
       const S = h || 0.016;
-      I.rotation.y += S * 0.35, g.position.y = 0.44 + Math.sin(D * 3.5) * 0.03, r.intensity = 2 + Math.sin(D * 6) * 0.6;
+      I.rotation.y += S * 1, g.position.y = 0.44 + Math.sin(D * 3.5) * 0.03, r.intensity = 2 + Math.sin(D * 6) * 0.6;
     }, I;
   }
   static _createElektrikMotoruMesh(A) {
@@ -22674,7 +22678,7 @@ class Nn {
     const e = new q(0.07, 0.07, 0.88, 4), t = new d({ color: 14870768, metalness: 0.95, roughness: 0.15, flatShading: true }), a = new l(e, t);
     return a.position.y = 0.38, a.rotation.z = Math.PI / 2, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.rotation.x += r * 6;
+      I.rotation.y += r * 1, a.rotation.x += r * 6;
     }, I;
   }
   static _createCelikKulceMesh(A) {
@@ -22688,7 +22692,7 @@ class Nn {
     const B = new TA(3718648, 2.2, 2.5);
     return B.position.set(0, 0.5, 0.2), I.add(B), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, B.intensity = 2 + Math.sin(i * 3.5) * 0.6;
+      I.rotation.y += o * 1, B.intensity = 2 + Math.sin(i * 3.5) * 0.6;
     }, I;
   }
   static _createOrsMesh(A) {
@@ -22709,7 +22713,7 @@ class Nn {
     const i = new q(0.14, 0.14, 0.05, 6), Q = new l(i, C);
     return Q.position.y = 0.65, Q.add(this._createOutline(i, 1976635, 0.03)), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35, I.position.y = Math.sin(o * 2) * 0.02;
+      I.rotation.y += t * 1, I.position.y = Math.sin(o * 2) * 0.02;
     }, I;
   }
   static _createTuglaMesh(A) {
@@ -22721,7 +22725,7 @@ class Nn {
       e.position.set(Q, 0.27, 0), I.add(e);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
     }, I;
   }
   static _createHarcMesh(A) {
@@ -22736,7 +22740,7 @@ class Nn {
     const e = new q(0.025, 0.025, 0.18, 5), t = new d({ color: 8736014, roughness: 0.7, flatShading: true }), a = new l(e, t);
     return a.position.set(0.24, 0.44, 0.22), a.rotation.set(0.6, 0.4, 0.8), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createTuglaDuvarMesh(A) {
@@ -22748,7 +22752,7 @@ class Nn {
       e.position.set(0, 0.33 + Q, 0), I.add(e);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
     }, I;
   }
   static _createSaglamSandikMesh(A) {
@@ -22762,7 +22766,7 @@ class Nn {
     const Q = new IA(0.09, 0.11, 0.05), o = new d({ color: 16096779, metalness: 0.9, roughness: 0.25, flatShading: true }), e = new l(Q, o);
     return e.position.set(0, 0.24, 0.25), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createKristalMesh(A) {
@@ -22776,7 +22780,7 @@ class Nn {
       a.position.set(Q, o, e), a.rotation.z = t, I.add(a);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35, B.position.y = 0.45 + Math.sin(Q * 2.5) * 0.03;
+      I.rotation.y += e * 1, B.position.y = 0.45 + Math.sin(Q * 2.5) * 0.03;
     }, I;
   }
   static _createTeleskopMesh(A) {
@@ -22790,7 +22794,7 @@ class Nn {
       n.position.set(Math.sin(s * 2.1) * 0.18, 0.25, Math.cos(s * 2.1) * 0.18), n.rotation.x = Math.cos(s * 2.1) * 0.3, n.rotation.z = Math.sin(s * 2.1) * 0.3, I.add(n);
     }), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createVincMesh(A) {
@@ -22803,7 +22807,7 @@ class Nn {
     const a = new _A(0.06, 0.02, 4, 8, Math.PI * 1.3), s = new d({ color: 9741240, metalness: 0.9, roughness: 0.2, flatShading: true }), n = new l(a, s);
     return n.position.set(0.48, 0.43, 0), I.add(n), I.userData.update = (r, c) => {
       const D = c || 0.016;
-      I.rotation.y += D * 0.35, n.position.y = 0.43 + Math.sin(r * 3) * 0.03;
+      I.rotation.y += D * 1, n.position.y = 0.43 + Math.sin(r * 3) * 0.03;
     }, I;
   }
   static _createYildizTozuMesh(A) {
@@ -22817,7 +22821,7 @@ class Nn {
     const e = new TA(12616956, 1.8, 2.5);
     return e.position.set(0, 0.4, 0), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, B.rotation.x += s * 0.5, o.forEach((n) => {
+      I.rotation.y += s * 1, B.rotation.x += s * 0.5, o.forEach((n) => {
         n.angle += s * 1.5, n.mesh.position.set(Math.cos(n.angle) * 0.48, 0.4 + Math.sin(n.angle * 2) * 0.12, Math.sin(n.angle) * 0.48), n.mesh.rotation.y += s * 3;
       });
     }, I;
@@ -22828,7 +22832,7 @@ class Nn {
     const i = new q(0.42, 0.46, 0.12, 6), Q = new d({ color: 3359061, roughness: 0.8, flatShading: true }), o = new l(i, Q);
     return o.position.y = 0.06, o.add(this._createOutline(i, 988970, 0.035)), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, B.position.y = 0.36 + Math.sin(e * 2) * 0.02;
+      I.rotation.y += a * 1, B.position.y = 0.36 + Math.sin(e * 2) * 0.02;
     }, I;
   }
   static _createKahinKuresiMesh(A) {
@@ -22839,7 +22843,7 @@ class Nn {
     const e = new TA(11032055, 2, 2.5);
     return e.position.set(0, 0.52, 0), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, B.rotation.x += s * 0.8, B.rotation.z += s * 0.5;
+      I.rotation.y += s * 1, B.rotation.x += s * 0.8, B.rotation.z += s * 0.5;
     }, I;
   }
   static _createPortalRunuMesh(A) {
@@ -22850,7 +22854,7 @@ class Nn {
     const e = new qI(0.08, 0), t = new GA({ color: 16502760 }), a = new l(e, t);
     return a.position.set(0, 0.45, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, o.rotation.y += r * 1.5, a.position.y = 0.45 + Math.sin(s * 4) * 0.08, a.rotation.x += r * 3;
+      I.rotation.y += r * 1, o.rotation.y += r * 1.5, a.position.y = 0.45 + Math.sin(s * 4) * 0.08, a.rotation.x += r * 3;
     }, I;
   }
   static _createBoslukSisesiMesh(A) {
@@ -22861,7 +22865,7 @@ class Nn {
     const e = new qI(0.08, 0), t = new GA({ color: 3718648 }), a = new l(e, t);
     return a.position.set(0, 0.32, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.position.y = 0.32 + Math.sin(s * 3) * 0.04, a.rotation.y += r * 2;
+      I.rotation.y += r * 1, a.position.y = 0.32 + Math.sin(s * 3) * 0.04, a.rotation.y += r * 2;
     }, I;
   }
   static _createBoyutKapisiMesh(A) {
@@ -22870,7 +22874,7 @@ class Nn {
     const i = new IA(0.55, 0.82, 0.04), Q = new d({ color: 11032055, emissive: 12616956, emissiveIntensity: 1.1, roughness: 0.2, flatShading: true }), o = new l(i, Q);
     return o.position.set(0, 0.5, 0.02), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, o.scale.set(1 + Math.sin(e * 3) * 0.03, 1 + Math.cos(e * 4) * 0.03, 1);
+      I.rotation.y += a * 1, o.scale.set(1 + Math.sin(e * 3) * 0.03, 1 + Math.cos(e * 4) * 0.03, 1);
     }, I;
   }
   static _createAnkaKuluMesh(A) {
@@ -22879,7 +22883,7 @@ class Nn {
     const i = new AA(0.18, 0.45, 5), Q = new d({ color: 16096779, emissive: 15680580, emissiveIntensity: 1, flatShading: true }), o = new l(i, Q);
     return o.position.y = 0.64, o.add(this._createOutline(i, 11817737, 0.03)), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, o.scale.set(1 + Math.sin(e * 6) * 0.15, 1 + Math.cos(e * 8) * 0.18, 1 + Math.sin(e * 5) * 0.15);
+      I.rotation.y += a * 1, o.scale.set(1 + Math.sin(e * 6) * 0.15, 1 + Math.cos(e * 8) * 0.18, 1 + Math.sin(e * 5) * 0.15);
     }, I;
   }
   static _createRunikZirhMesh(A) {
@@ -22897,7 +22901,7 @@ class Nn {
     const e = new TA(3718648, 2.4, 2.5);
     return e.position.set(0, 0.5, 0.28), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
       const n = 0.85 + Math.sin(t * 3) * 0.25;
       o.scale.setScalar(n), e.intensity = 1.8 + n * 0.8;
     }, I;
@@ -22914,7 +22918,7 @@ class Nn {
     const s = new jI(0.08, 0), n = new GA({ color: 16436245 }), r = new l(s, n);
     return r.position.set(0.12, 0.6, 0), I.add(r), I.userData.update = (c, D) => {
       const h = D || 0.016;
-      I.rotation.y += h * 0.35, r.position.y = 0.6 + Math.sin(c * 6) * 0.15, r.rotation.z += h * 4;
+      I.rotation.y += h * 1, r.position.y = 0.6 + Math.sin(c * 6) * 0.15, r.rotation.z += h * 4;
     }, I;
   }
   static _createYildizGecidiCekirdegiMesh(A) {
@@ -22925,7 +22929,7 @@ class Nn {
     const e = new _A(0.62, 0.035, 4, 8), t = new d({ color: 16096779, emissive: 16498468, emissiveIntensity: 0.6, flatShading: true }), a = new l(e, t);
     return a.rotation.y = Math.PI / 3, a.position.y = 0.45, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, o.rotation.x += r * 1.5, a.rotation.y += r * 1.2, B.scale.setScalar(1 + Math.sin(s * 5) * 0.08);
+      I.rotation.y += r * 1, o.rotation.x += r * 1.5, a.rotation.y += r * 1.2, B.scale.setScalar(1 + Math.sin(s * 5) * 0.08);
     }, I;
   }
   static _createKarMesh(A) {
@@ -22943,7 +22947,7 @@ class Nn {
     }
     return I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, I.position.y = Math.sin(i * 2) * 0.04;
+      I.rotation.y += o * 1, I.position.y = Math.sin(i * 2) * 0.04;
     }, I;
   }
   static _createBuzMesh(A) {
@@ -22952,7 +22956,7 @@ class Nn {
     const i = new jI(0.22, 0), Q = new d({ color: 15792639, roughness: 0.4, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.2, 0.68, 0.2), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, B.rotation.x = Math.sin(e * 1.5) * 0.05;
+      I.rotation.y += a * 1, B.rotation.x = Math.sin(e * 1.5) * 0.05;
     }, I;
   }
   static _createColMesh(A) {
@@ -22967,7 +22971,7 @@ class Nn {
     const o = new BA(0.12, 0), e = new d({ color: 14251782, roughness: 0.9, flatShading: true }), t = new l(o, e);
     return t.position.set(0.1, 0.32, 0.25), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createTohumMesh(A) {
@@ -22981,7 +22985,7 @@ class Nn {
     const B = new jI(0.08, 0), i = new GA({ color: 4906624 }), Q = new l(B, i);
     return Q.position.set(0, 0.44, 0.12), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35, Q.position.y = 0.44 + Math.sin(o * 3) * 0.03;
+      I.rotation.y += t * 1, Q.position.y = 0.44 + Math.sin(o * 3) * 0.03;
     }, I;
   }
   static _createBugdayMesh(A) {
@@ -22993,7 +22997,7 @@ class Nn {
     });
     return I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35, I.rotation.z = Math.sin(Q * 2) * 0.05;
+      I.rotation.y += e * 1, I.rotation.z = Math.sin(Q * 2) * 0.05;
     }, I;
   }
   static _createNaneMesh(A) {
@@ -23009,14 +23013,14 @@ class Nn {
     const o = new GA({ color: 11006928 }), e = new l(new BA(0.08, 0), o);
     return e.position.set(0.05, 0.32, 0.1), g.add(e), I.add(g), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, e.position.y = 0.32 + Math.sin(t * 3) * 0.025, g.position.y = 0.42 + Math.sin(t * 2) * 0.02;
+      I.rotation.y += s * 1, e.position.y = 0.32 + Math.sin(t * 3) * 0.025, g.position.y = 0.42 + Math.sin(t * 2) * 0.02;
     }, I;
   }
   static _createAgacKabuguMesh(A) {
     const I = new f(), g = new d({ color: 7877903, roughness: 0.85, side: Rg, flatShading: true }), C = new q(0.32, 0.32, 0.75, 6, 1, true, 0, Math.PI * 0.9), B = new l(C, g);
     return B.position.y = 0.38, B.rotation.y = 0.3, B.add(this._createOutline(C, 4528643, 0.04)), I.add(B), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35;
+      I.rotation.y += o * 1;
     }, I;
   }
   static _createInekMesh(A) {
@@ -23063,7 +23067,7 @@ class Nn {
     const N = new l(new AA(0.05, 0.12, 4), Q);
     return N.position.set(0, 0.26, -0.44), I.add(N), I.userData.update = (u, L) => {
       const Z = L || 0.016;
-      I.rotation.y += Z * 0.35, G.position.x = Math.sin(u * 3.5) * 0.015, y.rotation.z = Math.sin(u * 3) * 0.2;
+      I.rotation.y += Z * 1, G.position.x = Math.sin(u * 3.5) * 0.015, y.rotation.z = Math.sin(u * 3) * 0.2;
     }, I;
   }
   static _createSutMesh(A) {
@@ -23074,7 +23078,7 @@ class Nn {
     const e = new jI(0.08, 0), t = new l(e, Q);
     return t.position.set(0, 0.75, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, t.position.y = 0.75 + Math.sin(a * 4) * 0.05;
+      I.rotation.y += n * 1, t.position.y = 0.75 + Math.sin(a * 4) * 0.05;
     }, I;
   }
   static _createYumurtaMesh(A) {
@@ -23083,7 +23087,7 @@ class Nn {
     const C = new d({ color: 16708551, roughness: 0.5, flatShading: true }), B = new l(g, C);
     return B.position.y = 0.42, B.add(this._createOutline(g, 14251782, 0.04)), I.add(B), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, B.rotation.z = Math.sin(i * 2) * 0.08;
+      I.rotation.y += o * 1, B.rotation.z = Math.sin(i * 2) * 0.08;
     }, I;
   }
   static _createMercanMesh(A) {
@@ -23093,7 +23097,7 @@ class Nn {
       o.position.set(i.x, i.y, i.z), o.rotation.z = i.ang, o.add(this._createOutline(Q, 10424889, 0.03)), I.add(o);
     }), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, I.position.y = Math.sin(i * 2) * 0.02;
+      I.rotation.y += o * 1, I.position.y = Math.sin(i * 2) * 0.02;
     }, I;
   }
   static _createOltaMesh(A) {
@@ -23104,7 +23108,7 @@ class Nn {
     const e = new _A(0.06, 0.015, 4, 8, Math.PI * 1.3), t = new d({ color: 9741240, metalness: 0.9, roughness: 0.2, flatShading: true }), a = new l(e, t);
     return a.position.set(0.25, 0.28, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, a.rotation.z = Math.sin(s * 3) * 0.15;
+      I.rotation.y += r * 1, a.rotation.z = Math.sin(s * 3) * 0.15;
     }, I;
   }
   static _createYelkenMesh(A) {
@@ -23115,7 +23119,7 @@ class Nn {
     const Q = new d({ color: 16317180, roughness: 0.5, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.12, 0.52, 0), o.rotation.z = -Math.PI / 2.2, o.add(this._createOutline(i, 9741240, 0.035)), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, o.rotation.x = Math.sin(e * 2) * 0.08;
+      I.rotation.y += a * 1, o.rotation.x = Math.sin(e * 2) * 0.08;
     }, I;
   }
   static _createSalMesh(A) {
@@ -23130,7 +23134,7 @@ class Nn {
       o.position.set(0, 0.26, Q), I.add(o);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35, I.position.y = Math.sin(Q * 2) * 0.02;
+      I.rotation.y += e * 1, I.position.y = Math.sin(Q * 2) * 0.02;
     }, I;
   }
   static _createObsidyenBicakMesh(A) {
@@ -23150,7 +23154,7 @@ class Nn {
       s.position.set(o, e, t), I.add(s);
     }), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createUnMesh(A) {
@@ -23161,7 +23165,7 @@ class Nn {
     const e = new jI(0.06, 0), t = new l(e, Q);
     return t.position.set(0.12, 0.78, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, t.position.y = 0.78 + Math.sin(a * 3) * 0.04, t.rotation.x += n * 2;
+      I.rotation.y += n * 1, t.position.y = 0.78 + Math.sin(a * 3) * 0.04, t.rotation.x += n * 2;
     }, I;
   }
   static _createHamurMesh(A) {
@@ -23170,7 +23174,7 @@ class Nn {
     const C = new d({ color: 16707722, roughness: 0.7, flatShading: true }), B = new l(g, C);
     return B.position.y = 0.25, B.add(this._createOutline(g, 13273604, 0.035)), I.add(B), I.userData.update = (i, Q) => {
       const o = Q || 0.016;
-      I.rotation.y += o * 0.35, B.scale.set(1.25 + Math.sin(i * 2) * 0.04, 0.75 + Math.cos(i * 2.5) * 0.03, 1.15 + Math.sin(i * 2) * 0.04);
+      I.rotation.y += o * 1, B.scale.set(1.25 + Math.sin(i * 2) * 0.04, 0.75 + Math.cos(i * 2.5) * 0.03, 1.15 + Math.sin(i * 2) * 0.04);
     }, I;
   }
   static _createEkmekMesh(A) {
@@ -23186,7 +23190,7 @@ class Nn {
       t.position.set(e, 0.56, 0), t.rotation.y = 0.25, I.add(t);
     }), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, i.position.y = 0.36 + Math.sin(e * 2.5) * 0.02;
+      I.rotation.y += a * 1, i.position.y = 0.36 + Math.sin(e * 2.5) * 0.02;
     }, I;
   }
   static _createDisliCarkMesh(A) {
@@ -23200,7 +23204,7 @@ class Nn {
     const Q = new q(0.12, 0.12, 0.12, 6), o = new d({ color: 988970, flatShading: true }), e = new l(Q, o);
     return e.position.y = 0.25, e.rotation.x = Math.PI / 2, I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, B.rotation.z += s * 1.5;
+      I.rotation.y += s * 1, B.rotation.z += s * 1.5;
     }, I;
   }
   static _createDegirmenMesh(A) {
@@ -23216,7 +23220,7 @@ class Nn {
       n.rotation.z = s, n.add(this._createOutline(t, 14251782, 0.025)), e.add(n);
     }), I.add(e), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, e.rotation.z += r * 2;
+      I.rotation.y += r * 1, e.rotation.z += r * 2;
     }, I;
   }
   static _createAynaMesh(A) {
@@ -23227,7 +23231,7 @@ class Nn {
     const e = new qI(0.09, 0), t = new l(e, C);
     return t.position.set(0, 0.76, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, t.rotation.y += n * 2;
+      I.rotation.y += n * 1, t.rotation.y += n * 2;
     }, I;
   }
   static _createSaatMesh(A) {
@@ -23242,7 +23246,7 @@ class Nn {
     const r = new _A(0.1, 0.025, 4, 8), c = new l(r, C);
     return c.position.set(0, 0.1, -0.48), I.add(c), I.userData.update = (D, h) => {
       const S = h || 0.016;
-      I.rotation.y += S * 0.35, n.rotation.y += S * 3;
+      I.rotation.y += S * 1, n.rotation.y += S * 3;
     }, I;
   }
   static _createDemirParmaklikMesh(A) {
@@ -23259,7 +23263,7 @@ class Nn {
       e.position.set(Q, 0.78, 0), I.add(e);
     }), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
     }, I;
   }
   static _createSavasBaltasiMesh(A) {
@@ -23272,7 +23276,7 @@ class Nn {
     const e = new l(i, Q);
     return e.rotation.z = -Math.PI / 2, e.position.set(0.24, 0.75, 0), e.add(this._createOutline(i, 1976635, 0.035)), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, I.rotation.z = Math.sin(t * 2) * 0.06;
+      I.rotation.y += s * 1, I.rotation.z = Math.sin(t * 2) * 0.06;
     }, I;
   }
   static _createGozetlemeKulesiMesh(A) {
@@ -23283,7 +23287,7 @@ class Nn {
     const e = new AA(0.38, 0.35, 6), t = new d({ color: 12131356, roughness: 0.7, flatShading: true }), a = new l(e, t);
     return a.position.y = 0.9, a.add(this._createOutline(e, 8330525, 0.035)), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createKaleKapisiMesh(A) {
@@ -23310,7 +23314,7 @@ class Nn {
     const t = new TA(8246268, 1.8, 2.2);
     return t.position.set(0, 0.4, 0.2), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, B.position.y = 0.38 + Math.sin(a * 2.2) * 0.03, o.position.y = B.position.y;
+      I.rotation.y += n * 1, B.position.y = 0.38 + Math.sin(a * 2.2) * 0.03, o.position.y = B.position.y;
     }, I;
   }
   static _createCehennemTasiMesh(A) {
@@ -23324,7 +23328,7 @@ class Nn {
     const o = new TA(15680580, 2.2, 2.5);
     return o.position.set(0, 0.45, 0), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, B.position.y = 0.42 + Math.sin(e * 2.5) * 0.03;
+      I.rotation.y += a * 1, B.position.y = 0.42 + Math.sin(e * 2.5) * 0.03;
     }, I;
   }
   static _createZamanKumSaatiMesh(A) {
@@ -23345,7 +23349,7 @@ class Nn {
     }
     return I.userData.update = (D, h) => {
       const S = h || 0.016;
-      I.rotation.y += S * 0.35, r.scale.y = 0.95 + Math.sin(D * 3) * 0.08;
+      I.rotation.y += S * 1, r.scale.y = 0.95 + Math.sin(D * 3) * 0.08;
     }, I;
   }
   static _createIlluzyonAynasiMesh(A) {
@@ -23362,7 +23366,7 @@ class Nn {
     const a = new TA(16007006, 2, 2.5);
     return a.position.set(0, 0.42, 0.15), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, o.rotation.z += r * 0.8, B.position.y = 0.42 + Math.sin(s * 2.2) * 0.025, o.position.y = B.position.y, t.position.y = B.position.y + 0.4;
+      I.rotation.y += r * 1, o.rotation.z += r * 0.8, B.position.y = 0.42 + Math.sin(s * 2.2) * 0.025, o.position.y = B.position.y, t.position.y = B.position.y + 0.4;
     }, I;
   }
   static _createDefaultMesh(A) {
@@ -23389,7 +23393,7 @@ class Nn {
     const e = new TA(3718648, 2.5, 3);
     return e.position.set(0, 0.45, 0.1), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, o.rotation.y += s * 1.2, B.position.y = 0.45 + Math.sin(t * 2.5) * 0.035, o.position.y = B.position.y;
+      I.rotation.y += s * 1, o.rotation.y += s * 1.2, B.position.y = 0.45 + Math.sin(t * 2.5) * 0.035, o.position.y = B.position.y;
     }, I;
   }
   static _createHologramKupuMesh(A) {
@@ -23400,7 +23404,7 @@ class Nn {
     const e = new TA(3462041, 2.2, 2.5);
     return e.position.set(0, 0.42, 0.2), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, o.rotation.x += s * 0.8, o.rotation.y += s * 1;
+      I.rotation.y += s * 1, o.rotation.x += s * 0.8, o.rotation.y += s * 1;
     }, I;
   }
   static _createBuharJeneratoruMesh(A) {
@@ -23413,7 +23417,7 @@ class Nn {
     const e = new q(0.08, 0.1, 0.22, 6), t = new l(e, C);
     return t.position.set(0.12, 0.72, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, o.rotation.x += n * 2;
+      I.rotation.y += n * 1, o.rotation.x += n * 2;
     }, I;
   }
   static _createMekaZirhiMesh(A) {
@@ -23431,7 +23435,7 @@ class Nn {
     const t = new TA(16347926, 2.2, 2);
     return t.position.set(0, 0.42, 0.25), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, e.scale.setScalar(0.95 + Math.sin(a * 3) * 0.06);
+      I.rotation.y += n * 1, e.scale.setScalar(0.95 + Math.sin(a * 3) * 0.06);
     }, I;
   }
   static _createPlazmaTufegiMesh(A) {
@@ -23448,7 +23452,7 @@ class Nn {
     const a = new TA(15485081, 2, 2);
     return a.position.set(0.72, 0.38, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createFelsefeTasiMesh(A) {
@@ -23461,7 +23465,7 @@ class Nn {
     const e = new TA(15680580, 2.5, 2.8);
     return e.position.set(0, 0.48, 0.1), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, B.position.y = 0.45 + Math.sin(t * 2.4) * 0.03;
+      I.rotation.y += s * 1, B.position.y = 0.45 + Math.sin(t * 2.4) * 0.03;
     }, I;
   }
   static _createGunesPaneliMesh(A) {
@@ -23474,7 +23478,7 @@ class Nn {
     const e = new TA(16638023, 1.8, 2);
     return e.position.set(0, 0.6, 0.2), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createYercekimsizPlatformMesh(A) {
@@ -23505,7 +23509,7 @@ class Nn {
     const a = new TA(440020, 1.8, 2);
     return a.position.set(0.05, 0.45, 0.15), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createUsturlapMesh(A) {
@@ -23520,7 +23524,7 @@ class Nn {
     const s = new TA(16436245, 2, 2.2);
     return s.position.set(0, 0.45, 0.1), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, t.rotation.z += c * 0.7, a.rotation.x += c * 0.5;
+      I.rotation.y += c * 1, t.rotation.z += c * 0.7, a.rotation.x += c * 0.5;
     }, I;
   }
   static _createTeslaBobiniMesh(A) {
@@ -23533,7 +23537,7 @@ class Nn {
     const s = new TA(3718648, 2.8, 3);
     return s.position.set(0, 0.68, 0.1), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, a.rotation.y += c * 1.5, a.scale.setScalar(0.95 + Math.sin(n * 6) * 0.06);
+      I.rotation.y += c * 1, a.rotation.y += c * 1.5, a.scale.setScalar(0.95 + Math.sin(n * 6) * 0.06);
     }, I;
   }
   static _createKuantumIslemciMesh(A) {
@@ -23546,7 +23550,7 @@ class Nn {
     const s = new TA(3718648, 2.4, 2.8);
     return s.position.set(0, 0.42, 0.1), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, o.rotation.y += c * 0.8;
+      I.rotation.y += c * 1, o.rotation.y += c * 0.8;
     }, I;
   }
   static _createMinyaturYildizMesh(A) {
@@ -23559,7 +23563,7 @@ class Nn {
     const t = new TA(16347926, 3.2, 3.5);
     return t.position.set(0, 0.45, 0.1), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, B.rotation.z += n * 0.8, i.rotation.y += n * 0.6, e.rotation.y += n * 1.2, e.scale.setScalar(0.96 + Math.sin(a * 4) * 0.05);
+      I.rotation.y += n * 1, B.rotation.z += n * 0.8, i.rotation.y += n * 0.6, e.rotation.y += n * 1.2, e.scale.setScalar(0.96 + Math.sin(a * 4) * 0.05);
     }, I;
   }
   static _createDagMesh(A) {
@@ -23570,7 +23574,7 @@ class Nn {
     const e = new AA(0.24, 0.36, 4), t = new l(e, C);
     return t.position.set(0.28, 0.18, 0.15), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createKayaMesh(A) {
@@ -23581,7 +23585,7 @@ class Nn {
     const i = new BA(0.18, 0), Q = new d({ color: 6660877, roughness: 0.8, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.18, 0.52, 0.2), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35;
+      I.rotation.y += a * 1;
     }, I;
   }
   static _createGunesMesh(A) {
@@ -23597,7 +23601,7 @@ class Nn {
     const e = new TA(16638023, 2.8, 3.5);
     return e.position.set(0, 0.45, 0.1), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35, o.rotation.z += s * 0.5;
+      I.rotation.y += s * 1, o.rotation.z += s * 0.5;
     }, I;
   }
   static _createOkyanusMesh(A) {
@@ -23606,7 +23610,7 @@ class Nn {
     const i = new sI(0.13, 0), Q = new d({ color: 16777215, roughness: 0.3, flatShading: true }), o = new l(i, Q);
     return o.position.set(0.24, 0.65, 0), I.add(o), I.userData.update = (e, t) => {
       const a = t || 0.016;
-      I.rotation.y += a * 0.35, B.rotation.z = -0.6 + Math.sin(e * 2) * 0.08;
+      I.rotation.y += a * 1, B.rotation.z = -0.6 + Math.sin(e * 2) * 0.08;
     }, I;
   }
   static _createVolkanMesh(A) {
@@ -23619,7 +23623,7 @@ class Nn {
     const a = new TA(16347926, 2.5, 2.5);
     return a.position.set(0, 0.72, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, t.position.y = 0.78 + Math.sin(s * 4) * 0.06;
+      I.rotation.y += r * 1, t.position.y = 0.78 + Math.sin(s * 4) * 0.06;
     }, I;
   }
   static _createAdaMesh(A) {
@@ -23649,7 +23653,7 @@ class Nn {
     const s = new l(new BA(0.04, 0), t);
     return s.position.set(0.08, 0.15, -0.14), I.add(s), I.userData.update = (n, r) => {
       const c = r || 0.016;
-      I.rotation.y += c * 0.35, a.position.x = -0.06 + Math.sin(n * 4) * 0.03, s.position.z = -0.14 + Math.cos(n * 4) * 0.03;
+      I.rotation.y += c * 1, a.position.x = -0.06 + Math.sin(n * 4) * 0.03, s.position.z = -0.14 + Math.cos(n * 4) * 0.03;
     }, I;
   }
   static _createOrmanMesh(A) {
@@ -23665,7 +23669,7 @@ class Nn {
     };
     return I.add(i(0, -0.05, 1.25)), I.add(i(-0.24, 0.1, 0.95)), I.add(i(0.24, 0.08, 1)), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
     }, I;
   }
   static _createFirtinaBulutuMesh(A) {
@@ -23680,7 +23684,7 @@ class Nn {
     const t = new TA(16707722, 2.4, 2.5);
     return t.position.set(0, 0.2, 0.1), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, e.scale.y = 0.85 + Math.sin(a * 8) * 0.2;
+      I.rotation.y += n * 1, e.scale.y = 0.85 + Math.sin(a * 8) * 0.2;
     }, I;
   }
   static _createMagaraMesh(A) {
@@ -23701,7 +23705,7 @@ class Nn {
     const D = new TA(11032055, 2.2, 2.2);
     return D.position.set(0, 0.36, 0.2), I.add(D), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, c.scale.setScalar(0.9 + Math.sin(h * 3) * 0.15), D.intensity = 1.8 + Math.sin(h * 3) * 0.6;
+      I.rotation.y += G * 1, c.scale.setScalar(0.9 + Math.sin(h * 3) * 0.15), D.intensity = 1.8 + Math.sin(h * 3) * 0.6;
     }, I;
   }
   static _createGokkusagiMesh(A) {
@@ -23714,7 +23718,7 @@ class Nn {
     const e = new TA(16020150, 2, 2.5);
     return e.position.set(0, 0.45, 0.1), I.add(e), I.userData.update = (t, a) => {
       const s = a || 0.016;
-      I.rotation.y += s * 0.35;
+      I.rotation.y += s * 1;
     }, I;
   }
   static _createKanyonMesh(A) {
@@ -23723,7 +23727,7 @@ class Nn {
     const i = new l(C, g);
     return i.position.set(0.25, 0.38, 0), i.rotation.z = -0.08, i.add(this._createOutline(C, 4396039, 0.035)), I.add(i), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35;
+      I.rotation.y += e * 1;
     }, I;
   }
   static _createFayHattiMesh(A) {
@@ -23732,7 +23736,7 @@ class Nn {
     const i = new IA(0.34, 0.16, 0.68), Q = new l(i, g);
     return Q.position.set(0.2, 0.25, 0), Q.rotation.y = -0.15, Q.rotation.z = 0.05, Q.add(this._createOutline(i, 1841431, 0.035)), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createBulutMesh(A) {
@@ -23743,7 +23747,7 @@ class Nn {
     const i = new l(new sI(0.22, 0), g);
     return i.position.set(0.24, 0.4, 0), I.add(i), I.userData.update = (Q, o) => {
       const e = o || 0.016;
-      I.rotation.y += e * 0.35, I.position.y = Math.sin(Q * 1.8) * 0.03;
+      I.rotation.y += e * 1, I.position.y = Math.sin(Q * 1.8) * 0.03;
     }, I;
   }
   static _createAtMesh(A) {
@@ -23787,7 +23791,7 @@ class Nn {
     const U = new l(k, Q);
     return U.position.set(0, 0.52, -0.38), I.add(U), I.userData.update = (p, M) => {
       const F = M || 0.016;
-      I.rotation.y += F * 0.35, h.position.y = 0.82 + Math.sin(p * 2.8) * 0.02, U.rotation.z = Math.sin(p * 3.8) * 0.2;
+      I.rotation.y += F * 1, h.position.y = 0.82 + Math.sin(p * 2.8) * 0.02, U.rotation.z = Math.sin(p * 3.8) * 0.2;
     }, I;
   }
   static _createKoyunMesh(A) {
@@ -23821,7 +23825,7 @@ class Nn {
     const h = new l(new BA(0.06, 0), Q);
     return h.position.set(0, 0.44, -0.36), I.add(h), I.userData.update = (S, G) => {
       const k = G || 0.016;
-      I.rotation.y += k * 0.35, s.position.y = 0.44 + Math.sin(S * 2.5) * 0.025, h.position.y = 0.44 + Math.sin(S * 4) * 0.015;
+      I.rotation.y += k * 1, s.position.y = 0.44 + Math.sin(S * 2.5) * 0.025, h.position.y = 0.44 + Math.sin(S * 4) * 0.015;
     }, I;
   }
   static _createKurtMesh(A) {
@@ -23871,7 +23875,7 @@ class Nn {
     const y = new l(F, o);
     return y.position.set(0, 0.44, -0.34), I.add(y), I.userData.update = (N, u) => {
       const L = u || 0.016;
-      I.rotation.y += L * 0.35;
+      I.rotation.y += L * 1;
       const Z = Math.sin(N * 2.2) * 0.08;
       h.rotation.x = -0.35 + Z, y.rotation.z = Math.sin(N * 3.5) * 0.18;
     }, I;
@@ -23901,7 +23905,7 @@ class Nn {
     const k = new l(S, h);
     return k.position.set(0.16, 0.16, 0.02), k.rotation.set(-0.3, -0.2, -0.4), e.add(k), I.add(e), I.userData.update = (U, p) => {
       const M = p || 0.016;
-      I.rotation.y += M * 0.35, e.position.y = 0.46 + Math.sin(U * 5) * 0.06, e.position.x = Math.cos(U * 3) * 0.05, G.rotation.z = 0.4 + Math.sin(U * 26) * 0.45, k.rotation.z = -0.4 - Math.sin(U * 26) * 0.45;
+      I.rotation.y += M * 1, e.position.y = 0.46 + Math.sin(U * 5) * 0.06, e.position.x = Math.cos(U * 3) * 0.05, G.rotation.z = 0.4 + Math.sin(U * 26) * 0.45, k.rotation.z = -0.4 - Math.sin(U * 26) * 0.45;
     }, I;
   }
   static _createYilanMesh(A) {
@@ -23933,7 +23937,7 @@ class Nn {
     const k = new GA({ color: 15680580 }), U = new l(new IA(0.025, 0.015, 0.14), k);
     return U.position.set(0, 0.66, 0.38), I.add(U), I.userData.update = (p, M) => {
       const F = M || 0.016;
-      I.rotation.y += F * 0.35, s.rotation.z = Math.sin(p * 3) * 0.12, S.rotation.z = Math.sin(p * 3) * 0.14, U.scale.z = 0.8 + Math.sin(p * 8) * 0.4;
+      I.rotation.y += F * 1, s.rotation.z = Math.sin(p * 3) * 0.12, S.rotation.z = Math.sin(p * 3) * 0.14, U.scale.z = 0.8 + Math.sin(p * 8) * 0.4;
     }, I;
   }
   static _createBaykusMesh(A) {
@@ -23982,7 +23986,7 @@ class Nn {
       N.position.set(y, 0.14, 0.14), I.add(N);
     }), I.userData.update = (y, N) => {
       const u = N || 0.016;
-      I.rotation.y += u * 0.35, c.rotation.y = Math.sin(y * 1.5) * 0.9, c.rotation.z = Math.sin(y * 3) * 0.08;
+      I.rotation.y += u * 1, c.rotation.y = Math.sin(y * 1.5) * 0.9, c.rotation.z = Math.sin(y * 3) * 0.08;
     }, I;
   }
   static _createKaplumbagaMesh(A) {
@@ -24017,7 +24021,7 @@ class Nn {
     const G = new l(new AA(0.04, 0.12, 4), n);
     return G.rotateX(-Math.PI / 2.2), G.position.set(0, 0.16, -0.4), I.add(G), I.userData.update = (k, U) => {
       const p = U || 0.016;
-      I.rotation.y += p * 0.35, r.position.z = 0.36 + Math.sin(k * 2) * 0.035;
+      I.rotation.y += p * 1, r.position.z = 0.36 + Math.sin(k * 2) * 0.035;
     }, I;
   }
   static _createBalMesh(A) {
@@ -24032,7 +24036,7 @@ class Nn {
     const a = new TA(16638023, 2, 2);
     return a.position.set(0, 0.6, 0.1), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, t.position.y = 0.4 + Math.sin(s * 3) * 0.04;
+      I.rotation.y += r * 1, t.position.y = 0.4 + Math.sin(s * 3) * 0.04;
     }, I;
   }
   static _createNiluferMesh(A) {
@@ -24046,7 +24050,7 @@ class Nn {
     const o = new q(0.08, 0.08, 0.06, 6), e = new d({ color: 16436245, flatShading: true }), t = new l(o, e);
     return t.position.y = 0.26, I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35;
+      I.rotation.y += n * 1;
     }, I;
   }
   static _createElmaMesh(A) {
@@ -24059,7 +24063,7 @@ class Nn {
     const e = new d({ color: 2278750, flatShading: true }), t = new AA(0.08, 0.18, 4), a = new l(t, e);
     return a.position.set(0.08, 0.74, 0), a.rotation.z = -1, I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35;
+      I.rotation.y += r * 1;
     }, I;
   }
   static _createKurbagaMesh(A) {
@@ -24095,7 +24099,7 @@ class Nn {
       p.position.set(G, 0.44, 0.2), I.add(p);
     }), I.userData.update = (G, k) => {
       const U = k || 0.016;
-      I.rotation.y += U * 0.35;
+      I.rotation.y += U * 1;
       const p = Math.sin(G * 3.5) * 0.04;
       s.scale.set(1.1 + p, 0.85 + p, 1.25);
     }, I;
@@ -24141,7 +24145,7 @@ class Nn {
     const M = new _A(0.24, 0.12, 5, 8, Math.PI * 1.3), F = new l(M, Q);
     return F.rotation.set(0, Math.PI / 2, 0.6), F.add(this._createOutline(M, 8138002, 0.035)), p.add(F), I.add(p), I.userData.update = (y, N) => {
       const u = N || 0.016;
-      I.rotation.y += u * 0.35, h.position.y = 0.38 + Math.sin(y * 8) * 0.015, p.rotation.x = Math.sin(y * 4) * 0.15;
+      I.rotation.y += u * 1, h.position.y = 0.38 + Math.sin(y * 8) * 0.015, p.rotation.x = Math.sin(y * 4) * 0.15;
     }, I;
   }
   static _createGeyikMesh(A) {
@@ -24191,7 +24195,7 @@ class Nn {
     const G = new l(new AA(0.05, 0.14, 4), e);
     return G.rotateX(-Math.PI / 2.5), G.position.set(0, 0.48, -0.34), I.add(G), I.userData.update = (k, U) => {
       const p = U || 0.016;
-      I.rotation.y += p * 0.35, c.position.y = 0.78 + Math.sin(k * 2.2) * 0.02, G.rotation.z = Math.sin(k * 4) * 0.2;
+      I.rotation.y += p * 1, c.position.y = 0.78 + Math.sin(k * 2.2) * 0.02, G.rotation.z = Math.sin(k * 4) * 0.2;
     }, I;
   }
   static _createKelebekMesh(A) {
@@ -24212,7 +24216,7 @@ class Nn {
     const D = new l(r, n);
     return D.position.set(0.16, 0.06, 0), D.rotation.set(0.3, -0.2, -0.3), D.add(this._createOutline(r, 481669, 0.035)), o.add(D), I.add(o), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, o.position.y = 0.44 + Math.sin(h * 4) * 0.06, o.position.x = Math.sin(h * 2.5) * 0.05, c.rotation.y = 0.2 + Math.sin(h * 20) * 0.55, D.rotation.y = -0.2 - Math.sin(h * 20) * 0.55;
+      I.rotation.y += G * 1, o.position.y = 0.44 + Math.sin(h * 4) * 0.06, o.position.x = Math.sin(h * 2.5) * 0.05, c.rotation.y = 0.2 + Math.sin(h * 20) * 0.55, D.rotation.y = -0.2 - Math.sin(h * 20) * 0.55;
     }, I;
   }
   static _createSisMesh(A) {
@@ -24222,7 +24226,7 @@ class Nn {
       i.position.set(C, 0.4 + B % 2 * 0.08, (B - 1) * 0.08), I.add(i);
     }), I.userData.update = (C, B) => {
       const i = B || 0.016;
-      I.rotation.y += i * 0.35, I.position.y = Math.sin(C * 1.5) * 0.03;
+      I.rotation.y += i * 1, I.position.y = Math.sin(C * 1.5) * 0.03;
     }, I;
   }
   static _createGayzerMesh(A) {
@@ -24250,7 +24254,7 @@ class Nn {
       r.position.y = o + 0.12, I.add(r);
     }), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createTavukMesh(A) {
@@ -24292,7 +24296,7 @@ class Nn {
       y.position.set(p, 0.08, M + 0.03), I.add(y);
     }), I.userData.update = (p, M) => {
       const F = M || 0.016;
-      I.rotation.y += F * 0.35, a.position.y = 0.58 + Math.sin(p * 4.5) * 0.04, a.rotation.x = Math.sin(p * 4.5) * 0.15;
+      I.rotation.y += F * 1, a.position.y = 0.58 + Math.sin(p * 4.5) * 0.04, a.rotation.x = Math.sin(p * 4.5) * 0.15;
     }, I;
   }
   static _createKediMesh(A) {
@@ -24334,7 +24338,7 @@ class Nn {
     const k = new l(G, i);
     return k.position.set(0, 0.14, -0.1), S.add(k), I.add(S), I.userData.update = (U, p) => {
       const M = p || 0.016;
-      I.rotation.y += M * 0.35, S.rotation.y = Math.sin(U * 3.5) * 0.35, n.position.y = 0.54 + Math.sin(U * 2) * 0.015;
+      I.rotation.y += M * 1, S.rotation.y = Math.sin(U * 3.5) * 0.35, n.position.y = 0.54 + Math.sin(U * 2) * 0.015;
     }, I;
   }
   static _createMesaleMesh(A) {
@@ -24347,7 +24351,7 @@ class Nn {
     const a = new TA(16096779, 2.5, 3);
     return a.position.set(0, 0.88, 0), I.add(a), I.userData.update = (s, n) => {
       const r = n || 0.016;
-      I.rotation.y += r * 0.35, t.scale.y = 0.9 + Math.sin(s * 8) * 0.15;
+      I.rotation.y += r * 1, t.scale.y = 0.9 + Math.sin(s * 8) * 0.15;
     }, I;
   }
   static _createSomonMesh(A) {
@@ -24380,7 +24384,7 @@ class Nn {
     const S = new l(h, r);
     return S.position.set(0, -0.08, -0.42), e.add(S), I.add(e), I.userData.update = (G, k) => {
       const U = k || 0.016;
-      I.rotation.y += U * 0.35, e.position.y = 0.38 + Math.sin(G * 5) * 0.08, S.rotation.y = Math.sin(G * 7) * 0.35;
+      I.rotation.y += U * 1, e.position.y = 0.38 + Math.sin(G * 5) * 0.08, S.rotation.y = Math.sin(G * 7) * 0.35;
     }, I;
   }
   static _createYayMesh(A) {
@@ -24389,7 +24393,7 @@ class Nn {
     const i = new GA({ color: 16777215 }), Q = new l(new q(0.01, 0.01, 0.8, 4), i);
     return Q.position.set(0, 0.45, 0), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createBarutFicisiMesh(A) {
@@ -24405,7 +24409,7 @@ class Nn {
     const e = new d({ color: 16436245, emissive: 16347926, emissiveIntensity: 1.5, flatShading: true }), t = new l(new qI(0.05, 0), e);
     return t.position.set(0, 0.79, 0), I.add(t), I.userData.update = (a, s) => {
       const n = s || 0.016;
-      I.rotation.y += n * 0.35, t.scale.setScalar(0.8 + Math.sin(a * 12) * 0.3);
+      I.rotation.y += n * 1, t.scale.setScalar(0.8 + Math.sin(a * 12) * 0.3);
     }, I;
   }
   static _createSuDegirmeniMesh(A) {
@@ -24432,7 +24436,7 @@ class Nn {
     const D = new d({ color: 16777215, flatShading: true }), h = new l(new BA(0.06, 0), D);
     return h.position.set(0.18, 0.14, 0.12), I.add(h), I.userData.update = (S, G) => {
       const k = G || 0.016;
-      I.rotation.y += k * 0.35, a.rotation.z -= k * 2.5, h.scale.setScalar(0.8 + Math.sin(S * 6) * 0.3);
+      I.rotation.y += k * 1, a.rotation.z -= k * 2.5, h.scale.setScalar(0.8 + Math.sin(S * 6) * 0.3);
     }, I;
   }
   static _createBuzDagiMesh(A) {
@@ -24441,7 +24445,7 @@ class Nn {
     const i = new AA(0.32, 0.52, 4), Q = new l(i, g);
     return Q.position.set(0.22, 0.3, 0.1), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35, B.position.y = 0.45 + Math.sin(o * 2) * 0.03, Q.position.y = 0.3 + Math.sin(o * 2) * 0.03;
+      I.rotation.y += t * 1, B.position.y = 0.45 + Math.sin(o * 2) * 0.03, Q.position.y = 0.3 + Math.sin(o * 2) * 0.03;
     }, I;
   }
   static _createKalkanMesh(A) {
@@ -24452,7 +24456,7 @@ class Nn {
     const i = new d({ color: 16096779, metalness: 0.85, roughness: 0.25, flatShading: true }), Q = new l(new BA(0.12, 0), i);
     return Q.position.set(0, 0.45, 0.06), I.add(Q), I.userData.update = (o, e) => {
       const t = e || 0.016;
-      I.rotation.y += t * 0.35;
+      I.rotation.y += t * 1;
     }, I;
   }
   static _createIksirKazaniMesh(A) {
@@ -24482,7 +24486,7 @@ class Nn {
     const D = new TA(11032055, 2.5, 2.5);
     return D.position.set(0, 0.4, 0), g.add(D), I.add(g), I.userData.update = (h, S) => {
       const G = S || 0.016;
-      I.rotation.y += G * 0.35, r.position.y = 0.33 + Math.sin(h * 4) * 0.035, c.position.y = 0.31 + Math.cos(h * 4) * 0.035, D.intensity = 2.2 + Math.sin(h * 4) * 0.6;
+      I.rotation.y += G * 1, r.position.y = 0.33 + Math.sin(h * 4) * 0.035, c.position.y = 0.31 + Math.cos(h * 4) * 0.035, D.intensity = 2.2 + Math.sin(h * 4) * 0.6;
     }, I;
   }
   static _createDefaultMesh(A) {
@@ -26094,9 +26098,9 @@ class Od {
         this.ui.updateFpsHud(C, t);
       }
       this.tableScene.getSlots().forEach((t) => {
-        var _a2, _b;
+        var _a2, _b, _c2;
         const a = (_a2 = t.userData) == null ? void 0 : _a2.mesh;
-        a && typeof ((_b = a.userData) == null ? void 0 : _b.update) == "function" && a.userData.update(Q, i);
+        a && (typeof ((_b = a.userData) == null ? void 0 : _b.update) == "function" ? a.userData.update(Q, i) : a.children && a.children[0] && typeof ((_c2 = a.children[0].userData) == null ? void 0 : _c2.update) == "function" && a.children[0].userData.update(Q, i));
       }), this.tableScene.update(i), this.physics.step(this.sceneManager.scene), this.sceneManager.render();
     };
     B();

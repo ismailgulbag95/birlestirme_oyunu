@@ -638,6 +638,16 @@ export class ItemFactory {
 
     group.add(mainMesh);
 
+    // Ana modelin animasyon ve dönme döngüsünü dış gruba ilet
+    if (mainMesh && typeof mainMesh.userData?.update === 'function') {
+      group.userData.update = (time, delta) => mainMesh.userData.update(time, delta);
+    } else {
+      group.userData.update = (time, delta) => {
+        const dt = delta || 0.016;
+        group.rotation.y += dt * 1.0;
+      };
+    }
+
     // Generate 4-6 fracture pieces for shattering mechanics
     group.userData.fracturePieces = this._generateFracturePieces(def);
 
@@ -779,7 +789,7 @@ export class ItemFactory {
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       const t = time * 4.0;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
 
       // Alev kristallerinin ritmik salınımı ve esnemesi
       mainFlame.scale.y = 1.0 + Math.sin(t * 1.8) * 0.08;
@@ -926,11 +936,11 @@ export class ItemFactory {
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       const t = time * 2.2;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
 
       // Damlanın nazikçe havada süzülmesi (Bobbing)
       dropGroup.position.y = 0.52 + Math.sin(t) * 0.06;
-      dropGroup.rotation.y += dt * 0.35;
+      dropGroup.rotation.y += dt * 1.0;
 
       // Dalga halkasının genişleyip daralması
       innerWave.rotation.z += dt * 0.8;
@@ -1073,7 +1083,7 @@ export class ItemFactory {
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       const t = time * 2.0;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       sproutGroup.rotation.z = Math.sin(t) * 0.08;
       sproutGroup.rotation.x = Math.cos(t * 1.2) * 0.05;
     };
@@ -1179,7 +1189,7 @@ export class ItemFactory {
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       const t = time * 2.5;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
 
       // Bulutun hafif süzülmesi ve nefes alması
       cloudGroup.position.y = 0.62 + Math.sin(t) * 0.05;
@@ -1246,7 +1256,7 @@ export class ItemFactory {
     // 60 FPS Canlı Yükselme & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
 
       puffMeshes.forEach((mesh, idx) => {
         const offset = idx * 0.8;
@@ -1319,7 +1329,7 @@ export class ItemFactory {
     // 60 FPS Baloncuk Nefes Alma & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
 
       const scale1 = 1.0 + Math.sin(time * 3.0) * 0.15;
       b1.scale.set(scale1, scale1 * 0.9, scale1);
@@ -1380,7 +1390,7 @@ export class ItemFactory {
     // 60 FPS Canlı Magma Nabzı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
 
       const pulse = 1.0 + Math.sin(time * 4.0) * 0.08;
       magmaMeshes.forEach(m => m.scale.set(pulse, 1.0 + Math.sin(time * 3.5) * 0.12, pulse));
@@ -1446,7 +1456,7 @@ export class ItemFactory {
     // 60 FPS Kum Tanecikleri Süzülmesi & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
 
       shards.forEach(s => {
         s.userData.angle += s.userData.speed * dt;
@@ -1515,7 +1525,7 @@ export class ItemFactory {
     // 60 FPS Mor Parıltı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
       crystal.scale.y = 1.0 + Math.sin(time * 2.2) * 0.03;
     };
 
@@ -1599,7 +1609,7 @@ export class ItemFactory {
     // 60 FPS Damla Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
 
       drops.forEach(d => {
         d.position.y = d.userData.y + Math.sin(time * 3.5 * d.userData.speed) * 0.06;
@@ -1652,7 +1662,7 @@ export class ItemFactory {
     // 60 FPS Yörünge Dönüşü & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
 
       ring1.rotation.x += dt * 2.0;
       ring1.rotation.y += dt * 2.5;
@@ -1720,7 +1730,7 @@ export class ItemFactory {
     // 60 FPS Rüzgar Şeritleri Dönüşü & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.5;
+      group.rotation.y += dt * 1.2;
 
       r1.rotation.z += dt * 1.2;
       r2.rotation.z -= dt * 1.5;
@@ -1780,7 +1790,7 @@ export class ItemFactory {
     // 60 FPS Ağır Kaya Dönüşü
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -1832,7 +1842,7 @@ export class ItemFactory {
     // 60 FPS Prizma Yansımaları & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.4;
+      group.rotation.y += dt * 1.1;
       inner.rotation.x += dt * 1.5;
       inner.rotation.y += dt * 2.0;
     };
@@ -1872,7 +1882,7 @@ export class ItemFactory {
     // 60 FPS Bulut Nefes Alma & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2.0) * 0.04;
     };
 
@@ -1982,7 +1992,7 @@ export class ItemFactory {
     // 60 FPS Rüzgar Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const sway = Math.sin(time * 2.2) * 0.06;
       stem.rotation.z = -0.1 + sway;
       leafLeft.rotation.z = 0.95 + sway * 0.8;
@@ -2037,7 +2047,7 @@ export class ItemFactory {
     // 60 FPS Tepe Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       tiers[2].rotation.z = Math.sin(time * 2.0) * 0.04;
       tiers[1].rotation.z = Math.sin(time * 2.0 + 0.5) * 0.02;
     };
@@ -2092,7 +2102,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2135,7 +2145,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2178,7 +2188,7 @@ export class ItemFactory {
     // 60 FPS Liflerin Hafif Esnemesi & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       strands.forEach((s, idx) => {
         s.rotation.z = (idx - 1.5) * 0.2 + Math.sin(time * 2.5 + idx) * 0.04;
       });
@@ -2216,7 +2226,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2271,7 +2281,7 @@ export class ItemFactory {
     // 60 FPS Şapkanın Nefes Alma Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const breathe = 1.0 + Math.sin(time * 2.2) * 0.04;
       cap.scale.set(breathe, 1.0 + Math.cos(time * 2.2) * 0.03, breathe);
     };
@@ -2322,7 +2332,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2378,7 +2388,7 @@ export class ItemFactory {
     // 60 FPS Pamuk Nefes Alma & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const b = 1.0 + Math.sin(time * 2.0) * 0.04;
       puffMeshes.forEach(p => p.scale.set(b, b, b));
     };
@@ -2432,7 +2442,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2482,7 +2492,7 @@ export class ItemFactory {
     // 60 FPS Gizli Köz Nabzı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const pulse = 1.0 + Math.sin(time * 3.5) * 0.2;
       ember.scale.setScalar(pulse);
     };
@@ -2520,7 +2530,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ember.scale.setScalar(0.9 + Math.sin(time * 5.0) * 0.2);
     };
 
@@ -2569,7 +2579,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -2620,7 +2630,7 @@ export class ItemFactory {
     // 60 FPS Canlı Çift Sarmal Dönüş & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ring1.rotation.z += dt * 1.8;
       ring2.rotation.x += dt * 1.6;
 
@@ -2725,7 +2735,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const breathe = Math.sin(time * 3.5) * 0.06;
       wingLeft.rotation.z = 0.35 + breathe;
       wingRight.rotation.z = -0.35 - breathe;
@@ -2847,7 +2857,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       head.position.y = 0.72 + Math.sin(time * 2.5) * 0.02;
       tail.rotation.z = Math.sin(time * 4.0) * 0.2;
     };
@@ -2943,7 +2953,7 @@ export class ItemFactory {
     // 60 FPS Canlı Yüzme Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       tailGroup.rotation.y = Math.sin(time * 5.0) * 0.4;
       body.rotation.y = Math.sin(time * 5.0 + 1.2) * 0.1;
       leftFin.rotation.z = 0.8 + Math.sin(time * 6.0) * 0.2;
@@ -2996,7 +3006,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -3047,7 +3057,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       featherGroup.rotation.z = Math.sin(time * 3.0) * 0.1;
       featherGroup.position.y = 0.48 + Math.sin(time * 2.5) * 0.02;
     };
@@ -3107,7 +3117,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       hide.scale.x = 1.1 + Math.sin(time * 2.5) * 0.02;
     };
 
@@ -3152,7 +3162,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       steam.position.y = 0.22 + Math.sin(time * 3.5) * 0.08;
       steam.scale.setScalar(0.85 + Math.sin(time * 3.5) * 0.25);
     };
@@ -3197,7 +3207,7 @@ export class ItemFactory {
     // 60 FPS Parıltı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -3237,7 +3247,7 @@ export class ItemFactory {
     // 60 FPS Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -3332,7 +3342,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       liquid.position.y = 0.26 + Math.sin(time * 3) * 0.02;
     };
 
@@ -3371,7 +3381,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       spark.position.y = 0.55 + Math.sin(time * 5) * 0.06;
       spark.rotation.x += dt * 2;
     };
@@ -3410,7 +3420,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       bowString.position.x = -0.06 + Math.sin(time * 5.0) * 0.015;
     };
 
@@ -3454,7 +3464,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.04;
     };
 
@@ -3504,7 +3514,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       flame.scale.set(
         1 + Math.sin(time * 8) * 0.12,
         1 + Math.cos(time * 10) * 0.15,
@@ -3563,7 +3573,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       rock.position.y = 0.38 + Math.sin(time * 2) * 0.02;
     };
 
@@ -3612,7 +3622,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       light.intensity = 1.8 + Math.sin(time * 3.0) * 0.5;
     };
 
@@ -3655,7 +3665,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.rotation.z = Math.sin(time * 2) * 0.05;
     };
 
@@ -3718,7 +3728,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ore1.scale.setScalar(0.95 + Math.sin(time * 3.5) * 0.1);
     };
 
@@ -3773,7 +3783,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.03;
     };
 
@@ -3814,7 +3824,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -3873,7 +3883,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       shieldGroup.position.y = 0.44 + Math.sin(time * 2.5) * 0.02;
     };
 
@@ -3923,7 +3933,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       armorBody.scale.x = 1.15 + Math.sin(time * 2.5) * 0.02;
     };
 
@@ -3967,7 +3977,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -4009,7 +4019,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -4070,7 +4080,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       poison.scale.setScalar(1.0 + Math.sin(time * 4.0) * 0.08);
       light.intensity = 2.2 + Math.sin(time * 4.0) * 0.6;
     };
@@ -4119,7 +4129,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2.5) * 0.03;
     };
 
@@ -4168,7 +4178,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       drop.position.y = 0.4 + Math.sin(time * 4) * 0.15;
     };
 
@@ -4227,7 +4237,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2.5) * 0.03;
     };
 
@@ -4289,7 +4299,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2.5) * 0.03;
       orbs.forEach(o => {
         o.angle += dt * 2.0;
@@ -4344,7 +4354,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       spark.position.y = 0.65 + Math.sin(time * 6) * 0.04;
     };
 
@@ -4393,7 +4403,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       spark.scale.setScalar(0.9 + Math.sin(time * 12.0) * 0.3);
       sparkLight.intensity = 2.2 + Math.sin(time * 12.0) * 0.8;
     };
@@ -4436,7 +4446,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       rune.position.y = 0.65 + Math.sin(time * 3) * 0.05;
       rune.rotation.y += dt * 2;
     };
@@ -4510,7 +4520,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       gem.rotation.y += dt * 2;
       gem.scale.setScalar(1 + Math.sin(time * 4) * 0.12);
     };
@@ -4575,7 +4585,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       wheelGroup.rotation.z -= dt * 4.0;
       piston.position.x = 0.08 + Math.sin(time * 6.0) * 0.05;
     };
@@ -4619,7 +4629,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       rim.rotation.z += dt * 0.5;
       hub.rotation.y += dt * 0.5;
     };
@@ -4674,7 +4684,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       cartGroup.position.y = 0.36 + Math.sin(time * 3.0) * 0.02;
     };
 
@@ -4724,7 +4734,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 3) * 0.02;
     };
 
@@ -4770,7 +4780,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       light.intensity = 2.2 + Math.sin(time * 8) * 0.5;
     };
 
@@ -4821,7 +4831,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       frame.position.y = 0.42 + Math.sin(time * 2.5) * 0.02;
     };
 
@@ -4869,7 +4879,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       needleN.rotation.z = Math.sin(time * 2) * 0.2;
       needleS.rotation.z = Math.sin(time * 2) * 0.2;
     };
@@ -4932,7 +4942,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       magnetGroup.position.y = 0.44 + Math.sin(time * 3.5) * 0.03;
       light.intensity = 2.0 + Math.sin(time * 6.0) * 0.6;
     };
@@ -4985,7 +4995,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       shaft.rotation.x += dt * 6;
     };
 
@@ -5035,7 +5045,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       light.intensity = 2.0 + Math.sin(time * 3.5) * 0.6;
     };
 
@@ -5110,7 +5120,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.02;
     };
 
@@ -5139,7 +5149,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -5180,7 +5190,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -5208,7 +5218,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -5253,7 +5263,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -5293,7 +5303,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       crys.position.y = 0.45 + Math.sin(time * 2.5) * 0.03;
     };
 
@@ -5338,7 +5348,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -5387,7 +5397,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       hook.position.y = 0.43 + Math.sin(time * 3) * 0.03;
     };
 
@@ -5430,7 +5440,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       core.rotation.x += dt * 0.5;
       stars.forEach(s => {
         s.angle += dt * 1.5;
@@ -5477,7 +5487,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       prism.position.y = 0.36 + Math.sin(time * 2) * 0.02;
     };
 
@@ -5522,7 +5532,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       orb.rotation.x += dt * 0.8;
       orb.rotation.z += dt * 0.5;
     };
@@ -5564,7 +5574,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       disc.rotation.y += dt * 1.5;
       spark.position.y = 0.45 + Math.sin(time * 4) * 0.08;
       spark.rotation.x += dt * 3;
@@ -5608,7 +5618,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       star.position.y = 0.32 + Math.sin(time * 3) * 0.04;
       star.rotation.y += dt * 2;
     };
@@ -5647,7 +5657,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       portal.scale.set(
         1 + Math.sin(time * 3) * 0.03,
         1 + Math.cos(time * 4) * 0.03,
@@ -5691,7 +5701,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       flame.scale.set(
         1 + Math.sin(time * 6) * 0.15,
         1 + Math.cos(time * 8) * 0.18,
@@ -5749,7 +5759,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const pulse = 0.85 + Math.sin(time * 3.0) * 0.25;
       rune.scale.setScalar(pulse);
       light.intensity = 1.8 + pulse * 0.8;
@@ -5806,7 +5816,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       spark.position.y = 0.6 + Math.sin(time * 6) * 0.15;
       spark.rotation.z += dt * 4;
     };
@@ -5859,7 +5869,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ring1.rotation.x += dt * 1.5;
       ring2.rotation.y += dt * 1.2;
       core.scale.setScalar(1 + Math.sin(time * 5) * 0.08);
@@ -5918,7 +5928,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.04;
     };
 
@@ -5958,7 +5968,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ice.rotation.x = Math.sin(time * 1.5) * 0.05;
     };
 
@@ -5999,7 +6009,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -6040,7 +6050,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       sprout.position.y = 0.44 + Math.sin(time * 3) * 0.03;
     };
 
@@ -6074,7 +6084,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.rotation.z = Math.sin(time * 2) * 0.05;
     };
 
@@ -6121,7 +6131,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       dew.position.y = 0.32 + Math.sin(time * 3.0) * 0.025;
       mintGroup.position.y = 0.42 + Math.sin(time * 2.0) * 0.02;
     };
@@ -6149,7 +6159,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -6269,7 +6279,7 @@ export class ItemFactory {
     // 60 FPS Canlı Çiğneme ve Kuyruk Sallama
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       snout.position.x = Math.sin(time * 3.5) * 0.015;
       tail.rotation.z = Math.sin(time * 3.0) * 0.2;
     };
@@ -6303,7 +6313,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       drop.position.y = 0.75 + Math.sin(time * 4) * 0.05;
     };
 
@@ -6328,7 +6338,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       egg.rotation.z = Math.sin(time * 2) * 0.08;
     };
 
@@ -6364,7 +6374,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.02;
     };
 
@@ -6404,7 +6414,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       hook.rotation.z = Math.sin(time * 3) * 0.15;
     };
 
@@ -6434,7 +6444,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       sail.rotation.x = Math.sin(time * 2) * 0.08;
     };
 
@@ -6467,7 +6477,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 2) * 0.02;
     };
 
@@ -6531,7 +6541,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -6563,7 +6573,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       puff.position.y = 0.78 + Math.sin(time * 3) * 0.04;
       puff.rotation.x += dt * 2;
     };
@@ -6585,7 +6595,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       dough.scale.set(
         1.25 + Math.sin(time * 2) * 0.04,
         0.75 + Math.cos(time * 2.5) * 0.03,
@@ -6635,7 +6645,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       loaf.position.y = 0.36 + Math.sin(time * 2.5) * 0.02;
     };
 
@@ -6679,7 +6689,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       gear.rotation.z += dt * 1.5;
     };
 
@@ -6721,7 +6731,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       sailsGroup.rotation.z += dt * 2.0;
     };
 
@@ -6766,7 +6776,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       crest.rotation.y += dt * 2;
     };
 
@@ -6817,7 +6827,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       hand2.rotation.y += dt * 3.0;
     };
 
@@ -6860,7 +6870,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -6903,7 +6913,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.rotation.z = Math.sin(time * 2) * 0.06;
     };
 
@@ -6939,7 +6949,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7021,7 +7031,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       tablet.position.y = 0.38 + Math.sin(time * 2.2) * 0.03;
       rune.position.y = tablet.position.y;
     };
@@ -7067,7 +7077,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       stone.position.y = 0.42 + Math.sin(time * 2.5) * 0.03;
     };
 
@@ -7140,7 +7150,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       sand.scale.y = 0.95 + Math.sin(time * 3.0) * 0.08;
     };
 
@@ -7190,7 +7200,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       vortex.rotation.z += dt * 0.8;
       frame.position.y = 0.42 + Math.sin(time * 2.2) * 0.025;
       vortex.position.y = frame.position.y;
@@ -7271,7 +7281,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       core.rotation.y += dt * 1.2;
       crys.position.y = 0.45 + Math.sin(time * 2.5) * 0.035;
       core.position.y = crys.position.y;
@@ -7315,7 +7325,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       holo.rotation.x += dt * 0.8;
       holo.rotation.y += dt * 1.0;
     };
@@ -7359,7 +7369,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       gear.rotation.x += dt * 2.0;
     };
 
@@ -7409,7 +7419,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       reactor.scale.setScalar(0.95 + Math.sin(time * 3.0) * 0.06);
     };
 
@@ -7458,7 +7468,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7500,7 +7510,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       stone.position.y = 0.45 + Math.sin(time * 2.4) * 0.03;
     };
 
@@ -7543,7 +7553,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7636,7 +7646,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7689,7 +7699,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ring1.rotation.z += dt * 0.7;
       ring2.rotation.x += dt * 0.5;
     };
@@ -7744,7 +7754,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       orb.rotation.y += dt * 1.5;
       orb.scale.setScalar(0.95 + Math.sin(time * 6.0) * 0.06);
     };
@@ -7799,7 +7809,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       core.rotation.y += dt * 0.8;
     };
 
@@ -7844,7 +7854,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       ring1.rotation.z += dt * 0.8;
       ring2.rotation.y += dt * 0.6;
       star.rotation.y += dt * 1.2;
@@ -7888,7 +7898,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7922,7 +7932,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -7969,7 +7979,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       rayGroup.rotation.z += dt * 0.5;
     };
 
@@ -8007,7 +8017,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       wave.rotation.z = -0.6 + Math.sin(time * 2.0) * 0.08;
     };
 
@@ -8052,7 +8062,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       drop.position.y = 0.78 + Math.sin(time * 4.0) * 0.06;
     };
 
@@ -8153,7 +8163,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       foam1.position.x = -0.06 + Math.sin(time * 4.0) * 0.03;
       foam2.position.z = -0.14 + Math.cos(time * 4.0) * 0.03;
     };
@@ -8212,7 +8222,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -8260,7 +8270,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       bolt.scale.y = 0.85 + Math.sin(time * 8.0) * 0.2;
     };
 
@@ -8318,7 +8328,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       crystal.scale.setScalar(0.9 + Math.sin(time * 3.0) * 0.15);
       glowLight.intensity = 1.8 + Math.sin(time * 3.0) * 0.6;
     };
@@ -8362,7 +8372,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -8391,7 +8401,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -8423,7 +8433,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -8452,7 +8462,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 1.8) * 0.03;
     };
 
@@ -8555,7 +8565,7 @@ export class ItemFactory {
     // 60 FPS Canlı Şahlanış & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       head.position.y = 0.82 + Math.sin(time * 2.8) * 0.02;
       tail.rotation.z = Math.sin(time * 3.8) * 0.2;
     };
@@ -8649,7 +8659,7 @@ export class ItemFactory {
     // 60 FPS Canlı Otlama & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       head.position.y = 0.44 + Math.sin(time * 2.5) * 0.025;
       tail.position.y = 0.44 + Math.sin(time * 4.0) * 0.015;
     };
@@ -8767,7 +8777,7 @@ export class ItemFactory {
     // 60 FPS Canlı Uluma & Salınım Animasyonu
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const howl = Math.sin(time * 2.2) * 0.08;
       headGroup.rotation.x = -0.35 + howl;
       tail.rotation.z = Math.sin(time * 3.5) * 0.18;
@@ -8860,7 +8870,7 @@ export class ItemFactory {
     // 60 FPS Canlı Vızıldama ve Hızlı Kanat Çırpma
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       beeGroup.position.y = 0.46 + Math.sin(time * 5.0) * 0.06;
       beeGroup.position.x = Math.cos(time * 3.0) * 0.05;
       leftWing.rotation.z = 0.4 + Math.sin(time * 26.0) * 0.45;
@@ -8956,7 +8966,7 @@ export class ItemFactory {
     // 60 FPS Tehditkar Tıslama & S-Salınımı
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       neck.rotation.z = Math.sin(time * 3.0) * 0.12;
       head.rotation.z = Math.sin(time * 3.0) * 0.14;
       tongue.scale.z = 0.8 + Math.sin(time * 8.0) * 0.4;
@@ -9087,7 +9097,7 @@ export class ItemFactory {
     // 60 FPS Meraklı 180° Kafa Çevirme & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       headGroup.rotation.y = Math.sin(time * 1.5) * 0.9; // Merakla sağa sola bakış
       headGroup.rotation.z = Math.sin(time * 3.0) * 0.08;
     };
@@ -9186,7 +9196,7 @@ export class ItemFactory {
     // 60 FPS Baş Çıkarma & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       headGroup.position.z = 0.36 + Math.sin(time * 2.0) * 0.035;
     };
 
@@ -9233,7 +9243,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       drop.position.y = 0.4 + Math.sin(time * 3.0) * 0.04;
     };
 
@@ -9281,7 +9291,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -9322,7 +9332,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -9417,7 +9427,7 @@ export class ItemFactory {
     // 60 FPS Şişip İnen Nefes & Zıplama Bekleyişi
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       const breathe = Math.sin(time * 3.5) * 0.04;
       body.scale.set(1.1 + breathe, 0.85 + breathe, 1.25);
     };
@@ -9534,7 +9544,7 @@ export class ItemFactory {
     // 60 FPS Canlı Kemirme & Kuyruk Titremesi
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       acornGroup.position.y = 0.38 + Math.sin(time * 8.0) * 0.015;
       tailGroup.rotation.x = Math.sin(time * 4.0) * 0.15;
     };
@@ -9650,7 +9660,7 @@ export class ItemFactory {
     // 60 FPS Canlı Baş Hareketi & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       head.position.y = 0.78 + Math.sin(time * 2.2) * 0.02;
       tail.rotation.z = Math.sin(time * 4.0) * 0.2;
     };
@@ -9724,7 +9734,7 @@ export class ItemFactory {
     // 60 FPS Canlı Kanat Çırpma & Bahçe Üstünde Salınım
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       bflyGroup.position.y = 0.44 + Math.sin(time * 4.0) * 0.06;
       bflyGroup.position.x = Math.sin(time * 2.5) * 0.05;
       leftWing.rotation.y = 0.2 + Math.sin(time * 20.0) * 0.55;
@@ -9753,7 +9763,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       group.position.y = Math.sin(time * 1.5) * 0.03;
     };
 
@@ -9842,7 +9852,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -9945,7 +9955,7 @@ export class ItemFactory {
     // 60 FPS Canlı Yem Arama & Baş Hareketi
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       headGroup.position.y = 0.58 + Math.sin(time * 4.5) * 0.04;
       headGroup.rotation.x = Math.sin(time * 4.5) * 0.15;
     };
@@ -10052,7 +10062,7 @@ export class ItemFactory {
     // 60 FPS Canlı Kuyruk Salınımı & Yavaş Dönüş
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       tailGroup.rotation.y = Math.sin(time * 3.5) * 0.35;
       head.position.y = 0.54 + Math.sin(time * 2.0) * 0.015;
     };
@@ -10099,7 +10109,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       flame.scale.y = 0.9 + Math.sin(time * 8.0) * 0.15;
     };
 
@@ -10187,7 +10197,7 @@ export class ItemFactory {
     // 60 FPS Canlı Zıplama ve Çırpınma
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       fishGroup.position.y = 0.38 + Math.sin(time * 5.0) * 0.08;
       tail.rotation.y = Math.sin(time * 7.0) * 0.35;
     };
@@ -10218,7 +10228,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -10270,7 +10280,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       spark.scale.setScalar(0.8 + Math.sin(time * 12.0) * 0.3);
     };
 
@@ -10332,7 +10342,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       wheelGroup.rotation.z -= dt * 2.5;
       foam.scale.setScalar(0.8 + Math.sin(time * 6.0) * 0.3);
     };
@@ -10365,7 +10375,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       mainPeak.position.y = 0.45 + Math.sin(time * 2.0) * 0.03;
       subPeak.position.y = 0.3 + Math.sin(time * 2.0) * 0.03;
     };
@@ -10402,7 +10412,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
     };
 
     return group;
@@ -10477,7 +10487,7 @@ export class ItemFactory {
 
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
-      group.rotation.y += dt * 0.35;
+      group.rotation.y += dt * 1.0;
       b1.position.y = 0.33 + Math.sin(time * 4.0) * 0.035;
       b2.position.y = 0.31 + Math.cos(time * 4.0) * 0.035;
       light.intensity = 2.2 + Math.sin(time * 4.0) * 0.6;
