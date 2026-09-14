@@ -1,10 +1,13 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MobileRoomEnvironment } from './MobileRoomEnvironment.js';
 
 export class TableScene {
   constructor(sceneManager, initialCharacterId = 'character2') {
     this.sceneManager = sceneManager;
     this.group = new THREE.Group();
+    this.roomEnvironment = new MobileRoomEnvironment();
+    this.group.add(this.roomEnvironment.group);
     this.slots = [];
     this.mixer = null;
     this.clock = new THREE.Clock();
@@ -15,6 +18,7 @@ export class TableScene {
         modelPath: '/models/character.glb',
         scale: 6.5,
         position: [0, -1.0, -1.8],
+        stoolY: -1.25,
         gltf: null,
         model: null,
         mixer: null,
@@ -24,8 +28,9 @@ export class TableScene {
         id: 'character2',
         name: 'Gözlemci',
         modelPath: '/models/character2.glb',
-        scale: 3.9,
-        position: [0, -1.0, -1.8],
+        scale: 4.5,
+        position: [0, -1.5, -1.8],
+        stoolY: -1.55,
         gltf: null,
         model: null,
         mixer: null,
@@ -39,6 +44,7 @@ export class TableScene {
         position: [0, -2.25, -1.8],
         rotation: [0, 0, 0],
         idleSpeed: 0.75, // Bekleme animasyon hızı %25 yavaşlatıldı (daha sakin/doğal)
+        stoolY: -1.95,
         gltf: null,
         model: null,
         mixer: null,
@@ -47,11 +53,13 @@ export class TableScene {
     };
     this.activeCharacterId = initialCharacterId;
     this.activeCharacterModel = null;
+    this.stool = null;
     this.currentAction = null;
     this.isTalking = false;
     this.talkTimeout = null;
 
     this._buildTable();
+    this._buildStool();
     this._loadCharacter(this.activeCharacterId);
     this._buildSlots();
 
@@ -160,6 +168,111 @@ export class TableScene {
     this.group.add(cloth);
   }
 
+  _buildStool() {
+    // Basit Küçük 4 Ayaklı Simyacı Taburesi
+    this.stool = new THREE.Group();
+    this.stool.name = 'CharacterStool';
+
+    this.stoolWoodMat = new THREE.MeshStandardMaterial({
+      color: '#3e2619',
+      roughness: 0.75,
+      metalness: 0.05
+    });
+
+    this._rebuildSimpleStool(1.0);
+    this.stool.position.set(0, -1.6, -1.8);
+    this.group.add(this.stool);
+  }
+
+  _rebuildSimpleStool(height = 1.0) {
+    while (this.stool.children.length > 0) {
+      this.stool.remove(this.stool.children[0]);
+    }
+
+    const seatThickness = 0.09;
+    const seatRadius = 0.462; // %10 büyütüldü (çap ~0.92)
+    const legRadius = 0.039;
+    const legHeight = Math.max(0.2, height - seatThickness);
+
+    // 1. Basit Küçük Yuvarlak Ahşap Oturak Tablası
+    const seatGeo = new THREE.CylinderGeometry(seatRadius, seatRadius * 0.95, seatThickness, 16);
+    const seat = new THREE.Mesh(seatGeo, this.stoolWoodMat);
+    seat.position.y = height - seatThickness / 2;
+    seat.castShadow = true;
+    seat.receiveShadow = true;
+    this.stool.add(seat);
+
+    // 2. Dört Adet Basit Ahşap Ayak
+    const spreadTop = seatRadius * 0.55;
+    const spreadBottom = seatRadius * 0.72; // Hafif dışa açılı sağlam ayaklar
+
+    const legPositions = [
+      [-spreadTop, -spreadBottom, -spreadTop, -spreadBottom],
+      [spreadTop, spreadBottom, -spreadTop, -spreadBottom],
+      [-spreadTop, -spreadBottom, spreadTop, spreadBottom],
+      [spreadTop, spreadBottom, spreadTop, spreadBottom]
+    ];
+
+    legPositions.forEach(([xTop, xBottom, zTop, zBottom]) => {
+      const legGeo = new THREE.CylinderGeometry(legRadius, legRadius * 0.85, legHeight, 8);
+      const leg = new THREE.Mesh(legGeo, this.stoolWoodMat);
+
+      leg.position.set(
+        (xTop + xBottom) / 2,
+        legHeight / 2,
+        (zTop + zBottom) / 2
+      );
+
+      leg.rotation.z = (xBottom - xTop) / legHeight;
+      leg.rotation.x = (zTop - zBottom) / legHeight;
+
+      leg.castShadow = true;
+      leg.receiveShadow = true;
+      this.stool.add(leg);
+    });
+
+    // 3. Basit Ahşap Ara Bağlantı Çubukları
+    const rungY = legHeight * 0.35;
+    const rungGeo = new THREE.CylinderGeometry(0.018, 0.018, spreadBottom * 1.6, 6);
+    rungGeo.rotateZ(Math.PI / 2);
+
+    [-spreadBottom * 0.65, spreadBottom * 0.65].forEach(zPos => {
+      const rung = new THREE.Mesh(rungGeo, this.stoolWoodMat);
+      rung.position.set(0, rungY, zPos);
+      this.stool.add(rung);
+    });
+  }
+
+  _alignStoolWithCharacter(model, config) {
+    if (!this.stool || !model) return;
+
+    model.updateMatrixWorld(true);
+
+    let hipsBone = null;
+    model.traverse(child => {
+      if (child.isBone && (child.name.toLowerCase().includes('hips') || child.name.toLowerCase().includes('pelvis'))) {
+        hipsBone = child;
+      }
+    });
+
+    let seatWorldY = -0.55; // Karakter popo hizası varsayılanı
+
+    if (hipsBone) {
+      const hipsPos = new THREE.Vector3();
+      hipsBone.getWorldPosition(hipsPos);
+      // Kalça kemiğinin hemen alt yüzeyi (popo oturma noktası)
+      seatWorldY = hipsPos.y - 0.14;
+    } else if (config && config.position) {
+      seatWorldY = config.position[1] + (config.scale ? config.scale * 0.22 : 0.8);
+    }
+
+    const floorY = -1.6;
+    const stoolHeight = Math.max(0.3, seatWorldY - floorY);
+
+    this._rebuildSimpleStool(stoolHeight);
+    this.stool.position.set(0, floorY, -1.8);
+  }
+
   _buildSlots() {
     // 3 adet low-poly tabak (slot) bölgesi (x ekseninde soldan sağa sıralı)
     const slotPositions = [-1.2, 0, 1.2];
@@ -223,6 +336,9 @@ export class TableScene {
       this.mixer = config.mixer;
       this.group.add(this.activeCharacterModel);
       this._playAction(config, 'Sitting_Idle');
+      if (this.mixer) this.mixer.update(0.01);
+      this._alignStoolWithCharacter(this.activeCharacterModel, config);
+      setTimeout(() => this._alignStoolWithCharacter(this.activeCharacterModel, config), 60);
       return;
     }
 
@@ -263,6 +379,9 @@ export class TableScene {
           this.mixer = config.mixer;
           this.group.add(model);
           this._playAction(config, 'Sitting_Idle');
+          if (this.mixer) this.mixer.update(0.01);
+          this._alignStoolWithCharacter(model, config);
+          setTimeout(() => this._alignStoolWithCharacter(model, config), 60);
         }
 
         console.log(`3D karakter (${config.name}) başarıyla yüklendi!`);
@@ -554,6 +673,13 @@ export class TableScene {
     if (this.mixer) {
       this.mixer.update(delta);
     }
+    if (this.roomEnvironment) {
+      this.roomEnvironment.update(this.clock.getElapsedTime());
+    }
+  }
+
+  getRoomEnvironment() {
+    return this.roomEnvironment;
   }
 
   getSlots() {

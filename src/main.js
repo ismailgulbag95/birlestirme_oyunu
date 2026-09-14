@@ -7,6 +7,7 @@ import { ItemFactory } from './items/ItemFactory.js';
 import { ITEM_DEFINITIONS, getCanonicalId } from './items/itemDefinitions.js';
 import { CraftingSystem } from './systems/CraftingSystem.js';
 import { HintSystem } from './systems/HintSystem.js';
+import { EnvironmentProgressionManager } from './systems/EnvironmentProgressionManager.js';
 import { UIManager } from './ui/UIManager.js';
 import { i18n } from './i18n/translations.js';
 import { audioManager } from './core/AudioManager.js';
@@ -83,6 +84,8 @@ class Game {
 
     this.sceneManager = new SceneManager(canvas);
     this.tableScene = new TableScene(this.sceneManager, initialChar);
+    this.envProgression = new EnvironmentProgressionManager(this.sceneManager, this.tableScene.getRoomEnvironment());
+    this.envProgression.syncWithUnlockedItems(this.unlockedItems);
     this.physics = new RapierWorld();
     await this.physics.init();
 
@@ -346,6 +349,10 @@ class Game {
         const isFirstDiscovery = !this.unlockedItems.includes(canonicalResult);
         if (isFirstDiscovery) {
           this.unlockedItems.push(canonicalResult);
+          // Odaya süzülme animasyonu
+          if (this.envProgression) {
+            this.envProgression.flyItemToShelf(canonicalResult, new THREE.Vector3(0, 1.2, 0));
+          }
           // Masanın önünde yeni keşif bildirimini göster
           this.ui.showDiscoveryAnnouncement(canonicalResult);
 
@@ -417,6 +424,9 @@ class Game {
     this.lockedItems = [];
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    if (this.envProgression) {
+      this.envProgression.syncWithUnlockedItems(this.unlockedItems);
+    }
     this._saveGame();
   }
 
@@ -456,6 +466,9 @@ class Game {
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    if (this.envProgression) {
+      this.envProgression.syncWithUnlockedItems(this.unlockedItems);
+    }
     this._saveGame();
   }
 
