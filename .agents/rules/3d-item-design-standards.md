@@ -10,6 +10,11 @@ Tüm 3D eşyalar *Clash Mini*, *Monument Valley* ve modern stilize mobil oyun st
 * **İlkel Plastik Bloklar:** Basit `BoxGeometry` veya düz segmentli `SphereGeometry` bloklarını üst üste yapıştırıp düz renk vermek YASAKTIR.
 * **Aşırı Pürüzsüzleştirme:** Segment sayısını çok yüksek tutup (örneğin 32-64 segment) pürüzsüz küre/silindir yapmak yasaktır; bu yaklaşım eşyalara plastik oyuncak görüntüsü vermektedir.
 * **Cansız/Hareketsiz Modeller:** Masaya konduğunda tamamen donuk duran eşya üretilemez.
+* **Kaidesiz / Havada Asılı İlkel Şekiller:** Altında fasetli zemin tablası, sunum sehpası veya diorama kaidesi (çimen, kaya, nehir, ahşap tezgâh vb.) olmadan havada tek başına asılı duran modeller üretmek YASAKTIR.
+* **Aşırı Soyut ve İçi Boş Minimalizm:** Örneğin tüyün sadece 2 kaba koniden, derinin havada asılı kahverengi bir bloktan, külçelerin tek bir yamuk kutudan ibaret olması gibi içi boş basitleştirmeler YASAKTIR. Her eşya zengin fasetli katmanlara, detaylara ve parçacıklara sahip olmalıdır.
+* **Yapay Zemin Tablaları (Tablo/Kaide Fazlalığı):** Taşınabilir nesnelerin, aletlerin, külçelerin, zırhların, yiyeceklerin veya silahların altına yapay silindir/kutu zemin kaidesi (tablo/tabla) EKLENMEZ. Örneğin demir veya çelik külçelerin altında taş masa olmamalı, 3 külçe doğrudan kendi istifiyle sahnede merkezlenmelidir. Zemin kaideleri yalnızca ada, orman, nehir gibi coğrafi arazi modellerinde doğal olarak bulunmalıdır.
+* **2D İkon ile Görsel Kopukluk:** 2D ikondaki karakteristik unsurların 3D modele aktarılmaması YASAKTIR. 3D model, 2D ikonun büyüleyici bir minyatür maketi olmalıdır.
+
 
 ---
 

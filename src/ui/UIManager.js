@@ -411,16 +411,19 @@ export class UIManager {
 
       .settings-tab-btn {
         flex: 1;
-        padding: 8px 12px;
+        padding: 8px 6px;
         border-radius: 8px;
-        border: none;
+        border: 1px solid transparent;
         background: transparent;
         color: #94a3b8;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
         cursor: pointer;
         transition: all 0.2s ease;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .settings-tab-btn.active {
@@ -781,6 +784,7 @@ export class UIManager {
 
           <div class="settings-tabs">
             <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
+            <button class="settings-tab-btn" id="tab-credits-btn" data-tab="credits">${i18n.t('tab_credits')}</button>
             <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
           </div>
 
@@ -796,7 +800,12 @@ export class UIManager {
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-character">Karakter</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="settings-btn-label" id="label-character">Karakter</span>
+                  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" title="Creative Commons Attribution 4.0 International">
+                    <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
+                  </a>
+                </div>
                 <span class="settings-btn-sub" id="sub-character">Gözlemci veya Çırak arasında geçiş yap</span>
               </div>
               <button id="character-switch-btn" class="settings-action-btn btn-purple">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
@@ -816,6 +825,53 @@ export class UIManager {
                 <span class="settings-btn-sub" id="sub-lang">Oyun dilini değiştir</span>
               </div>
               <button id="lang-toggle-btn" class="settings-action-btn btn-blue">${i18n.t('lang_btn')}</button>
+            </div>
+
+            <!-- Karakter Lisansı & Atıf Kartı -->
+            <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 12px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
+                  <span>🎨</span> <span id="general-credits-heading">${i18n.t('credits_character_heading')}</span>
+                </span>
+                <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 6px; border-radius: 4px;">CC BY 4.0</span>
+              </div>
+              <p style="font-size: 11px; color: #94a3b8; line-height: 1.4; margin: 0;" id="general-credits-desc">
+                ${i18n.t('credits_character_desc')}
+              </p>
+              <div style="display: flex; justify-content: flex-end; margin-top: 2px;">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #38bdf8; text-decoration: none; padding: 4px 8px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; transition: all 0.2s;">
+                  <span id="general-credits-link-text">${i18n.t('credits_view_license')}</span>
+                  <span style="font-size: 9px;">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lisanslar & Atıflar Sekmesi -->
+          <div class="settings-tab-pane" id="pane-credits" style="display: none;">
+            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <h4 style="font-size: 13px; font-weight: 700; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 6px;">
+                  <span>📜</span> <span id="pane-credits-title">${i18n.t('credits_title')}</span>
+                </h4>
+                <span style="font-size: 10px; font-weight: 700; background: rgba(56, 189, 248, 0.25); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.5); padding: 3px 7px; border-radius: 6px;">CC BY 4.0</span>
+              </div>
+              
+              <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; margin: 0;" id="pane-credits-desc">
+                ${i18n.t('credits_character_desc')}
+              </p>
+
+              <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 11px; color: #94a3b8; line-height: 1.4;">
+                <div style="font-weight: 700; color: #e2e8f0; margin-bottom: 4px;" id="pane-credits-summary-title">Creative Commons Attribution 4.0:</div>
+                <div id="pane-credits-summary-text">${i18n.t('credits_terms_summary')}</div>
+              </div>
+
+              <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="settings-action-btn btn-blue" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 8px 14px;">
+                  <span id="pane-credits-link-btn">${i18n.t('credits_view_license')}</span>
+                  <span style="font-size: 11px;">↗</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -998,8 +1054,27 @@ export class UIManager {
     if (settingsModalTitle) settingsModalTitle.textContent = i18n.t('settings_title');
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
+    const tabCreditsBtn = document.getElementById('tab-credits-btn');
+    if (tabCreditsBtn) tabCreditsBtn.textContent = i18n.t('tab_credits');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
     if (tabDebugBtn) tabDebugBtn.textContent = i18n.t('tab_debug');
+
+    const genCreditsHeading = document.getElementById('general-credits-heading');
+    if (genCreditsHeading) genCreditsHeading.textContent = i18n.t('credits_character_heading');
+    const genCreditsDesc = document.getElementById('general-credits-desc');
+    if (genCreditsDesc) genCreditsDesc.textContent = i18n.t('credits_character_desc');
+    const genCreditsLinkText = document.getElementById('general-credits-link-text');
+    if (genCreditsLinkText) genCreditsLinkText.textContent = i18n.t('credits_view_license');
+
+    const paneCreditsTitle = document.getElementById('pane-credits-title');
+    if (paneCreditsTitle) paneCreditsTitle.textContent = i18n.t('credits_title');
+    const paneCreditsDesc = document.getElementById('pane-credits-desc');
+    if (paneCreditsDesc) paneCreditsDesc.textContent = i18n.t('credits_character_desc');
+    const paneCreditsSummaryText = document.getElementById('pane-credits-summary-text');
+    if (paneCreditsSummaryText) paneCreditsSummaryText.textContent = i18n.t('credits_terms_summary');
+    const paneCreditsLinkBtn = document.getElementById('pane-credits-link-btn');
+    if (paneCreditsLinkBtn) paneCreditsLinkBtn.textContent = i18n.t('credits_view_license');
+
     const debugWarning = document.getElementById('debug-warning-text');
     if (debugWarning) debugWarning.textContent = i18n.t('debug_warning');
 
@@ -1111,25 +1186,25 @@ export class UIManager {
 
     // Sekmeler
     const tabGeneralBtn = document.getElementById('tab-general-btn');
+    const tabCreditsBtn = document.getElementById('tab-credits-btn');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
     const paneGeneral = document.getElementById('pane-general');
+    const paneCredits = document.getElementById('pane-credits');
     const paneDebug = document.getElementById('pane-debug');
 
-    if (tabGeneralBtn && tabDebugBtn && paneGeneral && paneDebug) {
-      tabGeneralBtn.addEventListener('click', () => {
-        tabGeneralBtn.classList.add('active');
-        tabDebugBtn.classList.remove('active');
-        paneGeneral.style.display = 'flex';
-        paneDebug.style.display = 'none';
-      });
+    const switchTab = (activeTab) => {
+      tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
+      tabCreditsBtn?.classList.toggle('active', activeTab === 'credits');
+      tabDebugBtn?.classList.toggle('active', activeTab === 'debug');
 
-      tabDebugBtn.addEventListener('click', () => {
-        tabDebugBtn.classList.add('active');
-        tabGeneralBtn.classList.remove('active');
-        paneDebug.style.display = 'flex';
-        paneGeneral.style.display = 'none';
-      });
-    }
+      if (paneGeneral) paneGeneral.style.display = activeTab === 'general' ? 'flex' : 'none';
+      if (paneCredits) paneCredits.style.display = activeTab === 'credits' ? 'flex' : 'none';
+      if (paneDebug) paneDebug.style.display = activeTab === 'debug' ? 'flex' : 'none';
+    };
+
+    tabGeneralBtn?.addEventListener('click', () => switchTab('general'));
+    tabCreditsBtn?.addEventListener('click', () => switchTab('credits'));
+    tabDebugBtn?.addEventListener('click', () => switchTab('debug'));
 
     // Debug butonları
     // 1. Sınırsız İpucu
