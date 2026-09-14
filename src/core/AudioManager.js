@@ -13,14 +13,15 @@
 
 export const TRACKS = [
   { id: 1, name: 'Stride of the Traveler', src: '/audio/music1.mp3' },
-  { id: 2, name: 'Beneath The Northern Peak', src: '/audio/music2.mp3' }
+  { id: 2, name: 'Beneath The Northern Peak', src: '/audio/music2.mp3' },
+  { id: 3, name: 'Morning in the Clearing', src: '/audio/music3.mp3' }
 ];
 
 export class AudioManager {
   constructor() {
     this.bgm = null;
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
-    // Varsayılan olarak 1. müzik (Stride of the Traveler), eğer daha önce kapatılmışsa 0 veya 2
+    // Varsayılan olarak 1. müzik (Stride of the Traveler), eğer daha önce kapatılmışsa 0 veya geçerli mod
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.volume = 0.55;
     this.isPlaying = false;
@@ -37,14 +38,12 @@ export class AudioManager {
         this.bgm.src = '';
       }
 
-      if (this.musicMode === 1 || this.musicMode === 2) {
-        const track = TRACKS.find(t => t.id === this.musicMode);
-        if (track) {
-          this.bgm = new Audio(track.src);
-          this.bgm.loop = true;
-          this.bgm.volume = this.volume;
-          this.bgm.preload = 'auto';
-        }
+      const track = TRACKS.find(t => t.id === this.musicMode);
+      if (track) {
+        this.bgm = new Audio(track.src);
+        this.bgm.loop = true;
+        this.bgm.volume = this.volume;
+        this.bgm.preload = 'auto';
       } else {
         this.bgm = null;
       }
@@ -95,16 +94,16 @@ export class AudioManager {
 
   /**
    * Müzik seçenekleri arasında geçiş yapar:
-   * 1 -> 2 -> 0 (Kapalı) -> 1 ...
-   * @returns {number} Yeni müzik modu (1, 2 veya 0)
+   * 1 -> 2 -> 3 -> 0 (Kapalı) -> 1 ...
+   * @returns {number} Yeni müzik modu
    */
   cycleMusicMode() {
-    if (this.musicMode === 1) {
-      this.setMusicMode(2);
-    } else if (this.musicMode === 2) {
-      this.setMusicMode(0);
-    } else {
+    if (this.musicMode === 0) {
       this.setMusicMode(1);
+    } else if (this.musicMode < TRACKS.length) {
+      this.setMusicMode(this.musicMode + 1);
+    } else {
+      this.setMusicMode(0);
     }
     return this.musicMode;
   }
@@ -121,20 +120,18 @@ export class AudioManager {
       });
     }
 
-    if (this.musicMode === 1 || this.musicMode === 2) {
-      const track = TRACKS.find(t => t.id === this.musicMode);
-      if (track) {
-        this.bgm = new Audio(track.src);
-        this.bgm.loop = true;
-        this.bgm.volume = 0;
-        this.bgm.preload = 'auto';
+    const track = TRACKS.find(t => t.id === this.musicMode);
+    if (track) {
+      this.bgm = new Audio(track.src);
+      this.bgm.loop = true;
+      this.bgm.volume = 0;
+      this.bgm.preload = 'auto';
 
-        if (this.audioUnlocked) {
-          this.bgm.play().then(() => {
-            this.isPlaying = true;
-            this._fadeIn(800);
-          }).catch(() => {});
-        }
+      if (this.audioUnlocked) {
+        this.bgm.play().then(() => {
+          this.isPlaying = true;
+          this._fadeIn(800);
+        }).catch(() => {});
       }
     } else {
       this.bgm = null;

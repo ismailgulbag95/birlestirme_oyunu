@@ -3,13 +3,14 @@ import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
     this.onCleanup = onCleanup; // () => void
     this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
     this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
+    this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.currentCharacterId = 'character2';
@@ -17,6 +18,8 @@ export class UIManager {
     this.sortMode = 'discovery'; // 'discovery', 'category'
     this.searchQuery = '';
     this.lastItemIds = [];
+    this.infiniteHintsEnabled = false;
+    this.fpsHudEnabled = false;
     this._injectStyles();
     this._createUI();
   }
@@ -257,7 +260,7 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* Temizlik ve Karakter Butonları Barı */
+      /* Alt Bar: Şık Ayarlar Butonu */
       #bottom-action-bar {
         position: absolute;
         bottom: 24px;
@@ -275,14 +278,14 @@ export class UIManager {
         -webkit-backdrop-filter: blur(10px);
         color: white;
         border: 1px solid rgba(255, 255, 255, 0.25);
-        padding: 10px 18px;
+        padding: 10px 20px;
         border-radius: 24px;
         font-size: 13px;
         font-weight: 700;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         user-select: none;
@@ -297,47 +300,317 @@ export class UIManager {
         transform: scale(0.94);
       }
 
-      #cleanup-btn {
+      #settings-open-btn {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.98));
+        border: 1.5px solid rgba(56, 189, 248, 0.4);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.25);
+      }
+
+      #settings-open-btn:hover {
+        background: linear-gradient(135deg, rgba(51, 65, 85, 0.95), rgba(30, 41, 59, 1));
+        border-color: rgba(56, 189, 248, 0.7);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.45);
+      }
+
+      /* Settings Modal */
+      #settings-modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        z-index: 120;
+      }
+
+      #settings-modal.show {
+        display: flex;
+      }
+
+      .settings-box {
+        background: linear-gradient(145deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+        padding: 20px 22px;
+        width: 90%;
+        max-width: 440px;
+        color: white;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+        animation: settingsModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes settingsModalPop {
+        from {
+          opacity: 0;
+          transform: scale(0.92) translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .settings-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding-bottom: 12px;
+      }
+
+      .settings-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #f8fafc;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .settings-close-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #cbd5e1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.2s ease;
+      }
+
+      .settings-close-icon:hover {
+        background: rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+        border-color: rgba(239, 68, 68, 0.5);
+      }
+
+      .settings-tabs {
+        display: flex;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 4px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .settings-tab-btn {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: none;
+        background: transparent;
+        color: #94a3b8;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+      }
+
+      .settings-tab-btn.active {
+        background: rgba(56, 189, 248, 0.2);
+        color: #38bdf8;
+        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+      }
+
+      .settings-tab-pane {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .settings-btn-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 10px 14px;
+        gap: 12px;
+      }
+
+      .settings-btn-row-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+      }
+
+      .settings-btn-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+
+      .settings-btn-sub {
+        font-size: 11px;
+        color: #94a3b8;
+      }
+
+      .settings-action-btn {
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        white-space: nowrap;
+        user-select: none;
+      }
+
+      .settings-action-btn:active {
+        transform: scale(0.95);
+      }
+
+      .btn-danger {
         background: rgba(239, 68, 68, 0.85);
+        color: white;
+        border-color: rgba(239, 68, 68, 0.4);
       }
-
-      #cleanup-btn:hover {
+      .btn-danger:hover {
         background: rgba(239, 68, 68, 1);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
       }
 
-      #character-switch-btn {
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.85), rgba(147, 51, 234, 0.85));
-        border: 1px solid rgba(167, 139, 250, 0.4);
+      .btn-danger-outline {
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border-color: rgba(239, 68, 68, 0.4);
+      }
+      .btn-danger-outline:hover {
+        background: rgba(239, 68, 68, 0.3);
+        border-color: rgba(239, 68, 68, 0.7);
       }
 
-      #character-switch-btn:hover {
-        background: linear-gradient(135deg, rgba(79, 70, 229, 1), rgba(147, 51, 234, 1));
-        box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+      .btn-purple {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(168, 85, 247, 0.85));
+        color: white;
+        border-color: rgba(167, 139, 250, 0.4);
+      }
+      .btn-purple:hover {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(168, 85, 247, 1));
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
       }
 
-      #lang-toggle-btn {
-        background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(59, 130, 246, 0.85));
-        border: 1px solid rgba(125, 211, 252, 0.4);
-      }
-
-      #lang-toggle-btn:hover {
-        background: linear-gradient(135deg, rgba(14, 165, 233, 1), rgba(59, 130, 246, 1));
-        box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
-      }
-
-      #music-toggle-btn {
+      .btn-green {
         background: linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(5, 150, 105, 0.85));
-        border: 1px solid rgba(110, 231, 183, 0.4);
+        color: white;
+        border-color: rgba(110, 231, 183, 0.4);
       }
-
-      #music-toggle-btn:hover {
+      .btn-green:hover {
         background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(5, 150, 105, 1));
-        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
       }
-
-      #music-toggle-btn.muted {
+      .btn-green.muted {
         background: linear-gradient(135deg, rgba(100, 116, 139, 0.85), rgba(71, 85, 105, 0.85));
         border-color: rgba(148, 163, 184, 0.3);
+      }
+
+      .btn-blue {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(59, 130, 246, 0.85));
+        color: white;
+        border-color: rgba(125, 211, 252, 0.4);
+      }
+      .btn-blue:hover {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 1), rgba(59, 130, 246, 1));
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+      }
+
+      .btn-amber {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.85), rgba(217, 119, 6, 0.85));
+        color: white;
+        border-color: rgba(251, 191, 36, 0.4);
+      }
+      .btn-amber:hover {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 1), rgba(217, 119, 6, 1));
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+      }
+      .btn-amber.active {
+        box-shadow: 0 0 14px rgba(245, 158, 11, 0.7);
+        border-color: #fef08a;
+      }
+
+      .btn-cyan {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.85), rgba(14, 165, 233, 0.85));
+        color: white;
+        border-color: rgba(103, 232, 249, 0.4);
+      }
+      .btn-cyan:hover {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 1), rgba(14, 165, 233, 1));
+        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+      }
+
+      .btn-indigo {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(79, 70, 229, 0.85));
+        color: white;
+        border-color: rgba(165, 180, 252, 0.4);
+      }
+      .btn-indigo:hover {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(79, 70, 229, 1));
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+      }
+
+      .btn-emerald {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(13, 148, 136, 0.85));
+        color: white;
+        border-color: rgba(110, 231, 183, 0.4);
+      }
+      .btn-emerald:hover {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(13, 148, 136, 1));
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+      }
+
+      .btn-slate {
+        background: rgba(255, 255, 255, 0.15);
+        color: #f1f5f9;
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .btn-slate:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .btn-slate.active {
+        background: rgba(56, 189, 248, 0.3);
+        border-color: #38bdf8;
+        color: #38bdf8;
+      }
+
+      /* FPS HUD */
+      #fps-counter-hud {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        border-radius: 10px;
+        padding: 6px 12px;
+        color: #38bdf8;
+        font-family: monospace, Consolas, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        pointer-events: none;
+        z-index: 50;
+        display: none;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
       }
 
       /* Ad Modal */
@@ -487,11 +760,121 @@ export class UIManager {
         </div>
       </div>
 
+      <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
+
       <div id="bottom-action-bar">
-        <button id="cleanup-btn" class="action-pill-btn">${i18n.t('cleanup')}</button>
-        <button id="character-switch-btn" class="action-pill-btn">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
-        <button id="music-toggle-btn" class="action-pill-btn ${this.musicMode === 0 ? 'muted' : ''}">${this._getMusicButtonLabel()}</button>
-        <button id="lang-toggle-btn" class="action-pill-btn">${i18n.t('lang_btn')}</button>
+        <button id="settings-open-btn" class="action-pill-btn">
+          <span style="font-size: 15px;">⚙️</span>
+          <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
+        </button>
+      </div>
+
+      <div id="settings-modal">
+        <div class="settings-box">
+          <div class="settings-header">
+            <div class="settings-title">
+              <span>⚙️</span>
+              <span id="settings-modal-title">${i18n.t('settings_title')}</span>
+            </div>
+            <button class="settings-close-icon" id="settings-close-btn" title="${i18n.t('settings_close')}">✕</button>
+          </div>
+
+          <div class="settings-tabs">
+            <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
+            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
+          </div>
+
+          <!-- Genel Ayarlar Sekmesi -->
+          <div class="settings-tab-pane" id="pane-general">
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-cleanup">${i18n.t('cleanup')}</span>
+                <span class="settings-btn-sub" id="sub-cleanup">Masadaki tüm eşyaları ve kırıkları temizle</span>
+              </div>
+              <button id="cleanup-btn" class="settings-action-btn btn-danger">${i18n.t('cleanup')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-character">Karakter</span>
+                <span class="settings-btn-sub" id="sub-character">Gözlemci veya Çırak arasında geçiş yap</span>
+              </div>
+              <button id="character-switch-btn" class="settings-action-btn btn-purple">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-music">Müzik</span>
+                <span class="settings-btn-sub" id="sub-music">Arka plan müziği modunu seç</span>
+              </div>
+              <button id="music-toggle-btn" class="settings-action-btn btn-green ${this.musicMode === 0 ? 'muted' : ''}">${this._getMusicButtonLabel()}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-lang">Dil / Language</span>
+                <span class="settings-btn-sub" id="sub-lang">Oyun dilini değiştir</span>
+              </div>
+              <button id="lang-toggle-btn" class="settings-action-btn btn-blue">${i18n.t('lang_btn')}</button>
+            </div>
+          </div>
+
+          <!-- Debug Sekmesi -->
+          <div class="settings-tab-pane" id="pane-debug" style="display: none;">
+            <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 10px; padding: 7px 12px; font-size: 11px; color: #fef08a; display: flex; align-items: center; gap: 8px;">
+              <span>⚠️</span>
+              <span id="debug-warning-text">${i18n.t('debug_warning')}</span>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-hints">${i18n.t('debug_infinite_hints')}</span>
+                <span class="settings-btn-sub" id="sub-debug-hints">İpucu hakkı hiç eksilmez (999)</span>
+              </div>
+              <button id="debug-infinite-hints-btn" class="settings-action-btn btn-amber">${this.infiniteHintsEnabled ? 'Açık (Sınırsız)' : 'Aktif Et'}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-unlock">${i18n.t('debug_unlock_all')}</span>
+                <span class="settings-btn-sub" id="sub-debug-unlock">Tüm 180+ eşyayı anında aç</span>
+              </div>
+              <button id="debug-unlock-all-btn" class="settings-action-btn btn-cyan">${i18n.t('debug_unlock_all')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-reveal">${i18n.t('debug_reveal_hints')}</span>
+                <span class="settings-btn-sub" id="sub-debug-reveal">Tüm tarifleri ipucunda göster</span>
+              </div>
+              <button id="debug-reveal-hints-btn" class="settings-action-btn btn-indigo">${i18n.t('debug_reveal_hints')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-spawn">${i18n.t('debug_spawn_basics')}</span>
+                <span class="settings-btn-sub" id="sub-debug-spawn">4 elementi masaya koy</span>
+              </div>
+              <button id="debug-spawn-basics-btn" class="settings-action-btn btn-emerald">${i18n.t('debug_spawn_basics')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-fps">${i18n.t('debug_fps_counter')}</span>
+                <span class="settings-btn-sub" id="sub-debug-fps">FPS ve sahne nesne sayısı</span>
+              </div>
+              <button id="debug-fps-toggle-btn" class="settings-action-btn btn-slate ${this.fpsHudEnabled ? 'active' : ''}">${this.fpsHudEnabled ? 'Açık' : 'Kapalı'}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-reset" style="color: #f87171;">${i18n.t('debug_reset_progress')}</span>
+                <span class="settings-btn-sub" id="sub-debug-reset">Kayıtları temizle ve sıfırla</span>
+              </div>
+              <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${i18n.t('debug_reset_progress')}</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="discovery-banner">
@@ -517,6 +900,7 @@ export class UIManager {
     this._setupInventoryControls();
     this._setupLanguageToggle();
     this._setupMusicToggle();
+    this._setupSettingsLogic();
   }
 
   _getFilterLabel(cat) {
@@ -544,6 +928,7 @@ export class UIManager {
   _getMusicButtonLabel() {
     if (this.musicMode === 1) return i18n.t('music_1');
     if (this.musicMode === 2) return i18n.t('music_2');
+    if (this.musicMode === 3) return i18n.t('music_3');
     return i18n.t('music_none');
   }
 
@@ -606,7 +991,40 @@ export class UIManager {
     const closeAdBtn = document.getElementById('close-ad-btn');
     if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
 
-    // 7. Refresh inventory and hints
+    // 7. Settings Modal & Debug Labels
+    const settingsBtnLabel = document.getElementById('settings-open-btn-label');
+    if (settingsBtnLabel) settingsBtnLabel.textContent = i18n.t('settings_btn');
+    const settingsModalTitle = document.getElementById('settings-modal-title');
+    if (settingsModalTitle) settingsModalTitle.textContent = i18n.t('settings_title');
+    const tabGeneralBtn = document.getElementById('tab-general-btn');
+    if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
+    const tabDebugBtn = document.getElementById('tab-debug-btn');
+    if (tabDebugBtn) tabDebugBtn.textContent = i18n.t('tab_debug');
+    const debugWarning = document.getElementById('debug-warning-text');
+    if (debugWarning) debugWarning.textContent = i18n.t('debug_warning');
+
+    const lblDebugHints = document.getElementById('label-debug-hints');
+    if (lblDebugHints) lblDebugHints.textContent = i18n.t('debug_infinite_hints');
+    const lblDebugUnlock = document.getElementById('label-debug-unlock');
+    if (lblDebugUnlock) lblDebugUnlock.textContent = i18n.t('debug_unlock_all');
+    const btnDebugUnlock = document.getElementById('debug-unlock-all-btn');
+    if (btnDebugUnlock) btnDebugUnlock.textContent = i18n.t('debug_unlock_all');
+    const lblDebugReveal = document.getElementById('label-debug-reveal');
+    if (lblDebugReveal) lblDebugReveal.textContent = i18n.t('debug_reveal_hints');
+    const btnDebugReveal = document.getElementById('debug-reveal-hints-btn');
+    if (btnDebugReveal) btnDebugReveal.textContent = i18n.t('debug_reveal_hints');
+    const lblDebugSpawn = document.getElementById('label-debug-spawn');
+    if (lblDebugSpawn) lblDebugSpawn.textContent = i18n.t('debug_spawn_basics');
+    const btnDebugSpawn = document.getElementById('debug-spawn-basics-btn');
+    if (btnDebugSpawn) btnDebugSpawn.textContent = i18n.t('debug_spawn_basics');
+    const lblDebugFps = document.getElementById('label-debug-fps');
+    if (lblDebugFps) lblDebugFps.textContent = i18n.t('debug_fps_counter');
+    const lblDebugReset = document.getElementById('label-debug-reset');
+    if (lblDebugReset) lblDebugReset.textContent = i18n.t('debug_reset_progress');
+    const btnDebugReset = document.getElementById('debug-reset-progress-btn');
+    if (btnDebugReset) btnDebugReset.textContent = i18n.t('debug_reset_progress');
+
+    // 8. Refresh inventory and hints
     this._populateInventory();
     if (this._lastHintsArgs) {
       this.populateHints(...this._lastHintsArgs);
@@ -656,13 +1074,151 @@ export class UIManager {
         this.musicMode = this.onMusicToggle();
       } else {
         if (this.musicMode === 1) this.musicMode = 2;
-        else if (this.musicMode === 2) this.musicMode = 0;
+        else if (this.musicMode === 2) this.musicMode = 3;
+        else if (this.musicMode === 3) this.musicMode = 0;
         else this.musicMode = 1;
       }
 
       musicBtn.classList.toggle('muted', this.musicMode === 0);
       musicBtn.textContent = this._getMusicButtonLabel();
     });
+  }
+
+  _setupSettingsLogic() {
+    const modal = document.getElementById('settings-modal');
+    const openBtn = document.getElementById('settings-open-btn');
+    const closeBtn = document.getElementById('settings-close-btn');
+
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('show');
+      });
+    }
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+        }
+      });
+    }
+
+    // Sekmeler
+    const tabGeneralBtn = document.getElementById('tab-general-btn');
+    const tabDebugBtn = document.getElementById('tab-debug-btn');
+    const paneGeneral = document.getElementById('pane-general');
+    const paneDebug = document.getElementById('pane-debug');
+
+    if (tabGeneralBtn && tabDebugBtn && paneGeneral && paneDebug) {
+      tabGeneralBtn.addEventListener('click', () => {
+        tabGeneralBtn.classList.add('active');
+        tabDebugBtn.classList.remove('active');
+        paneGeneral.style.display = 'flex';
+        paneDebug.style.display = 'none';
+      });
+
+      tabDebugBtn.addEventListener('click', () => {
+        tabDebugBtn.classList.add('active');
+        tabGeneralBtn.classList.remove('active');
+        paneDebug.style.display = 'flex';
+        paneGeneral.style.display = 'none';
+      });
+    }
+
+    // Debug butonları
+    // 1. Sınırsız İpucu
+    const infHintsBtn = document.getElementById('debug-infinite-hints-btn');
+    if (infHintsBtn) {
+      infHintsBtn.addEventListener('click', () => {
+        this.infiniteHintsEnabled = !this.infiniteHintsEnabled;
+        if (this.debugHandlers.onSetInfiniteHints) {
+          this.debugHandlers.onSetInfiniteHints(this.infiniteHintsEnabled);
+        }
+        infHintsBtn.classList.toggle('active', this.infiniteHintsEnabled);
+        infHintsBtn.textContent = this.infiniteHintsEnabled 
+          ? (i18n.currentLang === 'tr' ? 'Açık (Sınırsız)' : 'Enabled (Unlimited)')
+          : (i18n.currentLang === 'tr' ? 'Aktif Et' : 'Enable');
+      });
+    }
+
+    // 2. Tüm Tarifleri / Eşyaları Aç
+    const unlockAllBtn = document.getElementById('debug-unlock-all-btn');
+    if (unlockAllBtn) {
+      unlockAllBtn.addEventListener('click', () => {
+        if (this.debugHandlers.onUnlockAll) {
+          this.debugHandlers.onUnlockAll();
+        }
+        alert(i18n.t('debug_all_unlocked_msg'));
+      });
+    }
+
+    // 3. Tüm İpuçlarını Çöz
+    const revealHintsBtn = document.getElementById('debug-reveal-hints-btn');
+    if (revealHintsBtn) {
+      revealHintsBtn.addEventListener('click', () => {
+        if (this.debugHandlers.onRevealAllHints) {
+          this.debugHandlers.onRevealAllHints();
+        }
+        alert(i18n.t('debug_all_hints_revealed_msg'));
+      });
+    }
+
+    // 4. 4 Temel Elementi Masaya Koy
+    const spawnBasicsBtn = document.getElementById('debug-spawn-basics-btn');
+    if (spawnBasicsBtn) {
+      spawnBasicsBtn.addEventListener('click', () => {
+        if (this.debugHandlers.onSpawnBasics) {
+          this.debugHandlers.onSpawnBasics();
+        }
+        modal.classList.remove('show');
+      });
+    }
+
+    // 5. FPS Sayacı Toggle
+    const fpsToggleBtn = document.getElementById('debug-fps-toggle-btn');
+    const fpsHud = document.getElementById('fps-counter-hud');
+    if (fpsToggleBtn) {
+      fpsToggleBtn.addEventListener('click', () => {
+        this.fpsHudEnabled = !this.fpsHudEnabled;
+        if (fpsHud) {
+          fpsHud.style.display = this.fpsHudEnabled ? 'block' : 'none';
+        }
+        fpsToggleBtn.classList.toggle('active', this.fpsHudEnabled);
+        fpsToggleBtn.textContent = this.fpsHudEnabled
+          ? (i18n.currentLang === 'tr' ? 'Açık' : 'ON')
+          : (i18n.currentLang === 'tr' ? 'Kapalı' : 'OFF');
+        if (this.debugHandlers.onToggleFps) {
+          this.debugHandlers.onToggleFps(this.fpsHudEnabled);
+        }
+      });
+    }
+
+    // 6. İlerlemeyi Sıfırla
+    const resetBtn = document.getElementById('debug-reset-progress-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (confirm(i18n.t('debug_reset_confirm'))) {
+          if (this.debugHandlers.onResetProgress) {
+            this.debugHandlers.onResetProgress();
+          }
+          modal.classList.remove('show');
+        }
+      });
+    }
+  }
+
+  updateFpsHud(fps, sceneObjectCount = 0) {
+    if (!this.fpsHudEnabled) return;
+    const hud = document.getElementById('fps-counter-hud');
+    if (hud) {
+      hud.textContent = `FPS: ${fps} | Nesne: ${sceneObjectCount}`;
+    }
   }
 
   _setupInventoryControls() {

@@ -4,16 +4,39 @@ import { i18n } from '../i18n/translations.js';
 export class HintSystem {
   constructor() {
     this.hintRights = 3;
+    this.discoveryCount = 0;
     this.successfulMatches = 0;
     this.hintLevels = {}; // itemId -> level
+    this.infiniteHints = false;
   }
 
-  recordMatch() {
-    this.successfulMatches++;
-    if (this.successfulMatches % 3 === 0) {
+  setInfiniteHints(enabled) {
+    this.infiniteHints = !!enabled;
+    if (this.infiniteHints) {
+      this.hintRights = 999;
+    }
+  }
+
+  revealAllHints(lockedItems) {
+    lockedItems.forEach(itemId => {
+      const def = ITEM_DEFINITIONS[itemId];
+      if (def && def.recipe && def.recipe.inputs) {
+        const validInputs = def.recipe.inputs.filter(inp => inp != null);
+        this.hintLevels[itemId] = validInputs.length + 1;
+      }
+    });
+  }
+
+  recordDiscovery() {
+    this.discoveryCount++;
+    if (this.discoveryCount % 3 === 0) {
       this.hintRights++;
       return true; // gained hint right
     }
+    return false;
+  }
+
+  recordMatch() {
     return false;
   }
 
@@ -82,6 +105,12 @@ export class HintSystem {
   }
 
   useHint(itemId) {
+    if (this.infiniteHints) {
+      this.hintRights = 999;
+      const currentLevel = this.hintLevels[itemId] || 0;
+      this.hintLevels[itemId] = currentLevel + 1;
+      return { success: true, needsAd: false };
+    }
     if (this.hintRights > 0) {
       this.hintRights--;
       const currentLevel = this.hintLevels[itemId] || 0;

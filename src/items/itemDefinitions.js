@@ -134,11 +134,11 @@ export const ITEM_DEFINITIONS = {
   tas: {
     id: 'tas',
     name: 'Taş',
-    description: 'Hava ve lavın katılaşmış sert kayası.',
-    tier: 3,
+    description: 'Toprağın sıkışıp katılaşmasıyla oluşan sert kaya.',
+    tier: 2,
     colorPalette: { primary: '#78909c', secondary: '#607d8b', emissive: '#37474f' },
     particles: { type: 'dust', color: '#78909c', count: 10 },
-    recipe: { inputs: ['hava', 'lav'] },
+    recipe: { inputs: ['toprak', 'toprak'] },
     icon: '🪨',
     category: 'elements'
   },

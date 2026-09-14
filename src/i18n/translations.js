@@ -38,7 +38,24 @@ export const TRANSLATIONS = {
       "lang_btn": "🌐 Dil: TR",
       "music_1": "🎵 Müzik 1",
       "music_2": "🎵 Müzik 2",
-      "music_none": "🔇 Müzik Yok"
+      "music_3": "🎵 Müzik 3",
+      "music_none": "🔇 Müzik Yok",
+      "settings_btn": "⚙️ Ayarlar",
+      "settings_title": "⚙️ Oyun Ayarları",
+      "settings_close": "Kapat",
+      "tab_general": "🎮 Genel",
+      "tab_debug": "🛠️ Debug Modu",
+      "debug_warning": "⚠️ Geliştirici ve test araçları",
+      "debug_infinite_hints": "💡 Sınırsız İpucu",
+      "debug_unlock_all": "🔓 Tüm Tarifleri Aç",
+      "debug_reveal_hints": "📜 Tüm İpuçlarını Çöz",
+      "debug_fps_counter": "📊 FPS & Performans Sayacı",
+      "debug_spawn_basics": "🧪 4 Temel Elementi Koy",
+      "debug_reset_progress": "🔄 İlerlemeyi Sıfırla",
+      "debug_reset_confirm": "Tüm ilerlemeniz sıfırlanacak ve sadece 4 temel element kalacak. Emin misiniz?",
+      "debug_all_unlocked_msg": "Oyundaki tüm tarif ve eşyalar açıldı!",
+      "debug_all_hints_revealed_msg": "Tüm tarif ipuçları açığa çıkarıldı!",
+      "debug_spawn_success": "Temel elementler masaya yerleştirildi!"
     },
     "items": {
       "ates": {
@@ -91,7 +108,7 @@ export const TRANSLATIONS = {
       },
       "tas": {
         "name": "Taş",
-        "desc": "Hava ve lavın katılaşmış sert kayası."
+        "desc": "Toprağın sıkışıp katılaşmasıyla oluşan sert kaya."
       },
       "cam": {
         "name": "Cam",
@@ -783,7 +800,24 @@ export const TRANSLATIONS = {
       "lang_btn": "🌐 Lang: EN",
       "music_1": "🎵 Music 1",
       "music_2": "🎵 Music 2",
-      "music_none": "🔇 No Music"
+      "music_3": "🎵 Music 3",
+      "music_none": "🔇 No Music",
+      "settings_btn": "⚙️ Settings",
+      "settings_title": "⚙️ Game Settings",
+      "settings_close": "Close",
+      "tab_general": "🎮 General",
+      "tab_debug": "🛠️ Debug Mode",
+      "debug_warning": "⚠️ Developer & testing tools",
+      "debug_infinite_hints": "💡 Infinite Hints",
+      "debug_unlock_all": "🔓 Unlock All Items",
+      "debug_reveal_hints": "📜 Reveal All Recipes",
+      "debug_fps_counter": "📊 FPS & Stats Overlay",
+      "debug_spawn_basics": "🧪 Spawn 4 Basic Elements",
+      "debug_reset_progress": "🔄 Reset Progress",
+      "debug_reset_confirm": "All your progress will be reset and only 4 basic elements will remain. Are you sure?",
+      "debug_all_unlocked_msg": "All recipes and items have been unlocked!",
+      "debug_all_hints_revealed_msg": "All recipe clues revealed!",
+      "debug_spawn_success": "Basic elements placed on table!"
     },
     "items": {
       "ates": {

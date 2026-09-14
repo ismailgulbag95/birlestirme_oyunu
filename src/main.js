@@ -54,6 +54,7 @@ class Game {
       // Yeni Basit Eşyalar
       'sis', 'gayzer', 'kaktus', 'cam_agaci', 'tavuk', 'kedi', 'mesale', 'somon', 'yay', 'barut_ficisi', 'su_degirmeni', 'buz_dagi', 'kalkan', 'iksir_kazani'
     ];
+    this.defaultLockedItems = defaultLocked;
 
     // Kayıtlı oyunu yükle
     const savedData = this._loadSavedGame();
@@ -69,6 +70,11 @@ class Game {
     if (savedData.hintLevels) {
       this.hintSystem.hintLevels = savedData.hintLevels;
     }
+    if (savedData.discoveryCount !== undefined) {
+      this.hintSystem.discoveryCount = savedData.discoveryCount;
+    } else if (savedData.successfulMatches !== undefined) {
+      this.hintSystem.discoveryCount = savedData.successfulMatches;
+    }
     if (savedData.successfulMatches !== undefined) {
       this.hintSystem.successfulMatches = savedData.successfulMatches;
     }
@@ -80,16 +86,26 @@ class Game {
     this.physics = new RapierWorld();
     await this.physics.init();
 
+    const debugHandlers = {
+      onUnlockAll: () => this.unlockAllItems(),
+      onSetInfiniteHints: (enabled) => this.setInfiniteHints(enabled),
+      onRevealAllHints: () => this.revealAllHints(),
+      onResetProgress: () => this.resetProgress(),
+      onSpawnBasics: () => this.spawnBasicElements(),
+      onToggleFps: (enabled) => { this.fpsEnabled = enabled; }
+    };
+
     this.ui = new UIManager(
       (itemId) => this.onInventoryItemSelect(itemId),
       (itemId) => this.onGetHint(itemId),
       (itemId) => this.onWatchAd(itemId),
-      () => this.physics.clearPieces(this.sceneManager.scene),
+      () => this.clearTableAndPieces(),
       (charId) => {
         this.tableScene.switchCharacter(charId);
         this._saveGame();
       },
-      () => audioManager.cycleMusicMode()
+      () => audioManager.cycleMusicMode(),
+      debugHandlers
     );
 
     this.ui.updateCharacterButton(initialChar);
@@ -122,6 +138,7 @@ class Game {
         activeCharacterId: this.tableScene ? this.tableScene.activeCharacterId : 'character2',
         hintRights: this.hintSystem ? this.hintSystem.hintRights : 3,
         hintLevels: this.hintSystem ? this.hintSystem.hintLevels : {},
+        discoveryCount: this.hintSystem ? this.hintSystem.discoveryCount : 0,
         successfulMatches: this.hintSystem ? this.hintSystem.successfulMatches : 0,
         savedAt: Date.now()
       };
@@ -296,12 +313,6 @@ class Game {
         }});
       });
 
-      const gained = this.hintSystem.recordMatch();
-      this.ui.updateHintRights(this.hintSystem.hintRights);
-      if (gained) {
-        console.log("3 başarılı eşleşme! +1 İpucu Hakkı kazanıldı.");
-      }
-
       setTimeout(() => {
         const middleSlot = slots[1] || slots[0];
 
@@ -336,6 +347,13 @@ class Game {
           this.unlockedItems.push(canonicalResult);
           // Masanın önünde yeni keşif bildirimini göster
           this.ui.showDiscoveryAnnouncement(canonicalResult);
+
+          // Her 3 yeni keşifte 1 ipucu hakkı verilir
+          const gained = this.hintSystem.recordDiscovery();
+          this.ui.updateHintRights(this.hintSystem.hintRights);
+          if (gained) {
+            console.log("3 yeni keşif tamamlandı! +1 İpucu Hakkı kazanıldı.");
+          }
         }
 
         this.lockedItems = this.lockedItems.filter(id => id !== resultId && getCanonicalId(id) !== canonicalResult);
@@ -372,14 +390,94 @@ class Game {
     }
   }
 
+  clearTableAndPieces() {
+    this.physics.clearPieces(this.sceneManager.scene);
+    const slots = this.tableScene.getSlots();
+    slots.forEach(s => {
+      if (s.userData.mesh) {
+        this.sceneManager.remove(s.userData.mesh);
+        s.userData.mesh = null;
+      }
+      s.userData.isOccupied = false;
+      s.userData.currentItem = null;
+    });
+  }
+
+  unlockAllItems() {
+    const allDefs = Object.keys(ITEM_DEFINITIONS);
+    allDefs.forEach(id => {
+      const can = getCanonicalId(id) || id;
+      if (!this.unlockedItems.includes(id) && !this.unlockedItems.includes(can)) {
+        this.unlockedItems.push(can);
+      }
+    });
+    this.lockedItems = [];
+    this.ui._populateInventory(this.unlockedItems);
+    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    this._saveGame();
+  }
+
+  setInfiniteHints(enabled) {
+    this.hintSystem.setInfiniteHints(enabled);
+    this.ui.updateHintRights(this.hintSystem.hintRights);
+    this._saveGame();
+  }
+
+  revealAllHints() {
+    this.hintSystem.revealAllHints(this.lockedItems);
+    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    this._saveGame();
+  }
+
+  spawnBasicElements() {
+    this.clearTableAndPieces();
+    const basics = ['ates', 'su', 'toprak'];
+    basics.forEach(id => {
+      this.onInventoryItemSelect(id);
+    });
+  }
+
+  resetProgress() {
+    localStorage.removeItem('alchemy_game_save');
+    this.unlockedItems = ['ates', 'su', 'toprak', 'hava'];
+    this.lockedItems = (this.defaultLockedItems || []).filter(id => {
+      const canonical = getCanonicalId(id) || id;
+      return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
+    });
+    this.hintSystem.hintRights = 3;
+    this.hintSystem.hintLevels = {};
+    this.hintSystem.discoveryCount = 0;
+    this.hintSystem.successfulMatches = 0;
+    this.hintSystem.setInfiniteHints(false);
+    this.clearTableAndPieces();
+    this.ui.updateHintRights(this.hintSystem.hintRights);
+    this.ui._populateInventory(this.unlockedItems);
+    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    this._saveGame();
+  }
+
   _startLoop() {
     const clock = new THREE.Clock();
+    let frameCount = 0;
+    let lastFpsUpdate = performance.now();
+    let currentFps = 60;
 
     const animate = () => {
       requestAnimationFrame(animate);
 
       const delta = clock.getDelta();
       const elapsedTime = clock.getElapsedTime();
+
+      // FPS & Performans takibi
+      frameCount++;
+      const now = performance.now();
+      if (now - lastFpsUpdate >= 500) {
+        currentFps = Math.round((frameCount * 1000) / (now - lastFpsUpdate));
+        frameCount = 0;
+        lastFpsUpdate = now;
+        const sceneObjs = this.sceneManager.scene ? this.sceneManager.scene.children.length : 0;
+        this.ui.updateFpsHud(currentFps, sceneObjs);
+      }
 
       // Masadaki slotlarda bulunan animasyonlu eşyaları güncelle (örneğin dans eden ateş)
       const slots = this.tableScene.getSlots();
