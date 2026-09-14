@@ -12,9 +12,9 @@
  */
 
 export const TRACKS = [
-  { id: 1, name: 'Stride of the Traveler', src: '/audio/music1.mp3' },
-  { id: 2, name: 'Beneath The Northern Peak', src: '/audio/music2.mp3' },
-  { id: 3, name: 'Morning in the Clearing', src: '/audio/music3.mp3' }
+  { id: 1, name: 'Stride of the Traveler', src: './audio/music1.mp3' },
+  { id: 2, name: 'Beneath The Northern Peak', src: './audio/music2.mp3' },
+  { id: 3, name: 'Morning in the Clearing', src: './audio/music3.mp3' }
 ];
 
 export class AudioManager {

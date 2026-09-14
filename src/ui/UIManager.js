@@ -1508,7 +1508,7 @@ export class UIManager {
       const iconBg = isNamed ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.35)';
 
       const canonicalId = getCanonicalId(itemId) || itemId;
-      const iconHtml = `<img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
+      const iconHtml = `<img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
 
       card.innerHTML = `
         <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${iconBg}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
@@ -1605,7 +1605,7 @@ export class UIManager {
       btn.className = 'item-icon-btn';
       btn.innerHTML = `
         <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
-          <img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
+          <img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
         </div>
         <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${localizedName}</span>
       `;
@@ -1637,7 +1637,7 @@ export class UIManager {
     const localizedDesc = i18n.getItemDescription(canonicalId, def.description);
 
     // Simge ve görsel
-    iconEl.innerHTML = `<img src="/textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${localizedName ? localizedName[0].toUpperCase() : ''}</span>';">`;
+    iconEl.innerHTML = `<img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${localizedName ? localizedName[0].toUpperCase() : ''}</span>';">`;
     if (def.colorPalette?.primary) {
       iconEl.style.boxShadow = `0 0 16px ${def.colorPalette.primary}`;
     }

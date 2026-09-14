@@ -16,7 +16,7 @@ export class TableScene {
       character1: {
         id: 'character1',
         name: 'Simyacı Çırağı',
-        modelPath: '/models/character.glb',
+        modelPath: './models/character.glb',
         scale: 6.5,
         position: [0, -1.0, -1.8],
         stoolY: -1.25,
@@ -28,7 +28,7 @@ export class TableScene {
       character2: {
         id: 'character2',
         name: 'Gözlemci',
-        modelPath: '/models/character2.glb',
+        modelPath: './models/character2.glb',
         scale: 4.5,
         position: [0, -1.5, -1.8],
         stoolY: -1.55,
@@ -40,7 +40,7 @@ export class TableScene {
       character3: {
         id: 'character3',
         name: 'Gezgin',
-        modelPath: '/models/character3.glb',
+        modelPath: './models/character3.glb',
         scale: 6.5,
         position: [0, -2.25, -1.8],
         rotation: [0, 0, 0],
@@ -72,7 +72,7 @@ export class TableScene {
   _buildTable() {
     const loader = new GLTFLoader();
     loader.load(
-      '/models/old_small_bench.glb',
+      './models/old_small_bench.glb',
       (gltf) => {
         this._setupTableModel(gltf.scene);
         console.log("Masa modeli (old_small_bench.glb) başarıyla yüklendi ve ölçeklendirildi.");
@@ -80,7 +80,7 @@ export class TableScene {
       undefined,
       (error) => {
         loader.load(
-          '/models/bench.glb',
+          './models/bench.glb',
           (gltf2) => {
             this._setupTableModel(gltf2.scene);
             console.log("Masa modeli (bench.glb) başarıyla yüklendi ve ölçeklendirildi.");

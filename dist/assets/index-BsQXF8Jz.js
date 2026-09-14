@@ -15900,14 +15900,14 @@ class rd {
 }
 class Dd {
   constructor(A, I = "character2") {
-    this.sceneManager = A, this.group = new f(), this.roomEnvironment = new rd(), this.group.add(this.roomEnvironment.group), this.slots = [], this.mixer = null, this.clock = new cr(), this.characters = { character1: { id: "character1", name: "Simyac\u0131 \xC7\u0131ra\u011F\u0131", modelPath: "/models/character.glb", scale: 6.5, position: [0, -1, -1.8], stoolY: -1.25, gltf: null, model: null, mixer: null, actions: {} }, character2: { id: "character2", name: "G\xF6zlemci", modelPath: "/models/character2.glb", scale: 4.5, position: [0, -1.5, -1.8], stoolY: -1.55, gltf: null, model: null, mixer: null, actions: {} }, character3: { id: "character3", name: "Gezgin", modelPath: "/models/character3.glb", scale: 6.5, position: [0, -2.25, -1.8], rotation: [0, 0, 0], idleSpeed: 0.75, stoolY: -1.95, gltf: null, model: null, mixer: null, actions: {} } }, this.activeCharacterId = I, this.activeCharacterModel = null, this.characterHitbox = null, this.stool = null, this.currentAction = null, this.isTalking = false, this.talkTimeout = null, this._buildTable(), this._buildStool(), this._buildCharacterHitbox(), this._loadCharacter(this.activeCharacterId), this._buildSlots(), this.sceneManager.add(this.group);
+    this.sceneManager = A, this.group = new f(), this.roomEnvironment = new rd(), this.group.add(this.roomEnvironment.group), this.slots = [], this.mixer = null, this.clock = new cr(), this.characters = { character1: { id: "character1", name: "Simyac\u0131 \xC7\u0131ra\u011F\u0131", modelPath: "./models/character.glb", scale: 6.5, position: [0, -1, -1.8], stoolY: -1.25, gltf: null, model: null, mixer: null, actions: {} }, character2: { id: "character2", name: "G\xF6zlemci", modelPath: "./models/character2.glb", scale: 4.5, position: [0, -1.5, -1.8], stoolY: -1.55, gltf: null, model: null, mixer: null, actions: {} }, character3: { id: "character3", name: "Gezgin", modelPath: "./models/character3.glb", scale: 6.5, position: [0, -2.25, -1.8], rotation: [0, 0, 0], idleSpeed: 0.75, stoolY: -1.95, gltf: null, model: null, mixer: null, actions: {} } }, this.activeCharacterId = I, this.activeCharacterModel = null, this.characterHitbox = null, this.stool = null, this.currentAction = null, this.isTalking = false, this.talkTimeout = null, this._buildTable(), this._buildStool(), this._buildCharacterHitbox(), this._loadCharacter(this.activeCharacterId), this._buildSlots(), this.sceneManager.add(this.group);
   }
   _buildTable() {
     const A = new wn();
-    A.load("/models/old_small_bench.glb", (I) => {
+    A.load("./models/old_small_bench.glb", (I) => {
       this._setupTableModel(I.scene), console.log("Masa modeli (old_small_bench.glb) ba\u015Far\u0131yla y\xFCklendi ve \xF6l\xE7eklendirildi.");
     }, void 0, (I) => {
-      A.load("/models/bench.glb", (g) => {
+      A.load("./models/bench.glb", (g) => {
         this._setupTableModel(g.scene), console.log("Masa modeli (bench.glb) ba\u015Far\u0131yla y\xFCklendi ve \xF6l\xE7eklendirildi.");
       }, void 0, () => {
         console.warn("\xD6zel masa modeli bulunamad\u0131, procedural masa kullan\u0131l\u0131yor.", I), this._buildProceduralTable();
@@ -26096,7 +26096,7 @@ class _d {
       if (!Q) return;
       const o = QA.getItemName(i, Q.name), e = g.getHint(i), t = g.canUseHint(i), a = e.level > 0, s = document.createElement("div");
       s.className = "locked-item-card", s.style.display = "flex", s.style.alignItems = "flex-start", s.style.gap = "10px";
-      const n = a ? "none" : "brightness(0)", r = a ? `0 0 10px ${((_a2 = Q.colorPalette) == null ? void 0 : _a2.primary) || "#38bdf8"}` : "none", c = a ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.35)", h = `<img src="/textures/items/${lg(i) || i}.png" class="item-img-icon" alt="${o}" style="filter: ${n};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${n};\\'>${Q.icon || "\u2728"}</span>';">`;
+      const n = a ? "none" : "brightness(0)", r = a ? `0 0 10px ${((_a2 = Q.colorPalette) == null ? void 0 : _a2.primary) || "#38bdf8"}` : "none", c = a ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.35)", h = `<img src="./textures/items/${lg(i) || i}.png" class="item-img-icon" alt="${o}" style="filter: ${n};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${n};\\'>${Q.icon || "\u2728"}</span>';">`;
       s.innerHTML = `
         <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${c}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${r}; flex-shrink: 0; margin-top: 2px;">${h}</div>
         <div style="flex: 1; min-width: 0;">
@@ -26149,7 +26149,7 @@ class _d {
       const o = QA.getItemName(i, Q.name), e = document.createElement("div");
       e.className = "item-icon-btn", e.innerHTML = `
         <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${((_a2 = Q.colorPalette) == null ? void 0 : _a2.primary) || "#38bdf8"};">
-          <img src="/textures/items/${i}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='${Q.icon || "\u2728"}';">
+          <img src="./textures/items/${i}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='${Q.icon || "\u2728"}';">
         </div>
         <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${o}</span>
       `, e.addEventListener("click", () => {
@@ -26164,7 +26164,7 @@ class _d {
     const g = document.getElementById("discovery-banner"), C = document.getElementById("discovery-icon"), B = document.getElementById("discovery-title"), i = document.getElementById("discovery-desc");
     if (!g || !C || !B || !i) return;
     const Q = lg(A) || A, o = QA.getItemName(Q, I.name), e = QA.getItemDescription(Q, I.description);
-    C.innerHTML = `<img src="/textures/items/${Q}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${o ? o[0].toUpperCase() : ""}</span>';">`, ((_a2 = I.colorPalette) == null ? void 0 : _a2.primary) && (C.style.boxShadow = `0 0 16px ${I.colorPalette.primary}`), B.innerHTML = `${QA.t("discovery_title")}: <span style="color: #67e8f9; margin-left: 4px;">"${o}"</span>`, i.textContent = e, this._discoveryTimeout && clearTimeout(this._discoveryTimeout), g.classList.add("show"), this._discoveryTimeout = setTimeout(() => {
+    C.innerHTML = `<img src="./textures/items/${Q}.png" class="item-img-icon" alt="${o}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-weight:700; font-size:16px; color:#cbd5e1;\\'>${o ? o[0].toUpperCase() : ""}</span>';">`, ((_a2 = I.colorPalette) == null ? void 0 : _a2.primary) && (C.style.boxShadow = `0 0 16px ${I.colorPalette.primary}`), B.innerHTML = `${QA.t("discovery_title")}: <span style="color: #67e8f9; margin-left: 4px;">"${o}"</span>`, i.textContent = e, this._discoveryTimeout && clearTimeout(this._discoveryTimeout), g.classList.add("show"), this._discoveryTimeout = setTimeout(() => {
       g.classList.remove("show");
     }, 4200);
   }
@@ -26175,7 +26175,7 @@ class _d {
     }, 2200));
   }
 }
-const ce = [{ id: 1, name: "Stride of the Traveler", src: "/audio/music1.mp3" }, { id: 2, name: "Beneath The Northern Peak", src: "/audio/music2.mp3" }, { id: 3, name: "Morning in the Clearing", src: "/audio/music3.mp3" }];
+const ce = [{ id: 1, name: "Stride of the Traveler", src: "./audio/music1.mp3" }, { id: 2, name: "Beneath The Northern Peak", src: "./audio/music2.mp3" }, { id: 3, name: "Morning in the Clearing", src: "./audio/music3.mp3" }];
 class Od {
   constructor() {
     this.bgm = null;
