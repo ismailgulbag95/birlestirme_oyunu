@@ -296,6 +296,7 @@ class Game {
 
     if (resultId) {
       this.failedCraftAttempts = 0;
+      this.tableScene.playSuccessAnimation();
       const oldMeshes = [];
       slots.forEach(s => {
         if (s.userData.mesh) {
@@ -374,6 +375,8 @@ class Game {
         console.log("20 kez başarısız üretim yapıldı! Karakter ölüm animasyonu tetikleniyor.");
         this.tableScene.playDeathAnimation();
         this.failedCraftAttempts = 0; // Animasyon oynatıldıktan sonra sayacı sıfırla
+      } else {
+        this.tableScene.playFailAnimation();
       }
 
       slots.forEach(s => {

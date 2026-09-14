@@ -30,6 +30,19 @@ export class TableScene {
         model: null,
         mixer: null,
         actions: {}
+      },
+      character3: {
+        id: 'character3',
+        name: 'Gezgin',
+        modelPath: '/models/character3.glb',
+        scale: 6.5,
+        position: [0, -2.25, -1.8],
+        rotation: [0, 0, 0],
+        idleSpeed: 0.75, // Bekleme animasyon hızı %25 yavaşlatıldı (daha sakin/doğal)
+        gltf: null,
+        model: null,
+        mixer: null,
+        actions: {}
       }
     };
     this.activeCharacterId = initialCharacterId;
@@ -204,6 +217,9 @@ export class TableScene {
       this.activeCharacterModel = config.model;
       this.activeCharacterModel.scale.set(config.scale, config.scale, config.scale);
       this.activeCharacterModel.position.set(...config.position);
+      if (config.rotation) {
+        this.activeCharacterModel.rotation.set(...config.rotation);
+      }
       this.mixer = config.mixer;
       this.group.add(this.activeCharacterModel);
       this._playAction(config, 'Sitting_Idle');
@@ -217,6 +233,9 @@ export class TableScene {
         const model = gltf.scene;
         model.position.set(...config.position);
         model.scale.set(config.scale, config.scale, config.scale);
+        if (config.rotation) {
+          model.rotation.set(...config.rotation);
+        }
         model.traverse(child => {
           if (child.isMesh) {
             child.castShadow = true;
@@ -265,6 +284,9 @@ export class TableScene {
       targetAction = Object.values(config.actions)[0];
     }
     if (!targetAction) return;
+
+    const speed = (clipName === 'Sitting_Idle' && config.idleSpeed !== undefined) ? config.idleSpeed : 1.0;
+    targetAction.setEffectiveTimeScale(speed);
 
     if (this.currentAction && this.currentAction !== targetAction) {
       targetAction.reset();
@@ -357,6 +379,98 @@ export class TableScene {
       this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.6);
       this.talkTimeout = null;
     }, 4500);
+  }
+
+  playSuccessAnimation() {
+    const config = this.characters[this.activeCharacterId];
+    if (!config || !config.actions) return;
+
+    // character3 için 'Success_Craft' (Throwing Dice), diğer karakterler için konuşma veya zıplama
+    const successAction = config.actions['Success_Craft'] || config.actions['Sitting_Talking'];
+    if (!successAction) {
+      if (this.activeCharacterModel) {
+        gsap.to(this.activeCharacterModel.position, {
+          y: -0.75,
+          duration: 0.15,
+          yoyo: true,
+          repeat: 3,
+          ease: 'power1.out',
+          onComplete: () => {
+            this.activeCharacterModel.position.set(...config.position);
+          }
+        });
+      }
+      return;
+    }
+
+    if (this.talkTimeout) {
+      clearTimeout(this.talkTimeout);
+      this.talkTimeout = null;
+    }
+
+    this.isTalking = false;
+    successAction.reset();
+    successAction.setLoop(THREE.LoopOnce);
+    successAction.clampWhenFinished = true;
+    successAction.play();
+
+    if (this.currentAction && this.currentAction !== successAction) {
+      this.currentAction.crossFadeTo(successAction, 0.25, true);
+    }
+    this.currentAction = successAction;
+
+    const clipDuration = (successAction.getClip() ? successAction.getClip().duration : 3.0) * 1000;
+    this.talkTimeout = setTimeout(() => {
+      this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.4);
+      this.talkTimeout = null;
+    }, Math.min(clipDuration, 4000));
+  }
+
+  playFailAnimation() {
+    const config = this.characters[this.activeCharacterId];
+    if (!config || !config.actions) return;
+
+    // character3 için 'Wrong_Craft' (Sitting Dodges)
+    const failAction = config.actions['Wrong_Craft'];
+    if (!failAction) {
+      if (this.activeCharacterModel) {
+        const baseY = config.rotation ? config.rotation[1] : 0;
+        gsap.to(this.activeCharacterModel.rotation, {
+          y: baseY + 0.2,
+          duration: 0.1,
+          yoyo: true,
+          repeat: 3,
+          ease: 'power1.inOut',
+          onComplete: () => {
+            if (config.rotation) this.activeCharacterModel.rotation.set(...config.rotation);
+            else this.activeCharacterModel.rotation.set(0, 0, 0);
+          }
+        });
+      }
+      return;
+    }
+
+    if (this.talkTimeout) {
+      clearTimeout(this.talkTimeout);
+      this.talkTimeout = null;
+    }
+
+    this.isTalking = false;
+    failAction.reset();
+    failAction.setLoop(THREE.LoopOnce);
+    failAction.clampWhenFinished = true;
+    failAction.play();
+
+    if (this.currentAction && this.currentAction !== failAction) {
+      this.currentAction.crossFadeTo(failAction, 0.25, true);
+    }
+    this.currentAction = failAction;
+
+    const clipDuration = (failAction.getClip() ? failAction.getClip().duration : 2.5) * 1000;
+    this.talkTimeout = setTimeout(() => {
+      this._playAction(config, 'Sitting_Idle', THREE.LoopRepeat, 0.4);
+      this.talkTimeout = null;
+    }, Math.min(clipDuration, 3500));
   }
 
   switchCharacter(charId) {

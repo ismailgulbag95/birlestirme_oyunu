@@ -806,9 +806,9 @@ export class UIManager {
                     <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
                   </a>
                 </div>
-                <span class="settings-btn-sub" id="sub-character">Gözlemci veya Çırak arasında geçiş yap</span>
+                <span class="settings-btn-sub" id="sub-character">Gözlemci, Çırak veya Gezgin arasında geçiş yap</span>
               </div>
-              <button id="character-switch-btn" class="settings-action-btn btn-purple">${this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice')}</button>
+              <button id="character-switch-btn" class="settings-action-btn btn-purple">${this._getCharacterLabel()}</button>
             </div>
 
             <div class="settings-btn-row">
@@ -1013,7 +1013,7 @@ export class UIManager {
 
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
-      charBtn.textContent = this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+      charBtn.textContent = this._getCharacterLabel();
     }
 
     const musicBtn = document.getElementById('music-toggle-btn');
@@ -1124,10 +1124,9 @@ export class UIManager {
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
       charBtn.addEventListener('click', () => {
-        // character1 <-> character2 değişimi
-        this.currentCharacterId = this.currentCharacterId === 'character2' ? 'character1' : 'character2';
-        const label = this.currentCharacterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
-        charBtn.textContent = label;
+        // character1 -> character2 -> character3 döngüsel geçişi
+        this.currentCharacterId = this._getNextCharacterId(this.currentCharacterId);
+        charBtn.textContent = this._getCharacterLabel();
 
         if (this.onCharacterSwitch) {
           this.onCharacterSwitch(this.currentCharacterId);
@@ -1333,11 +1332,23 @@ export class UIManager {
     if (badge) badge.textContent = i18n.t('hint_rights', { n: rights });
   }
 
+  _getCharacterLabel(characterId = this.currentCharacterId) {
+    if (characterId === 'character3') return i18n.t('char_wanderer');
+    if (characterId === 'character2') return i18n.t('char_observer');
+    return i18n.t('char_apprentice');
+  }
+
+  _getNextCharacterId(currentId = this.currentCharacterId) {
+    const chars = ['character1', 'character2', 'character3'];
+    const idx = chars.indexOf(currentId);
+    return chars[(idx + 1) % chars.length];
+  }
+
   updateCharacterButton(characterId) {
     this.currentCharacterId = characterId;
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
-      charBtn.textContent = characterId === 'character2' ? i18n.t('char_observer') : i18n.t('char_apprentice');
+      charBtn.textContent = this._getCharacterLabel(characterId);
     }
   }
 
