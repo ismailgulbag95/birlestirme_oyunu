@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.original_backup
+*_optimized.glb
