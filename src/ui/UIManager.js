@@ -21,6 +21,10 @@ export class UIManager {
     this.lastItemIds = [];
     this.infiniteHintsEnabled = false;
     this.fpsHudEnabled = false;
+    this.rightPanelState = 'closed'; // 'closed', 'narrow', 'wide'
+    this.unlockedItemCount = 4;
+    this.currentTutorialStep = 1;
+    this.totalTutorialSteps = 5;
     this._injectStyles();
     this._createUI();
   }
@@ -43,221 +47,440 @@ export class UIManager {
         overflow: hidden;
       }
 
-      /* Sağ Panel: Keşfedilen Itemler */
+      /* =================================================== */
+      /* ANTI-SLOP SAĞ PANEL: Çanta / Simyacı Envanteri       */
+      /* 3 Durum: Kapalı -> Dar (60px) -> Geniş (120px)      */
+      /* =================================================== */
       #right-panel {
         position: absolute;
-        right: 12px;
-        top: 20px;
-        width: 104px;
-        height: calc(100% - 100px);
-        background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 18px;
+        right: 0;
+        top: 18px;
+        height: calc(100% - 90px);
+        background: linear-gradient(180deg, #181c26 0%, #10131a 100%);
+        border: 2px solid #543d22;
+        border-right: none;
+        border-radius: 16px 0 0 16px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 8px 6px;
-        gap: 8px;
+        padding: 8px 6px 12px 6px;
+        gap: 6px;
         pointer-events: auto;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(212, 163, 89, 0.4);
+        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 20;
+      }
+
+      /* Durum 0: Kapalı (Tamamen ekran dışına gizli) */
+      #right-panel.state-closed {
+        transform: translateX(100%);
+        width: 62px;
+      }
+
+      /* Durum 1: Dar Mod (60px - İtemler kompakt görünür) */
+      #right-panel.state-narrow {
+        transform: translateX(0);
+        width: 62px;
+      }
+
+      /* Durum 2: Geniş Mod (120px - Formüller ve detaylar görünür) */
+      #right-panel.state-wide {
+        transform: translateX(0);
+        width: 122px;
+      }
+
+      /* Çanta Kulakçığı (Sol bar gibi dikey antika mühür butonu) */
+      #right-panel-toggle {
+        position: absolute;
+        left: -46px;
+        top: 28px;
+        width: 46px;
+        height: 64px;
+        background: linear-gradient(180deg, #782121 0%, #4a1010 100%);
+        border: 2px solid #b48c48;
+        border-right: none;
+        border-radius: 14px 0 0 14px;
+        color: #fef08a;
+        font-size: 14px;
+        font-weight: 800;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+        pointer-events: auto;
+        box-shadow: -5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      }
+
+      #right-panel-toggle:hover {
+        background: linear-gradient(180deg, #942929 0%, #5e1515 100%);
+        transform: scale(1.05);
+        border-color: #fde047;
+      }
+
+      /* Panel Başlık Şeridi */
+      .panel-header-badge {
+        width: 100%;
+        background: linear-gradient(180deg, #2a2015 0%, #17120a 100%);
+        border: 1px solid #785327;
+        border-radius: 8px;
+        padding: 5px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        color: #fef08a;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.4);
+        flex-shrink: 0;
         overflow: hidden;
+      }
+
+      #right-panel.state-narrow .panel-header-badge .badge-text {
+        display: none;
+      }
+
+      #inv-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        align-items: center;
+        padding-bottom: 6px;
+        border-bottom: 1.5px solid #3d2c18;
+        flex-shrink: 0;
+      }
+
+      #right-panel.state-narrow #inv-controls {
+        display: none;
       }
 
       #inv-items-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 7px;
         width: 100%;
         overflow-y: auto;
         flex: 1;
+        padding: 2px 0;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
 
       #inv-items-container::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        display: none;
         width: 0;
         height: 0;
       }
 
+      /* Gömülü (Inset) Arama Kutusu */
       #item-search-input {
         width: 100%;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: #090b0f;
+        border: 1.5px solid #3d2b17;
         border-radius: 8px;
-        padding: 5px 6px;
-        color: #f8fafc;
-        font-size: 10px;
-        font-weight: 500;
+        padding: 6px 8px;
+        color: #fef08a;
+        font-size: 11px;
+        font-weight: 600;
         outline: none;
         box-sizing: border-box;
         transition: all 0.2s ease;
-        text-align: center;
+        text-align: left;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
       }
 
       #item-search-input:focus {
-        background: rgba(255, 255, 255, 0.16);
-        border-color: #38bdf8;
-        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+        border-color: #d97706;
+        background: #0d1017;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(217, 119, 6, 0.35);
       }
 
       #item-search-input::placeholder {
-        color: #94a3b8;
+        color: #71624f;
         font-size: 10px;
       }
 
+      /* Segment Buton Grubu (Filtre & Sırala) */
+      .inv-btn-segment {
+        display: flex;
+        gap: 3px;
+        width: 100%;
+      }
+
+      .inv-segment-btn {
+        flex: 1;
+        background: linear-gradient(180deg, #2b3342 0%, #19202b 100%);
+        border: 1px solid #4a3620;
+        color: #e2e8f0;
+        border-radius: 6px;
+        font-size: 9px;
+        padding: 5px 2px;
+        cursor: pointer;
+        text-align: center;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 0 #0b0e14;
+        transition: all 0.15s ease;
+      }
+
+      .inv-segment-btn:hover {
+        border-color: #b48c48;
+        color: #fef08a;
+        transform: translateY(-1px);
+      }
+
+      .inv-segment-btn:active {
+        transform: translateY(1px);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.6);
+      }
+
+      /* Anti-Slop: Taktil Envanter Yuvası (Inlaid Vault Slot) */
       .item-icon-btn {
-        width: 72px;
-        height: 64px;
+        width: 106px;
+        min-height: 72px;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(180deg, #1c212c 0%, #131720 100%);
+        border: 1.5px solid #3d2b17;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #ffffff;
-        font-size: 10px;
-        font-weight: 600;
+        color: #f1f5f9;
+        font-size: 11px;
+        font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
         flex-shrink: 0;
-        padding: 4px 2px;
+        padding: 4px 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 3px 0 #080a0e, 0 5px 12px rgba(0, 0, 0, 0.6);
+        position: relative;
       }
 
       .item-icon-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
+        border-color: #b48c48;
+        background: linear-gradient(180deg, #262c3a 0%, #181d28 100%);
         transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 5px 0 #080a0e, 0 8px 16px rgba(0, 0, 0, 0.7);
       }
 
       .item-icon-btn:active {
-        transform: scale(0.92);
-        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(2px);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 0 #080a0e;
+      }
+
+      /* Dar Modda Eşya Yuvası (Kompakt 50x50px) */
+      #right-panel.state-narrow .item-icon-btn {
+        width: 50px;
+        min-height: 50px;
+        height: 50px;
+        padding: 2px;
+        border-radius: 10px;
+      }
+
+      #right-panel.state-narrow .item-icon-btn .icon-symbol {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+      }
+
+      #right-panel.state-narrow .item-icon-btn .item-label,
+      #right-panel.state-narrow .item-icon-btn .item-formula {
+        display: none !important;
       }
 
       .item-img-icon {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         object-fit: contain;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        filter: drop-shadow(0 3px 6px rgba(0,0,0,0.7));
         pointer-events: none;
       }
 
-      /* Sol Panel: Drawer (Kilitli Eşyalar & İpuçları) */
+      /* Geniş Mod Formül Yazısı */
+      .item-formula {
+        font-size: 8px;
+        color: #fde047;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 1px;
+        line-height: 1.15;
+        max-width: 98px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      }
+
+      /* =================================================== */
+      /* ANTI-SLOP SOL PANEL: Simya Kodeksi (Alchemical Codex) */
+      /* =================================================== */
       #left-drawer {
         position: absolute;
-        left: -280px;
-        top: 60px;
-        width: 260px;
-        height: calc(100% - 140px);
-        background: rgba(15, 23, 42, 0.9);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 0 20px 20px 0;
+        left: -300px;
+        top: 50px;
+        width: 290px;
+        height: calc(100% - 120px);
+        background: linear-gradient(180deg, #181c26 0%, #10131a 100%);
+        border: 2px solid #543d22;
+        border-left: none;
+        border-radius: 0 18px 18px 0;
         pointer-events: auto;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
         display: flex;
         flex-direction: column;
         z-index: 20;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 14px 0 45px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(212, 163, 89, 0.35);
       }
 
       #left-drawer.open {
-        transform: translateX(280px);
+        transform: translateX(300px);
       }
 
+      /* Dikey Antika Kitap Sırtı / İpucu Kulakçığı */
       #drawer-toggle {
         position: absolute;
-        right: -42px;
-        top: 20px;
-        width: 42px;
-        height: 48px;
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        right: -46px;
+        top: 28px;
+        width: 46px;
+        height: 64px;
+        background: linear-gradient(180deg, #782121 0%, #4a1010 100%);
+        border: 2px solid #b48c48;
         border-left: none;
-        border-radius: 0 12px 12px 0;
-        color: #ffffff;
-        font-size: 20px;
+        border-radius: 0 14px 14px 0;
+        color: #fef08a;
+        font-size: 14px;
+        font-weight: 800;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 3px;
         cursor: pointer;
         pointer-events: auto;
+        box-shadow: 5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      }
+
+      #drawer-toggle:hover {
+        background: linear-gradient(180deg, #942929 0%, #5e1515 100%);
+        transform: scale(1.05);
+        border-color: #fde047;
       }
 
       .drawer-header {
-        padding: 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 15px;
-        font-weight: 700;
-        color: #f8fafc;
+        padding: 14px 16px;
+        background: linear-gradient(180deg, #881324 0%, #5c0d18 100%);
+        border-bottom: 2px solid #b48c48;
+        border-radius: 0 16px 0 0;
+        font-size: 13px;
+        font-weight: 800;
+        color: #fef08a;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 3px 8px rgba(0, 0, 0, 0.5);
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
       }
 
       .hint-badge {
-        background: #f59e0b;
-        color: #0f172a;
-        padding: 4px 8px;
+        background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+        color: #2e1502;
+        border: 1px solid #fde68a;
+        padding: 3px 10px;
         border-radius: 12px;
-        font-size: 12px;
-        font-weight: 700;
+        font-size: 11px;
+        font-weight: 800;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
       }
 
       .drawer-content {
         flex: 1;
-        padding: 12px;
+        padding: 14px 12px;
         overflow-y: auto;
         color: #cbd5e1;
         font-size: 13px;
         line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
+      /* Kilitli Eşya Kartı: Simya Reçete Parşömeni */
       .locked-item-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 10px;
+        background: #0d1016;
+        border: 1.5px solid #3d2b17;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.4);
+        position: relative;
       }
 
       .locked-item-card h4 {
-        color: #f8fafc;
+        color: #fef08a;
         margin-bottom: 4px;
         font-size: 13px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
 
       .locked-item-card p {
-        color: #94a3b8;
+        color: #9ca3af;
         font-size: 12px;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        line-height: 1.4;
       }
 
+      /* 3D Zümrüt Yeşili İpucu Butonu */
       .hint-btn {
-        background: #3b82f6;
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 6px;
+        background: linear-gradient(180deg, #4ade80 0%, #22c55e 45%, #15803d 100%);
+        color: #ffffff;
+        border: 1.5px solid #14532d;
+        padding: 7px 16px;
+        border-radius: 10px;
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 800;
         cursor: pointer;
-        transition: background 0.2s;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 0 #0f4021, 0 5px 10px rgba(0, 0, 0, 0.4);
+        transition: all 0.12s ease;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
       }
 
       .hint-btn:hover {
-        background: #2563eb;
+        background: linear-gradient(180deg, #6ee7b7 0%, #34d399 45%, #16a34a 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 4px 0 #0f4021, 0 7px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      .hint-btn:active {
+        transform: translateY(2px);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 0 #0f4021;
       }
 
       .hint-btn:disabled {
-        background: #475569;
+        background: linear-gradient(180deg, #475569 0%, #334155 100%);
+        border-color: #1e293b;
+        box-shadow: none;
+        color: #94a3b8;
         cursor: not-allowed;
       }
 
@@ -340,28 +563,39 @@ export class UIManager {
         transform: scale(0.94);
       }
 
+      /* Alt Bar: Ayarlar Açma Butonu (3D Taktil Koyu Zümrüt & Altın Buton) */
       #settings-open-btn {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.98));
-        border: 1.5px solid rgba(56, 189, 248, 0.4);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.25);
+        background: linear-gradient(180deg, #2a3342 0%, #1a212d 50%, #111620 100%);
+        border: 2px solid #5c4426;
+        border-radius: 20px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 0 #0d1117, 0 8px 20px rgba(0, 0, 0, 0.6);
+        color: #fef08a;
+        font-weight: 800;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
       }
 
       #settings-open-btn:hover {
-        background: linear-gradient(135deg, rgba(51, 65, 85, 0.95), rgba(30, 41, 59, 1));
-        border-color: rgba(56, 189, 248, 0.7);
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.45);
+        background: linear-gradient(180deg, #374357 0%, #222b3a 50%, #161c28 100%);
+        border-color: #b48c48;
+        transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
       }
 
-      /* Settings Modal */
+      #settings-open-btn:active {
+        transform: translateY(3px);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
+      }
+
+      /* Settings Modal (Koyu Ahşap/Obsidian Taş Panel & Kurdele Başlık) */
       #settings-modal {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         display: none;
         align-items: center;
         justify-content: center;
@@ -374,14 +608,14 @@ export class UIManager {
       }
 
       .settings-box {
-        background: linear-gradient(145deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98));
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 20px;
-        padding: 20px 22px;
+        background: linear-gradient(180deg, #1c212d 0%, #12151e 100%);
+        border: 2.5px solid #6b4d2c;
+        border-radius: 24px;
+        padding: 24px 22px;
         width: 90%;
         max-width: 440px;
         color: white;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(212, 163, 89, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.7);
         display: flex;
         flex-direction: column;
         gap: 14px;
@@ -394,7 +628,7 @@ export class UIManager {
       @keyframes settingsModalPop {
         from {
           opacity: 0;
-          transform: scale(0.92) translateY(12px);
+          transform: scale(0.92) translateY(14px);
         }
         to {
           opacity: 1;
@@ -402,62 +636,72 @@ export class UIManager {
         }
       }
 
+      /* Pinterest Stili Ribbon (Kurdele) Başlık Rozeti */
       .settings-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        padding-bottom: 12px;
+        background: linear-gradient(180deg, #991b1b 0%, #7f1d1d 50%, #5d1212 100%);
+        border: 2px solid #f59e0b;
+        border-radius: 14px;
+        padding: 10px 14px;
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 5px 12px rgba(0, 0, 0, 0.5);
       }
 
       .settings-title {
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 800;
-        color: #f8fafc;
+        color: #fef08a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
         display: flex;
         align-items: center;
         gap: 8px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
       }
 
       .settings-close-icon {
         width: 32px;
         height: 32px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: #cbd5e1;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #450a0a 0%, #2b0606 100%);
+        border: 1.5px solid #ef4444;
+        color: #fca5a5;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 16px;
-        transition: all 0.2s ease;
+        font-weight: 800;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+        transition: all 0.15s ease;
       }
 
       .settings-close-icon:hover {
-        background: rgba(239, 68, 68, 0.3);
-        color: #ef4444;
-        border-color: rgba(239, 68, 68, 0.5);
+        background: #dc2626;
+        color: #ffffff;
+        transform: scale(1.08);
       }
 
       .settings-tabs {
         display: flex;
         gap: 8px;
-        background: rgba(0, 0, 0, 0.3);
-        padding: 4px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.45);
+        padding: 5px;
+        border-radius: 14px;
+        border: 1.5px solid #4a3620;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
       }
 
       .settings-tab-btn {
         flex: 1;
         padding: 8px 6px;
-        border-radius: 8px;
-        border: 1px solid transparent;
+        border-radius: 10px;
+        border: 1.5px solid transparent;
         background: transparent;
-        color: #94a3b8;
+        color: #a8a29e;
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
         cursor: pointer;
         transition: all 0.2s ease;
         text-align: center;
@@ -467,27 +711,29 @@ export class UIManager {
       }
 
       .settings-tab-btn.active {
-        background: rgba(56, 189, 248, 0.2);
-        color: #38bdf8;
-        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
-        border: 1px solid rgba(56, 189, 248, 0.4);
+        background: linear-gradient(180deg, #855b2e 0%, #523719 100%);
+        color: #fef08a;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+        border: 1.5px solid #d97706;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
       }
 
       .settings-tab-pane {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
 
       .settings-btn-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 10px 14px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1.5px solid #4a3620;
+        border-radius: 14px;
+        padding: 11px 14px;
         gap: 12px;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
       }
 
       .settings-btn-row-info {
@@ -499,113 +745,165 @@ export class UIManager {
 
       .settings-btn-label {
         font-size: 13px;
-        font-weight: 700;
-        color: #f1f5f9;
+        font-weight: 800;
+        color: #fef08a;
+        letter-spacing: 0.3px;
       }
 
       .settings-btn-sub {
         font-size: 11px;
-        color: #94a3b8;
+        color: #a8a29e;
       }
 
+      /* 3D Taktil Düğme Temeli (Pinterest Chunky Bevel) */
       .settings-action-btn {
-        padding: 8px 14px;
-        border-radius: 10px;
+        padding: 8px 16px;
+        border-radius: 12px;
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
         cursor: pointer;
-        border: 1px solid transparent;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
         white-space: nowrap;
         user-select: none;
+        letter-spacing: 0.5px;
       }
 
       .settings-action-btn:active {
-        transform: scale(0.95);
+        transform: translateY(3px) !important;
       }
 
+      /* 3D Kırmızı Buton */
       .btn-danger {
-        background: rgba(239, 68, 68, 0.85);
+        background: linear-gradient(180deg, #f87171 0%, #dc2626 50%, #991b1b 100%);
         color: white;
-        border-color: rgba(239, 68, 68, 0.4);
+        border: 1.5px solid #7f1d1d;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #450a0a, 0 5px 10px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
       }
       .btn-danger:hover {
-        background: rgba(239, 68, 68, 1);
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+        background: linear-gradient(180deg, #fca5a5 0%, #ef4444 50%, #b91c1c 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 0 #450a0a, 0 7px 12px rgba(0, 0, 0, 0.6);
+      }
+      .btn-danger:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #450a0a;
       }
 
       .btn-danger-outline {
         background: rgba(239, 68, 68, 0.15);
-        color: #f87171;
-        border-color: rgba(239, 68, 68, 0.4);
+        color: #fca5a5;
+        border: 1.5px solid #ef4444;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
       }
       .btn-danger-outline:hover {
         background: rgba(239, 68, 68, 0.3);
-        border-color: rgba(239, 68, 68, 0.7);
+        color: white;
       }
 
+      /* 3D Mor Buton (Karakter Değişimi) */
       .btn-purple {
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(168, 85, 247, 0.85));
+        background: linear-gradient(180deg, #a78bfa 0%, #7c3aed 50%, #5b21b6 100%);
         color: white;
-        border-color: rgba(167, 139, 250, 0.4);
+        border: 1.5px solid #4c1d95;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #2e1065, 0 5px 10px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
       }
       .btn-purple:hover {
-        background: linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(168, 85, 247, 1));
-        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+        background: linear-gradient(180deg, #c4b5fd 0%, #8b5cf6 50%, #6d28d9 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 0 #2e1065, 0 7px 12px rgba(0, 0, 0, 0.6);
+      }
+      .btn-purple:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #2e1065;
       }
 
+      /* 3D Zümrüt Yeşili Buton (Referans Görseldeki Butonun Birebir Taktil Hali) */
       .btn-green {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(5, 150, 105, 0.85));
+        background: linear-gradient(180deg, #4ade80 0%, #22c55e 45%, #15803d 100%);
         color: white;
-        border-color: rgba(110, 231, 183, 0.4);
+        border: 1.5px solid #14532d;
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45), 0 4px 0 #0d381d, 0 6px 12px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
       }
       .btn-green:hover {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(5, 150, 105, 1));
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        background: linear-gradient(180deg, #86efac 0%, #4ade80 45%, #16a34a 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.55), 0 5px 0 #0d381d, 0 8px 15px rgba(0, 0, 0, 0.6);
+      }
+      .btn-green:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #0d381d;
       }
       .btn-green.muted {
-        background: linear-gradient(135deg, rgba(100, 116, 139, 0.85), rgba(71, 85, 105, 0.85));
-        border-color: rgba(148, 163, 184, 0.3);
+        background: linear-gradient(180deg, #64748b 0%, #475569 50%, #334155 100%);
+        border-color: #1e293b;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 3px 0 #0f172a, 0 5px 10px rgba(0, 0, 0, 0.4);
       }
 
+      /* 3D Mavi/Kraliyet Butonu (Dil Değiştir) */
       .btn-blue {
-        background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(59, 130, 246, 0.85));
+        background: linear-gradient(180deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);
         color: white;
-        border-color: rgba(125, 211, 252, 0.4);
+        border: 1.5px solid #075985;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 0 #0c4a6e, 0 5px 10px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
       }
       .btn-blue:hover {
-        background: linear-gradient(135deg, rgba(14, 165, 233, 1), rgba(59, 130, 246, 1));
-        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+        background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 50%, #0284c7 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 4px 0 #0c4a6e, 0 7px 12px rgba(0, 0, 0, 0.6);
+      }
+      .btn-blue:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #0c4a6e;
       }
 
+      /* 3D Kehribar/Altın Buton (Debug Butonları vb.) */
       .btn-amber {
-        background: linear-gradient(135deg, rgba(245, 158, 11, 0.85), rgba(217, 119, 6, 0.85));
-        color: white;
-        border-color: rgba(251, 191, 36, 0.4);
+        background: linear-gradient(180deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
+        color: #451a03;
+        border: 1.5px solid #78350f;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 3px 0 #451a03, 0 5px 10px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 1px rgba(255,255,255,0.4);
       }
       .btn-amber:hover {
-        background: linear-gradient(135deg, rgba(245, 158, 11, 1), rgba(217, 119, 6, 1));
-        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        background: linear-gradient(180deg, #fde68a 0%, #fbbf24 50%, #d97706 100%);
+        transform: translateY(-1px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 4px 0 #451a03, 0 7px 12px rgba(0, 0, 0, 0.6);
+      }
+      .btn-amber:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #451a03;
       }
       .btn-amber.active {
-        box-shadow: 0 0 14px rgba(245, 158, 11, 0.7);
-        border-color: #fef08a;
+        box-shadow: 0 0 16px rgba(245, 158, 11, 0.8), inset 0 1px 0 rgba(255,255,255,0.6);
+        border-color: #fde047;
       }
 
       .btn-cyan {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.85), rgba(14, 165, 233, 0.85));
+        background: linear-gradient(180deg, #67e8f9 0%, #06b6d4 50%, #0e7490 100%);
         color: white;
-        border-color: rgba(103, 232, 249, 0.4);
+        border: 1.5px solid #155e75;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #164e63, 0 5px 10px rgba(0, 0, 0, 0.5);
       }
       .btn-cyan:hover {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 1), rgba(14, 165, 233, 1));
-        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        background: linear-gradient(180deg, #a5f3fc 0%, #22d3ee 50%, #0891b2 100%);
+        transform: translateY(-1px);
+      }
+      .btn-cyan:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #164e63;
       }
 
       .btn-indigo {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(79, 70, 229, 0.85));
+        background: linear-gradient(180deg, #a5b4fc 0%, #6366f1 50%, #4338ca 100%);
         color: white;
-        border-color: rgba(165, 180, 252, 0.4);
+        border: 1.5px solid #3730a3;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #312e81, 0 5px 10px rgba(0, 0, 0, 0.5);
+      }
+      .btn-indigo:hover {
+        background: linear-gradient(180deg, #c7d2fe 0%, #818cf8 50%, #4f46e5 100%);
+        transform: translateY(-1px);
+      }
+      .btn-indigo:active {
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #312e81;
       }
       .btn-indigo:hover {
         background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(79, 70, 229, 1));
@@ -809,6 +1107,417 @@ export class UIManager {
         color: #cbd5e1;
         line-height: 1.35;
       }
+
+      /* =================================================== */
+      /* HOŞGELDİNİZ & REHBER (TUTORIAL) MODALLARI & OK      */
+      /* =================================================== */
+      #welcome-modal, #char-unlock-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 7, 12, 0.78);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 9990;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+
+      /* Rehber Modalı: Flulaştırma (blur) KESİNLİKLE YOK, Arka plan net ve şeffaf */
+      #tutorial-modal {
+        position: fixed;
+        inset: 0;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        z-index: 9990;
+        display: none;
+        pointer-events: none;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+
+      #welcome-modal.show, #char-unlock-modal.show {
+        display: flex;
+      }
+
+      #tutorial-modal.show {
+        display: block;
+      }
+
+      .welcome-card, .celebrate-card {
+        background: linear-gradient(180deg, #1f2636 0%, #111520 100%);
+        border: 2px solid #b48c48;
+        border-radius: 20px;
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(217, 119, 6, 0.35);
+        max-width: 440px;
+        width: 100%;
+        padding: 28px 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        position: relative;
+        animation: modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes modalZoomIn {
+        from { opacity: 0; transform: scale(0.9) translateY(15px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
+
+      .welcome-icon-glow {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0) 70%);
+        border: 1.5px solid #d97706;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+      }
+
+      .welcome-title, .celebrate-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fef08a;
+        margin: 0;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      }
+
+      .welcome-sub {
+        font-size: 13px;
+        color: #cbd5e1;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .welcome-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        margin-top: 6px;
+      }
+
+      .btn-gold-primary {
+        background: linear-gradient(180deg, #d97706 0%, #92400e 100%);
+        border: 1.5px solid #fde047;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
+        padding: 13px 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 15px rgba(217, 119, 6, 0.4);
+      }
+
+      .btn-gold-primary:hover {
+        background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
+        transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(217, 119, 6, 0.6);
+      }
+
+      .btn-gold-primary:active {
+        transform: translateY(1px);
+      }
+
+      .btn-dark-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #94a3b8;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 9px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .btn-dark-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #e2e8f0;
+      }
+
+      /* Rehber Kartı */
+      .tutorial-card {
+        background: linear-gradient(180deg, #1c2230 0%, #10141d 100%);
+        border: 2px solid #b48c48;
+        border-radius: 18px;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(217, 119, 6, 0.3);
+        max-width: 440px;
+        width: calc(100% - 24px);
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: auto;
+        transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+        animation: modalZoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .tutorial-card.pos-bottom {
+        top: auto !important;
+        bottom: 22px !important;
+        transform: translateX(-50%) !important;
+      }
+
+      .tutorial-card.pos-top {
+        bottom: auto !important;
+        top: 22px !important;
+        transform: translateX(-50%) !important;
+      }
+
+      .tutorial-card.pos-center {
+        top: 50% !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      .tutorial-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .tutorial-step-tag {
+        background: rgba(217, 119, 6, 0.2);
+        color: #fde047;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 3px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(253, 224, 71, 0.4);
+        letter-spacing: 0.5px;
+      }
+
+      .tutorial-close-btn {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 2px 6px;
+        line-height: 1;
+        border-radius: 4px;
+        transition: all 0.15s ease;
+      }
+
+      .tutorial-close-btn:hover {
+        color: #f87171;
+        background: rgba(248, 113, 113, 0.1);
+      }
+
+      .tutorial-progress-track {
+        width: 100%;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .tutorial-progress-bar {
+        height: 100%;
+        width: 20%;
+        background: linear-gradient(90deg, #d97706, #fde047);
+        border-radius: 10px;
+        transition: width 0.3s ease;
+      }
+
+      .tutorial-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .tutorial-step-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #fef08a;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .tutorial-step-desc {
+        font-size: 13px;
+        color: #cbd5e1;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* Karakter Vitrini (Rehber 5. Adım) */
+      .tutorial-char-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .tutorial-char-card {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 8px 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4px;
+      }
+
+      .tutorial-char-card.unlocked {
+        border-color: #22c55e;
+        background: rgba(34, 197, 94, 0.08);
+      }
+
+      .tutorial-char-card.locked {
+        border-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.08);
+      }
+
+      .tutorial-char-icon {
+        font-size: 20px;
+      }
+
+      .tutorial-char-name {
+        font-size: 10px;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+
+      .tutorial-char-badge {
+        font-size: 8px;
+        font-weight: 800;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+
+      .badge-unlocked {
+        background: rgba(34, 197, 94, 0.25);
+        color: #4ade80;
+        border: 1px solid rgba(74, 222, 128, 0.4);
+      }
+
+      .badge-locked {
+        background: rgba(245, 158, 11, 0.25);
+        color: #fbbf24;
+        border: 1px solid rgba(251, 191, 36, 0.4);
+      }
+
+      .tutorial-bottom-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .tutorial-nav-btn {
+        flex: 1;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-align: center;
+      }
+
+      .tutorial-nav-btn.prev {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #cbd5e1;
+      }
+
+      .tutorial-nav-btn.prev:hover {
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff;
+      }
+
+      .tutorial-nav-btn.next {
+        background: linear-gradient(180deg, #d97706 0%, #92400e 100%);
+        border: 1.5px solid #fde047;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+      }
+
+      .tutorial-nav-btn.next:hover {
+        background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
+      }
+
+      /* Dinamik Gösterici Ok (Pointer Arrow) */
+      #tutorial-pointer-arrow {
+        position: fixed;
+        z-index: 10005;
+        pointer-events: none;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), top 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.3s ease;
+        filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
+      }
+
+      .arrow-svg {
+        width: 46px;
+        height: 46px;
+      }
+
+      .arrow-bounce-right {
+        animation: arrowBounceRight 1s infinite alternate ease-in-out;
+      }
+
+      .arrow-bounce-down {
+        animation: arrowBounceDown 1s infinite alternate ease-in-out;
+      }
+
+      .arrow-pulse-center {
+        animation: arrowPulseCenter 1.2s infinite ease-in-out;
+      }
+
+      @keyframes arrowBounceRight {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(14px); }
+      }
+
+      @keyframes arrowBounceDown {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(14px); }
+      }
+
+      @keyframes arrowPulseCenter {
+        0% { transform: scale(0.95); opacity: 0.85; }
+        50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 20px #fde047); }
+        100% { transform: scale(0.95); opacity: 0.85; }
+      }
+
+      /* Vurgulanan Element Efekti */
+      .tutorial-element-highlight {
+        outline: 3px solid #f59e0b !important;
+        outline-offset: 3px !important;
+        box-shadow: 0 0 25px rgba(245, 158, 11, 0.85) !important;
+        z-index: 10002 !important;
+        animation: tutorialPulseGlow 1.2s infinite alternate ease-in-out !important;
+      }
+
+      @keyframes tutorialPulseGlow {
+        from { box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+        to { box-shadow: 0 0 30px rgba(253, 224, 71, 0.95); }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -818,7 +1527,10 @@ export class UIManager {
     container.id = 'ui-container';
     container.innerHTML = `
       <div id="left-drawer">
-        <div id="drawer-toggle">☰</div>
+        <div id="drawer-toggle" title="İpuçları">
+          <span style="font-size: 16px;">📜</span>
+          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>
+        </div>
         <div class="drawer-header">
           <span id="drawer-hints-title">${i18n.t('hints_title')}</span>
           <span class="hint-badge" id="hint-rights-badge">${i18n.t('hint_rights', { n: 3 })}</span>
@@ -828,12 +1540,20 @@ export class UIManager {
         </div>
       </div>
 
-      <div id="right-panel">
-        <div id="inv-controls" style="display: flex; flex-direction: column; gap: 5px; width: 100%; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+      <div id="right-panel" class="state-closed">
+        <div id="right-panel-toggle" title="Çanta / Envanter">
+          <span style="font-size: 16px;">🎒</span>
+          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>
+        </div>
+        <div class="panel-header-badge">
+          <span>⚗️</span>
+          <span class="badge-text">ENVANTER</span>
+        </div>
+        <div id="inv-controls">
           <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
-          <div style="display: flex; gap: 3px; width: 100%;">
-            <button id="filter-btn" title="Filter by Category" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getFilterLabel('all')}</button>
-            <button id="sort-btn" title="Sort Order" style="flex: 1; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; font-size: 8px; padding: 4px 1px; cursor: pointer; text-align: center; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this._getSortLabel('discovery')}</button>
+          <div class="inv-btn-segment">
+            <button id="filter-btn" class="inv-segment-btn" title="Kategori Filtrele">${this._getFilterLabel('all')}</button>
+            <button id="sort-btn" class="inv-segment-btn" title="Sıralama Modu">${this._getSortLabel('discovery')}</button>
           </div>
         </div>
         <div id="inv-items-container">
@@ -845,12 +1565,10 @@ export class UIManager {
 
       <div id="bottom-action-bar">
         <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
-          <span style="font-size: 16px;">✨</span>
           <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
           <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/3</span>
         </button>
         <button id="settings-open-btn" class="action-pill-btn">
-          <span style="font-size: 15px;">⚙️</span>
           <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
         </button>
       </div>
@@ -859,8 +1577,9 @@ export class UIManager {
         <div class="settings-box">
           <div class="settings-header">
             <div class="settings-title">
-              <span>⚙️</span>
+              <span style="color: #fde047; font-size: 13px;">✦</span>
               <span id="settings-modal-title">${i18n.t('settings_title')}</span>
+              <span style="color: #fde047; font-size: 13px;">✦</span>
             </div>
             <button class="settings-close-icon" id="settings-close-btn" title="${i18n.t('settings_close')}">✕</button>
           </div>
@@ -889,7 +1608,7 @@ export class UIManager {
                     <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
                   </a>
                 </div>
-                <span class="settings-btn-sub" id="sub-character">Gözlemci, Çırak veya Gezgin arasında geçiş yap</span>
+                <span class="settings-btn-sub" id="sub-character">Gözlemci (20 eşya), Gezgin (100 eşya)</span>
               </div>
               <button id="character-switch-btn" class="settings-action-btn btn-purple">${this._getCharacterLabel()}</button>
             </div>
@@ -908,6 +1627,14 @@ export class UIManager {
                 <span class="settings-btn-sub" id="sub-lang">Oyun dilini değiştir</span>
               </div>
               <button id="lang-toggle-btn" class="settings-action-btn btn-blue">${i18n.t('lang_btn')}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-tutorial-open">${i18n.t('tutorial_title')}</span>
+                <span class="settings-btn-sub" id="sub-tutorial-open">Oyun mekaniklerini ve rehberi adım adım incele</span>
+              </div>
+              <button id="tutorial-replay-btn" class="settings-action-btn btn-amber">${i18n.t('tutorial_replay_btn')}</button>
             </div>
 
             <!-- Karakter Lisansı & Atıf Kartı -->
@@ -1034,6 +1761,79 @@ export class UIManager {
           <button class="ad-close" id="close-ad-btn">${i18n.t('ad_cancel_btn')}</button>
         </div>
       </div>
+
+      <!-- Hoşgeldiniz Ekranı Modalı -->
+      <div id="welcome-modal">
+        <div class="welcome-card">
+          <div class="welcome-icon-glow">⚗️</div>
+          <h2 class="welcome-title" id="welcome-modal-title">${i18n.t('welcome_title')}</h2>
+          <p class="welcome-sub" id="welcome-modal-sub">${i18n.t('welcome_subtitle')}</p>
+          <div class="welcome-actions">
+            <button id="welcome-start-tutorial-btn" class="btn-gold-primary">${i18n.t('welcome_start_tutorial')}</button>
+            <button id="welcome-skip-btn" class="btn-dark-secondary">${i18n.t('welcome_skip')}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rehber (Tutorial) Kartı Modalı -->
+      <div id="tutorial-modal">
+        <div class="tutorial-card" id="tutorial-card-box">
+          <div class="tutorial-top-bar">
+            <div class="tutorial-step-tag" id="tutorial-step-tag">${i18n.t('tutorial_step', { current: 1, total: 5 })}</div>
+            <button class="tutorial-close-btn" id="tutorial-close-btn" title="${i18n.t('tutorial_skip')}">✕</button>
+          </div>
+          <div class="tutorial-progress-track">
+            <div class="tutorial-progress-bar" id="tutorial-progress-bar" style="width: 20%;"></div>
+          </div>
+          <div class="tutorial-body">
+            <h3 class="tutorial-step-title" id="tutorial-step-title">
+              <span id="tutorial-step-icon">🎒</span>
+              <span id="tutorial-step-title-text">${i18n.t('tutorial_step1_title')}</span>
+            </h3>
+            <p class="tutorial-step-desc" id="tutorial-step-desc-text">${i18n.t('tutorial_step1_desc')}</p>
+            <div id="tutorial-chars-container" style="display: none;" class="tutorial-char-grid">
+              <div class="tutorial-char-card unlocked" id="tut-card-char1">
+                <span class="tutorial-char-icon">🧙‍♂️</span>
+                <span class="tutorial-char-name">Çırak</span>
+                <span class="tutorial-char-badge badge-unlocked">Açık</span>
+              </div>
+              <div class="tutorial-char-card locked" id="tut-card-char2">
+                <span class="tutorial-char-icon">🔮</span>
+                <span class="tutorial-char-name">Gözlemci</span>
+                <span class="tutorial-char-badge badge-locked">🔒 20 Eşya</span>
+              </div>
+              <div class="tutorial-char-card locked" id="tut-card-char3">
+                <span class="tutorial-char-icon">🧭</span>
+                <span class="tutorial-char-name">Gezgin</span>
+                <span class="tutorial-char-badge badge-locked">🔒 100 Eşya</span>
+              </div>
+            </div>
+          </div>
+          <div class="tutorial-bottom-nav">
+            <button class="tutorial-nav-btn prev" id="tutorial-prev-btn" style="visibility: hidden;">${i18n.t('tutorial_prev')}</button>
+            <button class="tutorial-nav-btn next" id="tutorial-next-btn">${i18n.t('tutorial_next')}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dinamik İşaretçi Ok (Pointer Arrow) -->
+      <div id="tutorial-pointer-arrow">
+        <svg class="arrow-svg" id="tutorial-pointer-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="tutorial-pointer-path" d="M24 4L24 38M24 38L12 26M24 38L36 26" stroke="#fde047" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Yeni Karakter Kilit Açılış Kutlama Modalı -->
+      <div id="char-unlock-modal">
+        <div class="celebrate-card">
+          <div class="welcome-icon-glow" style="border-color: #22c55e; box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);">🎉</div>
+          <h2 class="celebrate-title" id="celebrate-title">Yeni Karakter Açıldı!</h2>
+          <p class="welcome-sub" id="celebrate-desc">Tebrikler! Yeni bir karakterin kilidi açıldı.</p>
+          <div class="welcome-actions">
+            <button id="celebrate-close-btn" class="btn-gold-primary">Harika!</button>
+          </div>
+        </div>
+      </div>
     `;
     document.body.appendChild(container);
 
@@ -1043,6 +1843,7 @@ export class UIManager {
     this._setupMusicToggle();
     this._setupSettingsLogic();
     this._setupCraftButton();
+    this._setupTutorialLogic();
   }
 
   _setupCraftButton() {
@@ -1223,7 +2024,27 @@ export class UIManager {
     const btnDebugReset = document.getElementById('debug-reset-progress-btn');
     if (btnDebugReset) btnDebugReset.textContent = i18n.t('debug_reset_progress');
 
-    // 8. Refresh inventory and hints
+    // 8. Hoşgeldiniz, Rehber & Ayarlar Metinleri
+    const welcomeTitle = document.getElementById('welcome-modal-title');
+    if (welcomeTitle) welcomeTitle.textContent = i18n.t('welcome_title');
+    const welcomeSub = document.getElementById('welcome-modal-sub');
+    if (welcomeSub) welcomeSub.textContent = i18n.t('welcome_subtitle');
+    const welcomeStartBtn = document.getElementById('welcome-start-tutorial-btn');
+    if (welcomeStartBtn) welcomeStartBtn.textContent = i18n.t('welcome_start_tutorial');
+    const welcomeSkipBtn = document.getElementById('welcome-skip-btn');
+    if (welcomeSkipBtn) welcomeSkipBtn.textContent = i18n.t('welcome_skip');
+
+    const lblTutorialOpen = document.getElementById('label-tutorial-open');
+    if (lblTutorialOpen) lblTutorialOpen.textContent = i18n.t('tutorial_title');
+    const replayBtn = document.getElementById('tutorial-replay-btn');
+    if (replayBtn) replayBtn.textContent = i18n.t('tutorial_replay_btn');
+
+    this._updateCharacterSubLabel();
+    if (document.getElementById('tutorial-modal')?.classList.contains('show')) {
+      this._updateTutorialStep();
+    }
+
+    // 9. Refresh inventory and hints
     this._populateInventory();
     if (this._lastHintsArgs) {
       this.populateHints(...this._lastHintsArgs);
@@ -1236,8 +2057,35 @@ export class UIManager {
 
     toggle.addEventListener('click', () => {
       drawer.classList.toggle('open');
-      toggle.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+      toggle.innerHTML = drawer.classList.contains('open') 
+        ? '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>'
+        : '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
     });
+
+    // Sağ Panel (Çanta) 3 Durumlu Akordeon Mantığı:
+    // Kapalı (ÇANTA) -> Dar 60px (GENİŞLET) -> Geniş 120px (KAPAT) -> Kapalı (ÇANTA)
+    const rightPanel = document.getElementById('right-panel');
+    const rightToggle = document.getElementById('right-panel-toggle');
+
+    if (rightToggle && rightPanel) {
+      rightToggle.addEventListener('click', () => {
+        if (this.rightPanelState === 'closed') {
+          this.rightPanelState = 'narrow';
+          rightPanel.className = 'state-narrow';
+          rightToggle.innerHTML = '<span style="font-size: 14px;">⤢</span><span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">GENİŞLET</span>';
+          this._populateInventory();
+        } else if (this.rightPanelState === 'narrow') {
+          this.rightPanelState = 'wide';
+          rightPanel.className = 'state-wide';
+          rightToggle.innerHTML = '<span style="font-size: 14px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KAPAT</span>';
+          this._populateInventory();
+        } else {
+          this.rightPanelState = 'closed';
+          rightPanel.className = 'state-closed';
+          rightToggle.innerHTML = '<span style="font-size: 16px;">🎒</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>';
+        }
+      });
+    }
 
     document.getElementById('cleanup-btn').addEventListener('click', () => {
       if (this.onCleanup) {
@@ -1248,9 +2096,16 @@ export class UIManager {
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
       charBtn.addEventListener('click', () => {
-        // character1 -> character2 -> character3 döngüsel geçişi
-        this.currentCharacterId = this._getNextCharacterId(this.currentCharacterId);
+        const nextId = this._getNextCandidateCharacterId(this.currentCharacterId);
+        if (!this.isCharacterUnlocked(nextId)) {
+          const req = this.getCharacterRequiredCount(nextId);
+          this.showToast(i18n.t('char_locked_msg', { count: req, current: this.unlockedItemCount }), 'warning');
+          return;
+        }
+
+        this.currentCharacterId = nextId;
         charBtn.textContent = this._getCharacterLabel();
+        this._updateCharacterSubLabel();
 
         if (this.onCharacterSwitch) {
           this.onCharacterSwitch(this.currentCharacterId);
@@ -1462,10 +2317,77 @@ export class UIManager {
     return i18n.t('char_apprentice');
   }
 
-  _getNextCharacterId(currentId = this.currentCharacterId) {
+  isCharacterUnlocked(characterId) {
+    if (characterId === 'character1') return true;
+    if (characterId === 'character2') return this.unlockedItemCount >= 20;
+    if (characterId === 'character3') return this.unlockedItemCount >= 100;
+    return false;
+  }
+
+  getCharacterRequiredCount(characterId) {
+    if (characterId === 'character2') return 20;
+    if (characterId === 'character3') return 100;
+    return 0;
+  }
+
+  _getNextCandidateCharacterId(currentId = this.currentCharacterId) {
     const chars = ['character1', 'character2', 'character3'];
     const idx = chars.indexOf(currentId);
     return chars[(idx + 1) % chars.length];
+  }
+
+  _getNextCharacterId(currentId = this.currentCharacterId) {
+    const chars = ['character1', 'character2', 'character3'];
+    const idx = chars.indexOf(currentId);
+    for (let i = 1; i <= chars.length; i++) {
+      const candidate = chars[(idx + i) % chars.length];
+      if (this.isCharacterUnlocked(candidate)) {
+        return candidate;
+      }
+    }
+    return 'character1';
+  }
+
+  _updateCharacterSubLabel() {
+    const subEl = document.getElementById('sub-character');
+    if (!subEl) return;
+    const c2Unlocked = this.isCharacterUnlocked('character2');
+    const c3Unlocked = this.isCharacterUnlocked('character3');
+
+    if (!c2Unlocked && !c3Unlocked) {
+      subEl.textContent = i18n.currentLang === 'tr'
+        ? `Gözlemci (🔒 20 Eşya: ${this.unlockedItemCount}/20), Gezgin (🔒 100 Eşya)`
+        : `Observer (🔒 20 Items: ${this.unlockedItemCount}/20), Wanderer (🔒 100 Items)`;
+    } else if (!c3Unlocked) {
+      subEl.textContent = i18n.currentLang === 'tr'
+        ? `Gözlemci (Açık), Gezgin (🔒 100 Eşya: ${this.unlockedItemCount}/100)`
+        : `Observer (Unlocked), Wanderer (🔒 100 Items: ${this.unlockedItemCount}/100)`;
+    } else {
+      subEl.textContent = i18n.currentLang === 'tr'
+        ? 'Tüm karakterlerin kilidi açık!'
+        : 'All characters unlocked!';
+    }
+  }
+
+  setUnlockedItemCount(count) {
+    this.unlockedItemCount = count;
+    this._updateCharacterSubLabel();
+
+    // Rehber modalındaki 5. adım açık ise oradaki kartları da güncelle
+    const tutCardChar2 = document.getElementById('tut-card-char2');
+    const tutCardChar3 = document.getElementById('tut-card-char3');
+    if (tutCardChar2) {
+      const unl = this.isCharacterUnlocked('character2');
+      tutCardChar2.className = `tutorial-char-card ${unl ? 'unlocked' : 'locked'}`;
+      tutCardChar2.querySelector('.tutorial-char-badge').className = `tutorial-char-badge ${unl ? 'badge-unlocked' : 'badge-locked'}`;
+      tutCardChar2.querySelector('.tutorial-char-badge').textContent = unl ? 'Açık' : '🔒 20 Eşya';
+    }
+    if (tutCardChar3) {
+      const unl = this.isCharacterUnlocked('character3');
+      tutCardChar3.className = `tutorial-char-card ${unl ? 'unlocked' : 'locked'}`;
+      tutCardChar3.querySelector('.tutorial-char-badge').className = `tutorial-char-badge ${unl ? 'badge-unlocked' : 'badge-locked'}`;
+      tutCardChar3.querySelector('.tutorial-char-badge').textContent = unl ? 'Açık' : '🔒 100 Eşya';
+    }
   }
 
   updateCharacterButton(characterId) {
@@ -1474,6 +2396,7 @@ export class UIManager {
     if (charBtn) {
       charBtn.textContent = this._getCharacterLabel(characterId);
     }
+    this._updateCharacterSubLabel();
   }
 
   populateHints(discoveredItems, lockedItems, hintSystem) {
@@ -1601,13 +2524,30 @@ export class UIManager {
       if (!def) return;
       const localizedName = i18n.getItemName(canonicalId, def.name);
 
+      // Formül hesaplama (Geniş ekranda parantez içinde görünür)
+      let formulaHtml = '';
+      if (this.rightPanelState === 'wide') {
+        if (def.recipe && def.recipe.inputs && def.recipe.inputs.length > 0) {
+          const parts = def.recipe.inputs.map(inpId => {
+            const canonicalInpId = getCanonicalId(inpId) || inpId;
+            const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
+            return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
+          });
+          formulaHtml = `<span class="item-formula">(${parts.join(' + ')})</span>`;
+        } else {
+          formulaHtml = `<span class="item-formula">(${i18n.currentLang === 'tr' ? 'Temel' : 'Base'})</span>`;
+        }
+      }
+
       const btn = document.createElement('div');
       btn.className = 'item-icon-btn';
+      btn.title = localizedName;
       btn.innerHTML = `
-        <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
+        <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
           <img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
         </div>
-        <span style="font-size: 9px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">${localizedName}</span>
+        <span class="item-label" style="font-size: 9.5px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%; font-weight: 700; color: #f1f5f9;">${localizedName}</span>
+        ${formulaHtml}
       `;
 
       btn.addEventListener('click', () => {
@@ -1676,6 +2616,255 @@ export class UIManager {
       toast.className = '';
       this.toastTimeout = null;
     }, 2200);
+  }
+
+  /* =================================================== */
+  /* REHBER (TUTORIAL) & HOŞGELDİNİZ METODLARI           */
+  /* =================================================== */
+  _setupTutorialLogic() {
+    // Hoşgeldiniz Modal Butonları
+    const welcomeStartBtn = document.getElementById('welcome-start-tutorial-btn');
+    const welcomeSkipBtn = document.getElementById('welcome-skip-btn');
+
+    welcomeStartBtn?.addEventListener('click', () => {
+      this.closeWelcomeModal();
+      this.startTutorial();
+    });
+
+    welcomeSkipBtn?.addEventListener('click', () => {
+      this.closeWelcomeModal();
+      localStorage.setItem('alchemy_welcome_seen', 'true');
+    });
+
+    // Rehber Modal Butonları
+    const tutCloseBtn = document.getElementById('tutorial-close-btn');
+    const tutPrevBtn = document.getElementById('tutorial-prev-btn');
+    const tutNextBtn = document.getElementById('tutorial-next-btn');
+
+    tutCloseBtn?.addEventListener('click', () => {
+      this.closeTutorial();
+      localStorage.setItem('alchemy_welcome_seen', 'true');
+    });
+
+    tutPrevBtn?.addEventListener('click', () => {
+      if (this.currentTutorialStep > 1) {
+        this.currentTutorialStep--;
+        this._updateTutorialStep();
+      }
+    });
+
+    tutNextBtn?.addEventListener('click', () => {
+      if (this.currentTutorialStep < this.totalTutorialSteps) {
+        this.currentTutorialStep++;
+        this._updateTutorialStep();
+      } else {
+        this.closeTutorial();
+        localStorage.setItem('alchemy_welcome_seen', 'true');
+      }
+    });
+
+    // Ayarlar sekmesindeki rehberi tekrar aç butonu
+    const replayBtn = document.getElementById('tutorial-replay-btn');
+    replayBtn?.addEventListener('click', () => {
+      const settingsModal = document.getElementById('settings-modal');
+      settingsModal?.classList.remove('show');
+      this.startTutorial();
+    });
+
+    // Karakter Kilit Açılış Kutlama Modalını Kapat
+    const celCloseBtn = document.getElementById('celebrate-close-btn');
+    celCloseBtn?.addEventListener('click', () => {
+      const modal = document.getElementById('char-unlock-modal');
+      modal?.classList.remove('show');
+    });
+  }
+
+  showWelcomeModal() {
+    const modal = document.getElementById('welcome-modal');
+    if (modal) modal.classList.add('show');
+  }
+
+  closeWelcomeModal() {
+    const modal = document.getElementById('welcome-modal');
+    if (modal) modal.classList.remove('show');
+  }
+
+  startTutorial() {
+    this.currentTutorialStep = 1;
+    const modal = document.getElementById('tutorial-modal');
+    if (modal) modal.classList.add('show');
+    this._updateTutorialStep();
+  }
+
+  closeTutorial() {
+    const modal = document.getElementById('tutorial-modal');
+    if (modal) modal.classList.remove('show');
+    this._hideTutorialPointer();
+    this._clearTutorialHighlights();
+  }
+
+  _updateTutorialStep() {
+    const cardBox = document.getElementById('tutorial-card-box');
+    const stepTag = document.getElementById('tutorial-step-tag');
+    const progressBar = document.getElementById('tutorial-progress-bar');
+    const stepIcon = document.getElementById('tutorial-step-icon');
+    const stepTitle = document.getElementById('tutorial-step-title-text');
+    const stepDesc = document.getElementById('tutorial-step-desc-text');
+    const charsContainer = document.getElementById('tutorial-chars-container');
+    const prevBtn = document.getElementById('tutorial-prev-btn');
+    const nextBtn = document.getElementById('tutorial-next-btn');
+
+    this._clearTutorialHighlights();
+
+    if (stepTag) stepTag.textContent = i18n.t('tutorial_step', { current: this.currentTutorialStep, total: this.totalTutorialSteps });
+    if (progressBar) progressBar.style.width = `${(this.currentTutorialStep / this.totalTutorialSteps) * 100}%`;
+    if (prevBtn) prevBtn.style.visibility = this.currentTutorialStep > 1 ? 'visible' : 'hidden';
+    if (nextBtn) nextBtn.textContent = this.currentTutorialStep === this.totalTutorialSteps ? i18n.t('tutorial_finish') : i18n.t('tutorial_next');
+
+    if (charsContainer) charsContainer.style.display = 'none';
+
+    switch (this.currentTutorialStep) {
+      case 1:
+        // Çanta menüsü sağda: Kutucuk altta durur
+        if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
+        if (stepIcon) stepIcon.textContent = '🎒';
+        if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step1_title');
+        if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step1_desc');
+        this._pointToElement('#right-panel-toggle', 'right');
+        break;
+
+      case 2:
+        // Birleştir butonu altta: Kutucuk yukarı çekilir, buton ve ok rahat görünür
+        if (cardBox) cardBox.className = 'tutorial-card pos-top';
+        if (stepIcon) stepIcon.textContent = '⚡';
+        if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step2_title');
+        if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step2_desc');
+        this._pointToElement('#craft-action-btn', 'down', true);
+        break;
+
+      case 3:
+        // Masadaki tabaklar ekran ortasında: Kutucuk aşağı çekilir, tabaklar açıkta kalır
+        if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
+        if (stepIcon) stepIcon.textContent = '🍽️';
+        if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step3_title');
+        if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step3_desc');
+        this._pointToCenterTable();
+        break;
+
+      case 4:
+        // Ayarlar butonu sol altta: Kutucuk yukarı çekilir, ayarlar butonu açıkta kalır
+        if (cardBox) cardBox.className = 'tutorial-card pos-top';
+        if (stepIcon) stepIcon.textContent = '⚙️';
+        if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step4_title');
+        if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step4_desc');
+        this._pointToElement('#settings-open-btn', 'down');
+        break;
+
+      case 5:
+        // Karakter kilitleri: Kutucuk ekran ortasında veya altında dengeli konumlanır
+        if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
+        if (stepIcon) stepIcon.textContent = '🧙';
+        if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step5_title');
+        if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step5_desc');
+        if (charsContainer) charsContainer.style.display = 'grid';
+        this._hideTutorialPointer();
+        break;
+    }
+  }
+
+  _pointToElement(selector, direction = 'down', forceVisible = false) {
+    const el = document.querySelector(selector);
+    const arrow = document.getElementById('tutorial-pointer-arrow');
+    if (!arrow) return;
+
+    if (!el) {
+      this._hideTutorialPointer();
+      return;
+    }
+
+    let wasHidden = false;
+    if (forceVisible && el.style.display === 'none') {
+      el.style.display = 'flex';
+      wasHidden = true;
+    }
+
+    el.classList.add('tutorial-element-highlight');
+    this._highlightedElement = el;
+    this._highlightedWasHidden = wasHidden;
+
+    const rect = el.getBoundingClientRect();
+    arrow.style.display = 'flex';
+    arrow.className = '';
+
+    if (direction === 'right') {
+      const left = Math.max(10, rect.left - 54);
+      const top = rect.top + (rect.height / 2) - 24;
+      arrow.style.left = `${left}px`;
+      arrow.style.top = `${top}px`;
+      arrow.style.transform = 'rotate(-90deg)';
+      arrow.classList.add('arrow-bounce-right');
+    } else if (direction === 'down') {
+      const left = rect.left + (rect.width / 2) - 24;
+      const top = Math.max(10, rect.top - 54);
+      arrow.style.left = `${left}px`;
+      arrow.style.top = `${top}px`;
+      arrow.style.transform = 'rotate(0deg)';
+      arrow.classList.add('arrow-bounce-down');
+    } else if (direction === 'up') {
+      const left = rect.left + (rect.width / 2) - 24;
+      const top = rect.bottom + 10;
+      arrow.style.left = `${left}px`;
+      arrow.style.top = `${top}px`;
+      arrow.style.transform = 'rotate(180deg)';
+      arrow.classList.add('arrow-bounce-down');
+    }
+  }
+
+  _pointToCenterTable() {
+    const arrow = document.getElementById('tutorial-pointer-arrow');
+    if (!arrow) return;
+    arrow.style.display = 'flex';
+    arrow.className = '';
+    const left = (window.innerWidth / 2) - 24;
+    const top = (window.innerHeight * 0.42) - 24;
+    arrow.style.left = `${left}px`;
+    arrow.style.top = `${top}px`;
+    arrow.style.transform = 'rotate(0deg)';
+    arrow.classList.add('arrow-pulse-center');
+  }
+
+  _hideTutorialPointer() {
+    const arrow = document.getElementById('tutorial-pointer-arrow');
+    if (arrow) arrow.style.display = 'none';
+  }
+
+  _clearTutorialHighlights() {
+    if (this._highlightedElement) {
+      this._highlightedElement.classList.remove('tutorial-element-highlight');
+      if (this._highlightedWasHidden) {
+        this._highlightedElement.style.display = 'none';
+        this._highlightedWasHidden = false;
+      }
+      this._highlightedElement = null;
+    }
+    document.querySelectorAll('.tutorial-element-highlight').forEach(el => {
+      el.classList.remove('tutorial-element-highlight');
+    });
+  }
+
+  showCharacterUnlockCelebration(characterId) {
+    const modal = document.getElementById('char-unlock-modal');
+    const titleEl = document.getElementById('celebrate-title');
+    const descEl = document.getElementById('celebrate-desc');
+    if (!modal || !titleEl || !descEl) return;
+
+    const charName = this._getCharacterLabel(characterId);
+    const req = this.getCharacterRequiredCount(characterId);
+
+    titleEl.textContent = i18n.currentLang === 'tr' ? '🎉 YENİ KARAKTER AÇILDI!' : '🎉 NEW CHARACTER UNLOCKED!';
+    descEl.textContent = i18n.t('char_unlocked_celebration', { count: req, name: charName });
+    modal.classList.add('show');
+    this.setUnlockedItemCount(this.unlockedItemCount);
   }
 }
 

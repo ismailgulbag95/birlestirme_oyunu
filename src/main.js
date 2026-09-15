@@ -80,7 +80,19 @@ class Game {
       this.hintSystem.successfulMatches = savedData.successfulMatches;
     }
 
-    const initialChar = savedData.activeCharacterId || 'character2'; // Oyun başlangıçta yeni karakter (Gözlemci) ile başlar
+    // Karakter kilidi ve başlangıç karakteri:
+    // character1: daima açık (0 eşya)
+    // character2 (Gözlemci): 20 eşyada açılır
+    // character3 (Gezgin): 100 eşyada açılır
+    const savedChar = savedData.activeCharacterId || 'character1';
+    let initialChar = 'character1';
+    if (savedChar === 'character3' && this.unlockedItems.length >= 100) {
+      initialChar = 'character3';
+    } else if (savedChar === 'character2' && this.unlockedItems.length >= 20) {
+      initialChar = 'character2';
+    } else {
+      initialChar = 'character1';
+    }
 
     this.sceneManager = new SceneManager(canvas);
     this.tableScene = new TableScene(this.sceneManager, initialChar);
@@ -115,6 +127,7 @@ class Game {
       }
     );
 
+    this.ui.setUnlockedItemCount(this.unlockedItems.length);
     this.ui.updateCharacterButton(initialChar);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.updateHintRights(this.hintSystem.hintRights);
@@ -122,6 +135,14 @@ class Game {
 
     this._setupRaycasting(canvas);
     this._startLoop();
+
+    // Hoşgeldiniz Ekranı (İlk Girişte)
+    const welcomeSeen = localStorage.getItem('alchemy_welcome_seen');
+    if (!welcomeSeen) {
+      setTimeout(() => {
+        this.ui.showWelcomeModal();
+      }, 400);
+    }
   }
 
   _loadSavedGame() {
@@ -378,13 +399,28 @@ class Game {
         const canonicalResult = getCanonicalId(resultId) || resultId;
         const isFirstDiscovery = !this.unlockedItems.includes(canonicalResult);
         if (isFirstDiscovery) {
+          const prevDiscoveryCount = this.unlockedItems.length;
           this.unlockedItems.push(canonicalResult);
+          const newDiscoveryCount = this.unlockedItems.length;
+          this.ui.setUnlockedItemCount(newDiscoveryCount);
+
           // Odaya süzülme animasyonu
           if (this.envProgression) {
             this.envProgression.flyItemToShelf(canonicalResult, new THREE.Vector3(0, 1.2, 0));
           }
           // Masanın önünde yeni keşif bildirimini göster
           this.ui.showDiscoveryAnnouncement(canonicalResult);
+
+          // 20 ve 100 eşyaya ulaşıldığında karakter kilidi açılma kutlaması
+          if (prevDiscoveryCount < 20 && newDiscoveryCount >= 20) {
+            setTimeout(() => {
+              this.ui.showCharacterUnlockCelebration('character2');
+            }, 1200);
+          } else if (prevDiscoveryCount < 100 && newDiscoveryCount >= 100) {
+            setTimeout(() => {
+              this.ui.showCharacterUnlockCelebration('character3');
+            }, 1200);
+          }
 
           // Her 3 yeni keşifte 1 ipucu hakkı verilir
           const gained = this.hintSystem.recordDiscovery();
@@ -459,6 +495,7 @@ class Game {
       }
     });
     this.lockedItems = [];
+    this.ui.setUnlockedItemCount(this.unlockedItems.length);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
     if (this.envProgression) {
@@ -500,6 +537,9 @@ class Game {
     this.hintSystem.successfulMatches = 0;
     this.hintSystem.setInfiniteHints(false);
     this.clearTableAndPieces();
+    this.ui.setUnlockedItemCount(this.unlockedItems.length);
+    this.tableScene.switchCharacter('character1');
+    this.ui.updateCharacterButton('character1');
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
