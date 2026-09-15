@@ -60,6 +60,9 @@ export class TableScene {
     this.isTalking = false;
     this.talkTimeout = null;
 
+    this._tableReadyPromise = new Promise((resolve) => { this._resolveTable = resolve; });
+    this._characterReadyPromise = new Promise((resolve) => { this._resolveCharacter = resolve; });
+
     this._buildTable();
     this._buildStool();
     this._buildCharacterHitbox();
@@ -67,6 +70,10 @@ export class TableScene {
     this._buildSlots();
 
     this.sceneManager.add(this.group);
+  }
+
+  async whenReady() {
+    return Promise.all([this._tableReadyPromise, this._characterReadyPromise]);
   }
 
   _buildTable() {
@@ -128,6 +135,7 @@ export class TableScene {
     });
 
     this.group.add(model);
+    if (this._resolveTable) this._resolveTable();
   }
 
   _buildProceduralTable() {
@@ -169,6 +177,7 @@ export class TableScene {
     cloth.position.set(0, 0.11, 0);
     cloth.receiveShadow = true;
     this.group.add(cloth);
+    if (this._resolveTable) this._resolveTable();
   }
 
   _buildStool() {
@@ -342,6 +351,7 @@ export class TableScene {
       if (this.mixer) this.mixer.update(0.01);
       this._alignStoolWithCharacter(this.activeCharacterModel, config);
       setTimeout(() => this._alignStoolWithCharacter(this.activeCharacterModel, config), 60);
+      if (this._resolveCharacter) this._resolveCharacter();
       return;
     }
 
@@ -388,11 +398,13 @@ export class TableScene {
         }
 
         console.log(`3D karakter (${config.name}) başarıyla yüklendi!`);
+        if (this._resolveCharacter) this._resolveCharacter();
       },
       undefined,
       (error) => {
         console.warn(`Karakter (${config.name}) yüklenemedi. Procedural karakter kullanılıyor.`, error);
         this._buildCharacterPlaceholder();
+        if (this._resolveCharacter) this._resolveCharacter();
       }
     );
   }

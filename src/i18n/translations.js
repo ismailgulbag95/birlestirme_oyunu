@@ -5,6 +5,8 @@ export const TRANSLATIONS = {
   "tr": {
     "ui": {
       "search_placeholder": "🔍 Ara...",
+      "loading_title": "OYUN YÜKLENİYOR...",
+      "loading_subtitle": "Simya atölyesi ve karakter hazırlanıyor",
       "all_categories": "📁 Tümü",
       "cat_elements": "🔥 Element",
       "cat_nature": "🌱 Doğa",
@@ -838,6 +840,8 @@ export const TRANSLATIONS = {
       "music_2": "🎵 Music 2",
       "music_3": "🎵 Music 3",
       "music_none": "🔇 No Music",
+      "loading_title": "LOADING GAME...",
+      "loading_subtitle": "Preparing alchemy workshop and character",
       "settings_btn": "⚙️ Settings",
       "settings_title": "⚙️ Game Settings",
       "settings_close": "Close",

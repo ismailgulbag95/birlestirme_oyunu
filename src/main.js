@@ -133,15 +133,36 @@ class Game {
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
 
+    const loadingTitle = document.getElementById('loading-title-text');
+    const loadingSubtitle = document.getElementById('loading-subtitle-text');
+    if (loadingTitle) loadingTitle.textContent = i18n.t('loading_title');
+    if (loadingSubtitle) loadingSubtitle.textContent = i18n.t('loading_subtitle');
+
     this._setupRaycasting(canvas);
     this._startLoop();
 
-    // Hoşgeldiniz Ekranı (İlk Girişte)
+    // 3D Masa ve Karakter modeli dahil tüm sahne tamamen yüklenene kadar bekle
+    try {
+      await this.tableScene.whenReady();
+    } catch (err) {
+      console.warn("Sahne yükleme uyarısı:", err);
+    }
+
+    // Kum saati ekranını yumuşakça kaldır
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+      loadingScreen.classList.add('fade-out');
+      setTimeout(() => {
+        loadingScreen.remove();
+      }, 500);
+    }
+
+    // Hoşgeldiniz Ekranı (İlk Girişte): Oyun tamamen yüklendikten sonra doğrudan açılır
     const welcomeSeen = localStorage.getItem('alchemy_welcome_seen');
     if (!welcomeSeen) {
       setTimeout(() => {
         this.ui.showWelcomeModal();
-      }, 400);
+      }, 300);
     }
   }
 
