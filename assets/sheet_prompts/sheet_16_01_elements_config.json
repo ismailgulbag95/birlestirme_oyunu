@@ -1,0 +1,67 @@
+{
+  "sheet_name": "sheet_16_01_elements.png",
+  "category": "01_elements",
+  "count": 15,
+  "items": [
+    [
+      "korfez",
+      "Körfez"
+    ],
+    [
+      "tayfun",
+      "Tayfun"
+    ],
+    [
+      "buharli_gemi",
+      "Buharlı Gemi"
+    ],
+    [
+      "denizalti",
+      "Denizaltı"
+    ],
+    [
+      "metropol",
+      "Metropol"
+    ],
+    [
+      "ruzgar_gulu",
+      "Rüzgar Gülü"
+    ],
+    [
+      "zirhli_gemi",
+      "Zırhlı Gemi"
+    ],
+    [
+      "aurora",
+      "Aurora"
+    ],
+    [
+      "deprem",
+      "Deprem"
+    ],
+    [
+      "kopru",
+      "Köprü"
+    ],
+    [
+      "meteor",
+      "Meteor"
+    ],
+    [
+      "tsunami",
+      "Tsunami"
+    ],
+    [
+      "zeplin",
+      "Zeplin"
+    ],
+    [
+      "kayip_sehir",
+      "Kayıp Şehir"
+    ],
+    [
+      "muzik",
+      "Müzik"
+    ]
+  ]
+}

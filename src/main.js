@@ -20,47 +20,17 @@ class Game {
     this.failedCraftAttempts = 0;
 
     const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
-    const defaultLocked = [
-      'buhar', 'camur', 'lav', 'yagmur', 'enerji', 'ruzgar', 'tas',
-      'kum', 'cam', 'bulut', 'yildirim', 'bitki', 'agac',
-      'odun', 'kiymik', 'lif', 'obsidyen', 'ip', 'mantar',
-      'pamuk', 'kumas', 'komur', 'kul', 'kagit', 'yasam', 'kus',
-      'hayvan', 'balik', 'ilkel_bicak', 'kus_tuyu', 'deri',
-      'kavrulmus_et', 'recine', 'comlek', 'su_comlegi', 'sise',
-      'cakmaktasi', 'yay', 'ok', 'mesale', 'metal', 'demir_kulce',
-      'metal_bicak', 'kazma', 'kilic', 'ahsap_kalkan', 'demir_kalkan',
-      'deri_zirh', 'demir_zirh', 'yatak',
-      // Kategori 5: Kimya, Simya & Büyü Eşyaları
-      'zehirli_sivi', 'zehir_sisesi', 'zehirli_kilic', 'sifa_iksiri', 'mana_iksiri',
-      'barut', 'bomba', 'buyu_parsomeni', 'yildirim_parsomeni', 'ates_topu_kitabi',
-      // Kategori 6: Mekanik & Medeniyet Eşyaları
-      'buhar_motoru', 'tekerlek', 'el_arabasi', 'lokomotif', 'ampul', 'fener', 'pusula', 'miknatis', 'elektrik_motoru',
-      // Kategori 7: Ağır Sanayi, Metalurji ve İleri İnşaat Eşyaları
-      'celik_kulce', 'ors', 'civi', 'tugla', 'harc', 'tugla_duvar', 'saglam_sandik', 'kristal', 'teleskop', 'vinc',
-      // Kategori 8
-      'yildiz_tozu', 'prizma_tasi', 'kahin_kuresi', 'portal_runu', 'bosluk_sisesi', 'boyut_kapisi', 'anka_kulu', 'runik_zirh', 'firtina_kilici', 'yildiz_gecidi_cekirdegi',
-      // Yeni 32 Eşya
-      'kar', 'buz', 'col',
-      'tohum', 'bugday', 'nane', 'agac_kabugu',
-      'inek', 'sut', 'yumurta', 'mercan',
-      'olta', 'yelken', 'sal', 'obsidyen_bicak',
-      'peynir', 'un', 'hamur', 'ekmek',
-      'disli_cark', 'degirmen', 'ayna', 'saat',
-      'demir_parmaklik', 'savas_baltasi', 'gozetleme_kulesi', 'kale_kapisi',
-      'buz_runu', 'cehennem_tasi', 'zaman_kum_saati', 'illuzyon_aynasi',
-      // Kategori 9 & 10 & Fauna
-      'siber_kristal', 'hologram_kupu', 'buhar_jeneratoru', 'meka_zirhi', 'plazma_tufegi', 'felsefe_tasi', 'gunes_paneli', 'yercekimsiz_platform', 'biyonik_kol', 'usturlap', 'tesla_bobini', 'kuantum_islemci', 'minyatur_yildiz',
-      'dag', 'kaya', 'gunes', 'okyanus', 'volkan', 'ada', 'nehir', 'orman', 'firtina_bulutu', 'magara', 'gokkusagi', 'kanyon', 'fay_hatti',
-      'at', 'koyun', 'kurt', 'ari', 'yilan', 'baykus', 'kaplumbaga', 'bal', 'nilufer', 'elma', 'kurbaga', 'sincap', 'geyik', 'kelebek',
-      // Yeni Basit Eşyalar
-      'sis', 'gayzer', 'kaktus', 'cam_agaci', 'tavuk', 'kedi', 'mesale', 'somon', 'yay', 'barut_ficisi', 'su_degirmeni', 'buz_dagi', 'kalkan', 'iksir_kazani'
-    ];
+    const allDefKeys = Object.keys(ITEM_DEFINITIONS);
+    const defaultLocked = allDefKeys.filter(id => {
+      const canonical = getCanonicalId(id) || id;
+      return !defaultUnlocked.includes(id) && !defaultUnlocked.includes(canonical);
+    });
     this.defaultLockedItems = defaultLocked;
 
     // Kayıtlı oyunu yükle
     const savedData = this._loadSavedGame();
     this.unlockedItems = savedData.unlockedItems || defaultUnlocked;
-    this.lockedItems = defaultLocked.filter(id => {
+    this.lockedItems = allDefKeys.filter(id => {
       const canonical = getCanonicalId(id) || id;
       return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
     });
@@ -141,9 +111,12 @@ class Game {
     this._setupRaycasting(canvas);
     this._startLoop();
 
-    // 3D Masa ve Karakter modeli dahil tüm sahne tamamen yüklenene kadar bekle
+    // 3D Masa ve Karakter modeli dahil tüm sahne yüklenene kadar bekle (maksimum 2.5sn timeout koruması ile)
     try {
-      await this.tableScene.whenReady();
+      await Promise.race([
+        this.tableScene.whenReady(),
+        new Promise(resolve => setTimeout(resolve, 2500))
+      ]);
     } catch (err) {
       console.warn("Sahne yükleme uyarısı:", err);
     }
@@ -153,7 +126,9 @@ class Game {
     if (loadingScreen) {
       loadingScreen.classList.add('fade-out');
       setTimeout(() => {
-        loadingScreen.remove();
+        if (loadingScreen.parentNode) {
+          loadingScreen.remove();
+        }
       }, 500);
     }
 
@@ -214,7 +189,10 @@ class Game {
 
     const slots = this.tableScene.getSlots();
     const emptySlot = slots.find(s => !s.userData.isOccupied);
-    if (!emptySlot) return;
+    if (!emptySlot) {
+      this.ui.showToast(i18n.currentLang === 'tr' ? 'Masa dolu! (En fazla 3 eşya)' : 'Table is full! (Max 3 items)', 'warn');
+      return;
+    }
 
     emptySlot.userData.isOccupied = true;
     emptySlot.userData.currentItem = itemId;
@@ -227,15 +205,15 @@ class Game {
     emptySlot.userData.mesh = itemMesh;
     itemMesh.userData.slot = emptySlot; // Doğrudan slot bağlantısı
 
-    // GSAP Drop & Bounce animation onto slot
+    // GSAP Drop & Bounce animation onto slot (Zarif süzülme ve büyüme)
     gsap.to(itemMesh.position, {
-      y: emptySlot.position.y + 0.3,
-      duration: 0.6,
-      ease: 'bounce.out'
+      y: emptySlot.position.y + 0.42,
+      duration: 0.55,
+      ease: 'back.out(1.4)'
     });
     gsap.to(itemMesh.scale, {
-      x: 0.5, y: 0.5, z: 0.5,
-      duration: 0.4,
+      x: 0.8, y: 0.8, z: 0.8,
+      duration: 0.45,
       ease: 'back.out(1.7)'
     });
 
@@ -407,12 +385,12 @@ class Game {
         middleSlot.userData.mesh = resultMesh;
         resultMesh.userData.slot = middleSlot;
 
-        gsap.to(resultMesh.scale, { x: 0.5, y: 0.5, z: 0.5, duration: 0.4, ease: 'back.out(1.7)' });
+        gsap.to(resultMesh.scale, { x: 0.85, y: 0.85, z: 0.85, duration: 0.45, ease: 'back.out(1.7)' });
         gsap.to(resultMesh.position, {
           x: middleSlot.position.x,
-          y: middleSlot.position.y + 0.3,
+          y: middleSlot.position.y + 0.45,
           z: middleSlot.position.z,
-          duration: 0.4,
+          duration: 0.45,
           ease: 'power2.out'
         });
 

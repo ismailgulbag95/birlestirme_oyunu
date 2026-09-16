@@ -1,0 +1,67 @@
+{
+  "sheet_name": "sheet_21_05_maden_ve_materyaller.png",
+  "category": "05_maden_ve_materyaller",
+  "count": 15,
+  "items": [
+    [
+      "granit",
+      "Granit"
+    ],
+    [
+      "dinamit",
+      "Dinamit"
+    ],
+    [
+      "beton",
+      "Beton"
+    ],
+    [
+      "bronz",
+      "Bronz"
+    ],
+    [
+      "hazine",
+      "Hazine"
+    ],
+    [
+      "altin_sikke",
+      "Altın Sikke"
+    ],
+    [
+      "pazar",
+      "Pazar"
+    ],
+    [
+      "altin",
+      "Altın"
+    ],
+    [
+      "demir",
+      "Demir"
+    ],
+    [
+      "gumus",
+      "Gümüş"
+    ],
+    [
+      "celik",
+      "Çelik"
+    ],
+    [
+      "i_pek",
+      "İpek"
+    ],
+    [
+      "borsa",
+      "Borsa"
+    ],
+    [
+      "elmas",
+      "Elmas"
+    ],
+    [
+      "kagit_para",
+      "Kağıt Para"
+    ]
+  ]
+}

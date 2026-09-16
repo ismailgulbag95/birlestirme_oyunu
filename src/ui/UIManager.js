@@ -329,9 +329,9 @@ export class UIManager {
       /* =================================================== */
       #left-drawer {
         position: absolute;
-        left: -300px;
+        left: -232px;
         top: 50px;
-        width: 290px;
+        width: 232px;
         height: calc(100% - 120px);
         background: linear-gradient(180deg, #181c26 0%, #10131a 100%);
         border: 2px solid #543d22;
@@ -346,7 +346,7 @@ export class UIManager {
       }
 
       #left-drawer.open {
-        transform: translateX(300px);
+        transform: translateX(232px);
       }
 
       /* Dikey Antika Kitap Sırtı / İpucu Kulakçığı */
@@ -484,17 +484,19 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* Alt Bar: Şık Ayarlar ve Büyülü Birleştir Butonu */
+      /* Alt Bar: Şık Ayarlar ve Büyülü Birleştir Butonu (Mobil Güvenli Alan & Yukarı Sabitleme) */
       #bottom-action-bar {
         position: absolute;
-        bottom: 24px;
+        bottom: max(38px, calc(env(safe-area-inset-bottom, 0px) + 32px));
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        gap: 14px;
+        gap: 12px;
         align-items: center;
+        justify-content: center;
         pointer-events: auto;
         z-index: 15;
+        max-width: 90vw;
       }
 
       /* Büyülü Birleştir (Craft) Butonu */
@@ -584,6 +586,26 @@ export class UIManager {
       #settings-open-btn:active {
         transform: translateY(3px);
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
+      }
+
+      /* Mobil Ekranlar İçin Alt Bar İyileştirmesi */
+      @media (max-width: 768px), (max-height: 850px) {
+        #bottom-action-bar {
+          bottom: max(44px, calc(env(safe-area-inset-bottom, 0px) + 38px));
+          gap: 10px;
+        }
+
+        #settings-open-btn {
+          padding: 8px 18px;
+          font-size: 12px;
+          border-radius: 18px;
+        }
+
+        #craft-action-btn {
+          padding: 9px 20px;
+          font-size: 13px;
+          border-radius: 22px;
+        }
       }
 
       /* Settings Modal (Koyu Ahşap/Obsidian Taş Panel & Kurdele Başlık) */
@@ -2051,15 +2073,43 @@ export class UIManager {
     }
   }
 
+  closeLeftDrawer() {
+    const drawer = document.getElementById('left-drawer');
+    const toggle = document.getElementById('drawer-toggle');
+    if (drawer && drawer.classList.contains('open')) {
+      drawer.classList.remove('open');
+      if (toggle) {
+        toggle.innerHTML = '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+      }
+    }
+  }
+
+  closeRightPanel() {
+    const rightPanel = document.getElementById('right-panel');
+    const rightToggle = document.getElementById('right-panel-toggle');
+    if (rightPanel && this.rightPanelState !== 'closed') {
+      this.rightPanelState = 'closed';
+      rightPanel.className = 'state-closed';
+      if (rightToggle) {
+        rightToggle.innerHTML = '<span style="font-size: 16px;">🎒</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>';
+      }
+    }
+  }
+
   _setupDrawerLogic() {
     const drawer = document.getElementById('left-drawer');
     const toggle = document.getElementById('drawer-toggle');
 
     toggle.addEventListener('click', () => {
-      drawer.classList.toggle('open');
-      toggle.innerHTML = drawer.classList.contains('open') 
-        ? '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>'
-        : '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+      const willOpen = !drawer.classList.contains('open');
+      if (willOpen) {
+        this.closeRightPanel();
+        drawer.classList.add('open');
+        toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
+      } else {
+        drawer.classList.remove('open');
+        toggle.innerHTML = '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+      }
     });
 
     // Sağ Panel (Çanta) 3 Durumlu Akordeon Mantığı:
@@ -2070,6 +2120,7 @@ export class UIManager {
     if (rightToggle && rightPanel) {
       rightToggle.addEventListener('click', () => {
         if (this.rightPanelState === 'closed') {
+          this.closeLeftDrawer();
           this.rightPanelState = 'narrow';
           rightPanel.className = 'state-narrow';
           rightToggle.innerHTML = '<span style="font-size: 14px;">⤢</span><span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">GENİŞLET</span>';
@@ -2550,7 +2601,12 @@ export class UIManager {
         ${formulaHtml}
       `;
 
-      btn.addEventListener('click', () => {
+      btn.addEventListener('pointerdown', (e) => {
+        e.stopPropagation();
+      });
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         gsap.to(btn, { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 });
         if (this.onItemSelect) {
           this.onItemSelect(id);

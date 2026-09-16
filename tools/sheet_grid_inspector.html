@@ -1,0 +1,2902 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sheet Grid Inspector</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #121212; color: #e0e0e0; padding: 20px; }
+.sheet-card { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; margin-bottom: 30px; padding: 15px; }
+.sheet-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #4fc3f7; }
+.grid-container { display: flex; gap: 20px; align-items: flex-start; }
+.orig-img { max-width: 350px; height: auto; border: 1px solid #444; border-radius: 4px; }
+.cells-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.cell-box { background: #262626; padding: 6px; border-radius: 6px; text-align: center; border: 1px solid #444; width: 110px; }
+.cell-box img { max-width: 90px; max-height: 90px; background: radial-gradient(circle, #333 0%, #1a1a1a 100%); border-radius: 4px; }
+.cell-label { font-size: 11px; margin-top: 4px; color: #888; }
+.current-mapped { font-size: 11px; color: #81c784; font-weight: bold; margin-top: 2px; }
+.expected-pool { margin-bottom: 12px; font-size: 12px; color: #ffb74d; background: #2a2a2a; padding: 8px; border-radius: 4px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<h1>Sheet Grid Inspector & Item Identifier</h1>
+<div class="sheet-card"><div class="sheet-title">sheet_01_02_doga (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Ahtapot (<code>ahtapot</code>), Akrep (<code>akrep</code>), Akü (<code>aku</code>), Asa (<code>asa</code>), Ayı (<code>ayi</code>), Baharat (<code>baharat</code>), Baharat Çeşnisi (<code>baharat_cesnisi</code>), Bakır (<code>bakir</code>), Balta (<code>balta</code>), Bozkır (<code>bozkir</code>), Büyü (<code>buyu</code>), Ceviz (<code>ceviz</code>), Cıva (<code>civa</code>), Davul (<code>davul</code>), Domates (<code>domates</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_01_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Ahtapot<br><small style="color:#aaa">ahtapot</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Akrep<br><small style="color:#aaa">akrep</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Akü<br><small style="color:#aaa">aku</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Asa<br><small style="color:#aaa">asa</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Ayı<br><small style="color:#aaa">ayi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Baharat<br><small style="color:#aaa">baharat</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Baharat Çeşnisi<br><small style="color:#aaa">baharat_cesnisi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Bakır<br><small style="color:#aaa">bakir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Balta<br><small style="color:#aaa">balta</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Bozkır<br><small style="color:#aaa">bozkir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Büyü<br><small style="color:#aaa">buyu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Ceviz<br><small style="color:#aaa">ceviz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Cıva<br><small style="color:#aaa">civa</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Davul<br><small style="color:#aaa">davul</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_01_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Domates<br><small style="color:#aaa">domates</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_02_02_doga (Tespit: 20, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Et (<code>et</code>), Ev (<code>ev</code>), Fiyort (<code>fiyort</code>), Fındık (<code>findik</code>), Gül (<code>gul</code>), Gürz (<code>gurz</code>), Havyar (<code>havyar</code>), Hücre (<code>hucre</code>), Kandil (<code>kandil</code>), Kasaba (<code>kasaba</code>), Kentaurluk (<code>kentaurluk</code>), Kertenkele (<code>kertenkele</code>), Kulübe (<code>kulube</code>), Kutsal Kase (<code>kutsal_kase</code>), Kuvars (<code>kuvars</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_02_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Et<br><small style="color:#aaa">et</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Ev<br><small style="color:#aaa">ev</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Fiyort<br><small style="color:#aaa">fiyort</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Fındık<br><small style="color:#aaa">findik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Gül<br><small style="color:#aaa">gul</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Gürz<br><small style="color:#aaa">gurz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Havyar<br><small style="color:#aaa">havyar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Hücre<br><small style="color:#aaa">hucre</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Kandil<br><small style="color:#aaa">kandil</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Kasaba<br><small style="color:#aaa">kasaba</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Kentaurluk<br><small style="color:#aaa">kentaurluk</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Kertenkele<br><small style="color:#aaa">kertenkele</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Kulübe<br><small style="color:#aaa">kulube</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Kutsal Kase<br><small style="color:#aaa">kutsal_kase</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Kuvars<br><small style="color:#aaa">kuvars</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_02_02_doga/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_03_02_doga (Tespit: 16, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Körük (<code>koruk</code>), Köy (<code>koy</code>), Kükürt (<code>kukurt</code>), Kürek (<code>kurek</code>), Kıta (<code>kita</code>), Mana (<code>mana</code>), Mana İksiri (<code>mana_i_ksiri</code>), Medeniyet (<code>medeniyet</code>), Melek (<code>melek</code>), Mercan Kayalığı (<code>mercan_kayaligi</code>), Muz (<code>muz</code>), Parşömen (<code>parsomen</code>), Pirinç (<code>pirinc</code>), Plazma (<code>plazma</code>), Prizma (<code>prizma</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_03_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Körük<br><small style="color:#aaa">koruk</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Köy<br><small style="color:#aaa">koy</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Kükürt<br><small style="color:#aaa">kukurt</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Kürek<br><small style="color:#aaa">kurek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Kıta<br><small style="color:#aaa">kita</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Mana<br><small style="color:#aaa">mana</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Mana İksiri<br><small style="color:#aaa">mana_i_ksiri</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Medeniyet<br><small style="color:#aaa">medeniyet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Melek<br><small style="color:#aaa">melek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Mercan Kayalığı<br><small style="color:#aaa">mercan_kayaligi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Muz<br><small style="color:#aaa">muz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Parşömen<br><small style="color:#aaa">parsomen</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Pirinç<br><small style="color:#aaa">pirinc</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Plazma<br><small style="color:#aaa">plazma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Prizma<br><small style="color:#aaa">prizma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_03_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_04_02_doga (Tespit: 16, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Sarımsak (<code>sarimsak</code>), Seramik (<code>seramik</code>), Sosis (<code>sosis</code>), Sur (<code>sur</code>), Tepe (<code>tepe</code>), Tereyağı (<code>tereyagi</code>), Totem (<code>totem</code>), Tufan (<code>tufan</code>), Tılsım (<code>tilsim</code>), Uydu (<code>uydu</code>), Uçurtma (<code>ucurtma</code>), Vaha (<code>vaha</code>), Yaprak (<code>yaprak</code>), Yarımada (<code>yarimada</code>), Yol (<code>yol</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_04_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Sarımsak<br><small style="color:#aaa">sarimsak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Seramik<br><small style="color:#aaa">seramik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Sosis<br><small style="color:#aaa">sosis</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Sur<br><small style="color:#aaa">sur</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Tepe<br><small style="color:#aaa">tepe</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Tereyağı<br><small style="color:#aaa">tereyagi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Totem<br><small style="color:#aaa">totem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Tufan<br><small style="color:#aaa">tufan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Tılsım<br><small style="color:#aaa">tilsim</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Uydu<br><small style="color:#aaa">uydu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Uçurtma<br><small style="color:#aaa">ucurtma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Vaha<br><small style="color:#aaa">vaha</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Yaprak<br><small style="color:#aaa">yaprak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Yarımada<br><small style="color:#aaa">yarimada</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Yol<br><small style="color:#aaa">yol</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_04_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_05_02_doga (Tespit: 17, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Yün (<code>yun</code>), Çalı (<code>cali</code>), Çimen (<code>cimen</code>), Çorba (<code>corba</code>), Üzüm (<code>uzum</code>), İnek (<code>i_nek</code>), İğne (<code>i_gne</code>), Şahin (<code>sahin</code>), Şelale (<code>selale</code>), Tutulma (<code>tutulma</code>), Tüy (<code>tuy</code>), Uzay (<code>uzay</code>), Alfabe (<code>alfabe</code>), Aslan (<code>aslan</code>), Ay (<code>ay</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_05_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Yün<br><small style="color:#aaa">yun</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Çalı<br><small style="color:#aaa">cali</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Çimen<br><small style="color:#aaa">cimen</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Çorba<br><small style="color:#aaa">corba</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Üzüm<br><small style="color:#aaa">uzum</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">İnek<br><small style="color:#aaa">i_nek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">İğne<br><small style="color:#aaa">i_gne</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Şahin<br><small style="color:#aaa">sahin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Şelale<br><small style="color:#aaa">selale</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Tutulma<br><small style="color:#aaa">tutulma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Tüy<br><small style="color:#aaa">tuy</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Uzay<br><small style="color:#aaa">uzay</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Alfabe<br><small style="color:#aaa">alfabe</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Aslan<br><small style="color:#aaa">aslan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Ay<br><small style="color:#aaa">ay</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_05_02_doga/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_06_02_doga (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Bal Kavanozu (<code>bal_kavanozu</code>), Biber (<code>biber</code>), Dolu (<code>dolu</code>), Ejderha (<code>ejderha</code>), Girdap (<code>girdap</code>), Grifon (<code>grifon</code>), Gulyabani (<code>gulyabani</code>), Hayalet (<code>hayalet</code>), Heykel (<code>heykel</code>), Kabile (<code>kabile</code>), Kano (<code>kano</code>), Karpuz (<code>karpuz</code>), Liman (<code>liman</code>), Okul (<code>okul</code>), Peri (<code>peri</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_06_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Bal Kavanozu<br><small style="color:#aaa">bal_kavanozu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Biber<br><small style="color:#aaa">biber</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Dolu<br><small style="color:#aaa">dolu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Ejderha<br><small style="color:#aaa">ejderha</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Girdap<br><small style="color:#aaa">girdap</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Grifon<br><small style="color:#aaa">grifon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Gulyabani<br><small style="color:#aaa">gulyabani</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Hayalet<br><small style="color:#aaa">hayalet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Heykel<br><small style="color:#aaa">heykel</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Kabile<br><small style="color:#aaa">kabile</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Kano<br><small style="color:#aaa">kano</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Karpuz<br><small style="color:#aaa">karpuz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Liman<br><small style="color:#aaa">liman</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Okul<br><small style="color:#aaa">okul</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_06_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Peri<br><small style="color:#aaa">peri</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_07_02_doga (Tespit: 17, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Portakal (<code>portakal</code>), Ruh (<code>ruh</code>), Simya (<code>simya</code>), Tabanca (<code>tabanca</code>), Tuz (<code>tuz</code>), Tuzlu Su (<code>tuzlu_su</code>), Vadi (<code>vadi</code>), Yakut (<code>yakut</code>), Yapay Zeka (<code>yapay_zeka</code>), Yelkenli (<code>yelkenli</code>), Yeşim (<code>yesim</code>), Yunus (<code>yunus</code>), Zehir (<code>zehir</code>), Zeytin (<code>zeytin</code>), Çiçek (<code>cicek</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_07_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Portakal<br><small style="color:#aaa">portakal</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Ruh<br><small style="color:#aaa">ruh</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Simya<br><small style="color:#aaa">simya</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Tabanca<br><small style="color:#aaa">tabanca</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Tuz<br><small style="color:#aaa">tuz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Tuzlu Su<br><small style="color:#aaa">tuzlu_su</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Vadi<br><small style="color:#aaa">vadi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Yakut<br><small style="color:#aaa">yakut</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Yapay Zeka<br><small style="color:#aaa">yapay_zeka</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Yelkenli<br><small style="color:#aaa">yelkenli</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Yeşim<br><small style="color:#aaa">yesim</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Yunus<br><small style="color:#aaa">yunus</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Zehir<br><small style="color:#aaa">zehir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Zeytin<br><small style="color:#aaa">zeytin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Çiçek<br><small style="color:#aaa">cicek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_07_02_doga/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_08_02_doga (Tespit: 19, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Şehir (<code>sehir</code>), Dükkan (<code>dukkan</code>), Hortum (<code>hortum</code>), Matbaa (<code>matbaa</code>), Obelisk (<code>obelisk</code>), Palmiye (<code>palmiye</code>), Tundra (<code>tundra</code>), Meyve Bahçesi (<code>meyve_bahcesi</code>), Araba (<code>araba</code>), Balina (<code>balina</code>), Darphane (<code>darphane</code>), Dondurma (<code>dondurma</code>), Krallık (<code>krallik</code>), Mısır (<code>misir</code>), Maya (<code>maya</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_08_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Şehir<br><small style="color:#aaa">sehir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Dükkan<br><small style="color:#aaa">dukkan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Hortum<br><small style="color:#aaa">hortum</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Matbaa<br><small style="color:#aaa">matbaa</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Obelisk<br><small style="color:#aaa">obelisk</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Palmiye<br><small style="color:#aaa">palmiye</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Tundra<br><small style="color:#aaa">tundra</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Meyve Bahçesi<br><small style="color:#aaa">meyve_bahcesi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Araba<br><small style="color:#aaa">araba</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Balina<br><small style="color:#aaa">balina</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Darphane<br><small style="color:#aaa">darphane</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Dondurma<br><small style="color:#aaa">dondurma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Krallık<br><small style="color:#aaa">krallik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Mısır<br><small style="color:#aaa">misir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Maya<br><small style="color:#aaa">maya</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_08_02_doga/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_09_02_doga (Tespit: 17, Beklenen: 11)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Kütüphane (<code>kutuphane</code>), Bambu (<code>bambu</code>), Golem (<code>golem</code>), Karlı Çam Ağacı (<code>karli_cam_agaci</code>), Duman (<code>duman</code>), Bira (<code>bira</code>), Boynuz (<code>boynuz</code>), Fayton (<code>fayton</code>), Kaldırım (<code>kaldirim</code>), Mum (<code>mum</code>), Uranyum (<code>uranyum</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_09_02_doga.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Kütüphane<br><small style="color:#aaa">kutuphane</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Bambu<br><small style="color:#aaa">bambu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Golem<br><small style="color:#aaa">golem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Karlı Çam Ağacı<br><small style="color:#aaa">karli_cam_agaci</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Duman<br><small style="color:#aaa">duman</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Bira<br><small style="color:#aaa">bira</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Boynuz<br><small style="color:#aaa">boynuz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Fayton<br><small style="color:#aaa">fayton</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Kaldırım<br><small style="color:#aaa">kaldirim</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Mum<br><small style="color:#aaa">mum</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Uranyum<br><small style="color:#aaa">uranyum</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_09_02_doga/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_10_04_zanaat_ve_aletler (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Alet (<code>alet</code>), Alçı (<code>alci</code>), Ametist (<code>ametist</code>), Bataklık (<code>bataklik</code>), Cin (<code>cin</code>), Fosil (<code>fosil</code>), Halat (<code>halat</code>), Jeneratör (<code>jenerator</code>), Kadırga (<code>kadirga</code>), Kale (<code>kale</code>), Kalem (<code>kalem</code>), Kartal (<code>kartal</code>), Kavurma (<code>kavurma</code>), Kehribar (<code>kehribar</code>), Kemik (<code>kemik</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_10_04_zanaat_ve_aletler.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Alet<br><small style="color:#aaa">alet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Alçı<br><small style="color:#aaa">alci</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Ametist<br><small style="color:#aaa">ametist</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Bataklık<br><small style="color:#aaa">bataklik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Cin<br><small style="color:#aaa">cin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Fosil<br><small style="color:#aaa">fosil</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Halat<br><small style="color:#aaa">halat</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Jeneratör<br><small style="color:#aaa">jenerator</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Kadırga<br><small style="color:#aaa">kadirga</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Kale<br><small style="color:#aaa">kale</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Kalem<br><small style="color:#aaa">kalem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Kartal<br><small style="color:#aaa">kartal</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Kavurma<br><small style="color:#aaa">kavurma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Kehribar<br><small style="color:#aaa">kehribar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_10_04_zanaat_ve_aletler/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Kemik<br><small style="color:#aaa">kemik</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_11_04_zanaat_ve_aletler (Tespit: 23, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Kilit (<code>kilit</code>), Kireç (<code>kirec</code>), Mancınık (<code>mancinik</code>), Meltem (<code>meltem</code>), Miğfer (<code>migfer</code>), Mızrak (<code>mizrak</code>), Para (<code>para</code>), Pastırma (<code>pastirma</code>), Pil (<code>pil</code>), Reçel (<code>recel</code>), Rün (<code>run</code>), Salça (<code>salca</code>), Yazı (<code>yazi</code>), Zincir (<code>zincir</code>), Zümrüt (<code>zumrut</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_11_04_zanaat_ve_aletler.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Kilit<br><small style="color:#aaa">kilit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Kireç<br><small style="color:#aaa">kirec</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Mancınık<br><small style="color:#aaa">mancinik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Meltem<br><small style="color:#aaa">meltem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Miğfer<br><small style="color:#aaa">migfer</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Mızrak<br><small style="color:#aaa">mizrak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Para<br><small style="color:#aaa">para</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Pastırma<br><small style="color:#aaa">pastirma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Pil<br><small style="color:#aaa">pil</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Reçel<br><small style="color:#aaa">recel</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Rün<br><small style="color:#aaa">run</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Salça<br><small style="color:#aaa">salca</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Yazı<br><small style="color:#aaa">yazi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Zincir<br><small style="color:#aaa">zincir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Zümrüt<br><small style="color:#aaa">zumrut</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_21.png">
+                <div class="cell-label">Hücre #21</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_22.png">
+                <div class="cell-label">Hücre #22</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_11_04_zanaat_ve_aletler/cell_23.png">
+                <div class="cell-label">Hücre #23</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_12_04_zanaat_ve_aletler (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Zırh (<code>zirh</code>), Çark (<code>cark</code>), Çekiç (<code>cekic</code>), Çimento (<code>cimento</code>), Çığ (<code>cig</code>), İksir (<code>i_ksir</code>), Şafak (<code>safak</code>), Şifa İksiri (<code>sifa_i_ksiri</code>), Makas (<code>makas</code>), Sfenks (<code>sfenks</code>), Yel Değirmeni (<code>yel_degirmeni</code>), İksir Kazanı (<code>i_ksir_kazani</code>), Bisiklet (<code>bisiklet</code>), Gazete (<code>gazete</code>), Hesap Makinesi (<code>hesap_makinesi</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_12_04_zanaat_ve_aletler.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Zırh<br><small style="color:#aaa">zirh</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Çark<br><small style="color:#aaa">cark</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Çekiç<br><small style="color:#aaa">cekic</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Çimento<br><small style="color:#aaa">cimento</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Çığ<br><small style="color:#aaa">cig</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">İksir<br><small style="color:#aaa">i_ksir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Şafak<br><small style="color:#aaa">safak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Şifa İksiri<br><small style="color:#aaa">sifa_i_ksiri</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Makas<br><small style="color:#aaa">makas</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Sfenks<br><small style="color:#aaa">sfenks</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Yel Değirmeni<br><small style="color:#aaa">yel_degirmeni</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">İksir Kazanı<br><small style="color:#aaa">i_ksir_kazani</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Bisiklet<br><small style="color:#aaa">bisiklet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Gazete<br><small style="color:#aaa">gazete</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_12_04_zanaat_ve_aletler/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Hesap Makinesi<br><small style="color:#aaa">hesap_makinesi</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_13_04_zanaat_ve_aletler (Tespit: 19, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Mürekkep (<code>murekkep</code>), Platin (<code>platin</code>), Safir (<code>safir</code>), Tablo (<code>tablo</code>), Timsah (<code>timsah</code>), Tüfek (<code>tufek</code>), Zombi (<code>zombi</code>), Muska (<code>muska</code>), Solucan (<code>solucan</code>), Mercek (<code>mercek</code>), Mermer (<code>mermer</code>), Bıçak (<code>bicak</code>), İlkel Bıçak (<code>i_lkel_bicak</code>), Badem (<code>badem</code>), Top (<code>top</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_13_04_zanaat_ve_aletler.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Mürekkep<br><small style="color:#aaa">murekkep</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Platin<br><small style="color:#aaa">platin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Safir<br><small style="color:#aaa">safir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Tablo<br><small style="color:#aaa">tablo</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Timsah<br><small style="color:#aaa">timsah</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Tüfek<br><small style="color:#aaa">tufek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Zombi<br><small style="color:#aaa">zombi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Muska<br><small style="color:#aaa">muska</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Solucan<br><small style="color:#aaa">solucan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Mercek<br><small style="color:#aaa">mercek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Mermer<br><small style="color:#aaa">mermer</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Bıçak<br><small style="color:#aaa">bicak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">İlkel Bıçak<br><small style="color:#aaa">i_lkel_bicak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Badem<br><small style="color:#aaa">badem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Top<br><small style="color:#aaa">top</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_13_04_zanaat_ve_aletler/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_14_04_zanaat_ve_aletler (Tespit: 20, Beklenen: 9)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Şarap (<code>sarap</code>), Anahtar (<code>anahtar</code>), Dinamolu Fener (<code>dinamolu_fener</code>), Dişli (<code>disli</code>), Saray (<code>saray</code>), Sirke (<code>sirke</code>), Kazan (<code>kazan</code>), Gitar (<code>gitar</code>), Mikroçip (<code>mikrocip</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_14_04_zanaat_ve_aletler.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Şarap<br><small style="color:#aaa">sarap</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Anahtar<br><small style="color:#aaa">anahtar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Dinamolu Fener<br><small style="color:#aaa">dinamolu_fener</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Dişli<br><small style="color:#aaa">disli</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Saray<br><small style="color:#aaa">saray</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Sirke<br><small style="color:#aaa">sirke</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Kazan<br><small style="color:#aaa">kazan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Gitar<br><small style="color:#aaa">gitar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Mikroçip<br><small style="color:#aaa">mikrocip</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_14_04_zanaat_ve_aletler/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_15_01_elements (Tespit: 16, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Buzul (<code>buzul</code>), Flüt (<code>flut</code>), Gölge (<code>golge</code>), Resim (<code>resim</code>), Yoğurt (<code>yogurt</code>), Göl (<code>gol</code>), Kasırga (<code>kasirga</code>), Deniz (<code>deniz</code>), Fırtına (<code>firtina</code>), Gündüz (<code>gunduz</code>), Kanal (<code>kanal</code>), Yanardağ (<code>yanardag</code>), Asit Yağmuru (<code>asit_yagmuru</code>), Baraj (<code>baraj</code>), Fotoğraf (<code>fotograf</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_15_01_elements.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Buzul<br><small style="color:#aaa">buzul</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Flüt<br><small style="color:#aaa">flut</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Gölge<br><small style="color:#aaa">golge</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Resim<br><small style="color:#aaa">resim</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Yoğurt<br><small style="color:#aaa">yogurt</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Göl<br><small style="color:#aaa">gol</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Kasırga<br><small style="color:#aaa">kasirga</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Deniz<br><small style="color:#aaa">deniz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Fırtına<br><small style="color:#aaa">firtina</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Gündüz<br><small style="color:#aaa">gunduz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Kanal<br><small style="color:#aaa">kanal</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Yanardağ<br><small style="color:#aaa">yanardag</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Asit Yağmuru<br><small style="color:#aaa">asit_yagmuru</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Baraj<br><small style="color:#aaa">baraj</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Fotoğraf<br><small style="color:#aaa">fotograf</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_15_01_elements/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_16_01_elements (Tespit: 17, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Körfez (<code>korfez</code>), Tayfun (<code>tayfun</code>), Buharlı Gemi (<code>buharli_gemi</code>), Denizaltı (<code>denizalti</code>), Metropol (<code>metropol</code>), Rüzgar Gülü (<code>ruzgar_gulu</code>), Zırhlı Gemi (<code>zirhli_gemi</code>), Aurora (<code>aurora</code>), Deprem (<code>deprem</code>), Köprü (<code>kopru</code>), Meteor (<code>meteor</code>), Tsunami (<code>tsunami</code>), Zeplin (<code>zeplin</code>), Kayıp Şehir (<code>kayip_sehir</code>), Müzik (<code>muzik</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_16_01_elements.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Körfez<br><small style="color:#aaa">korfez</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Tayfun<br><small style="color:#aaa">tayfun</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Buharlı Gemi<br><small style="color:#aaa">buharli_gemi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Denizaltı<br><small style="color:#aaa">denizalti</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Metropol<br><small style="color:#aaa">metropol</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Rüzgar Gülü<br><small style="color:#aaa">ruzgar_gulu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Zırhlı Gemi<br><small style="color:#aaa">zirhli_gemi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Aurora<br><small style="color:#aaa">aurora</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Deprem<br><small style="color:#aaa">deprem</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Köprü<br><small style="color:#aaa">kopru</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Meteor<br><small style="color:#aaa">meteor</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Tsunami<br><small style="color:#aaa">tsunami</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Zeplin<br><small style="color:#aaa">zeplin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Kayıp Şehir<br><small style="color:#aaa">kayip_sehir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Müzik<br><small style="color:#aaa">muzik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_16_01_elements/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_17_01_elements (Tespit: 20, Beklenen: 5)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Radyasyon (<code>radyasyon</code>), Televizyon (<code>televizyon</code>), Ozon (<code>ozon</code>), Sıcak Hava Balonu (<code>sicak_hava_balonu</code>), Tütün (<code>tutun</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_17_01_elements.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Radyasyon<br><small style="color:#aaa">radyasyon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Televizyon<br><small style="color:#aaa">televizyon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Ozon<br><small style="color:#aaa">ozon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Sıcak Hava Balonu<br><small style="color:#aaa">sicak_hava_balonu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Tütün<br><small style="color:#aaa">tutun</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_17_01_elements/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_18_08_mistik_ve_evren (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Evren (<code>evren</code>), Gezegen (<code>gezegen</code>), Kule (<code>kule</code>), Sera (<code>sera</code>), Sinema (<code>sinema</code>), Tünel (<code>tunel</code>), Müze (<code>muze</code>), Alacakaranlık (<code>alacakaranlik</code>), Anıt (<code>anit</code>), Fener Kulesi (<code>fener_kulesi</code>), Kitap (<code>kitap</code>), Kozmik Usturlap (<code>kozmik_usturlap</code>), Kum Saati (<code>kum_saati</code>), Kuyruklu Yıldız (<code>kuyruklu_yildiz</code>), Tanrı (<code>tanri</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_18_08_mistik_ve_evren.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Evren<br><small style="color:#aaa">evren</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Gezegen<br><small style="color:#aaa">gezegen</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Kule<br><small style="color:#aaa">kule</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Sera<br><small style="color:#aaa">sera</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Sinema<br><small style="color:#aaa">sinema</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Tünel<br><small style="color:#aaa">tunel</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Müze<br><small style="color:#aaa">muze</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Alacakaranlık<br><small style="color:#aaa">alacakaranlik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Anıt<br><small style="color:#aaa">anit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Fener Kulesi<br><small style="color:#aaa">fener_kulesi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Kitap<br><small style="color:#aaa">kitap</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Kozmik Usturlap<br><small style="color:#aaa">kozmik_usturlap</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Kum Saati<br><small style="color:#aaa">kum_saati</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Kuyruklu Yıldız<br><small style="color:#aaa">kuyruklu_yildiz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_18_08_mistik_ve_evren/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Tanrı<br><small style="color:#aaa">tanri</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_19_08_mistik_ve_evren (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Tiyatro (<code>tiyatro</code>), Türbin (<code>turbin</code>), Uzay Gemisi (<code>uzay_gemisi</code>), Yıldız (<code>yildiz</code>), İnci (<code>i_nci</code>), Kaplan (<code>kaplan</code>), Karadelik (<code>karadelik</code>), Manyetizma (<code>manyetizma</code>), Nebula (<code>nebula</code>), Piramit (<code>piramit</code>), Zaman (<code>zaman</code>), İmparatorluk (<code>i_mparatorluk</code>), Altar (<code>altar</code>), Galaksi (<code>galaksi</code>), Gece (<code>gece</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_19_08_mistik_ve_evren.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Tiyatro<br><small style="color:#aaa">tiyatro</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Türbin<br><small style="color:#aaa">turbin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Uzay Gemisi<br><small style="color:#aaa">uzay_gemisi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Yıldız<br><small style="color:#aaa">yildiz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">İnci<br><small style="color:#aaa">i_nci</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Kaplan<br><small style="color:#aaa">kaplan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Karadelik<br><small style="color:#aaa">karadelik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Manyetizma<br><small style="color:#aaa">manyetizma</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Nebula<br><small style="color:#aaa">nebula</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Piramit<br><small style="color:#aaa">piramit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Zaman<br><small style="color:#aaa">zaman</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">İmparatorluk<br><small style="color:#aaa">i_mparatorluk</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Altar<br><small style="color:#aaa">altar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Galaksi<br><small style="color:#aaa">galaksi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_19_08_mistik_ve_evren/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Gece<br><small style="color:#aaa">gece</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_20_08_mistik_ve_evren (Tespit: 18, Beklenen: 11)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Güneş Saati (<code>gunes_saati</code>), Işık (<code>isik</code>), Şeytan (<code>seytan</code>), Tapınak (<code>tapinak</code>), Ölümsüzlük İksiri (<code>olumsuzluk_i_ksiri</code>), Harita (<code>harita</code>), Asteroit (<code>asteroit</code>), Plato (<code>plato</code>), Banka (<code>banka</code>), Pegasus (<code>pegasus</code>), Çadır (<code>cadir</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_20_08_mistik_ve_evren.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Güneş Saati<br><small style="color:#aaa">gunes_saati</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Işık<br><small style="color:#aaa">isik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Şeytan<br><small style="color:#aaa">seytan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Tapınak<br><small style="color:#aaa">tapinak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Ölümsüzlük İksiri<br><small style="color:#aaa">olumsuzluk_i_ksiri</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Harita<br><small style="color:#aaa">harita</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Asteroit<br><small style="color:#aaa">asteroit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Plato<br><small style="color:#aaa">plato</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Banka<br><small style="color:#aaa">banka</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Pegasus<br><small style="color:#aaa">pegasus</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Çadır<br><small style="color:#aaa">cadir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_20_08_mistik_ve_evren/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_21_05_maden_ve_materyaller (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Granit (<code>granit</code>), Dinamit (<code>dinamit</code>), Beton (<code>beton</code>), Bronz (<code>bronz</code>), Hazine (<code>hazine</code>), Altın Sikke (<code>altin_sikke</code>), Pazar (<code>pazar</code>), Altın (<code>altin</code>), Demir (<code>demir</code>), Gümüş (<code>gumus</code>), Çelik (<code>celik</code>), İpek (<code>i_pek</code>), Borsa (<code>borsa</code>), Elmas (<code>elmas</code>), Kağıt Para (<code>kagit_para</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_21_05_maden_ve_materyaller.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Granit<br><small style="color:#aaa">granit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Dinamit<br><small style="color:#aaa">dinamit</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Beton<br><small style="color:#aaa">beton</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Bronz<br><small style="color:#aaa">bronz</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Hazine<br><small style="color:#aaa">hazine</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Altın Sikke<br><small style="color:#aaa">altin_sikke</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Pazar<br><small style="color:#aaa">pazar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Altın<br><small style="color:#aaa">altin</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Demir<br><small style="color:#aaa">demir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Gümüş<br><small style="color:#aaa">gumus</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Çelik<br><small style="color:#aaa">celik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">İpek<br><small style="color:#aaa">i_pek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Borsa<br><small style="color:#aaa">borsa</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Elmas<br><small style="color:#aaa">elmas</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_21_05_maden_ve_materyaller/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Kağıt Para<br><small style="color:#aaa">kagit_para</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_22_05_maden_ve_materyaller (Tespit: 17, Beklenen: 2)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Titanyum (<code>titanyum</code>), Armut (<code>armut</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_22_05_maden_ve_materyaller.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Titanyum<br><small style="color:#aaa">titanyum</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Armut<br><small style="color:#aaa">armut</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_22_05_maden_ve_materyaller/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_23_03_canlilar (Tespit: 17, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Kurşun (<code>kursun</code>), İnsan (<code>i_nsan</code>), Anka Kuşu (<code>anka_kusu</code>), Denizanası (<code>denizanasi</code>), Denizkızı (<code>denizkizi</code>), Vida (<code>vida</code>), Örümcek (<code>orumcek</code>), İllüzyon Aynası (<code>i_lluzyon_aynasi</code>), Balık Eti (<code>balik_eti</code>), Kurt Adam (<code>kurt_adam</code>), Köpek (<code>kopek</code>), Köpekbalığı (<code>kopekbaligi</code>), İpekböceği (<code>i_pekbocegi</code>), Vampir (<code>vampir</code>), Karınca (<code>karinca</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_23_03_canlilar.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Kurşun<br><small style="color:#aaa">kursun</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">İnsan<br><small style="color:#aaa">i_nsan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Anka Kuşu<br><small style="color:#aaa">anka_kusu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Denizanası<br><small style="color:#aaa">denizanasi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Denizkızı<br><small style="color:#aaa">denizkizi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Vida<br><small style="color:#aaa">vida</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Örümcek<br><small style="color:#aaa">orumcek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">İllüzyon Aynası<br><small style="color:#aaa">i_lluzyon_aynasi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Balık Eti<br><small style="color:#aaa">balik_eti</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Kurt Adam<br><small style="color:#aaa">kurt_adam</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Köpek<br><small style="color:#aaa">kopek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Köpekbalığı<br><small style="color:#aaa">kopekbaligi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">İpekböceği<br><small style="color:#aaa">i_pekbocegi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Vampir<br><small style="color:#aaa">vampir</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Karınca<br><small style="color:#aaa">karinca</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_23_03_canlilar/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_24_03_canlilar (Tespit: 16, Beklenen: 4)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Dinozor (<code>dinozor</code>), Aile (<code>aile</code>), Bakteri (<code>bakteri</code>), Virüs (<code>virus</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_24_03_canlilar.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Dinozor<br><small style="color:#aaa">dinozor</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Aile<br><small style="color:#aaa">aile</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Bakteri<br><small style="color:#aaa">bakteri</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Virüs<br><small style="color:#aaa">virus</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_24_03_canlilar/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_25_06_yemek_ve_tarim (Tespit: 15, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Porselen (<code>porselen</code>), Sarmaşık (<code>sarmasik</code>), Pasta (<code>pasta</code>), Limon (<code>limon</code>), Zeytinyağı (<code>zeytinyagi</code>), Çilek (<code>cilek</code>), Meyve Suyu (<code>meyve_suyu</code>), Kök (<code>kok</code>), Soğan (<code>sogan</code>), Şeker (<code>seker</code>), Alkol (<code>alkol</code>), Kurabiye (<code>kurabiye</code>), Çikolata (<code>cikolata</code>), Patates (<code>patates</code>), Kahve (<code>kahve</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_25_06_yemek_ve_tarim.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Porselen<br><small style="color:#aaa">porselen</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Sarmaşık<br><small style="color:#aaa">sarmasik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Pasta<br><small style="color:#aaa">pasta</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Limon<br><small style="color:#aaa">limon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Zeytinyağı<br><small style="color:#aaa">zeytinyagi</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Çilek<br><small style="color:#aaa">cilek</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Meyve Suyu<br><small style="color:#aaa">meyve_suyu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Kök<br><small style="color:#aaa">kok</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Soğan<br><small style="color:#aaa">sogan</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Şeker<br><small style="color:#aaa">seker</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Alkol<br><small style="color:#aaa">alkol</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Kurabiye<br><small style="color:#aaa">kurabiye</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Çikolata<br><small style="color:#aaa">cikolata</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Patates<br><small style="color:#aaa">patates</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_25_06_yemek_ve_tarim/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Kahve<br><small style="color:#aaa">kahve</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_26_06_yemek_ve_tarim (Tespit: 15, Beklenen: 1)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Çay (<code>cay</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_26_06_yemek_ve_tarim.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Çay<br><small style="color:#aaa">cay</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_26_06_yemek_ve_tarim/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_27_07_bilim_ve_teknoloji (Tespit: 20, Beklenen: 15)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> İp (<code>i_p</code>), Lazer (<code>lazer</code>), Testere (<code>testere</code>), İplik (<code>i_plik</code>), Roket (<code>roket</code>), Barometre (<code>barometre</code>), Kamera (<code>kamera</code>), İçten Yanmalı Motor (<code>i_cten_yanmali_motor</code>), Otomobil (<code>otomobil</code>), Demiryolu (<code>demiryolu</code>), Motosiklet (<code>motosiklet</code>), Tren (<code>tren</code>), Uçak (<code>ucak</code>), Elektrik (<code>elektrik</code>), Kamyon (<code>kamyon</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_27_07_bilim_ve_teknoloji.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">İp<br><small style="color:#aaa">i_p</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">Lazer<br><small style="color:#aaa">lazer</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Testere<br><small style="color:#aaa">testere</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">İplik<br><small style="color:#aaa">i_plik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Roket<br><small style="color:#aaa">roket</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Barometre<br><small style="color:#aaa">barometre</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Kamera<br><small style="color:#aaa">kamera</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">İçten Yanmalı Motor<br><small style="color:#aaa">i_cten_yanmali_motor</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Otomobil<br><small style="color:#aaa">otomobil</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Demiryolu<br><small style="color:#aaa">demiryolu</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Motosiklet<br><small style="color:#aaa">motosiklet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">Tren<br><small style="color:#aaa">tren</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">Uçak<br><small style="color:#aaa">ucak</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">Elektrik<br><small style="color:#aaa">elektrik</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">Kamyon<br><small style="color:#aaa">kamyon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_27_07_bilim_ve_teknoloji/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div><div class="sheet-card"><div class="sheet-title">sheet_28_07_bilim_ve_teknoloji (Tespit: 20, Beklenen: 11)</div><div class="expected-pool"><b>Beklenen Item Havuzu:</b> Radyo (<code>radyo</code>), İnternet (<code>i_nternet</code>), Radar (<code>radar</code>), Telgraf (<code>telgraf</code>), Bilgisayar (<code>bilgisayar</code>), Helikopter (<code>helikopter</code>), Mikroskop (<code>mikroskop</code>), Robot (<code>robot</code>), Telefon (<code>telefon</code>), Termometre (<code>termometre</code>), Piyano (<code>piyano</code>)</div><div class="grid-container"><div><b>Orijinal Sheet:</b><br><img class="orig-img" src="../../assets/raw_sheets\sheet_28_07_bilim_ve_teknoloji.jpg"></div><div><b>Dilimlenen Hücreler (Soldan Sağa, Yukarıdan Aşağıya):</b><div class="cells-grid">
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_01.png">
+                <div class="cell-label">Hücre #01</div>
+                <div class="current-mapped">Radyo<br><small style="color:#aaa">radyo</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_02.png">
+                <div class="cell-label">Hücre #02</div>
+                <div class="current-mapped">İnternet<br><small style="color:#aaa">i_nternet</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_03.png">
+                <div class="cell-label">Hücre #03</div>
+                <div class="current-mapped">Radar<br><small style="color:#aaa">radar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_04.png">
+                <div class="cell-label">Hücre #04</div>
+                <div class="current-mapped">Telgraf<br><small style="color:#aaa">telgraf</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_05.png">
+                <div class="cell-label">Hücre #05</div>
+                <div class="current-mapped">Bilgisayar<br><small style="color:#aaa">bilgisayar</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_06.png">
+                <div class="cell-label">Hücre #06</div>
+                <div class="current-mapped">Helikopter<br><small style="color:#aaa">helikopter</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_07.png">
+                <div class="cell-label">Hücre #07</div>
+                <div class="current-mapped">Mikroskop<br><small style="color:#aaa">mikroskop</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_08.png">
+                <div class="cell-label">Hücre #08</div>
+                <div class="current-mapped">Robot<br><small style="color:#aaa">robot</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_09.png">
+                <div class="cell-label">Hücre #09</div>
+                <div class="current-mapped">Telefon<br><small style="color:#aaa">telefon</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_10.png">
+                <div class="cell-label">Hücre #10</div>
+                <div class="current-mapped">Termometre<br><small style="color:#aaa">termometre</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_11.png">
+                <div class="cell-label">Hücre #11</div>
+                <div class="current-mapped">Piyano<br><small style="color:#aaa">piyano</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_12.png">
+                <div class="cell-label">Hücre #12</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_13.png">
+                <div class="cell-label">Hücre #13</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_14.png">
+                <div class="cell-label">Hücre #14</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_15.png">
+                <div class="cell-label">Hücre #15</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_16.png">
+                <div class="cell-label">Hücre #16</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_17.png">
+                <div class="cell-label">Hücre #17</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_18.png">
+                <div class="cell-label">Hücre #18</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_19.png">
+                <div class="cell-label">Hücre #19</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            
+            <div class="cell-box">
+                <img src="sheet_28_07_bilim_ve_teknoloji/cell_20.png">
+                <div class="cell-label">Hücre #20</div>
+                <div class="current-mapped">-<br><small style="color:#aaa">YOK</small></div>
+            </div>
+            </div></div></div></div></body></html>

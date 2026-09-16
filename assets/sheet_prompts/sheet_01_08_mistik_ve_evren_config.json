@@ -1,0 +1,27 @@
+{
+  "sheet_name": "sheet_01_08_mistik_ve_evren.png",
+  "category": "08_mistik_ve_evren",
+  "count": 5,
+  "items": [
+    [
+      "evren",
+      "Evren"
+    ],
+    [
+      "gezegen",
+      "Gezegen"
+    ],
+    [
+      "kitap",
+      "Kitap"
+    ],
+    [
+      "yildiz",
+      "Yıldız"
+    ],
+    [
+      "harita",
+      "Harita"
+    ]
+  ]
+}

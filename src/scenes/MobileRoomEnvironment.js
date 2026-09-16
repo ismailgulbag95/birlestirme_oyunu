@@ -279,10 +279,11 @@ export class MobileRoomEnvironment {
   }
 
   _buildSideTableWithGasLamp() {
-    // MASANIN ÇAPRAZINDAKİ SEHPA & ÜZERİNDE GAZ LAMBASI (x: -2.35, z: 0.75)
+    // MASANIN ÇAPRAZINDAKİ SEHPA & ÜZERİNDE GAZ LAMBASI (x: -1.82, z: 0.95)
+    // Mobil ekranlara rahatça sığması için daha sağa ve hafif öne konumlandırıldı
     // Zemin üstü y = -2.00'den başlar
     const tableGroup = new THREE.Group();
-    tableGroup.position.set(-2.35, -2.0, 0.75);
+    tableGroup.position.set(-1.82, -2.0, 0.95);
 
     const tableHeight = 1.95; // Masa tabla hizasına yakın zarif sehpa boyu
 
@@ -353,7 +354,7 @@ export class MobileRoomEnvironment {
 
     // Gaz lambası ışık kaynağı (Sıcak Amber PointLight)
     this.gasLampLight = new THREE.PointLight(0xffa834, 1.8, 9.5, 1.4);
-    this.gasLampLight.position.set(-2.35, -2.0 + tableHeight + 0.35, 0.75);
+    this.gasLampLight.position.set(-1.82, -2.0 + tableHeight + 0.35, 0.95);
     this.gasLampLight.castShadow = false;
     this.group.add(this.gasLampLight);
   }

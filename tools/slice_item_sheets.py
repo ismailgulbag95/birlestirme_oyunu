@@ -14,6 +14,7 @@ Bu betik tamamen birleştirme_oyunu projesi içine kurulmuştur.
 import os
 import re
 import sys
+import json
 import shutil
 from pathlib import Path
 from PIL import Image, ImageFilter
@@ -403,8 +404,19 @@ def process_single_sheet(sheet_path, target_category_key=None, direct_save=False
     found_count = len(ordered_comps)
     print(f"Tespit Edilen Item Sayısı: {found_count}")
 
+    # Dinamik Prompt Config Denetimi (Örn: sheet_01_02_doga_config.json)
+    PROMPTS_DIR = WORKSPACE_DIR / "assets" / "sheet_prompts"
+    prompt_config_file = PROMPTS_DIR / f"{sheet_path.stem}_config.json"
+    
     cat_key = target_category_key or match_category_from_filename(sheet_path.name)
-    expected_items = CATEGORY_CONFIG[cat_key]["items"] if cat_key in CATEGORY_CONFIG else []
+    if prompt_config_file.exists():
+        with open(prompt_config_file, "r", encoding="utf-8") as pf:
+            cfg_data = json.load(pf)
+            expected_items = cfg_data.get("items", [])
+            cat_key = cfg_data.get("category", cat_key)
+            print(f"Otomatik Prompt Konfigürasyonu Yüklendi: {prompt_config_file.name} ({len(expected_items)} item)")
+    else:
+        expected_items = CATEGORY_CONFIG[cat_key]["items"] if cat_key in CATEGORY_CONFIG else []
 
     if cat_key:
         print(f"Eşleşen Kategori: {cat_key} (Beklenen: {len(expected_items)} item)")

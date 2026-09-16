@@ -1,0 +1,27 @@
+{
+  "sheet_name": "sheet_17_01_elements.png",
+  "category": "01_elements",
+  "count": 5,
+  "items": [
+    [
+      "radyasyon",
+      "Radyasyon"
+    ],
+    [
+      "televizyon",
+      "Televizyon"
+    ],
+    [
+      "ozon",
+      "Ozon"
+    ],
+    [
+      "sicak_hava_balonu",
+      "Sıcak Hava Balonu"
+    ],
+    [
+      "tutun",
+      "Tütün"
+    ]
+  ]
+}

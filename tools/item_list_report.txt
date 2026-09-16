@@ -1,0 +1,521 @@
+ada | Ada | 02_doga | fabric
+agac | Ağaç | 02_doga | flora
+agac_kabugu | Ağaç Kabuğu | 02_doga | flora
+ahsap_kalkan | Ahşap Kalkan | 02_doga | solid
+ahtapot | Ahtapot | 02_doga | fluid
+aile | Aile | 03_canlilar | magic
+akrep | Akrep | 02_doga | mech
+aku | Akü | 02_doga | mech
+alacakaranlik | Alacakaranlık | 08_mistik_ve_evren | magic
+alci | Alçı | 04_zanaat_ve_aletler | mech
+alet | Alet | 04_zanaat_ve_aletler | mech
+alfabe | Alfabe | 02_doga | fabric
+alkol | Alkol | 06_yemek_ve_tarim | fluid
+altar | Altar | 08_mistik_ve_evren | relic
+altin | Altın | 05_maden_ve_materyaller | mineral
+altin_sikke | Altın Sikke | 05_maden_ve_materyaller | mineral
+ametist | Ametist | 04_zanaat_ve_aletler | fabric
+ampul | Ampul | 02_doga | fluid
+anahtar | Anahtar | 04_zanaat_ve_aletler | mech
+anit | Anıt | 08_mistik_ve_evren | relic
+anka_kulu | Anka Külü | 02_doga | mech
+anka_kusu | Anka Kuşu | 03_canlilar | magic
+araba | Araba | 02_doga | fabric
+ari | Arı | 02_doga | mech
+armut | Armut | 05_maden_ve_materyaller | solid
+asa | Asa | 02_doga | fabric
+asit_yagmuru | Asit Yağmuru | 01_elements | gas
+aslan | Aslan | 02_doga | mech
+asteroit | Asteroit | 08_mistik_ve_evren | mech
+at | At | 08_mistik_ve_evren | magic
+ates | Ateş | 01_elements | mineral
+ates_topu_kitabi | Ateş Topu Kitabı | 08_mistik_ve_evren | flame
+aurora | Aurora | 01_elements | flame
+ay | Ay | 02_doga | fabric
+ayi | Ayı | 02_doga | magic
+ayna | Ayna | 02_doga | fluid
+badem | Badem | 04_zanaat_ve_aletler | mech
+baharat | Baharat | 02_doga | fluid
+baharat_cesnisi | Baharat Çeşnisi | 02_doga | fluid
+bakir | Bakır | 02_doga | magic
+bakteri | Bakteri | 03_canlilar | fluid
+bal | Bal | 04_zanaat_ve_aletler | mech
+bal_kavanozu | Bal Kavanozu | 02_doga | mech
+balik | Balık | 03_canlilar | food
+balik_eti | Balık Eti | 03_canlilar | food
+balina | Balina | 02_doga | mech
+balta | Balta | 02_doga | mech
+bambu | Bambu | 02_doga | flora
+banka | Banka | 08_mistik_ve_evren | fluid
+baraj | Baraj | 01_elements | fluid
+barometre | Barometre | 07_bilim_ve_teknoloji | mech
+barut | Barut | 04_zanaat_ve_aletler | mech
+barut_ficisi | Barut Fıçısı | 04_zanaat_ve_aletler | mech
+bataklik | Bataklık | 04_zanaat_ve_aletler | mech
+baykus | Baykuş | 02_doga | mech
+beton | Beton | 05_maden_ve_materyaller | solid
+biber | Biber | 02_doga | relic
+bicak | Bıçak | 04_zanaat_ve_aletler | mech
+bilgisayar | Bilgisayar | 07_bilim_ve_teknoloji | mech
+bira | Bira | 02_doga | fabric
+bisiklet | Bisiklet | 04_zanaat_ve_aletler | mech
+bitki | Bitki | 04_zanaat_ve_aletler | mech
+biyonik_kol | Biyonik Kol | 02_doga | mech
+bomba | Bomba | 01_elements | flame
+borsa | Borsa | 05_maden_ve_materyaller | fabric
+bosluk_sisesi | Boşluk Şişesi | 01_elements | solid
+boynuz | Boynuz | 02_doga | mech
+boyut_kapisi | Boyut Kapısı | 08_mistik_ve_evren | magic
+bozkir | Bozkır | 02_doga | mech
+bronz | Bronz | 05_maden_ve_materyaller | relic
+bugday | Buğday | 06_yemek_ve_tarim | flora
+buhar | Buhar | 01_elements | fluid
+buhar_jeneratoru | Buhar Jeneratörü | 01_elements | fluid
+buhar_motoru | Buhar Motoru | 07_bilim_ve_teknoloji | mech
+buharli_gemi | Buharlı Gemi | 01_elements | fluid
+bulut | Bulut | 01_elements | gas
+buyu | Büyü | 02_doga | magic
+buyu_parsomeni | Büyü Parşömeni | 08_mistik_ve_evren | relic
+buz | Buz | 01_elements | gas
+buz_dagi | Buz Dağı | 01_elements | flame
+buz_runu | Buz Rünü | 01_elements | gas
+buzul | Buzul | 01_elements | gas
+cadir | Çadır | 08_mistik_ve_evren | relic
+cakmaktasi | Çakmaktaşı | 04_zanaat_ve_aletler | mech
+cali | Çalı | 02_doga | mech
+cam | Cam | 07_bilim_ve_teknoloji | mech
+camur | Çamur | 01_elements | gas
+cark | Çark | 04_zanaat_ve_aletler | mech
+cay | Çay | 06_yemek_ve_tarim | food
+cehennem_tasi | Cehennem Taşı | 08_mistik_ve_evren | magic
+cekic | Çekiç | 04_zanaat_ve_aletler | mech
+celik | Çelik | 05_maden_ve_materyaller | mineral
+celik_kulce | Çelik Külçe | 05_maden_ve_materyaller | mineral
+ceviz | Ceviz | 02_doga | fabric
+cicek | Çiçek | 02_doga | flora
+cig | Çığ | 04_zanaat_ve_aletler | mech
+cikolata | Çikolata | 06_yemek_ve_tarim | food
+cilek | Çilek | 06_yemek_ve_tarim | flora
+cimen | Çimen | 02_doga | magic
+cimento | Çimento | 04_zanaat_ve_aletler | mech
+cin | Cin | 04_zanaat_ve_aletler | fabric
+civa | Cıva | 02_doga | fluid
+civi | Çivi | 02_doga | mech
+col | Çöl | 02_doga | mineral
+comlek | Çömlek | 02_doga | mineral
+corba | Çorba | 02_doga | mech
+dag | Dağ | 05_maden_ve_materyaller | solid
+darphane | Darphane | 02_doga | magic
+davul | Davul | 02_doga | mech
+degirmen | Değirmen | 04_zanaat_ve_aletler | mech
+demir | Demir | 05_maden_ve_materyaller | mineral
+demir_kalkan | Demir Kalkan | 05_maden_ve_materyaller | gas
+demir_kulce | Demir Külçe | 05_maden_ve_materyaller | mineral
+demir_parmaklik | Demir Parmaklık | 05_maden_ve_materyaller | mineral
+demir_zirh | Demir Zırh | 05_maden_ve_materyaller | mineral
+demiryolu | Demiryolu | 07_bilim_ve_teknoloji | solid
+deniz | Deniz | 01_elements | fluid
+denizalti | Denizaltı | 01_elements | fluid
+denizanasi | Denizanası | 03_canlilar | fluid
+denizkizi | Denizkızı | 03_canlilar | fluid
+deprem | Deprem | 01_elements | solid
+deri | Deri | 02_doga | fabric
+deri_zirh | Deri Zırh | 08_mistik_ve_evren | magic
+dinamit | Dinamit | 05_maden_ve_materyaller | mineral
+dinamolu_fener | Dinamolu Fener | 04_zanaat_ve_aletler | mech
+dinozor | Dinozor | 03_canlilar | relic
+disli | Dişli | 04_zanaat_ve_aletler | mech
+disli_cark | Dişli Çark | 04_zanaat_ve_aletler | mech
+dolu | Dolu | 02_doga | mech
+domates | Domates | 02_doga | fabric
+dondurma | Dondurma | 02_doga | fluid
+dukkan | Dükkan | 02_doga | fabric
+duman | Duman | 02_doga | mech
+ejderha | Ejderha | 02_doga | mech
+ekmek | Ekmek | 06_yemek_ve_tarim | food
+el_arabasi | El Arabası | 07_bilim_ve_teknoloji | mech
+elektrik | Elektrik | 07_bilim_ve_teknoloji | electric
+elektrik_motoru | Elektrik Motoru | 07_bilim_ve_teknoloji | electric
+elma | Elma | 02_doga | food
+elmas | Elmas | 05_maden_ve_materyaller | food
+enerji | Enerji | 01_elements | electric
+et | Et | 02_doga | fabric
+ev | Ev | 02_doga | magic
+evren | Evren | 08_mistik_ve_evren | magic
+fay_hatti | Fay Hattı | 04_zanaat_ve_aletler | mech
+fayton | Fayton | 02_doga | mineral
+felsefe_tasi | Felsefe Taşı | 04_zanaat_ve_aletler | mech
+fener | Fener | 04_zanaat_ve_aletler | mech
+fener_kulesi | Fener Kulesi | 08_mistik_ve_evren | relic
+findik | Fındık | 02_doga | magic
+firtina | Fırtına | 01_elements | gas
+firtina_bulutu | Fırtına Bulutu | 01_elements | gas
+firtina_kilici | Fırtına Kılıcı | 01_elements | mech
+fiyort | Fiyort | 02_doga | mech
+flut | Flüt | 01_elements | gas
+fosil | Fosil | 04_zanaat_ve_aletler | mech
+fotograf | Fotoğraf | 01_elements | fabric
+galaksi | Galaksi | 08_mistik_ve_evren | magic
+gayzer | Gayzer | 07_bilim_ve_teknoloji | mech
+gazete | Gazete | 04_zanaat_ve_aletler | fabric
+gece | Gece | 08_mistik_ve_evren | electric
+geyik | Geyik | 02_doga | magic
+gezegen | Gezegen | 08_mistik_ve_evren | magic
+girdap | Girdap | 02_doga | fabric
+gitar | Gitar | 04_zanaat_ve_aletler | mech
+gokkusagi | Gökkuşağı | 08_mistik_ve_evren | magic
+gol | Göl | 01_elements | fluid
+golem | Golem | 02_doga | magic
+golge | Gölge | 01_elements | fluid
+gozetleme_kulesi | Gözetleme Kulesi | 08_mistik_ve_evren | relic
+granit | Granit | 05_maden_ve_materyaller | solid
+grifon | Grifon | 02_doga | mech
+gul | Gül | 02_doga | fluid
+gulyabani | Gulyabani | 02_doga | flora
+gumus | Gümüş | 05_maden_ve_materyaller | mineral
+gunduz | Gündüz | 01_elements | magic
+gunes | Güneş | 08_mistik_ve_evren | electric
+gunes_paneli | Güneş Paneli | 07_bilim_ve_teknoloji | electric
+gunes_saati | Güneş Saati | 08_mistik_ve_evren | magic
+gurz | Gürz | 02_doga | fluid
+halat | Halat | 04_zanaat_ve_aletler | mech
+hamur | Hamur | 04_zanaat_ve_aletler | mech
+harc | Harç | 04_zanaat_ve_aletler | mech
+harita | Harita | 08_mistik_ve_evren | fabric
+hava | Hava | 01_elements | mineral
+havyar | Havyar | 02_doga | fluid
+hayalet | Hayalet | 02_doga | flora
+hayvan | Hayvan | 03_canlilar | mech
+hazine | Hazine | 05_maden_ve_materyaller | relic
+helikopter | Helikopter | 07_bilim_ve_teknoloji | gas
+hesap_makinesi | Hesap Makinesi | 04_zanaat_ve_aletler | mech
+heykel | Heykel | 02_doga | mineral
+hologram_kupu | Hologram Küpü | 07_bilim_ve_teknoloji | electric
+hortum | Hortum | 02_doga | flora
+hucre | Hücre | 02_doga | mech
+i_cten_yanmali_motor | İçten Yanmalı Motor | 07_bilim_ve_teknoloji | mech
+i_gne | İğne | 02_doga | mech
+i_ksir | İksir | 04_zanaat_ve_aletler | fabric
+i_ksir_kazani | İksir Kazanı | 04_zanaat_ve_aletler | magic
+i_lkel_bicak | İlkel Bıçak | 04_zanaat_ve_aletler | mech
+i_lluzyon_aynasi | İllüzyon Aynası | 03_canlilar | mech
+i_mparatorluk | İmparatorluk | 08_mistik_ve_evren | relic
+i_nci | İnci | 08_mistik_ve_evren | relic
+i_nek | İnek | 02_doga | fabric
+i_nsan | İnsan | 03_canlilar | mech
+i_nternet | İnternet | 07_bilim_ve_teknoloji | fabric
+i_p | İp | 07_bilim_ve_teknoloji | fabric
+i_pek | İpek | 05_maden_ve_materyaller | fabric
+i_pekbocegi | İpekböceği | 03_canlilar | flora
+i_plik | İplik | 07_bilim_ve_teknoloji | fabric
+isik | Işık | 08_mistik_ve_evren | electric
+jenerator | Jeneratör | 04_zanaat_ve_aletler | mech
+kabile | Kabile | 02_doga | mech
+kadirga | Kadırga | 04_zanaat_ve_aletler | mech
+kagit | Kağıt | 04_zanaat_ve_aletler | mech
+kagit_para | Kağıt Para | 05_maden_ve_materyaller | fabric
+kahin_kuresi | Kahin Küresi | 08_mistik_ve_evren | magic
+kahve | Kahve | 06_yemek_ve_tarim | food
+kaktus | Kaktüs | 02_doga | mech
+kaldirim | Kaldırım | 02_doga | magic
+kale | Kale | 04_zanaat_ve_aletler | mech
+kale_kapisi | Kale Kapısı | 08_mistik_ve_evren | relic
+kalem | Kalem | 04_zanaat_ve_aletler | mech
+kalkan | Kalkan | 01_elements | flame
+kamera | Kamera | 07_bilim_ve_teknoloji | mech
+kamyon | Kamyon | 07_bilim_ve_teknoloji | mech
+kanal | Kanal | 01_elements | fluid
+kandil | Kandil | 02_doga | mech
+kano | Kano | 02_doga | mech
+kanyon | Kanyon | 02_doga | fluid
+kaplan | Kaplan | 08_mistik_ve_evren | mech
+kaplumbaga | Kaplumbağa | 03_canlilar | magic
+kar | Kar | 04_zanaat_ve_aletler | mech
+karadelik | Karadelik | 08_mistik_ve_evren | magic
+karinca | Karınca | 03_canlilar | magic
+karli_cam_agaci | Karlı Çam Ağacı | 02_doga | flora
+karpuz | Karpuz | 02_doga | mech
+kartal | Kartal | 04_zanaat_ve_aletler | mech
+kasaba | Kasaba | 02_doga | mech
+kasirga | Kasırga | 01_elements | gas
+kavrulmus_et | Kavrulmuş Et | 06_yemek_ve_tarim | food
+kavurma | Kavurma | 04_zanaat_ve_aletler | mech
+kaya | Kaya | 02_doga | fluid
+kayip_sehir | Kayıp Şehir | 01_elements | relic
+kazan | Kazan | 04_zanaat_ve_aletler | mech
+kazma | Kazma | 02_doga | mech
+kedi | Kedi | 04_zanaat_ve_aletler | mech
+kehribar | Kehribar | 04_zanaat_ve_aletler | mech
+kelebek | Kelebek | 04_zanaat_ve_aletler | mech
+kemik | Kemik | 04_zanaat_ve_aletler | mineral
+kentaurluk | Kentaurluk | 02_doga | solid
+kertenkele | Kertenkele | 02_doga | magic
+kilic | Kılıç | 04_zanaat_ve_aletler | mech
+kilit | Kilit | 04_zanaat_ve_aletler | mech
+kirec | Kireç | 04_zanaat_ve_aletler | mech
+kita | Kıta | 02_doga | fabric
+kitap | Kitap | 08_mistik_ve_evren | fabric
+kiymik | Kıymık | 04_zanaat_ve_aletler | mech
+kok | Kök | 06_yemek_ve_tarim | food
+komur | Kömür | 05_maden_ve_materyaller | solid
+kopek | Köpek | 03_canlilar | mech
+kopekbaligi | Köpekbalığı | 03_canlilar | fluid
+kopru | Köprü | 01_elements | solid
+korfez | Körfez | 01_elements | fluid
+koruk | Körük | 02_doga | mech
+koy | Köy | 02_doga | mech
+koyun | Koyun | 02_doga | mech
+kozmik_usturlap | Kozmik Usturlap | 08_mistik_ve_evren | magic
+krallik | Krallık | 02_doga | relic
+kristal | Kristal | 02_doga | magic
+kukurt | Kükürt | 02_doga | mech
+kul | Kül | 02_doga | mech
+kule | Kule | 08_mistik_ve_evren | relic
+kulube | Kulübe | 02_doga | mech
+kum | Kum | 02_doga | mineral
+kum_saati | Kum Saati | 08_mistik_ve_evren | magic
+kumas | Kumaş | 04_zanaat_ve_aletler | fabric
+kurabiye | Kurabiye | 06_yemek_ve_tarim | food
+kurbaga | Kurbağa | 03_canlilar | mech
+kurek | Kürek | 02_doga | mech
+kursun | Kurşun | 03_canlilar | magic
+kurt | Kurt | 04_zanaat_ve_aletler | mech
+kurt_adam | Kurt Adam | 03_canlilar | mech
+kus | Kuş | 03_canlilar | magic
+kus_tuyu | Kuş Tüyü | 03_canlilar | magic
+kutsal_kase | Kutsal Kase | 02_doga | relic
+kutuphane | Kütüphane | 02_doga | fabric
+kuvars | Kuvars | 02_doga | mech
+kuyruklu_yildiz | Kuyruklu Yıldız | 08_mistik_ve_evren | magic
+lav | Lav | 02_doga | mech
+lazer | Lazer | 07_bilim_ve_teknoloji | mech
+lif | Lif | 02_doga | fabric
+liman | Liman | 02_doga | fabric
+limon | Limon | 06_yemek_ve_tarim | food
+lokomotif | Lokomotif | 07_bilim_ve_teknoloji | mech
+magara | Mağara | 08_mistik_ve_evren | solid
+makas | Makas | 04_zanaat_ve_aletler | mech
+mana | Mana | 02_doga | magic
+mana_i_ksiri | Mana İksiri | 02_doga | magic
+mancinik | Mancınık | 04_zanaat_ve_aletler | magic
+mantar | Mantar | 02_doga | fabric
+manyetizma | Manyetizma | 08_mistik_ve_evren | relic
+matbaa | Matbaa | 02_doga | flora
+maya | Maya | 02_doga | relic
+medeniyet | Medeniyet | 02_doga | magic
+meka_zirhi | Meka Zırhı | 08_mistik_ve_evren | magic
+melek | Melek | 02_doga | flora
+meltem | Meltem | 04_zanaat_ve_aletler | mineral
+mercan | Mercan | 04_zanaat_ve_aletler | mech
+mercan_kayaligi | Mercan Kayalığı | 02_doga | magic
+mercek | Mercek | 04_zanaat_ve_aletler | mech
+mermer | Mermer | 04_zanaat_ve_aletler | mech
+mesale | Meşale | 02_doga | solid
+metal | Metal | 05_maden_ve_materyaller | mineral
+metal_bicak | Metal Bıçak | 04_zanaat_ve_aletler | mineral
+meteor | Meteor | 01_elements | electric
+metropol | Metropol | 01_elements | fabric
+meyve_bahcesi | Meyve Bahçesi | 02_doga | flora
+meyve_suyu | Meyve Suyu | 06_yemek_ve_tarim | flora
+migfer | Miğfer | 04_zanaat_ve_aletler | mech
+miknatis | Mıknatıs | 04_zanaat_ve_aletler | solid
+mikrocip | Mikroçip | 04_zanaat_ve_aletler | mech
+mikroskop | Mikroskop | 07_bilim_ve_teknoloji | mech
+minyatur_yildiz | Minyatür Yıldız | 08_mistik_ve_evren | magic
+misir | Mısır | 02_doga | relic
+mizrak | Mızrak | 04_zanaat_ve_aletler | mech
+motosiklet | Motosiklet | 07_bilim_ve_teknoloji | mech
+mum | Mum | 02_doga | magic
+murekkep | Mürekkep | 04_zanaat_ve_aletler | fabric
+muska | Muska | 04_zanaat_ve_aletler | mech
+muz | Muz | 02_doga | mech
+muze | Müze | 08_mistik_ve_evren | relic
+muzik | Müzik | 01_elements | mineral
+nane | Nane | 02_doga | mech
+nebula | Nebula | 08_mistik_ve_evren | magic
+nehir | Nehir | 01_elements | fluid
+nilufer | Nilüfer | 02_doga | fluid
+obelisk | Obelisk | 02_doga | relic
+obsidyen | Obsidyen | 02_doga | fabric
+obsidyen_bicak | Obsidyen Bıçak | 04_zanaat_ve_aletler | mech
+odun | Odun | 02_doga | relic
+ok | Ok | 02_doga | magic
+okul | Okul | 02_doga | fabric
+okyanus | Okyanus | 02_doga | fluid
+olta | Olta | 02_doga | fluid
+olumsuzluk_i_ksiri | Ölümsüzlük İksiri | 08_mistik_ve_evren | relic
+orman | Orman | 02_doga | mech
+ors | Örs | 02_doga | fabric
+orumcek | Örümcek | 03_canlilar | magic
+otomobil | Otomobil | 07_bilim_ve_teknoloji | mech
+ozon | Ozon | 01_elements | gas
+palmiye | Palmiye | 02_doga | flora
+pamuk | Pamuk | 02_doga | flora
+para | Para | 04_zanaat_ve_aletler | mech
+parsomen | Parşömen | 02_doga | relic
+pasta | Pasta | 06_yemek_ve_tarim | food
+pastirma | Pastırma | 04_zanaat_ve_aletler | magic
+patates | Patates | 06_yemek_ve_tarim | food
+pazar | Pazar | 05_maden_ve_materyaller | fabric
+pegasus | Pegasus | 08_mistik_ve_evren | mech
+peri | Peri | 02_doga | fabric
+peynir | Peynir | 04_zanaat_ve_aletler | mech
+pil | Pil | 04_zanaat_ve_aletler | fabric
+piramit | Piramit | 08_mistik_ve_evren | relic
+pirinc | Pirinç | 02_doga | mech
+piyano | Piyano | 07_bilim_ve_teknoloji | mineral
+platin | Platin | 04_zanaat_ve_aletler | mech
+plato | Plato | 08_mistik_ve_evren | relic
+plazma | Plazma | 02_doga | fluid
+plazma_tufegi | Plazma Tüfeği | 04_zanaat_ve_aletler | mech
+porselen | Porselen | 06_yemek_ve_tarim | fabric
+portakal | Portakal | 02_doga | flora
+portal_runu | Portal Rünü | 08_mistik_ve_evren | magic
+prizma | Prizma | 02_doga | mech
+prizma_tasi | Prizma Taşı | 08_mistik_ve_evren | relic
+pusula | Pusula | 02_doga | flora
+radar | Radar | 07_bilim_ve_teknoloji | gas
+radyasyon | Radyasyon | 01_elements | electric
+radyo | Radyo | 07_bilim_ve_teknoloji | gas
+recel | Reçel | 04_zanaat_ve_aletler | mech
+recine | Reçine | 04_zanaat_ve_aletler | mech
+resim | Resim | 01_elements | mech
+robot | Robot | 07_bilim_ve_teknoloji | mech
+roket | Roket | 07_bilim_ve_teknoloji | flame
+ruh | Ruh | 02_doga | magic
+run | Rün | 04_zanaat_ve_aletler | mech
+runik_zirh | Runik Zırh | 08_mistik_ve_evren | magic
+ruzgar | Rüzgâr | 01_elements | gas
+ruzgar_gulu | Rüzgar Gülü | 01_elements | gas
+saat | Saat | 08_mistik_ve_evren | magic
+safak | Şafak | 04_zanaat_ve_aletler | mech
+safir | Safir | 04_zanaat_ve_aletler | mech
+saglam_sandik | Sağlam Sandık | 02_doga | magic
+sahin | Şahin | 02_doga | mech
+sal | Sal | 02_doga | mineral
+salca | Salça | 04_zanaat_ve_aletler | mech
+sarap | Şarap | 04_zanaat_ve_aletler | fluid
+saray | Saray | 04_zanaat_ve_aletler | mech
+sarimsak | Sarımsak | 02_doga | food
+sarmasik | Sarmaşık | 06_yemek_ve_tarim | food
+savas_baltasi | Savaş Baltası | 01_elements | gas
+sehir | Şehir | 02_doga | relic
+seker | Şeker | 06_yemek_ve_tarim | food
+selale | Şelale | 02_doga | magic
+sera | Sera | 08_mistik_ve_evren | magic
+seramik | Seramik | 02_doga | mech
+seytan | Şeytan | 08_mistik_ve_evren | magic
+sfenks | Sfenks | 04_zanaat_ve_aletler | mech
+siber_kristal | Siber Kristal | 08_mistik_ve_evren | mineral
+sicak_hava_balonu | Sıcak Hava Balonu | 01_elements | gas
+sifa_i_ksiri | Şifa İksiri | 04_zanaat_ve_aletler | mech
+simya | Simya | 02_doga | flora
+sincap | Sincap | 04_zanaat_ve_aletler | mech
+sinema | Sinema | 08_mistik_ve_evren | magic
+sirke | Sirke | 04_zanaat_ve_aletler | mech
+sis | Sis | 02_doga | mech
+sise | Şişe | 04_zanaat_ve_aletler | mech
+sogan | Soğan | 06_yemek_ve_tarim | flora
+solucan | Solucan | 04_zanaat_ve_aletler | mech
+somon | Somon | 02_doga | mineral
+sosis | Sosis | 02_doga | mech
+su | Su | 01_elements | mineral
+su_comlegi | Su Çömleği | 01_elements | fluid
+su_degirmeni | Su Değirmeni | 01_elements | fluid
+sur | Sur | 02_doga | mech
+sut | Süt | 06_yemek_ve_tarim | food
+tabanca | Tabanca | 02_doga | mech
+tablo | Tablo | 04_zanaat_ve_aletler | fabric
+tanri | Tanrı | 08_mistik_ve_evren | magic
+tapinak | Tapınak | 08_mistik_ve_evren | relic
+tas | Taş | 05_maden_ve_materyaller | mineral
+tavuk | Tavuk | 04_zanaat_ve_aletler | fabric
+tayfun | Tayfun | 01_elements | fluid
+tekerlek | Tekerlek | 04_zanaat_ve_aletler | mech
+telefon | Telefon | 07_bilim_ve_teknoloji | fabric
+teleskop | Teleskop | 08_mistik_ve_evren | magic
+televizyon | Televizyon | 01_elements | magic
+telgraf | Telgraf | 07_bilim_ve_teknoloji | fabric
+tepe | Tepe | 02_doga | mineral
+tereyagi | Tereyağı | 02_doga | food
+termometre | Termometre | 07_bilim_ve_teknoloji | electric
+tesla_bobini | Tesla Bobini | 07_bilim_ve_teknoloji | mech
+testere | Testere | 07_bilim_ve_teknoloji | mech
+tilsim | Tılsım | 02_doga | magic
+timsah | Timsah | 04_zanaat_ve_aletler | mech
+titanyum | Titanyum | 05_maden_ve_materyaller | mineral
+tiyatro | Tiyatro | 08_mistik_ve_evren | relic
+tohum | Tohum | 02_doga | flora
+top | Top | 04_zanaat_ve_aletler | solid
+toprak | Toprak | 01_elements | mineral
+totem | Totem | 02_doga | fabric
+tren | Tren | 07_bilim_ve_teknoloji | mech
+tsunami | Tsunami | 01_elements | fluid
+tufan | Tufan | 02_doga | fluid
+tufek | Tüfek | 04_zanaat_ve_aletler | mech
+tugla | Tuğla | 02_doga | solid
+tugla_duvar | Tuğla Duvar | 05_maden_ve_materyaller | solid
+tundra | Tundra | 02_doga | gas
+tunel | Tünel | 08_mistik_ve_evren | solid
+turbin | Türbin | 08_mistik_ve_evren | solid
+tutulma | Tutulma | 02_doga | fluid
+tutun | Tütün | 01_elements | flame
+tuy | Tüy | 02_doga | mineral
+tuz | Tuz | 02_doga | mineral
+tuzlu_su | Tuzlu Su | 02_doga | mineral
+ucak | Uçak | 07_bilim_ve_teknoloji | gas
+ucurtma | Uçurtma | 02_doga | relic
+un | Un | 02_doga | fabric
+uranyum | Uranyum | 02_doga | mineral
+uydu | Uydu | 02_doga | mech
+uzay | Uzay | 02_doga | mineral
+uzay_gemisi | Uzay Gemisi | 08_mistik_ve_evren | magic
+uzum | Üzüm | 02_doga | magic
+vadi | Vadi | 02_doga | mech
+vaha | Vaha | 02_doga | magic
+vampir | Vampir | 03_canlilar | magic
+vida | Vida | 03_canlilar | magic
+vinc | Vinç | 04_zanaat_ve_aletler | mech
+virus | Virüs | 03_canlilar | gas
+volkan | Volkan | 01_elements | flame
+yagmur | Yağmur | 01_elements | gas
+yakut | Yakut | 02_doga | flora
+yanardag | Yanardağ | 01_elements | flame
+yapay_zeka | Yapay Zeka | 02_doga | flora
+yaprak | Yaprak | 02_doga | flora
+yarimada | Yarımada | 02_doga | solid
+yasam | Yaşam | 03_canlilar | magic
+yatak | Yatak | 02_doga | magic
+yay | Yay | 02_doga | mineral
+yazi | Yazı | 04_zanaat_ve_aletler | fabric
+yel_degirmeni | Yel Değirmeni | 04_zanaat_ve_aletler | mech
+yelken | Yelken | 02_doga | mech
+yelkenli | Yelkenli | 02_doga | flora
+yercekimsiz_platform | Yerçekimsiz Platform | 07_bilim_ve_teknoloji | mech
+yesim | Yeşim | 02_doga | relic
+yilan | Yılan | 03_canlilar | magic
+yildirim | Yıldırım | 01_elements | electric
+yildirim_parsomeni | Yıldırım Parşömeni | 01_elements | electric
+yildiz | Yıldız | 08_mistik_ve_evren | magic
+yildiz_gecidi_cekirdegi | Yıldız Geçidi Çekirdeği | 08_mistik_ve_evren | magic
+yildiz_tozu | Yıldız Tozu | 08_mistik_ve_evren | magic
+yogurt | Yoğurt | 01_elements | fluid
+yol | Yol | 02_doga | solid
+yosun | Yosun | 02_doga | flora
+yumurta | Yumurta | 06_yemek_ve_tarim | food
+yun | Yün | 02_doga | mineral
+yunus | Yunus | 02_doga | relic
+zaman | Zaman | 08_mistik_ve_evren | magic
+zaman_kum_saati | Zaman Kum Saati | 08_mistik_ve_evren | magic
+zehir | Zehir | 02_doga | magic
+zehir_sisesi | Zehir Şişesi | 08_mistik_ve_evren | magic
+zehirli_kilic | Zehirli Kılıç | 02_doga | mech
+zehirli_sivi | Zehirli Sıvı | 04_zanaat_ve_aletler | flame
+zeplin | Zeplin | 01_elements | fluid
+zeytin | Zeytin | 02_doga | mineral
+zeytinyagi | Zeytinyağı | 06_yemek_ve_tarim | food
+zincir | Zincir | 04_zanaat_ve_aletler | mineral
+zirh | Zırh | 04_zanaat_ve_aletler | magic
+zirhli_gemi | Zırhlı Gemi | 01_elements | fluid
+zombi | Zombi | 04_zanaat_ve_aletler | mech
+zumrut | Zümrüt | 04_zanaat_ve_aletler | mech

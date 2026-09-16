@@ -1,0 +1,552 @@
+[
+  {
+    "sheet": "sheet_01_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Ahtapot",
+      "Akrep",
+      "Akü",
+      "Asa",
+      "Ayı",
+      "Baharat",
+      "Baharat Çeşnisi",
+      "Bakır",
+      "Balta",
+      "Bozkır",
+      "Büyü",
+      "Ceviz",
+      "Cıva",
+      "Davul",
+      "Domates"
+    ]
+  },
+  {
+    "sheet": "sheet_02_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Et",
+      "Ev",
+      "Fiyort",
+      "Fındık",
+      "Gül",
+      "Gürz",
+      "Havyar",
+      "Hücre",
+      "Kandil",
+      "Kasaba",
+      "Kentaurluk",
+      "Kertenkele",
+      "Kulübe",
+      "Kutsal Kase",
+      "Kuvars"
+    ]
+  },
+  {
+    "sheet": "sheet_03_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Körük",
+      "Köy",
+      "Kükürt",
+      "Kürek",
+      "Kıta",
+      "Mana",
+      "Mana İksiri",
+      "Medeniyet",
+      "Melek",
+      "Mercan Kayalığı",
+      "Muz",
+      "Parşömen",
+      "Pirinç",
+      "Plazma",
+      "Prizma"
+    ]
+  },
+  {
+    "sheet": "sheet_04_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Sarımsak",
+      "Seramik",
+      "Sosis",
+      "Sur",
+      "Tepe",
+      "Tereyağı",
+      "Totem",
+      "Tufan",
+      "Tılsım",
+      "Uydu",
+      "Uçurtma",
+      "Vaha",
+      "Yaprak",
+      "Yarımada",
+      "Yol"
+    ]
+  },
+  {
+    "sheet": "sheet_05_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Yün",
+      "Çalı",
+      "Çimen",
+      "Çorba",
+      "Üzüm",
+      "İnek",
+      "İğne",
+      "Şahin",
+      "Şelale",
+      "Tutulma",
+      "Tüy",
+      "Uzay",
+      "Alfabe",
+      "Aslan",
+      "Ay"
+    ]
+  },
+  {
+    "sheet": "sheet_06_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Bal Kavanozu",
+      "Biber",
+      "Dolu",
+      "Ejderha",
+      "Girdap",
+      "Grifon",
+      "Gulyabani",
+      "Hayalet",
+      "Heykel",
+      "Kabile",
+      "Kano",
+      "Karpuz",
+      "Liman",
+      "Okul",
+      "Peri"
+    ]
+  },
+  {
+    "sheet": "sheet_07_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Portakal",
+      "Ruh",
+      "Simya",
+      "Tabanca",
+      "Tuz",
+      "Tuzlu Su",
+      "Vadi",
+      "Yakut",
+      "Yapay Zeka",
+      "Yelkenli",
+      "Yeşim",
+      "Yunus",
+      "Zehir",
+      "Zeytin",
+      "Çiçek"
+    ]
+  },
+  {
+    "sheet": "sheet_08_02_doga",
+    "category": "02_doga",
+    "item_count": 15,
+    "items": [
+      "Şehir",
+      "Dükkan",
+      "Hortum",
+      "Matbaa",
+      "Obelisk",
+      "Palmiye",
+      "Tundra",
+      "Meyve Bahçesi",
+      "Araba",
+      "Balina",
+      "Darphane",
+      "Dondurma",
+      "Krallık",
+      "Mısır",
+      "Maya"
+    ]
+  },
+  {
+    "sheet": "sheet_09_02_doga",
+    "category": "02_doga",
+    "item_count": 11,
+    "items": [
+      "Kütüphane",
+      "Bambu",
+      "Golem",
+      "Karlı Çam Ağacı",
+      "Duman",
+      "Bira",
+      "Boynuz",
+      "Fayton",
+      "Kaldırım",
+      "Mum",
+      "Uranyum"
+    ]
+  },
+  {
+    "sheet": "sheet_10_04_zanaat_ve_aletler",
+    "category": "04_zanaat_ve_aletler",
+    "item_count": 15,
+    "items": [
+      "Alet",
+      "Alçı",
+      "Ametist",
+      "Bataklık",
+      "Cin",
+      "Fosil",
+      "Halat",
+      "Jeneratör",
+      "Kadırga",
+      "Kale",
+      "Kalem",
+      "Kartal",
+      "Kavurma",
+      "Kehribar",
+      "Kemik"
+    ]
+  },
+  {
+    "sheet": "sheet_11_04_zanaat_ve_aletler",
+    "category": "04_zanaat_ve_aletler",
+    "item_count": 15,
+    "items": [
+      "Kilit",
+      "Kireç",
+      "Mancınık",
+      "Meltem",
+      "Miğfer",
+      "Mızrak",
+      "Para",
+      "Pastırma",
+      "Pil",
+      "Reçel",
+      "Rün",
+      "Salça",
+      "Yazı",
+      "Zincir",
+      "Zümrüt"
+    ]
+  },
+  {
+    "sheet": "sheet_12_04_zanaat_ve_aletler",
+    "category": "04_zanaat_ve_aletler",
+    "item_count": 15,
+    "items": [
+      "Zırh",
+      "Çark",
+      "Çekiç",
+      "Çimento",
+      "Çığ",
+      "İksir",
+      "Şafak",
+      "Şifa İksiri",
+      "Makas",
+      "Sfenks",
+      "Yel Değirmeni",
+      "İksir Kazanı",
+      "Bisiklet",
+      "Gazete",
+      "Hesap Makinesi"
+    ]
+  },
+  {
+    "sheet": "sheet_13_04_zanaat_ve_aletler",
+    "category": "04_zanaat_ve_aletler",
+    "item_count": 15,
+    "items": [
+      "Mürekkep",
+      "Platin",
+      "Safir",
+      "Tablo",
+      "Timsah",
+      "Tüfek",
+      "Zombi",
+      "Muska",
+      "Solucan",
+      "Mercek",
+      "Mermer",
+      "Bıçak",
+      "İlkel Bıçak",
+      "Badem",
+      "Top"
+    ]
+  },
+  {
+    "sheet": "sheet_14_04_zanaat_ve_aletler",
+    "category": "04_zanaat_ve_aletler",
+    "item_count": 9,
+    "items": [
+      "Şarap",
+      "Anahtar",
+      "Dinamolu Fener",
+      "Dişli",
+      "Saray",
+      "Sirke",
+      "Kazan",
+      "Gitar",
+      "Mikroçip"
+    ]
+  },
+  {
+    "sheet": "sheet_15_01_elements",
+    "category": "01_elements",
+    "item_count": 15,
+    "items": [
+      "Buzul",
+      "Flüt",
+      "Gölge",
+      "Resim",
+      "Yoğurt",
+      "Göl",
+      "Kasırga",
+      "Deniz",
+      "Fırtına",
+      "Gündüz",
+      "Kanal",
+      "Yanardağ",
+      "Asit Yağmuru",
+      "Baraj",
+      "Fotoğraf"
+    ]
+  },
+  {
+    "sheet": "sheet_16_01_elements",
+    "category": "01_elements",
+    "item_count": 15,
+    "items": [
+      "Körfez",
+      "Tayfun",
+      "Buharlı Gemi",
+      "Denizaltı",
+      "Metropol",
+      "Rüzgar Gülü",
+      "Zırhlı Gemi",
+      "Aurora",
+      "Deprem",
+      "Köprü",
+      "Meteor",
+      "Tsunami",
+      "Zeplin",
+      "Kayıp Şehir",
+      "Müzik"
+    ]
+  },
+  {
+    "sheet": "sheet_17_01_elements",
+    "category": "01_elements",
+    "item_count": 5,
+    "items": [
+      "Radyasyon",
+      "Televizyon",
+      "Ozon",
+      "Sıcak Hava Balonu",
+      "Tütün"
+    ]
+  },
+  {
+    "sheet": "sheet_18_08_mistik_ve_evren",
+    "category": "08_mistik_ve_evren",
+    "item_count": 15,
+    "items": [
+      "Evren",
+      "Gezegen",
+      "Kule",
+      "Sera",
+      "Sinema",
+      "Tünel",
+      "Müze",
+      "Alacakaranlık",
+      "Anıt",
+      "Fener Kulesi",
+      "Kitap",
+      "Kozmik Usturlap",
+      "Kum Saati",
+      "Kuyruklu Yıldız",
+      "Tanrı"
+    ]
+  },
+  {
+    "sheet": "sheet_19_08_mistik_ve_evren",
+    "category": "08_mistik_ve_evren",
+    "item_count": 15,
+    "items": [
+      "Tiyatro",
+      "Türbin",
+      "Uzay Gemisi",
+      "Yıldız",
+      "İnci",
+      "Kaplan",
+      "Karadelik",
+      "Manyetizma",
+      "Nebula",
+      "Piramit",
+      "Zaman",
+      "İmparatorluk",
+      "Altar",
+      "Galaksi",
+      "Gece"
+    ]
+  },
+  {
+    "sheet": "sheet_20_08_mistik_ve_evren",
+    "category": "08_mistik_ve_evren",
+    "item_count": 11,
+    "items": [
+      "Güneş Saati",
+      "Işık",
+      "Şeytan",
+      "Tapınak",
+      "Ölümsüzlük İksiri",
+      "Harita",
+      "Asteroit",
+      "Plato",
+      "Banka",
+      "Pegasus",
+      "Çadır"
+    ]
+  },
+  {
+    "sheet": "sheet_21_05_maden_ve_materyaller",
+    "category": "05_maden_ve_materyaller",
+    "item_count": 15,
+    "items": [
+      "Granit",
+      "Dinamit",
+      "Beton",
+      "Bronz",
+      "Hazine",
+      "Altın Sikke",
+      "Pazar",
+      "Altın",
+      "Demir",
+      "Gümüş",
+      "Çelik",
+      "İpek",
+      "Borsa",
+      "Elmas",
+      "Kağıt Para"
+    ]
+  },
+  {
+    "sheet": "sheet_22_05_maden_ve_materyaller",
+    "category": "05_maden_ve_materyaller",
+    "item_count": 2,
+    "items": [
+      "Titanyum",
+      "Armut"
+    ]
+  },
+  {
+    "sheet": "sheet_23_03_canlilar",
+    "category": "03_canlilar",
+    "item_count": 15,
+    "items": [
+      "Kurşun",
+      "İnsan",
+      "Anka Kuşu",
+      "Denizanası",
+      "Denizkızı",
+      "Vida",
+      "Örümcek",
+      "İllüzyon Aynası",
+      "Balık Eti",
+      "Kurt Adam",
+      "Köpek",
+      "Köpekbalığı",
+      "İpekböceği",
+      "Vampir",
+      "Karınca"
+    ]
+  },
+  {
+    "sheet": "sheet_24_03_canlilar",
+    "category": "03_canlilar",
+    "item_count": 4,
+    "items": [
+      "Dinozor",
+      "Aile",
+      "Bakteri",
+      "Virüs"
+    ]
+  },
+  {
+    "sheet": "sheet_25_06_yemek_ve_tarim",
+    "category": "06_yemek_ve_tarim",
+    "item_count": 15,
+    "items": [
+      "Porselen",
+      "Sarmaşık",
+      "Pasta",
+      "Limon",
+      "Zeytinyağı",
+      "Çilek",
+      "Meyve Suyu",
+      "Kök",
+      "Soğan",
+      "Şeker",
+      "Alkol",
+      "Kurabiye",
+      "Çikolata",
+      "Patates",
+      "Kahve"
+    ]
+  },
+  {
+    "sheet": "sheet_26_06_yemek_ve_tarim",
+    "category": "06_yemek_ve_tarim",
+    "item_count": 1,
+    "items": [
+      "Çay"
+    ]
+  },
+  {
+    "sheet": "sheet_27_07_bilim_ve_teknoloji",
+    "category": "07_bilim_ve_teknoloji",
+    "item_count": 15,
+    "items": [
+      "İp",
+      "Lazer",
+      "Testere",
+      "İplik",
+      "Roket",
+      "Barometre",
+      "Kamera",
+      "İçten Yanmalı Motor",
+      "Otomobil",
+      "Demiryolu",
+      "Motosiklet",
+      "Tren",
+      "Uçak",
+      "Elektrik",
+      "Kamyon"
+    ]
+  },
+  {
+    "sheet": "sheet_28_07_bilim_ve_teknoloji",
+    "category": "07_bilim_ve_teknoloji",
+    "item_count": 11,
+    "items": [
+      "Radyo",
+      "İnternet",
+      "Radar",
+      "Telgraf",
+      "Bilgisayar",
+      "Helikopter",
+      "Mikroskop",
+      "Robot",
+      "Telefon",
+      "Termometre",
+      "Piyano"
+    ]
+  }
+]

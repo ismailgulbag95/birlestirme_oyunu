@@ -286,37 +286,51 @@ export class TableScene {
   }
 
   _buildSlots() {
-    // 3 adet low-poly tabak (slot) bölgesi (x ekseninde soldan sağa sıralı)
+    // 3 adet zarif simya tabağı (slot) bölgesi (x ekseninde soldan sağa sıralı)
     const slotPositions = [-1.2, 0, 1.2];
 
     slotPositions.forEach((x) => {
       const plateGroup = new THREE.Group();
       plateGroup.position.set(x, 1.75, 0);
-      plateGroup.scale.set(0.8, 0.8, 0.8); // %20 küçültme
+      plateGroup.scale.set(0.75, 0.75, 0.75);
 
-      // Low-poly plate base (8 segments for low-poly look)
-      const baseGeo = new THREE.CylinderGeometry(0.55, 0.45, 0.05, 8);
+      // 1. Koyu Obsidyen / Mermer Tabak Kaidesi
+      const baseGeo = new THREE.CylinderGeometry(0.52, 0.44, 0.04, 16);
       const plateMat = new THREE.MeshStandardMaterial({
-        color: '#e2e8f0', // Seramik / porselen tabak rengi
-        roughness: 0.4,
-        metalness: 0.1
+        color: 0x1e1b4b,
+        roughness: 0.25,
+        metalness: 0.6,
+        flatShading: true
       });
       const base = new THREE.Mesh(baseGeo, plateMat);
       base.castShadow = true;
       base.receiveShadow = true;
       plateGroup.add(base);
 
-      // Plate inner rim / dish depression
-      const rimGeo = new THREE.CylinderGeometry(0.5, 0.48, 0.07, 8);
-      const rimMat = new THREE.MeshStandardMaterial({
-        color: '#cbd5e1',
-        roughness: 0.3,
-        metalness: 0.2
+      // 2. Parlak Altın Varaklı Kenarlık (Golden Rim)
+      const goldRimMat = new THREE.MeshStandardMaterial({
+        color: 0xf59e0b,
+        emissive: 0xd97706,
+        emissiveIntensity: 0.3,
+        metalness: 0.9,
+        roughness: 0.15,
+        flatShading: true
       });
-      const rim = new THREE.Mesh(rimGeo, rimMat);
-      rim.position.y = 0.01;
-      rim.castShadow = true;
+      const rim = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.025, 6, 16), goldRimMat);
+      rim.rotation.x = Math.PI / 2;
+      rim.position.y = 0.02;
       plateGroup.add(rim);
+
+      // 3. Parlayan Sihirli Simya Halkası (Glowing Alchemy Rune Ring)
+      const runeRingMat = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
+        transparent: true,
+        opacity: 0.75
+      });
+      const runeRing = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.34, 16), runeRingMat);
+      runeRing.rotation.x = -Math.PI / 2;
+      runeRing.position.y = 0.025;
+      plateGroup.add(runeRing);
 
       plateGroup.userData = { slotIndex: x, isOccupied: false, currentItem: null, mesh: null, slot: plateGroup };
 
