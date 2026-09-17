@@ -2692,15 +2692,25 @@ export class UIManager {
       card.style.alignItems = 'flex-start';
       card.style.gap = '10px';
 
-      const iconFilter = isNamed ? 'none' : 'brightness(0)';
-      const iconShadow = isNamed ? `0 0 10px ${def.colorPalette?.primary || '#38bdf8'}` : 'none';
-      const iconBg = isNamed ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.35)';
+      // İpucu açılmamışsa renksiz siyah siluet, ancak formu/şekli net seçilsin diye açık zemin ve dış hat konturu
+      const iconFilter = isNamed
+        ? 'none'
+        : 'brightness(0) drop-shadow(0 0 1px rgba(255,255,255,0.95)) drop-shadow(0 0 3px rgba(212,163,89,0.5))';
+      const iconShadow = isNamed
+        ? `0 0 10px ${def.colorPalette?.primary || '#38bdf8'}`
+        : 'inset 0 1px 3px rgba(0,0,0,0.6), 0 0 8px rgba(255,255,255,0.08)';
+      const iconBg = isNamed
+        ? 'rgba(255,255,255,0.12)'
+        : 'linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%)';
+      const iconBorder = isNamed
+        ? `1px solid ${def.colorPalette?.primary ? def.colorPalette.primary + '66' : 'rgba(255,255,255,0.2)'}`
+        : '1px solid rgba(255,255,255,0.22)';
 
       const canonicalId = getCanonicalId(itemId) || itemId;
-      const iconHtml = `<img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter};" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
+      const iconHtml = `<img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" style="filter: ${iconFilter}; width: 28px; height: 28px; object-fit: contain;" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'filter: ${iconFilter};\\'>${def.icon || '✨'}</span>';">`;
 
       card.innerHTML = `
-        <div class="icon-symbol" style="width: 36px; height: 36px; border-radius: 8px; background: ${iconBg}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
+        <div class="icon-symbol" style="width: 38px; height: 38px; border-radius: 9px; background: ${iconBg}; border: ${iconBorder}; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: ${iconShadow}; flex-shrink: 0; margin-top: 2px;">${iconHtml}</div>
         <div style="flex: 1; min-width: 0;">
           <h4 style="font-size: 13px; color: #f8fafc; margin-bottom: 2px;">${isNamed ? localizedName : '???'}</h4>
           <p style="font-size: 11px; color: #94a3b8; margin-bottom: 6px; line-height: 1.4;">${hintObj.text}</p>
