@@ -15,3 +15,24 @@
 local.properties
 *.original_backup
 *_optimized.glb
+
+# --- GÜVENLİK: Hassas dosyalar ---
+.env
+.env.*
+!.env.example
+*.env
+
+# Geçici script / scratch dosyaları (API key riski)
+scratch/
+**/scratch/
+tools/scratch/
+
+# Sertifika ve anahtar dosyaları
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+key.properties
+google-services.json
+GoogleService-Info.plist
