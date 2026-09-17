@@ -42,6 +42,26 @@ export class UIManager {
     const style = document.createElement('style');
     style.id = 'alchemy-ui-styles';
     style.textContent = `
+      :root {
+        --rc-canvas: #07080a;
+        --rc-surface: #0d0d0d;
+        --rc-surface-card: #121212;
+        --rc-surface-elevated: #18191a;
+        --rc-surface-hover: #1f2124;
+        --rc-hairline: #242728;
+        --rc-hairline-soft: rgba(255, 255, 255, 0.08);
+        --rc-hairline-strong: rgba(255, 255, 255, 0.16);
+        --rc-ink: #f4f4f6;
+        --rc-ink-muted: #9c9c9d;
+        --rc-ink-subtle: #6a6b6c;
+        --rc-accent-red: #ff6161;
+        --rc-accent-blue: #57c1ff;
+        --rc-accent-green: #59d499;
+        --rc-accent-yellow: #ffc533;
+        --rc-accent-purple: #a78bfa;
+        --rc-font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
       #ui-container {
         position: absolute;
         top: 0;
@@ -49,54 +69,49 @@ export class UIManager {
         width: 100%;
         height: 100%;
         pointer-events: none;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: var(--rc-font);
         z-index: 10;
         overflow: hidden;
       }
 
       /* =================================================== */
-      /* ANTI-SLOP SAĞ PANEL: Çanta / Simyacı Envanteri       */
-      /* 3 Durum: Kapalı -> Dar (60px) -> Geniş (120px)      */
+      /* RAYCAST SAĞ PANEL: Keşif & Envanter Çantası         */
       /* =================================================== */
       #right-panel {
         position: absolute;
         right: 0;
-        top: 18px;
-        height: calc(100% - 90px);
-        background: linear-gradient(180deg, #181c26 0%, #10131a 100%);
-        border: 2px solid #543d22;
+        top: 16px;
+        height: calc(100% - 84px);
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
         border-right: none;
-        border-radius: 16px 0 0 16px;
+        border-radius: 14px 0 0 14px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 8px 6px 12px 6px;
-        gap: 6px;
+        padding: 10px 8px 14px 8px;
+        gap: 8px;
         pointer-events: auto;
-        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(212, 163, 89, 0.4);
-        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -12px 0 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 20;
       }
 
-      /* Durum 0: Kapalı (Tamamen ekran dışına gizli) */
       #right-panel.state-closed {
         transform: translateX(100%);
-        width: 62px;
+        width: 64px;
       }
 
-      /* Durum 1: Dar Mod (60px - İtemler kompakt görünür) */
       #right-panel.state-narrow {
         transform: translateX(0);
-        width: 62px;
+        width: 64px;
       }
 
-      /* Durum 2: Geniş Mod (120px - Formüller ve detaylar görünür) */
       #right-panel.state-wide {
         transform: translateX(0);
-        width: 122px;
+        width: 128px;
       }
 
-      /* Durum 3: Tam Ekran Modu (Tüm ekranı kaplayan ferah ızgara görünümü) */
       #right-panel.state-fullscreen {
         transform: translateX(0);
         width: 100%;
@@ -105,8 +120,8 @@ export class UIManager {
         right: 0;
         border-radius: 0;
         border: none;
-        padding: 12px 16px 20px 16px;
-        background: #0f172a;
+        padding: 16px 20px 24px 20px;
+        background: var(--rc-canvas);
         z-index: 100;
         box-shadow: none;
       }
@@ -114,48 +129,48 @@ export class UIManager {
       #right-panel.state-fullscreen .panel-header-badge {
         max-width: 900px;
         width: 100%;
-        margin: 0 auto 6px auto;
+        margin: 0 auto 8px auto;
         font-size: 13px;
-        padding: 8px 12px;
+        padding: 8px 14px;
       }
 
       #right-panel.state-fullscreen #inv-controls {
         max-width: 900px;
         width: 100%;
-        margin: 0 auto 10px auto;
+        margin: 0 auto 12px auto;
       }
 
       #right-panel.state-fullscreen #inv-items-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+        gap: 10px;
         max-width: 900px;
         width: 100%;
         margin: 0 auto;
         justify-items: center;
-        max-height: calc(100% - 100px);
+        max-height: calc(100% - 110px);
         overflow-y: auto;
       }
 
       #right-panel.state-fullscreen .item-icon-btn {
-        width: 68px;
-        height: 74px;
+        width: 76px;
+        height: 80px;
       }
 
-      /* Keşif Kulakçığı (Kapat / Toggle Butonu) */
+      /* Keşif Çekmece Kulakçığı */
       #right-panel-toggle {
         position: absolute;
-        left: -46px;
-        top: 28px;
-        width: 46px;
-        height: 64px;
-        background: linear-gradient(180deg, #782121 0%, #4a1010 100%);
-        border: 2px solid #b48c48;
+        left: -44px;
+        top: 24px;
+        width: 44px;
+        height: 60px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         border-right: none;
-        border-radius: 14px 0 0 14px;
-        color: #fef08a;
-        font-size: 14px;
-        font-weight: 800;
+        border-radius: 10px 0 0 10px;
+        color: var(--rc-ink);
+        font-size: 13px;
+        font-weight: 700;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -163,31 +178,29 @@ export class UIManager {
         gap: 3px;
         cursor: pointer;
         pointer-events: auto;
-        box-shadow: -5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: all 0.15s ease;
       }
 
       #right-panel-toggle:hover {
-        background: linear-gradient(180deg, #942929 0%, #5e1515 100%);
-        transform: scale(1.05);
-        border-color: #fde047;
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
       }
 
-      /* Çarpının Altındaki Tam Ekran Butonu */
       #right-panel-fullscreen-btn {
         position: absolute;
-        left: -46px;
-        top: 98px;
-        width: 46px;
-        height: 56px;
-        background: linear-gradient(180deg, #1e3a8a 0%, #172554 100%);
-        border: 2px solid #60a5fa;
+        left: -44px;
+        top: 92px;
+        width: 44px;
+        height: 52px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         border-right: none;
-        border-radius: 14px 0 0 14px;
-        color: #93c5fd;
-        font-size: 13px;
-        font-weight: 800;
+        border-radius: 10px 0 0 10px;
+        color: var(--rc-accent-blue);
+        font-size: 12px;
+        font-weight: 700;
         display: none;
         flex-direction: column;
         align-items: center;
@@ -195,27 +208,24 @@ export class UIManager {
         gap: 2px;
         cursor: pointer;
         pointer-events: auto;
-        box-shadow: -5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: all 0.15s ease;
       }
 
       #right-panel-fullscreen-btn:hover {
-        background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
-        transform: scale(1.05);
-        border-color: #bfdbfe;
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-accent-blue);
         color: #ffffff;
       }
 
-      /* Tam Ekran modunda sadece 1 tane kapat butonu yer alır */
       #right-panel.state-fullscreen #right-panel-toggle {
         left: auto;
         right: 18px;
         top: 14px;
-        border-right: 2px solid #b48c48;
-        border-radius: 12px;
-        width: 48px;
-        height: 48px;
+        border-right: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        width: 42px;
+        height: 42px;
       }
 
       #right-panel.state-fullscreen #right-panel-fullscreen-btn {
@@ -225,21 +235,20 @@ export class UIManager {
       /* Panel Başlık Şeridi */
       .panel-header-badge {
         width: 100%;
-        background: linear-gradient(180deg, #2a2015 0%, #17120a 100%);
-        border: 1px solid #785327;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         border-radius: 8px;
-        padding: 5px 4px;
+        padding: 6px 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 4px;
-        color: #fef08a;
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.8px;
+        gap: 6px;
+        color: var(--rc-ink);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.4);
+        box-shadow: inset 0 1px 0 var(--rc-hairline-soft);
         flex-shrink: 0;
         overflow: hidden;
       }
@@ -255,7 +264,7 @@ export class UIManager {
         width: 100%;
         align-items: center;
         padding-bottom: 6px;
-        border-bottom: 1.5px solid #3d2c18;
+        border-bottom: 1px solid var(--rc-hairline);
         flex-shrink: 0;
       }
 
@@ -267,7 +276,7 @@ export class UIManager {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 7px;
+        gap: 6px;
         width: 100%;
         overflow-y: auto;
         flex: 1;
@@ -284,116 +293,115 @@ export class UIManager {
         height: 0;
       }
 
-      /* Gömülü (Inset) Arama Kutusu */
+      /* Raycast Tarzı Komut Paleti Arama Kutusu */
       #item-search-input {
         width: 100%;
-        background: #090b0f;
-        border: 1.5px solid #3d2b17;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         border-radius: 8px;
-        padding: 6px 8px;
-        color: #fef08a;
-        font-size: 11px;
-        font-weight: 600;
+        padding: 7px 10px;
+        color: var(--rc-ink);
+        font-family: var(--rc-font);
+        font-size: 12px;
+        font-weight: 500;
         outline: none;
         box-sizing: border-box;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
         text-align: left;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
       }
 
       #item-search-input:focus {
-        border-color: #d97706;
-        background: #0d1017;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(217, 119, 6, 0.35);
+        border-color: var(--rc-accent-red);
+        background: var(--rc-surface-elevated);
+        box-shadow: 0 0 0 1px var(--rc-accent-red);
       }
 
       #item-search-input::placeholder {
-        color: #71624f;
-        font-size: 10px;
+        color: var(--rc-ink-subtle);
+        font-size: 11px;
       }
 
-      /* Segment Buton Grubu (Filtre & Sırala) */
+      /* Raycast Segmented Control (Pill Switcher) */
       .inv-btn-segment {
         display: flex;
-        gap: 3px;
+        gap: 4px;
         width: 100%;
+        background: var(--rc-surface-card);
+        padding: 2px;
+        border-radius: 6px;
+        border: 1px solid var(--rc-hairline);
       }
 
       .inv-segment-btn {
         flex: 1;
-        background: linear-gradient(180deg, #2b3342 0%, #19202b 100%);
-        border: 1px solid #4a3620;
-        color: #e2e8f0;
-        border-radius: 6px;
-        font-size: 9px;
-        padding: 5px 2px;
+        background: transparent;
+        border: none;
+        color: var(--rc-ink-muted);
+        border-radius: 4px;
+        font-family: var(--rc-font);
+        font-size: 10px;
+        padding: 4px 2px;
         cursor: pointer;
         text-align: center;
-        font-weight: 700;
+        font-weight: 600;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 0 #0b0e14;
         transition: all 0.15s ease;
       }
 
       .inv-segment-btn:hover {
-        border-color: #b48c48;
-        color: #fef08a;
-        transform: translateY(-1px);
+        color: var(--rc-ink);
+        background: var(--rc-surface-elevated);
       }
 
       .inv-segment-btn:active {
         transform: translateY(1px);
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.6);
       }
 
-      /* Anti-Slop: Taktil Envanter Yuvası (Inlaid Vault Slot) */
+      /* Raycast Eşya Kartı */
       .item-icon-btn {
-        width: 106px;
+        width: 112px;
         min-height: 72px;
-        border-radius: 12px;
-        background: linear-gradient(180deg, #1c212c 0%, #131720 100%);
-        border: 1.5px solid #3d2b17;
+        border-radius: 8px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #f1f5f9;
+        color: var(--rc-ink);
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.12s ease;
         flex-shrink: 0;
-        padding: 4px 4px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 3px 0 #080a0e, 0 5px 12px rgba(0, 0, 0, 0.6);
+        padding: 6px 4px;
         position: relative;
       }
 
       .item-icon-btn:hover {
-        border-color: #b48c48;
-        background: linear-gradient(180deg, #262c3a 0%, #181d28 100%);
-        transform: translateY(-2px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 5px 0 #080a0e, 0 8px 16px rgba(0, 0, 0, 0.7);
+        border-color: var(--rc-hairline-strong);
+        background: var(--rc-surface-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       }
 
       .item-icon-btn:active {
-        transform: translateY(2px);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 0 #080a0e;
+        transform: translateY(1px);
       }
 
-      /* Dar Modda Eşya Yuvası (Kompakt 50x50px) */
       #right-panel.state-narrow .item-icon-btn {
-        width: 50px;
-        min-height: 50px;
-        height: 50px;
+        width: 48px;
+        min-height: 48px;
+        height: 48px;
         padding: 2px;
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
       #right-panel.state-narrow .item-icon-btn .icon-symbol {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         margin-bottom: 0;
       }
 
@@ -403,67 +411,64 @@ export class UIManager {
       }
 
       .item-img-icon {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
         object-fit: contain;
-        filter: drop-shadow(0 3px 6px rgba(0,0,0,0.7));
+        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
         pointer-events: none;
       }
 
-      /* Geniş Mod Formül Yazısı */
       .item-formula {
-        font-size: 8px;
-        color: #fde047;
-        font-weight: 700;
+        font-size: 9px;
+        color: var(--rc-accent-yellow);
+        font-weight: 500;
         text-align: center;
-        margin-top: 1px;
+        margin-top: 2px;
         line-height: 1.15;
-        max-width: 98px;
+        max-width: 104px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
       }
 
       /* =================================================== */
-      /* ANTI-SLOP SOL PANEL: Simya Kodeksi (Alchemical Codex) */
+      /* RAYCAST SOL PANEL: İpuçları & Simya Kodeksi         */
       /* =================================================== */
       #left-drawer {
         position: absolute;
-        left: -232px;
-        top: 50px;
-        width: 232px;
-        height: calc(100% - 120px);
-        background: linear-gradient(180deg, #181c26 0%, #10131a 100%);
-        border: 2px solid #543d22;
+        left: -240px;
+        top: 16px;
+        width: 240px;
+        height: calc(100% - 84px);
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
         border-left: none;
-        border-radius: 0 18px 18px 0;
+        border-radius: 0 14px 14px 0;
         pointer-events: auto;
-        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex;
         flex-direction: column;
         z-index: 20;
-        box-shadow: 14px 0 45px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(212, 163, 89, 0.35);
+        box-shadow: 12px 0 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--rc-hairline-soft);
       }
 
       #left-drawer.open {
-        transform: translateX(232px);
+        transform: translateX(240px);
       }
 
-      /* Dikey Antika Kitap Sırtı / İpucu Kulakçığı */
       #drawer-toggle {
         position: absolute;
-        right: -46px;
-        top: 28px;
-        width: 46px;
-        height: 64px;
-        background: linear-gradient(180deg, #782121 0%, #4a1010 100%);
-        border: 2px solid #b48c48;
+        right: -44px;
+        top: 24px;
+        width: 44px;
+        height: 60px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         border-left: none;
-        border-radius: 0 14px 14px 0;
-        color: #fef08a;
-        font-size: 14px;
-        font-weight: 800;
+        border-radius: 0 10px 10px 0;
+        color: var(--rc-ink);
+        font-size: 13px;
+        font-weight: 700;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -471,124 +476,124 @@ export class UIManager {
         gap: 3px;
         cursor: pointer;
         pointer-events: auto;
-        box-shadow: 5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        box-shadow: 4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: all 0.15s ease;
       }
 
       #drawer-toggle:hover {
-        background: linear-gradient(180deg, #942929 0%, #5e1515 100%);
-        transform: scale(1.05);
-        border-color: #fde047;
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
       }
 
       .drawer-header {
-        padding: 14px 16px;
-        background: linear-gradient(180deg, #881324 0%, #5c0d18 100%);
-        border-bottom: 2px solid #b48c48;
-        border-radius: 0 16px 0 0;
-        font-size: 13px;
-        font-weight: 800;
-        color: #fef08a;
+        padding: 12px 14px;
+        background: var(--rc-surface-card);
+        border-bottom: 1px solid var(--rc-hairline);
+        border-radius: 0 14px 0 0;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--rc-ink);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 3px 8px rgba(0, 0, 0, 0.5);
-        letter-spacing: 0.8px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
       }
 
       .hint-badge {
-        background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
-        color: #2e1502;
-        border: 1px solid #fde68a;
-        padding: 3px 10px;
-        border-radius: 12px;
+        background: var(--rc-surface-elevated);
+        color: var(--rc-accent-yellow);
+        border: 1px solid var(--rc-hairline);
+        padding: 2px 8px;
+        border-radius: 6px;
         font-size: 11px;
-        font-weight: 800;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        font-weight: 700;
       }
 
       .drawer-content {
         flex: 1;
-        padding: 14px 12px;
+        padding: 12px 10px;
         overflow-y: auto;
-        color: #cbd5e1;
-        font-size: 13px;
+        color: var(--rc-ink-muted);
+        font-size: 12px;
         line-height: 1.5;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
       }
 
-      /* Kilitli Eşya Kartı: Simya Reçete Parşömeni */
       .locked-item-card {
-        background: #0d1016;
-        border: 1.5px solid #3d2b17;
-        border-radius: 12px;
-        padding: 12px;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.4);
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        padding: 10px;
         position: relative;
+        transition: all 0.15s ease;
+      }
+
+      .locked-item-card:hover {
+        border-color: var(--rc-hairline-strong);
+        background: var(--rc-surface-elevated);
       }
 
       .locked-item-card h4 {
-        color: #fef08a;
-        margin-bottom: 4px;
-        font-size: 13px;
-        font-weight: 800;
+        color: var(--rc-ink);
+        margin-bottom: 3px;
+        font-size: 12px;
+        font-weight: 700;
         display: flex;
         align-items: center;
         gap: 6px;
       }
 
       .locked-item-card p {
-        color: #9ca3af;
-        font-size: 12px;
-        margin-bottom: 10px;
+        color: var(--rc-ink-muted);
+        font-size: 11px;
+        margin-bottom: 8px;
         line-height: 1.4;
       }
 
-      /* 3D Zümrüt Yeşili İpucu Butonu */
+      /* Raycast Yeşil İpucu Butonu */
       .hint-btn {
-        background: linear-gradient(180deg, #4ade80 0%, #22c55e 45%, #15803d 100%);
-        color: #ffffff;
-        border: 1.5px solid #14532d;
-        padding: 7px 16px;
-        border-radius: 10px;
+        background: var(--rc-accent-green);
+        color: #07080a;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-family: var(--rc-font);
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 700;
         cursor: pointer;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 0 #0f4021, 0 5px 10px rgba(0, 0, 0, 0.4);
         transition: all 0.12s ease;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 4px;
       }
 
       .hint-btn:hover {
-        background: linear-gradient(180deg, #6ee7b7 0%, #34d399 45%, #16a34a 100%);
+        background: #6ee7b7;
         transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 4px 0 #0f4021, 0 7px 12px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 8px rgba(89, 212, 153, 0.4);
       }
 
       .hint-btn:active {
-        transform: translateY(2px);
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 0 #0f4021;
+        transform: translateY(1px);
       }
 
       .hint-btn:disabled {
-        background: linear-gradient(180deg, #475569 0%, #334155 100%);
-        border-color: #1e293b;
-        box-shadow: none;
-        color: #94a3b8;
+        background: var(--rc-surface-elevated);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink-subtle);
         cursor: not-allowed;
       }
 
-      /* Alt Bar: Sol Alt (Temizle) ve Sağ Alt (Ayarlar) */
+      /* =================================================== */
+      /* ALT AKSİYON BARI & BİRLEŞTİR (CRAFT) BUTONU         */
+      /* =================================================== */
       #bottom-action-bar {
         position: fixed;
-        bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+        bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 16px));
         left: 0;
         width: 100vw;
         padding: 0 16px;
@@ -600,124 +605,110 @@ export class UIManager {
         box-sizing: border-box;
       }
 
-      /* Taktil Alt Köşe Butonları (Temizle & Ayarlar) */
       .bottom-side-btn {
-        background: linear-gradient(180deg, #2a3342 0%, #1a212d 50%, #111620 100%);
-        border: 1.5px solid #5c4426;
-        border-radius: 18px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 0 #0d1117, 0 8px 18px rgba(0, 0, 0, 0.6);
-        color: #fef08a;
-        font-size: 13px;
-        font-weight: 800;
-        padding: 9px 18px;
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        color: var(--rc-ink);
+        font-family: var(--rc-font);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 14px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 6px;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.15s ease;
         user-select: none;
         pointer-events: auto;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
       }
 
       .bottom-side-btn:hover {
-        background: linear-gradient(180deg, #374357 0%, #222b3a 50%, #161c28 100%);
-        border-color: #b48c48;
-        transform: translateY(-2px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
+        transform: translateY(-1px);
       }
 
       .bottom-side-btn:active {
-        transform: translateY(2px);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
+        transform: translateY(1px);
       }
 
-      /* Temizle Butonuna Özel Hafif Amber/Kırmızı Vurgu */
       #bottom-cleanup-btn {
-        border-color: #7f1d1d;
-        color: #fca5a5;
+        color: var(--rc-accent-red);
       }
       #bottom-cleanup-btn:hover {
-        border-color: #ef4444;
-        color: #fee2e2;
+        border-color: var(--rc-accent-red);
+        background: rgba(255, 97, 97, 0.12);
+        color: #ffffff;
       }
 
-      /* Birleştir (Craft) Butonu - Ekranın Tam Merkezinde Sabit (Fixed) */
+      /* Raycast Kırmızı-Mercan Signature Craft Butonu */
       #craft-action-btn {
         position: fixed;
         left: 50%;
-        bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+        bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 16px));
         transform: translateX(-50%);
-        background: linear-gradient(135deg, #f59e0b 0%, #d97706 40%, #b45309 75%, #78350f 100%);
-        border: 2px solid #fef08a;
-        border-radius: 28px;
-        padding: 10px 24px;
+        background: linear-gradient(135deg, #ff5757 0%, #d62828 100%);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 9999px;
+        padding: 10px 22px;
         color: #ffffff;
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 0.5px;
+        font-family: var(--rc-font);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
         cursor: pointer;
         display: none;
         align-items: center;
         justify-content: center;
         gap: 6px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 22px rgba(245, 158, 11, 0.6), 0 8px 24px rgba(0, 0, 0, 0.6);
-        transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        box-shadow: 0 0 24px rgba(255, 87, 87, 0.45), 0 8px 24px rgba(0, 0, 0, 0.6);
+        transition: transform 0.15s ease, box-shadow 0.2s ease;
         user-select: none;
         pointer-events: auto;
         z-index: 30;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-        animation: craftBtnPulse 2s infinite alternate ease-in-out;
       }
 
       #craft-action-btn:hover {
-        border-color: #ffffff;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 32px rgba(253, 224, 71, 0.85), 0 12px 28px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 32px rgba(255, 87, 87, 0.75), 0 10px 28px rgba(0, 0, 0, 0.7);
+        transform: translateX(-50%) translateY(-1px);
       }
 
-      @keyframes craftBtnPulse {
-        0% {
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 16px rgba(245, 158, 11, 0.45), 0 6px 18px rgba(0, 0, 0, 0.5);
-        }
-        100% {
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 32px rgba(253, 224, 71, 0.9), 0 8px 25px rgba(0, 0, 0, 0.65);
-        }
+      #craft-action-btn:active {
+        transform: translateX(-50%) translateY(1px);
       }
 
-      /* Mobil Ekranlar İçin Alt Bar İyileştirmesi */
       @media (max-width: 768px), (max-height: 850px) {
         #bottom-action-bar {
-          bottom: max(36px, calc(env(safe-area-inset-bottom, 0px) + 28px));
+          bottom: max(28px, calc(env(safe-area-inset-bottom, 0px) + 20px));
           padding: 0 12px;
         }
-
         #craft-action-btn {
-          bottom: max(36px, calc(env(safe-area-inset-bottom, 0px) + 28px));
+          bottom: max(28px, calc(env(safe-area-inset-bottom, 0px) + 20px));
         }
-
         .bottom-side-btn {
-          padding: 8px 14px;
-          font-size: 12px;
-          border-radius: 16px;
+          padding: 7px 12px;
+          font-size: 11px;
         }
-
         #craft-action-btn {
-          padding: 9px 20px;
-          font-size: 13px;
-          border-radius: 22px;
+          padding: 8px 18px;
+          font-size: 12px;
         }
       }
 
-      /* Settings Modal (Koyu Ahşap/Obsidian Taş Panel & Kurdele Başlık) */
-      #settings-modal {
-
+      /* =================================================== */
+      /* MODALLAR (AYARLAR, ABONELİK, BAŞARIMLAR, REHBER)    */
+      /* =================================================== */
+      #settings-modal, #grandmaster-offer-modal, #achievements-modal, #welcome-modal, #char-unlock-modal {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.82);
+        background: rgba(7, 8, 10, 0.85);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         display: none;
@@ -725,34 +716,36 @@ export class UIManager {
         justify-content: center;
         pointer-events: auto;
         z-index: 120;
+        padding: 16px;
+        box-sizing: border-box;
       }
 
-      #settings-modal.show {
+      #settings-modal.show, #grandmaster-offer-modal.show, #achievements-modal.show, #welcome-modal.show, #char-unlock-modal.show {
         display: flex;
       }
 
-      .settings-box {
-        background: linear-gradient(180deg, #1c212d 0%, #12151e 100%);
-        border: 2.5px solid #6b4d2c;
-        border-radius: 24px;
-        padding: 24px 22px;
+      .settings-box, .gm-offer-box, .achievements-box, .welcome-card, .celebrate-card {
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 14px;
+        padding: 20px;
         width: 90%;
         max-width: 440px;
-        color: white;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(212, 163, 89, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.7);
+        color: var(--rc-ink);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), inset 0 1px 0 var(--rc-hairline-soft);
         display: flex;
         flex-direction: column;
-        gap: 14px;
-        max-height: 85vh;
+        gap: 12px;
+        max-height: 88vh;
         overflow-y: auto;
         position: relative;
-        animation: settingsModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: settingsModalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       @keyframes settingsModalPop {
         from {
           opacity: 0;
-          transform: scale(0.92) translateY(14px);
+          transform: scale(0.96) translateY(8px);
         }
         to {
           opacity: 1;
@@ -760,104 +753,104 @@ export class UIManager {
         }
       }
 
-      /* Pinterest Stili Ribbon (Kurdele) Başlık Rozeti */
+      .settings-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+      }
+
       .settings-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: linear-gradient(180deg, #991b1b 0%, #7f1d1d 50%, #5d1212 100%);
-        border: 2px solid #f59e0b;
-        border-radius: 14px;
-        padding: 10px 14px;
-        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 5px 12px rgba(0, 0, 0, 0.5);
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 10px;
+        padding: 8px 12px;
       }
 
       .settings-title {
-        font-size: 16px;
-        font-weight: 800;
-        color: #fef08a;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--rc-ink);
+        letter-spacing: 0.3px;
         display: flex;
         align-items: center;
         gap: 8px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
       }
 
       .settings-close-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 10px;
-        background: linear-gradient(180deg, #450a0a 0%, #2b0606 100%);
-        border: 1.5px solid #ef4444;
-        color: #fca5a5;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: var(--rc-surface-elevated);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink-muted);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
-        font-weight: 800;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+        font-size: 13px;
+        font-weight: 700;
         transition: all 0.15s ease;
+        flex-shrink: 0;
       }
 
       .settings-close-icon:hover {
-        background: #dc2626;
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
         color: #ffffff;
-        transform: scale(1.08);
       }
 
       .settings-tabs {
         display: flex;
-        gap: 8px;
-        background: rgba(0, 0, 0, 0.45);
-        padding: 5px;
-        border-radius: 14px;
-        border: 1.5px solid #4a3620;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+        gap: 4px;
+        background: var(--rc-surface-card);
+        padding: 3px;
+        border-radius: 8px;
+        border: 1px solid var(--rc-hairline);
+        flex: 1;
       }
 
       .settings-tab-btn {
         flex: 1;
-        padding: 8px 6px;
-        border-radius: 10px;
-        border: 1.5px solid transparent;
+        padding: 7px 4px;
+        border-radius: 6px;
+        border: none;
         background: transparent;
-        color: #a8a29e;
-        font-size: 12px;
-        font-weight: 800;
+        color: var(--rc-ink-muted);
+        font-family: var(--rc-font);
+        font-size: 11.5px;
+        font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
         text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        letter-spacing: 0.2px;
       }
 
       .settings-tab-btn.active {
-        background: linear-gradient(180deg, #855b2e 0%, #523719 100%);
-        color: #fef08a;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
-        border: 1.5px solid #d97706;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        background: var(--rc-surface-elevated);
+        color: #ffffff;
+        border: 1px solid var(--rc-hairline-strong);
       }
 
       .settings-tab-pane {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
       }
 
       .settings-btn-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: rgba(0, 0, 0, 0.35);
-        border: 1.5px solid #4a3620;
-        border-radius: 14px;
-        padding: 11px 14px;
-        gap: 12px;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        padding: 10px 12px;
+        gap: 10px;
       }
 
       .settings-btn-row-info {
@@ -870,271 +863,211 @@ export class UIManager {
       .settings-btn-label {
         font-size: 13px;
         font-weight: 800;
-        color: #fef08a;
-        letter-spacing: 0.3px;
+        color: #f4f4f6;
+        letter-spacing: 0.2px;
       }
 
       .settings-btn-sub {
         font-size: 11px;
-        color: #a8a29e;
+        color: var(--rc-ink-muted);
       }
 
-      /* 3D Taktil Düğme Temeli (Pinterest Chunky Bevel) */
+      /* Raycast Buton Seti */
       .settings-action-btn {
-        padding: 8px 16px;
-        border-radius: 12px;
-        font-size: 12px;
-        font-weight: 800;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-family: var(--rc-font);
+        font-size: 11px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.12s ease;
         white-space: nowrap;
         user-select: none;
-        letter-spacing: 0.5px;
+        border: 1px solid var(--rc-hairline);
       }
 
       .settings-action-btn:active {
-        transform: translateY(3px) !important;
+        transform: translateY(1px);
       }
 
-      /* 3D Kırmızı Buton */
+      .btn-primary-white {
+        background: #ffffff;
+        color: #000000;
+        border: none;
+      }
+      .btn-primary-white:hover {
+        background: #e8e8e8;
+      }
+
       .btn-danger {
-        background: linear-gradient(180deg, #f87171 0%, #dc2626 50%, #991b1b 100%);
-        color: white;
-        border: 1.5px solid #7f1d1d;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #450a0a, 0 5px 10px rgba(0, 0, 0, 0.5);
-        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        background: rgba(255, 97, 97, 0.15);
+        color: var(--rc-accent-red);
+        border-color: rgba(255, 97, 97, 0.35);
       }
       .btn-danger:hover {
-        background: linear-gradient(180deg, #fca5a5 0%, #ef4444 50%, #b91c1c 100%);
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 0 #450a0a, 0 7px 12px rgba(0, 0, 0, 0.6);
-      }
-      .btn-danger:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #450a0a;
+        background: rgba(255, 97, 97, 0.25);
+        border-color: var(--rc-accent-red);
+        color: #ffffff;
       }
 
       .btn-danger-outline {
-        background: rgba(239, 68, 68, 0.15);
-        color: #fca5a5;
-        border: 1.5px solid #ef4444;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        background: transparent;
+        color: var(--rc-accent-red);
+        border: 1px solid rgba(255, 97, 97, 0.4);
       }
       .btn-danger-outline:hover {
-        background: rgba(239, 68, 68, 0.3);
-        color: white;
+        background: rgba(255, 97, 97, 0.2);
+        color: #ffffff;
       }
 
-      /* 3D Mor Buton (Karakter Değişimi) */
       .btn-purple {
-        background: linear-gradient(180deg, #a78bfa 0%, #7c3aed 50%, #5b21b6 100%);
-        color: white;
-        border: 1.5px solid #4c1d95;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #2e1065, 0 5px 10px rgba(0, 0, 0, 0.5);
-        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        background: rgba(167, 139, 250, 0.15);
+        color: var(--rc-accent-purple);
+        border-color: rgba(167, 139, 250, 0.35);
       }
       .btn-purple:hover {
-        background: linear-gradient(180deg, #c4b5fd 0%, #8b5cf6 50%, #6d28d9 100%);
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 0 #2e1065, 0 7px 12px rgba(0, 0, 0, 0.6);
-      }
-      .btn-purple:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #2e1065;
+        background: rgba(167, 139, 250, 0.25);
+        border-color: var(--rc-accent-purple);
+        color: #ffffff;
       }
 
-      /* 3D Zümrüt Yeşili Buton (Referans Görseldeki Butonun Birebir Taktil Hali) */
       .btn-green {
-        background: linear-gradient(180deg, #4ade80 0%, #22c55e 45%, #15803d 100%);
-        color: white;
-        border: 1.5px solid #14532d;
-        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45), 0 4px 0 #0d381d, 0 6px 12px rgba(0, 0, 0, 0.5);
-        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        background: rgba(89, 212, 153, 0.15);
+        color: var(--rc-accent-green);
+        border-color: rgba(89, 212, 153, 0.35);
       }
       .btn-green:hover {
-        background: linear-gradient(180deg, #86efac 0%, #4ade80 45%, #16a34a 100%);
-        transform: translateY(-1px);
-        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.55), 0 5px 0 #0d381d, 0 8px 15px rgba(0, 0, 0, 0.6);
-      }
-      .btn-green:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #0d381d;
+        background: rgba(89, 212, 153, 0.25);
+        border-color: var(--rc-accent-green);
+        color: #ffffff;
       }
       .btn-green.muted {
-        background: linear-gradient(180deg, #64748b 0%, #475569 50%, #334155 100%);
-        border-color: #1e293b;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 3px 0 #0f172a, 0 5px 10px rgba(0, 0, 0, 0.4);
+        background: var(--rc-surface-card);
+        color: var(--rc-ink-subtle);
+        border-color: var(--rc-hairline);
       }
 
-      /* 3D Mavi/Kraliyet Butonu (Dil Değiştir) */
       .btn-blue {
-        background: linear-gradient(180deg, #38bdf8 0%, #0284c7 50%, #0369a1 100%);
-        color: white;
-        border: 1.5px solid #075985;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 0 #0c4a6e, 0 5px 10px rgba(0, 0, 0, 0.5);
-        text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        background: rgba(87, 193, 255, 0.15);
+        color: var(--rc-accent-blue);
+        border-color: rgba(87, 193, 255, 0.35);
       }
       .btn-blue:hover {
-        background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 50%, #0284c7 100%);
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 4px 0 #0c4a6e, 0 7px 12px rgba(0, 0, 0, 0.6);
-      }
-      .btn-blue:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #0c4a6e;
+        background: rgba(87, 193, 255, 0.25);
+        border-color: var(--rc-accent-blue);
+        color: #ffffff;
       }
 
-      /* 3D Kehribar/Altın Buton (Debug Butonları vb.) */
       .btn-amber {
-        background: linear-gradient(180deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
-        color: #451a03;
-        border: 1.5px solid #78350f;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 3px 0 #451a03, 0 5px 10px rgba(0, 0, 0, 0.5);
-        text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+        background: rgba(255, 197, 51, 0.15);
+        color: var(--rc-accent-yellow);
+        border-color: rgba(255, 197, 51, 0.35);
       }
       .btn-amber:hover {
-        background: linear-gradient(180deg, #fde68a 0%, #fbbf24 50%, #d97706 100%);
-        transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 4px 0 #451a03, 0 7px 12px rgba(0, 0, 0, 0.6);
-      }
-      .btn-amber:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #451a03;
+        background: rgba(255, 197, 51, 0.25);
+        border-color: var(--rc-accent-yellow);
+        color: #ffffff;
       }
       .btn-amber.active {
-        box-shadow: 0 0 16px rgba(245, 158, 11, 0.8), inset 0 1px 0 rgba(255,255,255,0.6);
-        border-color: #fde047;
+        background: var(--rc-accent-yellow);
+        color: #07080a;
       }
 
       .btn-cyan {
-        background: linear-gradient(180deg, #67e8f9 0%, #06b6d4 50%, #0e7490 100%);
-        color: white;
-        border: 1.5px solid #155e75;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #164e63, 0 5px 10px rgba(0, 0, 0, 0.5);
+        background: rgba(87, 193, 255, 0.15);
+        color: var(--rc-accent-blue);
+        border-color: rgba(87, 193, 255, 0.35);
       }
       .btn-cyan:hover {
-        background: linear-gradient(180deg, #a5f3fc 0%, #22d3ee 50%, #0891b2 100%);
-        transform: translateY(-1px);
-      }
-      .btn-cyan:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #164e63;
+        background: rgba(87, 193, 255, 0.25);
+        color: #ffffff;
       }
 
       .btn-indigo {
-        background: linear-gradient(180deg, #a5b4fc 0%, #6366f1 50%, #4338ca 100%);
-        color: white;
-        border: 1.5px solid #3730a3;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 3px 0 #312e81, 0 5px 10px rgba(0, 0, 0, 0.5);
+        background: var(--rc-surface-elevated);
+        color: var(--rc-ink);
+        border-color: var(--rc-hairline-strong);
       }
       .btn-indigo:hover {
-        background: linear-gradient(180deg, #c7d2fe 0%, #818cf8 50%, #4f46e5 100%);
-        transform: translateY(-1px);
-      }
-      .btn-indigo:active {
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 0 #312e81;
-      }
-      .btn-indigo:hover {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(79, 70, 229, 1));
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        background: var(--rc-surface-hover);
+        color: #ffffff;
       }
 
       .btn-emerald {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.85), rgba(13, 148, 136, 0.85));
-        color: white;
-        border-color: rgba(110, 231, 183, 0.4);
+        background: rgba(89, 212, 153, 0.15);
+        color: var(--rc-accent-green);
+        border-color: rgba(89, 212, 153, 0.35);
       }
       .btn-emerald:hover {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 1), rgba(13, 148, 136, 1));
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        background: rgba(89, 212, 153, 0.25);
+        color: #ffffff;
       }
 
       .btn-slate {
-        background: rgba(255, 255, 255, 0.15);
-        color: #f1f5f9;
-        border-color: rgba(255, 255, 255, 0.2);
+        background: var(--rc-surface-elevated);
+        color: var(--rc-ink-muted);
+        border-color: var(--rc-hairline);
       }
       .btn-slate:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: var(--rc-surface-hover);
+        color: var(--rc-ink);
       }
       .btn-slate.active {
-        background: rgba(56, 189, 248, 0.3);
-        border-color: #38bdf8;
-        color: #38bdf8;
+        background: rgba(87, 193, 255, 0.2);
+        border-color: var(--rc-accent-blue);
+        color: var(--rc-accent-blue);
+      }
+
+      .btn-gold-primary {
+        background: #ffffff;
+        color: #07080a;
+        font-family: var(--rc-font);
+        font-size: 13px;
+        font-weight: 700;
+        padding: 10px 18px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .btn-gold-primary:hover {
+        background: #e8e8e8;
+      }
+
+      .btn-dark-secondary {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink);
+        font-family: var(--rc-font);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .btn-dark-secondary:hover {
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
       }
 
       /* FPS HUD */
       #fps-counter-hud {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(56, 189, 248, 0.35);
-        border-radius: 10px;
-        padding: 6px 12px;
-        color: #38bdf8;
+        top: 16px;
+        left: 16px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 6px;
+        padding: 4px 8px;
+        color: var(--rc-accent-blue);
         font-family: monospace, Consolas, sans-serif;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 600;
         pointer-events: none;
         z-index: 50;
         display: none;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Ad Modal */
-      #ad-modal {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(8px);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        pointer-events: auto;
-        z-index: 100;
-      }
-
-      .ad-box {
-        background: #1e293b;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 16px;
-        padding: 24px;
-        width: 80%;
-        max-width: 300px;
-        text-align: center;
-        color: white;
-      }
-
-      .ad-box h3 {
-        margin-bottom: 12px;
-        color: #f59e0b;
-      }
-
-      .ad-box p {
-        font-size: 13px;
-        color: #cbd5e1;
-        margin-bottom: 20px;
-      }
-
-      .ad-btn {
-        background: #10b981;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-weight: 700;
-        cursor: pointer;
-        width: 100%;
-        margin-bottom: 8px;
-      }
-
-      .ad-close {
-        background: transparent;
-        color: #94a3b8;
-        border: none;
-        padding: 6px;
-        cursor: pointer;
-        font-size: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       }
 
       /* Masanın Önündeki Keşif Bilgilendirme Banner'ı */
@@ -1142,22 +1075,21 @@ export class UIManager {
         position: absolute;
         bottom: 80px;
         left: 50%;
-        transform: translateX(-50%) translateY(20px) scale(0.9);
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
-        backdrop-filter: blur(14px);
-        border: 1.5px solid rgba(245, 158, 11, 0.6);
-        border-radius: 18px;
-        padding: 12px 22px;
-        color: #ffffff;
+        transform: translateX(-50%) translateY(20px) scale(0.95);
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-accent-yellow);
+        border-radius: 12px;
+        padding: 10px 18px;
+        color: var(--rc-ink);
         display: flex;
         align-items: center;
-        gap: 14px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 20px rgba(245, 158, 11, 0.3);
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 197, 51, 0.25);
         pointer-events: none;
         opacity: 0;
         z-index: 50;
         max-width: 90vw;
-        transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       #discovery-banner.show {
@@ -1165,26 +1097,49 @@ export class UIManager {
         transform: translateX(-50%) translateY(0) scale(1);
       }
 
+      .discovery-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--rc-surface-card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: 1px solid var(--rc-hairline);
+      }
+
+      .discovery-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--rc-accent-yellow);
+        margin-bottom: 2px;
+      }
+
+      .discovery-desc {
+        font-size: 11px;
+        color: var(--rc-ink-muted);
+        line-height: 1.35;
+      }
+
       /* Toast Bildirimi */
       #alchemy-toast {
         position: absolute;
-        top: 24px;
+        top: 20px;
         left: 50%;
-        transform: translateX(-50%) translateY(-20px);
-        background: rgba(15, 23, 42, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        padding: 8px 18px;
-        color: #f8fafc;
-        font-size: 13px;
-        font-weight: 700;
+        transform: translateX(-50%) translateY(-15px);
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        padding: 7px 16px;
+        color: var(--rc-ink);
+        font-size: 12px;
+        font-weight: 600;
         pointer-events: none;
         opacity: 0;
         z-index: 99;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex;
         align-items: center;
         gap: 8px;
@@ -1195,453 +1150,15 @@ export class UIManager {
         transform: translateX(-50%) translateY(0);
       }
       #alchemy-toast.warn {
-        border-color: rgba(245, 158, 11, 0.6);
-        color: #fef08a;
+        border-color: var(--rc-accent-yellow);
+        color: var(--rc-accent-yellow);
       }
       #alchemy-toast.success {
-        border-color: rgba(52, 211, 153, 0.6);
-        color: #6ee7b7;
+        border-color: var(--rc-accent-green);
+        color: var(--rc-accent-green);
       }
 
-      .discovery-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
-      }
-
-      .discovery-title {
-        font-size: 15px;
-        font-weight: 700;
-        color: #fef08a;
-        margin-bottom: 2px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .discovery-desc {
-        font-size: 12px;
-        color: #cbd5e1;
-        line-height: 1.35;
-      }
-
-      /* =================================================== */
-      /* HOŞGELDİNİZ & REHBER (TUTORIAL) MODALLARI & OK      */
-      /* =================================================== */
-      #welcome-modal, #char-unlock-modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(5, 7, 12, 0.78);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: 9990;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        pointer-events: auto;
-        padding: 16px;
-        box-sizing: border-box;
-      }
-
-      /* Rehber Modalı: Flulaştırma (blur) KESİNLİKLE YOK, Arka plan net ve şeffaf */
-      #tutorial-modal {
-        position: fixed;
-        inset: 0;
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        z-index: 9990;
-        display: none;
-        pointer-events: none;
-        padding: 16px;
-        box-sizing: border-box;
-      }
-
-      #welcome-modal.show, #char-unlock-modal.show {
-        display: flex;
-      }
-
-      #tutorial-modal.show {
-        display: block;
-      }
-
-      .welcome-card, .celebrate-card {
-        background: linear-gradient(180deg, #1f2636 0%, #111520 100%);
-        border: 2px solid #b48c48;
-        border-radius: 20px;
-        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(217, 119, 6, 0.35);
-        max-width: 440px;
-        width: 100%;
-        padding: 28px 24px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
-        position: relative;
-        animation: modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      @keyframes modalZoomIn {
-        from { opacity: 0; transform: scale(0.9) translateY(15px); }
-        to { opacity: 1; transform: scale(1) translateY(0); }
-      }
-
-      .welcome-icon-glow {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0) 70%);
-        border: 1.5px solid #d97706;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 36px;
-        box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
-      }
-
-      .welcome-title, .celebrate-title {
-        font-size: 20px;
-        font-weight: 800;
-        color: #fef08a;
-        margin: 0;
-        letter-spacing: 0.5px;
-        text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-      }
-
-      .welcome-sub {
-        font-size: 13px;
-        color: #cbd5e1;
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      .welcome-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-        margin-top: 6px;
-      }
-
-      .btn-gold-primary {
-        background: linear-gradient(180deg, #d97706 0%, #92400e 100%);
-        border: 1.5px solid #fde047;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 800;
-        padding: 13px 20px;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.15s ease;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 15px rgba(217, 119, 6, 0.4);
-      }
-
-      .btn-gold-primary:hover {
-        background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
-        transform: translateY(-2px);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(217, 119, 6, 0.6);
-      }
-
-      .btn-gold-primary:active {
-        transform: translateY(1px);
-      }
-
-      .btn-dark-secondary {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: #94a3b8;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 9px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-
-      .btn-dark-secondary:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: #e2e8f0;
-      }
-
-      /* Rehber Kartı */
-      .tutorial-card {
-        background: linear-gradient(180deg, #1c2230 0%, #10141d 100%);
-        border: 2px solid #b48c48;
-        border-radius: 18px;
-        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(217, 119, 6, 0.3);
-        max-width: 440px;
-        width: calc(100% - 24px);
-        padding: 18px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        pointer-events: auto;
-        transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
-        animation: modalZoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .tutorial-card.pos-bottom {
-        top: auto !important;
-        bottom: 22px !important;
-        transform: translateX(-50%) !important;
-      }
-
-      .tutorial-card.pos-top {
-        bottom: auto !important;
-        top: 22px !important;
-        transform: translateX(-50%) !important;
-      }
-
-      .tutorial-card.pos-center {
-        top: 50% !important;
-        bottom: auto !important;
-        transform: translate(-50%, -50%) !important;
-      }
-
-      .tutorial-top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .tutorial-step-tag {
-        background: rgba(217, 119, 6, 0.2);
-        color: #fde047;
-        font-size: 11px;
-        font-weight: 800;
-        padding: 3px 10px;
-        border-radius: 6px;
-        border: 1px solid rgba(253, 224, 71, 0.4);
-        letter-spacing: 0.5px;
-      }
-
-      .tutorial-close-btn {
-        background: transparent;
-        border: none;
-        color: #94a3b8;
-        font-size: 18px;
-        font-weight: 700;
-        cursor: pointer;
-        padding: 2px 6px;
-        line-height: 1;
-        border-radius: 4px;
-        transition: all 0.15s ease;
-      }
-
-      .tutorial-close-btn:hover {
-        color: #f87171;
-        background: rgba(248, 113, 113, 0.1);
-      }
-
-      .tutorial-progress-track {
-        width: 100%;
-        height: 5px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      .tutorial-progress-bar {
-        height: 100%;
-        width: 20%;
-        background: linear-gradient(90deg, #d97706, #fde047);
-        border-radius: 10px;
-        transition: width 0.3s ease;
-      }
-
-      .tutorial-body {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .tutorial-step-title {
-        font-size: 16px;
-        font-weight: 800;
-        color: #fef08a;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .tutorial-step-desc {
-        font-size: 13px;
-        color: #cbd5e1;
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      /* Karakter Vitrini (Rehber 5. Adım) */
-      .tutorial-char-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        margin-top: 4px;
-      }
-
-      .tutorial-char-card {
-        background: rgba(0, 0, 0, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 8px 4px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 4px;
-      }
-
-      .tutorial-char-card.unlocked {
-        border-color: #22c55e;
-        background: rgba(34, 197, 94, 0.08);
-      }
-
-      .tutorial-char-card.locked {
-        border-color: #f59e0b;
-        background: rgba(245, 158, 11, 0.08);
-      }
-
-      .tutorial-char-icon {
-        font-size: 20px;
-      }
-
-      .tutorial-char-name {
-        font-size: 10px;
-        font-weight: 700;
-        color: #f1f5f9;
-      }
-
-      .tutorial-char-badge {
-        font-size: 8px;
-        font-weight: 800;
-        padding: 2px 5px;
-        border-radius: 4px;
-      }
-
-      .badge-unlocked {
-        background: rgba(34, 197, 94, 0.25);
-        color: #4ade80;
-        border: 1px solid rgba(74, 222, 128, 0.4);
-      }
-
-      .badge-locked {
-        background: rgba(245, 158, 11, 0.25);
-        color: #fbbf24;
-        border: 1px solid rgba(251, 191, 36, 0.4);
-      }
-
-      .tutorial-bottom-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        margin-top: 4px;
-      }
-
-      .tutorial-nav-btn {
-        flex: 1;
-        padding: 10px 14px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.15s ease;
-        text-align: center;
-      }
-
-      .tutorial-nav-btn.prev {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #cbd5e1;
-      }
-
-      .tutorial-nav-btn.prev:hover {
-        background: rgba(255, 255, 255, 0.14);
-        color: #ffffff;
-      }
-
-      .tutorial-nav-btn.next {
-        background: linear-gradient(180deg, #d97706 0%, #92400e 100%);
-        border: 1.5px solid #fde047;
-        color: #ffffff;
-        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
-      }
-
-      .tutorial-nav-btn.next:hover {
-        background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
-      }
-
-      /* Dinamik Gösterici Ok (Pointer Arrow) */
-      #tutorial-pointer-arrow {
-        position: fixed;
-        z-index: 10005;
-        pointer-events: none;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), top 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.3s ease;
-        filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
-      }
-
-      .arrow-svg {
-        width: 46px;
-        height: 46px;
-      }
-
-      .arrow-bounce-right {
-        animation: arrowBounceRight 1s infinite alternate ease-in-out;
-      }
-
-      .arrow-bounce-down {
-        animation: arrowBounceDown 1s infinite alternate ease-in-out;
-      }
-
-      .arrow-pulse-center {
-        animation: arrowPulseCenter 1.2s infinite ease-in-out;
-      }
-
-      @keyframes arrowBounceRight {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(14px); }
-      }
-
-      @keyframes arrowBounceDown {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(14px); }
-      }
-
-      @keyframes arrowPulseCenter {
-        0% { transform: scale(0.95); opacity: 0.85; }
-        50% { transform: scale(1.15); opaci      /* Vurgulanan Element Efekti */
-      .tutorial-element-highlight {
-        outline: 3px solid #f59e0b !important;
-        outline-offset: 3px !important;
-        box-shadow: 0 0 25px rgba(245, 158, 11, 0.85) !important;
-        z-index: 10002 !important;
-        animation: tutorialPulseGlow 1.2s infinite alternate ease-in-out !important;
-      }
-
-      @keyframes tutorialPulseGlow {
-        from { box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
-        to { box-shadow: 0 0 30px rgba(253, 224, 71, 0.95); }
-      }
-
-      /* =================================================== */
-      /* FREEMIUM İLERLEME ÇUBUĞU & GRANDMASTER MODALLARI    */
-      /* =================================================== */
+      /* Freemium & Grandmaster Elements */
       .inv-progress-container {
         width: 100%;
         box-sizing: border-box;
@@ -1655,51 +1172,50 @@ export class UIManager {
         align-items: center;
         justify-content: space-between;
         font-size: 10px;
-        font-weight: 700;
-        color: #fde047;
+        font-weight: 600;
+        color: var(--rc-ink-muted);
       }
       .inv-progress-track {
         width: 100%;
-        height: 6px;
-        background: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(212, 163, 89, 0.3);
-        border-radius: 6px;
+        height: 4px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 4px;
         overflow: hidden;
       }
       .inv-progress-fill {
         height: 100%;
-        background: linear-gradient(90deg, #f59e0b, #22c55e);
-        border-radius: 6px;
+        background: linear-gradient(90deg, var(--rc-accent-red), var(--rc-accent-yellow));
+        border-radius: 4px;
         transition: width 0.3s ease;
       }
       .gm-mini-badge {
-        background: linear-gradient(135deg, #8b5cf6, #ec4899);
-        color: white;
-        border: none;
-        border-radius: 8px;
+        background: rgba(167, 139, 250, 0.15);
+        color: var(--rc-accent-purple);
+        border: 1px solid rgba(167, 139, 250, 0.35);
+        border-radius: 6px;
         font-size: 9px;
-        font-weight: 800;
-        padding: 2px 7px;
+        font-weight: 700;
+        padding: 2px 6px;
         cursor: pointer;
-        box-shadow: 0 2px 6px rgba(139, 92, 246, 0.4);
-        transition: transform 0.15s ease;
+        transition: all 0.15s ease;
       }
       .gm-mini-badge:hover {
-        transform: scale(1.05);
+        background: rgba(167, 139, 250, 0.25);
+        color: #ffffff;
       }
 
-      /* Daily Hint Button */
       .daily-hint-action-btn {
         width: 100%;
-        background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
-        border: 1.5px solid #7dd3fc;
-        color: #ffffff;
-        padding: 7px 10px;
-        border-radius: 10px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-accent-blue);
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-family: var(--rc-font);
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 600;
         cursor: pointer;
-        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
         margin-bottom: 6px;
         transition: all 0.15s ease;
         display: flex;
@@ -1708,61 +1224,20 @@ export class UIManager {
         gap: 6px;
       }
       .daily-hint-action-btn:hover {
-        background: linear-gradient(180deg, #7dd3fc 0%, #0369a1 100%);
-        transform: translateY(-1px);
-      }
-
-      /* Grandmaster Modal & Achievements Modal */
-      #grandmaster-offer-modal, #achievements-modal {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        pointer-events: auto;
-        z-index: 130;
-      }
-      #grandmaster-offer-modal.show, #achievements-modal.show {
-        display: flex;
-      }
-
-      .gm-offer-box, .achievements-box {
-        background: linear-gradient(180deg, #1c212d 0%, #10141e 100%);
-        border: 2.5px solid #8b5cf6;
-        border-radius: 24px;
-        padding: 24px 22px;
-        width: 90%;
-        max-width: 480px;
-        color: white;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(139, 92, 246, 0.35);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        max-height: 88vh;
-        overflow-y: auto;
-        animation: settingsModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .achievements-box {
-        border-color: #f59e0b;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(245, 158, 11, 0.3);
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-accent-blue);
       }
 
       .gm-plans-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
         margin-top: 4px;
       }
       .gm-plan-card {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1.5px solid rgba(255, 255, 255, 0.15);
-        border-radius: 14px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 10px;
         padding: 12px 10px;
         display: flex;
         flex-direction: column;
@@ -1771,82 +1246,384 @@ export class UIManager {
         gap: 4px;
         cursor: pointer;
         position: relative;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
       }
       .gm-plan-card:hover {
-        border-color: #a78bfa;
-        background: rgba(167, 139, 250, 0.12);
-        transform: translateY(-2px);
+        border-color: var(--rc-hairline-strong);
+        background: var(--rc-surface-hover);
+        transform: translateY(-1px);
       }
       .gm-plan-card.recommended {
-        border-color: #f59e0b;
-        background: linear-gradient(180deg, rgba(245, 158, 11, 0.18) 0%, rgba(245, 158, 11, 0.06) 100%);
+        border-color: var(--rc-accent-yellow);
+        background: rgba(255, 197, 51, 0.08);
       }
       .gm-plan-badge {
         position: absolute;
-        top: -8px;
-        background: #f59e0b;
-        color: #000;
+        top: -7px;
+        background: var(--rc-accent-yellow);
+        color: #07080a;
         font-size: 8px;
         font-weight: 800;
-        padding: 2px 6px;
-        border-radius: 6px;
+        padding: 1px 5px;
+        border-radius: 4px;
       }
 
       /* Badges & Collections */
       .badges-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 6px;
       }
       .badge-row-card {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 10px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        padding: 8px 10px;
         display: flex;
         align-items: center;
         gap: 10px;
+        transition: all 0.2s ease;
       }
       .badge-row-card.unlocked {
-        border-color: #22c55e;
-        background: rgba(34, 197, 94, 0.08);
+        border-color: rgba(89, 212, 153, 0.4);
+        background: rgba(89, 212, 153, 0.08);
+      }
+      .badge-row-card.locked {
+        opacity: 0.5;
+        border: 1px dashed var(--rc-hairline);
+        background: rgba(255, 255, 255, 0.02);
       }
       .collections-list {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
       }
       .col-card-box {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 14px;
-        padding: 12px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 10px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
       }
       .col-chips-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 4px;
       }
       .col-item-chip {
-        padding: 4px 8px;
-        border-radius: 8px;
+        padding: 3px 6px;
+        border-radius: 6px;
         font-size: 10px;
-        font-weight: 700;
+        font-weight: 600;
         display: flex;
         align-items: center;
         gap: 4px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #94a3b8;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--rc-surface-elevated);
+        color: var(--rc-ink-muted);
+        border: 1px solid var(--rc-hairline);
+        transition: all 0.15s ease;
       }
       .col-item-chip.owned {
-        background: rgba(34, 197, 94, 0.15);
-        color: #4ade80;
-        border-color: rgba(74, 222, 128, 0.4);
+        background: rgba(89, 212, 153, 0.12);
+        color: var(--rc-accent-green);
+        border-color: rgba(89, 212, 153, 0.35);
+      }
+      .col-item-chip.locked {
+        opacity: 0.45;
+        border: 1px dashed var(--rc-hairline);
+      }
+
+      /* Rehber (Tutorial) Kartı */
+      #tutorial-modal {
+        position: fixed;
+        inset: 0;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        z-index: 9990;
+        display: none;
+        pointer-events: none;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      #tutorial-modal.show {
+        display: block;
+      }
+
+      .tutorial-card {
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+        max-width: 420px;
+        width: calc(100% - 24px);
+        padding: 16px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: auto;
+        animation: settingsModalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .tutorial-card.pos-bottom {
+        top: auto !important;
+        bottom: 24px !important;
+        transform: translateX(-50%) !important;
+      }
+      .tutorial-card.pos-top {
+        bottom: auto !important;
+        top: 24px !important;
+        transform: translateX(-50%) !important;
+      }
+      .tutorial-card.pos-center {
+        top: 50% !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      .tutorial-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .tutorial-step-tag {
+        background: var(--rc-surface-card);
+        color: var(--rc-accent-yellow);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 6px;
+        border: 1px solid var(--rc-hairline);
+      }
+      .tutorial-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--rc-ink-muted);
+        font-size: 16px;
+        cursor: pointer;
+        padding: 2px 4px;
+      }
+      .tutorial-close-btn:hover {
+        color: var(--rc-accent-red);
+      }
+      .tutorial-progress-track {
+        width: 100%;
+        height: 4px;
+        background: var(--rc-surface-card);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .tutorial-progress-bar {
+        height: 100%;
+        width: 20%;
+        background: var(--rc-accent-yellow);
+        border-radius: 4px;
+        transition: width 0.25s ease;
+      }
+      .tutorial-body {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .tutorial-step-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--rc-ink);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tutorial-step-desc {
+        font-size: 12px;
+        color: var(--rc-ink-muted);
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .tutorial-char-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .tutorial-char-card {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 8px;
+        padding: 8px 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4px;
+      }
+      .tutorial-char-card.unlocked {
+        border-color: rgba(89, 212, 153, 0.4);
+        background: rgba(89, 212, 153, 0.08);
+      }
+      .tutorial-char-card.locked {
+        border-color: var(--rc-hairline);
+      }
+      .tutorial-char-icon {
+        font-size: 18px;
+      }
+      .tutorial-char-name {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--rc-ink);
+      }
+      .tutorial-char-badge {
+        font-size: 8px;
+        font-weight: 700;
+        padding: 1px 4px;
+        border-radius: 4px;
+      }
+      .badge-unlocked {
+        background: rgba(89, 212, 153, 0.2);
+        color: var(--rc-accent-green);
+      }
+      .badge-locked {
+        background: var(--rc-surface-elevated);
+        color: var(--rc-ink-muted);
+      }
+
+      .tutorial-bottom-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .tutorial-nav-btn {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: var(--rc-font);
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-align: center;
+      }
+      .tutorial-nav-btn.prev {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink-muted);
+      }
+      .tutorial-nav-btn.prev:hover {
+        color: var(--rc-ink);
+      }
+      .tutorial-nav-btn.next {
+        background: #ffffff;
+        border: none;
+        color: #07080a;
+      }
+      .tutorial-nav-btn.next:hover {
+        background: #e8e8e8;
+      }
+
+      /* Dinamik Gösterici Ok & Vurgu */
+      #tutorial-pointer-arrow {
+        position: fixed;
+        z-index: 10005;
+        pointer-events: none;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 0 10px rgba(255, 197, 51, 0.8));
+      }
+      .arrow-svg {
+        width: 40px;
+        height: 40px;
+      }
+      .arrow-bounce-right {
+        animation: arrowBounceRight 1s infinite alternate ease-in-out;
+      }
+      .arrow-bounce-down {
+        animation: arrowBounceDown 1s infinite alternate ease-in-out;
+      }
+      .arrow-pulse-center {
+        animation: arrowPulseCenter 1.2s infinite ease-in-out;
+      }
+      @keyframes arrowBounceRight {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(10px); }
+      }
+      @keyframes arrowBounceDown {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(10px); }
+      }
+      @keyframes arrowPulseCenter {
+        0% { transform: scale(0.95); opacity: 0.85; }
+        50% { transform: scale(1.15); opacity: 1; }
+        100% { transform: scale(0.95); opacity: 0.85; }
+      }
+      .tutorial-element-highlight {
+        outline: 2px solid var(--rc-accent-yellow) !important;
+        outline-offset: 2px !important;
+        box-shadow: 0 0 20px rgba(255, 197, 51, 0.7) !important;
+        z-index: 10002 !important;
+      }
+
+      /* Ad Modal */
+      #ad-modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(7, 8, 10, 0.85);
+        backdrop-filter: blur(12px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        z-index: 130;
+      }
+      .ad-box {
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 12px;
+        padding: 22px;
+        width: 85%;
+        max-width: 320px;
+        text-align: center;
+        color: var(--rc-ink);
+      }
+      .ad-box h3 {
+        margin-bottom: 10px;
+        color: var(--rc-accent-yellow);
+        font-size: 15px;
+      }
+      .ad-box p {
+        font-size: 12px;
+        color: var(--rc-ink-muted);
+        margin-bottom: 16px;
+      }
+      .ad-btn {
+        background: var(--rc-accent-green);
+        color: #07080a;
+        border: none;
+        padding: 9px 16px;
+        border-radius: 6px;
+        font-weight: 700;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 6px;
+      }
+      .ad-close {
+        background: transparent;
+        color: var(--rc-ink-subtle);
+        border: none;
+        padding: 6px;
+        cursor: pointer;
+        font-size: 11px;
       }
     `;
     document.head.appendChild(style);
@@ -1858,14 +1635,14 @@ export class UIManager {
     container.innerHTML = `
       <div id="left-drawer">
         <div id="drawer-toggle" title="İpuçları">
-          <img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 16px;\\'>📜</span>';">
-          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>
+          <img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 15px;\\'>📜</span>';">
+          <span style="font-size: 8px; font-weight: 700; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>
         </div>
         <div class="drawer-header">
           <span id="drawer-hints-title">${i18n.t('hints_title')}</span>
           <span class="hint-badge" id="hint-rights-badge">${i18n.t('hint_rights', { n: 3 })}</span>
         </div>
-        <div style="padding: 6px 12px 0 12px;">
+        <div style="padding: 6px 10px 0 10px;">
           <button id="daily-free-hint-btn" class="daily-hint-action-btn">${i18n.t('free_daily_hint_btn')}</button>
         </div>
         <div class="drawer-content" id="drawer-hints-list">
@@ -1875,12 +1652,12 @@ export class UIManager {
 
       <div id="right-panel" class="state-closed">
         <div id="right-panel-toggle" title="Keşif">
-          <img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 16px;\\'>🧭</span>';">
-          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>
+          <img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 15px;\\'>🧭</span>';">
+          <span style="font-size: 8px; font-weight: 700; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>
         </div>
         <div id="right-panel-fullscreen-btn" title="Tam Ekran" style="display: none;">
-          <span style="font-size: 14px;">⛶</span>
-          <span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>
+          <span style="font-size: 13px;">⛶</span>
+          <span style="font-size: 7px; font-weight: 700; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>
         </div>
         <div class="panel-header-badge">
           <span>🧭</span>
@@ -1888,10 +1665,10 @@ export class UIManager {
         </div>
         <div class="inv-progress-container" id="inv-progress-box">
           <div class="inv-progress-header">
-            <span id="inv-progress-text">4 / 80 Keşfedildi (5%)</span>
+            <span id="inv-progress-text">4 Keşfedildi</span>
             <button id="grandmaster-open-badge-btn" class="gm-mini-badge">🔮 Grandmaster</button>
           </div>
-          <div class="inv-progress-track">
+          <div class="inv-progress-track" id="inv-progress-track" style="display: none;">
             <div class="inv-progress-fill" id="inv-progress-fill" style="width: 5%;"></div>
           </div>
         </div>
@@ -1913,12 +1690,9 @@ export class UIManager {
         <button id="bottom-cleanup-btn" class="bottom-side-btn">
           <span id="bottom-cleanup-btn-label">${i18n.t('cleanup')}</span>
         </button>
-        <button id="achievements-open-btn" class="bottom-side-btn">
-          <span id="achievements-open-btn-label">${i18n.t('achievements_btn')}</span>
-        </button>
         <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
           <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
-          <span id="craft-btn-counter" style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(254, 240, 138, 0.4); padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-left: 4px; font-weight: 800; color: #fef08a;">2/2</span>
+          <span id="craft-btn-counter" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.2); padding: 1px 6px; border-radius: 9999px; font-size: 10px; margin-left: 4px; font-weight: 700; color: #ffffff;">2/2</span>
         </button>
         <button id="settings-open-btn" class="bottom-side-btn">
           <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
@@ -1927,29 +1701,17 @@ export class UIManager {
 
       <div id="settings-modal">
         <div class="settings-box">
-          <div class="settings-header">
-     </button>
-      </div>
-
-
-      <div id="settings-modal">
-        <div class="settings-box">
-          <div class="settings-header">
-            <div class="settings-title">
-              <span style="color: #fde047; font-size: 13px;">✦</span>
-              <span id="settings-modal-title">${i18n.t('settings_title')}</span>
-              <span style="color: #fde047; font-size: 13px;">✦</span>
+          <div class="settings-top-bar">
+            <div class="settings-tabs">
+              <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
+              <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
+              <button class="settings-tab-btn" id="tab-pro-btn" data-tab="pro">${i18n.t('tab_pro')}</button>
+              <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
             </div>
             <button class="settings-close-icon" id="settings-close-btn" title="${i18n.t('settings_close')}">✕</button>
           </div>
 
-          <div class="settings-tabs">
-            <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
-            <button class="settings-tab-btn" id="tab-credits-btn" data-tab="credits">${i18n.t('tab_credits')}</button>
-            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
-          </div>
-
-          <!-- Genel Ayarlar Sekmesi -->
+          <!-- 1. Genel Ayarlar Sekmesi -->
           <div class="settings-tab-pane" id="pane-general">
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
@@ -1967,16 +1729,15 @@ export class UIManager {
               <button id="cleanup-btn" class="settings-action-btn btn-danger">${i18n.t('cleanup')}</button>
             </div>
 
-
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <span class="settings-btn-label" id="label-character">Karakter</span>
                   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" title="Creative Commons Attribution 4.0 International">
-                    <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
+                    <span style="font-size: 9px; font-weight: 600; background: rgba(87, 193, 255, 0.15); color: var(--rc-accent-blue); border: 1px solid rgba(87, 193, 255, 0.3); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
                   </a>
                 </div>
-                <span class="settings-btn-sub" id="sub-character">Gözlemci (20 eşya), Gezgin (100 eşya)</span>
+                <span class="settings-btn-sub" id="sub-character">Gözlemci (40 eşya), Gezgin (Grandmaster)</span>
               </div>
               <button id="character-switch-btn" class="settings-action-btn btn-purple">${this._getCharacterLabel()}</button>
             </div>
@@ -2006,18 +1767,18 @@ export class UIManager {
             </div>
 
             <!-- Karakter Lisansı & Atıf Kartı -->
-            <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
-                <span style="font-size: 12px; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 11px; font-weight: 600; color: var(--rc-ink); display: flex; align-items: center; gap: 6px;">
                   <span>🎨</span> <span id="general-credits-heading">${i18n.t('credits_character_heading')}</span>
                 </span>
-                <span style="font-size: 9px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 6px; border-radius: 4px;">CC BY 4.0</span>
+                <span style="font-size: 9px; font-weight: 600; background: rgba(87, 193, 255, 0.15); color: var(--rc-accent-blue); border: 1px solid rgba(87, 193, 255, 0.3); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
               </div>
-              <p style="font-size: 11px; color: #94a3b8; line-height: 1.4; margin: 0;" id="general-credits-desc">
+              <p style="font-size: 11px; color: var(--rc-ink-muted); line-height: 1.4; margin: 0;" id="general-credits-desc">
                 ${i18n.t('credits_character_desc')}
               </p>
               <div style="display: flex; justify-content: flex-end; margin-top: 2px;">
-                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: #38bdf8; text-decoration: none; padding: 4px 8px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; transition: all 0.2s;">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--rc-accent-blue); text-decoration: none; padding: 3px 6px; background: rgba(87, 193, 255, 0.1); border: 1px solid rgba(87, 193, 255, 0.25); border-radius: 4px; transition: all 0.2s;">
                   <span id="general-credits-link-text">${i18n.t('credits_view_license')}</span>
                   <span style="font-size: 9px;">↗</span>
                 </a>
@@ -2025,37 +1786,77 @@ export class UIManager {
             </div>
           </div>
 
-          <!-- Lisanslar & Atıflar Sekmesi -->
-          <div class="settings-tab-pane" id="pane-credits" style="display: none;">
-            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
-              <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h4 style="font-size: 13px; font-weight: 700; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 6px;">
-                  <span>📜</span> <span id="pane-credits-title">${i18n.t('credits_title')}</span>
-                </h4>
-                <span style="font-size: 10px; font-weight: 700; background: rgba(56, 189, 248, 0.25); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.5); padding: 3px 7px; border-radius: 6px;">CC BY 4.0</span>
-              </div>
-              
-              <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; margin: 0;" id="pane-credits-desc">
-                ${i18n.t('credits_character_desc')}
-              </p>
+          <!-- 2. Koleksiyon & Rozetler Sekmesi -->
+          <div class="settings-tab-pane" id="pane-collections" style="display: none;">
+            <div style="display: flex; gap: 4px; background: var(--rc-surface-card); padding: 2px; border-radius: 6px; border: 1px solid var(--rc-hairline);">
+              <button class="settings-tab-btn active" id="subtab-badges-btn" style="font-size: 10px; padding: 4px 6px;">🏆 ${i18n.t('tab_badges')}</button>
+              <button class="settings-tab-btn" id="subtab-sets-btn" style="font-size: 10px; padding: 4px 6px;">🗂️ ${i18n.t('tab_collections')}</button>
+            </div>
 
-              <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 11px; color: #94a3b8; line-height: 1.4;">
-                <div style="font-weight: 700; color: #e2e8f0; margin-bottom: 4px;" id="pane-credits-summary-title">Creative Commons Attribution 4.0:</div>
-                <div id="pane-credits-summary-text">${i18n.t('credits_terms_summary')}</div>
+            <div id="subpane-badges" style="display: block;">
+              <div class="badges-grid" id="badges-container">
+                <!-- Rozetler dinamik yüklenecek -->
               </div>
+            </div>
 
-              <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
-                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="settings-action-btn btn-blue" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 8px 14px;">
-                  <span id="pane-credits-link-btn">${i18n.t('credits_view_license')}</span>
-                  <span style="font-size: 11px;">↗</span>
-                </a>
+            <div id="subpane-sets" style="display: none;">
+              <div class="collections-list" id="collections-container">
+                <!-- Koleksiyon setleri dinamik yüklenecek -->
               </div>
             </div>
           </div>
 
-          <!-- Debug Sekmesi -->
+          <!-- 3. Grandmaster (Pro) Sekmesi -->
+          <div class="settings-tab-pane" id="pane-pro" style="display: none;">
+            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 4px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
+                <span style="font-size: 12px; font-weight: 700; color: #e9d5ff; display: flex; align-items: center; gap: 6px;">
+                  <span>👑</span> <span>Grandmaster Ayrıcalıkları</span>
+                </span>
+                <span style="font-size: 9px; font-weight: 700; background: var(--rc-accent-purple); color: #fff; padding: 1px 6px; border-radius: 4px;">PRO</span>
+              </div>
+              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_1')}</div>
+              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_2')}</div>
+              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_3')}</div>
+              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
+            </div>
+
+            <div class="gm-plans-grid">
+              <div class="gm-plan-card recommended" data-plan="intro_monthly">
+                <span class="gm-plan-badge">ÖNERİLEN</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-yellow);">Tanışma Paketi</span>
+                <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺49,99</span>
+                <span style="font-size: 9px; color: var(--rc-ink-muted);">İlk ay (sonra ₺79,99)</span>
+                <button class="btn-gold-primary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Başla</button>
+              </div>
+              <div class="gm-plan-card" data-plan="yearly">
+                <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
+                <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
+                <span style="font-size: 9px; color: var(--rc-ink-muted);">Yılda bir faturalandırılır</span>
+                <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 6px; margin-top: 2px;">
+              <button class="gm-plan-card" data-plan="monthly" style="flex: 1; padding: 6px;">
+                <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Aylık Standart</span>
+                <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺79,99/ay</span>
+              </button>
+              <button class="gm-plan-card" data-plan="lifetime" style="flex: 1; padding: 6px;">
+                <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Ömür Boyu</span>
+                <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺999,99</span>
+              </button>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: 2px;">
+              <button id="pro-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
+            </div>
+          </div>
+
+          <!-- 4. Debug Sekmesi -->
           <div class="settings-tab-pane" id="pane-debug" style="display: none;">
-            <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 10px; padding: 7px 12px; font-size: 11px; color: #fef08a; display: flex; align-items: center; gap: 8px;">
+            <div style="background: rgba(255, 197, 51, 0.1); border: 1px solid rgba(255, 197, 51, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: var(--rc-accent-yellow); display: flex; align-items: center; gap: 6px;">
               <span>⚠️</span>
               <span id="debug-warning-text">${i18n.t('debug_warning')}</span>
             </div>
@@ -2102,7 +1903,7 @@ export class UIManager {
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-reset" style="color: #f87171;">${i18n.t('debug_reset_progress')}</span>
+                <span class="settings-btn-label" id="label-debug-reset" style="color: var(--rc-accent-red);">${i18n.t('debug_reset_progress')}</span>
                 <span class="settings-btn-sub" id="sub-debug-reset">Kayıtları temizle ve sıfırla</span>
               </div>
               <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${i18n.t('debug_reset_progress')}</button>
@@ -2133,10 +1934,10 @@ export class UIManager {
       <!-- Hoşgeldiniz Ekranı Modalı -->
       <div id="welcome-modal">
         <div class="welcome-card">
-          <div class="welcome-icon-glow">⚗️</div>
-          <h2 class="welcome-title" id="welcome-modal-title">${i18n.t('welcome_title')}</h2>
-          <p class="welcome-sub" id="welcome-modal-sub">${i18n.t('welcome_subtitle')}</p>
-          <div class="welcome-actions">
+          <div style="font-size: 36px; margin-bottom: 4px;">⚗️</div>
+          <h2 class="settings-title" style="font-size: 17px; justify-content: center;" id="welcome-modal-title">${i18n.t('welcome_title')}</h2>
+          <p style="font-size: 12px; color: var(--rc-ink-muted); line-height: 1.5; margin: 0;" id="welcome-modal-sub">${i18n.t('welcome_subtitle')}</p>
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 6px;">
             <button id="welcome-start-tutorial-btn" class="btn-gold-primary">${i18n.t('welcome_start_tutorial')}</button>
             <button id="welcome-skip-btn" class="btn-dark-secondary">${i18n.t('welcome_skip')}</button>
           </div>
@@ -2168,12 +1969,12 @@ export class UIManager {
               <div class="tutorial-char-card locked" id="tut-card-char2">
                 <span class="tutorial-char-icon">🔮</span>
                 <span class="tutorial-char-name">Gözlemci</span>
-                <span class="tutorial-char-badge badge-locked">🔒 20 Eşya</span>
+                <span class="tutorial-char-badge badge-locked">🔒 40 Eşya</span>
               </div>
               <div class="tutorial-char-card locked" id="tut-card-char3">
                 <span class="tutorial-char-icon">🧭</span>
                 <span class="tutorial-char-name">Gezgin</span>
-                <span class="tutorial-char-badge badge-locked">🔒 100 Eşya</span>
+                <span class="tutorial-char-badge badge-locked">🔒 Grandmaster</span>
               </div>
             </div>
           </div>
@@ -2187,18 +1988,18 @@ export class UIManager {
       <!-- Dinamik İşaretçi Ok (Pointer Arrow) -->
       <div id="tutorial-pointer-arrow">
         <svg class="arrow-svg" id="tutorial-pointer-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="tutorial-pointer-path" d="M24 4L24 38M24 38L12 26M24 38L36 26" stroke="#fde047" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="tutorial-pointer-path" d="M24 4L24 38M24 38L12 26M24 38L36 26" stroke="#ffc533" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
       <!-- Yeni Karakter Kilit Açılış Kutlama Modalı -->
       <div id="char-unlock-modal">
         <div class="celebrate-card">
-          <div class="welcome-icon-glow" style="border-color: #22c55e; box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);">🎉</div>
-          <h2 class="celebrate-title" id="celebrate-title">Yeni Karakter Açıldı!</h2>
-          <p class="welcome-sub" id="celebrate-desc">Tebrikler! Yeni bir karakterin kilidi açıldı.</p>
-          <div class="welcome-actions">
-            <button id="celebrate-close-btn" class="btn-gold-primary">Harika!</button>
+          <div style="font-size: 36px; margin-bottom: 4px;">🎉</div>
+          <h2 class="settings-title" style="font-size: 16px; justify-content: center;" id="celebrate-title">Yeni Karakter Açıldı!</h2>
+          <p style="font-size: 12px; color: var(--rc-ink-muted); line-height: 1.45;" id="celebrate-desc">Tebrikler! Yeni bir karakterin kilidi açıldı.</p>
+          <div style="width: 100%; margin-top: 6px;">
+            <button id="celebrate-close-btn" class="btn-gold-primary" style="width: 100%;">Harika!</button>
           </div>
         </div>
       </div>
@@ -2207,7 +2008,7 @@ export class UIManager {
       <div id="achievements-modal">
         <div class="achievements-box">
           <div class="settings-header">
-            <div class="settings-title" style="color: #fde047;">
+            <div class="settings-title" style="color: var(--rc-accent-yellow);">
               <span>🏆</span>
               <span id="achievements-modal-title">${i18n.t('achievements_title')}</span>
               <span>🏆</span>
@@ -2234,11 +2035,11 @@ export class UIManager {
         </div>
       </div>
 
-      <!-- Grandmaster Davet / Abonelik Modalı (Grand Finale) -->
+      <!-- Grandmaster Davet / Abonelik Modalı -->
       <div id="grandmaster-offer-modal">
         <div class="gm-offer-box">
           <div class="settings-header">
-            <div class="settings-title" style="color: #c084fc;">
+            <div class="settings-title" style="color: var(--rc-accent-purple);">
               <span>🔮</span>
               <span id="gm-modal-title">${i18n.t('grandmaster_offer_title')}</span>
               <span>⚗️</span>
@@ -2246,47 +2047,47 @@ export class UIManager {
             <button class="settings-close-icon" id="gm-offer-close-btn" title="Kapat">✕</button>
           </div>
 
-          <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; margin: 0;" id="gm-modal-subtitle">
+          <p style="font-size: 12px; color: var(--rc-ink-muted); line-height: 1.45; margin: 0;" id="gm-modal-subtitle">
             ${i18n.t('grandmaster_offer_subtitle')}
           </p>
 
-          <div style="background: rgba(139, 92, 246, 0.12); border: 1.5px solid rgba(139, 92, 246, 0.35); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px;">
-            <div style="font-size: 12px; font-weight: 700; color: #e9d5ff;">${i18n.t('grandmaster_feature_1')}</div>
-            <div style="font-size: 12px; font-weight: 700; color: #e9d5ff;">${i18n.t('grandmaster_feature_2')}</div>
-            <div style="font-size: 12px; font-weight: 700; color: #e9d5ff;">${i18n.t('grandmaster_feature_3')}</div>
-            <div style="font-size: 12px; font-weight: 700; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
+          <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_1')}</div>
+            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_2')}</div>
+            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_3')}</div>
+            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
           </div>
 
           <div class="gm-plans-grid">
             <div class="gm-plan-card recommended" data-plan="intro_monthly">
               <span class="gm-plan-badge">ÖNERİLEN</span>
-              <span style="font-size: 11px; font-weight: 700; color: #fde047;">Tanışma Paketi</span>
-              <span style="font-size: 16px; font-weight: 900; color: #ffffff;">₺49,99</span>
-              <span style="font-size: 9px; color: #94a3b8;">İlk ay (sonra ₺79,99)</span>
-              <button class="btn-gold-primary" style="padding: 6px 12px; font-size: 11px; margin-top: 4px; width: 100%;">Başla</button>
+              <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-yellow);">Tanışma Paketi</span>
+              <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺49,99</span>
+              <span style="font-size: 9px; color: var(--rc-ink-muted);">İlk ay (sonra ₺79,99)</span>
+              <button class="btn-gold-primary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Başla</button>
             </div>
             <div class="gm-plan-card" data-plan="yearly">
-              <span class="gm-plan-badge" style="background: #a855f7; color: #fff;">%48 İNDİRİM</span>
-              <span style="font-size: 11px; font-weight: 700; color: #c084fc;">Yıllık Grandmaster</span>
-              <span style="font-size: 16px; font-weight: 900; color: #ffffff;">₺499,99</span>
-              <span style="font-size: 9px; color: #94a3b8;">Yılda bir faturalandırılır</span>
-              <button class="btn-dark-secondary" style="padding: 6px 12px; font-size: 11px; margin-top: 4px; width: 100%;">Seç</button>
+              <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
+              <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
+              <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
+              <span style="font-size: 9px; color: var(--rc-ink-muted);">Yılda bir faturalandırılır</span>
+              <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
             </div>
           </div>
 
-          <div style="display: flex; gap: 8px; margin-top: 4px;">
-            <button class="gm-plan-card" data-plan="monthly" style="flex: 1; padding: 8px;">
-              <span style="font-size: 10px; font-weight: 700; color: #cbd5e1;">Aylık Standart</span>
-              <span style="font-size: 13px; font-weight: 800; color: #ffffff;">₺79,99/ay</span>
+          <div style="display: flex; gap: 6px; margin-top: 2px;">
+            <button class="gm-plan-card" data-plan="monthly" style="flex: 1; padding: 6px;">
+              <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Aylık Standart</span>
+              <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺79,99/ay</span>
             </button>
-            <button class="gm-plan-card" data-plan="lifetime" style="flex: 1; padding: 8px;">
-              <span style="font-size: 10px; font-weight: 700; color: #cbd5e1;">Ömür Boyu</span>
-              <span style="font-size: 13px; font-weight: 800; color: #ffffff;">₺999,99</span>
+            <button class="gm-plan-card" data-plan="lifetime" style="flex: 1; padding: 6px;">
+              <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Ömür Boyu</span>
+              <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺999,99</span>
             </button>
           </div>
 
-          <div style="display: flex; justify-content: center; margin-top: 4px;">
-            <button id="gm-restore-btn" style="background: none; border: none; color: #94a3b8; font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
+          <div style="display: flex; justify-content: center; margin-top: 2px;">
+            <button id="gm-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
           </div>
         </div>
       </div>
@@ -2489,14 +2290,19 @@ export class UIManager {
     // 7. Settings Modal & Debug Labels
     const settingsBtnLabel = document.getElementById('settings-open-btn-label');
     if (settingsBtnLabel) settingsBtnLabel.textContent = i18n.t('settings_btn');
-    const settingsModalTitle = document.getElementById('settings-modal-title');
-    if (settingsModalTitle) settingsModalTitle.textContent = i18n.t('settings_title');
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
-    const tabCreditsBtn = document.getElementById('tab-credits-btn');
-    if (tabCreditsBtn) tabCreditsBtn.textContent = i18n.t('tab_credits');
+    const tabCollectionsBtn = document.getElementById('tab-collections-btn');
+    if (tabCollectionsBtn) tabCollectionsBtn.textContent = i18n.t('tab_collections');
+    const tabProBtn = document.getElementById('tab-pro-btn');
+    if (tabProBtn) tabProBtn.textContent = i18n.t('tab_pro');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
     if (tabDebugBtn) tabDebugBtn.textContent = i18n.t('tab_debug');
+
+    const subtabBadgesBtn = document.getElementById('subtab-badges-btn');
+    if (subtabBadgesBtn) subtabBadgesBtn.textContent = `🏆 ${i18n.t('tab_badges')}`;
+    const subtabSetsBtn = document.getElementById('subtab-sets-btn');
+    if (subtabSetsBtn) subtabSetsBtn.textContent = `🗂️ ${i18n.t('tab_collections')}`;
 
     const genCreditsHeading = document.getElementById('general-credits-heading');
     if (genCreditsHeading) genCreditsHeading.textContent = i18n.t('credits_character_heading');
@@ -2743,28 +2549,87 @@ export class UIManager {
       });
     }
 
-
-    // Sekmeler
+    // 4 Ana Sekme Butonları & Panelleri
     const tabGeneralBtn = document.getElementById('tab-general-btn');
-    const tabCreditsBtn = document.getElementById('tab-credits-btn');
+    const tabCollectionsBtn = document.getElementById('tab-collections-btn');
+    const tabProBtn = document.getElementById('tab-pro-btn');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
+
     const paneGeneral = document.getElementById('pane-general');
-    const paneCredits = document.getElementById('pane-credits');
+    const paneCollections = document.getElementById('pane-collections');
+    const panePro = document.getElementById('pane-pro');
     const paneDebug = document.getElementById('pane-debug');
 
     const switchTab = (activeTab) => {
       tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
-      tabCreditsBtn?.classList.toggle('active', activeTab === 'credits');
+      tabCollectionsBtn?.classList.toggle('active', activeTab === 'collections');
+      tabProBtn?.classList.toggle('active', activeTab === 'pro');
       tabDebugBtn?.classList.toggle('active', activeTab === 'debug');
 
       if (paneGeneral) paneGeneral.style.display = activeTab === 'general' ? 'flex' : 'none';
-      if (paneCredits) paneCredits.style.display = activeTab === 'credits' ? 'flex' : 'none';
+      if (paneCollections) {
+        paneCollections.style.display = activeTab === 'collections' ? 'flex' : 'none';
+        if (activeTab === 'collections') {
+          this._renderBadges();
+          this._renderCollections();
+        }
+      }
+      if (panePro) panePro.style.display = activeTab === 'pro' ? 'flex' : 'none';
       if (paneDebug) paneDebug.style.display = activeTab === 'debug' ? 'flex' : 'none';
     };
 
+    this.switchSettingsTab = switchTab;
+
     tabGeneralBtn?.addEventListener('click', () => switchTab('general'));
-    tabCreditsBtn?.addEventListener('click', () => switchTab('credits'));
+    tabCollectionsBtn?.addEventListener('click', () => switchTab('collections'));
+    tabProBtn?.addEventListener('click', () => switchTab('pro'));
     tabDebugBtn?.addEventListener('click', () => switchTab('debug'));
+
+    // Koleksiyon Alt Sekmeleri (Rozetler vs Setler)
+    const subtabBadgesBtn = document.getElementById('subtab-badges-btn');
+    const subtabSetsBtn = document.getElementById('subtab-sets-btn');
+    const subpaneBadges = document.getElementById('subpane-badges');
+    const subpaneSets = document.getElementById('subpane-sets');
+
+    subtabBadgesBtn?.addEventListener('click', () => {
+      subtabBadgesBtn.classList.add('active');
+      subtabSetsBtn?.classList.remove('active');
+      if (subpaneBadges) subpaneBadges.style.display = 'block';
+      if (subpaneSets) subpaneSets.style.display = 'none';
+      this._renderBadges();
+    });
+
+    subtabSetsBtn?.addEventListener('click', () => {
+      subtabSetsBtn.classList.add('active');
+      subtabBadgesBtn?.classList.remove('active');
+      if (subpaneBadges) subpaneBadges.style.display = 'none';
+      if (subpaneSets) subpaneSets.style.display = 'block';
+      this._renderCollections();
+    });
+
+    // Pro / Grandmaster Sekmesi Abonelik Plan Butonları
+    const proPlans = panePro?.querySelectorAll('.gm-plan-card');
+    proPlans?.forEach(card => {
+      card.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const planId = card.getAttribute('data-plan') || 'intro_monthly';
+        const res = await subscriptionManager.subscribe(planId);
+        if (res.success) {
+          achievementManager.unlockBadge('badge_grandmaster_unlocked');
+          this.showToast(i18n.currentLang === 'tr' ? '👑 Grandmaster aboneliğiniz aktif edildi! Hoş geldiniz!' : '👑 Grandmaster active! Welcome!', 'success');
+          this._populateInventory();
+          if (this.onModeSwitch && this.gameMode !== 'grandmaster') {
+            this.onModeSwitch('grandmaster');
+          }
+        }
+      });
+    });
+
+    const proRestoreBtn = document.getElementById('pro-restore-btn');
+    proRestoreBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showToast(i18n.currentLang === 'tr' ? 'Satın alımlar başarıyla kontrol edildi ve güncellendi.' : 'Purchases restored successfully.', 'info');
+    });
 
     // Debug butonları
     // 1. Sınırsız İpucu
@@ -3079,17 +2944,30 @@ export class UIManager {
     const prog = FreeTierManager.getProgression(targetIds, isGm);
     const invProgressText = document.getElementById('inv-progress-text');
     const invProgressFill = document.getElementById('inv-progress-fill');
+    const invProgressTrack = document.getElementById('inv-progress-track');
     const gmBadgeBtn = document.getElementById('grandmaster-open-badge-btn');
 
     if (invProgressText) {
-      invProgressText.textContent = i18n.t('free_progress_label', {
-        current: prog.current,
-        max: prog.max,
-        pct: prog.percentage
-      });
+      if (isGm) {
+        invProgressText.textContent = i18n.t('free_progress_label', {
+          current: prog.current,
+          max: prog.max,
+          pct: prog.percentage
+        });
+      } else {
+        // Free modda oyuncu toplam içeriği ve yüzdeyi bilmesin, sadece keşfedilen miktar gösterilsin
+        invProgressText.textContent = i18n.currentLang === 'tr'
+          ? `${prog.current} Keşfedildi`
+          : `${prog.current} Discovered`;
+      }
     }
-    if (invProgressFill) {
-      invProgressFill.style.width = `${prog.percentage}%`;
+    if (invProgressTrack && invProgressFill) {
+      if (isGm) {
+        invProgressTrack.style.display = 'block';
+        invProgressFill.style.width = `${prog.percentage}%`;
+      } else {
+        invProgressTrack.style.display = 'none';
+      }
     }
     if (gmBadgeBtn) {
       gmBadgeBtn.textContent = isGm ? i18n.t('sub_active_badge') : '🔮 Grandmaster';
@@ -3502,49 +3380,9 @@ export class UIManager {
   }
 
   /* =================================================== */
-  /* BAŞARIMLAR, KOLEKSİYONLAR & GRANDMASTER ABONELİK    */
+  /* BAŞARIMLAR, KOLEKSİYONLAR & ROZETLER               */
   /* =================================================== */
   _setupAchievementsLogic() {
-    const openBtn = document.getElementById('achievements-open-btn');
-    const closeBtn = document.getElementById('achievements-close-btn');
-    const modal = document.getElementById('achievements-modal');
-
-    openBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.showAchievementsModal();
-    });
-
-    closeBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      modal?.classList.remove('show');
-    });
-
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('show');
-    });
-
-    // Sekmeler
-    const tabBadgesBtn = document.getElementById('tab-achieve-badges-btn');
-    const tabColBtn = document.getElementById('tab-achieve-collections-btn');
-    const paneBadges = document.getElementById('pane-achieve-badges');
-    const paneCol = document.getElementById('pane-achieve-collections');
-
-    tabBadgesBtn?.addEventListener('click', () => {
-      tabBadgesBtn.classList.add('active');
-      tabColBtn?.classList.remove('active');
-      if (paneBadges) paneBadges.style.display = 'block';
-      if (paneCol) paneCol.style.display = 'none';
-      this._renderBadges();
-    });
-
-    tabColBtn?.addEventListener('click', () => {
-      tabColBtn.classList.add('active');
-      tabBadgesBtn?.classList.remove('active');
-      if (paneBadges) paneBadges.style.display = 'none';
-      if (paneCol) paneCol.style.display = 'block';
-      this._renderCollections();
-    });
-
     // Rozet açılma dinleyicisi
     achievementManager.onBadgeUnlocked((newBadges) => {
       newBadges.forEach(badge => {
@@ -3555,11 +3393,15 @@ export class UIManager {
   }
 
   showAchievementsModal() {
-    const modal = document.getElementById('achievements-modal');
+    const modal = document.getElementById('settings-modal');
     if (!modal) return;
     modal.classList.add('show');
-    this._renderBadges();
-    this._renderCollections();
+    if (this.switchSettingsTab) {
+      this.switchSettingsTab('collections');
+    } else {
+      this._renderBadges();
+      this._renderCollections();
+    }
   }
 
   _renderBadges() {
@@ -3570,22 +3412,24 @@ export class UIManager {
     const badges = achievementManager.getBadges();
     badges.forEach(badge => {
       const card = document.createElement('div');
-      card.className = `badge-row-card ${badge.isUnlocked ? 'unlocked' : ''}`;
+      card.className = `badge-row-card ${badge.isUnlocked ? 'unlocked' : 'locked'}`;
       const title = i18n.currentLang === 'tr' ? badge.titleTr : badge.titleEn;
       const desc = i18n.currentLang === 'tr' ? badge.descTr : badge.descEn;
 
       card.innerHTML = `
-        <div style="font-size: 24px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0;">
+        <div style="font-size: 24px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: ${badge.isUnlocked ? 'rgba(89, 212, 153, 0.15)' : 'rgba(255,255,255,0.04)'}; border-radius: 12px; border: 1px solid ${badge.isUnlocked ? 'rgba(89, 212, 153, 0.3)' : 'rgba(255,255,255,0.08)'}; flex-shrink: 0; filter: ${badge.isUnlocked ? 'none' : 'grayscale(1) opacity(0.6)'};">
           ${badge.icon}
         </div>
         <div style="flex: 1; min-width: 0;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
-            <h4 style="font-size: 13px; font-weight: 800; color: ${badge.isUnlocked ? '#4ade80' : '#fef08a'}; margin: 0;">${title}</h4>
-            <span style="font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 6px; ${badge.isUnlocked ? 'background: rgba(34,197,94,0.25); color: #4ade80;' : 'background: rgba(255,255,255,0.1); color: #94a3b8;'}">
+            <h4 style="font-size: 13px; font-weight: 700; color: ${badge.isUnlocked ? 'var(--rc-accent-green)' : 'var(--rc-ink-muted)'}; margin: 0;">
+              ${badge.isUnlocked ? title : (i18n.currentLang === 'tr' ? '🔒 Kilitli Rozet' : '🔒 Locked Badge')}
+            </h4>
+            <span style="font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 6px; ${badge.isUnlocked ? 'background: rgba(89, 212, 153, 0.2); color: var(--rc-accent-green);' : 'background: rgba(255,255,255,0.06); color: var(--rc-ink-subtle);'}">
               ${badge.isUnlocked ? (i18n.currentLang === 'tr' ? 'KAZANILDI' : 'UNLOCKED') : (i18n.currentLang === 'tr' ? 'KİLİTLİ' : 'LOCKED')}
             </span>
           </div>
-          <p style="font-size: 11px; color: #94a3b8; margin: 4px 0 0 0; line-height: 1.4;">${desc}</p>
+          <p style="font-size: 11px; color: ${badge.isUnlocked ? 'var(--rc-ink-muted)' : 'var(--rc-ink-subtle)'}; margin: 3px 0 0 0; line-height: 1.4;">${desc}</p>
         </div>
       `;
       container.appendChild(card);
@@ -3603,7 +3447,7 @@ export class UIManager {
       card.className = 'col-card-box';
 
       const chipsHtml = col.items.map(it => `
-        <div class="col-item-chip ${it.isOwned ? 'owned' : ''}" title="${it.name}">
+        <div class="col-item-chip ${it.isOwned ? 'owned' : 'locked'}" title="${it.isOwned ? it.name : (i18n.currentLang === 'tr' ? 'Kilitli Eşya' : 'Locked Item')}">
           <span>${it.isOwned ? it.icon : '🔒'}</span>
           <span>${it.isOwned ? it.name : '???'}</span>
         </div>
@@ -3611,11 +3455,11 @@ export class UIManager {
 
       card.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between;">
-          <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; color: #f1f5f9;">
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--rc-ink);">
             <span>${col.icon}</span>
             <span>${col.title}</span>
           </div>
-          <span style="font-size: 11px; font-weight: 800; color: ${col.isComplete ? '#4ade80' : '#fde047'};">
+          <span style="font-size: 11px; font-weight: 700; color: ${col.isComplete ? 'var(--rc-accent-green)' : 'var(--rc-accent-yellow)'};">
             ${col.collected} / ${col.total} (${col.percentage}%)
           </span>
         </div>
@@ -3637,7 +3481,9 @@ export class UIManager {
   }
 
   updateAchievementsUI() {
-    if (document.getElementById('achievements-modal')?.classList.contains('show')) {
+    const settingsModal = document.getElementById('settings-modal');
+    const paneCollections = document.getElementById('pane-collections');
+    if (settingsModal?.classList.contains('show') && paneCollections?.style.display !== 'none') {
       this._renderBadges();
       this._renderCollections();
     }
