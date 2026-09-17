@@ -581,27 +581,74 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* Alt Bar: Şık Ayarlar ve Büyülü Birleştir Butonu (Mobil Güvenli Alan & Yukarı Sabitleme) */
+      /* Alt Bar: Sol Alt (Temizle) ve Sağ Alt (Ayarlar) */
       #bottom-action-bar {
-        position: absolute;
-        bottom: max(38px, calc(env(safe-area-inset-bottom, 0px) + 32px));
-        left: 50%;
-        transform: translateX(-50%);
+        position: fixed;
+        bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+        left: 0;
+        width: 100vw;
+        padding: 0 16px;
         display: flex;
-        gap: 12px;
         align-items: center;
-        justify-content: center;
-        pointer-events: auto;
+        justify-content: space-between;
+        pointer-events: none;
         z-index: 15;
-        max-width: 90vw;
+        box-sizing: border-box;
       }
 
-      /* Büyülü Birleştir (Craft) Butonu */
+      /* Taktil Alt Köşe Butonları (Temizle & Ayarlar) */
+      .bottom-side-btn {
+        background: linear-gradient(180deg, #2a3342 0%, #1a212d 50%, #111620 100%);
+        border: 1.5px solid #5c4426;
+        border-radius: 18px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 0 #0d1117, 0 8px 18px rgba(0, 0, 0, 0.6);
+        color: #fef08a;
+        font-size: 13px;
+        font-weight: 800;
+        padding: 9px 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        user-select: none;
+        pointer-events: auto;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      }
+
+      .bottom-side-btn:hover {
+        background: linear-gradient(180deg, #374357 0%, #222b3a 50%, #161c28 100%);
+        border-color: #b48c48;
+        transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .bottom-side-btn:active {
+        transform: translateY(2px);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
+      }
+
+      /* Temizle Butonuna Özel Hafif Amber/Kırmızı Vurgu */
+      #bottom-cleanup-btn {
+        border-color: #7f1d1d;
+        color: #fca5a5;
+      }
+      #bottom-cleanup-btn:hover {
+        border-color: #ef4444;
+        color: #fee2e2;
+      }
+
+      /* Birleştir (Craft) Butonu - Ekranın Tam Merkezinde Sabit (Fixed) */
       #craft-action-btn {
-        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-        border: 2px solid rgba(255, 255, 255, 0.45);
+        position: fixed;
+        left: 50%;
+        bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 40%, #b45309 75%, #78350f 100%);
+        border: 2px solid #fef08a;
         border-radius: 28px;
-        padding: 10px 22px;
+        padding: 10px 24px;
         color: #ffffff;
         font-size: 14px;
         font-weight: 800;
@@ -609,117 +656,46 @@ export class UIManager {
         cursor: pointer;
         display: none;
         align-items: center;
-        gap: 8px;
-        box-shadow: 0 0 25px rgba(168, 85, 247, 0.65), 0 8px 24px rgba(0, 0, 0, 0.45);
-        transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        justify-content: center;
+        gap: 6px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 22px rgba(245, 158, 11, 0.6), 0 8px 24px rgba(0, 0, 0, 0.6);
+        transition: box-shadow 0.25s ease, border-color 0.25s ease;
         user-select: none;
         pointer-events: auto;
+        z-index: 30;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         animation: craftBtnPulse 2s infinite alternate ease-in-out;
       }
 
       #craft-action-btn:hover {
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 0 35px rgba(236, 72, 153, 0.8), 0 12px 30px rgba(0, 0, 0, 0.55);
-      }
-
-      #craft-action-btn:active {
-        transform: scale(0.95);
+        border-color: #ffffff;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 32px rgba(253, 224, 71, 0.85), 0 12px 28px rgba(0, 0, 0, 0.7);
       }
 
       @keyframes craftBtnPulse {
         0% {
-          box-shadow: 0 0 15px rgba(168, 85, 247, 0.45), 0 6px 18px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 16px rgba(245, 158, 11, 0.45), 0 6px 18px rgba(0, 0, 0, 0.5);
         }
         100% {
-          box-shadow: 0 0 32px rgba(236, 72, 153, 0.85), 0 8px 25px rgba(0, 0, 0, 0.55);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 32px rgba(253, 224, 71, 0.9), 0 8px 25px rgba(0, 0, 0, 0.65);
         }
-      }
-
-      .action-pill-btn {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        padding: 10px 20px;
-        border-radius: 24px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        user-select: none;
-      }
-
-      .action-pill-btn:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.4);
-      }
-
-      .action-pill-btn:active {
-        transform: scale(0.94);
-      }
-
-      /* Alt Bar: Ayarlar Açma Butonu (3D Taktil Koyu Zümrüt & Altın Buton) */
-      #settings-open-btn {
-        background: linear-gradient(180deg, #2a3342 0%, #1a212d 50%, #111620 100%);
-        border: 2px solid #5c4426;
-        border-radius: 20px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 0 #0d1117, 0 8px 20px rgba(0, 0, 0, 0.6);
-        color: #fef08a;
-        font-weight: 800;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-      }
-
-      #settings-open-btn:hover {
-        background: linear-gradient(180deg, #374357 0%, #222b3a 50%, #161c28 100%);
-        border-color: #b48c48;
-        transform: translateY(-2px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      #settings-open-btn:active {
-        transform: translateY(3px);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
-      }
-
-      /* Alt Bar: Oyun Modu Değiştirici Butonu (3D Taktil İndigo & Ametist) */
-      #mode-quick-btn {
-        background: linear-gradient(180deg, #312e81 0%, #1e1b4b 100%);
-        border: 2px solid #6366f1;
-        border-radius: 20px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 0 #0d1117, 0 8px 20px rgba(0, 0, 0, 0.6);
-        color: #c7d2fe;
-        font-weight: 800;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-        cursor: pointer;
-      }
-
-      #mode-quick-btn:hover {
-        background: linear-gradient(180deg, #4338ca 0%, #312e81 100%);
-        border-color: #818cf8;
-        transform: translateY(-2px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      #mode-quick-btn:active {
-        transform: translateY(3px);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
       }
 
       /* Mobil Ekranlar İçin Alt Bar İyileştirmesi */
       @media (max-width: 768px), (max-height: 850px) {
         #bottom-action-bar {
-          bottom: max(44px, calc(env(safe-area-inset-bottom, 0px) + 38px));
-          gap: 10px;
+          bottom: max(36px, calc(env(safe-area-inset-bottom, 0px) + 28px));
+          padding: 0 12px;
         }
 
-        #settings-open-btn, #mode-quick-btn {
-          padding: 8px 16px;
+        #craft-action-btn {
+          bottom: max(36px, calc(env(safe-area-inset-bottom, 0px) + 28px));
+        }
+
+        .bottom-side-btn {
+          padding: 8px 14px;
           font-size: 12px;
-          border-radius: 18px;
+          border-radius: 16px;
         }
 
         #craft-action-btn {
@@ -1712,11 +1688,14 @@ export class UIManager {
       <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
 
       <div id="bottom-action-bar">
+        <button id="bottom-cleanup-btn" class="bottom-side-btn">
+          <span id="bottom-cleanup-btn-label">${i18n.t('cleanup')}</span>
+        </button>
         <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
           <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
-          <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/2</span>
+          <span id="craft-btn-counter" style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(254, 240, 138, 0.4); padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-left: 4px; font-weight: 800; color: #fef08a;">2/2</span>
         </button>
-        <button id="settings-open-btn" class="action-pill-btn">
+        <button id="settings-open-btn" class="bottom-side-btn">
           <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
         </button>
       </div>
@@ -2012,6 +1991,7 @@ export class UIManager {
         e.stopPropagation();
         gsap.to(craftBtn, {
           scale: 0.9,
+          xPercent: -50,
           duration: 0.1,
           yoyo: true,
           repeat: 1,
@@ -2072,7 +2052,7 @@ export class UIManager {
         counter.textContent = `${occupiedCount}/${maxCount}`;
       }
       gsap.killTweensOf(btn);
-      gsap.fromTo(btn, { scale: 0.8 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+      gsap.fromTo(btn, { scale: 0.8, xPercent: -50 }, { scale: 1, xPercent: -50, duration: 0.3, ease: 'back.out(2)' });
     } else {
       btn.style.display = 'none';
     }
@@ -2140,6 +2120,9 @@ export class UIManager {
     // 2. Action buttons
     const cleanupBtn = document.getElementById('cleanup-btn');
     if (cleanupBtn) cleanupBtn.textContent = i18n.t('cleanup');
+
+    const bottomCleanupLabel = document.getElementById('bottom-cleanup-btn-label');
+    if (bottomCleanupLabel) bottomCleanupLabel.textContent = i18n.t('cleanup');
 
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
@@ -2339,11 +2322,32 @@ export class UIManager {
       });
     }
 
-    document.getElementById('cleanup-btn').addEventListener('click', () => {
-      if (this.onCleanup) {
-        this.onCleanup();
-      }
-    });
+    const modalCleanupBtn = document.getElementById('cleanup-btn');
+    if (modalCleanupBtn) {
+      modalCleanupBtn.addEventListener('click', () => {
+        if (this.onCleanup) {
+          this.onCleanup();
+        }
+      });
+    }
+
+    const bottomCleanupBtn = document.getElementById('bottom-cleanup-btn');
+    if (bottomCleanupBtn) {
+      bottomCleanupBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        gsap.to(bottomCleanupBtn, {
+          scale: 0.92,
+          duration: 0.1,
+          yoyo: true,
+          repeat: 1,
+          onComplete: () => {
+            if (this.onCleanup) {
+              this.onCleanup();
+            }
+          }
+        });
+      });
+    }
 
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {

@@ -1,0 +1,2 @@
+Set-Location 'D:\github\artemis'
+.\.venv\Scripts\python.exe -m artemis run "com.birlestirme.oyunu uygulamasini ac. Alt menuden temel elementlere (Ates, Su, Toprak vb.) art arda tiklayarak sahneye birden fazla nesne cikar. Iki nesneyi birlestirmeyi dene, yeni elementin olusmasini ve sahnedeki tepkiyi gozlemle. Ardindan sahne temizleme veya cop kutusu butonunu kullanarak sahneyi temizle. Akicilik ve optimizasyon durumunu ozetle." --device-serial d0a5cbe --profile flash --locked-app com.birlestirme.oyunu --standalone
