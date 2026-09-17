@@ -2,12 +2,17 @@ import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 
 export class HintSystem {
-  constructor() {
+  constructor(mode = 'classic') {
+    this.mode = mode;
     this.hintRights = 3;
     this.discoveryCount = 0;
     this.successfulMatches = 0;
     this.hintLevels = {}; // itemId -> level
     this.infiniteHints = false;
+  }
+
+  setMode(mode) {
+    this.mode = mode;
   }
 
   setInfiniteHints(enabled) {
@@ -20,9 +25,12 @@ export class HintSystem {
   revealAllHints(lockedItems) {
     lockedItems.forEach(itemId => {
       const def = ITEM_DEFINITIONS[itemId];
-      if (def && def.recipe && def.recipe.inputs) {
-        const validInputs = def.recipe.inputs.filter(inp => inp != null);
-        this.hintLevels[itemId] = validInputs.length + 1;
+      if (!def) return;
+      const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
+        ? def.trioRecipes[0]
+        : (def.recipe ? def.recipe.inputs.filter(inp => inp != null) : []);
+      if (inputs.length > 0) {
+        this.hintLevels[itemId] = inputs.length + 1;
       }
     });
   }
@@ -45,24 +53,49 @@ export class HintSystem {
 
     return lockedItems.filter(itemId => {
       const def = ITEM_DEFINITIONS[itemId];
-      if (!def || !def.recipe || !def.recipe.inputs) return false;
-      const validInputs = def.recipe.inputs.filter(inp => inp != null);
-      return validInputs.every(input => {
-        const can = getCanonicalId(input);
-        return discoveredItems.includes(input) || discoveredCanonical.has(can);
-      });
+      if (!def) return false;
+
+      // 1. Temel 2'li tarif kontrolü
+      if (def.recipe && def.recipe.inputs) {
+        const validInputs = def.recipe.inputs.filter(inp => inp != null);
+        const is2Craftable = validInputs.every(input => {
+          const can = getCanonicalId(input);
+          return discoveredItems.includes(input) || discoveredCanonical.has(can);
+        });
+        if (is2Craftable) return true;
+      }
+
+      // 2. Grandmaster modunda 3'lü tarif kontrolü
+      if (this.mode === 'grandmaster' && def.trioRecipes && Array.isArray(def.trioRecipes)) {
+        for (const trio of def.trioRecipes) {
+          const isTrioCraftable = trio.every(input => {
+            const can = getCanonicalId(input);
+            return discoveredItems.includes(input) || discoveredCanonical.has(can);
+          });
+          if (isTrioCraftable) return true;
+        }
+      }
+
+      return false;
     });
   }
 
   getHint(itemId) {
     const def = ITEM_DEFINITIONS[itemId];
     const itemName = i18n.getItemName(itemId, def?.name);
-    if (!def || !def.recipe) {
+    if (!def || (!def.recipe && (!def.trioRecipes || def.trioRecipes.length === 0))) {
+      return { text: i18n.t('hint_basic_element'), level: 0, maxLevel: 0 };
+    }
+
+    const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
+      ? def.trioRecipes[0]
+      : (def.recipe ? def.recipe.inputs.filter(inp => inp != null) : []);
+
+    if (inputs.length === 0) {
       return { text: i18n.t('hint_basic_element'), level: 0, maxLevel: 0 };
     }
 
     const level = this.hintLevels[itemId] || 0;
-    const inputs = def.recipe.inputs.filter(inp => inp != null);
     const count = inputs.length;
     const maxLevel = count + 1;
 
@@ -98,11 +131,16 @@ export class HintSystem {
 
   canUseHint(itemId) {
     const def = ITEM_DEFINITIONS[itemId];
-    if (!def || !def.recipe) return false;
-    const count = def.recipe.inputs.filter(inp => inp != null).length;
+    if (!def) return false;
+    const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
+      ? def.trioRecipes[0]
+      : (def.recipe ? def.recipe.inputs.filter(inp => inp != null) : []);
+    if (inputs.length === 0) return false;
+    const count = inputs.length;
     const level = this.hintLevels[itemId] || 0;
     return level <= count; // max level is count + 1
   }
+
 
   useHint(itemId) {
     if (this.infiniteHints) {
@@ -128,3 +166,4 @@ export class HintSystem {
     this.hintLevels[itemId] = currentLevel + 1;
   }
 }
+

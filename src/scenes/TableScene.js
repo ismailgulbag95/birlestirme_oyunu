@@ -288,8 +288,9 @@ export class TableScene {
   _buildSlots() {
     // 3 adet zarif simya tabağı (slot) bölgesi (x ekseninde soldan sağa sıralı)
     const slotPositions = [-1.2, 0, 1.2];
+    this.currentMode = 'classic';
 
-    slotPositions.forEach((x) => {
+    slotPositions.forEach((x, index) => {
       const plateGroup = new THREE.Group();
       plateGroup.position.set(x, 1.75, 0);
       plateGroup.scale.set(0.75, 0.75, 0.75);
@@ -332,12 +333,92 @@ export class TableScene {
       runeRing.position.y = 0.025;
       plateGroup.add(runeRing);
 
-      plateGroup.userData = { slotIndex: x, isOccupied: false, currentItem: null, mesh: null, slot: plateGroup };
+      plateGroup.userData = { 
+        slotIndex: index, 
+        isOccupied: false, 
+        currentItem: null, 
+        mesh: null, 
+        slot: plateGroup,
+        isLocked: false
+      };
 
       this.group.add(plateGroup);
       this.slots.push(plateGroup);
     });
+
+    this.setMode('classic', false);
   }
+
+  setMode(mode, animate = true) {
+    this.currentMode = mode;
+    if (this.slots.length < 3) return;
+
+    if (mode === 'classic') {
+      // 2 slot modu: merkezlenmiş 2 tabak (-0.75, 0.75), 3. tabak gizli
+      const targetPositions = [
+        { x: -0.75, scale: 0.75, visible: true },
+        { x: 0.75, scale: 0.75, visible: true },
+        { x: 1.5, scale: 0.001, visible: false }
+      ];
+
+      this.slots.forEach((slot, i) => {
+        const target = targetPositions[i];
+        slot.userData.isLocked = (i === 2);
+        if (animate) {
+          gsap.to(slot.position, { x: target.x, duration: 0.45, ease: 'power2.out' });
+          gsap.to(slot.scale, { 
+            x: target.scale, y: target.scale, z: target.scale, 
+            duration: 0.4, 
+            onComplete: () => { slot.visible = target.visible; } 
+          });
+          if (slot.userData.mesh) {
+            gsap.to(slot.userData.mesh.position, { x: target.x, duration: 0.45, ease: 'power2.out' });
+          }
+        } else {
+          slot.position.x = target.x;
+          slot.scale.set(target.scale, target.scale, target.scale);
+          slot.visible = target.visible;
+          if (slot.userData.mesh) {
+            slot.userData.mesh.position.x = target.x;
+          }
+        }
+      });
+    } else {
+      // 3 slot Grandmaster modu: 3 tabak (-1.2, 0, 1.2)
+      const targetPositions = [
+        { x: -1.2, scale: 0.75, visible: true },
+        { x: 0, scale: 0.75, visible: true },
+        { x: 1.2, scale: 0.75, visible: true }
+      ];
+
+      this.slots.forEach((slot, i) => {
+        const target = targetPositions[i];
+        slot.userData.isLocked = false;
+        slot.visible = true;
+        if (animate) {
+          gsap.to(slot.position, { x: target.x, duration: 0.45, ease: 'back.out(1.2)' });
+          gsap.to(slot.scale, { x: target.scale, y: target.scale, z: target.scale, duration: 0.45, ease: 'back.out(1.2)' });
+          if (slot.userData.mesh) {
+            gsap.to(slot.userData.mesh.position, { x: target.x, duration: 0.45, ease: 'power2.out' });
+          }
+        } else {
+          slot.position.x = target.x;
+          slot.scale.set(target.scale, target.scale, target.scale);
+          if (slot.userData.mesh) {
+            slot.userData.mesh.position.x = target.x;
+          }
+        }
+      });
+    }
+  }
+
+  getSlots() {
+    if (this.currentMode === 'classic') {
+      return this.slots.slice(0, 2);
+    }
+    return this.slots;
+  }
+
 
   _loadCharacter(charId) {
     const config = this.characters[charId];
@@ -754,9 +835,6 @@ export class TableScene {
   getRoomEnvironment() {
     return this.roomEnvironment;
   }
-
-  getSlots() {
-    return this.slots;
-  }
 }
+
 

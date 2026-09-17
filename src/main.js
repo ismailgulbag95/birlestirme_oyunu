@@ -15,8 +15,6 @@ import { audioManager } from './core/AudioManager.js';
 class Game {
   async init() {
     const canvas = document.getElementById('canvas');
-    this.crafting = new CraftingSystem();
-    this.hintSystem = new HintSystem();
     this.failedCraftAttempts = 0;
 
     const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
@@ -29,6 +27,10 @@ class Game {
 
     // Kayıtlı oyunu yükle
     const savedData = this._loadSavedGame();
+    this.gameMode = savedData.gameMode || 'classic'; // 'classic' (2'li) veya 'grandmaster' (2'li + 3'lü)
+    this.crafting = new CraftingSystem(this.gameMode);
+    this.hintSystem = new HintSystem(this.gameMode);
+
     this.unlockedItems = savedData.unlockedItems || defaultUnlocked;
     this.lockedItems = allDefKeys.filter(id => {
       const canonical = getCanonicalId(id) || id;
@@ -66,6 +68,7 @@ class Game {
 
     this.sceneManager = new SceneManager(canvas);
     this.tableScene = new TableScene(this.sceneManager, initialChar);
+    this.tableScene.setMode(this.gameMode, false);
     this.envProgression = new EnvironmentProgressionManager(this.sceneManager, this.tableScene.getRoomEnvironment());
     this.envProgression.syncWithUnlockedItems(this.unlockedItems);
     this.physics = new RapierWorld();
@@ -94,14 +97,17 @@ class Game {
       () => {
         this.tableScene.playTalkingAnimation();
         this.triggerCrafting();
-      }
+      },
+      (newMode) => this.switchGameMode(newMode)
     );
 
+    this.ui.setGameMode(this.gameMode);
     this.ui.setUnlockedItemCount(this.unlockedItems.length);
     this.ui.updateCharacterButton(initialChar);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+
 
     const loadingTitle = document.getElementById('loading-title-text');
     const loadingSubtitle = document.getElementById('loading-subtitle-text');
@@ -159,6 +165,7 @@ class Game {
     try {
       const saveData = {
         unlockedItems: this.unlockedItems,
+        gameMode: this.gameMode || 'classic',
         activeCharacterId: this.tableScene ? this.tableScene.activeCharacterId : 'character2',
         hintRights: this.hintSystem ? this.hintSystem.hintRights : 3,
         hintLevels: this.hintSystem ? this.hintSystem.hintLevels : {},
@@ -172,6 +179,16 @@ class Game {
       console.warn("Oyun kaydedilirken hata oluştu:", e);
     }
   }
+
+  switchGameMode(newMode) {
+    if (this.gameMode === newMode) return;
+    this.gameMode = newMode;
+    this._saveGame();
+    setTimeout(() => {
+      window.location.reload();
+    }, 150);
+  }
+
 
   get discoveredItems() {
     return this.unlockedItems;
@@ -190,9 +207,12 @@ class Game {
     const slots = this.tableScene.getSlots();
     const emptySlot = slots.find(s => !s.userData.isOccupied);
     if (!emptySlot) {
-      this.ui.showToast(i18n.currentLang === 'tr' ? 'Masa dolu! (En fazla 3 eşya)' : 'Table is full! (Max 3 items)', 'warn');
+      const maxCount = this.gameMode === 'classic' ? 2 : 3;
+      const msgKey = this.gameMode === 'classic' ? 'table_full_classic' : 'table_full_grandmaster';
+      this.ui.showToast(i18n.t(msgKey) || (i18n.currentLang === 'tr' ? `Masa dolu! (En fazla ${maxCount} eşya)` : `Table is full! (Max ${maxCount} items)`), 'warn');
       return;
     }
+
 
     emptySlot.userData.isOccupied = true;
     emptySlot.userData.currentItem = itemId;

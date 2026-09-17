@@ -1,6 +1,6 @@
 /**
- * Auto-generated and synchronized Item Definitions
- * Total items: 521
+ * Auto-generated and synchronized Item Definitions with Multi-Mode Support
+ * Total items: 522
  */
 
 export const ITEM_DEFINITIONS = {
@@ -22,7 +22,8 @@ export const ITEM_DEFINITIONS = {
     "recipe": null,
     "icon": "🔥",
     "category": "01_elements",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "su": {
     "id": "su",
@@ -42,7 +43,8 @@ export const ITEM_DEFINITIONS = {
     "recipe": null,
     "icon": "💧",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "toprak": {
     "id": "toprak",
@@ -62,7 +64,8 @@ export const ITEM_DEFINITIONS = {
     "recipe": null,
     "icon": "🌍",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "hava": {
     "id": "hava",
@@ -82,7 +85,8 @@ export const ITEM_DEFINITIONS = {
     "recipe": null,
     "icon": "💨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "ahtapot": {
     "id": "ahtapot",
@@ -107,7 +111,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "su",
+        "yasam",
+        "yosun"
+      ],
+      [
+        "balik",
+        "bitki",
+        "su"
+      ]
+    ]
   },
   "akrep": {
     "id": "akrep",
@@ -132,7 +148,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "aku": {
     "id": "aku",
@@ -157,7 +174,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "pil",
+        "toprak"
+      ],
+      [
+        "elektrik",
+        "kursun",
+        "metal"
+      ]
+    ]
   },
   "alet": {
     "id": "alet",
@@ -182,7 +211,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "alci": {
     "id": "alci",
@@ -207,7 +237,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "ametist": {
     "id": "ametist",
@@ -232,7 +263,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "tas"
+      ]
+    ]
   },
   "ampul": {
     "id": "ampul",
@@ -257,7 +295,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "elektrik",
+        "kum"
+      ],
+      [
+        "cam",
+        "enerji",
+        "yildirim"
+      ]
+    ]
   },
   "anka_kulu": {
     "id": "anka_kulu",
@@ -282,7 +332,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "ari": {
     "id": "ari",
@@ -307,7 +358,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "asa": {
     "id": "asa",
@@ -332,7 +384,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "odun",
+        "su",
+        "tas"
+      ],
+      [
+        "agac",
+        "kristal",
+        "tas"
+      ]
+    ]
   },
   "ayi": {
     "id": "ayi",
@@ -357,7 +421,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "baharat": {
     "id": "baharat",
@@ -382,7 +447,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "baharat_cesnisi": {
     "id": "baharat_cesnisi",
@@ -407,7 +473,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "tohum",
+        "tuz"
+      ],
+      [
+        "ates",
+        "baharat",
+        "deniz"
+      ]
+    ]
   },
   "bakir": {
     "id": "bakir",
@@ -432,7 +510,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "bal": {
     "id": "bal",
@@ -457,7 +536,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ari",
+        "bitki",
+        "isik"
+      ]
+    ]
   },
   "balta": {
     "id": "balta",
@@ -476,13 +562,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
+        "alet",
         "tas"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "bataklik": {
     "id": "bataklik",
@@ -507,7 +594,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "camur",
+        "su",
+        "tohum"
+      ]
+    ]
   },
   "baykus": {
     "id": "baykus",
@@ -532,7 +626,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "bitki": {
     "id": "bitki",
@@ -557,7 +652,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "bozkir": {
     "id": "bozkir",
@@ -582,7 +678,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "buhar": {
     "id": "buhar",
@@ -607,7 +704,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "buzul": {
     "id": "buzul",
@@ -632,7 +730,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": []
   },
   "buyu": {
     "id": "buyu",
@@ -657,7 +756,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "yasam"
+      ]
+    ]
   },
   "buyu_parsomeni": {
     "id": "buyu_parsomeni",
@@ -682,7 +788,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "kagit",
+        "yasam"
+      ],
+      [
+        "buyu",
+        "odun",
+        "su"
+      ]
+    ]
   },
   "ceviz": {
     "id": "ceviz",
@@ -707,7 +825,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "bitki",
+        "kemik",
+        "toprak"
+      ],
+      [
+        "agac",
+        "hayvan",
+        "toprak"
+      ]
+    ]
   },
   "cin": {
     "id": "cin",
@@ -727,12 +857,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ates",
-        "hava"
+        "ruh"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "civa": {
     "id": "civa",
@@ -757,7 +888,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "davul": {
     "id": "davul",
@@ -782,7 +914,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "hayvan",
+        "odun",
+        "tas"
+      ],
+      [
+        "agac",
+        "deri",
+        "tas"
+      ]
+    ]
   },
   "demir_kulce": {
     "id": "demir_kulce",
@@ -807,7 +951,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "deri": {
     "id": "deri",
@@ -832,7 +977,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "degirmen": {
     "id": "degirmen",
@@ -857,7 +1003,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "alet",
+        "odun",
+        "tas"
+      ]
+    ]
   },
   "domates": {
     "id": "domates",
@@ -882,7 +1035,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "isik",
+        "su",
+        "tohum"
+      ],
+      [
+        "ates",
+        "bitki",
+        "hava"
+      ]
+    ]
   },
   "et": {
     "id": "et",
@@ -907,7 +1072,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "ev": {
     "id": "ev",
@@ -932,7 +1098,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "harc",
+        "odun",
+        "tugla"
+      ]
+    ]
   },
   "evren": {
     "id": "evren",
@@ -957,7 +1130,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "galaksi",
+        "gece",
+        "yildiz"
+      ]
+    ]
   },
   "fay_hatti": {
     "id": "fay_hatti",
@@ -982,7 +1162,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "felsefe_tasi": {
     "id": "felsefe_tasi",
@@ -1007,7 +1188,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "elmas",
+        "isik",
+        "metal"
+      ],
+      [
+        "altin",
+        "komur",
+        "tas"
+      ]
+    ]
   },
   "fiyort": {
     "id": "fiyort",
@@ -1032,7 +1225,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "deniz",
+        "tas",
+        "toprak"
+      ]
+    ]
   },
   "flut": {
     "id": "flut",
@@ -1057,7 +1257,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "alet",
+        "bambu",
+        "hava"
+      ]
+    ]
   },
   "fosil": {
     "id": "fosil",
@@ -1082,7 +1289,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "hayvan",
+        "tas",
+        "toprak"
+      ]
+    ]
   },
   "findik": {
     "id": "findik",
@@ -1107,7 +1321,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "geyik": {
     "id": "geyik",
@@ -1132,7 +1347,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bozkir",
+        "hayvan",
+        "orman"
+      ]
+    ]
   },
   "gezegen": {
     "id": "gezegen",
@@ -1157,7 +1379,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "isik",
+        "tas",
+        "yildiz"
+      ]
+    ]
   },
   "granit": {
     "id": "granit",
@@ -1182,7 +1411,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "gokkusagi": {
     "id": "gokkusagi",
@@ -1207,12 +1437,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "gunes",
+        "hava",
+        "yagmur"
+      ]
+    ]
   },
   "golge": {
     "id": "golge",
     "name": "Gölge",
-    "description": "Işığın bir cisim tarafından engellenmesiyle arkasında oluşan karanlık alan.",
+    "description": "Işığın karanlıkla buluştuğu ve engellendiği silüet alanı.",
     "tier": 5,
     "colorPalette": {
       "primary": "#1e1b4b",
@@ -1226,13 +1463,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "i_nsan",
-        "isik"
+        "isik",
+        "karanlik"
       ]
     },
-    "icon": "✨",
+    "icon": "👤",
     "category": "01_elements",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "gul": {
     "id": "gul",
@@ -1257,7 +1495,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "ates",
+        "bitki",
+        "isik"
+      ]
+    ]
   },
   "gurz": {
     "id": "gurz",
@@ -1282,7 +1527,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "odun",
+        "toprak"
+      ],
+      [
+        "agac",
+        "demir",
+        "tas"
+      ]
+    ]
   },
   "halat": {
     "id": "halat",
@@ -1307,7 +1564,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "hamur": {
     "id": "hamur",
@@ -1332,7 +1590,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bugday",
+        "degirmen",
+        "su"
+      ]
+    ]
   },
   "harc": {
     "id": "harc",
@@ -1357,7 +1622,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "kirec",
+        "su"
+      ]
+    ]
   },
   "havyar": {
     "id": "havyar",
@@ -1382,7 +1654,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "su",
+        "tuz",
+        "yasam"
+      ],
+      [
+        "ates",
+        "balik",
+        "deniz"
+      ]
+    ]
   },
   "hucre": {
     "id": "hucre",
@@ -1407,7 +1691,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "enerji",
+        "su"
+      ]
+    ]
   },
   "jenerator": {
     "id": "jenerator",
@@ -1432,7 +1723,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "buhar",
+        "demir",
+        "miknatis"
+      ],
+      [
+        "buhar_motoru",
+        "demir",
+        "manyetizma"
+      ]
+    ]
   },
   "kadirga": {
     "id": "kadirga",
@@ -1457,7 +1760,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "odun",
+        "yelkenli"
+      ],
+      [
+        "kurek",
+        "odun",
+        "yelken"
+      ]
+    ]
   },
   "kaktus": {
     "id": "kaktus",
@@ -1482,7 +1797,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kale": {
     "id": "kale",
@@ -1507,7 +1823,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "harc",
+        "tas",
+        "tugla"
+      ]
+    ]
   },
   "kalem": {
     "id": "kalem",
@@ -1532,7 +1855,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "hava",
+        "kus",
+        "murekkep"
+      ],
+      [
+        "komur",
+        "kus_tuyu",
+        "su"
+      ]
+    ]
   },
   "kandil": {
     "id": "kandil",
@@ -1557,7 +1892,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "alet",
+        "ates",
+        "camur"
+      ]
+    ]
   },
   "kar": {
     "id": "kar",
@@ -1582,7 +1924,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": []
   },
   "kartal": {
     "id": "kartal",
@@ -1607,7 +1950,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kasaba": {
     "id": "kasaba",
@@ -1632,7 +1976,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "i_nsan",
+        "koy",
+        "para"
+      ]
+    ]
   },
   "kavurma": {
     "id": "kavurma",
@@ -1657,7 +2008,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "bicak",
+        "hayvan"
+      ]
+    ]
   },
   "kagit": {
     "id": "kagit",
@@ -1682,7 +2040,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "agac",
+        "su",
+        "tas"
+      ]
+    ]
   },
   "kehribar": {
     "id": "kehribar",
@@ -1707,7 +2072,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kemik": {
     "id": "kemik",
@@ -1732,7 +2098,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kentaurluk": {
     "id": "kentaurluk",
@@ -1757,7 +2124,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kertenkele": {
     "id": "kertenkele",
@@ -1782,7 +2150,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kilit": {
     "id": "kilit",
@@ -1807,7 +2176,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "civi",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "kirec": {
     "id": "kirec",
@@ -1832,7 +2208,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "koyun": {
     "id": "koyun",
@@ -1857,7 +2234,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kristal": {
     "id": "kristal",
@@ -1882,7 +2260,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kule": {
     "id": "kule",
@@ -1907,7 +2286,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "kulube": {
     "id": "kulube",
@@ -1926,13 +2306,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "cimen",
-        "odun"
+        "ev",
+        "orman"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "kum": {
     "id": "kum",
@@ -1957,7 +2338,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kurbaga": {
     "id": "kurbaga",
@@ -1982,7 +2364,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kursun": {
     "id": "kursun",
@@ -2007,7 +2390,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kutsal_kase": {
     "id": "kutsal_kase",
@@ -2032,7 +2416,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "isik",
+        "metal",
+        "olumsuzluk_i_ksiri"
+      ],
+      [
+        "altin",
+        "felsefe_tasi",
+        "i_ksir"
+      ]
+    ]
   },
   "kuvars": {
     "id": "kuvars",
@@ -2057,7 +2453,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "kum"
+      ],
+      [
+        "enerji",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "koruk": {
     "id": "koruk",
@@ -2082,7 +2490,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "agac",
+        "hava",
+        "tas"
+      ]
+    ]
   },
   "koy": {
     "id": "koy",
@@ -2107,7 +2522,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "kukurt": {
     "id": "kukurt",
@@ -2132,7 +2548,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kul": {
     "id": "kul",
@@ -2157,7 +2574,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kurek": {
     "id": "kurek",
@@ -2182,7 +2600,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "kita": {
     "id": "kita",
@@ -2207,7 +2626,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kiymik": {
     "id": "kiymik",
@@ -2226,13 +2646,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
-        "tas"
+        "balta",
+        "odun"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "lav": {
     "id": "lav",
@@ -2257,7 +2678,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "lif": {
     "id": "lif",
@@ -2282,7 +2704,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "su",
+        "tas",
+        "tohum"
+      ]
+    ]
   },
   "mana": {
     "id": "mana",
@@ -2307,7 +2736,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "buyu",
+        "hava"
+      ]
+    ]
   },
   "mana_i_ksiri": {
     "id": "mana_i_ksiri",
@@ -2332,7 +2768,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "buyu",
+        "mana",
+        "su"
+      ],
+      [
+        "buyu",
+        "enerji",
+        "i_ksir"
+      ]
+    ]
   },
   "mancinik": {
     "id": "mancinik",
@@ -2357,7 +2805,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "agac",
+        "halat",
+        "tas"
+      ]
+    ]
   },
   "mantar": {
     "id": "mantar",
@@ -2382,7 +2837,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "medeniyet": {
     "id": "medeniyet",
@@ -2407,7 +2863,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "kale",
+        "kasaba",
+        "yazi"
+      ],
+      [
+        "kagit",
+        "kalem",
+        "sehir"
+      ]
+    ]
   },
   "melek": {
     "id": "melek",
@@ -2432,7 +2900,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "ruh"
+      ]
+    ]
   },
   "meltem": {
     "id": "meltem",
@@ -2457,7 +2932,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "mercan_kayaligi": {
     "id": "mercan_kayaligi",
@@ -2482,7 +2958,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "deniz",
+        "tas",
+        "yasam"
+      ]
+    ]
   },
   "mesale": {
     "id": "mesale",
@@ -2507,7 +2990,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "migfer": {
     "id": "migfer",
@@ -2532,7 +3016,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "cekic",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "muz": {
     "id": "muz",
@@ -2557,7 +3048,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "palmiye"
+      ],
+      [
+        "agac",
+        "isik",
+        "kum"
+      ]
+    ]
   },
   "miknatis": {
     "id": "miknatis",
@@ -2582,7 +3085,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "manyetizma",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "mizrak": {
     "id": "mizrak",
@@ -2607,7 +3117,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "obsidyen": {
     "id": "obsidyen",
@@ -2632,7 +3143,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "odun": {
     "id": "odun",
@@ -2657,7 +3169,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "ok": {
     "id": "ok",
@@ -2682,7 +3195,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "olta": {
     "id": "olta",
@@ -2707,7 +3221,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "alet",
+        "bitki",
+        "odun"
+      ],
+      [
+        "agac",
+        "i_p",
+        "tas"
+      ]
+    ]
   },
   "pamuk": {
     "id": "pamuk",
@@ -2732,7 +3258,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "bulut",
+        "su",
+        "tohum"
+      ],
+      [
+        "bitki",
+        "buhar",
+        "hava"
+      ]
+    ]
   },
   "para": {
     "id": "para",
@@ -2757,7 +3295,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "demir",
+        "isik",
+        "metal"
+      ],
+      [
+        "altin",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "parsomen": {
     "id": "parsomen",
@@ -2782,7 +3332,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "hayvan",
+        "tas",
+        "yazi"
+      ],
+      [
+        "deri",
+        "kagit",
+        "kalem"
+      ]
+    ]
   },
   "pastirma": {
     "id": "pastirma",
@@ -2801,13 +3363,25 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "baharat",
-        "et"
+        "et",
+        "tuz"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "et",
+        "tohum"
+      ],
+      [
+        "baharat",
+        "bicak",
+        "hayvan"
+      ]
+    ]
   },
   "pil": {
     "id": "pil",
@@ -2832,7 +3406,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "enerji",
+        "metal",
+        "yildirim"
+      ],
+      [
+        "ates",
+        "elektrik",
+        "tas"
+      ]
+    ]
   },
   "pirinc": {
     "id": "pirinc",
@@ -2851,13 +3437,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "bugday",
-        "su"
+        "bataklik",
+        "bitki"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bitki",
+        "su",
+        "tohum"
+      ]
+    ]
   },
   "plazma": {
     "id": "plazma",
@@ -2882,7 +3475,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": [
+      [
+        "ates",
+        "enerji",
+        "yildirim"
+      ]
+    ]
   },
   "porselen": {
     "id": "porselen",
@@ -2907,7 +3507,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "seramik",
+        "tas"
+      ],
+      [
+        "cam",
+        "comlek",
+        "kirec"
+      ]
+    ]
   },
   "prizma": {
     "id": "prizma",
@@ -2932,7 +3544,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "isik",
+        "kum"
+      ],
+      [
+        "ates",
+        "cam",
+        "hava"
+      ]
+    ]
   },
   "resim": {
     "id": "resim",
@@ -2957,7 +3581,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "kagit",
+        "kalem",
+        "murekkep"
+      ]
+    ]
   },
   "recel": {
     "id": "recel",
@@ -2982,7 +3613,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "bitki",
+        "cilek"
+      ]
+    ]
   },
   "recine": {
     "id": "recine",
@@ -3007,7 +3645,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "runik_zirh": {
     "id": "runik_zirh",
@@ -3032,7 +3671,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "demir_kulce",
+        "run",
+        "zirh"
+      ],
+      [
+        "buyu",
+        "demir_zirh",
+        "tas"
+      ]
+    ]
   },
   "run": {
     "id": "run",
@@ -3057,7 +3708,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "tas",
+        "yasam"
+      ]
+    ]
   },
   "sal": {
     "id": "sal",
@@ -3082,7 +3740,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "salca": {
     "id": "salca",
@@ -3107,7 +3766,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bitki",
+        "gunes",
+        "isik"
+      ],
+      [
+        "domates",
+        "isik",
+        "yildiz"
+      ]
+    ]
   },
   "sarmasik": {
     "id": "sarmasik",
@@ -3132,7 +3803,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "sarimsak": {
     "id": "sarimsak",
@@ -3157,7 +3829,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "sogan",
+        "tohum"
+      ],
+      [
+        "baharat",
+        "kok",
+        "toprak"
+      ]
+    ]
   },
   "saglam_sandik": {
     "id": "saglam_sandik",
@@ -3176,13 +3860,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "demir",
+        "kilit",
         "odun"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "sera": {
     "id": "sera",
@@ -3207,7 +3892,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "cam",
+        "su",
+        "tohum"
+      ],
+      [
+        "ates",
+        "bitki",
+        "kum"
+      ]
+    ]
   },
   "seramik": {
     "id": "seramik",
@@ -3232,7 +3929,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "ates",
+        "comlek",
+        "kum"
+      ],
+      [
+        "alet",
+        "cam",
+        "camur"
+      ]
+    ]
   },
   "sincap": {
     "id": "sincap",
@@ -3257,7 +3966,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "sinema": {
     "id": "sinema",
@@ -3282,7 +3992,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "isik",
+        "kagit",
+        "kamera"
+      ],
+      [
+        "ates",
+        "fotograf",
+        "hava"
+      ]
+    ]
   },
   "sis": {
     "id": "sis",
@@ -3307,7 +4029,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "sosis": {
     "id": "sosis",
@@ -3332,7 +4055,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "sur": {
     "id": "sur",
@@ -3357,7 +4081,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "tas": {
     "id": "tas",
@@ -3382,7 +4107,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "tekerlek": {
     "id": "tekerlek",
@@ -3401,13 +4127,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "alet",
+        "cark",
         "odun"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "agac",
+        "alet",
+        "tas"
+      ]
+    ]
   },
   "tepe": {
     "id": "tepe",
@@ -3432,7 +4165,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "tereyagi": {
     "id": "tereyagi",
@@ -3457,7 +4191,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "alet",
+        "sut",
+        "tuz"
+      ]
+    ]
   },
   "totem": {
     "id": "totem",
@@ -3482,7 +4223,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "agac",
+        "ruh",
+        "tas"
+      ],
+      [
+        "isik",
+        "odun",
+        "yasam"
+      ]
+    ]
   },
   "tufan": {
     "id": "tufan",
@@ -3507,7 +4260,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "tugla": {
     "id": "tugla",
@@ -3532,7 +4286,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "tunel": {
     "id": "tunel",
@@ -3557,7 +4312,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "kazma",
+        "tas",
+        "toprak"
+      ],
+      [
+        "dag",
+        "odun",
+        "tas"
+      ]
+    ]
   },
   "tilsim": {
     "id": "tilsim",
@@ -3582,7 +4349,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "metal",
+        "yasam"
+      ],
+      [
+        "ates",
+        "buyu",
+        "tas"
+      ]
+    ]
   },
   "un": {
     "id": "un",
@@ -3607,7 +4386,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bitki",
+        "degirmen",
+        "tohum"
+      ],
+      [
+        "bugday",
+        "cark",
+        "tas"
+      ]
+    ]
   },
   "uydu": {
     "id": "uydu",
@@ -3632,7 +4423,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "elektrik",
+        "hava",
+        "roket"
+      ],
+      [
+        "barut",
+        "demir",
+        "radyo"
+      ]
+    ]
   },
   "ucurtma": {
     "id": "ucurtma",
@@ -3657,7 +4460,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "odun",
+        "ruzgar",
+        "su"
+      ]
+    ]
   },
   "vaha": {
     "id": "vaha",
@@ -3682,7 +4492,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "vinc": {
     "id": "vinc",
@@ -3707,7 +4518,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "halat",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "volkan": {
     "id": "volkan",
@@ -3732,7 +4550,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "yaprak": {
     "id": "yaprak",
@@ -3757,7 +4576,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "yarimada": {
     "id": "yarimada",
@@ -3782,7 +4602,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yatak": {
     "id": "yatak",
@@ -3807,7 +4628,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "agac",
+        "kumas",
+        "tas"
+      ]
+    ]
   },
   "yazi": {
     "id": "yazi",
@@ -3832,7 +4660,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "kalem",
+        "odun",
+        "su"
+      ],
+      [
+        "kagit",
+        "kus_tuyu",
+        "murekkep"
+      ]
+    ]
   },
   "yelken": {
     "id": "yelken",
@@ -3857,7 +4697,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yol": {
     "id": "yol",
@@ -3882,7 +4723,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yogurt": {
     "id": "yogurt",
@@ -3907,7 +4749,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "bakteri",
+        "maya",
+        "sut"
+      ]
+    ]
   },
   "yun": {
     "id": "yun",
@@ -3927,12 +4776,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "koyun",
-        "tas"
+        "makas"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "zincir": {
     "id": "zincir",
@@ -3957,7 +4807,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "zumrut": {
     "id": "zumrut",
@@ -3982,7 +4833,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "zirh": {
     "id": "zirh",
@@ -4007,7 +4859,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "hayvan",
+        "metal",
+        "tas"
+      ],
+      [
+        "ates",
+        "deri",
+        "tas"
+      ]
+    ]
   },
   "cakmaktasi": {
     "id": "cakmaktasi",
@@ -4032,7 +4896,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "cali": {
     "id": "cali",
@@ -4057,7 +4922,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "camur": {
     "id": "camur",
@@ -4082,7 +4948,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "cark": {
     "id": "cark",
@@ -4101,13 +4968,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "alet",
-        "odun"
+        "disli",
+        "metal"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "cekic": {
     "id": "cekic",
@@ -4126,13 +4994,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
-        "tas"
+        "demir",
+        "odun"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "cimen": {
     "id": "cimen",
@@ -4157,7 +5026,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "cimento": {
     "id": "cimento",
@@ -4182,7 +5052,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "ates",
+        "camur",
+        "tas"
+      ]
+    ]
   },
   "civi": {
     "id": "civi",
@@ -4207,7 +5084,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "corba": {
     "id": "corba",
@@ -4232,7 +5110,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "et",
+        "su"
+      ]
+    ]
   },
   "col": {
     "id": "col",
@@ -4257,7 +5142,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "comlek": {
     "id": "comlek",
@@ -4282,7 +5168,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "odun",
+        "tas"
+      ]
+    ]
   },
   "cig": {
     "id": "cig",
@@ -4307,7 +5200,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "ors": {
     "id": "ors",
@@ -4332,7 +5226,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "celik",
+        "demir",
+        "tas"
+      ]
+    ]
   },
   "uzum": {
     "id": "uzum",
@@ -4357,7 +5258,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "sarmasik"
+      ]
+    ]
   },
   "i_ksir": {
     "id": "i_ksir",
@@ -4382,7 +5290,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "i_nek": {
     "id": "i_nek",
@@ -4401,13 +5310,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "cimen",
-        "hayvan"
+        "hayvan",
+        "sut"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "i_nsan": {
     "id": "i_nsan",
@@ -4432,7 +5342,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "enerji",
+        "toprak"
+      ]
+    ]
   },
   "i_p": {
     "id": "i_p",
@@ -4457,7 +5374,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bitki",
+        "odun",
+        "tas"
+      ],
+      [
+        "alet",
+        "su",
+        "tohum"
+      ]
+    ]
   },
   "i_gne": {
     "id": "i_gne",
@@ -4482,7 +5411,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "kiymik",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "safak": {
     "id": "safak",
@@ -4507,7 +5443,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "sahin": {
     "id": "sahin",
@@ -4532,7 +5469,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "selale": {
     "id": "selale",
@@ -4557,7 +5495,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "nehir",
+        "tas",
+        "toprak"
+      ]
+    ]
   },
   "sifa_i_ksiri": {
     "id": "sifa_i_ksiri",
@@ -4582,7 +5527,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "cicek",
+        "i_ksir"
+      ],
+      [
+        "buyu",
+        "gul",
+        "su"
+      ]
+    ]
   },
   "sise": {
     "id": "sise",
@@ -4607,7 +5564,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "at": {
     "id": "at",
@@ -4632,7 +5590,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "buz": {
     "id": "buz",
@@ -4657,7 +5616,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": []
   },
   "dinamit": {
     "id": "dinamit",
@@ -4682,7 +5642,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": [
+      [
+        "komur",
+        "kukurt",
+        "kum"
+      ],
+      [
+        "barut",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "fener": {
     "id": "fener",
@@ -4707,7 +5679,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "firtina_kilici": {
     "id": "firtina_kilici",
@@ -4732,7 +5705,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "cekic",
+        "celik",
+        "yildirim"
+      ],
+      [
+        "enerji",
+        "firtina",
+        "kilic"
+      ]
+    ]
   },
   "gol": {
     "id": "gol",
@@ -4757,7 +5742,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "kahin_kuresi": {
     "id": "kahin_kuresi",
@@ -4782,7 +5768,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "kristal",
+        "yasam"
+      ],
+      [
+        "buyu",
+        "su",
+        "tas"
+      ]
+    ]
   },
   "kalkan": {
     "id": "kalkan",
@@ -4801,13 +5799,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "demir",
+        "celik",
         "odun"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "celik",
+        "deri",
+        "odun"
+      ]
+    ]
   },
   "kasirga": {
     "id": "kasirga",
@@ -4832,7 +5837,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "firtina",
+        "ruzgar",
+        "su"
+      ]
+    ]
   },
   "lokomotif": {
     "id": "lokomotif",
@@ -4857,7 +5869,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "buhar",
+        "demir",
+        "tekerlek"
+      ],
+      [
+        "alet",
+        "buhar_motoru",
+        "odun"
+      ]
+    ]
   },
   "makas": {
     "id": "makas",
@@ -4882,7 +5906,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "magara": {
     "id": "magara",
@@ -4907,7 +5932,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "muze": {
     "id": "muze",
@@ -4932,7 +5958,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "fosil",
+        "odun",
+        "tugla"
+      ],
+      [
+        "ev",
+        "kemik",
+        "tas"
+      ]
+    ]
   },
   "nilufer": {
     "id": "nilufer",
@@ -4957,7 +5995,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "sfenks": {
     "id": "sfenks",
@@ -4982,7 +6021,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "bozkir",
+        "heykel",
+        "kedi"
+      ],
+      [
+        "aslan",
+        "cekic",
+        "mermer"
+      ]
+    ]
   },
   "tutulma": {
     "id": "tutulma",
@@ -5007,7 +6058,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "gece",
+        "gunes",
+        "tas"
+      ],
+      [
+        "ay",
+        "isik",
+        "yildiz"
+      ]
+    ]
   },
   "tuy": {
     "id": "tuy",
@@ -5032,7 +6095,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "uzay": {
     "id": "uzay",
@@ -5057,7 +6121,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "galaksi",
+        "gece",
+        "karadelik"
+      ],
+      [
+        "evren",
+        "isik",
+        "toprak"
+      ]
+    ]
   },
   "yel_degirmeni": {
     "id": "yel_degirmeni",
@@ -5082,7 +6158,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "cark",
+        "hava",
+        "tas"
+      ]
+    ]
   },
   "i_ksir_kazani": {
     "id": "i_ksir_kazani",
@@ -5107,7 +6190,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "buyu",
+        "kazan",
+        "su"
+      ],
+      [
+        "ates",
+        "demir",
+        "i_ksir"
+      ]
+    ]
   },
   "ada": {
     "id": "ada",
@@ -5132,7 +6227,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "alacakaranlik": {
     "id": "alacakaranlik",
@@ -5151,13 +6247,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "gece",
+        "golge",
         "isik"
       ]
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "alfabe": {
     "id": "alfabe",
@@ -5182,7 +6279,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "anka_kusu": {
     "id": "anka_kusu",
@@ -5207,7 +6305,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "anit": {
     "id": "anit",
@@ -5232,7 +6331,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "cekic",
+        "mermer",
+        "tas"
+      ]
+    ]
   },
   "aslan": {
     "id": "aslan",
@@ -5257,7 +6363,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "ay": {
     "id": "ay",
@@ -5277,12 +6384,19 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "gece",
-        "tas"
+        "yildiz"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "gece",
+        "isik",
+        "uzay"
+      ]
+    ]
   },
   "bal_kavanozu": {
     "id": "bal_kavanozu",
@@ -5307,7 +6421,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ari",
+        "cam",
+        "cicek"
+      ],
+      [
+        "ates",
+        "bal",
+        "kum"
+      ]
+    ]
   },
   "barut": {
     "id": "barut",
@@ -5332,7 +6458,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": [
+      [
+        "ates",
+        "kukurt",
+        "odun"
+      ],
+      [
+        "komur",
+        "toprak",
+        "yanardag"
+      ]
+    ]
   },
   "barut_ficisi": {
     "id": "barut_ficisi",
@@ -5357,7 +6495,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": [
+      [
+        "komur",
+        "kukurt",
+        "odun"
+      ],
+      [
+        "agac",
+        "barut",
+        "tas"
+      ]
+    ]
   },
   "beton": {
     "id": "beton",
@@ -5382,7 +6532,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "harc",
+        "kum",
+        "su"
+      ]
+    ]
   },
   "biber": {
     "id": "biber",
@@ -5402,12 +6559,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ates",
-        "bitki"
+        "domates"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "bisiklet": {
     "id": "bisiklet",
@@ -5432,7 +6590,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "tekerlek",
+        "toprak"
+      ]
+    ]
   },
   "biyonik_kol": {
     "id": "biyonik_kol",
@@ -5457,7 +6622,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bilgisayar",
+        "celik",
+        "i_nsan"
+      ]
+    ]
   },
   "boyut_kapisi": {
     "id": "boyut_kapisi",
@@ -5482,7 +6654,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "galaksi",
+        "karadelik",
+        "portal_runu"
+      ],
+      [
+        "buyu",
+        "evren",
+        "run"
+      ]
+    ]
   },
   "bosluk_sisesi": {
     "id": "bosluk_sisesi",
@@ -5507,7 +6691,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cam",
+        "gece",
+        "uzay"
+      ]
+    ]
   },
   "bronz": {
     "id": "bronz",
@@ -5532,7 +6723,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "buhar_jeneratoru": {
     "id": "buhar_jeneratoru",
@@ -5557,7 +6749,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "buhar",
+        "buhar_motoru",
+        "miknatis"
+      ]
+    ]
   },
   "bulut": {
     "id": "bulut",
@@ -5582,7 +6781,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "buz_dagi": {
     "id": "buz_dagi",
@@ -5607,7 +6807,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": [
+      [
+        "buz",
+        "kar",
+        "su"
+      ]
+    ]
   },
   "buz_runu": {
     "id": "buz_runu",
@@ -5632,7 +6839,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": [
+      [
+        "buyu",
+        "buz",
+        "tas"
+      ]
+    ]
   },
   "dag": {
     "id": "dag",
@@ -5657,7 +6871,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "demir_kalkan": {
     "id": "demir_kalkan",
@@ -5682,7 +6897,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "kalkan",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "deniz": {
     "id": "deniz",
@@ -5707,7 +6929,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "denizanasi": {
     "id": "denizanasi",
@@ -5732,7 +6955,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "denizkizi": {
     "id": "denizkizi",
@@ -5757,7 +6981,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "i_nsan",
+        "su",
+        "yasam"
+      ]
+    ]
   },
   "deri_zirh": {
     "id": "deri_zirh",
@@ -5782,7 +7013,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "hayvan",
+        "i_p",
+        "tas"
+      ],
+      [
+        "alet",
+        "bitki",
+        "deri"
+      ]
+    ]
   },
   "dolu": {
     "id": "dolu",
@@ -5807,7 +7050,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": []
   },
   "ejderha": {
     "id": "ejderha",
@@ -5832,7 +7076,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "ates",
+        "fosil",
+        "kertenkele"
+      ]
+    ]
   },
   "fener_kulesi": {
     "id": "fener_kulesi",
@@ -5857,7 +7108,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "ates",
+        "kale",
+        "tas"
+      ]
+    ]
   },
   "firtina": {
     "id": "firtina",
@@ -5882,7 +7140,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "elektrik",
+        "hava",
+        "yagmur"
+      ]
+    ]
   },
   "firtina_bulutu": {
     "id": "firtina_bulutu",
@@ -5907,7 +7172,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "gazete": {
     "id": "gazete",
@@ -5932,7 +7198,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "matbaa",
+        "odun",
+        "su"
+      ],
+      [
+        "disli",
+        "kagit",
+        "yazi"
+      ]
+    ]
   },
   "girdap": {
     "id": "girdap",
@@ -5957,7 +7235,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "grifon": {
     "id": "grifon",
@@ -5982,7 +7261,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "bozkir",
+        "kartal",
+        "kedi"
+      ],
+      [
+        "aslan",
+        "dag",
+        "kus"
+      ]
+    ]
   },
   "gulyabani": {
     "id": "gulyabani",
@@ -6007,7 +7298,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "col",
+        "gece",
+        "ruh"
+      ]
+    ]
   },
   "gunduz": {
     "id": "gunduz",
@@ -6032,7 +7330,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "hayalet": {
     "id": "hayalet",
@@ -6057,7 +7356,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "isik",
+        "ruh",
+        "toprak"
+      ],
+      [
+        "gece",
+        "isik",
+        "yasam"
+      ]
+    ]
   },
   "hayvan": {
     "id": "hayvan",
@@ -6082,7 +7393,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "hazine": {
     "id": "hazine",
@@ -6107,7 +7419,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "isik",
+        "metal",
+        "saglam_sandik"
+      ],
+      [
+        "altin",
+        "demir",
+        "odun"
+      ]
+    ]
   },
   "hesap_makinesi": {
     "id": "hesap_makinesi",
@@ -6132,7 +7456,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "disli",
+        "metal",
+        "toprak"
+      ],
+      [
+        "cark",
+        "demir",
+        "metal"
+      ]
+    ]
   },
   "heykel": {
     "id": "heykel",
@@ -6157,7 +7493,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "mermer",
+        "odun",
+        "tas"
+      ],
+      [
+        "cekic",
+        "kirec",
+        "tas"
+      ]
+    ]
   },
   "kabile": {
     "id": "kabile",
@@ -6182,7 +7530,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "aile",
+        "kumas",
+        "odun"
+      ]
+    ]
   },
   "kale_kapisi": {
     "id": "kale_kapisi",
@@ -6207,7 +7562,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "kale",
+        "metal",
+        "toprak"
+      ],
+      [
+        "demir",
+        "tas",
+        "tugla_duvar"
+      ]
+    ]
   },
   "kanal": {
     "id": "kanal",
@@ -6232,7 +7599,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "nehir",
+        "odun",
+        "tas"
+      ],
+      [
+        "dag",
+        "gol",
+        "kazma"
+      ]
+    ]
   },
   "kano": {
     "id": "kano",
@@ -6257,7 +7636,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "agac",
+        "kurek",
+        "tas"
+      ]
+    ]
   },
   "karpuz": {
     "id": "karpuz",
@@ -6277,12 +7663,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "su",
-        "tohum"
+        "toprak"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "kavrulmus_et": {
     "id": "kavrulmus_et",
@@ -6302,12 +7689,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ates",
-        "et"
+        "pastirma"
       ]
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "kazma": {
     "id": "kazma",
@@ -6326,13 +7714,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
+        "demir",
         "tas"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "kedi": {
     "id": "kedi",
@@ -6357,7 +7746,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kelebek": {
     "id": "kelebek",
@@ -6382,7 +7772,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kitap": {
     "id": "kitap",
@@ -6407,7 +7798,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "deri",
+        "kagit",
+        "murekkep"
+      ]
+    ]
   },
   "kozmik_usturlap": {
     "id": "kozmik_usturlap",
@@ -6432,7 +7830,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "cam",
+        "demir",
+        "yildiz"
+      ],
+      [
+        "ates",
+        "plazma",
+        "pusula"
+      ]
+    ]
   },
   "kum_saati": {
     "id": "kum_saati",
@@ -6457,7 +7867,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "cam",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "kumas": {
     "id": "kumas",
@@ -6476,13 +7893,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "i_plik",
-        "i_plik"
+        "pamuk",
+        "i_p"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "i_gne",
+        "i_plik",
+        "pamuk"
+      ]
+    ]
   },
   "kuyruklu_yildiz": {
     "id": "kuyruklu_yildiz",
@@ -6507,7 +7931,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "buz",
+        "plazma"
+      ]
+    ]
   },
   "kus_tuyu": {
     "id": "kus_tuyu",
@@ -6526,13 +7957,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "hava",
+        "kus",
         "kus"
       ]
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kilic": {
     "id": "kilic",
@@ -6557,7 +7989,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "celik",
+        "odun",
+        "tas"
+      ],
+      [
+        "cekic",
+        "demir",
+        "komur"
+      ]
+    ]
   },
   "lazer": {
     "id": "lazer",
@@ -6582,7 +8026,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "kristal"
+      ],
+      [
+        "isik",
+        "su",
+        "tas"
+      ]
+    ]
   },
   "liman": {
     "id": "liman",
@@ -6602,12 +8058,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "deniz",
-        "tas"
+        "sehir"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "meka_zirhi": {
     "id": "meka_zirhi",
@@ -6632,7 +8089,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "demir_kulce",
+        "robot",
+        "zirh"
+      ],
+      [
+        "bilgisayar",
+        "demir",
+        "demir_zirh"
+      ]
+    ]
   },
   "minyatur_yildiz": {
     "id": "minyatur_yildiz",
@@ -6657,7 +8126,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "camur",
+        "plazma"
+      ]
+    ]
   },
   "murekkep": {
     "id": "murekkep",
@@ -6682,7 +8158,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "nane": {
     "id": "nane",
@@ -6707,7 +8184,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "agac",
+        "hava",
+        "isik"
+      ]
+    ]
   },
   "nehir": {
     "id": "nehir",
@@ -6732,7 +8216,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "gol",
+        "tas",
+        "toprak"
+      ],
+      [
+        "camur",
+        "dag",
+        "su"
+      ]
+    ]
   },
   "okul": {
     "id": "okul",
@@ -6752,12 +8248,19 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ev",
-        "kitap"
+        "yazi"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "ev",
+        "kitap",
+        "yazi"
+      ]
+    ]
   },
   "okyanus": {
     "id": "okyanus",
@@ -6782,7 +8285,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "orman": {
     "id": "orman",
@@ -6807,7 +8311,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "pasta": {
     "id": "pasta",
@@ -6832,7 +8337,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "seker",
+        "un",
+        "yumurta"
+      ]
+    ]
   },
   "peri": {
     "id": "peri",
@@ -6851,13 +8363,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "i_nsan",
+        "buyu",
         "kelebek"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "buyu",
+        "cicek",
+        "kelebek"
+      ]
+    ]
   },
   "platin": {
     "id": "platin",
@@ -6882,7 +8401,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "komur",
+        "metal",
+        "tas"
+      ],
+      [
+        "ates",
+        "elmas",
+        "tas"
+      ]
+    ]
   },
   "portakal": {
     "id": "portakal",
@@ -6907,7 +8438,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "prizma_tasi": {
     "id": "prizma_tasi",
@@ -6932,7 +8464,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "prizma",
+        "su",
+        "tas"
+      ],
+      [
+        "cam",
+        "isik",
+        "kristal"
+      ]
+    ]
   },
   "ruh": {
     "id": "ruh",
@@ -6957,7 +8501,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "camur",
+        "enerji",
+        "isik"
+      ]
+    ]
   },
   "safir": {
     "id": "safir",
@@ -6982,7 +8533,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "savas_baltasi": {
     "id": "savas_baltasi",
@@ -7007,7 +8559,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "balta",
+        "demir",
+        "komur"
+      ]
+    ]
   },
   "simya": {
     "id": "simya",
@@ -7032,7 +8591,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "su_comlegi": {
     "id": "su_comlegi",
@@ -7057,7 +8617,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "alet",
+        "camur",
+        "su"
+      ]
+    ]
   },
   "tabanca": {
     "id": "tabanca",
@@ -7082,7 +8649,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "toprak",
+        "tufek"
+      ],
+      [
+        "demir",
+        "odun",
+        "top"
+      ]
+    ]
   },
   "tablo": {
     "id": "tablo",
@@ -7107,7 +8686,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "agac",
+        "resim",
+        "tas"
+      ],
+      [
+        "kumas",
+        "murekkep",
+        "odun"
+      ]
+    ]
   },
   "tanri": {
     "id": "tanri",
@@ -7132,7 +8723,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "galaksi",
+        "karadelik",
+        "yasam"
+      ],
+      [
+        "camur",
+        "enerji",
+        "evren"
+      ]
+    ]
   },
   "tavuk": {
     "id": "tavuk",
@@ -7157,7 +8760,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "testere": {
     "id": "testere",
@@ -7182,7 +8786,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "alet",
+        "demir",
+        "tas"
+      ],
+      [
+        "bicak",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "timsah": {
     "id": "timsah",
@@ -7207,7 +8823,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "kum",
+        "kurbaga",
+        "su"
+      ]
+    ]
   },
   "tiyatro": {
     "id": "tiyatro",
@@ -7232,7 +8855,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "tohum": {
     "id": "tohum",
@@ -7257,7 +8881,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "tuz": {
     "id": "tuz",
@@ -7282,7 +8907,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "tuzlu_su": {
     "id": "tuzlu_su",
@@ -7307,7 +8933,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "tugla_duvar": {
     "id": "tugla_duvar",
@@ -7332,7 +8959,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cimento",
+        "su",
+        "tugla"
+      ],
+      [
+        "ates",
+        "camur",
+        "harc"
+      ]
+    ]
   },
   "tufek": {
     "id": "tufek",
@@ -7357,7 +8996,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "barut",
+        "celik",
+        "odun"
+      ]
+    ]
   },
   "turbin": {
     "id": "turbin",
@@ -7382,7 +9028,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "buhar_motoru",
+        "miknatis",
+        "ruzgar"
+      ]
+    ]
   },
   "uzay_gemisi": {
     "id": "uzay_gemisi",
@@ -7407,7 +9060,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "elektrik",
+        "mikrocip",
+        "roket"
+      ],
+      [
+        "barut",
+        "bilgisayar",
+        "demir"
+      ]
+    ]
   },
   "vadi": {
     "id": "vadi",
@@ -7432,7 +9097,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "vida": {
     "id": "vida",
@@ -7457,7 +9123,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "civi",
+        "odun",
+        "tas"
+      ],
+      [
+        "alet",
+        "cekic",
+        "demir"
+      ]
+    ]
   },
   "yakut": {
     "id": "yakut",
@@ -7482,7 +9160,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yanardag": {
     "id": "yanardag",
@@ -7507,7 +9186,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "yapay_zeka": {
     "id": "yapay_zeka",
@@ -7532,7 +9212,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "elektrik",
+        "mikrocip",
+        "yasam"
+      ],
+      [
+        "bilgisayar",
+        "camur",
+        "enerji"
+      ]
+    ]
   },
   "yay": {
     "id": "yay",
@@ -7557,7 +9249,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "yelkenli": {
     "id": "yelkenli",
@@ -7582,7 +9275,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "halat",
+        "kumas",
+        "odun"
+      ]
+    ]
   },
   "yesim": {
     "id": "yesim",
@@ -7607,7 +9307,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yosun": {
     "id": "yosun",
@@ -7632,7 +9333,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "yunus": {
     "id": "yunus",
@@ -7657,7 +9359,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "yildirim": {
     "id": "yildirim",
@@ -7682,7 +9385,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "electric"
+    "archetype3d": "electric",
+    "trioRecipes": [
+      [
+        "ates",
+        "firtina",
+        "hava"
+      ]
+    ]
   },
   "yildirim_parsomeni": {
     "id": "yildirim_parsomeni",
@@ -7707,7 +9417,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "electric"
+    "archetype3d": "electric",
+    "trioRecipes": [
+      [
+        "deri",
+        "yazi",
+        "yildirim"
+      ],
+      [
+        "enerji",
+        "firtina",
+        "parsomen"
+      ]
+    ]
   },
   "yildiz": {
     "id": "yildiz",
@@ -7732,7 +9454,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "yildiz_tozu": {
     "id": "yildiz_tozu",
@@ -7757,7 +9480,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "plazma"
+      ]
+    ]
   },
   "zehir": {
     "id": "zehir",
@@ -7782,7 +9512,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "zehir_sisesi": {
     "id": "zehir_sisesi",
@@ -7807,7 +9538,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "cam",
+        "zehir"
+      ],
+      [
+        "sise",
+        "su",
+        "yilan"
+      ]
+    ]
   },
   "zehirli_kilic": {
     "id": "zehirli_kilic",
@@ -7832,7 +9575,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "cekic",
+        "celik",
+        "zehir"
+      ],
+      [
+        "kilic",
+        "su",
+        "yilan"
+      ]
+    ]
   },
   "zeytin": {
     "id": "zeytin",
@@ -7857,7 +9612,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "zombi": {
     "id": "zombi",
@@ -7882,7 +9638,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "i_nsan",
+        "yasam"
+      ]
+    ]
   },
   "cicek": {
     "id": "cicek",
@@ -7902,12 +9665,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "bitki",
-        "isik"
+        "gunes"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "orumcek": {
     "id": "orumcek",
@@ -7932,7 +9696,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "i_lluzyon_aynasi": {
     "id": "i_lluzyon_aynasi",
@@ -7957,7 +9722,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "buyu",
+        "cam",
+        "gumus"
+      ],
+      [
+        "ayna",
+        "enerji",
+        "yasam"
+      ]
+    ]
   },
   "i_nci": {
     "id": "i_nci",
@@ -7982,7 +9759,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "i_plik": {
     "id": "i_plik",
@@ -8007,7 +9785,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "sehir": {
     "id": "sehir",
@@ -8032,7 +9811,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "kasaba",
+        "tas",
+        "tugla_duvar"
+      ],
+      [
+        "kale",
+        "koy",
+        "pazar"
+      ]
+    ]
   },
   "altin_sikke": {
     "id": "altin_sikke",
@@ -8057,7 +9848,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "isik",
+        "metal",
+        "para"
+      ]
+    ]
   },
   "asit_yagmuru": {
     "id": "asit_yagmuru",
@@ -8082,7 +9880,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "yagmur"
+      ]
+    ]
   },
   "ates_topu_kitabi": {
     "id": "ates_topu_kitabi",
@@ -8107,7 +9912,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": [
+      [
+        "ates",
+        "kagit",
+        "yazi"
+      ]
+    ]
   },
   "balik": {
     "id": "balik",
@@ -8132,7 +9944,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "balik_eti": {
     "id": "balik_eti",
@@ -8157,7 +9970,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "bicak",
+        "su",
+        "yasam"
+      ],
+      [
+        "alet",
+        "balik",
+        "tas"
+      ]
+    ]
   },
   "baraj": {
     "id": "baraj",
@@ -8182,7 +10007,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "beton",
+        "celik",
+        "nehir"
+      ]
+    ]
   },
   "dukkan": {
     "id": "dukkan",
@@ -8207,7 +10039,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "odun",
+        "pazar",
+        "tugla"
+      ],
+      [
+        "ev",
+        "i_nsan",
+        "para"
+      ]
+    ]
   },
   "fotograf": {
     "id": "fotograf",
@@ -8226,13 +10070,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "kagit",
+        "cam",
         "kamera"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "isik",
+        "kagit",
+        "kamera"
+      ]
+    ]
   },
   "gozetleme_kulesi": {
     "id": "gozetleme_kulesi",
@@ -8257,7 +10108,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "cam",
+        "kule",
+        "mum"
+      ],
+      [
+        "fener",
+        "kale",
+        "tas"
+      ]
+    ]
   },
   "hortum": {
     "id": "hortum",
@@ -8282,7 +10145,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "kaplan": {
     "id": "kaplan",
@@ -8307,7 +10171,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "karadelik": {
     "id": "karadelik",
@@ -8332,7 +10197,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "isik",
+        "toprak",
+        "yildiz"
+      ],
+      [
+        "ates",
+        "gece",
+        "plazma"
+      ]
+    ]
   },
   "kaya": {
     "id": "kaya",
@@ -8357,7 +10234,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "kurt": {
     "id": "kurt",
@@ -8382,7 +10260,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kus": {
     "id": "kus",
@@ -8407,7 +10286,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "korfez": {
     "id": "korfez",
@@ -8432,7 +10312,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "limon": {
     "id": "limon",
@@ -8457,7 +10338,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "manyetizma": {
     "id": "manyetizma",
@@ -8482,7 +10364,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "elektrik",
+        "metal",
+        "toprak"
+      ],
+      [
+        "demir",
+        "enerji",
+        "yildirim"
+      ]
+    ]
   },
   "matbaa": {
     "id": "matbaa",
@@ -8507,7 +10401,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cark",
+        "metal",
+        "yazi"
+      ],
+      [
+        "disli",
+        "kagit",
+        "kalem"
+      ]
+    ]
   },
   "muska": {
     "id": "muska",
@@ -8532,7 +10438,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "deri",
+        "enerji",
+        "yasam"
+      ],
+      [
+        "buyu",
+        "hayvan",
+        "tas"
+      ]
+    ]
   },
   "nebula": {
     "id": "nebula",
@@ -8557,7 +10475,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "buhar",
+        "hava",
+        "yildiz_tozu"
+      ],
+      [
+        "bulut",
+        "hava",
+        "yildiz"
+      ]
+    ]
   },
   "obelisk": {
     "id": "obelisk",
@@ -8582,7 +10512,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "altin",
+        "anit",
+        "tas"
+      ]
+    ]
   },
   "palmiye": {
     "id": "palmiye",
@@ -8607,7 +10544,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "bitki",
+        "kum",
+        "toprak"
+      ],
+      [
+        "agac",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "pazar": {
     "id": "pazar",
@@ -8632,7 +10581,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "dukkan",
+        "i_nsan",
+        "para"
+      ]
+    ]
   },
   "piramit": {
     "id": "piramit",
@@ -8657,7 +10613,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "plazma_tufegi": {
     "id": "plazma_tufegi",
@@ -8682,7 +10639,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": [
+      [
+        "ates",
+        "elektrik",
+        "tufek"
+      ],
+      [
+        "odun",
+        "plazma",
+        "top"
+      ]
+    ]
   },
   "roket": {
     "id": "roket",
@@ -8702,12 +10671,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "barut",
-        "demir"
+        "uzay"
       ]
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "ruzgar": {
     "id": "ruzgar",
@@ -8732,7 +10702,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "solucan": {
     "id": "solucan",
@@ -8757,7 +10728,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "tayfun": {
     "id": "tayfun",
@@ -8782,7 +10754,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "hortum",
+        "ruzgar",
+        "su"
+      ]
+    ]
   },
   "tundra": {
     "id": "tundra",
@@ -8807,7 +10786,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "buz",
+        "kar",
+        "toprak"
+      ]
+    ]
   },
   "yasam": {
     "id": "yasam",
@@ -8832,7 +10818,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "enerji",
+        "su",
+        "toprak"
+      ],
+      [
+        "ates",
+        "camur",
+        "hava"
+      ]
+    ]
   },
   "yilan": {
     "id": "yilan",
@@ -8857,7 +10855,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "yildiz_gecidi_cekirdegi": {
     "id": "yildiz_gecidi_cekirdegi",
@@ -8882,7 +10881,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "enerji",
+        "evren",
+        "portal_runu"
+      ],
+      [
+        "ates",
+        "boyut_kapisi",
+        "hava"
+      ]
+    ]
   },
   "zaman": {
     "id": "zaman",
@@ -8907,7 +10918,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "galaksi",
+        "karadelik",
+        "kum_saati"
+      ],
+      [
+        "cam",
+        "evren",
+        "kum"
+      ]
+    ]
   },
   "zeytinyagi": {
     "id": "zeytinyagi",
@@ -8932,7 +10955,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "agac",
+        "tas",
+        "toprak"
+      ]
+    ]
   },
   "cilek": {
     "id": "cilek",
@@ -8957,7 +10987,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "seker",
+        "su",
+        "tohum"
+      ]
+    ]
   },
   "i_mparatorluk": {
     "id": "i_mparatorluk",
@@ -8982,7 +11019,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "krallik",
+        "tas",
+        "tugla_duvar"
+      ],
+      [
+        "kale",
+        "saray",
+        "sehir"
+      ]
+    ]
   },
   "altar": {
     "id": "altar",
@@ -9001,13 +11050,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "tapinak",
-        "tas"
+        "buyu",
+        "tapinak"
       ]
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "buyu",
+        "mermer",
+        "tapinak"
+      ]
+    ]
   },
   "altin": {
     "id": "altin",
@@ -9032,7 +11088,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "metal"
+      ],
+      [
+        "ates",
+        "isik",
+        "tas"
+      ]
+    ]
   },
   "ayna": {
     "id": "ayna",
@@ -9057,7 +11125,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "gumus",
+        "kum"
+      ],
+      [
+        "cam",
+        "isik",
+        "metal"
+      ]
+    ]
   },
   "barometre": {
     "id": "barometre",
@@ -9082,7 +11162,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "buhar_motoru": {
     "id": "buhar_motoru",
@@ -9107,7 +11188,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "buhar",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "buharli_gemi": {
     "id": "buharli_gemi",
@@ -9132,7 +11220,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "buhar",
+        "demir",
+        "yelkenli"
+      ],
+      [
+        "buhar_motoru",
+        "odun",
+        "yelken"
+      ]
+    ]
   },
   "demir": {
     "id": "demir",
@@ -9157,7 +11257,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "demir_parmaklik": {
     "id": "demir_parmaklik",
@@ -9182,7 +11283,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "demir_zirh": {
     "id": "demir_zirh",
@@ -9207,7 +11309,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "demir",
+        "zirh"
+      ],
+      [
+        "demir_kulce",
+        "deri",
+        "metal"
+      ]
+    ]
   },
   "denizalti": {
     "id": "denizalti",
@@ -9226,13 +11340,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "su",
+        "metal",
         "yelkenli"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "ekmek": {
     "id": "ekmek",
@@ -9257,7 +11372,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "su",
+        "un"
+      ],
+      [
+        "maya",
+        "su",
+        "un"
+      ]
+    ]
   },
   "galaksi": {
     "id": "galaksi",
@@ -9282,7 +11409,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "karadelik",
+        "plazma"
+      ]
+    ]
   },
   "gece": {
     "id": "gece",
@@ -9307,7 +11441,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "gumus": {
     "id": "gumus",
@@ -9326,13 +11461,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "isik",
-        "metal"
+        "metal",
+        "isik"
       ]
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "gunes": {
     "id": "gunes",
@@ -9357,7 +11493,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "yildiz"
+      ],
+      [
+        "ates",
+        "isik",
+        "plazma"
+      ]
+    ]
   },
   "gunes_saati": {
     "id": "gunes_saati",
@@ -9382,7 +11530,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": [
+      [
+        "i_nsan",
+        "isik",
+        "tas"
+      ]
+    ]
   },
   "isik": {
     "id": "isik",
@@ -9407,7 +11562,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": []
   },
   "kamera": {
     "id": "kamera",
@@ -9432,7 +11588,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "kum",
+        "mercek"
+      ]
+    ]
   },
   "kaplumbaga": {
     "id": "kaplumbaga",
@@ -9457,7 +11620,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "kum",
+        "kurbaga",
+        "tas"
+      ]
+    ]
   },
   "kurt_adam": {
     "id": "kurt_adam",
@@ -9476,13 +11646,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "i_nsan",
+        "ay",
         "kurt"
       ]
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kopek": {
     "id": "kopek",
@@ -9507,7 +11678,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kopekbaligi": {
     "id": "kopekbaligi",
@@ -9527,12 +11699,19 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "balik",
-        "deniz"
+        "et"
       ]
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "deniz",
+        "su",
+        "yasam"
+      ]
+    ]
   },
   "metropol": {
     "id": "metropol",
@@ -9557,7 +11736,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "meyve_bahcesi": {
     "id": "meyve_bahcesi",
@@ -9582,7 +11762,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "bitki",
+        "cicek",
+        "toprak"
+      ]
+    ]
   },
   "meyve_suyu": {
     "id": "meyve_suyu",
@@ -9607,7 +11794,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "agac",
+        "cicek",
+        "su"
+      ]
+    ]
   },
   "ruzgar_gulu": {
     "id": "ruzgar_gulu",
@@ -9632,7 +11826,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "cark",
+        "odun",
+        "ruzgar"
+      ]
+    ]
   },
   "saat": {
     "id": "saat",
@@ -9657,7 +11858,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cark",
+        "kum",
+        "metal"
+      ],
+      [
+        "disli",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "su_degirmeni": {
     "id": "su_degirmeni",
@@ -9676,13 +11889,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "degirmen",
+        "cark",
         "su"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": [
+      [
+        "cark",
+        "odun",
+        "su"
+      ]
+    ]
   },
   "yagmur": {
     "id": "yagmur",
@@ -9707,7 +11927,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "zaman_kum_saati": {
     "id": "zaman_kum_saati",
@@ -9732,7 +11953,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "cam",
+        "kum",
+        "zaman"
+      ]
+    ]
   },
   "zirhli_gemi": {
     "id": "zirhli_gemi",
@@ -9757,7 +11985,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "demir",
+        "komur",
+        "yelkenli"
+      ],
+      [
+        "celik",
+        "odun",
+        "yelken"
+      ]
+    ]
   },
   "celik_kulce": {
     "id": "celik_kulce",
@@ -9782,7 +12022,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "demir",
+        "komur"
+      ]
+    ]
   },
   "i_pekbocegi": {
     "id": "i_pekbocegi",
@@ -9807,7 +12054,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "yaprak",
+        "yasam"
+      ],
+      [
+        "agac",
+        "isik",
+        "solucan"
+      ]
+    ]
   },
   "i_cten_yanmali_motor": {
     "id": "i_cten_yanmali_motor",
@@ -9832,7 +12091,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "buhar",
+        "demir"
+      ]
+    ]
   },
   "seytan": {
     "id": "seytan",
@@ -9857,7 +12123,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "cin",
+        "isik",
+        "toprak"
+      ]
+    ]
   },
   "araba": {
     "id": "araba",
@@ -9882,7 +12155,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "aurora": {
     "id": "aurora",
@@ -9907,7 +12181,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "balina": {
     "id": "balina",
@@ -9932,7 +12207,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "bomba": {
     "id": "bomba",
@@ -9957,7 +12233,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "solid"
+    "archetype3d": "solid",
+    "trioRecipes": []
   },
   "cehennem_tasi": {
     "id": "cehennem_tasi",
@@ -9982,7 +12259,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "darphane": {
     "id": "darphane",
@@ -10007,7 +12285,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "ates",
+        "para",
+        "tas"
+      ],
+      [
+        "altin",
+        "demir",
+        "metal"
+      ]
+    ]
   },
   "deprem": {
     "id": "deprem",
@@ -10032,7 +12322,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "dondurma": {
     "id": "dondurma",
@@ -10057,7 +12348,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "buz",
+        "seker",
+        "sut"
+      ]
+    ]
   },
   "kanyon": {
     "id": "kanyon",
@@ -10076,13 +12374,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "nehir",
-        "tas"
+        "dag",
+        "nehir"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "dag",
+        "nehir",
+        "ruzgar"
+      ]
+    ]
   },
   "krallik": {
     "id": "krallik",
@@ -10107,7 +12412,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "altin",
+        "mermer",
+        "sehir"
+      ],
+      [
+        "kale",
+        "kasaba",
+        "saray"
+      ]
+    ]
   },
   "kok": {
     "id": "kok",
@@ -10132,7 +12449,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "kopru": {
     "id": "kopru",
@@ -10157,7 +12475,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "celik",
+        "halat",
+        "tas"
+      ],
+      [
+        "harc",
+        "odun",
+        "tas"
+      ]
+    ]
   },
   "mercek": {
     "id": "mercek",
@@ -10182,7 +12512,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cam",
+        "odun",
+        "tas"
+      ],
+      [
+        "alet",
+        "ates",
+        "kum"
+      ]
+    ]
   },
   "misir": {
     "id": "misir",
@@ -10207,7 +12549,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "bitki",
+        "isik",
+        "tohum"
+      ],
+      [
+        "ates",
+        "bugday",
+        "hava"
+      ]
+    ]
   },
   "otomobil": {
     "id": "otomobil",
@@ -10232,7 +12586,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "at",
+        "i_cten_yanmali_motor",
+        "tekerlek"
+      ],
+      [
+        "araba",
+        "ates",
+        "buhar_motoru"
+      ]
+    ]
   },
   "peynir": {
     "id": "peynir",
@@ -10257,7 +12623,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "bakteri",
+        "sut",
+        "tuz"
+      ],
+      [
+        "maya",
+        "sut",
+        "tuz"
+      ]
+    ]
   },
   "portal_runu": {
     "id": "portal_runu",
@@ -10282,7 +12660,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "enerji",
+        "run",
+        "yasam"
+      ]
+    ]
   },
   "sogan": {
     "id": "sogan",
@@ -10307,7 +12692,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "tapinak": {
     "id": "tapinak",
@@ -10332,7 +12718,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "altin",
+        "mermer",
+        "tas"
+      ]
+    ]
   },
   "zehirli_sivi": {
     "id": "zehirli_sivi",
@@ -10357,7 +12750,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "celik": {
     "id": "celik",
@@ -10382,7 +12776,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "demir",
+        "komur"
+      ]
+    ]
   },
   "olumsuzluk_i_ksiri": {
     "id": "olumsuzluk_i_ksiri",
@@ -10407,7 +12808,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "altin",
+        "elmas",
+        "i_ksir"
+      ],
+      [
+        "buyu",
+        "felsefe_tasi",
+        "su"
+      ]
+    ]
   },
   "i_pek": {
     "id": "i_pek",
@@ -10432,7 +12845,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "i_plik",
+        "solucan",
+        "yaprak"
+      ]
+    ]
   },
   "seker": {
     "id": "seker",
@@ -10457,7 +12877,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "cam": {
     "id": "cam",
@@ -10482,7 +12903,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "demiryolu": {
     "id": "demiryolu",
@@ -10507,7 +12929,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "el_arabasi": {
     "id": "el_arabasi",
@@ -10532,7 +12955,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "agac",
+        "tas",
+        "tekerlek"
+      ]
+    ]
   },
   "elektrik_motoru": {
     "id": "elektrik_motoru",
@@ -10557,7 +12987,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "electric"
+    "archetype3d": "electric",
+    "trioRecipes": [
+      [
+        "enerji",
+        "miknatis",
+        "yildirim"
+      ],
+      [
+        "demir",
+        "elektrik",
+        "manyetizma"
+      ]
+    ]
   },
   "mercan": {
     "id": "mercan",
@@ -10582,7 +13024,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "camur",
+        "enerji",
+        "tas"
+      ]
+    ]
   },
   "mermer": {
     "id": "mermer",
@@ -10607,7 +13056,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "metal": {
     "id": "metal",
@@ -10632,7 +13082,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "motosiklet": {
     "id": "motosiklet",
@@ -10657,7 +13108,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "demir",
+        "i_cten_yanmali_motor",
+        "tekerlek"
+      ],
+      [
+        "ates",
+        "bisiklet",
+        "buhar_motoru"
+      ]
+    ]
   },
   "tren": {
     "id": "tren",
@@ -10682,7 +13145,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "lokomotif",
+        "metal",
+        "toprak"
+      ],
+      [
+        "buhar_motoru",
+        "demir",
+        "tekerlek"
+      ]
+    ]
   },
   "maya": {
     "id": "maya",
@@ -10707,7 +13182,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "hamur",
+        "su",
+        "yasam"
+      ],
+      [
+        "bakteri",
+        "su",
+        "un"
+      ]
+    ]
   },
   "meteor": {
     "id": "meteor",
@@ -10732,7 +13219,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "hava",
+        "tas",
+        "yildiz"
+      ]
+    ]
   },
   "tsunami": {
     "id": "tsunami",
@@ -10757,7 +13251,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fluid"
+    "archetype3d": "fluid",
+    "trioRecipes": []
   },
   "ucak": {
     "id": "ucak",
@@ -10782,7 +13277,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "elektrik": {
     "id": "elektrik",
@@ -10807,7 +13303,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "electric"
+    "archetype3d": "electric",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "yildirim"
+      ]
+    ]
   },
   "metal_bicak": {
     "id": "metal_bicak",
@@ -10832,7 +13335,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "demir",
+        "odun",
+        "tas"
+      ],
+      [
+        "alet",
+        "metal",
+        "toprak"
+      ]
+    ]
   },
   "vampir": {
     "id": "vampir",
@@ -10857,7 +13372,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "i_nsan",
+        "isik",
+        "toprak"
+      ]
+    ]
   },
   "bicak": {
     "id": "bicak",
@@ -10882,7 +13404,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "enerji": {
     "id": "enerji",
@@ -10902,12 +13425,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ates",
-        "hava"
+        "ruzgar"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "electric"
+    "archetype3d": "electric",
+    "trioRecipes": []
   },
   "obsidyen_bicak": {
     "id": "obsidyen_bicak",
@@ -10932,7 +13456,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "agac",
+        "obsidyen",
+        "tas"
+      ]
+    ]
   },
   "i_lkel_bicak": {
     "id": "i_lkel_bicak",
@@ -10951,13 +13482,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
-        "tas"
+        "cakmaktasi",
+        "odun"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "ahsap_kalkan": {
     "id": "ahsap_kalkan",
@@ -10976,13 +13508,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "odun",
-        "tas"
+        "deri",
+        "odun"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "deri",
+        "odun",
+        "demir"
+      ]
+    ]
   },
   "alkol": {
     "id": "alkol",
@@ -11007,7 +13546,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "seker",
+        "su",
+        "yasam"
+      ],
+      [
+        "ates",
+        "bakteri",
+        "bitki"
+      ]
+    ]
   },
   "badem": {
     "id": "badem",
@@ -11032,7 +13583,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "borsa": {
     "id": "borsa",
@@ -11057,7 +13609,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "altin",
+        "demir",
+        "pazar"
+      ]
+    ]
   },
   "elmas": {
     "id": "elmas",
@@ -11082,7 +13641,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "harita": {
     "id": "harita",
@@ -11107,7 +13667,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "odun",
+        "pusula",
+        "su"
+      ],
+      [
+        "cam",
+        "demir",
+        "kagit"
+      ]
+    ]
   },
   "kamyon": {
     "id": "kamyon",
@@ -11132,7 +13704,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "metal",
+        "otomobil",
+        "toprak"
+      ],
+      [
+        "araba",
+        "demir",
+        "i_cten_yanmali_motor"
+      ]
+    ]
   },
   "karinca": {
     "id": "karinca",
@@ -11157,7 +13741,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "kurabiye": {
     "id": "kurabiye",
@@ -11182,7 +13767,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "alet",
+        "sut",
+        "un"
+      ],
+      [
+        "bugday",
+        "degirmen",
+        "tereyagi"
+      ]
+    ]
   },
   "kutuphane": {
     "id": "kutuphane",
@@ -11207,7 +13804,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "pusula": {
     "id": "pusula",
@@ -11226,13 +13824,20 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "cam",
-        "demir"
+        "i_gne",
+        "miknatis"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cam",
+        "i_gne",
+        "miknatis"
+      ]
+    ]
   },
   "somon": {
     "id": "somon",
@@ -11257,7 +13862,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "nehir",
+        "su",
+        "yasam"
+      ],
+      [
+        "balik",
+        "dag",
+        "gol"
+      ]
+    ]
   },
   "teleskop": {
     "id": "teleskop",
@@ -11276,13 +13893,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "cam",
-        "mercek"
+        "mercek",
+        "uzay"
       ]
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "top": {
     "id": "top",
@@ -11302,12 +13920,19 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "barut",
-        "demir"
+        "kursun"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "barut",
+        "demir"
+      ]
+    ]
   },
   "zeplin": {
     "id": "zeplin",
@@ -11332,7 +13957,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "buhar_motoru",
+        "sicak_hava_balonu"
+      ],
+      [
+        "ates",
+        "i_cten_yanmali_motor",
+        "kumas"
+      ]
+    ]
   },
   "sarap": {
     "id": "sarap",
@@ -11351,13 +13988,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "bakteri",
+        "maya",
         "uzum"
       ]
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "bambu": {
     "id": "bambu",
@@ -11382,7 +14020,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "elma": {
     "id": "elma",
@@ -11402,12 +14041,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "agac",
-        "cicek"
+        "elma"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "cikolata": {
     "id": "cikolata",
@@ -11432,7 +14072,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "ates",
+        "bitki",
+        "sut"
+      ],
+      [
+        "cimen",
+        "i_nek",
+        "seker"
+      ]
+    ]
   },
   "agac_kabugu": {
     "id": "agac_kabugu",
@@ -11457,7 +14109,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "golem": {
     "id": "golem",
@@ -11482,7 +14135,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "buyu",
+        "tas",
+        "yasam"
+      ]
+    ]
   },
   "karli_cam_agaci": {
     "id": "karli_cam_agaci",
@@ -11507,7 +14167,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": [
+      [
+        "bitki",
+        "kar",
+        "toprak"
+      ],
+      [
+        "agac",
+        "bulut",
+        "buz"
+      ]
+    ]
   },
   "agac": {
     "id": "agac",
@@ -11532,7 +14204,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "flora"
+    "archetype3d": "flora",
+    "trioRecipes": []
   },
   "anahtar": {
     "id": "anahtar",
@@ -11557,7 +14230,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "asteroit": {
     "id": "asteroit",
@@ -11582,7 +14256,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "plazma",
+        "tas"
+      ]
+    ]
   },
   "dinamolu_fener": {
     "id": "dinamolu_fener",
@@ -11607,7 +14288,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "cark",
+        "fener",
+        "metal"
+      ],
+      [
+        "cam",
+        "disli",
+        "mum"
+      ]
+    ]
   },
   "dinozor": {
     "id": "dinozor",
@@ -11632,7 +14325,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "kemik",
+        "kertenkele",
+        "tas"
+      ],
+      [
+        "fosil",
+        "kum",
+        "kurbaga"
+      ]
+    ]
   },
   "disli": {
     "id": "disli",
@@ -11657,7 +14362,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "alet",
+        "metal",
+        "odun"
+      ],
+      [
+        "ates",
+        "cark",
+        "tas"
+      ]
+    ]
   },
   "duman": {
     "id": "duman",
@@ -11677,12 +14394,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "ates",
-        "hava"
+        "odun"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": []
   },
   "gunes_paneli": {
     "id": "gunes_paneli",
@@ -11701,13 +14419,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "cam",
-        "elektrik"
+        "elektrik",
+        "isik"
       ]
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "kayip_sehir": {
     "id": "kayip_sehir",
@@ -11732,7 +14451,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "kale",
+        "kasaba",
+        "orman"
+      ]
+    ]
   },
   "muzik": {
     "id": "muzik",
@@ -11757,7 +14483,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "alet",
+        "davul",
+        "flut"
+      ]
+    ]
   },
   "radyasyon": {
     "id": "radyasyon",
@@ -11782,7 +14515,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "uranyum"
+      ]
+    ]
   },
   "saray": {
     "id": "saray",
@@ -11807,7 +14547,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": [
+      [
+        "isik",
+        "mermer",
+        "metal"
+      ],
+      [
+        "altin",
+        "kirec",
+        "tas"
+      ]
+    ]
   },
   "siber_kristal": {
     "id": "siber_kristal",
@@ -11832,7 +14584,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "mikrocip",
+        "su",
+        "tas"
+      ],
+      [
+        "elektrik",
+        "kristal",
+        "kum"
+      ]
+    ]
   },
   "sirke": {
     "id": "sirke",
@@ -11857,7 +14621,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "bakteri",
+        "hava",
+        "uzum"
+      ]
+    ]
   },
   "televizyon": {
     "id": "televizyon",
@@ -11882,7 +14653,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "cam",
+        "elektrik",
+        "radyo"
+      ]
+    ]
   },
   "disli_cark": {
     "id": "disli_cark",
@@ -11907,7 +14685,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "alet",
+        "disli",
+        "odun"
+      ]
+    ]
   },
   "kazan": {
     "id": "kazan",
@@ -11932,7 +14717,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "ozon": {
     "id": "ozon",
@@ -11957,7 +14743,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "gas"
+    "archetype3d": "gas",
+    "trioRecipes": [
+      [
+        "enerji",
+        "hava",
+        "yildirim"
+      ]
+    ]
   },
   "radyo": {
     "id": "radyo",
@@ -11982,7 +14775,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "i_nternet": {
     "id": "i_nternet",
@@ -12007,7 +14801,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "radar": {
     "id": "radar",
@@ -12032,7 +14827,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "radyo",
+        "tas"
+      ],
+      [
+        "elektrik",
+        "hava",
+        "metal"
+      ]
+    ]
   },
   "telgraf": {
     "id": "telgraf",
@@ -12057,7 +14864,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "enerji",
+        "i_p",
+        "yildirim"
+      ],
+      [
+        "alet",
+        "bitki",
+        "elektrik"
+      ]
+    ]
   },
   "bilgisayar": {
     "id": "bilgisayar",
@@ -12082,7 +14901,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": []
   },
   "bira": {
     "id": "bira",
@@ -12102,12 +14922,13 @@ export const ITEM_DEFINITIONS = {
     "recipe": {
       "inputs": [
         "bugday",
-        "su"
+        "maya"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "gitar": {
     "id": "gitar",
@@ -12132,7 +14953,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "helikopter": {
     "id": "helikopter",
@@ -12157,7 +14979,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "alet",
+        "odun",
+        "ucak"
+      ],
+      [
+        "buhar_motoru",
+        "cark",
+        "demir"
+      ]
+    ]
   },
   "kagit_para": {
     "id": "kagit_para",
@@ -12182,7 +15016,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "odun",
+        "para",
+        "su"
+      ],
+      [
+        "altin",
+        "demir",
+        "kagit"
+      ]
+    ]
   },
   "mikroskop": {
     "id": "mikroskop",
@@ -12207,7 +15053,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "ates",
+        "hava",
+        "mercek"
+      ],
+      [
+        "alet",
+        "cam",
+        "isik"
+      ]
+    ]
   },
   "patates": {
     "id": "patates",
@@ -12226,13 +15084,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "kok",
-        "toprak"
+        "bitki",
+        "kok"
       ]
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "plato": {
     "id": "plato",
@@ -12257,7 +15116,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "robot": {
     "id": "robot",
@@ -12282,7 +15142,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "bilgisayar",
+        "elektrik",
+        "metal"
+      ]
+    ]
   },
   "telefon": {
     "id": "telefon",
@@ -12307,7 +15174,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "enerji",
+        "telgraf",
+        "yildirim"
+      ]
+    ]
   },
   "termometre": {
     "id": "termometre",
@@ -12332,7 +15206,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "ates",
+        "civa",
+        "kum"
+      ],
+      [
+        "cam",
+        "metal",
+        "su"
+      ]
+    ]
   },
   "titanyum": {
     "id": "titanyum",
@@ -12357,7 +15243,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "demir",
+        "komur",
+        "metal"
+      ],
+      [
+        "ates",
+        "celik",
+        "tas"
+      ]
+    ]
   },
   "armut": {
     "id": "armut",
@@ -12382,7 +15280,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "mikrocip": {
     "id": "mikrocip",
@@ -12407,7 +15306,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "04_zanaat_ve_aletler",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "enerji",
+        "kum",
+        "yildirim"
+      ],
+      [
+        "elektrik",
+        "hava",
+        "toprak"
+      ]
+    ]
   },
   "piyano": {
     "id": "piyano",
@@ -12432,7 +15343,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": [
+      [
+        "cark",
+        "metal",
+        "odun"
+      ],
+      [
+        "agac",
+        "disli",
+        "tas"
+      ]
+    ]
   },
   "sicak_hava_balonu": {
     "id": "sicak_hava_balonu",
@@ -12457,7 +15380,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "flame"
+    "archetype3d": "flame",
+    "trioRecipes": []
   },
   "banka": {
     "id": "banka",
@@ -12476,13 +15400,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "altin",
-        "para"
+        "altin_sikke",
+        "ev"
       ]
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "boynuz": {
     "id": "boynuz",
@@ -12507,7 +15432,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "fayton": {
     "id": "fayton",
@@ -12532,7 +15458,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mech"
+    "archetype3d": "mech",
+    "trioRecipes": [
+      [
+        "araba",
+        "bozkir",
+        "hayvan"
+      ]
+    ]
   },
   "hologram_kupu": {
     "id": "hologram_kupu",
@@ -12557,7 +15490,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "lazer",
+        "su",
+        "tas"
+      ]
+    ]
   },
   "kahve": {
     "id": "kahve",
@@ -12576,13 +15516,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "ates",
+        "enerji",
         "tohum"
       ]
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": []
   },
   "kaldirim": {
     "id": "kaldirim",
@@ -12607,7 +15548,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "cimento",
+        "tas",
+        "yol"
+      ]
+    ]
   },
   "sut": {
     "id": "sut",
@@ -12632,7 +15580,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "cay": {
     "id": "cay",
@@ -12657,7 +15606,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "food"
+    "archetype3d": "food",
+    "trioRecipes": [
+      [
+        "agac",
+        "isik",
+        "su"
+      ]
+    ]
   },
   "aile": {
     "id": "aile",
@@ -12682,7 +15638,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": []
   },
   "bakteri": {
     "id": "bakteri",
@@ -12707,7 +15664,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "mum": {
     "id": "mum",
@@ -12726,13 +15684,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "bal",
+        "ates",
         "i_p"
       ]
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "fabric"
+    "archetype3d": "fabric",
+    "trioRecipes": []
   },
   "bugday": {
     "id": "bugday",
@@ -12757,7 +15716,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "gayzer": {
     "id": "gayzer",
@@ -12782,7 +15742,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "komur": {
     "id": "komur",
@@ -12807,7 +15768,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "05_maden_ve_materyaller",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "pegasus": {
     "id": "pegasus",
@@ -12832,7 +15794,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "fauna"
+    "archetype3d": "fauna",
+    "trioRecipes": [
+      [
+        "bozkir",
+        "hayvan",
+        "kus_tuyu"
+      ],
+      [
+        "at",
+        "hava",
+        "kus"
+      ]
+    ]
   },
   "uranyum": {
     "id": "uranyum",
@@ -12857,7 +15831,14 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "02_doga",
-    "archetype3d": "magic"
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "ates",
+        "enerji",
+        "tas"
+      ]
+    ]
   },
   "virus": {
     "id": "virus",
@@ -12882,7 +15863,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "03_canlilar",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yercekimsiz_platform": {
     "id": "yercekimsiz_platform",
@@ -12907,7 +15889,19 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": [
+      [
+        "demir",
+        "elektrik",
+        "plazma"
+      ],
+      [
+        "ates",
+        "elektrik",
+        "manyetizma"
+      ]
+    ]
   },
   "cadir": {
     "id": "cadir",
@@ -12932,7 +15926,8 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "08_mistik_ve_evren",
-    "archetype3d": "structure"
+    "archetype3d": "structure",
+    "trioRecipes": []
   },
   "tutun": {
     "id": "tutun",
@@ -12951,13 +15946,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "ates",
+        "duman",
         "yaprak"
       ]
     },
     "icon": "✨",
     "category": "01_elements",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "tesla_bobini": {
     "id": "tesla_bobini",
@@ -12976,13 +15972,14 @@ export const ITEM_DEFINITIONS = {
     },
     "recipe": {
       "inputs": [
-        "demir",
-        "elektrik"
+        "elektrik",
+        "miknatis"
       ]
     },
     "icon": "✨",
     "category": "07_bilim_ve_teknoloji",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
   },
   "yumurta": {
     "id": "yumurta",
@@ -13007,7 +16004,40 @@ export const ITEM_DEFINITIONS = {
     },
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
-    "archetype3d": "mineral"
+    "archetype3d": "mineral",
+    "trioRecipes": []
+  },
+  "karanlik": {
+    "id": "karanlik",
+    "name": "Karanlık",
+    "description": "Işığın yokluğu, evrenin sessiz derinliği ve mutlak boşluk.",
+    "tier": 4,
+    "colorPalette": {
+      "primary": "#09090b",
+      "secondary": "#18181b",
+      "emissive": "#020617"
+    },
+    "particles": {
+      "type": "smoke",
+      "color": "#27272a",
+      "count": 15
+    },
+    "recipe": {
+      "inputs": [
+        "gece",
+        "uzay"
+      ]
+    },
+    "icon": "🌑",
+    "category": "08_mistik_ve_evren",
+    "archetype3d": "magic",
+    "trioRecipes": [
+      [
+        "evren",
+        "gece",
+        "uzay"
+      ]
+    ]
   }
 };
 

@@ -12,16 +12,21 @@ export class SceneManager {
     this.camera.position.set(0, 7.2, 9.6);
     this.camera.lookAt(0, 1.3, 0);
 
-    // Renderer
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
+    this.isMobile = isMobile;
+
+    // Renderer (Mobil 60 FPS Optimizasyonu)
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      antialias: true,
-      powerPreference: 'high-performance'
+      antialias: !isMobile, // Mobilde MSAA kapatılarak GPU yükü yarıya indirilir
+      powerPreference: 'high-performance',
+      precision: isMobile ? 'mediump' : 'highp'
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Mobilde Full HD ekranları 1.35x ile renderlayarak GPU overdraw ve aşırı ısınmayı engelle
+    this.renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.35) : Math.min(window.devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.shadowMap.type = isMobile ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
 
     this._setupLighting();
     this._setupResizeHandler();
@@ -32,12 +37,13 @@ export class SceneManager {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     this.scene.add(ambientLight);
 
-    // Directional Key Light (Aydınlık ve belirgin gölgeler için)
+    // Directional Key Light (Mobil gölge haritası 512x512 yapılarak %75 bellek/GPU tasarrufu sağlanır)
     const keyLight = new THREE.DirectionalLight(0xfff5e6, 1.2);
     keyLight.position.set(4, 9, 5);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 1024;
-    keyLight.shadow.mapSize.height = 1024;
+    const shadowSize = this.isMobile ? 512 : 1024;
+    keyLight.shadow.mapSize.width = shadowSize;
+    keyLight.shadow.mapSize.height = shadowSize;
     keyLight.shadow.camera.near = 0.5;
     keyLight.shadow.camera.far = 25;
     keyLight.shadow.bias = -0.0005;
@@ -56,6 +62,7 @@ export class SceneManager {
       this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(width, height);
+      this.renderer.setPixelRatio(this.isMobile ? Math.min(window.devicePixelRatio, 1.35) : Math.min(window.devicePixelRatio, 2));
     });
   }
 

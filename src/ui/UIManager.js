@@ -3,7 +3,7 @@ import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null, onModeSwitch = null) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
@@ -12,6 +12,8 @@ export class UIManager {
     this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
     this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
     this.onCraftClick = onCraftClick; // () => void
+    this.onModeSwitch = onModeSwitch; // (newMode) => void
+    this.gameMode = 'classic'; // 'classic' or 'grandmaster'
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.currentCharacterId = 'character2';
@@ -28,6 +30,7 @@ export class UIManager {
     this._injectStyles();
     this._createUI();
   }
+
 
   _injectStyles() {
     if (document.getElementById('alchemy-ui-styles')) return;
@@ -89,7 +92,53 @@ export class UIManager {
         width: 122px;
       }
 
-      /* Çanta Kulakçığı (Sol bar gibi dikey antika mühür butonu) */
+      /* Durum 3: Tam Ekran Modu (Tüm ekranı kaplayan ferah ızgara görünümü) */
+      #right-panel.state-fullscreen {
+        transform: translateX(0);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        border-radius: 0;
+        border: none;
+        padding: 12px 16px 20px 16px;
+        background: #0f172a;
+        z-index: 100;
+        box-shadow: none;
+      }
+
+      #right-panel.state-fullscreen .panel-header-badge {
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto 6px auto;
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      #right-panel.state-fullscreen #inv-controls {
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto 10px auto;
+      }
+
+      #right-panel.state-fullscreen #inv-items-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+        gap: 8px;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        justify-items: center;
+        max-height: calc(100% - 100px);
+        overflow-y: auto;
+      }
+
+      #right-panel.state-fullscreen .item-icon-btn {
+        width: 68px;
+        height: 74px;
+      }
+
+      /* Keşif Kulakçığı (Kapat / Toggle Butonu) */
       #right-panel-toggle {
         position: absolute;
         left: -46px;
@@ -119,6 +168,54 @@ export class UIManager {
         background: linear-gradient(180deg, #942929 0%, #5e1515 100%);
         transform: scale(1.05);
         border-color: #fde047;
+      }
+
+      /* Çarpının Altındaki Tam Ekran Butonu */
+      #right-panel-fullscreen-btn {
+        position: absolute;
+        left: -46px;
+        top: 98px;
+        width: 46px;
+        height: 56px;
+        background: linear-gradient(180deg, #1e3a8a 0%, #172554 100%);
+        border: 2px solid #60a5fa;
+        border-right: none;
+        border-radius: 14px 0 0 14px;
+        color: #93c5fd;
+        font-size: 13px;
+        font-weight: 800;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        cursor: pointer;
+        pointer-events: auto;
+        box-shadow: -5px 6px 16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      }
+
+      #right-panel-fullscreen-btn:hover {
+        background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+        transform: scale(1.05);
+        border-color: #bfdbfe;
+        color: #ffffff;
+      }
+
+      /* Tam Ekran modunda sadece 1 tane kapat butonu yer alır */
+      #right-panel.state-fullscreen #right-panel-toggle {
+        left: auto;
+        right: 18px;
+        top: 14px;
+        border-right: 2px solid #b48c48;
+        border-radius: 12px;
+        width: 48px;
+        height: 48px;
+      }
+
+      #right-panel.state-fullscreen #right-panel-fullscreen-btn {
+        display: none !important;
       }
 
       /* Panel Başlık Şeridi */
@@ -588,6 +685,30 @@ export class UIManager {
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
       }
 
+      /* Alt Bar: Oyun Modu Değiştirici Butonu (3D Taktil İndigo & Ametist) */
+      #mode-quick-btn {
+        background: linear-gradient(180deg, #312e81 0%, #1e1b4b 100%);
+        border: 2px solid #6366f1;
+        border-radius: 20px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 0 #0d1117, 0 8px 20px rgba(0, 0, 0, 0.6);
+        color: #c7d2fe;
+        font-weight: 800;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+      }
+
+      #mode-quick-btn:hover {
+        background: linear-gradient(180deg, #4338ca 0%, #312e81 100%);
+        border-color: #818cf8;
+        transform: translateY(-2px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 0 #0d1117, 0 12px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      #mode-quick-btn:active {
+        transform: translateY(3px);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #0d1117;
+      }
+
       /* Mobil Ekranlar İçin Alt Bar İyileştirmesi */
       @media (max-width: 768px), (max-height: 850px) {
         #bottom-action-bar {
@@ -595,8 +716,8 @@ export class UIManager {
           gap: 10px;
         }
 
-        #settings-open-btn {
-          padding: 8px 18px;
+        #settings-open-btn, #mode-quick-btn {
+          padding: 8px 16px;
           font-size: 12px;
           border-radius: 18px;
         }
@@ -610,6 +731,7 @@ export class UIManager {
 
       /* Settings Modal (Koyu Ahşap/Obsidian Taş Panel & Kurdele Başlık) */
       #settings-modal {
+
         position: absolute;
         top: 0;
         left: 0;
@@ -1550,7 +1672,7 @@ export class UIManager {
     container.innerHTML = `
       <div id="left-drawer">
         <div id="drawer-toggle" title="İpuçları">
-          <span style="font-size: 16px;">📜</span>
+          <img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\'font-size: 16px;\'>📜</span>';">
           <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>
         </div>
         <div class="drawer-header">
@@ -1563,13 +1685,17 @@ export class UIManager {
       </div>
 
       <div id="right-panel" class="state-closed">
-        <div id="right-panel-toggle" title="Çanta / Envanter">
-          <span style="font-size: 16px;">🎒</span>
-          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>
+        <div id="right-panel-toggle" title="Keşif">
+          <img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\'font-size: 16px;\'>🧭</span>';">
+          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>
+        </div>
+        <div id="right-panel-fullscreen-btn" title="Tam Ekran" style="display: none;">
+          <span style="font-size: 14px;">⛶</span>
+          <span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>
         </div>
         <div class="panel-header-badge">
-          <span>⚗️</span>
-          <span class="badge-text">ENVANTER</span>
+          <span>🧭</span>
+          <span class="badge-text">KEŞFEDİLENLER</span>
         </div>
         <div id="inv-controls">
           <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
@@ -1588,12 +1714,13 @@ export class UIManager {
       <div id="bottom-action-bar">
         <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
           <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
-          <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/3</span>
+          <span id="craft-btn-counter" style="background: rgba(0,0,0,0.3); padding: 2px 7px; border-radius: 12px; font-size: 12px; margin-left: 2px; font-weight: 700;">2/2</span>
         </button>
         <button id="settings-open-btn" class="action-pill-btn">
           <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
         </button>
       </div>
+
 
       <div id="settings-modal">
         <div class="settings-box">
@@ -1616,11 +1743,20 @@ export class UIManager {
           <div class="settings-tab-pane" id="pane-general">
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-game-mode">Oyun Modu</span>
+                <span class="settings-btn-sub" id="sub-game-mode">${this.gameMode === 'classic' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)'}</span>
+              </div>
+              <button id="mode-toggle-btn" class="settings-action-btn btn-indigo">${this._getModeButtonLabel()}</button>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-cleanup">${i18n.t('cleanup')}</span>
                 <span class="settings-btn-sub" id="sub-cleanup">Masadaki tüm eşyaları ve kırıkları temizle</span>
               </div>
               <button id="cleanup-btn" class="settings-action-btn btn-danger">${i18n.t('cleanup')}</button>
             </div>
+
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
@@ -1863,6 +1999,7 @@ export class UIManager {
     this._setupInventoryControls();
     this._setupLanguageToggle();
     this._setupMusicToggle();
+    this._setupModeToggle();
     this._setupSettingsLogic();
     this._setupCraftButton();
     this._setupTutorialLogic();
@@ -1886,15 +2023,53 @@ export class UIManager {
     }
   }
 
+  _setupModeToggle() {
+    const toggleBtn = document.getElementById('mode-toggle-btn');
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const newMode = this.gameMode === 'classic' ? 'grandmaster' : 'classic';
+        if (this.onModeSwitch) {
+          this.onModeSwitch(newMode);
+        }
+      });
+    }
+  }
+
+  _getModeButtonLabel(mode = this.gameMode) {
+    return mode === 'classic' ? i18n.t('mode_btn_classic') : i18n.t('mode_btn_grandmaster');
+  }
+
+  setGameMode(mode) {
+    this.gameMode = mode;
+    const toggleBtn = document.getElementById('mode-toggle-btn');
+    const subMode = document.getElementById('sub-game-mode');
+
+    if (toggleBtn) toggleBtn.textContent = this._getModeButtonLabel(mode);
+    if (subMode) {
+      subMode.textContent = mode === 'classic'
+        ? (i18n.currentLang === 'tr' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Classic (2-Item combinations only)')
+        : (i18n.currentLang === 'tr' ? 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)' : 'Grand Alchemist (2 & 3-Item combinations)');
+    }
+
+    this._populateInventory();
+    if (this._lastHintsArgs) {
+      this.populateHints(...this._lastHintsArgs);
+    }
+  }
+
+
   updateCraftButton(occupiedCount) {
     const btn = document.getElementById('craft-action-btn');
     const counter = document.getElementById('craft-btn-counter');
     if (!btn) return;
 
+    const maxCount = this.gameMode === 'classic' ? 2 : 3;
     if (occupiedCount >= 1) {
       btn.style.display = 'inline-flex';
       if (counter) {
-        counter.textContent = `${occupiedCount}/3`;
+        counter.textContent = `${occupiedCount}/${maxCount}`;
       }
       gsap.killTweensOf(btn);
       gsap.fromTo(btn, { scale: 0.8 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
@@ -1906,16 +2081,14 @@ export class UIManager {
   _getFilterLabel(cat) {
     const map = {
       all: 'all_categories',
-      elements: 'cat_elements',
-      nature: 'cat_nature',
-      life: 'cat_life',
-      craft_tools: 'cat_craft_tools',
-      5: 'cat_5',
-      6: 'cat_6',
-      7: 'cat_7',
-      8: 'cat_8',
-      9: 'cat_9',
-      10: 'cat_10'
+      '01_elements': 'cat_elements',
+      '02_doga': 'cat_nature',
+      '03_canlilar': 'cat_life',
+      '04_zanaat_ve_aletler': 'cat_craft_tools',
+      '05_maden_ve_materyaller': 'cat_minerals',
+      '06_yemek_ve_tarim': 'cat_food',
+      '07_bilim_ve_teknoloji': 'cat_science',
+      '08_mistik_ve_evren': 'cat_mystic'
     };
     const key = map[cat] || 'all_categories';
     return i18n.t(key);
@@ -1947,9 +2120,22 @@ export class UIManager {
   }
 
   _updateUILanguage() {
-    // 1. Language button label
+    // 1. Language and Mode button labels
     const langBtn = document.getElementById('lang-toggle-btn');
     if (langBtn) langBtn.textContent = i18n.t('lang_btn');
+
+    const quickLabel = document.getElementById('mode-quick-btn-label');
+    if (quickLabel) quickLabel.textContent = this._getModeQuickLabel();
+
+    const toggleBtn = document.getElementById('mode-toggle-btn');
+    if (toggleBtn) toggleBtn.textContent = this._getModeButtonLabel();
+
+    const subMode = document.getElementById('sub-game-mode');
+    if (subMode) {
+      subMode.textContent = this.gameMode === 'classic'
+        ? (i18n.currentLang === 'tr' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Classic (2-Item combinations only)')
+        : (i18n.currentLang === 'tr' ? 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)' : 'Grand Alchemist (2 & 3-Item combinations)');
+    }
 
     // 2. Action buttons
     const cleanupBtn = document.getElementById('cleanup-btn');
@@ -1959,6 +2145,7 @@ export class UIManager {
     if (charBtn) {
       charBtn.textContent = this._getCharacterLabel();
     }
+
 
     const musicBtn = document.getElementById('music-toggle-btn');
     if (musicBtn) {
@@ -2079,7 +2266,7 @@ export class UIManager {
     if (drawer && drawer.classList.contains('open')) {
       drawer.classList.remove('open');
       if (toggle) {
-        toggle.innerHTML = '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+        toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
       }
     }
   }
@@ -2087,11 +2274,15 @@ export class UIManager {
   closeRightPanel() {
     const rightPanel = document.getElementById('right-panel');
     const rightToggle = document.getElementById('right-panel-toggle');
+    const fullscreenBtn = document.getElementById('right-panel-fullscreen-btn');
     if (rightPanel && this.rightPanelState !== 'closed') {
       this.rightPanelState = 'closed';
       rightPanel.className = 'state-closed';
       if (rightToggle) {
-        rightToggle.innerHTML = '<span style="font-size: 16px;">🎒</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>';
+        rightToggle.innerHTML = '<img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>🧭</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>';
+      }
+      if (fullscreenBtn) {
+        fullscreenBtn.style.display = 'none';
       }
     }
   }
@@ -2108,33 +2299,43 @@ export class UIManager {
         toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
       } else {
         drawer.classList.remove('open');
-        toggle.innerHTML = '<span style="font-size: 16px;">📜</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+        toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
       }
     });
 
-    // Sağ Panel (Çanta) 3 Durumlu Akordeon Mantığı:
-    // Kapalı (ÇANTA) -> Dar 60px (GENİŞLET) -> Geniş 120px (KAPAT) -> Kapalı (ÇANTA)
+    // Sağ Panel (Keşfedilenler / Keşif Ekranı) Toggle & Tam Ekran Mantığı
     const rightPanel = document.getElementById('right-panel');
     const rightToggle = document.getElementById('right-panel-toggle');
+    const fullscreenBtn = document.getElementById('right-panel-fullscreen-btn');
 
     if (rightToggle && rightPanel) {
       rightToggle.addEventListener('click', () => {
         if (this.rightPanelState === 'closed') {
           this.closeLeftDrawer();
-          this.rightPanelState = 'narrow';
-          rightPanel.className = 'state-narrow';
-          rightToggle.innerHTML = '<span style="font-size: 14px;">⤢</span><span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">GENİŞLET</span>';
-          this._populateInventory();
-        } else if (this.rightPanelState === 'narrow') {
           this.rightPanelState = 'wide';
           rightPanel.className = 'state-wide';
           rightToggle.innerHTML = '<span style="font-size: 14px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KAPAT</span>';
+          if (fullscreenBtn) {
+            fullscreenBtn.style.display = 'flex';
+            fullscreenBtn.innerHTML = '<span style="font-size: 14px;">⛶</span><span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>';
+          }
           this._populateInventory();
         } else {
-          this.rightPanelState = 'closed';
-          rightPanel.className = 'state-closed';
-          rightToggle.innerHTML = '<span style="font-size: 16px;">🎒</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">ÇANTA</span>';
+          this.closeRightPanel();
         }
+      });
+    }
+
+    if (fullscreenBtn && rightPanel) {
+      fullscreenBtn.addEventListener('click', () => {
+        this.closeLeftDrawer();
+        this.rightPanelState = 'fullscreen';
+        rightPanel.className = 'state-fullscreen';
+        fullscreenBtn.style.display = 'none';
+        if (rightToggle) {
+          rightToggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KAPAT</span>';
+        }
+        this._populateInventory();
       });
     }
 
@@ -2194,13 +2395,16 @@ export class UIManager {
     const closeBtn = document.getElementById('settings-close-btn');
 
     if (openBtn && modal) {
-      openBtn.addEventListener('click', () => {
+      openBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        gsap.to(openBtn, { scale: 0.92, duration: 0.1, yoyo: true, repeat: 1 });
         modal.classList.add('show');
       });
     }
 
     if (closeBtn && modal) {
-      closeBtn.addEventListener('click', () => {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         modal.classList.remove('show');
       });
     }
@@ -2212,6 +2416,7 @@ export class UIManager {
         }
       });
     }
+
 
     // Sekmeler
     const tabGeneralBtn = document.getElementById('tab-general-btn');
@@ -2329,7 +2534,17 @@ export class UIManager {
     const filterBtn = document.getElementById('filter-btn');
     const sortBtn = document.getElementById('sort-btn');
 
-    const filters = ['all', 'elements', 'nature', 'life', 'craft_tools', 5, 6, 7, 8, 9, 10];
+    const filters = [
+      'all',
+      '01_elements',
+      '02_doga',
+      '03_canlilar',
+      '04_zanaat_ve_aletler',
+      '05_maden_ve_materyaller',
+      '06_yemek_ve_tarim',
+      '07_bilim_ve_teknoloji',
+      '08_mistik_ve_evren'
+    ];
 
     filterBtn.addEventListener('click', () => {
       const idx = filters.indexOf(this.filterCategory);
@@ -2538,26 +2753,27 @@ export class UIManager {
         }
       }
 
-      if (this.filterCategory === 'all') return true;
-      const cat = def.category;
-      if (this.filterCategory === 'elements' || this.filterCategory === 1 || this.filterCategory === '1') {
-        return cat === 'elements' || String(cat) === '1';
+      if (this.filterCategory !== 'all') {
+        const cat = def.category;
+        if (cat !== this.filterCategory) {
+          return false;
+        }
       }
-      if (this.filterCategory === 'nature' || this.filterCategory === 2 || this.filterCategory === '2') {
-        return cat === 'nature' || String(cat) === '2';
-      }
-      if (this.filterCategory === 'life' || this.filterCategory === 3 || this.filterCategory === '3') {
-        return cat === 'life' || String(cat) === '3';
-      }
-      if (this.filterCategory === 'craft_tools' || this.filterCategory === 4 || this.filterCategory === '4') {
-        return cat === 'craft_tools' || String(cat) === '4';
-      }
-      return String(cat) === String(this.filterCategory);
+      return true;
     });
 
     // Sort
     if (this.sortMode === 'category') {
-      const catOrder = { elements: 1, nature: 2, life: 3, craft_tools: 4, 5: 5, '5': 5, 6: 6, '6': 6, 7: 7, '7': 7, 8: 8, '8': 8, 9: 9, '9': 9, 10: 10, '10': 10 };
+      const catOrder = {
+        '01_elements': 1,
+        '02_doga': 2,
+        '03_canlilar': 3,
+        '04_zanaat_ve_aletler': 4,
+        '05_maden_ve_materyaller': 5,
+        '06_yemek_ve_tarim': 6,
+        '07_bilim_ve_teknoloji': 7,
+        '08_mistik_ve_evren': 8
+      };
       filtered.sort((a, b) => {
         const catA = catOrder[ITEM_DEFINITIONS[a]?.category] || 99;
         const catB = catOrder[ITEM_DEFINITIONS[b]?.category] || 99;
@@ -2578,8 +2794,12 @@ export class UIManager {
       // Formül hesaplama (Geniş ekranda parantez içinde görünür)
       let formulaHtml = '';
       if (this.rightPanelState === 'wide') {
-        if (def.recipe && def.recipe.inputs && def.recipe.inputs.length > 0) {
-          const parts = def.recipe.inputs.map(inpId => {
+        const recipeInputs = (this.gameMode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
+          ? def.trioRecipes[0]
+          : (def.recipe?.inputs || []);
+
+        if (recipeInputs && recipeInputs.length > 0) {
+          const parts = recipeInputs.map(inpId => {
             const canonicalInpId = getCanonicalId(inpId) || inpId;
             const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
             return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
@@ -2589,6 +2809,7 @@ export class UIManager {
           formulaHtml = `<span class="item-formula">(${i18n.currentLang === 'tr' ? 'Temel' : 'Base'})</span>`;
         }
       }
+
 
       const btn = document.createElement('div');
       btn.className = 'item-icon-btn';

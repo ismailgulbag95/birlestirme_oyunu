@@ -45,7 +45,7 @@ export class RapierWorld {
   }
 
   step(scene) {
-    if (!this.world) return;
+    if (!this.world || this.activeBodies.length === 0) return;
     this.world.step();
 
     const now = Date.now();

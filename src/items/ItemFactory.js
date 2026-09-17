@@ -2017,10 +2017,20 @@ export class ItemFactory {
 
     group.add(dropGroup);
 
-    // Etrafında Yörüngede Dönen Fasetli Su Damlacıkları (Orbiting Droplets)
-    const orbGroup = new THREE.Group();
-    orbGroup.position.y = 0.42;
+    // Alt Kısımda Büyülü Su Halkası / Dalgacık (Water Ripple Ring)
+    const waveGeo = new THREE.RingGeometry(0.35, 0.48, 16);
+    const waveMat = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      transparent: true,
+      opacity: 0.6,
+      side: THREE.DoubleSide
+    });
+    const innerWave = new THREE.Mesh(waveGeo, waveMat);
+    innerWave.rotation.x = Math.PI / 2;
+    innerWave.position.y = 0.05;
+    group.add(innerWave);
 
+    // Etrafında Yörüngede Dönen Fasetli Su Damlacıkları (Orbiting Droplets)
     const orbGeo = new THREE.IcosahedronGeometry(0.09, 0);
     const orbMat = new THREE.MeshStandardMaterial({
       color: 0x7dd3fc,
@@ -2034,7 +2044,7 @@ export class ItemFactory {
       { angle: 4.6, radius: 0.56, y: 0.35, speed: 1.0 }
     ];
     dropletConfigs.forEach(cfg => {
-      const droplet = new THREE.Mesh(dropletGeo, dropletMat);
+      const droplet = new THREE.Mesh(orbGeo, orbMat);
       droplet.position.set(Math.cos(cfg.angle) * cfg.radius, cfg.y, Math.sin(cfg.angle) * cfg.radius);
       droplet.userData = cfg;
       group.add(droplet);
@@ -2048,7 +2058,7 @@ export class ItemFactory {
       group.rotation.y += dt * 1.0;
 
       // Damlanın nazikçe havada süzülmesi (Bobbing)
-      dropGroup.position.y = 0.52 + Math.sin(t) * 0.06;
+      dropGroup.position.y = 0.35 + Math.sin(t) * 0.06;
       dropGroup.rotation.y += dt * 1.0;
 
       // Dalga halkasının genişleyip daralması
@@ -2069,6 +2079,7 @@ export class ItemFactory {
 
     return group;
   }
+
 
   static _createEarthMesh(def) {
     const group = new THREE.Group();
