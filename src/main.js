@@ -11,6 +11,10 @@ import { EnvironmentProgressionManager } from './systems/EnvironmentProgressionM
 import { UIManager } from './ui/UIManager.js';
 import { i18n } from './i18n/translations.js';
 import { audioManager } from './core/AudioManager.js';
+import { FreeTierManager } from './systems/FreeTierManager.js';
+import { subscriptionManager } from './systems/SubscriptionManager.js';
+import { achievementManager } from './systems/AchievementManager.js';
+import { adManager } from './systems/AdManager.js';
 
 class Game {
   async init() {
@@ -54,13 +58,14 @@ class Game {
 
     // Karakter kilidi ve başlangıç karakteri:
     // character1: daima açık (0 eşya)
-    // character2 (Gözlemci): 20 eşyada açılır
-    // character3 (Gezgin): 100 eşyada açılır
+    // character2 (Gözlemci): 40 eşyada açılır
+    // character3 (Gezgin): Sadece Grandmaster aboneliğinde açılır
     const savedChar = savedData.activeCharacterId || 'character1';
     let initialChar = 'character1';
-    if (savedChar === 'character3' && this.unlockedItems.length >= 100) {
+    const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+    if (savedChar === 'character3' && isGm) {
       initialChar = 'character3';
-    } else if (savedChar === 'character2' && this.unlockedItems.length >= 20) {
+    } else if (savedChar === 'character2' && this.unlockedItems.length >= 40) {
       initialChar = 'character2';
     } else {
       initialChar = 'character1';
@@ -89,6 +94,11 @@ class Game {
       (itemId) => this.onWatchAd(itemId),
       () => this.clearTableAndPieces(),
       (charId) => {
+        if (charId === 'character3' && !subscriptionManager.isGrandmaster() && this.gameMode !== 'grandmaster') {
+          this.ui.showToast(i18n.t('char_wanderer_gm_locked'), 'warn');
+          this.ui.showGrandmasterOfferModal('character_unlock');
+          return;
+        }
         this.tableScene.switchCharacter(charId);
         this._saveGame();
       },
@@ -257,12 +267,18 @@ class Game {
     return res;
   }
 
-  onWatchAd(itemId) {
-    this.hintSystem.watchAdForHint(itemId);
-    this.ui.updateHintRights(this.hintSystem.hintRights);
-    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
-    this._saveGame();
-    alert(i18n.t('ad_watched_alert'));
+  async onWatchAd(itemId) {
+    const isGm = subscriptionManager.isGrandmaster();
+    const mult = isGm ? 3 : 1;
+    const adRes = await adManager.showRewardedAd({ rewardType: 'hint', itemId, multiplier: mult });
+    if (adRes.success) {
+      this.hintSystem.watchAdForHint(itemId, mult);
+      this.ui.updateHintRights(this.hintSystem.hintRights);
+      this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+      this._saveGame();
+      const msg = isGm ? i18n.t('ad_reward_subscriber') : i18n.t('ad_watched_alert');
+      this.ui.showToast(msg, 'success');
+    }
   }
 
   _setupRaycasting(canvas) {
@@ -430,15 +446,24 @@ class Game {
           // Masanın önünde yeni keşif bildirimini göster
           this.ui.showDiscoveryAnnouncement(canonicalResult);
 
-          // 20 ve 100 eşyaya ulaşıldığında karakter kilidi açılma kutlaması
-          if (prevDiscoveryCount < 20 && newDiscoveryCount >= 20) {
+          // Başarımları ve Milestone'ları kontrol et
+          achievementManager.checkMilestones(newDiscoveryCount);
+
+          // 40 eşyaya ulaşıldığında Gözlemci karakter kilidi açılma kutlaması
+          if (prevDiscoveryCount < 40 && newDiscoveryCount >= 40) {
             setTimeout(() => {
               this.ui.showCharacterUnlockCelebration('character2');
             }, 1200);
-          } else if (prevDiscoveryCount < 100 && newDiscoveryCount >= 100) {
+          }
+
+          // Klasik modda 80 eşya tamamlandığında Grand Finale / Grandmaster Davet Ekranı
+          const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+          const prog = FreeTierManager.getProgression(this.unlockedItems, isGm);
+          if (!isGm && prog.isComplete) {
             setTimeout(() => {
-              this.ui.showCharacterUnlockCelebration('character3');
-            }, 1200);
+              achievementManager.unlockBadge('badge_80');
+              this.ui.showGrandmasterOfferModal('classic_complete');
+            }, 1800);
           }
 
           // Her 3 yeni keşifte 1 ipucu hakkı verilir
