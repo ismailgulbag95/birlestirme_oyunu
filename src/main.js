@@ -77,14 +77,7 @@ class Game {
     this.envProgression = new EnvironmentProgressionManager(this.sceneManager, this.tableScene.getRoomEnvironment());
     this.envProgression.syncWithUnlockedItems(this.unlockedItems);
     this.physics = new RapierWorld();
-    try {
-      await Promise.race([
-        this.physics.init(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Physics init timeout')), 2000))
-      ]);
-    } catch (e) {
-      console.warn("Fizik motoru (Rapier) başlatılamadı veya zaman aşımına uğradı:", e);
-    }
+    await this.physics.init();
 
     const debugHandlers = {
       onUnlockAll: () => this.unlockAllItems(),
@@ -125,6 +118,7 @@ class Game {
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
 
+
     const loadingTitle = document.getElementById('loading-title-text');
     const loadingSubtitle = document.getElementById('loading-subtitle-text');
     if (loadingTitle) loadingTitle.textContent = i18n.t('loading_title');
@@ -133,33 +127,26 @@ class Game {
     this._setupRaycasting(canvas);
     this._startLoop();
 
-    const hideLoading = () => {
-      const loadingScreen = document.getElementById('loading-screen');
-      if (loadingScreen && !loadingScreen.dataset.dismissed) {
-        loadingScreen.dataset.dismissed = 'true';
-        loadingScreen.classList.add('fade-out');
-        setTimeout(() => {
-          if (loadingScreen.parentNode) {
-            loadingScreen.remove();
-          }
-        }, 500);
-      }
-    };
-
-    // Güvenlik: Maksimum 2 saniye sonra yükleme ekranını kesinlikle kapat
-    setTimeout(hideLoading, 2000);
-
-    // 3D Sahne hazır olunca yükleme ekranını kapat
+    // 3D Masa ve Karakter modeli dahil tüm sahne yüklenene kadar bekle (maksimum 2.5sn timeout koruması ile)
     try {
       await Promise.race([
         this.tableScene.whenReady(),
-        new Promise(resolve => setTimeout(resolve, 1500))
+        new Promise(resolve => setTimeout(resolve, 2500))
       ]);
     } catch (err) {
       console.warn("Sahne yükleme uyarısı:", err);
     }
 
-    hideLoading();
+    // Kum saati ekranını yumuşakça kaldır
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+      loadingScreen.classList.add('fade-out');
+      setTimeout(() => {
+        if (loadingScreen.parentNode) {
+          loadingScreen.remove();
+        }
+      }, 500);
+    }
 
     // Hoşgeldiniz Ekranı (İlk Girişte): Oyun tamamen yüklendikten sonra doğrudan açılır
     const welcomeSeen = localStorage.getItem('alchemy_welcome_seen');
@@ -411,9 +398,11 @@ class Game {
 
       oldMeshes.forEach(mesh => {
         gsap.to(mesh.position, { x: 0, y: 0.8, z: 0, duration: 0.3 });
-        gsap.to(mesh.scale, { x: 0, y: 0, z: 0, duration: 0.3, onComplete: () => {
-          this.sceneManager.remove(mesh);
-        }});
+        gsap.to(mesh.scale, {
+          x: 0, y: 0, z: 0, duration: 0.3, onComplete: () => {
+            this.sceneManager.remove(mesh);
+          }
+        });
       });
 
       setTimeout(() => {
@@ -651,15 +640,10 @@ class Game {
   }
 }
 
-const startGame = () => {
+window.addEventListener('DOMContentLoaded', () => {
   const game = new Game();
   game.init().catch(err => {
     console.error("Game initialization failed:", err);
+    alert("Oyun başlatılırken hata oluştu: " + err.message);
   });
-};
-
-if (document.readyState === 'loading') {
-  window.addEventListener('DOMContentLoaded', startGame);
-} else {
-  startGame();
-}
+});

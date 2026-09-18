@@ -27,7 +27,7 @@ export class UIManager {
     this.lastItemIds = [];
     this.infiniteHintsEnabled = false;
     this.fpsHudEnabled = false;
-    this.rightPanelState = 'closed'; // 'closed', 'narrow', 'wide'
+    this.drawerTier = 1; // 1: Collapsed Strip, 2: Mid Compact Grid, 3: Fullscreen Codex
     this.unlockedItemCount = 4;
     this.currentTutorialStep = 1;
     this.totalTutorialSteps = 5;
@@ -75,231 +75,385 @@ export class UIManager {
       }
 
       /* =================================================== */
-      /* RAYCAST SAĞ PANEL: Keşif & Envanter Çantası         */
+      /* ÜST AKSİYON BARI: Temizle & Seçenekler              */
       /* =================================================== */
-      #right-panel {
-        position: absolute;
-        right: 0;
-        top: 16px;
-        height: calc(100% - 84px);
+      #top-action-bar {
+        position: fixed;
+        top: max(14px, calc(env(safe-area-inset-top, 0px) + 12px));
+        left: 0;
+        width: 100vw;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        pointer-events: none;
+        z-index: 50;
+        box-sizing: border-box;
+      }
+
+      .top-bar-btn {
         background: var(--rc-surface);
         border: 1px solid var(--rc-hairline);
-        border-right: none;
-        border-radius: 14px 0 0 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 8px 14px 8px;
-        gap: 8px;
-        pointer-events: auto;
-        box-shadow: -12px 0 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--rc-hairline-soft);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        z-index: 20;
-      }
-
-      #right-panel.state-closed {
-        transform: translateX(100%);
-        width: 64px;
-      }
-
-      #right-panel.state-narrow {
-        transform: translateX(0);
-        width: 64px;
-      }
-
-      #right-panel.state-wide {
-        transform: translateX(0);
-        width: 128px;
-      }
-
-      #right-panel.state-fullscreen {
-        transform: translateX(0);
-        width: 100%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        border-radius: 0;
-        border: none;
-        padding: 16px 20px 24px 20px;
-        background: var(--rc-canvas);
-        z-index: 100;
-        box-shadow: none;
-      }
-
-      #right-panel.state-fullscreen .panel-header-badge {
-        max-width: 900px;
-        width: 100%;
-        margin: 0 auto 8px auto;
-        font-size: 13px;
-        padding: 8px 14px;
-      }
-
-      #right-panel.state-fullscreen #inv-controls {
-        max-width: 900px;
-        width: 100%;
-        margin: 0 auto 12px auto;
-      }
-
-      #right-panel.state-fullscreen #inv-items-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
-        gap: 10px;
-        max-width: 900px;
-        width: 100%;
-        margin: 0 auto;
-        justify-items: center;
-        max-height: calc(100% - 110px);
-        overflow-y: auto;
-      }
-
-      #right-panel.state-fullscreen .item-icon-btn {
-        width: 76px;
-        height: 80px;
-      }
-
-      /* Keşif Çekmece Kulakçığı */
-      #right-panel-toggle {
-        position: absolute;
-        left: -44px;
-        top: 24px;
-        width: 44px;
-        height: 60px;
-        background: var(--rc-surface-card);
-        border: 1px solid var(--rc-hairline);
-        border-right: none;
-        border-radius: 10px 0 0 10px;
+        border-radius: 9999px;
         color: var(--rc-ink);
-        font-size: 13px;
+        font-family: var(--rc-font);
+        font-size: 12px;
         font-weight: 700;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
+        padding: 7px 15px;
         cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         pointer-events: auto;
-        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         transition: all 0.15s ease;
+        user-select: none;
       }
 
-      #right-panel-toggle:hover {
+      .top-cleanup-btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--rc-accent-red);
+        border-color: rgba(255, 97, 97, 0.28);
+        background: rgba(13, 13, 13, 0.88);
+      }
+
+      .top-cleanup-btn:hover {
+        background: rgba(255, 97, 97, 0.18);
+        border-color: var(--rc-accent-red);
+        color: #ffffff;
+        transform: translateX(-50%) translateY(-1px);
+        box-shadow: 0 6px 20px rgba(255, 97, 97, 0.35);
+      }
+
+      .top-cleanup-btn:active {
+        transform: translateX(-50%) translateY(1px);
+      }
+
+      .top-settings-btn {
+        color: var(--rc-ink);
+        background: rgba(13, 13, 13, 0.88);
+      }
+
+      .top-settings-btn:hover {
         background: var(--rc-surface-hover);
         border-color: var(--rc-hairline-strong);
         color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
       }
 
-      #right-panel-fullscreen-btn {
-        position: absolute;
-        left: -44px;
-        top: 92px;
-        width: 44px;
-        height: 52px;
+      .top-settings-btn:active {
+        transform: translateY(1px);
+      }
+
+      /* =================================================== */
+      /* 3 KADEMELİ ALT KAYAR KEŞİF ÇEKMECESİ               */
+      /* =================================================== */
+      #bottom-discovery-drawer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        background: rgba(13, 13, 13, 0.92);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-top: 1px solid var(--rc-hairline);
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -8px 36px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--rc-hairline-soft);
+        z-index: 40;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.2s ease, background-color 0.2s ease;
+        overflow: hidden;
+      }
+
+      /* Kademe 1: Collapsed / Mini Yatay Şerit */
+      #bottom-discovery-drawer.tier-1 {
+        height: clamp(68px, 9.5vh, 76px);
+        padding: 4px 8px max(6px, env(safe-area-inset-bottom, 0px)) 8px;
+      }
+
+      #bottom-discovery-drawer.tier-1 .drawer-expanded-header,
+      #bottom-discovery-drawer.tier-1 .drawer-search-filter-bar,
+      #bottom-discovery-drawer.tier-1 #drawer-tier2-grid,
+      #bottom-discovery-drawer.tier-1 #drawer-tier3-grid {
+        display: none !important;
+      }
+
+      #bottom-discovery-drawer.tier-1 .drawer-tier1-header {
+        display: flex;
+      }
+
+      #bottom-discovery-drawer.tier-1 #drawer-tier1-strip {
+        display: flex;
+      }
+
+      /* Kademe 2: Masa Ayaklarını Kapatan Kompakt Grid */
+      #bottom-discovery-drawer.tier-2 {
+        height: clamp(260px, 39vh, 340px);
+        padding: 8px 12px max(8px, env(safe-area-inset-bottom, 0px)) 12px;
+      }
+
+      #bottom-discovery-drawer.tier-2 .drawer-tier1-header,
+      #bottom-discovery-drawer.tier-2 #drawer-tier1-strip,
+      #bottom-discovery-drawer.tier-2 #drawer-tier3-grid {
+        display: none !important;
+      }
+
+      #bottom-discovery-drawer.tier-2 .drawer-expanded-header,
+      #bottom-discovery-drawer.tier-2 .drawer-search-filter-bar,
+      #bottom-discovery-drawer.tier-2 #drawer-tier2-grid {
+        display: flex;
+      }
+
+      #bottom-discovery-drawer.tier-2 #drawer-fullscreen-btn,
+      #bottom-discovery-drawer.tier-2 #drawer-collapse-btn {
+        display: inline-flex !important;
+      }
+
+      #bottom-discovery-drawer.tier-2 #drawer-close-fullscreen-btn {
+        display: none !important;
+      }
+
+      /* Kademe 3: Tam Ekran Codex / Ansiklopedi */
+      #bottom-discovery-drawer.tier-3 {
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        border-radius: 0;
+        border-top: none;
+        background: var(--rc-canvas);
+        z-index: 100;
+        padding: max(16px, env(safe-area-inset-top, 16px)) 16px max(16px, env(safe-area-inset-bottom, 16px)) 16px;
+      }
+
+      #bottom-discovery-drawer.tier-3 .drawer-tier1-header,
+      #bottom-discovery-drawer.tier-3 #drawer-tier1-strip,
+      #bottom-discovery-drawer.tier-3 #drawer-tier2-grid {
+        display: none !important;
+      }
+
+      #bottom-discovery-drawer.tier-3 .drawer-expanded-header,
+      #bottom-discovery-drawer.tier-3 .drawer-search-filter-bar,
+      #bottom-discovery-drawer.tier-3 #drawer-tier3-grid {
+        display: flex;
+      }
+
+      #bottom-discovery-drawer.tier-3 #drawer-fullscreen-btn,
+      #bottom-discovery-drawer.tier-3 #drawer-collapse-btn {
+        display: none !important;
+      }
+
+      #bottom-discovery-drawer.tier-3 #drawer-close-fullscreen-btn {
+        display: inline-flex !important;
+      }
+
+      /* --- Tier 1 Header & Yatay Şerit --- */
+      .drawer-tier1-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4px 3px 4px;
+        flex-shrink: 0;
+      }
+
+      .drawer-tier1-title-badge {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--rc-ink);
+        letter-spacing: 0.3px;
+      }
+
+      .drawer-tier1-count-badge {
+        font-size: 10px;
+        color: var(--rc-ink-muted);
+        background: var(--rc-surface-card);
+        padding: 1px 6px;
+        border-radius: 4px;
+        border: 1px solid var(--rc-hairline);
+      }
+
+      .drawer-expand-btn {
         background: var(--rc-surface-card);
         border: 1px solid var(--rc-hairline);
-        border-right: none;
-        border-radius: 10px 0 0 10px;
         color: var(--rc-accent-blue);
-        font-size: 12px;
+        border-radius: 6px;
+        padding: 2px 8px;
+        font-family: var(--rc-font);
+        font-size: 10.5px;
         font-weight: 700;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2px;
         cursor: pointer;
-        pointer-events: auto;
-        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
         transition: all 0.15s ease;
       }
 
-      #right-panel-fullscreen-btn:hover {
+      .drawer-expand-btn:hover {
         background: var(--rc-surface-hover);
         border-color: var(--rc-accent-blue);
         color: #ffffff;
       }
 
-      #right-panel.state-fullscreen #right-panel-toggle {
-        left: auto;
-        right: 18px;
-        top: 14px;
-        border-right: 1px solid var(--rc-hairline);
-        border-radius: 8px;
-        width: 42px;
-        height: 42px;
-      }
-
-      #right-panel.state-fullscreen #right-panel-fullscreen-btn {
-        display: none !important;
-      }
-
-      /* Panel Başlık Şeridi */
-      .panel-header-badge {
-        width: 100%;
-        background: var(--rc-surface-card);
-        border: 1px solid var(--rc-hairline);
-        border-radius: 8px;
-        padding: 6px 4px;
+      .drawer-tier1-strip {
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
         gap: 6px;
-        color: var(--rc-ink);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        box-shadow: inset 0 1px 0 var(--rc-hairline-soft);
-        flex-shrink: 0;
-        overflow: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 4px;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        scrollbar-width: none;
       }
 
-      #right-panel.state-narrow .panel-header-badge .badge-text {
+      .drawer-tier1-strip::-webkit-scrollbar {
         display: none;
       }
 
-      #inv-controls {
+      /* Mini İkon Kartı (Kademe 1) */
+      .tier1-item-btn {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 10px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         display: flex;
-        flex-direction: column;
-        gap: 6px;
-        width: 100%;
         align-items: center;
-        padding-bottom: 6px;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.12s ease;
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      .tier1-item-btn:hover {
+        border-color: var(--rc-hairline-strong);
+        background: var(--rc-surface-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      }
+
+      .tier1-item-btn:active {
+        transform: translateY(1px) scale(0.95);
+      }
+
+      /* --- Tier 2 & 3 Header & Kontroller --- */
+      .drawer-expanded-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 6px 8px 6px;
         border-bottom: 1px solid var(--rc-hairline);
         flex-shrink: 0;
       }
 
-      #right-panel.state-narrow #inv-controls {
-        display: none;
+      .drawer-header-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
-      #inv-items-container {
+      .drawer-expanded-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--rc-ink);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .drawer-count-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--rc-accent-yellow);
+        background: var(--rc-surface-elevated);
+        padding: 2px 7px;
+        border-radius: 6px;
+        border: 1px solid var(--rc-hairline);
+      }
+
+      .drawer-header-right {
         display: flex;
-        flex-direction: column;
         align-items: center;
         gap: 6px;
-        width: 100%;
-        overflow-y: auto;
+      }
+
+      .drawer-header-btn {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink);
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-family: var(--rc-font);
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.15s ease;
+      }
+
+      .drawer-header-btn:hover {
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
+      }
+
+      .drawer-close-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        color: var(--rc-ink-muted);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 700;
+        transition: all 0.15s ease;
+      }
+
+      .drawer-close-btn:hover {
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-accent-red);
+        color: var(--rc-accent-red);
+      }
+
+      /* Arama ve Filtre Çubuğu (Tier 2 & 3) */
+      .drawer-search-filter-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 4px;
+        flex-shrink: 0;
+      }
+
+      .search-input-wrapper {
         flex: 1;
-        padding: 2px 0;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
       }
 
-      #inv-items-container::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
-      }
-
-      /* Raycast Tarzı Komut Paleti Arama Kutusu */
       #item-search-input {
         width: 100%;
         background: var(--rc-surface-card);
         border: 1px solid var(--rc-hairline);
         border-radius: 8px;
-        padding: 7px 10px;
+        padding: 6px 10px;
         color: var(--rc-ink);
         font-family: var(--rc-font);
         font-size: 12px;
@@ -307,7 +461,6 @@ export class UIManager {
         outline: none;
         box-sizing: border-box;
         transition: all 0.15s ease;
-        text-align: left;
       }
 
       #item-search-input:focus {
@@ -321,114 +474,200 @@ export class UIManager {
         font-size: 11px;
       }
 
-      /* Raycast Segmented Control (Pill Switcher) */
-      .inv-btn-segment {
+      .filter-sort-group {
         display: flex;
         gap: 4px;
-        width: 100%;
-        background: var(--rc-surface-card);
-        padding: 2px;
-        border-radius: 6px;
-        border: 1px solid var(--rc-hairline);
+        flex-shrink: 0;
       }
 
-      .inv-segment-btn {
-        flex: 1;
-        background: transparent;
-        border: none;
+      .drawer-filter-btn {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
         color: var(--rc-ink-muted);
-        border-radius: 4px;
+        border-radius: 6px;
         font-family: var(--rc-font);
-        font-size: 10px;
-        padding: 4px 2px;
+        font-size: 11px;
+        padding: 5px 8px;
         cursor: pointer;
-        text-align: center;
         font-weight: 600;
-        overflow: hidden;
-        text-overflow: ellipsis;
         white-space: nowrap;
         transition: all 0.15s ease;
       }
 
-      .inv-segment-btn:hover {
+      .drawer-filter-btn:hover {
         color: var(--rc-ink);
         background: var(--rc-surface-elevated);
+        border-color: var(--rc-hairline-strong);
       }
 
-      .inv-segment-btn:active {
-        transform: translateY(1px);
+      /* --- Tier 2: Kompakt Grid & Kartlar --- */
+      .drawer-tier2-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
+        gap: 8px;
+        overflow-y: auto;
+        padding: 4px 2px 8px 2px;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
       }
 
-      /* Raycast Eşya Kartı */
-      .item-icon-btn {
-        width: 112px;
-        min-height: 72px;
-        border-radius: 8px;
+      .tier2-item-card {
         background: var(--rc-surface-card);
         border: 1px solid var(--rc-hairline);
+        border-radius: 10px;
+        padding: 6px 4px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: var(--rc-ink);
-        font-size: 11px;
-        font-weight: 600;
         cursor: pointer;
         transition: all 0.12s ease;
-        flex-shrink: 0;
-        padding: 6px 4px;
         position: relative;
+        text-align: center;
       }
 
-      .item-icon-btn:hover {
+      .tier2-item-card:hover {
         border-color: var(--rc-hairline-strong);
         background: var(--rc-surface-hover);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
       }
 
-      .item-icon-btn:active {
+      .tier2-item-card:active {
         transform: translateY(1px);
       }
 
-      #right-panel.state-narrow .item-icon-btn {
-        width: 48px;
-        min-height: 48px;
-        height: 48px;
-        padding: 2px;
-        border-radius: 8px;
-      }
-
-      #right-panel.state-narrow .item-icon-btn .icon-symbol {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 0;
-      }
-
-      #right-panel.state-narrow .item-icon-btn .item-label,
-      #right-panel.state-narrow .item-icon-btn .item-formula {
-        display: none !important;
-      }
-
-      .item-img-icon {
+      .tier2-item-card .card-icon-wrap {
         width: 32px;
         height: 32px;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
-        pointer-events: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3px;
       }
 
-      .item-formula {
-        font-size: 9px;
-        color: var(--rc-accent-yellow);
-        font-weight: 500;
-        text-align: center;
-        margin-top: 2px;
-        line-height: 1.15;
-        max-width: 104px;
+      .tier2-item-card .card-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #f1f5f9;
+        width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        line-height: 1.2;
+      }
+
+      .tier2-item-card .card-formula {
+        font-size: 8.5px;
+        color: var(--rc-accent-yellow);
+        font-weight: 600;
+        margin-top: 2px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* --- Tier 3: Tam Ekran Codex Grid & Zengin Kartlar --- */
+      .drawer-tier3-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+        overflow-y: auto;
+        padding: 10px 4px 40px 4px;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
+
+      .tier3-item-card {
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-radius: 12px;
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        transition: all 0.15s ease;
+      }
+
+      .tier3-item-card:hover {
+        border-color: var(--rc-hairline-strong);
+        background: var(--rc-surface-elevated);
+      }
+
+      .tier3-card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .tier3-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--rc-hairline);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .tier3-card-title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .tier3-card-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: #ffffff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tier3-card-category {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--rc-accent-blue);
+      }
+
+      .tier3-card-formula {
+        background: rgba(255, 197, 51, 0.08);
+        border: 1px solid rgba(255, 197, 51, 0.2);
+        border-radius: 6px;
+        padding: 5px 8px;
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--rc-accent-yellow);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .tier3-card-desc {
+        font-size: 11.5px;
+        color: var(--rc-ink-muted);
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .item-img-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
+        pointer-events: none;
       }
 
       /* =================================================== */
@@ -588,116 +827,7 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-      /* =================================================== */
-      /* ALT AKSİYON BARI & BİRLEŞTİR (CRAFT) BUTONU         */
-      /* =================================================== */
-      #bottom-action-bar {
-        position: fixed;
-        bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 16px));
-        left: 0;
-        width: 100vw;
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        pointer-events: none;
-        z-index: 15;
-        box-sizing: border-box;
-      }
 
-      .bottom-side-btn {
-        background: var(--rc-surface);
-        border: 1px solid var(--rc-hairline);
-        border-radius: 8px;
-        color: var(--rc-ink);
-        font-family: var(--rc-font);
-        font-size: 12px;
-        font-weight: 600;
-        padding: 8px 14px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        transition: all 0.15s ease;
-        user-select: none;
-        pointer-events: auto;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-      }
-
-      .bottom-side-btn:hover {
-        background: var(--rc-surface-hover);
-        border-color: var(--rc-hairline-strong);
-        color: #ffffff;
-        transform: translateY(-1px);
-      }
-
-      .bottom-side-btn:active {
-        transform: translateY(1px);
-      }
-
-      #bottom-cleanup-btn {
-        color: var(--rc-accent-red);
-      }
-      #bottom-cleanup-btn:hover {
-        border-color: var(--rc-accent-red);
-        background: rgba(255, 97, 97, 0.12);
-        color: #ffffff;
-      }
-
-      /* Raycast Kırmızı-Mercan Signature Craft Butonu */
-      #craft-action-btn {
-        position: fixed;
-        left: 50%;
-        bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 16px));
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, #ff5757 0%, #d62828 100%);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 9999px;
-        padding: 10px 22px;
-        color: #ffffff;
-        font-family: var(--rc-font);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.3px;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        box-shadow: 0 0 24px rgba(255, 87, 87, 0.45), 0 8px 24px rgba(0, 0, 0, 0.6);
-        transition: transform 0.15s ease, box-shadow 0.2s ease;
-        user-select: none;
-        pointer-events: auto;
-        z-index: 30;
-      }
-
-      #craft-action-btn:hover {
-        box-shadow: 0 0 32px rgba(255, 87, 87, 0.75), 0 10px 28px rgba(0, 0, 0, 0.7);
-        transform: translateX(-50%) translateY(-1px);
-      }
-
-      #craft-action-btn:active {
-        transform: translateX(-50%) translateY(1px);
-      }
-
-      @media (max-width: 768px), (max-height: 850px) {
-        #bottom-action-bar {
-          bottom: max(28px, calc(env(safe-area-inset-bottom, 0px) + 20px));
-          padding: 0 12px;
-        }
-        #craft-action-btn {
-          bottom: max(28px, calc(env(safe-area-inset-bottom, 0px) + 20px));
-        }
-        .bottom-side-btn {
-          padding: 7px 12px;
-          font-size: 11px;
-        }
-        #craft-action-btn {
-          padding: 8px 18px;
-          font-size: 12px;
-        }
-      }
 
       /* =================================================== */
       /* MODALLAR (AYARLAR, ABONELİK, BAŞARIMLAR, REHBER)    */
@@ -1633,6 +1763,19 @@ export class UIManager {
     const container = document.createElement('div');
     container.id = 'ui-container';
     container.innerHTML = `
+      <!-- ÜST AKSİYON BARI (ORTADA TEMİZLE, SAĞDA SEÇENEKLER) -->
+      <div id="top-action-bar">
+        <button id="top-cleanup-btn" class="top-bar-btn top-cleanup-btn" title="${i18n.t('cleanup')}">
+          <span style="font-size: 14px;">🧹</span>
+          <span id="top-cleanup-btn-label">${i18n.t('cleanup')}</span>
+        </button>
+        <button id="top-settings-btn" class="top-bar-btn top-settings-btn" title="${i18n.t('settings_btn')}">
+          <span style="font-size: 14px;">⚙️</span>
+          <span id="top-settings-btn-label">${i18n.t('settings_btn')}</span>
+        </button>
+      </div>
+
+      <!-- SOL ÇEKMECE: İpuçları & Simya Kodeksi -->
       <div id="left-drawer">
         <div id="drawer-toggle" title="İpuçları">
           <img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 15px;\\'>📜</span>';">
@@ -1650,54 +1793,69 @@ export class UIManager {
         </div>
       </div>
 
-      <div id="right-panel" class="state-closed">
-        <div id="right-panel-toggle" title="Keşif">
-          <img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 15px;\\'>🧭</span>';">
-          <span style="font-size: 8px; font-weight: 700; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>
-        </div>
-        <div id="right-panel-fullscreen-btn" title="Tam Ekran" style="display: none;">
-          <span style="font-size: 13px;">⛶</span>
-          <span style="font-size: 7px; font-weight: 700; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>
-        </div>
-        <div class="panel-header-badge">
-          <span>🧭</span>
-          <span class="badge-text">KEŞFEDİLENLER</span>
-        </div>
-        <div class="inv-progress-container" id="inv-progress-box">
-          <div class="inv-progress-header">
-            <span id="inv-progress-text">4 Keşfedildi</span>
-            <button id="grandmaster-open-badge-btn" class="gm-mini-badge">🔮 Grandmaster</button>
+      <!-- 3 KADEMELİ ALT KAYAR KEŞİF ÇEKMECESİ -->
+      <div id="bottom-discovery-drawer" class="tier-1">
+        <!-- 1. KADEME: Yatay Şerit Başlığı & Genişlet Butonu -->
+        <div class="drawer-tier1-header">
+          <div class="drawer-tier1-title-badge">
+            <span>🧭</span>
+            <span id="drawer-tier1-count-badge">4 Keşfedildi</span>
           </div>
-          <div class="inv-progress-track" id="inv-progress-track" style="display: none;">
-            <div class="inv-progress-fill" id="inv-progress-fill" style="width: 5%;"></div>
+          <button id="drawer-expand-btn" class="drawer-expand-btn" title="Genişlet">
+            <span style="font-size: 12px; line-height: 1;">⌃</span>
+            <span>GENİŞLET</span>
+          </button>
+        </div>
+
+        <!-- 1. KADEME: Yatay Kayan İkonlar -->
+        <div id="drawer-tier1-strip" class="drawer-tier1-strip">
+          <!-- İkonlar dinamik yüklenecek -->
+        </div>
+
+        <!-- 2. & 3. KADEME: Başlık ve Kontroller -->
+        <div class="drawer-expanded-header">
+          <div class="drawer-header-left">
+            <span style="font-size: 15px;">🧭</span>
+            <span id="drawer-expanded-title" class="drawer-expanded-title">KEŞFEDİLENLER</span>
+            <span id="drawer-items-count-badge" class="drawer-count-badge">4 Keşfedildi</span>
+          </div>
+          <div class="drawer-header-right">
+            <button id="drawer-fullscreen-btn" class="drawer-header-btn" title="Tam Ekran Ansiklopedi">
+              <span style="font-size: 13px;">⛶</span>
+              <span style="font-size: 9px; font-weight: 700;">TAM EKRAN</span>
+            </button>
+            <button id="drawer-collapse-btn" class="drawer-header-btn" title="Küçült / 1. Kademeye Dön">
+              <span style="font-size: 14px; line-height: 1;">⌄</span>
+            </button>
+            <button id="drawer-close-fullscreen-btn" class="drawer-close-btn" title="Kapat (1. Kademeye Dön)" style="display: none;">
+              ✕
+            </button>
           </div>
         </div>
-        <div id="inv-controls">
-          <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
-          <div class="inv-btn-segment">
-            <button id="filter-btn" class="inv-segment-btn" title="Kategori Filtrele">${this._getFilterLabel('all')}</button>
-            <button id="sort-btn" class="inv-segment-btn" title="Sıralama Modu">${this._getSortLabel('discovery')}</button>
+
+        <!-- 2. & 3. KADEME: Arama ve Filtreleme Çubuğu -->
+        <div class="drawer-search-filter-bar">
+          <div class="search-input-wrapper">
+            <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="filter-sort-group">
+            <button id="filter-btn" class="drawer-filter-btn" title="Kategori Filtrele">${this._getFilterLabel('all')}</button>
+            <button id="sort-btn" class="drawer-filter-btn" title="Sıralama Modu">${this._getSortLabel('discovery')}</button>
           </div>
         </div>
-        <div id="inv-items-container">
-          <!-- Keşfedilen itemler dinamik yüklenecek -->
+
+        <!-- 2. KADEME: Masa Altına Açılan Kompakt Izgara (İsim + Sembol + Formül) -->
+        <div id="drawer-tier2-grid" class="drawer-tier2-grid">
+          <!-- İsim, Sembol, Formül kartları dinamik yüklenecek -->
+        </div>
+
+        <!-- 3. KADEME: Tam Ekran Codex / Ansiklopedi (İsim + Sembol + Formül + Lore Açıklaması) -->
+        <div id="drawer-tier3-grid" class="drawer-tier3-grid" style="display: none;">
+          <!-- Detaylı hikaye kartları dinamik yüklenecek -->
         </div>
       </div>
 
       <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
-
-      <div id="bottom-action-bar">
-        <button id="bottom-cleanup-btn" class="bottom-side-btn">
-          <span id="bottom-cleanup-btn-label">${i18n.t('cleanup')}</span>
-        </button>
-        <button id="craft-action-btn" class="craft-magic-btn" style="display: none;">
-          <span id="craft-btn-label">${i18n.t('craft_btn')}</span>
-          <span id="craft-btn-counter" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.2); padding: 1px 6px; border-radius: 9999px; font-size: 10px; margin-left: 4px; font-weight: 700; color: #ffffff;">2/2</span>
-        </button>
-        <button id="settings-open-btn" class="bottom-side-btn">
-          <span id="settings-open-btn-label">${i18n.t('settings_btn')}</span>
-        </button>
-      </div>
 
       <div id="settings-modal">
         <div class="settings-box">
@@ -2240,18 +2398,20 @@ export class UIManager {
         : (i18n.currentLang === 'tr' ? 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)' : 'Grand Alchemist (2 & 3-Item combinations)');
     }
 
-    // 2. Action buttons
+    // 2. Action buttons (Top Bar & Settings)
     const cleanupBtn = document.getElementById('cleanup-btn');
     if (cleanupBtn) cleanupBtn.textContent = i18n.t('cleanup');
 
-    const bottomCleanupLabel = document.getElementById('bottom-cleanup-btn-label');
-    if (bottomCleanupLabel) bottomCleanupLabel.textContent = i18n.t('cleanup');
+    const topCleanupLabel = document.getElementById('top-cleanup-btn-label');
+    if (topCleanupLabel) topCleanupLabel.textContent = i18n.t('cleanup');
+
+    const topSettingsLabel = document.getElementById('top-settings-btn-label');
+    if (topSettingsLabel) topSettingsLabel.textContent = i18n.t('settings_btn');
 
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
       charBtn.textContent = this._getCharacterLabel();
     }
-
 
     const musicBtn = document.getElementById('music-toggle-btn');
     if (musicBtn) {
@@ -2259,12 +2419,16 @@ export class UIManager {
       musicBtn.classList.toggle('muted', this.musicMode === 0);
     }
 
-    const craftLabel = document.getElementById('craft-btn-label');
-    if (craftLabel) craftLabel.textContent = i18n.t('craft_btn');
-
-    // 3. Search placeholder
+    // 3. Search placeholder & Drawer Title
     const searchInput = document.getElementById('item-search-input');
     if (searchInput) searchInput.placeholder = i18n.t('search_placeholder');
+
+    const drawerTitle = document.getElementById('drawer-expanded-title');
+    if (drawerTitle) {
+      drawerTitle.textContent = this.drawerTier === 3
+        ? (i18n.currentLang === 'tr' ? 'KADİM KODEKS & ANSİKLOPEDİ' : 'ANCIENT CODEX & LORE')
+        : (i18n.currentLang === 'tr' ? 'KEŞFEDİLENLER' : 'DISCOVERED ITEMS');
+    }
 
     // 4. Filter & Sort buttons
     const filterBtn = document.getElementById('filter-btn');
@@ -2382,89 +2546,59 @@ export class UIManager {
     }
   }
 
-  closeRightPanel() {
-    const rightPanel = document.getElementById('right-panel');
-    const rightToggle = document.getElementById('right-panel-toggle');
-    const fullscreenBtn = document.getElementById('right-panel-fullscreen-btn');
-    if (rightPanel && this.rightPanelState !== 'closed') {
-      this.rightPanelState = 'closed';
-      rightPanel.className = 'state-closed';
-      if (rightToggle) {
-        rightToggle.innerHTML = '<img src="./textures/ui/icon_discovery.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>🧭</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KEŞİF</span>';
-      }
-      if (fullscreenBtn) {
-        fullscreenBtn.style.display = 'none';
-      }
+  setDrawerTier(tier) {
+    this.drawerTier = tier;
+    const drawer = document.getElementById('bottom-discovery-drawer');
+    const titleEl = document.getElementById('drawer-expanded-title');
+    const gridTier2 = document.getElementById('drawer-tier2-grid');
+    const gridTier3 = document.getElementById('drawer-tier3-grid');
+
+    if (drawer) {
+      drawer.className = `tier-${tier}`;
     }
+
+    if (titleEl) {
+      titleEl.textContent = tier === 3
+        ? (i18n.currentLang === 'tr' ? 'KADİM KODEKS & ANSİKLOPEDİ' : 'ANCIENT CODEX & LORE')
+        : (i18n.currentLang === 'tr' ? 'KEŞFEDİLENLER' : 'DISCOVERED ITEMS');
+    }
+
+    if (gridTier2 && gridTier3) {
+      gridTier2.style.display = tier === 2 ? 'grid' : 'none';
+      gridTier3.style.display = tier === 3 ? 'grid' : 'none';
+    }
+
+    this._populateInventory();
   }
 
   _setupDrawerLogic() {
     const drawer = document.getElementById('left-drawer');
     const toggle = document.getElementById('drawer-toggle');
 
-    toggle.addEventListener('click', () => {
-      const willOpen = !drawer.classList.contains('open');
-      if (willOpen) {
-        this.closeRightPanel();
-        drawer.classList.add('open');
-        toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
-      } else {
-        drawer.classList.remove('open');
-        toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
-      }
-    });
-
-    // Sağ Panel (Keşfedilenler / Keşif Ekranı) Toggle & Tam Ekran Mantığı
-    const rightPanel = document.getElementById('right-panel');
-    const rightToggle = document.getElementById('right-panel-toggle');
-    const fullscreenBtn = document.getElementById('right-panel-fullscreen-btn');
-
-    if (rightToggle && rightPanel) {
-      rightToggle.addEventListener('click', () => {
-        if (this.rightPanelState === 'closed') {
-          this.closeLeftDrawer();
-          this.rightPanelState = 'wide';
-          rightPanel.className = 'state-wide';
-          rightToggle.innerHTML = '<span style="font-size: 14px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KAPAT</span>';
-          if (fullscreenBtn) {
-            fullscreenBtn.style.display = 'flex';
-            fullscreenBtn.innerHTML = '<span style="font-size: 14px;">⛶</span><span style="font-size: 7px; font-weight: 800; letter-spacing: 0.3px; line-height: 1;">TAM EKRAN</span>';
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        const willOpen = !drawer.classList.contains('open');
+        if (willOpen) {
+          if (this.drawerTier === 3) {
+            this.setDrawerTier(1);
           }
-          this._populateInventory();
+          drawer.classList.add('open');
+          toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
         } else {
-          this.closeRightPanel();
+          drawer.classList.remove('open');
+          toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
         }
       });
     }
 
-    if (fullscreenBtn && rightPanel) {
-      fullscreenBtn.addEventListener('click', () => {
-        this.closeLeftDrawer();
-        this.rightPanelState = 'fullscreen';
-        rightPanel.className = 'state-fullscreen';
-        fullscreenBtn.style.display = 'none';
-        if (rightToggle) {
-          rightToggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">KAPAT</span>';
-        }
-        this._populateInventory();
-      });
-    }
-
-    const modalCleanupBtn = document.getElementById('cleanup-btn');
-    if (modalCleanupBtn) {
-      modalCleanupBtn.addEventListener('click', () => {
-        if (this.onCleanup) {
-          this.onCleanup();
-        }
-      });
-    }
-
-    const bottomCleanupBtn = document.getElementById('bottom-cleanup-btn');
-    if (bottomCleanupBtn) {
-      bottomCleanupBtn.addEventListener('click', (e) => {
+    // Üst Bar Butonları
+    const topCleanupBtn = document.getElementById('top-cleanup-btn');
+    if (topCleanupBtn) {
+      topCleanupBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        gsap.to(bottomCleanupBtn, {
-          scale: 0.92,
+        gsap.to(topCleanupBtn, {
+          scale: 0.9,
+          xPercent: -50,
           duration: 0.1,
           yoyo: true,
           repeat: 1,
@@ -2474,6 +2608,61 @@ export class UIManager {
             }
           }
         });
+      });
+    }
+
+    const topSettingsBtn = document.getElementById('top-settings-btn');
+    const settingsModal = document.getElementById('settings-modal');
+    if (topSettingsBtn && settingsModal) {
+      topSettingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        gsap.to(topSettingsBtn, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 });
+        settingsModal.classList.add('show');
+      });
+    }
+
+    // 3 Kademeli Alt Çekmece Kontrolleri
+    const expandBtn = document.getElementById('drawer-expand-btn');
+    const fullscreenBtn = document.getElementById('drawer-fullscreen-btn');
+    const collapseBtn = document.getElementById('drawer-collapse-btn');
+    const closeFullscreenBtn = document.getElementById('drawer-close-fullscreen-btn');
+
+    if (expandBtn) {
+      expandBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.closeLeftDrawer();
+        this.setDrawerTier(2);
+      });
+    }
+
+    if (fullscreenBtn) {
+      fullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.closeLeftDrawer();
+        this.setDrawerTier(3);
+      });
+    }
+
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.setDrawerTier(1);
+      });
+    }
+
+    if (closeFullscreenBtn) {
+      closeFullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.setDrawerTier(1);
+      });
+    }
+
+    const modalCleanupBtn = document.getElementById('cleanup-btn');
+    if (modalCleanupBtn) {
+      modalCleanupBtn.addEventListener('click', () => {
+        if (this.onCleanup) {
+          this.onCleanup();
+        }
       });
     }
 
@@ -2497,9 +2686,13 @@ export class UIManager {
       });
     }
 
-    document.getElementById('close-ad-btn').addEventListener('click', () => {
-      document.getElementById('ad-modal').style.display = 'none';
-    });
+    const closeAdBtn = document.getElementById('close-ad-btn');
+    if (closeAdBtn) {
+      closeAdBtn.addEventListener('click', () => {
+        const adModal = document.getElementById('ad-modal');
+        if (adModal) adModal.style.display = 'none';
+      });
+    }
   }
 
   _setupMusicToggle() {
@@ -2641,7 +2834,7 @@ export class UIManager {
           this.debugHandlers.onSetInfiniteHints(this.infiniteHintsEnabled);
         }
         infHintsBtn.classList.toggle('active', this.infiniteHintsEnabled);
-        infHintsBtn.textContent = this.infiniteHintsEnabled 
+        infHintsBtn.textContent = this.infiniteHintsEnabled
           ? (i18n.currentLang === 'tr' ? 'Açık (Sınırsız)' : 'Enabled (Unlimited)')
           : (i18n.currentLang === 'tr' ? 'Aktif Et' : 'Enable');
       });
@@ -2939,39 +3132,18 @@ export class UIManager {
     }
     const targetIds = this.lastItemIds || [];
 
-    // İlerleme çubuğunu güncelle
+    // İlerleme rozetlerini güncelle
     const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
     const prog = FreeTierManager.getProgression(targetIds, isGm);
-    const invProgressText = document.getElementById('inv-progress-text');
-    const invProgressFill = document.getElementById('inv-progress-fill');
-    const invProgressTrack = document.getElementById('inv-progress-track');
-    const gmBadgeBtn = document.getElementById('grandmaster-open-badge-btn');
+    const tier1CountBadge = document.getElementById('drawer-tier1-count-badge');
+    const itemsCountBadge = document.getElementById('drawer-items-count-badge');
 
-    if (invProgressText) {
-      if (isGm) {
-        invProgressText.textContent = i18n.t('free_progress_label', {
-          current: prog.current,
-          max: prog.max,
-          pct: prog.percentage
-        });
-      } else {
-        // Free modda oyuncu toplam içeriği ve yüzdeyi bilmesin, sadece keşfedilen miktar gösterilsin
-        invProgressText.textContent = i18n.currentLang === 'tr'
-          ? `${prog.current} Keşfedildi`
-          : `${prog.current} Discovered`;
-      }
-    }
-    if (invProgressTrack && invProgressFill) {
-      if (isGm) {
-        invProgressTrack.style.display = 'block';
-        invProgressFill.style.width = `${prog.percentage}%`;
-      } else {
-        invProgressTrack.style.display = 'none';
-      }
-    }
-    if (gmBadgeBtn) {
-      gmBadgeBtn.textContent = isGm ? i18n.t('sub_active_badge') : '🔮 Grandmaster';
-    }
+    const progressLabel = isGm
+      ? i18n.t('free_progress_label', { current: prog.current, max: prog.max, pct: prog.percentage })
+      : (i18n.currentLang === 'tr' ? `${prog.current} Keşfedildi` : `${prog.current} Discovered`);
+
+    if (tier1CountBadge) tier1CountBadge.textContent = `${prog.current} ${i18n.currentLang === 'tr' ? 'Keşfedildi' : 'Discovered'}`;
+    if (itemsCountBadge) itemsCountBadge.textContent = progressLabel;
 
     // Filter
     let filtered = targetIds.filter(id => {
@@ -3017,60 +3189,135 @@ export class UIManager {
       });
     }
 
-    const container = document.getElementById('inv-items-container') || document.getElementById('right-panel');
-    container.innerHTML = '';
+    // 1. KADEME (Yatay Mini Şerit)
+    const tier1Strip = document.getElementById('drawer-tier1-strip');
+    if (tier1Strip) {
+      tier1Strip.innerHTML = '';
+      filtered.forEach(id => {
+        const canonicalId = getCanonicalId(id) || id;
+        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        if (!def) return;
+        const localizedName = i18n.getItemName(canonicalId, def.name);
 
-    filtered.forEach(id => {
-      const canonicalId = getCanonicalId(id) || id;
-      const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
-      if (!def) return;
-      const localizedName = i18n.getItemName(canonicalId, def.name);
+        const btn = document.createElement('div');
+        btn.className = 'tier1-item-btn';
+        btn.title = localizedName;
+        btn.innerHTML = `
+          <img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-size: 18px;\\'>${def.icon || '✨'}</span>';">
+        `;
 
-      // Formül hesaplama (Geniş ekranda parantez içinde görünür)
-      let formulaHtml = '';
-      if (this.rightPanelState === 'wide') {
+        btn.addEventListener('pointerdown', (e) => e.stopPropagation());
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          gsap.to(btn, { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 });
+          if (this.onItemSelect) {
+            this.onItemSelect(id);
+          }
+        });
+
+        tier1Strip.appendChild(btn);
+      });
+    }
+
+    // 2. KADEME (Masa Altı Kompakt Izgara: İsim + Sembol + Formül)
+    const tier2Grid = document.getElementById('drawer-tier2-grid');
+    if (tier2Grid) {
+      tier2Grid.innerHTML = '';
+      filtered.forEach(id => {
+        const canonicalId = getCanonicalId(id) || id;
+        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        if (!def) return;
+        const localizedName = i18n.getItemName(canonicalId, def.name);
+
         const recipeInputs = (this.gameMode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
           ? def.trioRecipes[0]
           : (def.recipe?.inputs || []);
 
+        let formulaText = '';
         if (recipeInputs && recipeInputs.length > 0) {
           const parts = recipeInputs.map(inpId => {
             const canonicalInpId = getCanonicalId(inpId) || inpId;
             const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
             return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
           });
-          formulaHtml = `<span class="item-formula">(${parts.join(' + ')})</span>`;
+          formulaText = `(${parts.join(' + ')})`;
         } else {
-          formulaHtml = `<span class="item-formula">(${i18n.currentLang === 'tr' ? 'Temel' : 'Base'})</span>`;
+          formulaText = `(${i18n.currentLang === 'tr' ? 'Temel' : 'Base'})`;
         }
-      }
 
+        const card = document.createElement('div');
+        card.className = 'tier2-item-card';
+        card.title = localizedName;
+        card.innerHTML = `
+          <div class="card-icon-wrap" style="box-shadow: 0 0 10px ${def.colorPalette?.primary || '#38bdf8'};">
+            <img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-size: 16px;\\'>${def.icon || '✨'}</span>';">
+          </div>
+          <span class="card-label">${localizedName}</span>
+          <span class="card-formula">${formulaText}</span>
+        `;
 
-      const btn = document.createElement('div');
-      btn.className = 'item-icon-btn';
-      btn.title = localizedName;
-      btn.innerHTML = `
-        <div class="icon-symbol" style="font-size: 18px; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); box-shadow: 0 0 8px ${def.colorPalette?.primary || '#38bdf8'};">
-          <img src="./textures/items/${canonicalId}.png" class="item-img-icon" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='${def.icon || '✨'}';">
-        </div>
-        <span class="item-label" style="font-size: 9.5px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%; font-weight: 700; color: #f1f5f9;">${localizedName}</span>
-        ${formulaHtml}
-      `;
+        card.addEventListener('pointerdown', (e) => e.stopPropagation());
+        card.addEventListener('click', (e) => {
+          e.stopPropagation();
+          gsap.to(card, { scale: 0.88, duration: 0.1, yoyo: true, repeat: 1 });
+          if (this.onItemSelect) {
+            this.onItemSelect(id);
+          }
+        });
 
-      btn.addEventListener('pointerdown', (e) => {
-        e.stopPropagation();
+        tier2Grid.appendChild(card);
       });
+    }
 
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        gsap.to(btn, { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 });
-        if (this.onItemSelect) {
-          this.onItemSelect(id);
+    // 3. KADEME (Tam Ekran Codex / Ansiklopedi & Lore)
+    const tier3Grid = document.getElementById('drawer-tier3-grid');
+    if (tier3Grid) {
+      tier3Grid.innerHTML = '';
+      filtered.forEach(id => {
+        const canonicalId = getCanonicalId(id) || id;
+        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        if (!def) return;
+        const localizedName = i18n.getItemName(canonicalId, def.name);
+        const localizedDesc = i18n.getItemDescription(canonicalId, def.description || def.lore || '');
+        const catLabel = this._getFilterLabel(def.category || 'all');
+
+        const recipeInputs = (this.gameMode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
+          ? def.trioRecipes[0]
+          : (def.recipe?.inputs || []);
+
+        let formulaText = '';
+        if (recipeInputs && recipeInputs.length > 0) {
+          const parts = recipeInputs.map(inpId => {
+            const canonicalInpId = getCanonicalId(inpId) || inpId;
+            const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
+            return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
+          });
+          formulaText = `⚗️ ${i18n.currentLang === 'tr' ? 'Formül' : 'Recipe'}: ${parts.join(' + ')}`;
+        } else {
+          formulaText = `✨ ${i18n.currentLang === 'tr' ? 'Kadim Temel Element' : 'Ancient Base Element'}`;
         }
-      });
 
-      container.appendChild(btn);
-    });
+        const card = document.createElement('div');
+        card.className = 'tier3-item-card';
+        card.innerHTML = `
+          <div class="tier3-card-header">
+            <div class="tier3-card-icon" style="box-shadow: 0 0 12px ${def.colorPalette?.primary || '#38bdf8'};">
+              <img src="./textures/items/${canonicalId}.png" class="item-img-icon" style="width: 32px; height: 32px;" alt="${localizedName}" onerror="this.onerror=null; this.parentNode.innerHTML='<span style=\\'font-size: 22px;\\'>${def.icon || '✨'}</span>';">
+            </div>
+            <div class="tier3-card-title-group">
+              <span class="tier3-card-title">${localizedName}</span>
+              <span class="tier3-card-category">${catLabel}</span>
+            </div>
+          </div>
+          <div class="tier3-card-formula">
+            <span>${formulaText}</span>
+          </div>
+          <p class="tier3-card-desc">${localizedDesc || (i18n.currentLang === 'tr' ? 'Bu kadim nesne simya laboratuvarının gizemli bir parçasıdır.' : 'An enigmatic piece of the alchemy laboratory.')}</p>
+        `;
+
+        tier3Grid.appendChild(card);
+      });
+    }
   }
 
   showDiscoveryAnnouncement(itemId) {
@@ -3237,51 +3484,64 @@ export class UIManager {
 
     switch (this.currentTutorialStep) {
       case 1:
-        // Çanta menüsü sağda: Kutucuk altta durur
+        // Hoş geldin & İpuçları parşömeni: Kutucuk altta durur, sol çekmeceyi gösterir
         if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
-        if (stepIcon) stepIcon.textContent = '🎒';
+        if (stepIcon) stepIcon.textContent = '📜';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step1_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step1_desc');
-        this._pointToElement('#right-panel-toggle', 'right');
+        this._pointToElement('#drawer-toggle', 'right');
         break;
 
       case 2:
-        // Birleştir butonu altta: Kutucuk yukarı çekilir, buton ve ok rahat görünür
+        // Alt Keşif Menüsü (3 Kademe): Kutucuk yukarı çekilir, alt keşif barı gösterilir
         if (cardBox) cardBox.className = 'tutorial-card pos-top';
-        if (stepIcon) stepIcon.textContent = '⚡';
+        if (stepIcon) stepIcon.textContent = '🧭';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step2_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step2_desc');
-        this._pointToElement('#craft-action-btn', 'down', true);
+        this._pointToElement('#drawer-expand-btn', 'down');
         break;
 
       case 3:
-        // Masadaki tabaklar ekran ortasında: Kutucuk aşağı çekilir, tabaklar açıkta kalır
+        // Masaya Eşya Koyma & Karakter Üzerine Dokunarak Birleştirme
         if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
-        if (stepIcon) stepIcon.textContent = '🍽️';
+        if (stepIcon) stepIcon.textContent = '🧙‍♂️';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step3_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step3_desc');
-        this._pointToCenterTable();
+        this._pointToCharacter();
         break;
 
       case 4:
-        // Ayarlar butonu sol altta: Kutucuk yukarı çekilir, ayarlar butonu açıkta kalır
+        // Üst Seçenekler & Modlar: Kutucuk yukarı çekilir, üst sağ seçenekler butonu gösterilir
         if (cardBox) cardBox.className = 'tutorial-card pos-top';
         if (stepIcon) stepIcon.textContent = '⚙️';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step4_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step4_desc');
-        this._pointToElement('#settings-open-btn', 'down');
+        this._pointToElement('#top-settings-btn', 'down');
         break;
 
       case 5:
-        // Karakter kilitleri: Kutucuk ekran ortasında veya altında dengeli konumlanır
+        // Karakter kilitleri ve ilerleme: Kutucuk altta konumlanır
         if (cardBox) cardBox.className = 'tutorial-card pos-bottom';
-        if (stepIcon) stepIcon.textContent = '🧙';
+        if (stepIcon) stepIcon.textContent = '🏆';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step5_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step5_desc');
         if (charsContainer) charsContainer.style.display = 'grid';
         this._hideTutorialPointer();
         break;
     }
+  }
+
+  _pointToCharacter() {
+    const arrow = document.getElementById('tutorial-pointer-arrow');
+    if (!arrow) return;
+    arrow.style.display = 'flex';
+    arrow.className = '';
+    const left = (window.innerWidth / 2) - 24;
+    const top = (window.innerHeight * 0.32) - 24;
+    arrow.style.left = `${left}px`;
+    arrow.style.top = `${top}px`;
+    arrow.style.transform = 'rotate(0deg)';
+    arrow.classList.add('arrow-pulse-center');
   }
 
   _pointToElement(selector, direction = 'down', forceVisible = false) {

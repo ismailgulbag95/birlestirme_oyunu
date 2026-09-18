@@ -70,10 +70,10 @@ export class ItemFactory {
 
       const iconSize = width * 0.72;
 
-      // İkonu 90 derece sola çevir (-90° / -Math.PI / 2)
+      // Görseli 180 derece döndürerek tam doğru dik pozisyona getir
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(-Math.PI / 2);
+      ctx.rotate(Math.PI / 2);
       ctx.drawImage(image, -iconSize / 2, -iconSize / 2, iconSize, iconSize);
       ctx.restore();
 
@@ -85,11 +85,15 @@ export class ItemFactory {
     // Ön yüzü çiz
     const frontCanvas = renderFace();
 
-    // Arka yüz: Ön yüz ile birebir aynı (herhangi bir rotasyon veya flip uygulanmaz)
+    // Arka yüz: Three.js CylinderGeometry bottom cap UV haritası hem U hem V ekseninde ters olduğu için
+    // ön yüzün hem yatay (X) hem dikey (Y) tersini (180° rotasyon) alarak coin döndüğünde
+    // karşıdan bakan birinin iki yüzde de sembolü birebir aynı ve düz görmesini sağlıyoruz.
     const backCanvas = document.createElement('canvas');
     backCanvas.width = width;
     backCanvas.height = height;
     const backCtx = backCanvas.getContext('2d');
+    backCtx.translate(width, height);
+    backCtx.scale(-1, -1);
     backCtx.drawImage(frontCanvas, 0, 0);
 
     // Bump / Kabartma Haritası Üretimi
@@ -288,7 +292,7 @@ export class ItemFactory {
     group.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       group.rotation.y += dt * 1.5; // Kendi etrafında akıcı dönüş
-      
+
       // Havada süzülme (Mystic Bobbing)
       coinBody.position.y = 0.38 + Math.sin(time * 2.8) * 0.045;
       coinBody.rotation.z = Math.sin(time * 1.8) * 0.05; // Nazik madalyon salınımı
@@ -340,19 +344,19 @@ export class ItemFactory {
 
   static _setupGlbModel(gltfScene, canonicalId, targetGroup) {
     const model = gltfScene.clone(true);
-    
+
     // Auto-fit & center bounding box
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    
+
     const maxDim = Math.max(size.x, size.y, size.z) || 1.0;
     const targetSize = 0.95; // Fit inside slot plate bounds
     const scale = targetSize / maxDim;
-    
+
     model.scale.set(scale, scale, scale);
     model.position.set(-center.x * scale, -box.min.y * scale, -center.z * scale);
-    
+
     // Enable shadows & PBR material settings
     const emissiveMaterials = [];
     model.traverse((child) => {
@@ -371,7 +375,7 @@ export class ItemFactory {
     while (targetGroup.children.length > 0) {
       targetGroup.remove(targetGroup.children[0]);
     }
-    
+
     const wrapper = new THREE.Group();
     wrapper.add(model);
     targetGroup.add(wrapper);
@@ -380,10 +384,10 @@ export class ItemFactory {
     targetGroup.userData.update = (time, delta) => {
       const dt = delta || 0.016;
       targetGroup.rotation.y += dt * 0.85; // Smooth turntable spin on plate
-      
+
       // Gentle floating bobbing
       wrapper.position.y = Math.sin(time * 2.5) * 0.04;
-      
+
       // Elemental dynamic animations
       if (['ates', 'fire', 'lav', 'lava', 'yildirim', 'lightning', 'enerji', 'energy'].includes(canonicalId)) {
         const pulse = 0.85 + Math.sin(time * 4.0) * 0.35;
@@ -414,12 +418,23 @@ export class ItemFactory {
   static createItemMesh(itemId) {
     const canonicalId = getCanonicalId(itemId) || itemId;
     const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId] || ITEM_DEFINITIONS.fire;
-    return this._createReliefCoinMesh(canonicalId, def);
-  }
+    const group = new THREE.Group();
+    group.userData.itemId = canonicalId;
+    group.userData.definition = def;
 
-  static _createLegacyMesh(canonicalId, def) {
     let mainMesh;
+
     switch (canonicalId) {
+      case 'ates':
+      case 'fire':
+      case 'su':
+      case 'water':
+      case 'toprak':
+      case 'earth':
+      case 'hava':
+      case 'air':
+        mainMesh = this._createReliefCoinMesh(canonicalId, def);
+        break;
       case 'buhar':
       case 'steam':
         mainMesh = this._createSteamMesh(def);
@@ -8594,7 +8609,7 @@ export class ItemFactory {
       roughness: 0.25,
       flatShading: true
     });
-    
+
     const topCap = new THREE.Mesh(capGeo, goldMat);
     topCap.position.y = 0.72;
     topCap.add(this._createOutline(capGeo, 0xb45309, 0.035));
