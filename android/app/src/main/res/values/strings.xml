@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Birlestirme Oyunu</string>
+    <string name="title_activity_main">Birlestirme Oyunu</string>
+    <string name="package_name">com.birlestirme.oyunu</string>
+    <string name="custom_url_scheme">com.birlestirme.oyunu</string>
+</resources>
