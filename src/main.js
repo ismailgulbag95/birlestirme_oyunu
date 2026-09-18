@@ -4,7 +4,11 @@ import { SceneManager } from './core/SceneManager.js';
 import { TableScene } from './scenes/TableScene.js';
 import { RapierWorld } from './physics/RapierWorld.js';
 import { ItemFactory } from './items/ItemFactory.js';
-import { ITEM_DEFINITIONS, getCanonicalId } from './items/itemDefinitions.js';
+import { 
+  ITEM_DEFINITIONS, 
+  getItemDefinitionsForMode, 
+  getCanonicalId 
+} from './items/itemDefinitions.js';
 import { CraftingSystem } from './systems/CraftingSystem.js';
 import { HintSystem } from './systems/HintSystem.js';
 import { EnvironmentProgressionManager } from './systems/EnvironmentProgressionManager.js';
@@ -22,20 +26,30 @@ class Game {
     this.failedCraftAttempts = 0;
 
     const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
-    const allDefKeys = Object.keys(ITEM_DEFINITIONS);
+
+    // Kayıtlı oyunu yükle
+    const savedData = this._loadSavedGame();
+    this.gameMode = savedData.gameMode || 'classic'; // 'classic' (92 eşya) veya 'grandmaster' (666 eşya)
+    this.crafting = new CraftingSystem(this.gameMode);
+    this.hintSystem = new HintSystem(this.gameMode);
+
+    const modeDefs = getItemDefinitionsForMode(this.gameMode);
+    const allDefKeys = Object.keys(modeDefs);
+
     const defaultLocked = allDefKeys.filter(id => {
       const canonical = getCanonicalId(id) || id;
       return !defaultUnlocked.includes(id) && !defaultUnlocked.includes(canonical);
     });
     this.defaultLockedItems = defaultLocked;
 
-    // Kayıtlı oyunu yükle
-    const savedData = this._loadSavedGame();
-    this.gameMode = savedData.gameMode || 'classic'; // 'classic' (2'li) veya 'grandmaster' (2'li + 3'lü)
-    this.crafting = new CraftingSystem(this.gameMode);
-    this.hintSystem = new HintSystem(this.gameMode);
+    this.unlockedItems = (savedData.unlockedItems || defaultUnlocked).filter(id => {
+      const canonical = getCanonicalId(id) || id;
+      return allDefKeys.includes(id) || allDefKeys.includes(canonical);
+    });
+    if (this.unlockedItems.length === 0) {
+      this.unlockedItems = [...defaultUnlocked];
+    }
 
-    this.unlockedItems = savedData.unlockedItems || defaultUnlocked;
     this.lockedItems = allDefKeys.filter(id => {
       const canonical = getCanonicalId(id) || id;
       return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
@@ -111,49 +125,56 @@ class Game {
       (newMode) => this.switchGameMode(newMode)
     );
 
-    this.ui.setGameMode(this.gameMode);
-    this.ui.setUnlockedItemCount(this.unlockedItems.length);
-    this.ui.updateCharacterButton(initialChar);
-    this.ui._populateInventory(this.unlockedItems);
-    this.ui.updateHintRights(this.hintSystem.hintRights);
-    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    const removeLoadingScreen = () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen) {
+        loadingScreen.classList.add('fade-out');
+        setTimeout(() => {
+          if (loadingScreen.parentNode) {
+            loadingScreen.remove();
+          }
+        }, 400);
+      }
+    };
 
-
-    const loadingTitle = document.getElementById('loading-title-text');
-    const loadingSubtitle = document.getElementById('loading-subtitle-text');
-    if (loadingTitle) loadingTitle.textContent = i18n.t('loading_title');
-    if (loadingSubtitle) loadingSubtitle.textContent = i18n.t('loading_subtitle');
-
-    this._setupRaycasting(canvas);
-    this._startLoop();
-
-    // 3D Masa ve Karakter modeli dahil tüm sahne yüklenene kadar bekle (maksimum 2.5sn timeout koruması ile)
     try {
+      this.ui.setGameMode(this.gameMode);
+      this.ui.setUnlockedItemCount(this.unlockedItems.length);
+      this.ui.updateCharacterButton(initialChar);
+      this.ui._populateInventory(this.unlockedItems);
+      this.ui.updateHintRights(this.hintSystem.hintRights);
+      this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+
+      const loadingTitle = document.getElementById('loading-title-text');
+      const loadingSubtitle = document.getElementById('loading-subtitle-text');
+      if (loadingTitle) loadingTitle.textContent = i18n.t('loading_title');
+      if (loadingSubtitle) loadingSubtitle.textContent = i18n.t('loading_subtitle');
+
+      this._setupRaycasting(canvas);
+      this._startLoop();
+
+      // 3D Masa ve Karakter modeli yüklenene kadar bekle (maksimum 1.5sn timeout)
       await Promise.race([
         this.tableScene.whenReady(),
-        new Promise(resolve => setTimeout(resolve, 2500))
+        new Promise(resolve => setTimeout(resolve, 1500))
       ]);
     } catch (err) {
-      console.warn("Sahne yükleme uyarısı:", err);
+      console.warn("Init aşamasında hata yakalandı, oyun yine de başlatılıyor:", err);
+    } finally {
+      // Her koşulda kum saati yükleme ekranını kaldır
+      removeLoadingScreen();
     }
 
-    // Kum saati ekranını yumuşakça kaldır
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-      loadingScreen.classList.add('fade-out');
-      setTimeout(() => {
-        if (loadingScreen.parentNode) {
-          loadingScreen.remove();
-        }
-      }, 500);
-    }
-
-    // Hoşgeldiniz Ekranı (İlk Girişte): Oyun tamamen yüklendikten sonra doğrudan açılır
-    const welcomeSeen = localStorage.getItem('alchemy_welcome_seen');
-    if (!welcomeSeen) {
-      setTimeout(() => {
-        this.ui.showWelcomeModal();
-      }, 300);
+    // Hoşgeldiniz Ekranı (İlk Girişte)
+    try {
+      const welcomeSeen = localStorage.getItem('alchemy_welcome_seen');
+      if (!welcomeSeen) {
+        setTimeout(() => {
+          this.ui.showWelcomeModal();
+        }, 300);
+      }
+    } catch (e) {
+      console.warn("Welcome modal uyarısı:", e);
     }
   }
 

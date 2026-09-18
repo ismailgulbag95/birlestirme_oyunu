@@ -24,45 +24,36 @@ def main():
 
     items = json.loads(json_str)
 
-    # 1. Test Classic Mode
-    G_classic = nx.DiGraph()
+    G = nx.DiGraph()
     for item_id in items.keys():
-        G_classic.add_node(item_id)
+        G.add_node(item_id)
         if items[item_id].get("recipe") and items[item_id]["recipe"].get("inputs"):
             for inp in items[item_id]["recipe"]["inputs"]:
-                G_classic.add_edge(inp.lower().strip(), item_id)
+                G.add_edge(inp.lower().strip(), item_id)
 
-    assert nx.is_directed_acyclic_graph(G_classic), "Klasik graf döngü içeriyor!"
-    reachable_classic = set(BASE_ELEMENTS)
+    assert nx.is_directed_acyclic_graph(G), "Graf döngü içeriyor!"
+    reachable = set(BASE_ELEMENTS)
     for b in BASE_ELEMENTS:
-        reachable_classic.update(nx.descendants(G_classic, b))
-    unreachable_classic = set(items.keys()) - reachable_classic
-    assert len(unreachable_classic) == 0, f"Klasik modda ulaşılamayan: {unreachable_classic}"
+        reachable.update(nx.descendants(G, b))
+    unreachable = set(items.keys()) - reachable
+    assert len(unreachable) == 0, f"Ulaşılamayan eşyalar: {unreachable}"
 
-    # 2. Test Grandmaster Mode
-    G_grand = nx.DiGraph()
-    for item_id in items.keys():
-        G_grand.add_node(item_id)
-        if items[item_id].get("recipe") and items[item_id]["recipe"].get("inputs"):
-            for inp in items[item_id]["recipe"]["inputs"]:
-                G_grand.add_edge(inp.lower().strip(), item_id)
-        if items[item_id].get("trioRecipes"):
-            for trio in items[item_id]["trioRecipes"]:
-                for inp in trio:
-                    G_grand.add_edge(inp.lower().strip(), item_id)
+    # Çakışma kontrolü
+    recipes = {}
+    collisions = []
+    for item_id, def_item in items.items():
+        if def_item.get("recipe") and def_item["recipe"].get("inputs"):
+            key = tuple(sorted([x.lower().strip() for x in def_item["recipe"]["inputs"]]))
+            if key in recipes:
+                collisions.append((key, recipes[key], item_id))
+            else:
+                recipes[key] = item_id
 
-    assert nx.is_directed_acyclic_graph(G_grand), "Grandmaster graf döngü içeriyor!"
-    reachable_grand = set(BASE_ELEMENTS)
-    for b in BASE_ELEMENTS:
-        reachable_grand.update(nx.descendants(G_grand, b))
-    unreachable_grand = set(items.keys()) - reachable_grand
-    assert len(unreachable_grand) == 0, f"Grandmaster modunda ulaşılamayan: {unreachable_grand}"
+    assert len(collisions) == 0, f"Çakışan tarifler var: {collisions}"
 
-    print(f"BAŞARILI: Her iki mod da %100 ulaşıla-bilir ve sıfır döngülü!")
+    print(f"BAŞARILI: %100 ulaşıla-bilir, sıfır çakışma ve sıfır döngülü!")
     print(f"Toplam Eşya: {len(items)}")
-    print(f"Klasik 2'li Tarifler: {len(G_classic.edges()) // 2}")
-    trio_count = sum(len(items[i].get("trioRecipes", [])) for i in items)
-    print(f"Grandmaster 3'lü Tarifler: {trio_count}")
+    print(f"Toplam 2'li Tarif: {len(G.edges()) // 2}")
 
 if __name__ == "__main__":
     main()

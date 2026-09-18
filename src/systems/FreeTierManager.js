@@ -1,36 +1,9 @@
-// FreeTierManager.js - Ücretsiz Katman (Klasik 80 Eşya) Ağaç ve Kısıtlama Yönetimi
-// 80 eşyalık özenle seçilmiş, %100 çözülebilir ve bağımsız kanca ağacı.
+// FreeTierManager.js - Klasik Mod (92 Eşya) Ağaç ve Kısıtlama Yönetimi
+import { CLASSIC_ITEM_DEFINITIONS, GRANDMASTER_ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 
-import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
-
-// Tier 1-4 (65 eşya) + Tier 5 seçili (15 eşya) = Tam 80 Eşya
-export const FREE_TIER_ITEMS = new Set([
-  // Tier 1 (4 Temel)
-  'ates', 'su', 'toprak', 'hava',
-
-  // Tier 2 (7 Eşya)
-  'buhar', 'camur', 'enerji', 'lav', 'toz', 'yagmur', 'ruzgar',
-
-  // Tier 3 (14 Eşya)
-  'bulut', 'duman', 'gunes', 'isi', 'kum', 'obsidyen', 'patlama', 
-  'ses', 'tas', 'tas_ocagi', 'volkan', 'yagmur_damlasi', 'yanardag_camur', 'yarik',
-
-  // Tier 4 (40 Eşya)
-  'ahsap', 'alev', 'asit', 'astronomi', 'at', 'ates_firtinasi', 'balik', 'batarya', 
-  'barut', 'bitki', 'buz', 'cam', 'cark', 'cehennem_tasi', 'cesme', 'deniz', 
-  'depo', 'demir', 'elmas', 'goktasi', 'gunes_paneli', 'hava_dalgalari', 'heykel', 
-  'i_sik', 'kagit', 'kahin_kuresi', 'kemik', 'kil', 'kirec', 'kutup_ayisi', 
-  'lazer', 'magma', 'metal', 'nehir', 'safir', 'sis', 'su_dongusu', 'termal_kaynak', 
-  'tusunami', 'vaha',
-
-  // Tier 5 Seçilmiş Kilit 15 Eşya
-  'cicek', 'cimen', 'tohum', 'yildirim', 'dag', 
-  'bakteri', 'gokkusagi', 'araba', 'balta', 'kazma', 
-  'corba', 'kar', 'col', 'seker', 'pamuk'
-]);
-
-export const FREE_TIER_MAX_COUNT = 80;
-export const TOTAL_ITEMS_COUNT = 521;
+export const FREE_TIER_ITEMS = new Set(Object.keys(CLASSIC_ITEM_DEFINITIONS));
+export const FREE_TIER_MAX_COUNT = Object.keys(CLASSIC_ITEM_DEFINITIONS).length;
+export const TOTAL_ITEMS_COUNT = Object.keys(GRANDMASTER_ITEM_DEFINITIONS).length;
 
 export class FreeTierManager {
   static get maxFreeCount() {

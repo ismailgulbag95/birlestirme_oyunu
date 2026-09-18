@@ -1,5 +1,5 @@
 // Internationalization (i18n) Module
-// Supports 'tr' and 'en' for all 521 items and UI elements.
+// Synchronized with 92 items
 
 export const TRANSLATIONS = {
   "tr": {
@@ -44,7 +44,7 @@ export const TRANSLATIONS = {
       "settings_title": "Seçenekler",
       "settings_close": "Kapat",
       "tab_general": "Genel",
-      "tab_collections": "Koleksiyon",
+      "tab_collections": "Koleksiyonlar",
       "tab_pro": "Grandmaster",
       "tab_debug": "Debug",
       "craft_btn": "Birleştir",
@@ -99,7 +99,6 @@ export const TRANSLATIONS = {
       "achievements_btn": "🏆 Koleksiyon & Başarımlar",
       "achievements_title": "Başarımlar & Koleksiyonlar",
       "tab_badges": "Rozetler",
-      "tab_collections": "Koleksiyonlar",
       "grandmaster_offer_title": "🔮 Simyacı Kazanı Seni Bekliyor!",
       "grandmaster_offer_subtitle": "Klasik modun 80 eşyasını tamamladın! Şimdi 3'lü kombinasyonların ve 521 eşyanın kadim sırrına katıl.",
       "grandmaster_feature_1": "✨ 521 eşyanın tamamına sınırsız erişim",
@@ -119,2136 +118,374 @@ export const TRANSLATIONS = {
       "sub_lifetime_btn": "Ömür Boyu ₺999,99",
       "sub_active_badge": "👑 AKTİF GRANDMASTER"
     },
-
-
     "items": {
-      "karanlik": {
-        "name": "Karanlık",
-        "desc": "Işığın yokluğu, evrenin sessiz derinliği ve mutlak boşluk."
-      },
       "ates": {
         "name": "Ateş",
-        "desc": "Saf ısı ve enerji kaynağı."
+        "description": "Saf ısı ve enerjinin kaynağı."
       },
       "su": {
         "name": "Su",
-        "desc": "Hayatın kaynağı, akışkan ve berrak."
+        "description": "Hayat veren berrak sıvı."
       },
       "toprak": {
         "name": "Toprak",
-        "desc": "Sağlam temel, kaya ve bereket."
+        "description": "Doğurgan ve kadim yer küre."
       },
       "hava": {
         "name": "Hava",
-        "desc": "Görünmez rüzgâr, nefes ve hareket."
-      },
-      "buhar": {
-        "name": "Buhar",
-        "desc": "Ateşin ısısıyla suyun buharlaşmasından doğan sıcak gaz kütlesi."
-      },
-      "camur": {
-        "name": "Çamur",
-        "desc": "Toprağın su ile yoğrulmasıyla oluşan yumuşak balçık."
-      },
-      "lav": {
-        "name": "Lav",
-        "desc": "Toprağın ve kayaların aşırı yüksek sıcaklıkta erimiş akkor hali."
-      },
-      "kum": {
-        "name": "Kum",
-        "desc": "Kayaların rüzgar ve erozyonla ufalanmasından doğan ince tanecikler."
-      },
-      "obsidyen": {
-        "name": "Obsidyen",
-        "desc": "Volkanik lavın suyla temas edip aniden donmasıyla oluşan cam kayaç."
-      },
-      "yagmur": {
-        "name": "Yağmur",
-        "desc": "Havadaki nemin yoğunlaşıp yeryüzüne damlalar halinde düşmesi."
-      },
-      "enerji": {
-        "name": "Enerji",
-        "desc": "Ateş ve havanın dinamik etkileşiminden doğan saf güç."
-      },
-      "ruzgar": {
-        "name": "Rüzgâr",
-        "desc": "Hava kütlelerinin basınç farkıyla hareket etmesiyle oluşan esinti."
-      },
-      "tas": {
-        "name": "Taş",
-        "desc": "Ateşli lavın suyla aniden soğuyup katılaşması sonucu oluşan sert kayaç."
-      },
-      "cam": {
-        "name": "Cam",
-        "desc": "Kumun yüksek sıcaklıkta eritilerek şeffaflaştırılması."
-      },
-      "bulut": {
-        "name": "Bulut",
-        "desc": "Gökyüzünde toplanan su buharı ve nem kütlesi."
-      },
-      "yildirim": {
-        "name": "Yıldırım",
-        "desc": "Bulutların sürtünmesiyle gökyüzünden yere çakan dev elektrik arkı."
-      },
-      "bitki": {
-        "name": "Bitki",
-        "desc": "Topraktan ve güneş ışığından beslenerek yeşeren canlı."
-      },
-      "agac": {
-        "name": "Ağaç",
-        "desc": "Gövdesi odunlaşarak yıllar içinde göğe yükselen ulu bitki."
-      },
-      "odun": {
-        "name": "Odun",
-        "desc": "Ağaç gövdesinin kesilerek elde edilen sert ahşap parçası."
-      },
-      "kiymik": {
-        "name": "Kıymık",
-        "desc": "Odunun yarılmasıyla ayrılan ince ve sivri ahşap parçası."
-      },
-      "lif": {
-        "name": "Lif",
-        "desc": "Bitki saplarından ayrılan ince ve dayanıklı dokuma teli."
-      },
-      "mantar": {
-        "name": "Mantar",
-        "desc": "Karanlık ve nemli orman tabanında yeşeren şapkalı canlı."
-      },
-      "pamuk": {
-        "name": "Pamuk",
-        "desc": "Tarlalarda açan yumuşacık beyaz lifli dokuma bitkisi."
-      },
-      "recine": {
-        "name": "Reçine",
-        "desc": "Ağaçların gövdesinden sızan yapışkan ve aromatik özsu."
-      },
-      "yasam": {
-        "name": "Yaşam",
-        "desc": "Çamurun şimşek enerjisiyle buluşmasından doğan ilk yaşam kıvılcımı."
-      },
-      "kus": {
-        "name": "Kuş",
-        "desc": "Tüyleri ve kanatlarıyla göklerde süzülen omurgalı canlı."
-      },
-      "hayvan": {
-        "name": "Hayvan",
-        "desc": "Kendi kendine hareket edebilen ve beslenen canlı organizma."
-      },
-      "balik": {
-        "name": "Balık",
-        "desc": "Solungaçlarıyla suda nefes alıp yüzen pullu omurgalı canlı."
-      },
-      "ip": {
-        "name": "İp",
-        "desc": "Düğümlenmiş, halka şeklinde sarılı saman sarısı halat rulosu."
-      },
-      "kumas": {
-        "name": "Kumaş",
-        "desc": "İpliklerin dokuma tezgahında örülmesiyle elde edilen kumaş."
-      },
-      "komur": {
-        "name": "Kömür",
-        "desc": "Odunun havasız ortamda yakılıp karbonlaşmasıyla elde edilen siyah mineral."
-      },
-      "kul": {
-        "name": "Kül",
-        "desc": "Ateşin yanıp kül ettiği maddelerden geriye kalan mineral tozu."
-      },
-      "kagit": {
-        "name": "Kağıt",
-        "desc": "Ağaç hamurunun preslenip kurutulmasıyla elde edilen ince yazı tabakası."
-      },
-      "ilkel_bicak": {
-        "name": "İlkel Bıçak",
-        "desc": "Kısa ahşap sapına iple tutturulmuş çakmaktaşı uçlu kaba bıçak."
-      },
-      "kus_tuyu": {
-        "name": "Kuş Tüyü",
-        "desc": "Kuşların gövdesini kaplayan hafif ve yumuşak tüy."
-      },
-      "deri": {
-        "name": "Deri",
-        "desc": "Hayvan gövdesinden soyularak işlenen dayanıklı dış tabaka."
-      },
-      "kavrulmus_et": {
-        "name": "Kavrulmuş Et",
-        "desc": "Ateşte iyice pişirilip mühürlenmiş nefis et porsiyonu."
-      },
-      "comlek": {
-        "name": "Çömlek",
-        "desc": "Killi çamurun aletle şekillendirilip çömleğe dönüştürülmesi."
-      },
-      "su_comlegi": {
-        "name": "Su Çömleği",
-        "desc": "İçinde serin içme suyu saklanan sırlı toprak çömlek."
-      },
-      "sise": {
-        "name": "Şişe",
-        "desc": "Sıvıları saklamak için üflenerek şekillendirilmiş cam kap."
-      },
-      "cakmaktasi": {
-        "name": "Çakmaktaşı",
-        "desc": "Birbirine sürtüldüğünde parlak kıvılcımlar çıkaran sert çakmaktaşı."
-      },
-      "yay": {
-        "name": "Yay",
-        "desc": "Esnek ahşap ve gergin kirişten oluşan menzilli fırlatıcı."
-      },
-      "ok": {
-        "name": "Ok",
-        "desc": "Ucu sivri metal başlıklı, yayla fırlatılan hedef oku."
-      },
-      "mesale": {
-        "name": "Meşale",
-        "desc": "Ucu reçineli bezle sarılıp yakılan elde taşınan aydınlatma aracı."
-      },
-      "metal": {
-        "name": "Metal",
-        "desc": "Kayaçların eritilmesiyle içindeki metalik cevherin saflaştırılması."
-      },
-      "demir_kulce": {
-        "name": "Demir Külçe",
-        "desc": "Yüksek fırında eritilip kalıba dökülmüş saf demir kütlesi."
-      },
-      "metal_bicak": {
-        "name": "Metal Bıçak",
-        "desc": "Demirden dövülmüş son derece keskin metal bıçak."
-      },
-      "kazma": {
-        "name": "Kazma",
-        "desc": "Toprağı ve sert kayaları kazmak için ucu sivri kazı aracı."
-      },
-      "kilic": {
-        "name": "Kılıç",
-        "desc": "Demircinin örs üzerinde döverek şekillendirdiği keskin çelik kılıç."
-      },
-      "ahsap_kalkan": {
-        "name": "Ahşap Kalkan",
-        "desc": "Hafif ve çevik ahşaptan yapılmış siperlik."
-      },
-      "demir_kalkan": {
-        "name": "Demir Kalkan",
-        "desc": "Ağır ve geçit vermez yekpare demir savunma kalkanı."
-      },
-      "deri_zirh": {
-        "name": "Deri Zırh",
-        "desc": "Sertleştirilmiş deriden yapılmış hafif ve esnek savaş yeleği."
-      },
-      "demir_zirh": {
-        "name": "Demir Zırh",
-        "desc": "Şövalyeleri koruyan dövme demirden gövde zırhı."
-      },
-      "yatak": {
-        "name": "Yatak",
-        "desc": "Yorgun bedeni dinlendiren yumuşak döşekli ahşap karyola."
-      },
-      "zehirli_sivi": {
-        "name": "Zehirli Sıvı",
-        "desc": "Zehirli özlerin suyla karıştırılmış tehlikeli şişesi."
-      },
-      "zehir_sisesi": {
-        "name": "Zehir Şişesi",
-        "desc": "Üzerinde kurukafa işareti olan ölümcül zehir dolu cam şişe."
-      },
-      "zehirli_kilic": {
-        "name": "Zehirli Kılıç",
-        "desc": "Düşmanları tek darbede zehirleyen yeşil parıltılı çelik kılıç."
-      },
-      "sifa_iksiri": {
-        "name": "Şifa İksiri",
-        "desc": "Bitki, şişe ve su çömleğinden hazırlanan can verici iksir."
-      },
-      "mana_iksiri": {
-        "name": "Mana İksiri",
-        "desc": "Enerji, şişe ve su çömleği ile özütlenen büyülü mana iksiri."
-      },
-      "barut": {
-        "name": "Barut",
-        "desc": "Kükürt, kömür ve güherçilenin patlayıcı karışımı."
-      },
-      "bomba": {
-        "name": "Bomba",
-        "desc": "Fitili ateşlendiğinde infilak eden yıkıcı patlayıcı aygıt."
-      },
-      "buyu_parsomeni": {
-        "name": "Büyü Parşömeni",
-        "desc": "Üzerinde efsunlu sözler yazılı kadim büyü parşömeni."
-      },
-      "yildirim_parsomeni": {
-        "name": "Yıldırım Parşömeni",
-        "desc": "Okunduğunda gökten dev şimşekler yağdıran büyülü rulo."
-      },
-      "ates_topu_kitabi": {
-        "name": "Ateş Topu Kitabı",
-        "desc": "Düşmanlara alev topu yağdırmayı öğreten simya büyü kitabı."
-      },
-      "buhar_motoru": {
-        "name": "Buhar Motoru",
-        "desc": "Buharın basıncını mekanik piston hareketine dönüştüren motor."
-      },
-      "tekerlek": {
-        "name": "Tekerlek",
-        "desc": "Dönerek hareketi ve taşımayı devrimleştiren dairesel icat."
-      },
-      "el_arabasi": {
-        "name": "El Arabası",
-        "desc": "Yükleri taşımak için tek tekerlekli insan gücüyle çalışan araç."
-      },
-      "lokomotif": {
-        "name": "Lokomotif",
-        "desc": "Raylar üstündeki treni çeken güçlü buharlı veya elektrikli çekici."
-      },
-      "ampul": {
-        "name": "Ampul",
-        "desc": "Elektrik akımıyla teli parlayarak odayı aydınlatan cam ampul."
-      },
-      "fener": {
-        "name": "Fener",
-        "desc": "Rüzgardan etkilenmemesi için cam kafes içine konmuş ışık kaynağı."
-      },
-      "pusula": {
-        "name": "Pusula",
-        "desc": "Manyetik iğnesiyle kuzeyi göstererek yol bulmayı sağlayan alet."
-      },
-      "miknatis": {
-        "name": "Mıknatıs",
-        "desc": "Demir ve metalleri çeken manyetik kutuplu nesne."
-      },
-      "elektrik_motoru": {
-        "name": "Elektrik Motoru",
-        "desc": "Elektrik enerjisini kesintisiz dönme hareketine çeviren motor."
-      },
-      "celik_kulce": {
-        "name": "Çelik Külçe",
-        "desc": "Dövülerek kalıplanmış sağlam çelik blok."
-      },
-      "ors": {
-        "name": "Örs",
-        "desc": "Demircilerin kızgın metalleri dövüp şekillendirdiği ağır çelik kütük."
-      },
-      "civi": {
-        "name": "Çivi",
-        "desc": "Ahşap ve taş parçaları birbirine tutturmaya yarayan sivri metal."
-      },
-      "tugla": {
-        "name": "Tuğla",
-        "desc": "Çamurun kalıplanıp fırında pişirilmesiyle elde edilen dayanıklı yapı taşı."
-      },
-      "harc": {
-        "name": "Harç",
-        "desc": "Çimento, kum ve suyun karışımıyla oluşan bağlayıcı inşaat harcı."
-      },
-      "tugla_duvar": {
-        "name": "Tuğla Duvar",
-        "desc": "Tuğla ve harcın örülmesiyle dikilen sağlam ayırıcı yapı."
-      },
-      "saglam_sandik": {
-        "name": "Sağlam Sandık",
-        "desc": "Eşyaları ve değerli madenleri saklamak için kilitli ahşap sandık."
-      },
-      "kristal": {
-        "name": "Kristal",
-        "desc": "Minerallerin kusursuz geometrik yapıda katılaşmış formu."
-      },
-      "teleskop": {
-        "name": "Teleskop",
-        "desc": "Uzak yıldızları ve gezegenleri yakından incelemeyi sağlayan gök dürbünü."
-      },
-      "vinc": {
-        "name": "Vinç",
-        "desc": "Devasa yapı bloklarını ve yükleri göklere kaldıran hidrolik kule vinci."
-      },
-      "yildiz_tozu": {
-        "name": "Yıldız Tozu",
-        "desc": "Süpernova patlamalarından evrene yayılan kadim element tozu."
-      },
-      "prizma_tasi": {
-        "name": "Prizma Taşı",
-        "desc": "Işığı büyülü şekilde büken ve yansıtan prizmatik kristal taş."
-      },
-      "kahin_kuresi": {
-        "name": "Kahin Küresi",
-        "desc": "Geleceği ve kaderin sırlarını gösteren parıldayan kristal küre."
-      },
-      "portal_runu": {
-        "name": "Portal Rünü",
-        "desc": "Mekanlar arası anlık geçit açan büyülü portal rünü."
-      },
-      "bosluk_sisesi": {
-        "name": "Boşluk Şişesi",
-        "desc": "İçinde mutlak uzay boşluğunu hapseden gizemli cam fanus."
-      },
-      "boyut_kapisi": {
-        "name": "Boyut Kapısı",
-        "desc": "Farklı evrenlere ve boyutlara açılan devasa kozmik solucan deliği geçidi."
-      },
-      "anka_kulu": {
-        "name": "Anka Külü",
-        "desc": "Anka kuşunun yanıp kül olduğunda bıraktığı yeniden doğuş tozu."
-      },
-      "runik_zirh": {
-        "name": "Runik Zırh",
-        "desc": "Üzerine koruyucu büyülü rünler kazınmış kırılmaz runik zırh."
-      },
-      "firtina_kilici": {
-        "name": "Fırtına Kılıcı",
-        "desc": "Savrulduğunda şimşekler çaktıran fırtına efsunlu kılıç."
-      },
-      "yildiz_gecidi_cekirdegi": {
-        "name": "Yıldız Geçidi Çekirdeği",
-        "desc": "Yıldız geçidini sonsuz enerjiyle besleyen reaktör çekirdeği."
-      },
-      "kar": {
-        "name": "Kar",
-        "desc": "Bulutlardaki su buharının donarak oluşturduğu beyaz kristal taneleri."
-      },
-      "buz": {
-        "name": "Buz",
-        "desc": "Suyun dondurucu havayla katılaşarak oluşturduğu şeffaf kristal."
-      },
-      "col": {
-        "name": "Çöl",
-        "desc": "Gündüzleri kavurucu, geceleri dondurucu uçsuz bucaksız kum denizi."
-      },
-      "tohum": {
-        "name": "Tohum",
-        "desc": "İçinde yeni bir bitkinin potansiyelini taşıyan çekirdek."
-      },
-      "bugday": {
-        "name": "Buğday",
-        "desc": "İnsanlığın temel besin kaynağı olan altın sarısı başaklı tahıl."
-      },
-      "nane": {
-        "name": "Nane",
-        "desc": "Ferahlatıcı kokusuyla bilinen şifalı yeşil ot."
-      },
-      "agac_kabugu": {
-        "name": "Ağaç Kabuğu",
-        "desc": "Ağacın gövdesini dış etkenlerden koruyan sert dış katman."
-      },
-      "inek": {
-        "name": "İnek",
-        "desc": "Toprakta beslenen uysal ve verimli büyükbaş hayvan."
-      },
-      "sut": {
-        "name": "Süt",
-        "desc": "İnekten sağılan taze, kalsiyum dolu beyaz besleyici sıvı."
-      },
-      "yumurta": {
-        "name": "Yumurta",
-        "desc": "Tavuğun yumurtladığı protein zengini kabuklu besin."
-      },
-      "mercan": {
-        "name": "Mercan",
-        "desc": "Sıcak deniz diplerinde kireçli iskeletler oluşturan renkli deniz canlısı."
-      },
-      "olta": {
-        "name": "Olta",
-        "desc": "Balık tutmak için kullanılan kancalı ve ipli esnek kamış."
-      },
-      "yelken": {
-        "name": "Yelken",
-        "desc": "Rüzgarı yakalayarak tekneleri denizlerde yürüten dayanıklı kumaş kanat."
-      },
-      "sal": {
-        "name": "Sal",
-        "desc": "Birbirine bağlanmış kütüklerden yapılan en ilkel su taşıtı."
-      },
-      "obsidyen_bicak": {
-        "name": "Obsidyen Bıçak",
-        "desc": "Volkanik obsidyen camından yapılmış jilet kadar keskin bıçak."
-      },
-      "peynir": {
-        "name": "Peynir",
-        "desc": "Sütün mayalanıp süzülmesiyle elde edilen lezzetli gıda."
-      },
-      "un": {
-        "name": "Un",
-        "desc": "Buğday tanelerinin değirmende öğütülmesiyle elde edilen ince un."
-      },
-      "hamur": {
-        "name": "Hamur",
-        "desc": "Unun su ve tuzla yoğrulmasıyla oluşan yumuşak hamur."
-      },
-      "ekmek": {
-        "name": "Ekmek",
-        "desc": "Yoğrulmuş hamurun fırında nar gibi pişirilmiş temel hali."
-      },
-      "disli_cark": {
-        "name": "Dişli Çark",
-        "desc": "Mekanik sistemlerin kalbini oluşturan dişli takımı."
-      },
-      "degirmen": {
-        "name": "Değirmen",
-        "desc": "Rüzgar veya su gücüyle tahıl öğüten mekanik değirmen."
-      },
-      "ayna": {
-        "name": "Ayna",
-        "desc": "Camın arkasına gümüş kaplanarak görüntü yansıtması sağlanan eşya."
-      },
-      "saat": {
-        "name": "Saat",
-        "desc": "Zamanın akışını hassas şekilde ölçen mekanik çarklı aygıt."
-      },
-      "demir_parmaklik": {
-        "name": "Demir Parmaklık",
-        "desc": "Güvenlik veya hapis amacıyla döşenmiş demir çubuk kafes."
-      },
-      "savas_baltasi": {
-        "name": "Savaş Baltası",
-        "desc": "İki elle savrulan çift taraflı keskin çelik savaş baltası."
-      },
-      "gozetleme_kulesi": {
-        "name": "Gözetleme Kulesi",
-        "desc": "Düşman hareketlerini erkenden fark etmek için kurulmuş yüksek gözetleme kulesi."
-      },
-      "kale_kapisi": {
-        "name": "Kale Kapısı",
-        "desc": "Kalenin girişini koruyan devasa demir takviyeli meşe kapı."
-      },
-      "buz_runu": {
-        "name": "Buz Rünü",
-        "desc": "Dokunduğu her şeyi anında donduran buz rünü taşı."
-      },
-      "cehennem_tasi": {
-        "name": "Cehennem Taşı",
-        "desc": "Yeraltının lav ateşini içinde hapseden korlaşmış cehennem taşı."
-      },
-      "zaman_kum_saati": {
-        "name": "Zaman Kum Saati",
-        "desc": "İçindeki tanelerle zamanı bükebilen büyülü kum saati."
-      },
-      "illuzyon_aynasi": {
-        "name": "İllüzyon Aynası",
-        "desc": "Ayna, prizma taşı ve yıldız tozundan gerçekliği büken büyülü ayna."
-      },
-      "siber_kristal": {
-        "name": "Siber Kristal",
-        "desc": "Kuantum verilerini ışık hızında depolayan siber optik kristal."
-      },
-      "hologram_kupu": {
-        "name": "Hologram Küpü",
-        "desc": "Işık kırılmasıyla 3 boyutlu hareketli görüntüler yansıtan fütüristik küp."
-      },
-      "buhar_jeneratoru": {
-        "name": "Buhar Jeneratörü",
-        "desc": "Buhar basıncını elektrik enerjisine dönüştüren termik ünite."
-      },
-      "meka_zirhi": {
-        "name": "Meka Zırhı",
-        "desc": "İnsanın içine girip devasa güç kazandığı hidrolik meka dış iskeleti."
-      },
-      "plazma_tufegi": {
-        "name": "Plazma Tüfeği",
-        "desc": "Aşırı sıcak plazma enerjisi mermileri sıkan bilim kurgu silahı."
-      },
-      "felsefe_tasi": {
-        "name": "Felsefe Taşı",
-        "desc": "Her şeyi altına çeviren ve ölümsüzlük bahşeden efsanevi simya taşı."
-      },
-      "gunes_paneli": {
-        "name": "Güneş Paneli",
-        "desc": "Güneş ışığını doğrudan temiz elektrik akımına çeviren fotovoltaik panel."
-      },
-      "yercekimsiz_platform": {
-        "name": "Yerçekimsiz Platform",
-        "desc": "Manyetik itme gücüyle havada asılı duran anti-yerçekimi platformu."
-      },
-      "biyonik_kol": {
-        "name": "Biyonik Kol",
-        "desc": "Düşünce sinyalleriyle hareket eden protez biyonik mekanik kol."
-      },
-      "usturlap": {
-        "name": "Kozmik Usturlap",
-        "desc": "Pusula ve teleskopun altın yörünge halkalarıyla gökcisimlerini haritalayan alet."
-      },
-      "tesla_bobini": {
-        "name": "Tesla Bobini",
-        "desc": "Havaya devasa şimşekler ve kablosuz elektrik yayan rezonans transformatörü."
-      },
-      "kuantum_islemci": {
-        "name": "Kuantum İşlemci",
-        "desc": "Prizma taşı ve siber kristal matrisleriyle hesaplama yapan süper çip."
-      },
-      "minyatur_yildiz": {
-        "name": "Minyatür Yıldız",
-        "desc": "Simyacının kristal fanus içinde hapsettiği cüce parlak yıldız."
-      },
-      "dag": {
-        "name": "Dağ",
-        "desc": "Tektonik hareketlerle göğe doğru yükselen ulu zirve."
-      },
-      "kaya": {
-        "name": "Kaya",
-        "desc": "Yerkabuğunu oluşturan sert ve büyük taş kütlesi."
-      },
-      "gunes": {
-        "name": "Güneş",
-        "desc": "Gündüzleri dünyamızı aydınlatan ve yaşam veren ana yıldızımız."
-      },
-      "okyanus": {
-        "name": "Okyanus",
-        "desc": "Kıtaları birbirinden ayıran devasa tuzlu su okyanusu."
-      },
-      "volkan": {
-        "name": "Volkan",
-        "desc": "Yerin derinliklerindeki magmayı yüzeye taşıyan yanardağ."
-      },
-      "ada": {
-        "name": "Ada",
-        "desc": "Dört tarafı tamamen sularla çevrili kara parçası."
-      },
-      "nehir": {
-        "name": "Nehir",
-        "desc": "Dağlardan doğup denizlere doğru kıvrılarak akan tatlı su ırmağı."
-      },
-      "orman": {
-        "name": "Orman",
-        "desc": "Sayısız ağaç ve canlının bir arada yaşadığı dev ekosistem."
-      },
-      "firtina_bulutu": {
-        "name": "Fırtına Bulutu",
-        "desc": "Şimşek ve şiddetli yağmur getiren kara fırtına bulutu."
-      },
-      "magara": {
-        "name": "Mağara",
-        "desc": "Kayalıkların ve dağların içinde doğal olarak oluşmuş derin kovuk."
-      },
-      "gokkusagi": {
-        "name": "Gökkuşağı",
-        "desc": "Güneş ışığının yağmur damlalarında kırılarak oluşturduğu 7 renkli yay."
-      },
-      "kanyon": {
-        "name": "Kanyon",
-        "desc": "Sert kayaların akarsularca derin biçimde yarılmasıyla oluşan vadi."
-      },
-      "fay_hatti": {
-        "name": "Fay Hattı",
-        "desc": "Yer kabuğundaki tektonik kırık çizgisi."
-      },
-      "at": {
-        "name": "At",
-        "desc": "Asil duruşu, gücü ve hızıyla tarihe yön veren binek hayvanı."
-      },
-      "koyun": {
-        "name": "Koyun",
-        "desc": "Yumuşacık yünü ve eti için beslenen sürü hayvanı."
-      },
-      "kurt": {
-        "name": "Kurt",
-        "desc": "Ay ışığında uluyan, sürü halinde organize avlanan vahşi avcı."
-      },
-      "ari": {
-        "name": "Arı",
-        "desc": "Çiçeklerin nektarını toplayıp kovanında bal üreten kanatlı böcek."
-      },
-      "yilan": {
-        "name": "Yılan",
-        "desc": "Ayaksız, yerde kıvrılarak sürünen zehirli ve avcı canlı."
-      },
-      "baykus": {
-        "name": "Baykuş",
-        "desc": "Karanlık gecelerde sessizce avlanan bilge gözlü gece kuşu."
-      },
-      "kaplumbaga": {
-        "name": "Kaplumbağa",
-        "desc": "Sert bir kabuk taşıyan yavaş ve uzun ömürlü sürüngen."
-      },
-      "bal": {
-        "name": "Bal",
-        "desc": "Arıların çiçek özlerinden ürettiği şifalı tatlı besin."
-      },
-      "nilufer": {
-        "name": "Nilüfer",
-        "desc": "Durgun göl sularının üzerinde yüzen zarif su çiçeği."
-      },
-      "elma": {
-        "name": "Elma",
-        "desc": "Ağaç dallarından sarkan sulu, tatlı ve kırmızı meyve."
-      },
-      "kurbaga": {
-        "name": "Kurbağa",
-        "desc": "Hem karada hem suda yaşayabilen zıplayan amfibi canlı."
-      },
-      "sincap": {
-        "name": "Sincap",
-        "desc": "Ağaç dallarında ceviz saklayan kabarık kuyruklu sevimli kemirgen."
-      },
-      "geyik": {
-        "name": "Geyik",
-        "desc": "Görkemli boynuzlarıyla ormanın derinliklerinde süzülen zarif hayvan."
-      },
-      "kelebek": {
-        "name": "Kelebek",
-        "desc": "Tırtıldan kozaya, kozadan rengarenk kanatlara dönüşen zarif canlı."
-      },
-      "sis": {
-        "name": "Sis",
-        "desc": "Yeryüzüne çöken serin nem ve su buharı tabakası."
-      },
-      "gayzer": {
-        "name": "Gayzer",
-        "desc": "Yeraltındaki kaynar su ve buharın basınçla fışkırması."
-      },
-      "kaktus": {
-        "name": "Kaktüs",
-        "desc": "Çöl kuraklığına gövdesinde su depolayarak direnen dikenli bitki."
-      },
-      "cam_agaci": {
-        "name": "Karlı Çam Ağacı",
-        "desc": "Karlı dağ yamaçlarında kışın da beyaz karlar altında dimdik duran çam ağacı."
-      },
-      "tavuk": {
-        "name": "Tavuk",
-        "desc": "Evcilleştirilmiş, yumurta veren kümes kuşu."
-      },
-      "kedi": {
-        "name": "Kedi",
-        "desc": "Mırıltısıyla huzur veren, çevik ve bağımsız evcil avcı."
-      },
-      "somon": {
-        "name": "Somon",
-        "desc": "Akıntıya karşı yüzerek nehirlerde üreyen pembe etli lezzetli balık."
-      },
-      "barut_ficisi": {
-        "name": "Barut Fıçısı",
-        "desc": "Büyük patlamalar yaratmak için doldurulmuş barut dolu ahşap fıçı."
-      },
-      "su_degirmeni": {
-        "name": "Su Değirmeni",
-        "desc": "Akan suyun gücüyle dönerek un öğüten su çarkı."
-      },
-      "buz_dagi": {
-        "name": "Buz Dağı",
-        "desc": "Denizlerde ve okyanuslarda serbestçe yüzen devasa aysberg."
-      },
-      "kalkan": {
-        "name": "Kalkan",
-        "desc": "Savaşta darbeleri savuşturmak için taşınan koruyucu levha."
-      },
-      "iksir_kazani": {
-        "name": "İksir Kazanı",
-        "desc": "Ateş üzerinde iksirlerin ve simya özlerinin kaynatıldığı döküm kazan."
-      },
-      "ahtapot": {
-        "name": "Ahtapot",
-        "desc": "Denizlerin derinliklerinde yaşayan sekiz kollu ve kamuflaj ustası canlı."
-      },
-      "akrep": {
-        "name": "Akrep",
-        "desc": "Çöl kumlarında yaşayan, kıskançlı ve zehirli kuyruklu eklembacaklı."
-      },
-      "aku": {
-        "name": "Akü",
-        "desc": "Araçlar için yüksek kapasiteli şarj edilebilir elektrik akümülatörü."
-      },
-      "alet": {
-        "name": "Alet",
-        "desc": "İşleri kolaylaştırmak için tahta ve taştan yapılmış ilkel araç."
-      },
-      "alci": {
-        "name": "Alçı",
-        "desc": "Kirecin suyla karıştırılıp kuruduğunda donan harç maddesi."
-      },
-      "ametist": {
-        "name": "Ametist",
-        "desc": "Mistik mor rengiyle büyüleyen kuvars kristali."
-      },
-      "asa": {
-        "name": "Asa",
-        "desc": "Büyü enerjisini odaklayıp fırlatmaya yarayan sihirli asa."
-      },
-      "ayi": {
-        "name": "Ayı",
-        "desc": "Ormanlarda ve mağaralarda yaşayan devasa cüsseli ve güçlü memeli."
-      },
-      "baharat": {
-        "name": "Baharat",
-        "desc": "Yemeklere lezzet ve koku katan kurutulmuş aromatik bitki tozu."
-      },
-      "baharat_cesnisi": {
-        "name": "Baharat Çeşnisi",
-        "desc": "Farklı baharatların tuzla harmanlanmış lezzet karışımı."
-      },
-      "bakir": {
-        "name": "Bakır",
-        "desc": "Kızıl renkli, elektrik ve ısı iletkenliği yüksek yumuşak metal."
-      },
-      "balta": {
-        "name": "Balta",
-        "desc": "Ağaç kesmek ve odun yarmak için keskin başlı alet."
-      },
-      "bataklik": {
-        "name": "Bataklık",
-        "desc": "Su ve balçıkla kaplı, sazlıklarla örtülü ıslak alan."
-      },
-      "bozkir": {
-        "name": "Bozkır",
-        "desc": "Karasal iklimde uzanan ağaçsız geniş çayır ve otlak düzlük."
-      },
-      "buzul": {
-        "name": "Buzul",
-        "desc": "Yıllar boyunca birikip sıkışan devasa donmuş buz tabakası."
-      },
-      "buyu": {
-        "name": "Büyü",
-        "desc": "Doğaüstü iradeyle fizik kanunlarını bükme ve yaratma kudreti."
-      },
-      "ceviz": {
-        "name": "Ceviz",
-        "desc": "Beyne benzeyen kıvrımlı yapısıyla bilinen sert kabuklu kuruyemiş."
-      },
-      "cin": {
-        "name": "Cin",
-        "desc": "Dumansız ve kızgın ateşten yaratılmış görünmez mistik varlık."
-      },
-      "civa": {
-        "name": "Cıva",
-        "desc": "Oda sıcaklığında sıvı halde bulunan gümüşi metalik element."
-      },
-      "davul": {
-        "name": "Davul",
-        "desc": "Gerilmiş deriye tokmakla vurularak çalınan ritim çalgısı."
-      },
-      "domates": {
-        "name": "Domates",
-        "desc": "Kırmızı rengi ve sulu yapısıyla sofraların vazgeçilmezi sebze."
-      },
-      "et": {
-        "name": "Et",
-        "desc": "Beslenmek için hazırlanan taze hayvansal et."
-      },
-      "ev": {
-        "name": "Ev",
-        "desc": "İnsanların barınıp huzurla yaşadığı duvarlı ve çatılı yuva."
-      },
-      "evren": {
-        "name": "Evren",
-        "desc": "Tüm maddeyi, enerjiyi, zamanı ve mekanı içinde barındıran sonsuz bütün."
-      },
-      "fiyort": {
-        "name": "Fiyort",
-        "desc": "Buzulların aşındırdığı derin ve dik yamaçlı deniz körfezi."
-      },
-      "flut": {
-        "name": "Flüt",
-        "desc": "Üflenerek çalınan dinlendirici sesli ahşap nefesli çalgı."
-      },
-      "fosil": {
-        "name": "Fosil",
-        "desc": "Taşlaşmış toprak katmanlarında korunan kadim canlı kalıntısı."
-      },
-      "findik": {
-        "name": "Fındık",
-        "desc": "Sert kabuğun içinde saklanan yağlı ve besleyici lezzetli yemiş."
-      },
-      "gezegen": {
-        "name": "Gezegen",
-        "desc": "Bir yıldızın etrafındaki yörüngede dönen büyük gök cismi."
-      },
-      "granit": {
-        "name": "Granit",
-        "desc": "Magmanın yer altında yavaşça soğuyarak kristalleştiği sert taş."
-      },
-      "golge": {
-        "name": "Gölge",
-        "desc": "Işığın bir cisim tarafından engellenmesiyle arkasında oluşan karanlık alan."
-      },
-      "gul": {
-        "name": "Gül",
-        "desc": "Dikenli dalları ve büyüleyici kokusuyla aşkın simgesi kırmızı çiçek."
-      },
-      "gurz": {
-        "name": "Gürz",
-        "desc": "Düşman zırhlarını ezmek için kullanılan ağır başlıklı topuz."
-      },
-      "halat": {
-        "name": "Halat",
-        "desc": "Kalın ve ağır yükleri çekmek için bükülmüş güçlü urgan."
-      },
-      "havyar": {
-        "name": "Havyar",
-        "desc": "Değerli mersin balığından elde edilen lüks tuzlu balık yumurtası."
-      },
-      "hucre": {
-        "name": "Hücre",
-        "desc": "Canlıların temel yapı taşı olan biyolojik birim."
-      },
-      "jenerator": {
-        "name": "Jeneratör",
-        "desc": "Mekanik hareketi elektrik enerjisine çeviren güçlü santral makinesi."
-      },
-      "kadirga": {
-        "name": "Kadırga",
-        "desc": "Hem kürekle hem yelkenle yürütülen tarihi savaş gemisi."
-      },
-      "kale": {
-        "name": "Kale",
-        "desc": "Düşman saldırılarına karşı şehri koruyan mazgallı sağlam taş hisar."
-      },
-      "kalem": {
-        "name": "Kalem",
-        "desc": "Düşünceleri kağıda dökmek için kullanılan yazı aleti."
-      },
-      "kandil": {
-        "name": "Kandil",
-        "desc": "İçinde yağ yakılarak ışık veren ilkel pişmiş toprak lamba."
-      },
-      "kartal": {
-        "name": "Kartal",
-        "desc": "Yüksek dağ zirvelerinde yuva yapan keskin gözlü yırtıcı kuş."
-      },
-      "kasaba": {
-        "name": "Kasaba",
-        "desc": "Köyden büyük, çarşısı ve zanaatkarları olan küçük kentsel yerleşim."
-      },
-      "kavurma": {
-        "name": "Kavurma",
-        "desc": "Kendi yağında kavrularak pişirilen lezzetli et."
-      },
-      "kehribar": {
-        "name": "Kehribar",
-        "desc": "Milyonlarca yıllık ağaç reçinesinin taşlaşmış fosil hali."
-      },
-      "kemik": {
-        "name": "Kemik",
-        "desc": "Omurgalı canlıların iskeletini oluşturan sert kalsiyum yapı."
-      },
-      "kentaurluk": {
-        "name": "Kentaurluk",
-        "desc": "Gövdesi insan, altı at olan efsanevi orman savaşçısı ırk."
-      },
-      "kertenkele": {
-        "name": "Kertenkele",
-        "desc": "Güneş altında kayalarda ısınan çevik sürüngen canlı."
-      },
-      "kilit": {
-        "name": "Kilit",
-        "desc": "Kapıları ve sandıkları güvenle kilitleyen mekanik düzenek."
-      },
-      "kirec": {
-        "name": "Kireç",
-        "desc": "Kalker taşının ateşte yakılmasıyla elde edilen beyaz bağlayıcı toz."
-      },
-      "kule": {
-        "name": "Kule",
-        "desc": "Uzakları gözetlemek veya savunmak için göğe yükselen silindirik taş yapı."
-      },
-      "kulube": {
-        "name": "Kulübe",
-        "desc": "Orman içinde ahşaptan yapılmış mütevazı barınak."
-      },
-      "kursun": {
-        "name": "Kurşun",
-        "desc": "Ağır, yumuşak ve gri renkli yoğun metal elementi."
-      },
-      "kutsal_kase": {
-        "name": "Kutsal Kase",
-        "desc": "İçenlere ebedi hayat bahşettiği söylenen efsanevi kase."
-      },
-      "kuvars": {
-        "name": "Kuvars",
-        "desc": "Basınç ve enerjiyle kristalleşen sert mineral kristalleri."
-      },
-      "koruk": {
-        "name": "Körük",
-        "desc": "Ocağın ateşini körükleyip sıcaklığı artıran hava üfleyici körük."
-      },
-      "koy": {
-        "name": "Köy",
-        "desc": "Kırsal alanda tarım ve hayvancılıkla geçinen şirin yerleşim birimi."
-      },
-      "kukurt": {
-        "name": "Kükürt",
-        "desc": "Yanardağ kraterlerinden çıkarılan sarı renkli yanıcı mineral."
-      },
-      "kurek": {
-        "name": "Kürek",
-        "desc": "Toprak, kum veya karı küremek için kullanılan geniş ağızlı alet."
-      },
-      "kita": {
-        "name": "Kıta",
-        "desc": "Okyanuslarla çevrili devasa yeryüzü ana karası."
-      },
-      "mana": {
-        "name": "Mana",
-        "desc": "Büyücülerin büyü yaparken tükettiği saf ruhani enerji havuzu."
-      },
-      "mana_i_ksiri": {
-        "name": "Mana İksiri",
-        "desc": "Tükenen büyü enerjisini anında dolduran parlak mavi iksir."
-      },
-      "mancinik": {
-        "name": "Mancınık",
-        "desc": "Kale surlarını yıkmak için dev kayalar fırlatan kuşatma motoru."
-      },
-      "medeniyet": {
-        "name": "Medeniyet",
-        "desc": "Kültür, bilim, hukuk ve sanatın ulaştığı en yüksek toplumsal düzey."
-      },
-      "melek": {
-        "name": "Melek",
-        "desc": "Saf ışıktan yaratılmış, ilahi emirleri yerine getiren masum varlık."
-      },
-      "meltem": {
-        "name": "Meltem",
-        "desc": "Denizden karaya doğru esen ferahlatıcı hafif sahil rüzgarı."
-      },
-      "mercan_kayaligi": {
-        "name": "Mercan Kayalığı",
-        "desc": "Binlerce deniz canlısına yuva olan dev su altı resifi."
-      },
-      "migfer": {
-        "name": "Miğfer",
-        "desc": "Başı darbelerden korumak için tasarlanmış sağlam miğfer kaskı."
-      },
-      "muz": {
-        "name": "Muz",
-        "desc": "Tropik iklimde yetişen yumuşak ve potasyum zengini sarı meyve."
-      },
-      "mizrak": {
-        "name": "Mızrak",
-        "desc": "Uzun ahşap bir sapın ucuna takılan sivri metal mızrak."
-      },
-      "para": {
-        "name": "Para",
-        "desc": "Ticarette malların değerini belirleyen ve takası sağlayan resmi araç."
-      },
-      "parsomen": {
-        "name": "Parşömen",
-        "desc": "İşlenmiş hayvan derisinden hazırlanan dayanıklı kadim yazı rulosu."
-      },
-      "pastirma": {
-        "name": "Pastırma",
-        "desc": "Çemen ve baharatlarla kurutulup olgunlaştırılmış geleneksel et."
-      },
-      "pil": {
-        "name": "Pil",
-        "desc": "Kimyasal enerjiyi elektrik enerjisine dönüştürüp depolayan güç kaynağı."
-      },
-      "pirinc": {
-        "name": "Pirinç",
-        "desc": "Suyla dolu çeltik tarlalarında yetişen temel Uzakdoğu tahılı."
-      },
-      "plazma": {
-        "name": "Plazma",
-        "desc": "Ateşin aşırı enerji ve elektrikle iyonlaşmış dördüncü madde hali."
-      },
-      "porselen": {
-        "name": "Porselen",
-        "desc": "Beyaz kaolinden üretilen zarif, ince ve dayanıklı mutfak eşyası."
-      },
-      "prizma": {
-        "name": "Prizma",
-        "desc": "Beyaz ışığı kırarak gökkuşağı renklerine ayıran üçgen optik cam."
-      },
-      "resim": {
-        "name": "Resim",
-        "desc": "Fırça ve renklerle tuvale yansıtılan görsel sanat eseri."
-      },
-      "recel": {
-        "name": "Reçel",
-        "desc": "Meyvelerin şekerle kaynatılarak kavanozlara doldurulmuş hali."
-      },
-      "run": {
-        "name": "Rün",
-        "desc": "Kadim taşlara kazınmış gizemli ve güçlü büyü harfi."
-      },
-      "salca": {
-        "name": "Salça",
-        "desc": "Domateslerin ezilip güneşte kurutularak yoğunlaştırılmış ezmesi."
-      },
-      "sarmasik": {
-        "name": "Sarmaşık",
-        "desc": "Ağaçlara ve kayalara dolanarak tırmanan sarılıcı yeşil bitki."
-      },
-      "sarimsak": {
-        "name": "Sarımsak",
-        "desc": "Doğal antibiyotik olarak bilinen keskin kokulu şifa deposu."
-      },
-      "sera": {
-        "name": "Sera",
-        "desc": "Bitkileri soğuktan koruyarak yıl boyu yetiştiren cam mekan."
-      },
-      "seramik": {
-        "name": "Seramik",
-        "desc": "Sırlanarak fırınlanmış su geçirmez pürüzsüz toprak kap."
-      },
-      "sinema": {
-        "name": "Sinema",
-        "desc": "Peş peşe oynatılan karelerle dev perdede canlanan film sanatı."
-      },
-      "sosis": {
-        "name": "Sosis",
-        "desc": "Kıyılmış baharatlı etin kılıflara doldurulması."
-      },
-      "sur": {
-        "name": "Sur",
-        "desc": "Şehrin etrafını çepeçevre saran yüksek ve kalın savunma duvarı."
-      },
-      "tepe": {
-        "name": "Tepe",
-        "desc": "Dağdan alçak, eğimli ve yuvarlak doğal yükselti."
-      },
-      "tereyagi": {
-        "name": "Tereyağı",
-        "desc": "Süt kaymağının yayıkta dövülmesiyle toplanan saf yağ."
-      },
-      "totem": {
-        "name": "Totem",
-        "desc": "Kabilenin atalarını ve koruyucu ruhlarını simgeleyen oymalı ahşap sütun."
-      },
-      "tufan": {
-        "name": "Tufan",
-        "desc": "Şiddetli yağmurlar sonucu yeryüzünü kaplayan dev su taşkını."
-      },
-      "tunel": {
-        "name": "Tünel",
-        "desc": "Dağların altından delinerek açılan yeraltı geçiş koridoru."
-      },
-      "tilsim": {
-        "name": "Tılsım",
-        "desc": "Üzerine koruyucu büyüler kazınmış kutsal metal takı."
-      },
-      "uydu": {
-        "name": "Uydu",
-        "desc": "Dünya yörüngesinde dönerek haberleşme ve gözlem yapan uzay aracı."
-      },
-      "ucurtma": {
-        "name": "Uçurtma",
-        "desc": "İnce bir iple gökyüzünde rüzgara karşı süzülen renkli oyuncak."
-      },
-      "vaha": {
-        "name": "Vaha",
-        "desc": "Çölün ortasında yer altı sularıyla yeşeren cennet köşesi."
-      },
-      "yaprak": {
-        "name": "Yaprak",
-        "desc": "Bitkilerin nefes alıp fotosentez yaptığı yeşil yaprak."
-      },
-      "yarimada": {
-        "name": "Yarımada",
-        "desc": "Üç tarafı suyla çevrili, bir tarafı karaya bağlı kara parçası."
-      },
-      "yazi": {
-        "name": "Yazı",
-        "desc": "Konuşulan dili simgelerle kalıcı kılan medeniyet icadı."
-      },
-      "yol": {
-        "name": "Yol",
-        "desc": "Şehirleri ve köyleri birbirine bağlayan döşeli ulaşım şeridi."
-      },
-      "yogurt": {
-        "name": "Yoğurt",
-        "desc": "Ilık sütün yoğurt mayasıyla fermante edilerek katılaştırılması."
-      },
-      "yun": {
-        "name": "Yün",
-        "desc": "Koyundan kırkılan, sıcak tutan doğal yumuşak lif kütlesi."
-      },
-      "zincir": {
-        "name": "Zincir",
-        "desc": "Birbirine geçmiş demir halkalardan oluşan kopmaz bağ."
-      },
-      "zumrut": {
-        "name": "Zümrüt",
-        "desc": "Doğanın yeşilini içinde barındıran ışıltılı değerli taş."
-      },
-      "zirh": {
-        "name": "Zırh",
-        "desc": "Vücudu silahlardan korumak için giyilen zırhlı donanım."
-      },
-      "cali": {
-        "name": "Çalı",
-        "desc": "Kısa boylu, dallı ve sık gövdeli bodur bitki kümesi."
-      },
-      "cark": {
-        "name": "Çark",
-        "desc": "Dönme hareketini ileten dişli ahşap tekerlek mekanizması."
-      },
-      "cekic": {
-        "name": "Çekiç",
-        "desc": "Nesneleri dövmek veya çakmak için saplı ağır taş/demir başlık."
-      },
-      "cimen": {
-        "name": "Çimen",
-        "desc": "Yeryüzünü halı gibi kaplayan sık yeşillik tabakası."
-      },
-      "cimento": {
-        "name": "Çimento",
-        "desc": "Harç ve beton yapımında kullanılan bağlayıcı gri toz."
-      },
-      "corba": {
-        "name": "Çorba",
-        "desc": "Sebze, et ve baharatların kaynatılmasıyla yapılan sıcacık yemek."
-      },
-      "cig": {
-        "name": "Çığ",
-        "desc": "Dağ yamaçlarından koparak aşağı yuvarlanan dev kar kütlesi."
-      },
-      "uzum": {
-        "name": "Üzüm",
-        "desc": "Salkım salkım sarkan, taze veya kurutularak yenen tatlı meyve."
-      },
-      "i_ksir": {
-        "name": "İksir",
-        "desc": "Şifalı otların ve büyülü maddelerin kazanında kaynatılmış iksir."
-      },
-      "i_nek": {
-        "name": "İnek",
-        "desc": "Çiftliklerde otlayıp insanlara bol süt ve et sağlayan uysal memeli."
-      },
-      "i_nsan": {
-        "name": "İnsan",
-        "desc": "Düşünme, alet yapma ve dünyayı dönüştürme yetisine sahip varlık."
-      },
-      "i_p": {
-        "name": "İp",
-        "desc": "Bitkisel liflerin bükülerek birleştirilmesiyle yapılan sağlam bağ."
-      },
-      "i_gne": {
-        "name": "İğne",
-        "desc": "Dikiş dikmek için ucu sivri ve delikli ince metal tel."
-      },
-      "safak": {
-        "name": "Şafak",
-        "desc": "Güneş doğmadan hemen önce ufkun kızıla boyandığı an."
-      },
-      "sahin": {
-        "name": "Şahin",
-        "desc": "Hızlı dalışlarıyla bilinen avcı yırtıcı kuş."
-      },
-      "selale": {
-        "name": "Şelale",
-        "desc": "Nehir suyunun yüksek kayalıklardan köpürerek döküldüğü çağlayan."
-      },
-      "sifa_i_ksiri": {
-        "name": "Şifa İksiri",
-        "desc": "Yaraları anında iyileştiren kırmızı renkli şifalı iksir."
-      },
-      "dinamit": {
-        "name": "Dinamit",
-        "desc": "Madencilikte kayaları parçalamak için kullanılan nitrogliserinli çubuk."
-      },
-      "gol": {
-        "name": "Göl",
-        "desc": "Karalar içinde çukur alanlarda toplanmış durgun tatlı su kütlesi."
-      },
-      "kasirga": {
-        "name": "Kasırga",
-        "desc": "Okyanus üzerinde dönerek güçlenen dev tropik fırtına."
-      },
-      "makas": {
-        "name": "Makas",
-        "desc": "İki kesici bıçağın bir merkezde birleşmesiyle kumaş kesen aygıt."
-      },
-      "muze": {
-        "name": "Müze",
-        "desc": "Tarihi eserlerin ve sanat harikalarının sergilendiği kültür kurumu."
-      },
-      "sfenks": {
-        "name": "Sfenks",
-        "desc": "Piramitleri bekleyen insan başlı dev aslan heykeli."
-      },
-      "tutulma": {
-        "name": "Tutulma",
-        "desc": "Ayın dünya ile güneş arasına girip gündüzü karartması."
-      },
-      "tuy": {
-        "name": "Tüy",
-        "desc": "Hafif ve aerodinamik doğal kuş tüyü."
-      },
-      "uzay": {
-        "name": "Uzay",
-        "desc": "Gök cisimleri arasındaki sonsuz karanlık ve sessiz boşluk."
-      },
-      "yel_degirmeni": {
-        "name": "Yel Değirmeni",
-        "desc": "Rüzgarın kanatları çevirmesiyle tahıl öğüten kule değirmeni."
-      },
-      "i_ksir_kazani": {
-        "name": "İksir Kazanı",
-        "desc": "Fokurdayan büyülü karışımların hazırlandığı mistik kazan."
-      },
-      "alacakaranlik": {
-        "name": "Alacakaranlık",
-        "desc": "Gündüzün geceye, ışığın karanlığa kavuştuğu loş an."
-      },
-      "alfabe": {
-        "name": "Alfabe",
-        "desc": "Bir dilin tüm seslerini temsil eden harfler dizgesi."
-      },
-      "anka_kusu": {
-        "name": "Anka Kuşu",
-        "desc": "Küllerinden yeniden doğan ebedi ateş kuşu Simurg."
-      },
-      "anit": {
-        "name": "Anıt",
-        "desc": "Önemli olayları ve kahramanları ölümsüzleştiren anıt yapı."
-      },
-      "aslan": {
-        "name": "Aslan",
-        "desc": "Görkemli yelesi ve kükreyişiyle savanaların ve ormanların kralı."
-      },
-      "ay": {
-        "name": "Ay",
-        "desc": "Dünyanın uydusu olan ve geceleri güneş ışığını yansıtan gümüş gökcismi."
-      },
-      "bal_kavanozu": {
-        "name": "Bal Kavanozu",
-        "desc": "Saf ve altın rengi balla doldurulmuş şeffaf kavanoz."
-      },
-      "beton": {
-        "name": "Beton",
-        "desc": "Harç ve çakılın donarak kaya gibi sertleşen modern yapı malzemesi."
-      },
-      "biber": {
-        "name": "Biber",
-        "desc": "Acı veya tatlı çeşitleriyle yemeklere lezzet katan taze sebze."
-      },
-      "bisiklet": {
-        "name": "Bisiklet",
-        "desc": "İki tekerlek üzerinde pedal çevirerek sürülen insan gücüyle çalışan araç."
-      },
-      "bronz": {
-        "name": "Bronz",
-        "desc": "Bakır ve diğer madenlerin eritilerek alaşımlanmış sert formu."
-      },
-      "deniz": {
-        "name": "Deniz",
-        "desc": "Uçsuz bucaksız tuzlu su havzası."
-      },
-      "denizanasi": {
-        "name": "Denizanası",
-        "desc": "Denizlerde süzülen jelatinimsi ve dokunaçlı şeffaf canlı."
-      },
-      "denizkizi": {
-        "name": "Denizkızı",
-        "desc": "Efsanelere konu olan yarı insan yarı balık büyülü deniz varlığı."
-      },
-      "dolu": {
-        "name": "Dolu",
-        "desc": "Yağmur damlalarının fırtınada donarak oluşturduğu buz topları."
-      },
-      "ejderha": {
-        "name": "Ejderha",
-        "desc": "Ağzından alev püskürten, pullu ve kanatlı efsanevi ejderha."
-      },
-      "fener_kulesi": {
-        "name": "Fener Kulesi",
-        "desc": "Karanlık gecelerde denizdeki gemilere yol gösteren ışıklı deniz feneri."
-      },
-      "firtina": {
-        "name": "Fırtına",
-        "desc": "Güçlü rüzgarların enerjiyle birleşip kasıp kavurduğu fırtına."
-      },
-      "gazete": {
-        "name": "Gazete",
-        "desc": "Günün haberlerini halka ulaştıran günlük basılı yayın."
-      },
-      "girdap": {
-        "name": "Girdap",
-        "desc": "Suyun dairesel çekim hareketiyle oluşan derin anafor."
-      },
-      "grifon": {
-        "name": "Grifon",
-        "desc": "Gövdesi aslan, başı ve kanatları kartal olan cesur mitolojik yaratık."
-      },
-      "gulyabani": {
-        "name": "Gulyabani",
-        "desc": "Karanlık çöllerde ve harabelerde dolaşan hortlak varlık."
-      },
-      "gunduz": {
-        "name": "Gündüz",
-        "desc": "Güneşin doğmasıyla başlayan aydınlık ve hareketli zaman dilimi."
-      },
-      "hayalet": {
-        "name": "Hayalet",
-        "desc": "Bu dünyadan ayrılamamış ölülerin yarı saydam silueti."
-      },
-      "hazine": {
-        "name": "Hazine",
-        "desc": "Sandıklar dolusu altın ve mücevherden oluşan zenginlik."
-      },
-      "hesap_makinesi": {
-        "name": "Hesap Makinesi",
-        "desc": "Matematiksel işlemleri anında ve hatasız yapan hesap cihazı."
-      },
-      "heykel": {
-        "name": "Heykel",
-        "desc": "Mermer veya taşa çekiçle form verilerek yapılan 3D sanat eseri."
-      },
-      "kabile": {
-        "name": "Kabile",
-        "desc": "Aynı kökten gelen insanların oluşturduğu dayanışma topluluğu."
-      },
-      "kanal": {
-        "name": "Kanal",
-        "desc": "Gemilerin geçmesi için kazılmış yapay su yolu."
-      },
-      "kano": {
-        "name": "Kano",
-        "desc": "İçi oyulmuş ağaç gövdesinden yapılan hafif nehir teknesi."
-      },
-      "karpuz": {
-        "name": "Karpuz",
-        "desc": "Yaz aylarında serinleten içi kıpkırmızı ve çekirdekli dev bostan meyvesi."
-      },
-      "kitap": {
-        "name": "Kitap",
-        "desc": "Ciltlenmiş sayfalarıyla insanlığın hafızasını taşıyan yazılı eser."
-      },
-      "kozmik_usturlap": {
-        "name": "Kozmik Usturlap",
-        "desc": "Yıldızların ve gezegenlerin konumunu hesaplayan antika astronomik cihaz."
-      },
-      "kum_saati": {
-        "name": "Kum Saati",
-        "desc": "İki cam fanus arasında ince kumun akışıyla süreyi ölçen araç."
-      },
-      "kuyruklu_yildiz": {
-        "name": "Kuyruklu Yıldız",
-        "desc": "Güneşe yaklaştıkça arkasında milyonlarca kilometrelik gaz kuyruğu bırakan gökcismi."
-      },
-      "lazer": {
-        "name": "Lazer",
-        "desc": "Tek dalga boyunda yoğunlaştırılmış güçlü ışık demeti."
-      },
-      "liman": {
-        "name": "Liman",
-        "desc": "Gemilerin demirleyip yük indirip bindirdiği korunaklı kıyı tesisi."
-      },
-      "murekkep": {
-        "name": "Mürekkep",
-        "desc": "Kömür karası ve sudan yapılan yazı yazma sıvısı."
-      },
-      "okul": {
-        "name": "Okul",
-        "desc": "Çocukların ve gençlerin bilgi ve beceri edindiği eğitim yuvası."
-      },
-      "pasta": {
-        "name": "Pasta",
-        "desc": "Krema, meyve ve şekerle süslenmiş özel kutlama tatlısı."
-      },
-      "peri": {
-        "name": "Peri",
-        "desc": "Kelebek kanatlarıyla doğayı koruyan minik ve sevimli büyü varlığı."
-      },
-      "platin": {
-        "name": "Platin",
-        "desc": "Aşırı dayanıklı, kararmayan nadir ve değerli beyaz maden."
-      },
-      "portakal": {
-        "name": "Portakal",
-        "desc": "Turunçgiller familyasından C vitamini deposu sulu kış meyvesi."
-      },
-      "ruh": {
-        "name": "Ruh",
-        "desc": "Beden öldükten sonra yaşamaya devam eden saf bilinç özü."
-      },
-      "safir": {
-        "name": "Safir",
-        "desc": "Göklerin ve denizlerin mavisini yansıtan değerli kristal taş."
-      },
-      "simya": {
-        "name": "Simya",
-        "desc": "Değersiz metalleri altına, maddeleri ebediyete dönüştürme kadim sanatı."
-      },
-      "tabanca": {
-        "name": "Tabanca",
-        "desc": "Tek elle kullanılabilen kompakt barutlu ateşli silah."
-      },
-      "tablo": {
-        "name": "Tablo",
-        "desc": "Çerçevelenerek duvara asılmış değerli sanat eseri."
-      },
-      "tanri": {
-        "name": "Tanrı",
-        "desc": "Tüm kainatın ve varlığın yaratıcısı olan yüce ilahi kudret."
-      },
-      "testere": {
-        "name": "Testere",
-        "desc": "Tırtıklı dişleriyle ahşap ve metali biçen marangoz aleti."
-      },
-      "timsah": {
-        "name": "Timsah",
-        "desc": "Nehir ve bataklıklarda pusu kuran güçlü çeneli dev sürüngen."
-      },
-      "tiyatro": {
-        "name": "Tiyatro",
-        "desc": "İnsan hikayelerinin canlı olarak sahnede sergilendiği dramatik sanat."
-      },
-      "tuz": {
-        "name": "Tuz",
-        "desc": "Tuzlu deniz suyunun buharlaşmasıyla geriye kalan beyaz mineral kristalleri."
-      },
-      "tuzlu_su": {
-        "name": "Tuzlu Su",
-        "desc": "Tuz mineralleriyle doymuş doğal deniz suyu."
-      },
-      "tufek": {
-        "name": "Tüfek",
-        "desc": "Omuzdan ateşlenen menzilli barutlu piyade tüfeği."
-      },
-      "turbin": {
-        "name": "Türbin",
-        "desc": "Akışkanların geçişiyle dönerek elektrik üreten dev kanatlı çark."
-      },
-      "uzay_gemisi": {
-        "name": "Uzay Gemisi",
-        "desc": "İnsanları ve yükleri yıldızlararası boşlukta taşıyan yüksek teknolojili araç."
-      },
-      "vadi": {
-        "name": "Vadi",
-        "desc": "Nehirlerin dağları aşındırarak açtığı yeşil boğaz."
-      },
-      "vida": {
-        "name": "Vida",
-        "desc": "Dönerek ahşaba veya metale kenetlenen yivli bağlantı elemanı."
-      },
-      "yakut": {
-        "name": "Yakut",
-        "desc": "Ateşin kızıllığını içinde barındıran kıymetli korindon minerali."
-      },
-      "yanardag": {
-        "name": "Yanardağ",
-        "desc": "Ateş ve lav püskürten aktif volkanik dağ."
-      },
-      "yapay_zeka": {
-        "name": "Yapay Zeka",
-        "desc": "Öğrenme, analiz ve karar verme yetisine sahip ileri düzey yazılım zekası."
-      },
-      "yelkenli": {
-        "name": "Yelkenli",
-        "desc": "Rüzgarı yelkenlerine doldurarak denizleri aşan tekne."
-      },
-      "yesim": {
-        "name": "Yeşim",
-        "desc": "Dinginliği simgeleyen pürüzsüz açık yeşil mineral taşı."
-      },
-      "yosun": {
-        "name": "Yosun",
-        "desc": "Nemli kayaların ve su kenarlarının üzerinde yayılan yeşil örtü."
-      },
-      "yunus": {
-        "name": "Yunus",
-        "desc": "Zekası ve oyuncu hareketleriyle bilinen dost canlısı deniz memelisi."
-      },
-      "yildiz": {
-        "name": "Yıldız",
-        "desc": "Çekirdeğinde nükleer füzyon gerçekleşen dev akkor plazma küresi."
-      },
-      "zehir": {
-        "name": "Zehir",
-        "desc": "Canlıların bedenini felç eden veya yok eden ölümcül toksin."
-      },
-      "zeytin": {
-        "name": "Zeytin",
-        "desc": "Akdeniz ikliminde yetişen şifalı ve yağlı ağaç meyvesi."
-      },
-      "zombi": {
-        "name": "Zombi",
-        "desc": "Büyüyle mezarından kaldırılmış bilinci olmayan yaşayan ölü."
-      },
-      "cicek": {
-        "name": "Çiçek",
-        "desc": "Bitkilerin renkli ve mis kokulu üreme organı."
-      },
-      "orumcek": {
-        "name": "Örümcek",
-        "desc": "Sekiz bacaklı, avını yakalamak için usta ağlar ören canlı."
-      },
-      "i_lluzyon_aynasi": {
-        "name": "İllüzyon Aynası",
-        "desc": "Bakan kişiye farklı yanılsamalar gösteren büyülü illüzyon aynası."
-      },
-      "i_nci": {
-        "name": "İnci",
-        "desc": "İstiridyenin içine kaçan kum tanesini kaplayarak oluşturduğu değerli inci."
-      },
-      "i_plik": {
-        "name": "İplik",
-        "desc": "Dokuma ve dikişte kullanılan ince eğrilmiş iplik."
-      },
-      "sehir": {
-        "name": "Şehir",
-        "desc": "Geniş caddeleri, fabrikaları ve binalarıyla büyük medeniyet merkezi."
-      },
-      "altin_sikke": {
-        "name": "Altın Sikke",
-        "desc": "Üzerinde hükümdar mührü taşıyan saf altın para."
-      },
-      "asit_yagmuru": {
-        "name": "Asit Yağmuru",
-        "desc": "Havadaki kükürtlü gazların yağmur suyuyla birleşip asitleşmesi."
-      },
-      "balik_eti": {
-        "name": "Balık Eti",
-        "desc": "Taze balığın temizlenip dilimlenmiş eti."
-      },
-      "baraj": {
-        "name": "Baraj",
-        "desc": "Nehir sularını tutarak enerji üreten ve su depolayan dev set."
-      },
-      "dukkan": {
-        "name": "Dükkan",
-        "desc": "Belirli ürünlerin satıldığı küçük ticarethane."
-      },
-      "fotograf": {
-        "name": "Fotoğraf",
-        "desc": "Işıkla kağıda basılmış dondurulmuş an görüntüsü."
-      },
-      "hortum": {
-        "name": "Hortum",
-        "desc": "Dönen güçlü hava kolonunun yere uzanmasıyla oluşan hortum."
-      },
-      "kaplan": {
-        "name": "Kaplan",
-        "desc": "Çizgili postu ve müthiş avlanma becerisiyle bilinen büyük kedi."
-      },
-      "karadelik": {
-        "name": "Karadelik",
-        "desc": "Işığın dahi kaçamayacağı kadar güçlü bir yerçekimine sahip kozmik tekillik."
-      },
-      "korfez": {
-        "name": "Körfez",
-        "desc": "Denizin karanın içine doğru sokulduğu korunaklı su girintisi."
-      },
-      "limon": {
-        "name": "Limon",
-        "desc": "Ekşi tadı ve ferahlatıcı kokusuyla yemeklere katılan sarı meyve."
-      },
-      "manyetizma": {
-        "name": "Manyetizma",
-        "desc": "Elektrik akımlarının yarattığı manyetik çekim alanı."
-      },
-      "matbaa": {
-        "name": "Matbaa",
-        "desc": "Kitapların binlerce nüsha halinde hızlıca basılmasını sağlayan devrim."
-      },
-      "muska": {
-        "name": "Muska",
-        "desc": "Kötülüklerden ve nazardan koruduğuna inanılan boyuna asılan koruyucu nesne."
-      },
-      "nebula": {
-        "name": "Nebula",
-        "desc": "Yeni yıldızların doğduğu renkli ve ışıldayan dev kozmik gaz bulutu."
-      },
-      "obelisk": {
-        "name": "Obelisk",
-        "desc": "Güneş ışınlarını simgeleyen tek parça dikilitaş anıtı."
-      },
-      "palmiye": {
-        "name": "Palmiye",
-        "desc": "Tropik sahillerde ve vahada yetişen uzun gövdeli yapraklı ağaç."
-      },
-      "pazar": {
-        "name": "Pazar",
-        "desc": "Tüccarların ürünlerini sergileyip halka sattığı hareketli çarşı."
-      },
-      "piramit": {
-        "name": "Piramit",
-        "desc": "Firavunların ebedi istirahatgahı olan devasa geometrik anıt mezar."
-      },
-      "roket": {
-        "name": "Roket",
-        "desc": "Yakıtın arkadan püskürmesiyle yerçekimini yenip uzaya fırlayan araç."
-      },
-      "solucan": {
-        "name": "Solucan",
-        "desc": "Toprağın içinde yaşayan ve toprağı havalandıran omurgasız canlı."
-      },
-      "tayfun": {
-        "name": "Tayfun",
-        "desc": "Okyanuslarda büyük dalgalar ve yıkım yaratan şiddetli fırtına."
-      },
-      "tundra": {
-        "name": "Tundra",
-        "desc": "Kutup kuşağında donmuş topraklar ve likenlerle kaplı soğuk ova."
-      },
-      "zaman": {
-        "name": "Zaman",
-        "desc": "Olayların geçmişten geleceğe aktığı dördüncü boyut akışı."
-      },
-      "zeytinyagi": {
-        "name": "Zeytinyağı",
-        "desc": "Zeytinlerin taş baskıda sıkılmasıyla elde edilen altın sıvı."
-      },
-      "cilek": {
-        "name": "Çilek",
-        "desc": "Kırmızı rengi ve mis kokusuyla sevilen lezzetli orman meyvesi."
-      },
-      "i_mparatorluk": {
-        "name": "İmparatorluk",
-        "desc": "Birçok milleti ve kıtayı tek çatı altında toplayan dev imparatorluk."
-      },
-      "altar": {
-        "name": "Altar",
-        "desc": "Tapınakların kalbinde adakların sunulduğu kutsal kurban masası."
-      },
-      "altin": {
-        "name": "Altın",
-        "desc": "Güneş gibi parlayan, paslanmaz en kıymetli sarı metal."
-      },
-      "barometre": {
-        "name": "Barometre",
-        "desc": "Hava basıncını ölçerek hava durumunu tahmin eden gösterge."
-      },
-      "buharli_gemi": {
-        "name": "Buharlı Gemi",
-        "desc": "Buhar çarklarıyla dalgaları yaran okyanus gemisi."
-      },
-      "demir": {
-        "name": "Demir",
-        "desc": "Yer kabuğundan çıkarılan en sağlam ve işlenebilir temel metal."
-      },
-      "denizalti": {
-        "name": "Denizaltı",
-        "desc": "Su altında kilometrelerce derinlikte görünmeden ilerleyen çelik gemi."
-      },
-      "galaksi": {
-        "name": "Galaksi",
-        "desc": "Milyarlarca yıldız ve gezegen sisteminin döndüğü dev kozmik ada."
-      },
-      "gece": {
-        "name": "Gece",
-        "desc": "Güneşin ufkun ardına geçmesiyle yeryüzünü saran karanlık örtü."
-      },
-      "gumus": {
-        "name": "Gümüş",
-        "desc": "Ay ışığı kadar berrak ve saf beyaz değerli maden."
-      },
-      "gunes_saati": {
-        "name": "Güneş Saati",
-        "desc": "Güneşin konumuyla gölgenin hareketini izleyerek zamanı gösteren düzenek."
-      },
-      "isik": {
-        "name": "Işık",
-        "desc": "Ateşin karanlığı yaran parlak aydınlığı."
-      },
-      "kamera": {
-        "name": "Kamera",
-        "desc": "Işığı yakalayarak anları ve hareketli görüntüleri kaydeden cihaz."
-      },
-      "kurt_adam": {
-        "name": "Kurt Adam",
-        "desc": "Dolunay çıktığında vahşi bir kurda dönüşen lanetli insan."
-      },
-      "kopek": {
-        "name": "Köpek",
-        "desc": "İnsanın en sadık dostu haline gelmiş evcil ve koruyucu hayvan."
-      },
-      "kopekbaligi": {
-        "name": "Köpekbalığı",
-        "desc": "Keskin dişleri ve koku alma yetisiyle okyanusların tepe avcısı."
-      },
-      "metropol": {
-        "name": "Metropol",
-        "desc": "Milyonlarca insanın yaşadığı küresel çapta devasa mega kent."
-      },
-      "meyve_bahcesi": {
-        "name": "Meyve Bahçesi",
-        "desc": "Elma, armut ve meyve ağaçlarının özenle yetiştirildiği bahçe."
-      },
-      "meyve_suyu": {
-        "name": "Meyve Suyu",
-        "desc": "Taze sıkılmış meyvelerin leziz ve vitaminli içeceği."
-      },
-      "ruzgar_gulu": {
-        "name": "Rüzgar Gülü",
-        "desc": "Rüzgarın yönünü ve şiddetini gösteren fırıldak çarkı."
-      },
-      "zirhli_gemi": {
-        "name": "Zırhlı Gemi",
-        "desc": "Gövdesi kalın çelik levhalarla kaplı ağır savaş zırhlısı."
-      },
-      "i_pekbocegi": {
-        "name": "İpekböceği",
-        "desc": "Dut yapraklarıyla beslenip değerli ipek kozası ören tırtıl."
-      },
-      "i_cten_yanmali_motor": {
-        "name": "İçten Yanmalı Motor",
-        "desc": "Yakıtın silindir içinde patlamasıyla güç üreten motor."
-      },
-      "seytan": {
-        "name": "Şeytan",
-        "desc": "Kibri yüzünden lanetlenmiş, insanları yoldan çıkaran karanlık güç."
-      },
-      "araba": {
-        "name": "Araba",
-        "desc": "Atların çektiği veya motorla çalışan tekerlekli kara taşıtı."
-      },
-      "aurora": {
-        "name": "Aurora",
-        "desc": "Güneş rüzgarlarının atmosferle buluşmasıyla parlayan kutup ışıkları."
-      },
-      "balina": {
-        "name": "Balina",
-        "desc": "Okyanuslarda yüzen dünyanın en büyük memeli dev canlısı."
-      },
-      "darphane": {
-        "name": "Darphane",
-        "desc": "Devlet adına resmi altın ve madeni paraların basıldığı atölye."
-      },
-      "deprem": {
-        "name": "Deprem",
-        "desc": "Yer kabuğundaki fayların kırılmasıyla oluşan tektonik sarsıntı."
-      },
-      "dondurma": {
-        "name": "Dondurma",
-        "desc": "Süt ve meyvelerin dondurularak çırpılmasıyla yapılan serin tatlı."
-      },
-      "krallik": {
-        "name": "Krallık",
-        "desc": "Bir hükümdarın egemenliği altında yönetilen geniş topraklar."
-      },
-      "kok": {
-        "name": "Kök",
-        "desc": "Bitkiyi toprağa bağlayan ve besin toplayan yeraltı kökleri."
-      },
-      "kopru": {
-        "name": "Köprü",
-        "desc": "İki yakayı birbirine bağlayarak geçit veren kemerli köprü."
-      },
-      "mercek": {
-        "name": "Mercek",
-        "desc": "Işığı kırarak nesneleri büyüten veya odaklayan kavisli optik cam."
-      },
-      "misir": {
-        "name": "Mısır",
-        "desc": "Koçanları üzerinde altın sarısı taneleri olan verimli tahıl."
-      },
-      "otomobil": {
-        "name": "Otomobil",
-        "desc": "Dört tekerlekli motorlu modern kişisel yolcu taşıtı."
-      },
-      "sogan": {
-        "name": "Soğan",
-        "desc": "Kat kat zarlarıyla doğranırken göz yaşartan lezzet kaynağı sebze."
-      },
-      "tapinak": {
-        "name": "Tapınak",
-        "desc": "İbadet etmek ve tanrılara adak adamak için inşa edilen kutsal yapı."
-      },
-      "celik": {
-        "name": "Çelik",
-        "desc": "Demirin karbon ve kömürle dövülerek güçlendirilmiş dayanıklı hali."
-      },
-      "olumsuzluk_i_ksiri": {
-        "name": "Ölümsüzlük İksiri",
-        "desc": "İçene ebedi gençlik ve sonsuz ömür sunan iksirlerin iksiri."
-      },
-      "i_pek": {
-        "name": "İpek",
-        "desc": "İpekböceğinin ördüğü eşsiz parlaklıkta ve incelikte lüks kumaş lifi."
-      },
-      "seker": {
-        "name": "Şeker",
-        "desc": "Şeker kamışı veya pancarından kaynatılarak kristalleştirilen tatlandırıcı."
-      },
-      "demiryolu": {
-        "name": "Demiryolu",
-        "desc": "Trenlerin üzerinde hızla kayarak ilerlediği paralel çelik ray hattı."
-      },
-      "mermer": {
-        "name": "Mermer",
-        "desc": "Yüksek ısı ve basınç altında başkalaşmış damarlı pürüzsüz taş."
-      },
-      "motosiklet": {
-        "name": "Motosiklet",
-        "desc": "İki tekerlekli ve motor gücüyle çalışan hızlı kara taşıtı."
-      },
-      "tren": {
-        "name": "Tren",
-        "desc": "Raylar üzerinde birbirine bağlı vagonları çeken katar."
-      },
-      "maya": {
-        "name": "Maya",
-        "desc": "Hamuru kabartan ve fermantasyonu başlatan canlı kültür."
-      },
-      "meteor": {
-        "name": "Meteor",
-        "desc": "Dünya atmosferine girip sürtünmeyle alev alan kayan yıldız taşı."
-      },
-      "tsunami": {
-        "name": "Tsunami",
-        "desc": "Deniz tabanındaki depremle tetiklenen devasa okyanus dalgası."
-      },
-      "ucak": {
-        "name": "Uçak",
-        "desc": "Sabit kanatları ve güçlü motorlarıyla bulutları yaran hızlı hava taşıtı."
-      },
-      "elektrik": {
-        "name": "Elektrik",
-        "desc": "Yıldırım ve enerjinin kontrol edilebilir akım hali."
-      },
-      "vampir": {
-        "name": "Vampir",
-        "desc": "Geceleri kanla beslenen, güneş ışığına çıkamayan ölümsüz varlık."
-      },
-      "bicak": {
-        "name": "Bıçak",
-        "desc": "Kesme ve dilimleme işlemlerinde kullanılan keskin bıçak."
-      },
-      "i_lkel_bicak": {
-        "name": "İlkel Bıçak",
-        "desc": "Yontulmuş çakmaktaşından yapılan ilk kesici alet."
-      },
-      "alkol": {
-        "name": "Alkol",
-        "desc": "Şekerli meyvelerin fermantasyonuyla oluşan sarhoş edici sıvı."
-      },
-      "badem": {
-        "name": "Badem",
-        "desc": "İlkbaharda çiçek açan ağacın lezzetli ve şifalı sert çekirdeği."
-      },
-      "borsa": {
-        "name": "Borsa",
-        "desc": "Hisse senetlerinin ve kıymetli madenlerin alınıp satıldığı finans piyasası."
-      },
-      "elmas": {
-        "name": "Elmas",
-        "desc": "Kömürün aşırı yer altı basıncı altında kristalleşmiş en sert cevheri."
-      },
-      "harita": {
-        "name": "Harita",
-        "desc": "Yeryüzü şekillerini ve sınırları gösteren coğrafi çizim."
-      },
-      "kamyon": {
-        "name": "Kamyon",
-        "desc": "Ağır yükleri ve ticari malları şehirlerarası taşıyan büyük taşıt."
-      },
-      "karinca": {
-        "name": "Karınca",
-        "desc": "Topluluk halinde yaşayan çalışkan ve güçlü minik canlı."
-      },
-      "kurabiye": {
-        "name": "Kurabiye",
-        "desc": "Fırında gevrek pişirilmiş tereyağlı ve lezzetli atıştırmalık."
-      },
-      "kutuphane": {
-        "name": "Kütüphane",
-        "desc": "Binlerce cilt kitabın korunduğu sessiz bilgi mabedi."
-      },
-      "top": {
-        "name": "Top",
-        "desc": "Barut patlamasıyla demir gülleler fırlatan ağır savaş topu."
-      },
-      "zeplin": {
-        "name": "Zeplin",
-        "desc": "Gazla dolu dev gövdesi ve pervaneleriyle uçan güdümlü hava gemisi."
-      },
-      "sarap": {
-        "name": "Şarap",
-        "desc": "Ezilmiş üzüm suyunun fıçılarda fermente edilmesiyle yapılan içki."
-      },
-      "bambu": {
-        "name": "Bambu",
-        "desc": "Hafif, esnek ve son derece hızlı uzayan sert gövdeli kamış."
-      },
-      "cikolata": {
-        "name": "Çikolata",
-        "desc": "Kakao ve sütün şekerle işlenmesiyle yapılan nefis tatlı."
-      },
-      "golem": {
-        "name": "Golem",
-        "desc": "Çamur veya taştan yapılıp büyüyle canlandırılmış dev yapay muhafız."
-      },
-      "karli_cam_agaci": {
-        "name": "Karlı Çam Ağacı",
-        "desc": "Dalları bembeyaz karlarla kaplanmış kış çam ağacı."
-      },
-      "anahtar": {
-        "name": "Anahtar",
-        "desc": "Kilitli mekanizmaları açmak için özel dişli metal parça."
-      },
-      "asteroit": {
-        "name": "Asteroit",
-        "desc": "Uzay boşluğunda serbestçe sürüklenen devasa kaya parçası."
-      },
-      "dinamolu_fener": {
-        "name": "Dinamolu Fener",
-        "desc": "Elde çevrilen dinamo mekanizmasıyla pil olmadan ışık veren fener."
-      },
-      "dinozor": {
-        "name": "Dinozor",
-        "desc": "Milyonlarca yıl önce yeryüzüne hükmetmiş dev kadim sürüngen."
-      },
-      "disli": {
-        "name": "Dişli",
-        "desc": "Makinelerde gücü aktaran hassas kesilmiş metal dişli."
+        "description": "Gökyüzünü dolduran görünmez nefes."
       },
       "duman": {
         "name": "Duman",
-        "desc": "Ateşin yanma sonucu havaya bıraktığı gaz ve is."
+        "description": "Yanma sonucu çıkan partiküllü gaz."
       },
-      "kayip_sehir": {
-        "name": "Kayıp Şehir",
-        "desc": "Zamanın ve bitki örtüsünün yuttuğu kadim harabe uygarlık."
+      "buhar": {
+        "name": "Buhar",
+        "description": "Suyun buharlaşmasından doğan sıcak gaz."
       },
-      "muzik": {
-        "name": "Müzik",
-        "desc": "Seslerin uyumuyla ruhu besleyen evrensel sanat dalı."
+      "lav": {
+        "name": "Lav",
+        "description": "Toprağın aşırı sıcakta erimiş akkor hali."
       },
-      "radyasyon": {
-        "name": "Radyasyon",
-        "desc": "Kararsız atom çekirdeklerinden yayılan yüksek enerjili parçacıklar."
+      "enerji": {
+        "name": "Enerji",
+        "description": "Yoğunlaşan saf termal güç."
       },
-      "saray": {
-        "name": "Saray",
-        "desc": "Kralların ve hükümdarların yaşadığı sütunlu görkemli anıtsal yapı."
+      "deniz": {
+        "name": "Deniz",
+        "description": "Bir araya gelen büyük su kütlesi."
       },
-      "sirke": {
-        "name": "Sirke",
-        "desc": "Alkolün asetik asit bakterileriyle ekşitilmiş doğal koruyucu hali."
+      "nem": {
+        "name": "Nem",
+        "description": "Havadaki su buharı yoğunluğu."
       },
-      "televizyon": {
-        "name": "Televizyon",
-        "desc": "Görüntü ve sesi ekranında birleştirip evlere sunan yayın alıcısı."
+      "tas": {
+        "name": "Taş",
+        "description": "Sıkışıp katılaşan zemin kütlesi."
       },
-      "kazan": {
-        "name": "Kazan",
-        "desc": "İçinde yemek veya iksir kaynatılan büyük demir kap."
+      "camur": {
+        "name": "Çamur",
+        "description": "Toprağın su ile yoğrulmuş balçık hali."
       },
-      "ozon": {
-        "name": "Ozon",
-        "desc": "Yıldırımın oksijeni iyonlaştırmasıyla oluşan ozon gazı."
+      "basinc": {
+        "name": "Basınç",
+        "description": "Hava kütlelerinin sıkışması."
       },
-      "radyo": {
-        "name": "Radyo",
-        "desc": "Elektromanyetik dalgalarla havadan ses ve müzik yayını alan cihaz."
+      "tugla": {
+        "name": "Tuğla",
+        "description": "Fırınlanmış dayanıklı yapı taşı."
       },
-      "i_nternet": {
-        "name": "İnternet",
-        "desc": "Dünyadaki tüm bilgisayarları birbirine bağlayan devasa küresel bilgi ağı."
+      "mantar": {
+        "name": "Mantar",
+        "description": "Nemli topraktan fışkıran şapkalı mantar."
       },
-      "radar": {
-        "name": "Radar",
-        "desc": "Radyo dalgaları fırlatarak uzaktaki cisimlerin yerini tespit eden sistem."
+      "ruzgar": {
+        "name": "Rüzgâr",
+        "description": "Basınç farkından doğan hava akımı."
       },
-      "telgraf": {
-        "name": "Telgraf",
-        "desc": "Mors alfabesiyle elektrik sinyalleri gönderen ilk uzak iletişim cihazı."
+      "cukur": {
+        "name": "Çukur",
+        "description": "Yerkabuğunun çökmesiyle oluşan krater."
       },
-      "bilgisayar": {
-        "name": "Bilgisayar",
-        "desc": "Milyarlarca mantıksal veriyi saniyeler içinde işleyen akıllı elektronik beyin."
+      "sis": {
+        "name": "Sis",
+        "description": "Düşük irtifada asılı kalan puslu hava."
       },
-      "bira": {
-        "name": "Bira",
-        "desc": "Arpa maltı ve şerbetçiotunun mayalanmasıyla yapılan köpüklü içecek."
+      "kaynama": {
+        "name": "Kaynama",
+        "description": "Buharlaşma noktasındaki suyun fokurdaması."
       },
-      "gitar": {
-        "name": "Gitar",
-        "desc": "Tellerine parmakla dokunularak çalınan melodik çalgı."
+      "bulut": {
+        "name": "Bulut",
+        "description": "Atmosferde toplanan yoğun su buharı."
       },
-      "helikopter": {
-        "name": "Helikopter",
-        "desc": "Tepesindeki dönen pervanesi sayesinde dikey iniş-kalkış yapabilen hava aracı."
+      "kaya": {
+        "name": "Kaya",
+        "description": "Taşların birleşmesiyle oluşan iri kütle."
       },
-      "kagit_para": {
-        "name": "Kağıt Para",
-        "desc": "Merkez bankası güvencesiyle basılan hafif ve değerli banknot."
+      "ada": {
+        "name": "Ada",
+        "description": "Deniz ortasında yükselen kara parçası."
       },
-      "mikroskop": {
-        "name": "Mikroskop",
-        "desc": "Gözle görülmeyen mikropları büyüterek gösteren bilimsel cihaz."
+      "isik": {
+        "name": "Işık",
+        "description": "Yüksek enerjili alevden yayılan ışıma."
       },
-      "patates": {
-        "name": "Patates",
-        "desc": "Toprağın altında yetişen nişasta zengini temel yumru sebze."
+      "yasam": {
+        "name": "Yaşam",
+        "description": "Organik çorbadan doğan ilk biyolojik kıvılcım."
       },
-      "plato": {
-        "name": "Plato",
-        "desc": "Akarsularla yarılmış, deniz seviyesinden yüksek geniş düzlük."
+      "metal": {
+        "name": "Metal",
+        "description": "Taşların eritilmesiyle elde edilen parlak maden."
       },
-      "robot": {
-        "name": "Robot",
-        "desc": "Programlanabilir mekanik kolları ve sensörleriyle çalışan yapay varlık."
+      "duvar": {
+        "name": "Duvar",
+        "description": "Tuğlaların harçla örülmesiyle oluşan yapı."
       },
-      "telefon": {
-        "name": "Telefon",
-        "desc": "İnsan sesini kablolar üzerinden uzaklara ileten iletişim devrimi."
+      "elektrik": {
+        "name": "Elektrik",
+        "description": "Metallerden akan elektron akımı."
       },
-      "termometre": {
-        "name": "Termometre",
-        "desc": "Cıvanın genleşmesiyle sıcaklık derecesini ölçen bilimsel alet."
+      "yagmur": {
+        "name": "Yağmur",
+        "description": "Bulutların doygunluğa ulaşıp bıraktığı yağış."
       },
-      "titanyum": {
-        "name": "Titanyum",
-        "desc": "Çelik kadar güçlü fakat çok daha hafif yüksek teknolojili metal."
+      "dag": {
+        "name": "Dağ",
+        "description": "Yerkabuğunun yükselttiği devasa kütle."
       },
-      "armut": {
-        "name": "Armut",
-        "desc": "Gövdesi konik, içi sulu ve tatlı lezzetli kış meyvesi."
+      "kum": {
+        "name": "Kum",
+        "description": "Rüzgarın kayaları ufalayarak oluşturduğu taneler."
       },
-      "mikrocip": {
-        "name": "Mikroçip",
-        "desc": "Milyonlarca transistör içeren minyatür silikon entegre devre yongası."
+      "gunes": {
+        "name": "Güneş",
+        "description": "Gündüzü aydınlatan göksel fener."
       },
-      "piyano": {
-        "name": "Piyano",
-        "desc": "Tuşlarına basıldığında tellere vuran çekiçlerle çalan zarif müzik aleti."
+      "buz": {
+        "name": "Buz",
+        "description": "Rüzgarın dondurucu etkisiyle katılaşan su."
       },
-      "sicak_hava_balonu": {
-        "name": "Sıcak Hava Balonu",
-        "desc": "İçindeki havanın ateşle ısıtılmasıyla göğe yükselen dev balon."
+      "firtina": {
+        "name": "Fırtına",
+        "description": "Hızlı hareket eden fırtına bulutları."
       },
-      "banka": {
-        "name": "Banka",
-        "desc": "Paranın saklandığı, yatırıldığı ve kredi sağlanan finans kurumu."
+      "balik": {
+        "name": "Balık",
+        "description": "Suda yüzen pullu omurgalı."
       },
-      "boynuz": {
-        "name": "Boynuz",
-        "desc": "Geyik veya boğaların başında çıkan sert savunma uzantısı."
+      "kus": {
+        "name": "Kuş",
+        "description": "Gökyüzünde süzülen kanatlı canlı."
       },
-      "fayton": {
-        "name": "Fayton",
-        "desc": "Dört tekerlekli, körüklü ve atlı zarif gezinti arabası."
+      "insan": {
+        "name": "İnsan",
+        "description": "Alet yapabilen ve düşünen bilinçli canlı."
       },
-      "kahve": {
-        "name": "Kahve",
-        "desc": "Kavrulmuş kahve çekirdeklerinin demlenmesiyle yapılan uyarıcı içecek."
+      "ev": {
+        "name": "Ev",
+        "description": "İnsanların barındığı sıcak yuva."
       },
-      "kaldirim": {
-        "name": "Kaldırım",
-        "desc": "Yayaların güvenle yürümesi için yol kenarına döşenmiş taş tabaka."
+      "ampul": {
+        "name": "Ampul",
+        "description": "Elektrikle odayı aydınlatan cam lamba."
       },
-      "cay": {
-        "name": "Çay",
-        "desc": "Taze çay yapraklarının kaynar suda demlenmesiyle elde edilen içecek."
+      "bitki": {
+        "name": "Bitki",
+        "description": "Toprak ve yağmurla filizlenen yeşillik."
       },
-      "aile": {
-        "name": "Aile",
-        "desc": "Sevgi ve kan bağıyla bir araya gelmiş toplumun en küçük yapı taşı."
+      "gol": {
+        "name": "Göl",
+        "description": "Çukur arazide biriken tatlı su."
       },
-      "bakteri": {
-        "name": "Bakteri",
-        "desc": "Sularda oluşan mikroskobik tek hücreli ilk canlı organizma."
+      "volkan": {
+        "name": "Volkan",
+        "description": "Zirvesinden lav püskürten yanardağ."
       },
-      "mum": {
-        "name": "Mum",
-        "desc": "Balmumu veya parafinin fitille yakılarak aydınlattığı mum."
+      "nehir": {
+        "name": "Nehir",
+        "description": "Dağlardan vadilere akan su yatağı."
       },
-      "pegasus": {
-        "name": "Pegasus",
-        "desc": "Sırtındaki bembeyaz kanatlarıyla göklerde uçan efsanevi at."
+      "kar": {
+        "name": "Kar",
+        "description": "Soğuk bulutlardan dökülen kristal yağış."
       },
-      "uranyum": {
-        "name": "Uranyum",
-        "desc": "Nükleer enerji ve ışıma yayan ağır radyoaktif element."
+      "yildirim": {
+        "name": "Yıldırım",
+        "description": "Fırtına bulutlarından boşalan elektrik arkı."
       },
-      "virus": {
-        "name": "Virüs",
-        "desc": "Hücreleri enfekte edebilen mikroskobik genetik parçacık."
+      "plaj": {
+        "name": "Plaj",
+        "description": "Deniz kıyısında uzanan kum şeridi."
       },
-      "cadir": {
-        "name": "Çadır",
-        "desc": "Göçebelerin ve kaşiflerin kolayca kurup topladığı portatif kumaş barınak."
+      "cam": {
+        "name": "Cam",
+        "description": "Kumun yüksek ısıda saydamlaşması."
       },
-      "tutun": {
-        "name": "Tütün",
-        "desc": "Kurutulup yakılan aromatik yapraklı bitki türü."
+      "alet": {
+        "name": "Alet",
+        "description": "İnsan eliyle yontulmuş ilk el aleti."
+      },
+      "gokkusagi": {
+        "name": "Gökkuşağı",
+        "description": "Işığın yağmur damlalarında spektruma ayrılması."
+      },
+      "col": {
+        "name": "Çöl",
+        "description": "Kavurucu güneş altında uzanan kum denizi."
+      },
+      "buzul": {
+        "name": "Buzul",
+        "description": "Yüksek dağ yamaçlarında dev buz kütlesi."
+      },
+      "dolu": {
+        "name": "Dolu",
+        "description": "Donmuş sert yağmur taneleri."
+      },
+      "hortum": {
+        "name": "Hortum",
+        "description": "Fırtınanın dönen yıkıcı hava girdabı."
+      },
+      "koy": {
+        "name": "Köy",
+        "description": "Evlerin birleşmesiyle kurulan yerleşim."
+      },
+      "agac": {
+        "name": "Ağaç",
+        "description": "Güneş ışığıyla göğe yükselen gövdeli bitki."
+      },
+      "cicek": {
+        "name": "Çiçek",
+        "description": "Işığa doğru açan rengarenk taç yapraklar."
+      },
+      "yosun": {
+        "name": "Yosun",
+        "description": "Islak zeminlerde yayılan ilkel yeşil tabaka."
+      },
+      "tarim": {
+        "name": "Tarım",
+        "description": "Toprağı ekip biçme ve hasat etme sanatı."
+      },
+      "selale": {
+        "name": "Şelale",
+        "description": "Dağ yamacından köpürerek dökülen akarsu."
+      },
+      "zaman": {
+        "name": "Zaman",
+        "description": "Kum saatiyle ölçülen evrensel akış."
+      },
+      "orman": {
+        "name": "Orman",
+        "description": "Ağaçların oluşturduğu uçsuz bucaksız yeşillik."
+      },
+      "odun": {
+        "name": "Odun",
+        "description": "Ağaçtan kesilen kaliteli kereste."
+      },
+      "meyve": {
+        "name": "Meyve",
+        "description": "Çiçeklenen ağacın lezzetli ve sulu hediyesi."
+      },
+      "yaprak": {
+        "name": "Yaprak",
+        "description": "Ağaç dallarından dökülen yeşil örtü."
+      },
+      "yuva": {
+        "name": "Yuva",
+        "description": "Kuşların dallar arasına kurduğu korunaklı ev."
+      },
+      "komur": {
+        "name": "Kömür",
+        "description": "Yüksek ısıda kömürleşmiş fosil yakıt."
+      },
+      "un": {
+        "name": "Un",
+        "description": "Tahılların taş değirmende öğütülmesi."
+      },
+      "sehir": {
+        "name": "Şehir",
+        "description": "Gelişmiş büyük medeniyet merkezi."
+      },
+      "hayvan": {
+        "name": "Hayvan",
+        "description": "Ormanlarda dolaşan vahşi canlı."
+      },
+      "celik": {
+        "name": "Çelik",
+        "description": "Demirin karbonla dövülüp sertleşmesi."
+      },
+      "tekerlek": {
+        "name": "Tekerlek",
+        "description": "Dönerek yük taşımayı sağlayan devrimsel buluş."
+      },
+      "hamur": {
+        "name": "Hamur",
+        "description": "Un ve suyun yoğrulmasıyla oluşan karışım."
+      },
+      "yangin": {
+        "name": "Yangın",
+        "description": "Ağaçların alev alarak kontrolden çıkması."
+      },
+      "balta": {
+        "name": "Balta",
+        "description": "Odun saplı metal kesici alet."
+      },
+      "kul": {
+        "name": "Kül",
+        "description": "Yanan odunun bıraktığı ince gri toz."
+      },
+      "sal": {
+        "name": "Sal",
+        "description": "Su üzerinde batmadan yüzen kütükler."
+      },
+      "kopru": {
+        "name": "Köprü",
+        "description": "Nehirleri birbirine bağlayan ahşap geçit."
+      },
+      "akkor": {
+        "name": "Akkor",
+        "description": "Kömürün ışıl ışıl yanan en sıcak hali."
+      },
+      "evcil_hayvan": {
+        "name": "Evcil Hayvan",
+        "description": "İnsanla dost olan uysal canlı."
+      },
+      "inek": {
+        "name": "İnek",
+        "description": "Çiftlikte beslenen sütçü büyükbaş."
+      },
+      "domuz": {
+        "name": "Domuz",
+        "description": "Çamur banyosunu seven pembe çiftlik hayvanı."
+      },
+      "ekmek": {
+        "name": "Ekmek",
+        "description": "Taş fırında pişen mis kokulu ekmek."
+      },
+      "kilic": {
+        "name": "Kılıç",
+        "description": "Keskin çelikten dövülmüş savaş silahı."
+      },
+      "araba": {
+        "name": "Araba",
+        "description": "Tekerlekli ilkel yük arabası."
+      },
+      "yelkenli": {
+        "name": "Yelkenli",
+        "description": "Rüzgar gücüyle denizleri aşan tekne."
+      },
+      "buhar_motoru": {
+        "name": "Buhar Motoru",
+        "description": "Buharın gücünü harekete çeviren makine."
+      },
+      "sut": {
+        "name": "Süt",
+        "description": "İnekten sağılan taze beyaz içecek."
+      },
+      "at": {
+        "name": "At",
+        "description": "Rüzgar gibi koşan asil binek."
+      },
+      "tren": {
+        "name": "Tren",
+        "description": "Raylar üzerinde giden buharlı dev lokomotif."
+      },
+      "buharli_gemi": {
+        "name": "Buharlı Gemi",
+        "description": "Buhar çarklarıyla okyanusları aşan dev gemi."
+      },
+      "peynir": {
+        "name": "Peynir",
+        "description": "Mayalanıp olgunlaşmış leziz süt ürünü."
+      },
+      "tereyagi": {
+        "name": "Tereyağı",
+        "description": "Sütün çalkalanmasıyla elde edilen saf yağ."
+      },
+      "dondurma": {
+        "name": "Dondurma",
+        "description": "Süt ve buzla yapılan serinletici tatlı."
       }
     }
   },
@@ -2349,7 +586,6 @@ export const TRANSLATIONS = {
       "achievements_btn": "🏆 Collections & Badges",
       "achievements_title": "Achievements & Collections",
       "tab_badges": "Badges",
-      "tab_collections": "Collections",
       "grandmaster_offer_title": "🔮 Grand Alchemist Awaits You!",
       "grandmaster_offer_subtitle": "You completed the 80 items of Classic mode! Unlock 3-item combinations and all 521 items now.",
       "grandmaster_feature_1": "✨ Unlimited access to all 521 items",
@@ -2369,2146 +605,384 @@ export const TRANSLATIONS = {
       "sub_lifetime_btn": "Lifetime ₺999.99",
       "sub_active_badge": "👑 ACTIVE GRANDMASTER"
     },
-
-
     "items": {
-      "karanlik": {
-        "name": "Darkness",
-        "desc": "The absence of light, deep silence and pure void of the cosmos."
-      },
       "ates": {
         "name": "Fire",
-        "desc": "Source of pure heat and energy."
+        "description": "Saf ısı ve enerjinin kaynağı."
       },
       "su": {
         "name": "Water",
-        "desc": "The essence of life, fluid and crystal clear."
+        "description": "Hayat veren berrak sıvı."
       },
       "toprak": {
         "name": "Earth",
-        "desc": "Solid foundation, rock and fertile soil."
+        "description": "Doğurgan ve kadim yer küre."
       },
       "hava": {
         "name": "Air",
-        "desc": "Invisible wind, breath and gentle motion."
+        "description": "Gökyüzünü dolduran görünmez nefes."
+      },
+      "duman": {
+        "name": "Smoke",
+        "description": "Yanma sonucu çıkan partiküllü gaz."
       },
       "buhar": {
         "name": "Steam",
-        "desc": "Vapor born from the fiery dance of heat and water."
-      },
-      "camur": {
-        "name": "Mud",
-        "desc": "A rich blend of water and earth."
+        "description": "Suyun buharlaşmasından doğan sıcak gaz."
       },
       "lav": {
         "name": "Lava",
-        "desc": "Molten majesty of earth ignited by intense fire."
-      },
-      "kum": {
-        "name": "Sand",
-        "desc": "Fine grains weathered by wind and stone."
-      },
-      "obsidyen": {
-        "name": "Obsidian",
-        "desc": "Dark volcanic glass formed by rapidly cooled lava."
-      },
-      "yagmur": {
-        "name": "Rain",
-        "desc": "Gentle droplets falling from clouds in the sky."
+        "description": "Toprağın aşırı sıcakta erimiş akkor hali."
       },
       "enerji": {
         "name": "Energy",
-        "desc": "Pure plasma power derived from air and fire."
+        "description": "Yoğunlaşan saf termal güç."
       },
-      "ruzgar": {
-        "name": "Wind",
-        "desc": "Strong, fast-flowing currents of moving air."
+      "deniz": {
+        "name": "Sea",
+        "description": "Bir araya gelen büyük su kütlesi."
+      },
+      "nem": {
+        "name": "Moisture",
+        "description": "Havadaki su buharı yoğunluğu."
       },
       "tas": {
         "name": "Stone",
-        "desc": "Dense solid rock hardened over ages."
+        "description": "Sıkışıp katılaşan zemin kütlesi."
       },
-      "cam": {
-        "name": "Glass",
-        "desc": "Transparent solid forged by melting sand under heat."
+      "camur": {
+        "name": "Mud",
+        "description": "Toprağın su ile yoğrulmuş balçık hali."
       },
-      "bulut": {
-        "name": "Cloud",
-        "desc": "Fluffy floating accumulation of condensed vapor."
-      },
-      "yildirim": {
-        "name": "Lightning",
-        "desc": "Sharp flash of electrical discharge from stormy skies."
-      },
-      "bitki": {
-        "name": "Plant",
-        "desc": "A fresh green sprout nurtured by fertile soil and rain."
-      },
-      "agac": {
-        "name": "Tree",
-        "desc": "A sturdy wooden giant with lush foliage and deep roots."
-      },
-      "odun": {
-        "name": "Wood",
-        "desc": "Timber harvested from strong tree trunks."
-      },
-      "kiymik": {
-        "name": "Splinter",
-        "desc": "A sharp fragment chipped from dry wood."
-      },
-      "lif": {
-        "name": "Fiber",
-        "desc": "Strands of plant tissue spun for crafting."
-      },
-      "mantar": {
-        "name": "Mushroom",
-        "desc": "A woodland fungus with a spotted cap growing in damp shade."
-      },
-      "pamuk": {
-        "name": "Cotton",
-        "desc": "Soft white fluffy fibers harvested from shrub pods."
-      },
-      "recine": {
-        "name": "Resin",
-        "desc": "Golden aromatic sap hardened from tree bark."
-      },
-      "yasam": {
-        "name": "Life",
-        "desc": "The miraculous glowing spark that animates the universe."
-      },
-      "kus": {
-        "name": "Bird",
-        "desc": "Winged creature soaring through open skies."
-      },
-      "hayvan": {
-        "name": "Animal",
-        "desc": "A four-legged creature walking across wild terrains."
-      },
-      "balik": {
-        "name": "Fish",
-        "desc": "Aquatic swimmer gliding through currents and tides."
-      },
-      "ip": {
-        "name": "Rope",
-        "desc": "Strong twisted cord braided from plant fibers."
-      },
-      "kumas": {
-        "name": "Fabric",
-        "desc": "Woven cloth woven from soft natural threads."
-      },
-      "komur": {
-        "name": "Coal",
-        "desc": "Combustible dark fossil fuel fueling fierce heat."
-      },
-      "kul": {
-        "name": "Ash",
-        "desc": "Fine powdery residue left after a glowing fire burns out."
-      },
-      "kagit": {
-        "name": "Paper",
-        "desc": "Smooth parchment sheet pressed from fibrous pulp."
-      },
-      "ilkel_bicak": {
-        "name": "Primitive Knife",
-        "desc": "A flint blade fastened to an unrefined wooden handle."
-      },
-      "kus_tuyu": {
-        "name": "Feather",
-        "desc": "Light aerodynamic quill shed from avian wings."
-      },
-      "deri": {
-        "name": "Leather",
-        "desc": "Supple tanned animal hide treated for crafting."
-      },
-      "kavrulmus_et": {
-        "name": "Cooked Meat",
-        "desc": "Hearty roasted meat prepared over blazing embers."
-      },
-      "comlek": {
-        "name": "Pottery",
-        "desc": "Fired earthenware vessel sculpted from clay."
-      },
-      "su_comlegi": {
-        "name": "Water Jug",
-        "desc": "A sturdy ceramic jug filled with cool mountain water."
-      },
-      "sise": {
-        "name": "Bottle",
-        "desc": "A sealed glass flask designed to hold precious liquids."
-      },
-      "cakmaktasi": {
-        "name": "Flint",
-        "desc": "Hard sedimentary stone that sparks sparks upon impact."
-      },
-      "yay": {
-        "name": "Bow",
-        "desc": "Flexible curved wooden weapon strung under tension."
-      },
-      "ok": {
-        "name": "Arrow",
-        "desc": "Straight shaft fletched with feathers and tipped with flint."
-      },
-      "mesale": {
-        "name": "Torch",
-        "desc": "A resinous wooden torch illuminating murky corridors."
-      },
-      "metal": {
-        "name": "Metal",
-        "desc": "Malleable lustrous ore extracted from minerals."
-      },
-      "demir_kulce": {
-        "name": "Iron Ingot",
-        "desc": "Purified rectangular bar of forged solid iron."
-      },
-      "metal_bicak": {
-        "name": "Metal Knife",
-        "desc": "Sharp steel blade fitted with a secure grip."
-      },
-      "kazma": {
-        "name": "Pickaxe",
-        "desc": "Pointed tool designed for shattering rock and mining ores."
-      },
-      "kilic": {
-        "name": "Sword",
-        "desc": "Finely balanced steel blade forged for combat and defense."
-      },
-      "ahsap_kalkan": {
-        "name": "Wooden Shield",
-        "desc": "Plank shield reinforced with leather trimming."
-      },
-      "demir_kalkan": {
-        "name": "Iron Shield",
-        "desc": "Heavy riveted steel shield deflecting fierce strikes."
-      },
-      "deri_zirh": {
-        "name": "Leather Armor",
-        "desc": "Flexible lightweight vest stitched from cured hide."
-      },
-      "demir_zirh": {
-        "name": "Iron Armor",
-        "desc": "Solid plate harness protecting against heavy blows."
-      },
-      "yatak": {
-        "name": "Bed",
-        "desc": "Comfortable resting mattress framed in polished wood."
-      },
-      "zehirli_sivi": {
-        "name": "Toxic Liquid",
-        "desc": "Noxious green brew distilled from wild mushrooms."
-      },
-      "zehir_sisesi": {
-        "name": "Poison Flask",
-        "desc": "Sealed vial filled with potent corrosive venom."
-      },
-      "zehirli_kilic": {
-        "name": "Poisoned Blade",
-        "desc": "Sword coated in deadly venom dealing lingering harm."
-      },
-      "sifa_iksiri": {
-        "name": "Healing Potion",
-        "desc": "Soothing herbal elixir that restores vitality and health."
-      },
-      "mana_iksiri": {
-        "name": "Mana Potion",
-        "desc": "Glowing azure draught replenishing arcane spiritual energy."
-      },
-      "barut": {
-        "name": "Gunpowder",
-        "desc": "Explosive chemical mixture of sulfur, carbon and ash."
-      },
-      "bomba": {
-        "name": "Bomb",
-        "desc": "Volatile iron canister primed with black powder."
-      },
-      "buyu_parsomeni": {
-        "name": "Spell Scroll",
-        "desc": "Ancient parchment inscribed with mystical incantations."
-      },
-      "yildirim_parsomeni": {
-        "name": "Lightning Scroll",
-        "desc": "Crackling parchment unleashing focused electric fury."
-      },
-      "ates_topu_kitabi": {
-        "name": "Fireball Tome",
-        "desc": "Grimoire containing the ancient secrets of fiery devastation."
-      },
-      "buhar_motoru": {
-        "name": "Steam Engine",
-        "desc": "Mechanical engine converting pressurized vapor into drive."
-      },
-      "tekerlek": {
-        "name": "Wheel",
-        "desc": "Circular revolving rim that revolutionized overland transit."
-      },
-      "el_arabasi": {
-        "name": "Wheelbarrow",
-        "desc": "Hand-propelled cart transporting heavy loads with ease."
-      },
-      "lokomotif": {
-        "name": "Locomotive",
-        "desc": "Mighty steam-powered iron horse chugging on steel tracks."
-      },
-      "ampul": {
-        "name": "Lightbulb",
-        "desc": "Incandescent glass bulb illuminating darkness with filament glow."
-      },
-      "fener": {
-        "name": "Lantern",
-        "desc": "Portable lamp casting warm light onto shadowy paths."
-      },
-      "pusula": {
-        "name": "Compass",
-        "desc": "Navigational dial whose magnetized needle points true north."
-      },
-      "miknatis": {
-        "name": "Magnet",
-        "desc": "Polarized alloy drawing ferromagnetic metals toward it."
-      },
-      "elektrik_motoru": {
-        "name": "Electric Motor",
-        "desc": "Electromagnetic rotor generating continuous rotational torque."
-      },
-      "celik_kulce": {
-        "name": "Steel Ingot",
-        "desc": "High-tensile refined iron-carbon alloy bar."
-      },
-      "ors": {
-        "name": "Anvil",
-        "desc": "Heavy forged steel block upon which weapons take shape."
-      },
-      "civi": {
-        "name": "Nail",
-        "desc": "Sharp pointed metal spike securing timber constructs."
+      "basinc": {
+        "name": "Pressure",
+        "description": "Hava kütlelerinin sıkışması."
       },
       "tugla": {
         "name": "Brick",
-        "desc": "Kiln-baked rectangular block designed for masonry."
-      },
-      "harc": {
-        "name": "Mortar",
-        "desc": "Binding paste of sand, water and mineral paste."
-      },
-      "tugla_duvar": {
-        "name": "Brick Wall",
-        "desc": "Solid defensive barricade built from mortared bricks."
-      },
-      "saglam_sandik": {
-        "name": "Sturdy Chest",
-        "desc": "Iron-banded timber trunk safeguarding valuable treasures."
-      },
-      "kristal": {
-        "name": "Crystal",
-        "desc": "Faceted translucent mineral radiating prismatic gleams."
-      },
-      "teleskop": {
-        "name": "Telescope",
-        "desc": "Optical tube magnifying distant stars and cosmic sights."
-      },
-      "vinc": {
-        "name": "Crane",
-        "desc": "Towering mechanical derrick hoisting monumental weights."
-      },
-      "yildiz_tozu": {
-        "name": "Stardust",
-        "desc": "Shimmering cosmic particulate harvested from stellar tails."
-      },
-      "prizma_tasi": {
-        "name": "Prism Gem",
-        "desc": "Geometric crystal splitting illumination into rainbow hues."
-      },
-      "kahin_kuresi": {
-        "name": "Scrying Orb",
-        "desc": "Mystical crystal sphere granting glimpses of unseen horizons."
-      },
-      "portal_runu": {
-        "name": "Portal Rune",
-        "desc": "Carved runic glyph resonating with dimensional harmonics."
-      },
-      "bosluk_sisesi": {
-        "name": "Void Flask",
-        "desc": "Hermetic phial containing a swirling miniature abyss."
-      },
-      "boyut_kapisi": {
-        "name": "Dimensional Gate",
-        "desc": "Stone archway warping space to bridge remote realities."
-      },
-      "anka_kulu": {
-        "name": "Phoenix Ash",
-        "desc": "Sacred burning embers from which life rises renewed."
-      },
-      "runik_zirh": {
-        "name": "Runic Armor",
-        "desc": "Suit of enchanted steel inlaid with glowing wards."
-      },
-      "firtina_kilici": {
-        "name": "Stormblade",
-        "desc": "Crackling broadsword enveloped in fierce electric arcing."
-      },
-      "yildiz_gecidi_cekirdegi": {
-        "name": "Stargate Core",
-        "desc": "Hyper-dense cosmic nexus powering interstellar passages."
-      },
-      "kar": {
-        "name": "Snow",
-        "desc": "Crystalline frozen water flakes drifting softly."
-      },
-      "buz": {
-        "name": "Ice",
-        "desc": "Solid frozen water, glassy and cold."
-      },
-      "col": {
-        "name": "Desert",
-        "desc": "Endless expanse of windswept golden sand."
-      },
-      "tohum": {
-        "name": "Seed",
-        "desc": "A potent embryo holding the future of new life."
-      },
-      "bugday": {
-        "name": "Wheat",
-        "desc": "Golden cereal grain rippling across cultivated fields."
-      },
-      "nane": {
-        "name": "Mint",
-        "desc": "Fragrant aromatic herb with refreshing coolness."
-      },
-      "agac_kabugu": {
-        "name": "Tree Bark",
-        "desc": "Protective tough outer layer of wooden trunks."
-      },
-      "inek": {
-        "name": "Cow",
-        "desc": "Gentle domesticated ruminant grazing on pastures."
-      },
-      "sut": {
-        "name": "Milk",
-        "desc": "Pure nutritious white liquid produced by livestock."
-      },
-      "yumurta": {
-        "name": "Egg",
-        "desc": "Fragile shell encasing developing fledgling life."
-      },
-      "mercan": {
-        "name": "Coral",
-        "desc": "Vibrant marine organism building underwater reefs."
-      },
-      "olta": {
-        "name": "Fishing Rod",
-        "desc": "Slender rod rigged with line and hook for catching fish."
-      },
-      "yelken": {
-        "name": "Sail",
-        "desc": "Sturdy canvas sheet catching offshore breezes."
-      },
-      "sal": {
-        "name": "Raft",
-        "desc": "Buoyant log platform lashed together for water travel."
-      },
-      "obsidyen_bicak": {
-        "name": "Obsidian Dagger",
-        "desc": "Razor-sharp edge crafted from dark volcanic glass."
-      },
-      "peynir": {
-        "name": "Cheese",
-        "desc": "Aged dairy wheel curdled with delicate care."
-      },
-      "un": {
-        "name": "Flour",
-        "desc": "Fine white powder ground from ripe wheat ears."
-      },
-      "hamur": {
-        "name": "Dough",
-        "desc": "Kneaded mixture of flour and water ready for baking."
-      },
-      "ekmek": {
-        "name": "Bread",
-        "desc": "Golden baked loaf with a crispy crust and warm crumb."
-      },
-      "disli_cark": {
-        "name": "Gear Cog",
-        "desc": "Toothed machine wheel interlocking to transfer mechanical power."
-      },
-      "degirmen": {
-        "name": "Windmill",
-        "desc": "Towering structure harnessing air currents to turn millstones."
-      },
-      "ayna": {
-        "name": "Mirror",
-        "desc": "Smooth reflective surface echoing light and crystal reflections."
-      },
-      "saat": {
-        "name": "Clock",
-        "desc": "Intricate tick-tock mechanism measuring the march of time."
-      },
-      "demir_parmaklik": {
-        "name": "Iron Bars",
-        "desc": "Heavy steel grates barring intrusion and passage."
-      },
-      "savas_baltasi": {
-        "name": "Battleaxe",
-        "desc": "Double-bladed cleaver delivering devastating overhead swings."
-      },
-      "gozetleme_kulesi": {
-        "name": "Watchtower",
-        "desc": "High observation post keeping vigil over surrounding borders."
-      },
-      "kale_kapisi": {
-        "name": "Fortress Gate",
-        "desc": "Massive reinforced portcullis withstanding siege assaults."
-      },
-      "buz_runu": {
-        "name": "Frost Rune",
-        "desc": "Inscribed glacial talisman emitting biting sub-zero cold."
-      },
-      "cehennem_tasi": {
-        "name": "Nether Stone",
-        "desc": "Scorching brimstone pulsing with inner volcanic fires."
-      },
-      "zaman_kum_saati": {
-        "name": "Hourglass of Time",
-        "desc": "Chrono-relic whose celestial sands bend the flow of moments."
-      },
-      "illuzyon_aynasi": {
-        "name": "Mirror of Illusions",
-        "desc": "Spectral glass reflecting phantom mirages and optical tricks."
-      },
-      "siber_kristal": {
-        "name": "Cyber Crystal",
-        "desc": "Synthetically structured micro-matrix computing data beams."
-      },
-      "hologram_kupu": {
-        "name": "Hologram Cube",
-        "desc": "High-tech photonic projector beaming 3D light holographs."
-      },
-      "buhar_jeneratoru": {
-        "name": "Steam Dynamo",
-        "desc": "Heavy-duty power generator converting high-pressure steam into current."
-      },
-      "meka_zirhi": {
-        "name": "Mecha Exoskeleton",
-        "desc": "Hydraulic powered combat suit boosting strength tenfold."
-      },
-      "plazma_tufegi": {
-        "name": "Plasma Rifle",
-        "desc": "Advanced energy firearm discharging superheated ionized rounds."
-      },
-      "felsefe_tasi": {
-        "name": "Philosopher's Stone",
-        "desc": "Legendary alchemical catalyst transmuting elements and extending vitality."
-      },
-      "gunes_paneli": {
-        "name": "Solar Array",
-        "desc": "Photovoltaic grid converting solar radiation into clean electric flow."
-      },
-      "yercekimsiz_platform": {
-        "name": "Antigravity Plate",
-        "desc": "Floating magnetic disc negating local gravitational pull."
-      },
-      "biyonik_kol": {
-        "name": "Bionic Arm",
-        "desc": "Prosthetic mechanical limb with servo-assisted dexterity."
-      },
-      "usturlap": {
-        "name": "Astrolabe",
-        "desc": "Precision brass astronomical instrument charting constellations."
-      },
-      "tesla_bobini": {
-        "name": "Tesla Coil",
-        "desc": "Resonant induction transformer casting crackling high-voltage bolts."
-      },
-      "kuantum_islemci": {
-        "name": "Quantum Processor",
-        "desc": "Superconducting qubit matrix performing hyper-dimensional calculations."
-      },
-      "minyatur_yildiz": {
-        "name": "Miniature Star",
-        "desc": "Self-sustaining micro-fusion sphere radiating cosmic radiance."
-      },
-      "dag": {
-        "name": "Mountain",
-        "desc": "Majestic rocky summit towering high above low valleys."
-      },
-      "kaya": {
-        "name": "Boulder",
-        "desc": "Massive eroded crag resting solidly on earthen soil."
-      },
-      "gunes": {
-        "name": "Sun",
-        "desc": "Blazing golden star radiating daylight warmth and solar energy."
-      },
-      "okyanus": {
-        "name": "Ocean",
-        "desc": "Boundless expanse of deep tidal waters cradling marine depths."
-      },
-      "volkan": {
-        "name": "Volcano",
-        "desc": "Fissured mountain peak spewing molten lava and smoke into skies."
-      },
-      "ada": {
-        "name": "Island",
-        "desc": "Isolated paradise of verdant land surrounded by open waters."
-      },
-      "nehir": {
-        "name": "River",
-        "desc": "Winding freshwater current carving paths through wilderness."
-      },
-      "orman": {
-        "name": "Forest",
-        "desc": "Sprawling woodland grove thriving with ancient trees and wildlife."
-      },
-      "firtina_bulutu": {
-        "name": "Stormcloud",
-        "desc": "Dark rumbling cumulonimbus crackling with sudden lightning."
-      },
-      "magara": {
-        "name": "Cave",
-        "desc": "Subterranean cavern carved through rocky depths."
-      },
-      "gokkusagi": {
-        "name": "Rainbow",
-        "desc": "Vibrant chromatic arc painted by sunlight parting the rain."
-      },
-      "kanyon": {
-        "name": "Canyon",
-        "desc": "Deep monumental gorge sculpted by ancient riverbeds."
-      },
-      "fay_hatti": {
-        "name": "Fault Line",
-        "desc": "Tectonic earth fissure vibrating with geological energy."
-      },
-      "at": {
-        "name": "Horse",
-        "desc": "Majestic noble steed known for power and speed."
-      },
-      "koyun": {
-        "name": "Sheep",
-        "desc": "Woolly fleece-bearing herd animal."
-      },
-      "kurt": {
-        "name": "Wolf",
-        "desc": "Fierce pack predator howling under moonlit skies."
-      },
-      "ari": {
-        "name": "Bee",
-        "desc": "Industrious buzzing pollinator harvesting nectar."
-      },
-      "yilan": {
-        "name": "Snake",
-        "desc": "Slithering reptile navigating quietly through brush."
-      },
-      "baykus": {
-        "name": "Owl",
-        "desc": "Wise nocturnal avian raptor watching in the dark."
-      },
-      "kaplumbaga": {
-        "name": "Turtle",
-        "desc": "Ancient shelled reptile moving at a steady pace."
-      },
-      "bal": {
-        "name": "Honey",
-        "desc": "Golden sweet nectar produced by industrious bees."
-      },
-      "nilufer": {
-        "name": "Water Lily",
-        "desc": "An aquatic blooming blossom floating calmly on water."
-      },
-      "elma": {
-        "name": "Apple",
-        "desc": "Sweet, crisp red orchard fruit ripened under the sun."
-      },
-      "kurbaga": {
-        "name": "Frog",
-        "desc": "Amphibian leaper thriving by pond reeds."
-      },
-      "sincap": {
-        "name": "Squirrel",
-        "desc": "Agile woodland rodent gathering nuts in the canopy."
-      },
-      "geyik": {
-        "name": "Deer",
-        "desc": "Graceful herbivore with crowned branching antlers."
-      },
-      "kelebek": {
-        "name": "Butterfly",
-        "desc": "Delicate winged insect decorated with painted patterns."
+        "description": "Fırınlanmış dayanıklı yapı taşı."
+      },
+      "mantar": {
+        "name": "Mushroom",
+        "description": "Nemli topraktan fışkıran şapkalı mantar."
+      },
+      "ruzgar": {
+        "name": "Wind",
+        "description": "Basınç farkından doğan hava akımı."
+      },
+      "cukur": {
+        "name": "Pit",
+        "description": "Yerkabuğunun çökmesiyle oluşan krater."
       },
       "sis": {
         "name": "Fog",
-        "desc": "Dense mist shrouding the landscape in mystery."
-      },
-      "gayzer": {
-        "name": "Geyser",
-        "desc": "A natural boiling spring erupting hot water and steam."
-      },
-      "kaktus": {
-        "name": "Cactus",
-        "desc": "Spiny succulent storing water beneath the desert heat."
-      },
-      "cam_agaci": {
-        "name": "Pine Tree",
-        "desc": "Evergreen conifer standing tall through harsh winter snows."
-      },
-      "tavuk": {
-        "name": "Chicken",
-        "desc": "Domestic barnyard fowl laying fresh eggs every morning."
-      },
-      "kedi": {
-        "name": "Cat",
-        "desc": "Curious agile feline companion with keen instincts."
-      },
-      "somon": {
-        "name": "Salmon",
-        "desc": "Resilient fish leaping upstream against rushing rivers."
-      },
-      "barut_ficisi": {
-        "name": "Powder Keg",
-        "desc": "Wooden barrel packed with high explosives."
-      },
-      "su_degirmeni": {
-        "name": "Watermill",
-        "desc": "Rotating waterwheel converting stream flow into work."
-      },
-      "buz_dagi": {
-        "name": "Iceberg",
-        "desc": "A colossal glacier floating gracefully in deep waters."
-      },
-      "kalkan": {
-        "name": "Shield",
-        "desc": "Solid round wooden shield fending off enemy arrows."
-      },
-      "iksir_kazani": {
-        "name": "Alchemy Cauldron",
-        "desc": "Cast-iron vat simmering mystical potions over open heat."
-      },
-      "ahtapot": {
-        "name": "Ahtapot",
-        "desc": "Denizlerin derinliklerinde yaşayan sekiz kollu ve kamuflaj ustası canlı."
-      },
-      "akrep": {
-        "name": "Akrep",
-        "desc": "Çöl kumlarında yaşayan, kıskançlı ve zehirli kuyruklu eklembacaklı."
-      },
-      "aku": {
-        "name": "Akü",
-        "desc": "Araçlar için yüksek kapasiteli şarj edilebilir elektrik akümülatörü."
-      },
-      "alet": {
-        "name": "Alet",
-        "desc": "İşleri kolaylaştırmak için tahta ve taştan yapılmış ilkel araç."
-      },
-      "alci": {
-        "name": "Alçı",
-        "desc": "Kirecin suyla karıştırılıp kuruduğunda donan harç maddesi."
-      },
-      "ametist": {
-        "name": "Ametist",
-        "desc": "Mistik mor rengiyle büyüleyen kuvars kristali."
-      },
-      "asa": {
-        "name": "Asa",
-        "desc": "Büyü enerjisini odaklayıp fırlatmaya yarayan sihirli asa."
-      },
-      "ayi": {
-        "name": "Ayı",
-        "desc": "Ormanlarda ve mağaralarda yaşayan devasa cüsseli ve güçlü memeli."
-      },
-      "baharat": {
-        "name": "Baharat",
-        "desc": "Yemeklere lezzet ve koku katan kurutulmuş aromatik bitki tozu."
-      },
-      "baharat_cesnisi": {
-        "name": "Baharat Çeşnisi",
-        "desc": "Farklı baharatların tuzla harmanlanmış lezzet karışımı."
-      },
-      "bakir": {
-        "name": "Bakır",
-        "desc": "Kızıl renkli, elektrik ve ısı iletkenliği yüksek yumuşak metal."
-      },
-      "balta": {
-        "name": "Balta",
-        "desc": "Ağaç kesmek ve odun yarmak için keskin başlı alet."
-      },
-      "bataklik": {
-        "name": "Bataklık",
-        "desc": "Su ve balçıkla kaplı, sazlıklarla örtülü ıslak alan."
-      },
-      "bozkir": {
-        "name": "Bozkır",
-        "desc": "Karasal iklimde uzanan ağaçsız geniş çayır ve otlak düzlük."
-      },
-      "buzul": {
-        "name": "Buzul",
-        "desc": "Yıllar boyunca birikip sıkışan devasa donmuş buz tabakası."
-      },
-      "buyu": {
-        "name": "Büyü",
-        "desc": "Doğaüstü iradeyle fizik kanunlarını bükme ve yaratma kudreti."
-      },
-      "ceviz": {
-        "name": "Ceviz",
-        "desc": "Beyne benzeyen kıvrımlı yapısıyla bilinen sert kabuklu kuruyemiş."
-      },
-      "cin": {
-        "name": "Cin",
-        "desc": "Dumansız ve kızgın ateşten yaratılmış görünmez mistik varlık."
-      },
-      "civa": {
-        "name": "Cıva",
-        "desc": "Oda sıcaklığında sıvı halde bulunan gümüşi metalik element."
-      },
-      "davul": {
-        "name": "Davul",
-        "desc": "Gerilmiş deriye tokmakla vurularak çalınan ritim çalgısı."
-      },
-      "domates": {
-        "name": "Domates",
-        "desc": "Kırmızı rengi ve sulu yapısıyla sofraların vazgeçilmezi sebze."
-      },
-      "et": {
-        "name": "Et",
-        "desc": "Beslenmek için hazırlanan taze hayvansal et."
-      },
-      "ev": {
-        "name": "Ev",
-        "desc": "İnsanların barınıp huzurla yaşadığı duvarlı ve çatılı yuva."
-      },
-      "evren": {
-        "name": "Evren",
-        "desc": "Tüm maddeyi, enerjiyi, zamanı ve mekanı içinde barındıran sonsuz bütün."
-      },
-      "fiyort": {
-        "name": "Fiyort",
-        "desc": "Buzulların aşındırdığı derin ve dik yamaçlı deniz körfezi."
-      },
-      "flut": {
-        "name": "Flüt",
-        "desc": "Üflenerek çalınan dinlendirici sesli ahşap nefesli çalgı."
-      },
-      "fosil": {
-        "name": "Fosil",
-        "desc": "Taşlaşmış toprak katmanlarında korunan kadim canlı kalıntısı."
-      },
-      "findik": {
-        "name": "Fındık",
-        "desc": "Sert kabuğun içinde saklanan yağlı ve besleyici lezzetli yemiş."
-      },
-      "gezegen": {
-        "name": "Gezegen",
-        "desc": "Bir yıldızın etrafındaki yörüngede dönen büyük gök cismi."
-      },
-      "granit": {
-        "name": "Granit",
-        "desc": "Magmanın yer altında yavaşça soğuyarak kristalleştiği sert taş."
-      },
-      "golge": {
-        "name": "Gölge",
-        "desc": "Işığın bir cisim tarafından engellenmesiyle arkasında oluşan karanlık alan."
-      },
-      "gul": {
-        "name": "Gül",
-        "desc": "Dikenli dalları ve büyüleyici kokusuyla aşkın simgesi kırmızı çiçek."
-      },
-      "gurz": {
-        "name": "Gürz",
-        "desc": "Düşman zırhlarını ezmek için kullanılan ağır başlıklı topuz."
-      },
-      "halat": {
-        "name": "Halat",
-        "desc": "Kalın ve ağır yükleri çekmek için bükülmüş güçlü urgan."
-      },
-      "havyar": {
-        "name": "Havyar",
-        "desc": "Değerli mersin balığından elde edilen lüks tuzlu balık yumurtası."
-      },
-      "hucre": {
-        "name": "Hücre",
-        "desc": "Canlıların temel yapı taşı olan biyolojik birim."
-      },
-      "jenerator": {
-        "name": "Jeneratör",
-        "desc": "Mekanik hareketi elektrik enerjisine çeviren güçlü santral makinesi."
-      },
-      "kadirga": {
-        "name": "Kadırga",
-        "desc": "Hem kürekle hem yelkenle yürütülen tarihi savaş gemisi."
-      },
-      "kale": {
-        "name": "Kale",
-        "desc": "Düşman saldırılarına karşı şehri koruyan mazgallı sağlam taş hisar."
-      },
-      "kalem": {
-        "name": "Kalem",
-        "desc": "Düşünceleri kağıda dökmek için kullanılan yazı aleti."
-      },
-      "kandil": {
-        "name": "Kandil",
-        "desc": "İçinde yağ yakılarak ışık veren ilkel pişmiş toprak lamba."
-      },
-      "kartal": {
-        "name": "Kartal",
-        "desc": "Yüksek dağ zirvelerinde yuva yapan keskin gözlü yırtıcı kuş."
-      },
-      "kasaba": {
-        "name": "Kasaba",
-        "desc": "Köyden büyük, çarşısı ve zanaatkarları olan küçük kentsel yerleşim."
-      },
-      "kavurma": {
-        "name": "Kavurma",
-        "desc": "Kendi yağında kavrularak pişirilen lezzetli et."
-      },
-      "kehribar": {
-        "name": "Kehribar",
-        "desc": "Milyonlarca yıllık ağaç reçinesinin taşlaşmış fosil hali."
-      },
-      "kemik": {
-        "name": "Kemik",
-        "desc": "Omurgalı canlıların iskeletini oluşturan sert kalsiyum yapı."
-      },
-      "kentaurluk": {
-        "name": "Kentaurluk",
-        "desc": "Gövdesi insan, altı at olan efsanevi orman savaşçısı ırk."
-      },
-      "kertenkele": {
-        "name": "Kertenkele",
-        "desc": "Güneş altında kayalarda ısınan çevik sürüngen canlı."
-      },
-      "kilit": {
-        "name": "Kilit",
-        "desc": "Kapıları ve sandıkları güvenle kilitleyen mekanik düzenek."
-      },
-      "kirec": {
-        "name": "Kireç",
-        "desc": "Kalker taşının ateşte yakılmasıyla elde edilen beyaz bağlayıcı toz."
-      },
-      "kule": {
-        "name": "Kule",
-        "desc": "Uzakları gözetlemek veya savunmak için göğe yükselen silindirik taş yapı."
-      },
-      "kulube": {
-        "name": "Kulübe",
-        "desc": "Orman içinde ahşaptan yapılmış mütevazı barınak."
-      },
-      "kursun": {
-        "name": "Kurşun",
-        "desc": "Ağır, yumuşak ve gri renkli yoğun metal elementi."
-      },
-      "kutsal_kase": {
-        "name": "Kutsal Kase",
-        "desc": "İçenlere ebedi hayat bahşettiği söylenen efsanevi kase."
-      },
-      "kuvars": {
-        "name": "Kuvars",
-        "desc": "Basınç ve enerjiyle kristalleşen sert mineral kristalleri."
-      },
-      "koruk": {
-        "name": "Körük",
-        "desc": "Ocağın ateşini körükleyip sıcaklığı artıran hava üfleyici körük."
-      },
-      "koy": {
-        "name": "Köy",
-        "desc": "Kırsal alanda tarım ve hayvancılıkla geçinen şirin yerleşim birimi."
-      },
-      "kukurt": {
-        "name": "Kükürt",
-        "desc": "Yanardağ kraterlerinden çıkarılan sarı renkli yanıcı mineral."
-      },
-      "kurek": {
-        "name": "Kürek",
-        "desc": "Toprak, kum veya karı küremek için kullanılan geniş ağızlı alet."
-      },
-      "kita": {
-        "name": "Kıta",
-        "desc": "Okyanuslarla çevrili devasa yeryüzü ana karası."
-      },
-      "mana": {
-        "name": "Mana",
-        "desc": "Büyücülerin büyü yaparken tükettiği saf ruhani enerji havuzu."
-      },
-      "mana_i_ksiri": {
-        "name": "Mana İksiri",
-        "desc": "Tükenen büyü enerjisini anında dolduran parlak mavi iksir."
-      },
-      "mancinik": {
-        "name": "Mancınık",
-        "desc": "Kale surlarını yıkmak için dev kayalar fırlatan kuşatma motoru."
-      },
-      "medeniyet": {
-        "name": "Medeniyet",
-        "desc": "Kültür, bilim, hukuk ve sanatın ulaştığı en yüksek toplumsal düzey."
-      },
-      "melek": {
-        "name": "Melek",
-        "desc": "Saf ışıktan yaratılmış, ilahi emirleri yerine getiren masum varlık."
-      },
-      "meltem": {
-        "name": "Meltem",
-        "desc": "Denizden karaya doğru esen ferahlatıcı hafif sahil rüzgarı."
-      },
-      "mercan_kayaligi": {
-        "name": "Mercan Kayalığı",
-        "desc": "Binlerce deniz canlısına yuva olan dev su altı resifi."
-      },
-      "migfer": {
-        "name": "Miğfer",
-        "desc": "Başı darbelerden korumak için tasarlanmış sağlam miğfer kaskı."
-      },
-      "muz": {
-        "name": "Muz",
-        "desc": "Tropik iklimde yetişen yumuşak ve potasyum zengini sarı meyve."
-      },
-      "mizrak": {
-        "name": "Mızrak",
-        "desc": "Uzun ahşap bir sapın ucuna takılan sivri metal mızrak."
-      },
-      "para": {
-        "name": "Para",
-        "desc": "Ticarette malların değerini belirleyen ve takası sağlayan resmi araç."
-      },
-      "parsomen": {
-        "name": "Parşömen",
-        "desc": "İşlenmiş hayvan derisinden hazırlanan dayanıklı kadim yazı rulosu."
-      },
-      "pastirma": {
-        "name": "Pastırma",
-        "desc": "Çemen ve baharatlarla kurutulup olgunlaştırılmış geleneksel et."
-      },
-      "pil": {
-        "name": "Pil",
-        "desc": "Kimyasal enerjiyi elektrik enerjisine dönüştürüp depolayan güç kaynağı."
-      },
-      "pirinc": {
-        "name": "Pirinç",
-        "desc": "Suyla dolu çeltik tarlalarında yetişen temel Uzakdoğu tahılı."
-      },
-      "plazma": {
-        "name": "Plazma",
-        "desc": "Ateşin aşırı enerji ve elektrikle iyonlaşmış dördüncü madde hali."
-      },
-      "porselen": {
-        "name": "Porselen",
-        "desc": "Beyaz kaolinden üretilen zarif, ince ve dayanıklı mutfak eşyası."
-      },
-      "prizma": {
-        "name": "Prizma",
-        "desc": "Beyaz ışığı kırarak gökkuşağı renklerine ayıran üçgen optik cam."
-      },
-      "resim": {
-        "name": "Resim",
-        "desc": "Fırça ve renklerle tuvale yansıtılan görsel sanat eseri."
-      },
-      "recel": {
-        "name": "Reçel",
-        "desc": "Meyvelerin şekerle kaynatılarak kavanozlara doldurulmuş hali."
-      },
-      "run": {
-        "name": "Rün",
-        "desc": "Kadim taşlara kazınmış gizemli ve güçlü büyü harfi."
-      },
-      "salca": {
-        "name": "Salça",
-        "desc": "Domateslerin ezilip güneşte kurutularak yoğunlaştırılmış ezmesi."
-      },
-      "sarmasik": {
-        "name": "Sarmaşık",
-        "desc": "Ağaçlara ve kayalara dolanarak tırmanan sarılıcı yeşil bitki."
-      },
-      "sarimsak": {
-        "name": "Sarımsak",
-        "desc": "Doğal antibiyotik olarak bilinen keskin kokulu şifa deposu."
-      },
-      "sera": {
-        "name": "Sera",
-        "desc": "Bitkileri soğuktan koruyarak yıl boyu yetiştiren cam mekan."
-      },
-      "seramik": {
-        "name": "Seramik",
-        "desc": "Sırlanarak fırınlanmış su geçirmez pürüzsüz toprak kap."
-      },
-      "sinema": {
-        "name": "Sinema",
-        "desc": "Peş peşe oynatılan karelerle dev perdede canlanan film sanatı."
-      },
-      "sosis": {
-        "name": "Sosis",
-        "desc": "Kıyılmış baharatlı etin kılıflara doldurulması."
-      },
-      "sur": {
-        "name": "Sur",
-        "desc": "Şehrin etrafını çepeçevre saran yüksek ve kalın savunma duvarı."
-      },
-      "tepe": {
-        "name": "Tepe",
-        "desc": "Dağdan alçak, eğimli ve yuvarlak doğal yükselti."
-      },
-      "tereyagi": {
-        "name": "Tereyağı",
-        "desc": "Süt kaymağının yayıkta dövülmesiyle toplanan saf yağ."
-      },
-      "totem": {
-        "name": "Totem",
-        "desc": "Kabilenin atalarını ve koruyucu ruhlarını simgeleyen oymalı ahşap sütun."
-      },
-      "tufan": {
-        "name": "Tufan",
-        "desc": "Şiddetli yağmurlar sonucu yeryüzünü kaplayan dev su taşkını."
-      },
-      "tunel": {
-        "name": "Tünel",
-        "desc": "Dağların altından delinerek açılan yeraltı geçiş koridoru."
-      },
-      "tilsim": {
-        "name": "Tılsım",
-        "desc": "Üzerine koruyucu büyüler kazınmış kutsal metal takı."
-      },
-      "uydu": {
-        "name": "Uydu",
-        "desc": "Dünya yörüngesinde dönerek haberleşme ve gözlem yapan uzay aracı."
-      },
-      "ucurtma": {
-        "name": "Uçurtma",
-        "desc": "İnce bir iple gökyüzünde rüzgara karşı süzülen renkli oyuncak."
-      },
-      "vaha": {
-        "name": "Vaha",
-        "desc": "Çölün ortasında yer altı sularıyla yeşeren cennet köşesi."
-      },
-      "yaprak": {
-        "name": "Yaprak",
-        "desc": "Bitkilerin nefes alıp fotosentez yaptığı yeşil yaprak."
-      },
-      "yarimada": {
-        "name": "Yarımada",
-        "desc": "Üç tarafı suyla çevrili, bir tarafı karaya bağlı kara parçası."
-      },
-      "yazi": {
-        "name": "Yazı",
-        "desc": "Konuşulan dili simgelerle kalıcı kılan medeniyet icadı."
-      },
-      "yol": {
-        "name": "Yol",
-        "desc": "Şehirleri ve köyleri birbirine bağlayan döşeli ulaşım şeridi."
-      },
-      "yogurt": {
-        "name": "Yoğurt",
-        "desc": "Ilık sütün yoğurt mayasıyla fermante edilerek katılaştırılması."
-      },
-      "yun": {
-        "name": "Yün",
-        "desc": "Koyundan kırkılan, sıcak tutan doğal yumuşak lif kütlesi."
-      },
-      "zincir": {
-        "name": "Zincir",
-        "desc": "Birbirine geçmiş demir halkalardan oluşan kopmaz bağ."
-      },
-      "zumrut": {
-        "name": "Zümrüt",
-        "desc": "Doğanın yeşilini içinde barındıran ışıltılı değerli taş."
-      },
-      "zirh": {
-        "name": "Zırh",
-        "desc": "Vücudu silahlardan korumak için giyilen zırhlı donanım."
-      },
-      "cali": {
-        "name": "Çalı",
-        "desc": "Kısa boylu, dallı ve sık gövdeli bodur bitki kümesi."
-      },
-      "cark": {
-        "name": "Çark",
-        "desc": "Dönme hareketini ileten dişli ahşap tekerlek mekanizması."
-      },
-      "cekic": {
-        "name": "Çekiç",
-        "desc": "Nesneleri dövmek veya çakmak için saplı ağır taş/demir başlık."
-      },
-      "cimen": {
-        "name": "Çimen",
-        "desc": "Yeryüzünü halı gibi kaplayan sık yeşillik tabakası."
-      },
-      "cimento": {
-        "name": "Çimento",
-        "desc": "Harç ve beton yapımında kullanılan bağlayıcı gri toz."
-      },
-      "corba": {
-        "name": "Çorba",
-        "desc": "Sebze, et ve baharatların kaynatılmasıyla yapılan sıcacık yemek."
-      },
-      "cig": {
-        "name": "Çığ",
-        "desc": "Dağ yamaçlarından koparak aşağı yuvarlanan dev kar kütlesi."
-      },
-      "uzum": {
-        "name": "Üzüm",
-        "desc": "Salkım salkım sarkan, taze veya kurutularak yenen tatlı meyve."
-      },
-      "i_ksir": {
-        "name": "İksir",
-        "desc": "Şifalı otların ve büyülü maddelerin kazanında kaynatılmış iksir."
-      },
-      "i_nek": {
-        "name": "İnek",
-        "desc": "Çiftliklerde otlayıp insanlara bol süt ve et sağlayan uysal memeli."
-      },
-      "i_nsan": {
-        "name": "İnsan",
-        "desc": "Düşünme, alet yapma ve dünyayı dönüştürme yetisine sahip varlık."
-      },
-      "i_p": {
-        "name": "İp",
-        "desc": "Bitkisel liflerin bükülerek birleştirilmesiyle yapılan sağlam bağ."
-      },
-      "i_gne": {
-        "name": "İğne",
-        "desc": "Dikiş dikmek için ucu sivri ve delikli ince metal tel."
-      },
-      "safak": {
-        "name": "Şafak",
-        "desc": "Güneş doğmadan hemen önce ufkun kızıla boyandığı an."
-      },
-      "sahin": {
-        "name": "Şahin",
-        "desc": "Hızlı dalışlarıyla bilinen avcı yırtıcı kuş."
-      },
-      "selale": {
-        "name": "Şelale",
-        "desc": "Nehir suyunun yüksek kayalıklardan köpürerek döküldüğü çağlayan."
-      },
-      "sifa_i_ksiri": {
-        "name": "Şifa İksiri",
-        "desc": "Yaraları anında iyileştiren kırmızı renkli şifalı iksir."
-      },
-      "dinamit": {
-        "name": "Dinamit",
-        "desc": "Madencilikte kayaları parçalamak için kullanılan nitrogliserinli çubuk."
-      },
-      "gol": {
-        "name": "Göl",
-        "desc": "Karalar içinde çukur alanlarda toplanmış durgun tatlı su kütlesi."
-      },
-      "kasirga": {
-        "name": "Kasırga",
-        "desc": "Okyanus üzerinde dönerek güçlenen dev tropik fırtına."
-      },
-      "makas": {
-        "name": "Makas",
-        "desc": "İki kesici bıçağın bir merkezde birleşmesiyle kumaş kesen aygıt."
-      },
-      "muze": {
-        "name": "Müze",
-        "desc": "Tarihi eserlerin ve sanat harikalarının sergilendiği kültür kurumu."
-      },
-      "sfenks": {
-        "name": "Sfenks",
-        "desc": "Piramitleri bekleyen insan başlı dev aslan heykeli."
-      },
-      "tutulma": {
-        "name": "Tutulma",
-        "desc": "Ayın dünya ile güneş arasına girip gündüzü karartması."
-      },
-      "tuy": {
-        "name": "Tüy",
-        "desc": "Hafif ve aerodinamik doğal kuş tüyü."
-      },
-      "uzay": {
-        "name": "Uzay",
-        "desc": "Gök cisimleri arasındaki sonsuz karanlık ve sessiz boşluk."
-      },
-      "yel_degirmeni": {
-        "name": "Yel Değirmeni",
-        "desc": "Rüzgarın kanatları çevirmesiyle tahıl öğüten kule değirmeni."
-      },
-      "i_ksir_kazani": {
-        "name": "İksir Kazanı",
-        "desc": "Fokurdayan büyülü karışımların hazırlandığı mistik kazan."
-      },
-      "alacakaranlik": {
-        "name": "Alacakaranlık",
-        "desc": "Gündüzün geceye, ışığın karanlığa kavuştuğu loş an."
-      },
-      "alfabe": {
-        "name": "Alfabe",
-        "desc": "Bir dilin tüm seslerini temsil eden harfler dizgesi."
-      },
-      "anka_kusu": {
-        "name": "Anka Kuşu",
-        "desc": "Küllerinden yeniden doğan ebedi ateş kuşu Simurg."
-      },
-      "anit": {
-        "name": "Anıt",
-        "desc": "Önemli olayları ve kahramanları ölümsüzleştiren anıt yapı."
-      },
-      "aslan": {
-        "name": "Aslan",
-        "desc": "Görkemli yelesi ve kükreyişiyle savanaların ve ormanların kralı."
-      },
-      "ay": {
-        "name": "Ay",
-        "desc": "Dünyanın uydusu olan ve geceleri güneş ışığını yansıtan gümüş gökcismi."
-      },
-      "bal_kavanozu": {
-        "name": "Bal Kavanozu",
-        "desc": "Saf ve altın rengi balla doldurulmuş şeffaf kavanoz."
-      },
-      "beton": {
-        "name": "Beton",
-        "desc": "Harç ve çakılın donarak kaya gibi sertleşen modern yapı malzemesi."
-      },
-      "biber": {
-        "name": "Biber",
-        "desc": "Acı veya tatlı çeşitleriyle yemeklere lezzet katan taze sebze."
-      },
-      "bisiklet": {
-        "name": "Bisiklet",
-        "desc": "İki tekerlek üzerinde pedal çevirerek sürülen insan gücüyle çalışan araç."
-      },
-      "bronz": {
-        "name": "Bronz",
-        "desc": "Bakır ve diğer madenlerin eritilerek alaşımlanmış sert formu."
-      },
-      "deniz": {
-        "name": "Deniz",
-        "desc": "Uçsuz bucaksız tuzlu su havzası."
-      },
-      "denizanasi": {
-        "name": "Denizanası",
-        "desc": "Denizlerde süzülen jelatinimsi ve dokunaçlı şeffaf canlı."
-      },
-      "denizkizi": {
-        "name": "Denizkızı",
-        "desc": "Efsanelere konu olan yarı insan yarı balık büyülü deniz varlığı."
-      },
-      "dolu": {
-        "name": "Dolu",
-        "desc": "Yağmur damlalarının fırtınada donarak oluşturduğu buz topları."
-      },
-      "ejderha": {
-        "name": "Ejderha",
-        "desc": "Ağzından alev püskürten, pullu ve kanatlı efsanevi ejderha."
-      },
-      "fener_kulesi": {
-        "name": "Fener Kulesi",
-        "desc": "Karanlık gecelerde denizdeki gemilere yol gösteren ışıklı deniz feneri."
-      },
-      "firtina": {
-        "name": "Fırtına",
-        "desc": "Güçlü rüzgarların enerjiyle birleşip kasıp kavurduğu fırtına."
-      },
-      "gazete": {
-        "name": "Gazete",
-        "desc": "Günün haberlerini halka ulaştıran günlük basılı yayın."
-      },
-      "girdap": {
-        "name": "Girdap",
-        "desc": "Suyun dairesel çekim hareketiyle oluşan derin anafor."
-      },
-      "grifon": {
-        "name": "Grifon",
-        "desc": "Gövdesi aslan, başı ve kanatları kartal olan cesur mitolojik yaratık."
-      },
-      "gulyabani": {
-        "name": "Gulyabani",
-        "desc": "Karanlık çöllerde ve harabelerde dolaşan hortlak varlık."
-      },
-      "gunduz": {
-        "name": "Gündüz",
-        "desc": "Güneşin doğmasıyla başlayan aydınlık ve hareketli zaman dilimi."
-      },
-      "hayalet": {
-        "name": "Hayalet",
-        "desc": "Bu dünyadan ayrılamamış ölülerin yarı saydam silueti."
-      },
-      "hazine": {
-        "name": "Hazine",
-        "desc": "Sandıklar dolusu altın ve mücevherden oluşan zenginlik."
-      },
-      "hesap_makinesi": {
-        "name": "Hesap Makinesi",
-        "desc": "Matematiksel işlemleri anında ve hatasız yapan hesap cihazı."
-      },
-      "heykel": {
-        "name": "Heykel",
-        "desc": "Mermer veya taşa çekiçle form verilerek yapılan 3D sanat eseri."
-      },
-      "kabile": {
-        "name": "Kabile",
-        "desc": "Aynı kökten gelen insanların oluşturduğu dayanışma topluluğu."
-      },
-      "kanal": {
-        "name": "Kanal",
-        "desc": "Gemilerin geçmesi için kazılmış yapay su yolu."
-      },
-      "kano": {
-        "name": "Kano",
-        "desc": "İçi oyulmuş ağaç gövdesinden yapılan hafif nehir teknesi."
-      },
-      "karpuz": {
-        "name": "Karpuz",
-        "desc": "Yaz aylarında serinleten içi kıpkırmızı ve çekirdekli dev bostan meyvesi."
-      },
-      "kitap": {
-        "name": "Kitap",
-        "desc": "Ciltlenmiş sayfalarıyla insanlığın hafızasını taşıyan yazılı eser."
-      },
-      "kozmik_usturlap": {
-        "name": "Kozmik Usturlap",
-        "desc": "Yıldızların ve gezegenlerin konumunu hesaplayan antika astronomik cihaz."
-      },
-      "kum_saati": {
-        "name": "Kum Saati",
-        "desc": "İki cam fanus arasında ince kumun akışıyla süreyi ölçen araç."
-      },
-      "kuyruklu_yildiz": {
-        "name": "Kuyruklu Yıldız",
-        "desc": "Güneşe yaklaştıkça arkasında milyonlarca kilometrelik gaz kuyruğu bırakan gökcismi."
-      },
-      "lazer": {
-        "name": "Lazer",
-        "desc": "Tek dalga boyunda yoğunlaştırılmış güçlü ışık demeti."
-      },
-      "liman": {
-        "name": "Liman",
-        "desc": "Gemilerin demirleyip yük indirip bindirdiği korunaklı kıyı tesisi."
-      },
-      "murekkep": {
-        "name": "Mürekkep",
-        "desc": "Kömür karası ve sudan yapılan yazı yazma sıvısı."
-      },
-      "okul": {
-        "name": "Okul",
-        "desc": "Çocukların ve gençlerin bilgi ve beceri edindiği eğitim yuvası."
-      },
-      "pasta": {
-        "name": "Pasta",
-        "desc": "Krema, meyve ve şekerle süslenmiş özel kutlama tatlısı."
-      },
-      "peri": {
-        "name": "Peri",
-        "desc": "Kelebek kanatlarıyla doğayı koruyan minik ve sevimli büyü varlığı."
-      },
-      "platin": {
-        "name": "Platin",
-        "desc": "Aşırı dayanıklı, kararmayan nadir ve değerli beyaz maden."
-      },
-      "portakal": {
-        "name": "Portakal",
-        "desc": "Turunçgiller familyasından C vitamini deposu sulu kış meyvesi."
-      },
-      "ruh": {
-        "name": "Ruh",
-        "desc": "Beden öldükten sonra yaşamaya devam eden saf bilinç özü."
-      },
-      "safir": {
-        "name": "Safir",
-        "desc": "Göklerin ve denizlerin mavisini yansıtan değerli kristal taş."
-      },
-      "simya": {
-        "name": "Simya",
-        "desc": "Değersiz metalleri altına, maddeleri ebediyete dönüştürme kadim sanatı."
-      },
-      "tabanca": {
-        "name": "Tabanca",
-        "desc": "Tek elle kullanılabilen kompakt barutlu ateşli silah."
-      },
-      "tablo": {
-        "name": "Tablo",
-        "desc": "Çerçevelenerek duvara asılmış değerli sanat eseri."
-      },
-      "tanri": {
-        "name": "Tanrı",
-        "desc": "Tüm kainatın ve varlığın yaratıcısı olan yüce ilahi kudret."
-      },
-      "testere": {
-        "name": "Testere",
-        "desc": "Tırtıklı dişleriyle ahşap ve metali biçen marangoz aleti."
-      },
-      "timsah": {
-        "name": "Timsah",
-        "desc": "Nehir ve bataklıklarda pusu kuran güçlü çeneli dev sürüngen."
-      },
-      "tiyatro": {
-        "name": "Tiyatro",
-        "desc": "İnsan hikayelerinin canlı olarak sahnede sergilendiği dramatik sanat."
-      },
-      "tuz": {
-        "name": "Tuz",
-        "desc": "Tuzlu deniz suyunun buharlaşmasıyla geriye kalan beyaz mineral kristalleri."
-      },
-      "tuzlu_su": {
-        "name": "Tuzlu Su",
-        "desc": "Tuz mineralleriyle doymuş doğal deniz suyu."
-      },
-      "tufek": {
-        "name": "Tüfek",
-        "desc": "Omuzdan ateşlenen menzilli barutlu piyade tüfeği."
-      },
-      "turbin": {
-        "name": "Türbin",
-        "desc": "Akışkanların geçişiyle dönerek elektrik üreten dev kanatlı çark."
-      },
-      "uzay_gemisi": {
-        "name": "Uzay Gemisi",
-        "desc": "İnsanları ve yükleri yıldızlararası boşlukta taşıyan yüksek teknolojili araç."
-      },
-      "vadi": {
-        "name": "Vadi",
-        "desc": "Nehirlerin dağları aşındırarak açtığı yeşil boğaz."
-      },
-      "vida": {
-        "name": "Vida",
-        "desc": "Dönerek ahşaba veya metale kenetlenen yivli bağlantı elemanı."
-      },
-      "yakut": {
-        "name": "Yakut",
-        "desc": "Ateşin kızıllığını içinde barındıran kıymetli korindon minerali."
-      },
-      "yanardag": {
-        "name": "Yanardağ",
-        "desc": "Ateş ve lav püskürten aktif volkanik dağ."
-      },
-      "yapay_zeka": {
-        "name": "Yapay Zeka",
-        "desc": "Öğrenme, analiz ve karar verme yetisine sahip ileri düzey yazılım zekası."
-      },
-      "yelkenli": {
-        "name": "Yelkenli",
-        "desc": "Rüzgarı yelkenlerine doldurarak denizleri aşan tekne."
-      },
-      "yesim": {
-        "name": "Yeşim",
-        "desc": "Dinginliği simgeleyen pürüzsüz açık yeşil mineral taşı."
-      },
-      "yosun": {
-        "name": "Yosun",
-        "desc": "Nemli kayaların ve su kenarlarının üzerinde yayılan yeşil örtü."
-      },
-      "yunus": {
-        "name": "Yunus",
-        "desc": "Zekası ve oyuncu hareketleriyle bilinen dost canlısı deniz memelisi."
-      },
-      "yildiz": {
-        "name": "Yıldız",
-        "desc": "Çekirdeğinde nükleer füzyon gerçekleşen dev akkor plazma küresi."
-      },
-      "zehir": {
-        "name": "Zehir",
-        "desc": "Canlıların bedenini felç eden veya yok eden ölümcül toksin."
-      },
-      "zeytin": {
-        "name": "Zeytin",
-        "desc": "Akdeniz ikliminde yetişen şifalı ve yağlı ağaç meyvesi."
-      },
-      "zombi": {
-        "name": "Zombi",
-        "desc": "Büyüyle mezarından kaldırılmış bilinci olmayan yaşayan ölü."
-      },
-      "cicek": {
-        "name": "Çiçek",
-        "desc": "Bitkilerin renkli ve mis kokulu üreme organı."
-      },
-      "orumcek": {
-        "name": "Örümcek",
-        "desc": "Sekiz bacaklı, avını yakalamak için usta ağlar ören canlı."
-      },
-      "i_lluzyon_aynasi": {
-        "name": "İllüzyon Aynası",
-        "desc": "Bakan kişiye farklı yanılsamalar gösteren büyülü illüzyon aynası."
-      },
-      "i_nci": {
-        "name": "İnci",
-        "desc": "İstiridyenin içine kaçan kum tanesini kaplayarak oluşturduğu değerli inci."
-      },
-      "i_plik": {
-        "name": "İplik",
-        "desc": "Dokuma ve dikişte kullanılan ince eğrilmiş iplik."
-      },
-      "sehir": {
-        "name": "Şehir",
-        "desc": "Geniş caddeleri, fabrikaları ve binalarıyla büyük medeniyet merkezi."
-      },
-      "altin_sikke": {
-        "name": "Altın Sikke",
-        "desc": "Üzerinde hükümdar mührü taşıyan saf altın para."
-      },
-      "asit_yagmuru": {
-        "name": "Asit Yağmuru",
-        "desc": "Havadaki kükürtlü gazların yağmur suyuyla birleşip asitleşmesi."
-      },
-      "balik_eti": {
-        "name": "Balık Eti",
-        "desc": "Taze balığın temizlenip dilimlenmiş eti."
-      },
-      "baraj": {
-        "name": "Baraj",
-        "desc": "Nehir sularını tutarak enerji üreten ve su depolayan dev set."
-      },
-      "dukkan": {
-        "name": "Dükkan",
-        "desc": "Belirli ürünlerin satıldığı küçük ticarethane."
-      },
-      "fotograf": {
-        "name": "Fotoğraf",
-        "desc": "Işıkla kağıda basılmış dondurulmuş an görüntüsü."
-      },
-      "hortum": {
-        "name": "Hortum",
-        "desc": "Dönen güçlü hava kolonunun yere uzanmasıyla oluşan hortum."
-      },
-      "kaplan": {
-        "name": "Kaplan",
-        "desc": "Çizgili postu ve müthiş avlanma becerisiyle bilinen büyük kedi."
-      },
-      "karadelik": {
-        "name": "Karadelik",
-        "desc": "Işığın dahi kaçamayacağı kadar güçlü bir yerçekimine sahip kozmik tekillik."
-      },
-      "korfez": {
-        "name": "Körfez",
-        "desc": "Denizin karanın içine doğru sokulduğu korunaklı su girintisi."
-      },
-      "limon": {
-        "name": "Limon",
-        "desc": "Ekşi tadı ve ferahlatıcı kokusuyla yemeklere katılan sarı meyve."
-      },
-      "manyetizma": {
-        "name": "Manyetizma",
-        "desc": "Elektrik akımlarının yarattığı manyetik çekim alanı."
-      },
-      "matbaa": {
-        "name": "Matbaa",
-        "desc": "Kitapların binlerce nüsha halinde hızlıca basılmasını sağlayan devrim."
-      },
-      "muska": {
-        "name": "Muska",
-        "desc": "Kötülüklerden ve nazardan koruduğuna inanılan boyuna asılan koruyucu nesne."
-      },
-      "nebula": {
-        "name": "Nebula",
-        "desc": "Yeni yıldızların doğduğu renkli ve ışıldayan dev kozmik gaz bulutu."
-      },
-      "obelisk": {
-        "name": "Obelisk",
-        "desc": "Güneş ışınlarını simgeleyen tek parça dikilitaş anıtı."
-      },
-      "palmiye": {
-        "name": "Palmiye",
-        "desc": "Tropik sahillerde ve vahada yetişen uzun gövdeli yapraklı ağaç."
-      },
-      "pazar": {
-        "name": "Pazar",
-        "desc": "Tüccarların ürünlerini sergileyip halka sattığı hareketli çarşı."
-      },
-      "piramit": {
-        "name": "Piramit",
-        "desc": "Firavunların ebedi istirahatgahı olan devasa geometrik anıt mezar."
-      },
-      "roket": {
-        "name": "Roket",
-        "desc": "Yakıtın arkadan püskürmesiyle yerçekimini yenip uzaya fırlayan araç."
-      },
-      "solucan": {
-        "name": "Solucan",
-        "desc": "Toprağın içinde yaşayan ve toprağı havalandıran omurgasız canlı."
-      },
-      "tayfun": {
-        "name": "Tayfun",
-        "desc": "Okyanuslarda büyük dalgalar ve yıkım yaratan şiddetli fırtına."
-      },
-      "tundra": {
-        "name": "Tundra",
-        "desc": "Kutup kuşağında donmuş topraklar ve likenlerle kaplı soğuk ova."
-      },
-      "zaman": {
-        "name": "Zaman",
-        "desc": "Olayların geçmişten geleceğe aktığı dördüncü boyut akışı."
-      },
-      "zeytinyagi": {
-        "name": "Zeytinyağı",
-        "desc": "Zeytinlerin taş baskıda sıkılmasıyla elde edilen altın sıvı."
-      },
-      "cilek": {
-        "name": "Çilek",
-        "desc": "Kırmızı rengi ve mis kokusuyla sevilen lezzetli orman meyvesi."
-      },
-      "i_mparatorluk": {
-        "name": "İmparatorluk",
-        "desc": "Birçok milleti ve kıtayı tek çatı altında toplayan dev imparatorluk."
-      },
-      "altar": {
-        "name": "Altar",
-        "desc": "Tapınakların kalbinde adakların sunulduğu kutsal kurban masası."
-      },
-      "altin": {
-        "name": "Altın",
-        "desc": "Güneş gibi parlayan, paslanmaz en kıymetli sarı metal."
-      },
-      "barometre": {
-        "name": "Barometre",
-        "desc": "Hava basıncını ölçerek hava durumunu tahmin eden gösterge."
-      },
-      "buharli_gemi": {
-        "name": "Buharlı Gemi",
-        "desc": "Buhar çarklarıyla dalgaları yaran okyanus gemisi."
-      },
-      "demir": {
-        "name": "Demir",
-        "desc": "Yer kabuğundan çıkarılan en sağlam ve işlenebilir temel metal."
-      },
-      "denizalti": {
-        "name": "Denizaltı",
-        "desc": "Su altında kilometrelerce derinlikte görünmeden ilerleyen çelik gemi."
-      },
-      "galaksi": {
-        "name": "Galaksi",
-        "desc": "Milyarlarca yıldız ve gezegen sisteminin döndüğü dev kozmik ada."
-      },
-      "gece": {
-        "name": "Gece",
-        "desc": "Güneşin ufkun ardına geçmesiyle yeryüzünü saran karanlık örtü."
-      },
-      "gumus": {
-        "name": "Gümüş",
-        "desc": "Ay ışığı kadar berrak ve saf beyaz değerli maden."
-      },
-      "gunes_saati": {
-        "name": "Güneş Saati",
-        "desc": "Güneşin konumuyla gölgenin hareketini izleyerek zamanı gösteren düzenek."
+        "description": "Düşük irtifada asılı kalan puslu hava."
+      },
+      "kaynama": {
+        "name": "Boiling",
+        "description": "Buharlaşma noktasındaki suyun fokurdaması."
+      },
+      "bulut": {
+        "name": "Cloud",
+        "description": "Atmosferde toplanan yoğun su buharı."
+      },
+      "kaya": {
+        "name": "Rock",
+        "description": "Taşların birleşmesiyle oluşan iri kütle."
+      },
+      "ada": {
+        "name": "Island",
+        "description": "Deniz ortasında yükselen kara parçası."
       },
       "isik": {
-        "name": "Işık",
-        "desc": "Ateşin karanlığı yaran parlak aydınlığı."
+        "name": "Light",
+        "description": "Yüksek enerjili alevden yayılan ışıma."
       },
-      "kamera": {
-        "name": "Kamera",
-        "desc": "Işığı yakalayarak anları ve hareketli görüntüleri kaydeden cihaz."
+      "yasam": {
+        "name": "Life",
+        "description": "Organik çorbadan doğan ilk biyolojik kıvılcım."
       },
-      "kurt_adam": {
-        "name": "Kurt Adam",
-        "desc": "Dolunay çıktığında vahşi bir kurda dönüşen lanetli insan."
+      "metal": {
+        "name": "Metal",
+        "description": "Taşların eritilmesiyle elde edilen parlak maden."
       },
-      "kopek": {
-        "name": "Köpek",
-        "desc": "İnsanın en sadık dostu haline gelmiş evcil ve koruyucu hayvan."
-      },
-      "kopekbaligi": {
-        "name": "Köpekbalığı",
-        "desc": "Keskin dişleri ve koku alma yetisiyle okyanusların tepe avcısı."
-      },
-      "metropol": {
-        "name": "Metropol",
-        "desc": "Milyonlarca insanın yaşadığı küresel çapta devasa mega kent."
-      },
-      "meyve_bahcesi": {
-        "name": "Meyve Bahçesi",
-        "desc": "Elma, armut ve meyve ağaçlarının özenle yetiştirildiği bahçe."
-      },
-      "meyve_suyu": {
-        "name": "Meyve Suyu",
-        "desc": "Taze sıkılmış meyvelerin leziz ve vitaminli içeceği."
-      },
-      "ruzgar_gulu": {
-        "name": "Rüzgar Gülü",
-        "desc": "Rüzgarın yönünü ve şiddetini gösteren fırıldak çarkı."
-      },
-      "zirhli_gemi": {
-        "name": "Zırhlı Gemi",
-        "desc": "Gövdesi kalın çelik levhalarla kaplı ağır savaş zırhlısı."
-      },
-      "i_pekbocegi": {
-        "name": "İpekböceği",
-        "desc": "Dut yapraklarıyla beslenip değerli ipek kozası ören tırtıl."
-      },
-      "i_cten_yanmali_motor": {
-        "name": "İçten Yanmalı Motor",
-        "desc": "Yakıtın silindir içinde patlamasıyla güç üreten motor."
-      },
-      "seytan": {
-        "name": "Şeytan",
-        "desc": "Kibri yüzünden lanetlenmiş, insanları yoldan çıkaran karanlık güç."
-      },
-      "araba": {
-        "name": "Araba",
-        "desc": "Atların çektiği veya motorla çalışan tekerlekli kara taşıtı."
-      },
-      "aurora": {
-        "name": "Aurora",
-        "desc": "Güneş rüzgarlarının atmosferle buluşmasıyla parlayan kutup ışıkları."
-      },
-      "balina": {
-        "name": "Balina",
-        "desc": "Okyanuslarda yüzen dünyanın en büyük memeli dev canlısı."
-      },
-      "darphane": {
-        "name": "Darphane",
-        "desc": "Devlet adına resmi altın ve madeni paraların basıldığı atölye."
-      },
-      "deprem": {
-        "name": "Deprem",
-        "desc": "Yer kabuğundaki fayların kırılmasıyla oluşan tektonik sarsıntı."
-      },
-      "dondurma": {
-        "name": "Dondurma",
-        "desc": "Süt ve meyvelerin dondurularak çırpılmasıyla yapılan serin tatlı."
-      },
-      "krallik": {
-        "name": "Krallık",
-        "desc": "Bir hükümdarın egemenliği altında yönetilen geniş topraklar."
-      },
-      "kok": {
-        "name": "Kök",
-        "desc": "Bitkiyi toprağa bağlayan ve besin toplayan yeraltı kökleri."
-      },
-      "kopru": {
-        "name": "Köprü",
-        "desc": "İki yakayı birbirine bağlayarak geçit veren kemerli köprü."
-      },
-      "mercek": {
-        "name": "Mercek",
-        "desc": "Işığı kırarak nesneleri büyüten veya odaklayan kavisli optik cam."
-      },
-      "misir": {
-        "name": "Mısır",
-        "desc": "Koçanları üzerinde altın sarısı taneleri olan verimli tahıl."
-      },
-      "otomobil": {
-        "name": "Otomobil",
-        "desc": "Dört tekerlekli motorlu modern kişisel yolcu taşıtı."
-      },
-      "sogan": {
-        "name": "Soğan",
-        "desc": "Kat kat zarlarıyla doğranırken göz yaşartan lezzet kaynağı sebze."
-      },
-      "tapinak": {
-        "name": "Tapınak",
-        "desc": "İbadet etmek ve tanrılara adak adamak için inşa edilen kutsal yapı."
-      },
-      "celik": {
-        "name": "Çelik",
-        "desc": "Demirin karbon ve kömürle dövülerek güçlendirilmiş dayanıklı hali."
-      },
-      "olumsuzluk_i_ksiri": {
-        "name": "Ölümsüzlük İksiri",
-        "desc": "İçene ebedi gençlik ve sonsuz ömür sunan iksirlerin iksiri."
-      },
-      "i_pek": {
-        "name": "İpek",
-        "desc": "İpekböceğinin ördüğü eşsiz parlaklıkta ve incelikte lüks kumaş lifi."
-      },
-      "seker": {
-        "name": "Şeker",
-        "desc": "Şeker kamışı veya pancarından kaynatılarak kristalleştirilen tatlandırıcı."
-      },
-      "demiryolu": {
-        "name": "Demiryolu",
-        "desc": "Trenlerin üzerinde hızla kayarak ilerlediği paralel çelik ray hattı."
-      },
-      "mermer": {
-        "name": "Mermer",
-        "desc": "Yüksek ısı ve basınç altında başkalaşmış damarlı pürüzsüz taş."
-      },
-      "motosiklet": {
-        "name": "Motosiklet",
-        "desc": "İki tekerlekli ve motor gücüyle çalışan hızlı kara taşıtı."
-      },
-      "tren": {
-        "name": "Tren",
-        "desc": "Raylar üzerinde birbirine bağlı vagonları çeken katar."
-      },
-      "maya": {
-        "name": "Maya",
-        "desc": "Hamuru kabartan ve fermantasyonu başlatan canlı kültür."
-      },
-      "meteor": {
-        "name": "Meteor",
-        "desc": "Dünya atmosferine girip sürtünmeyle alev alan kayan yıldız taşı."
-      },
-      "tsunami": {
-        "name": "Tsunami",
-        "desc": "Deniz tabanındaki depremle tetiklenen devasa okyanus dalgası."
-      },
-      "ucak": {
-        "name": "Uçak",
-        "desc": "Sabit kanatları ve güçlü motorlarıyla bulutları yaran hızlı hava taşıtı."
+      "duvar": {
+        "name": "Wall",
+        "description": "Tuğlaların harçla örülmesiyle oluşan yapı."
       },
       "elektrik": {
-        "name": "Elektrik",
-        "desc": "Yıldırım ve enerjinin kontrol edilebilir akım hali."
-      },
-      "vampir": {
-        "name": "Vampir",
-        "desc": "Geceleri kanla beslenen, güneş ışığına çıkamayan ölümsüz varlık."
-      },
-      "bicak": {
-        "name": "Bıçak",
-        "desc": "Kesme ve dilimleme işlemlerinde kullanılan keskin bıçak."
-      },
-      "i_lkel_bicak": {
-        "name": "İlkel Bıçak",
-        "desc": "Yontulmuş çakmaktaşından yapılan ilk kesici alet."
-      },
-      "alkol": {
-        "name": "Alkol",
-        "desc": "Şekerli meyvelerin fermantasyonuyla oluşan sarhoş edici sıvı."
-      },
-      "badem": {
-        "name": "Badem",
-        "desc": "İlkbaharda çiçek açan ağacın lezzetli ve şifalı sert çekirdeği."
-      },
-      "borsa": {
-        "name": "Borsa",
-        "desc": "Hisse senetlerinin ve kıymetli madenlerin alınıp satıldığı finans piyasası."
-      },
-      "elmas": {
-        "name": "Elmas",
-        "desc": "Kömürün aşırı yer altı basıncı altında kristalleşmiş en sert cevheri."
-      },
-      "harita": {
-        "name": "Harita",
-        "desc": "Yeryüzü şekillerini ve sınırları gösteren coğrafi çizim."
-      },
-      "kamyon": {
-        "name": "Kamyon",
-        "desc": "Ağır yükleri ve ticari malları şehirlerarası taşıyan büyük taşıt."
-      },
-      "karinca": {
-        "name": "Karınca",
-        "desc": "Topluluk halinde yaşayan çalışkan ve güçlü minik canlı."
-      },
-      "kurabiye": {
-        "name": "Kurabiye",
-        "desc": "Fırında gevrek pişirilmiş tereyağlı ve lezzetli atıştırmalık."
-      },
-      "kutuphane": {
-        "name": "Kütüphane",
-        "desc": "Binlerce cilt kitabın korunduğu sessiz bilgi mabedi."
-      },
-      "top": {
-        "name": "Top",
-        "desc": "Barut patlamasıyla demir gülleler fırlatan ağır savaş topu."
-      },
-      "zeplin": {
-        "name": "Zeplin",
-        "desc": "Gazla dolu dev gövdesi ve pervaneleriyle uçan güdümlü hava gemisi."
-      },
-      "sarap": {
-        "name": "Şarap",
-        "desc": "Ezilmiş üzüm suyunun fıçılarda fermente edilmesiyle yapılan içki."
-      },
-      "bambu": {
-        "name": "Bambu",
-        "desc": "Hafif, esnek ve son derece hızlı uzayan sert gövdeli kamış."
-      },
-      "cikolata": {
-        "name": "Çikolata",
-        "desc": "Kakao ve sütün şekerle işlenmesiyle yapılan nefis tatlı."
-      },
-      "golem": {
-        "name": "Golem",
-        "desc": "Çamur veya taştan yapılıp büyüyle canlandırılmış dev yapay muhafız."
-      },
-      "karli_cam_agaci": {
-        "name": "Karlı Çam Ağacı",
-        "desc": "Dalları bembeyaz karlarla kaplanmış kış çam ağacı."
-      },
-      "anahtar": {
-        "name": "Anahtar",
-        "desc": "Kilitli mekanizmaları açmak için özel dişli metal parça."
-      },
-      "asteroit": {
-        "name": "Asteroit",
-        "desc": "Uzay boşluğunda serbestçe sürüklenen devasa kaya parçası."
-      },
-      "dinamolu_fener": {
-        "name": "Dinamolu Fener",
-        "desc": "Elde çevrilen dinamo mekanizmasıyla pil olmadan ışık veren fener."
-      },
-      "dinozor": {
-        "name": "Dinozor",
-        "desc": "Milyonlarca yıl önce yeryüzüne hükmetmiş dev kadim sürüngen."
-      },
-      "disli": {
-        "name": "Dişli",
-        "desc": "Makinelerde gücü aktaran hassas kesilmiş metal dişli."
-      },
-      "duman": {
-        "name": "Duman",
-        "desc": "Ateşin yanma sonucu havaya bıraktığı gaz ve is."
-      },
-      "kayip_sehir": {
-        "name": "Kayıp Şehir",
-        "desc": "Zamanın ve bitki örtüsünün yuttuğu kadim harabe uygarlık."
-      },
-      "muzik": {
-        "name": "Müzik",
-        "desc": "Seslerin uyumuyla ruhu besleyen evrensel sanat dalı."
-      },
-      "radyasyon": {
-        "name": "Radyasyon",
-        "desc": "Kararsız atom çekirdeklerinden yayılan yüksek enerjili parçacıklar."
-      },
-      "saray": {
-        "name": "Saray",
-        "desc": "Kralların ve hükümdarların yaşadığı sütunlu görkemli anıtsal yapı."
-      },
-      "sirke": {
-        "name": "Sirke",
-        "desc": "Alkolün asetik asit bakterileriyle ekşitilmiş doğal koruyucu hali."
-      },
-      "televizyon": {
-        "name": "Televizyon",
-        "desc": "Görüntü ve sesi ekranında birleştirip evlere sunan yayın alıcısı."
-      },
-      "kazan": {
-        "name": "Kazan",
-        "desc": "İçinde yemek veya iksir kaynatılan büyük demir kap."
-      },
-      "ozon": {
-        "name": "Ozon",
-        "desc": "Yıldırımın oksijeni iyonlaştırmasıyla oluşan ozon gazı."
-      },
-      "radyo": {
-        "name": "Radyo",
-        "desc": "Elektromanyetik dalgalarla havadan ses ve müzik yayını alan cihaz."
-      },
-      "i_nternet": {
-        "name": "İnternet",
-        "desc": "Dünyadaki tüm bilgisayarları birbirine bağlayan devasa küresel bilgi ağı."
-      },
-      "radar": {
-        "name": "Radar",
-        "desc": "Radyo dalgaları fırlatarak uzaktaki cisimlerin yerini tespit eden sistem."
-      },
-      "telgraf": {
-        "name": "Telgraf",
-        "desc": "Mors alfabesiyle elektrik sinyalleri gönderen ilk uzak iletişim cihazı."
-      },
-      "bilgisayar": {
-        "name": "Bilgisayar",
-        "desc": "Milyarlarca mantıksal veriyi saniyeler içinde işleyen akıllı elektronik beyin."
-      },
-      "bira": {
-        "name": "Bira",
-        "desc": "Arpa maltı ve şerbetçiotunun mayalanmasıyla yapılan köpüklü içecek."
-      },
-      "gitar": {
-        "name": "Gitar",
-        "desc": "Tellerine parmakla dokunularak çalınan melodik çalgı."
-      },
-      "helikopter": {
-        "name": "Helikopter",
-        "desc": "Tepesindeki dönen pervanesi sayesinde dikey iniş-kalkış yapabilen hava aracı."
-      },
-      "kagit_para": {
-        "name": "Kağıt Para",
-        "desc": "Merkez bankası güvencesiyle basılan hafif ve değerli banknot."
-      },
-      "mikroskop": {
-        "name": "Mikroskop",
-        "desc": "Gözle görülmeyen mikropları büyüterek gösteren bilimsel cihaz."
-      },
-      "patates": {
-        "name": "Patates",
-        "desc": "Toprağın altında yetişen nişasta zengini temel yumru sebze."
-      },
-      "plato": {
-        "name": "Plato",
-        "desc": "Akarsularla yarılmış, deniz seviyesinden yüksek geniş düzlük."
-      },
-      "robot": {
-        "name": "Robot",
-        "desc": "Programlanabilir mekanik kolları ve sensörleriyle çalışan yapay varlık."
-      },
-      "telefon": {
-        "name": "Telefon",
-        "desc": "İnsan sesini kablolar üzerinden uzaklara ileten iletişim devrimi."
-      },
-      "termometre": {
-        "name": "Termometre",
-        "desc": "Cıvanın genleşmesiyle sıcaklık derecesini ölçen bilimsel alet."
-      },
-      "titanyum": {
-        "name": "Titanyum",
-        "desc": "Çelik kadar güçlü fakat çok daha hafif yüksek teknolojili metal."
-      },
-      "armut": {
-        "name": "Armut",
-        "desc": "Gövdesi konik, içi sulu ve tatlı lezzetli kış meyvesi."
-      },
-      "mikrocip": {
-        "name": "Mikroçip",
-        "desc": "Milyonlarca transistör içeren minyatür silikon entegre devre yongası."
-      },
-      "piyano": {
-        "name": "Piyano",
-        "desc": "Tuşlarına basıldığında tellere vuran çekiçlerle çalan zarif müzik aleti."
-      },
-      "sicak_hava_balonu": {
-        "name": "Sıcak Hava Balonu",
-        "desc": "İçindeki havanın ateşle ısıtılmasıyla göğe yükselen dev balon."
-      },
-      "banka": {
-        "name": "Banka",
-        "desc": "Paranın saklandığı, yatırıldığı ve kredi sağlanan finans kurumu."
-      },
-      "boynuz": {
-        "name": "Boynuz",
-        "desc": "Geyik veya boğaların başında çıkan sert savunma uzantısı."
-      },
-      "fayton": {
-        "name": "Fayton",
-        "desc": "Dört tekerlekli, körüklü ve atlı zarif gezinti arabası."
-      },
-      "kahve": {
-        "name": "Kahve",
-        "desc": "Kavrulmuş kahve çekirdeklerinin demlenmesiyle yapılan uyarıcı içecek."
-      },
-      "kaldirim": {
-        "name": "Kaldırım",
-        "desc": "Yayaların güvenle yürümesi için yol kenarına döşenmiş taş tabaka."
-      },
-      "cay": {
-        "name": "Çay",
-        "desc": "Taze çay yapraklarının kaynar suda demlenmesiyle elde edilen içecek."
-      },
-      "aile": {
-        "name": "Aile",
-        "desc": "Sevgi ve kan bağıyla bir araya gelmiş toplumun en küçük yapı taşı."
-      },
-      "bakteri": {
-        "name": "Bakteri",
-        "desc": "Sularda oluşan mikroskobik tek hücreli ilk canlı organizma."
-      },
-      "mum": {
-        "name": "Mum",
-        "desc": "Balmumu veya parafinin fitille yakılarak aydınlattığı mum."
-      },
-      "pegasus": {
-        "name": "Pegasus",
-        "desc": "Sırtındaki bembeyaz kanatlarıyla göklerde uçan efsanevi at."
-      },
-      "uranyum": {
-        "name": "Uranyum",
-        "desc": "Nükleer enerji ve ışıma yayan ağır radyoaktif element."
-      },
-      "virus": {
-        "name": "Virüs",
-        "desc": "Hücreleri enfekte edebilen mikroskobik genetik parçacık."
-      },
-      "cadir": {
-        "name": "Çadır",
-        "desc": "Göçebelerin ve kaşiflerin kolayca kurup topladığı portatif kumaş barınak."
-      },
-      "tutun": {
-        "name": "Tütün",
-        "desc": "Kurutulup yakılan aromatik yapraklı bitki türü."
+        "name": "Electricity",
+        "description": "Metallerden akan elektron akımı."
+      },
+      "yagmur": {
+        "name": "Rain",
+        "description": "Bulutların doygunluğa ulaşıp bıraktığı yağış."
+      },
+      "dag": {
+        "name": "Mountain",
+        "description": "Yerkabuğunun yükselttiği devasa kütle."
+      },
+      "kum": {
+        "name": "Sand",
+        "description": "Rüzgarın kayaları ufalayarak oluşturduğu taneler."
+      },
+      "gunes": {
+        "name": "Sun",
+        "description": "Gündüzü aydınlatan göksel fener."
+      },
+      "buz": {
+        "name": "Ice",
+        "description": "Rüzgarın dondurucu etkisiyle katılaşan su."
+      },
+      "firtina": {
+        "name": "Storm",
+        "description": "Hızlı hareket eden fırtına bulutları."
+      },
+      "balik": {
+        "name": "Fish",
+        "description": "Suda yüzen pullu omurgalı."
+      },
+      "kus": {
+        "name": "Bird",
+        "description": "Gökyüzünde süzülen kanatlı canlı."
+      },
+      "insan": {
+        "name": "Human",
+        "description": "Alet yapabilen ve düşünen bilinçli canlı."
+      },
+      "ev": {
+        "name": "House",
+        "description": "İnsanların barındığı sıcak yuva."
+      },
+      "ampul": {
+        "name": "Lightbulb",
+        "description": "Elektrikle odayı aydınlatan cam lamba."
+      },
+      "bitki": {
+        "name": "Plant",
+        "description": "Toprak ve yağmurla filizlenen yeşillik."
+      },
+      "gol": {
+        "name": "Lake",
+        "description": "Çukur arazide biriken tatlı su."
+      },
+      "volkan": {
+        "name": "Volcano",
+        "description": "Zirvesinden lav püskürten yanardağ."
+      },
+      "nehir": {
+        "name": "River",
+        "description": "Dağlardan vadilere akan su yatağı."
+      },
+      "kar": {
+        "name": "Snow",
+        "description": "Soğuk bulutlardan dökülen kristal yağış."
+      },
+      "yildirim": {
+        "name": "Lightning",
+        "description": "Fırtına bulutlarından boşalan elektrik arkı."
+      },
+      "plaj": {
+        "name": "Beach",
+        "description": "Deniz kıyısında uzanan kum şeridi."
+      },
+      "cam": {
+        "name": "Glass",
+        "description": "Kumun yüksek ısıda saydamlaşması."
+      },
+      "alet": {
+        "name": "Tool",
+        "description": "İnsan eliyle yontulmuş ilk el aleti."
+      },
+      "gokkusagi": {
+        "name": "Rainbow",
+        "description": "Işığın yağmur damlalarında spektruma ayrılması."
+      },
+      "col": {
+        "name": "Desert",
+        "description": "Kavurucu güneş altında uzanan kum denizi."
+      },
+      "buzul": {
+        "name": "Glacier",
+        "description": "Yüksek dağ yamaçlarında dev buz kütlesi."
+      },
+      "dolu": {
+        "name": "Hail",
+        "description": "Donmuş sert yağmur taneleri."
+      },
+      "hortum": {
+        "name": "Tornado",
+        "description": "Fırtınanın dönen yıkıcı hava girdabı."
+      },
+      "koy": {
+        "name": "Village",
+        "description": "Evlerin birleşmesiyle kurulan yerleşim."
+      },
+      "agac": {
+        "name": "Tree",
+        "description": "Güneş ışığıyla göğe yükselen gövdeli bitki."
+      },
+      "cicek": {
+        "name": "Flower",
+        "description": "Işığa doğru açan rengarenk taç yapraklar."
+      },
+      "yosun": {
+        "name": "Moss",
+        "description": "Islak zeminlerde yayılan ilkel yeşil tabaka."
+      },
+      "tarim": {
+        "name": "Farming",
+        "description": "Toprağı ekip biçme ve hasat etme sanatı."
+      },
+      "selale": {
+        "name": "Waterfall",
+        "description": "Dağ yamacından köpürerek dökülen akarsu."
+      },
+      "zaman": {
+        "name": "Time",
+        "description": "Kum saatiyle ölçülen evrensel akış."
+      },
+      "orman": {
+        "name": "Forest",
+        "description": "Ağaçların oluşturduğu uçsuz bucaksız yeşillik."
+      },
+      "odun": {
+        "name": "Wood",
+        "description": "Ağaçtan kesilen kaliteli kereste."
+      },
+      "meyve": {
+        "name": "Fruit",
+        "description": "Çiçeklenen ağacın lezzetli ve sulu hediyesi."
+      },
+      "yaprak": {
+        "name": "Leaf",
+        "description": "Ağaç dallarından dökülen yeşil örtü."
+      },
+      "yuva": {
+        "name": "Nest",
+        "description": "Kuşların dallar arasına kurduğu korunaklı ev."
+      },
+      "komur": {
+        "name": "Coal",
+        "description": "Yüksek ısıda kömürleşmiş fosil yakıt."
+      },
+      "un": {
+        "name": "Flour",
+        "description": "Tahılların taş değirmende öğütülmesi."
+      },
+      "sehir": {
+        "name": "City",
+        "description": "Gelişmiş büyük medeniyet merkezi."
+      },
+      "hayvan": {
+        "name": "Animal",
+        "description": "Ormanlarda dolaşan vahşi canlı."
+      },
+      "celik": {
+        "name": "Steel",
+        "description": "Demirin karbonla dövülüp sertleşmesi."
+      },
+      "tekerlek": {
+        "name": "Wheel",
+        "description": "Dönerek yük taşımayı sağlayan devrimsel buluş."
+      },
+      "hamur": {
+        "name": "Dough",
+        "description": "Un ve suyun yoğrulmasıyla oluşan karışım."
+      },
+      "yangin": {
+        "name": "Wildfire",
+        "description": "Ağaçların alev alarak kontrolden çıkması."
+      },
+      "balta": {
+        "name": "Axe",
+        "description": "Odun saplı metal kesici alet."
+      },
+      "kul": {
+        "name": "Ash",
+        "description": "Yanan odunun bıraktığı ince gri toz."
+      },
+      "sal": {
+        "name": "Raft",
+        "description": "Su üzerinde batmadan yüzen kütükler."
+      },
+      "kopru": {
+        "name": "Bridge",
+        "description": "Nehirleri birbirine bağlayan ahşap geçit."
+      },
+      "akkor": {
+        "name": "Incandescence",
+        "description": "Kömürün ışıl ışıl yanan en sıcak hali."
+      },
+      "evcil_hayvan": {
+        "name": "Pet",
+        "description": "İnsanla dost olan uysal canlı."
+      },
+      "inek": {
+        "name": "Cow",
+        "description": "Çiftlikte beslenen sütçü büyükbaş."
+      },
+      "domuz": {
+        "name": "Pig",
+        "description": "Çamur banyosunu seven pembe çiftlik hayvanı."
+      },
+      "ekmek": {
+        "name": "Bread",
+        "description": "Taş fırında pişen mis kokulu ekmek."
+      },
+      "kilic": {
+        "name": "Sword",
+        "description": "Keskin çelikten dövülmüş savaş silahı."
+      },
+      "araba": {
+        "name": "Cart",
+        "description": "Tekerlekli ilkel yük arabası."
+      },
+      "yelkenli": {
+        "name": "Sailboat",
+        "description": "Rüzgar gücüyle denizleri aşan tekne."
+      },
+      "buhar_motoru": {
+        "name": "Steam Engine",
+        "description": "Buharın gücünü harekete çeviren makine."
+      },
+      "sut": {
+        "name": "Milk",
+        "description": "İnekten sağılan taze beyaz içecek."
+      },
+      "at": {
+        "name": "Horse",
+        "description": "Rüzgar gibi koşan asil binek."
+      },
+      "tren": {
+        "name": "Train",
+        "description": "Raylar üzerinde giden buharlı dev lokomotif."
+      },
+      "buharli_gemi": {
+        "name": "Steamship",
+        "description": "Buhar çarklarıyla okyanusları aşan dev gemi."
+      },
+      "peynir": {
+        "name": "Cheese",
+        "description": "Mayalanıp olgunlaşmış leziz süt ürünü."
+      },
+      "tereyagi": {
+        "name": "Butter",
+        "description": "Sütün çalkalanmasıyla elde edilen saf yağ."
+      },
+      "dondurma": {
+        "name": "Ice Cream",
+        "description": "Süt ve buzla yapılan serinletici tatlı."
       }
     }
   }
 };
 
-class I18nManager {
+export class I18nManager {
   constructor() {
     let saved = null;
     try {
-      saved = localStorage.getItem('alchemy_language');
+      saved = localStorage.getItem('alchemy_language') || localStorage.getItem('alchemy_lang');
     } catch (e) {}
     this.currentLanguage = (saved === 'en' || saved === 'tr') ? saved : 'tr';
     this.listeners = [];
@@ -4518,13 +992,24 @@ class I18nManager {
     return this.currentLanguage;
   }
 
+  get currentLang() {
+    return this.currentLanguage;
+  }
+
+  set currentLang(lang) {
+    this.setLanguage(lang);
+  }
+
   setLanguage(lang) {
     if (lang !== 'tr' && lang !== 'en') return;
     this.currentLanguage = lang;
     try {
       localStorage.setItem('alchemy_language', lang);
+      localStorage.setItem('alchemy_lang', lang);
     } catch (e) {}
-    this.listeners.forEach(fn => fn(lang));
+    this.listeners.forEach(fn => {
+      try { fn(lang); } catch (err) { console.warn("Language listener error:", err); }
+    });
   }
 
   toggleLanguage() {
@@ -4534,12 +1019,14 @@ class I18nManager {
   }
 
   onLanguageChange(listener) {
-    this.listeners.push(listener);
+    if (typeof listener === 'function') {
+      this.listeners.push(listener);
+    }
   }
 
   t(key, params = {}) {
-    const dict = TRANSLATIONS[this.currentLanguage]?.ui || TRANSLATIONS['tr'].ui;
-    let text = dict[key] || key;
+    const dict = TRANSLATIONS[this.currentLanguage]?.ui || TRANSLATIONS['tr']?.ui || {};
+    let text = dict[key] || TRANSLATIONS['tr']?.ui?.[key] || key;
     for (const [k, v] of Object.entries(params)) {
       text = text.replace(new RegExp('\\{' + k + '\\}', 'g'), v);
     }
@@ -4547,8 +1034,12 @@ class I18nManager {
   }
 
   getItem(itemId) {
+    const canonical = (itemId || '').toLowerCase().trim();
     const lang = this.currentLanguage;
-    const itemData = TRANSLATIONS[lang]?.items?.[itemId] || TRANSLATIONS['tr']?.items?.[itemId];
+    const itemData = TRANSLATIONS[lang]?.items?.[canonical] || 
+                     TRANSLATIONS[lang]?.items?.[itemId] || 
+                     TRANSLATIONS['tr']?.items?.[canonical] || 
+                     TRANSLATIONS['tr']?.items?.[itemId];
     return itemData || null;
   }
 
@@ -4559,8 +1050,9 @@ class I18nManager {
 
   getItemDescription(itemId, fallback = '') {
     const data = this.getItem(itemId);
-    return data?.desc || fallback || '';
+    return data?.description || data?.desc || fallback || '';
   }
 }
 
 export const i18n = new I18nManager();
+

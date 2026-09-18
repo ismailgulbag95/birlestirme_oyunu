@@ -1,11 +1,11 @@
 import { 
-  ITEM_DEFINITIONS, 
+  getItemDefinitionsForMode,
   getCanonicalId 
 } from '../items/itemDefinitions.js';
 
 export class CraftingSystem {
   constructor(mode = 'classic') {
-    this.mode = mode; // 'classic' (yalnızca 2'li) veya 'grandmaster' (2'li ve 3'lü)
+    this.mode = mode; // 'classic' (92 eşya 2'li) veya 'grandmaster' (666 eşya 2'li ve 3'lü)
     this.recipes = {};
     this._initRecipes();
   }
@@ -30,17 +30,19 @@ export class CraftingSystem {
       this.recipes[key] = output;
     };
 
-    // Tüm tanımlı tarifleri ITEM_DEFINITIONS üzerinden dinamik olarak yükle
-    Object.keys(ITEM_DEFINITIONS).forEach(id => {
-      const def = ITEM_DEFINITIONS[id];
+    const targetDefs = getItemDefinitionsForMode(this.mode);
+
+    // Tanımlı tarifleri aktif moda göre yükle
+    Object.keys(targetDefs).forEach(id => {
+      const def = targetDefs[id];
       if (!def) return;
 
-      // 1. Temel 2'li tarifler (Her iki modda da aktif)
+      // 1. 2'li tarifler
       if (def.recipe && def.recipe.inputs && Array.isArray(def.recipe.inputs) && def.recipe.inputs.length > 0) {
         addRecipe(def.recipe.inputs, def.id || id);
       }
 
-      // 2. Simyacı Kazanı (Grandmaster) modunda 3'lü akıllı tarifler
+      // 2. Simyacı Kazanı (Grandmaster) modunda 3'lü tarifler
       if (this.mode === 'grandmaster' && def.trioRecipes && Array.isArray(def.trioRecipes)) {
         def.trioRecipes.forEach(trioInputs => {
           if (Array.isArray(trioInputs) && trioInputs.length === 3) {

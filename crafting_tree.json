@@ -1,15 +1,821 @@
 {
   "metadata": {
-    "version": "2.1.0",
-    "total_items": 656,
-    "base_elements": [
-      "Ateş",
-      "Su",
-      "Toprak",
-      "Hava"
-    ],
-    "is_collision_free": true,
-    "is_strict_dag": true
+    "version": "3.1.0",
+    "modes": {
+      "classic": {
+        "total_items": 92,
+        "base_elements": [
+          "Ateş",
+          "Su",
+          "Toprak",
+          "Hava"
+        ],
+        "is_strict_dag": true
+      },
+      "grandmaster": {
+        "total_items": 666,
+        "base_elements": [
+          "Ateş",
+          "Su",
+          "Toprak",
+          "Hava"
+        ]
+      }
+    }
+  },
+  "classic_recipes": {
+    "Duman": {
+      "inputs": [
+        "Ateş",
+        "Hava"
+      ],
+      "tier": 2,
+      "description": "Yanma sonucu çıkan partiküllü gaz.",
+      "category": "01_elements"
+    },
+    "Buhar": {
+      "inputs": [
+        "Ateş",
+        "Su"
+      ],
+      "tier": 2,
+      "description": "Suyun buharlaşmasından doğan sıcak gaz.",
+      "category": "01_elements"
+    },
+    "Lav": {
+      "inputs": [
+        "Ateş",
+        "Toprak"
+      ],
+      "tier": 2,
+      "description": "Toprağın aşırı sıcakta erimiş akkor hali.",
+      "category": "02_doga"
+    },
+    "Enerji": {
+      "inputs": [
+        "Ateş",
+        "Ateş"
+      ],
+      "tier": 2,
+      "description": "Yoğunlaşan saf termal güç.",
+      "category": "01_elements"
+    },
+    "Deniz": {
+      "inputs": [
+        "Su",
+        "Su"
+      ],
+      "tier": 2,
+      "description": "Bir araya gelen büyük su kütlesi.",
+      "category": "01_elements"
+    },
+    "Nem": {
+      "inputs": [
+        "Su",
+        "Hava"
+      ],
+      "tier": 2,
+      "description": "Havadaki su buharı yoğunluğu.",
+      "category": "01_elements"
+    },
+    "Taş": {
+      "inputs": [
+        "Toprak",
+        "Toprak"
+      ],
+      "tier": 2,
+      "description": "Sıkışıp katılaşan zemin kütlesi.",
+      "category": "02_doga"
+    },
+    "Çamur": {
+      "inputs": [
+        "Toprak",
+        "Su"
+      ],
+      "tier": 2,
+      "description": "Toprağın su ile yoğrulmuş balçık hali.",
+      "category": "01_elements"
+    },
+    "Basınç": {
+      "inputs": [
+        "Hava",
+        "Hava"
+      ],
+      "tier": 2,
+      "description": "Hava kütlelerinin sıkışması.",
+      "category": "01_elements"
+    },
+    "Tuğla": {
+      "inputs": [
+        "Çamur",
+        "Ateş"
+      ],
+      "tier": 3,
+      "description": "Fırınlanmış dayanıklı yapı taşı.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Mantar": {
+      "inputs": [
+        "Nem",
+        "Toprak"
+      ],
+      "tier": 3,
+      "description": "Nemli topraktan fışkıran şapkalı mantar.",
+      "category": "03_canlilar"
+    },
+    "Rüzgâr": {
+      "inputs": [
+        "Basınç",
+        "Hava"
+      ],
+      "tier": 3,
+      "description": "Basınç farkından doğan hava akımı.",
+      "category": "01_elements"
+    },
+    "Çukur": {
+      "inputs": [
+        "Toprak",
+        "Basınç"
+      ],
+      "tier": 3,
+      "description": "Yerkabuğunun çökmesiyle oluşan krater.",
+      "category": "02_doga"
+    },
+    "Sis": {
+      "inputs": [
+        "Duman",
+        "Hava"
+      ],
+      "tier": 3,
+      "description": "Düşük irtifada asılı kalan puslu hava.",
+      "category": "01_elements"
+    },
+    "Kaynama": {
+      "inputs": [
+        "Su",
+        "Buhar"
+      ],
+      "tier": 3,
+      "description": "Buharlaşma noktasındaki suyun fokurdaması.",
+      "category": "01_elements"
+    },
+    "Bulut": {
+      "inputs": [
+        "Buhar",
+        "Hava"
+      ],
+      "tier": 3,
+      "description": "Atmosferde toplanan yoğun su buharı.",
+      "category": "01_elements"
+    },
+    "Kaya": {
+      "inputs": [
+        "Taş",
+        "Taş"
+      ],
+      "tier": 3,
+      "description": "Taşların birleşmesiyle oluşan iri kütle.",
+      "category": "02_doga"
+    },
+    "Ada": {
+      "inputs": [
+        "Deniz",
+        "Toprak"
+      ],
+      "tier": 3,
+      "description": "Deniz ortasında yükselen kara parçası.",
+      "category": "02_doga"
+    },
+    "Işık": {
+      "inputs": [
+        "Enerji",
+        "Ateş"
+      ],
+      "tier": 3,
+      "description": "Yüksek enerjili alevden yayılan ışıma.",
+      "category": "01_elements"
+    },
+    "Yaşam": {
+      "inputs": [
+        "Çamur",
+        "Enerji"
+      ],
+      "tier": 3,
+      "description": "Organik çorbadan doğan ilk biyolojik kıvılcım.",
+      "category": "03_canlilar"
+    },
+    "Metal": {
+      "inputs": [
+        "Taş",
+        "Ateş"
+      ],
+      "tier": 3,
+      "description": "Taşların eritilmesiyle elde edilen parlak maden.",
+      "category": "05_maden_ve_materyaller"
+    },
+    "Duvar": {
+      "inputs": [
+        "Tuğla",
+        "Tuğla"
+      ],
+      "tier": 4,
+      "description": "Tuğlaların harçla örülmesiyle oluşan yapı.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Elektrik": {
+      "inputs": [
+        "Metal",
+        "Enerji"
+      ],
+      "tier": 4,
+      "description": "Metallerden akan elektron akımı.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Yağmur": {
+      "inputs": [
+        "Su",
+        "Bulut"
+      ],
+      "tier": 4,
+      "description": "Bulutların doygunluğa ulaşıp bıraktığı yağış.",
+      "category": "01_elements"
+    },
+    "Dağ": {
+      "inputs": [
+        "Kaya",
+        "Kaya"
+      ],
+      "tier": 4,
+      "description": "Yerkabuğunun yükselttiği devasa kütle.",
+      "category": "02_doga"
+    },
+    "Kum": {
+      "inputs": [
+        "Toprak",
+        "Rüzgâr"
+      ],
+      "tier": 4,
+      "description": "Rüzgarın kayaları ufalayarak oluşturduğu taneler.",
+      "category": "02_doga"
+    },
+    "Güneş": {
+      "inputs": [
+        "Işık",
+        "Ateş"
+      ],
+      "tier": 4,
+      "description": "Gündüzü aydınlatan göksel fener.",
+      "category": "08_mistik_ve_evren"
+    },
+    "Buz": {
+      "inputs": [
+        "Su",
+        "Rüzgâr"
+      ],
+      "tier": 4,
+      "description": "Rüzgarın dondurucu etkisiyle katılaşan su.",
+      "category": "01_elements"
+    },
+    "Fırtına": {
+      "inputs": [
+        "Bulut",
+        "Rüzgâr"
+      ],
+      "tier": 4,
+      "description": "Hızlı hareket eden fırtına bulutları.",
+      "category": "01_elements"
+    },
+    "Balık": {
+      "inputs": [
+        "Yaşam",
+        "Su"
+      ],
+      "tier": 4,
+      "description": "Suda yüzen pullu omurgalı.",
+      "category": "03_canlilar"
+    },
+    "Kuş": {
+      "inputs": [
+        "Yaşam",
+        "Hava"
+      ],
+      "tier": 4,
+      "description": "Gökyüzünde süzülen kanatlı canlı.",
+      "category": "03_canlilar"
+    },
+    "İnsan": {
+      "inputs": [
+        "Yaşam",
+        "Toprak"
+      ],
+      "tier": 4,
+      "description": "Alet yapabilen ve düşünen bilinçli canlı.",
+      "category": "03_canlilar"
+    },
+    "Ev": {
+      "inputs": [
+        "Duvar",
+        "İnsan"
+      ],
+      "tier": 5,
+      "description": "İnsanların barındığı sıcak yuva.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Ampul": {
+      "inputs": [
+        "Cam",
+        "Elektrik"
+      ],
+      "tier": 5,
+      "description": "Elektrikle odayı aydınlatan cam lamba.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Bitki": {
+      "inputs": [
+        "Toprak",
+        "Yağmur"
+      ],
+      "tier": 5,
+      "description": "Toprak ve yağmurla filizlenen yeşillik.",
+      "category": "03_canlilar"
+    },
+    "Göl": {
+      "inputs": [
+        "Yağmur",
+        "Çukur"
+      ],
+      "tier": 5,
+      "description": "Çukur arazide biriken tatlı su.",
+      "category": "02_doga"
+    },
+    "Volkan": {
+      "inputs": [
+        "Dağ",
+        "Lav"
+      ],
+      "tier": 5,
+      "description": "Zirvesinden lav püskürten yanardağ.",
+      "category": "02_doga"
+    },
+    "Nehir": {
+      "inputs": [
+        "Yağmur",
+        "Dağ"
+      ],
+      "tier": 5,
+      "description": "Dağlardan vadilere akan su yatağı.",
+      "category": "02_doga"
+    },
+    "Kar": {
+      "inputs": [
+        "Bulut",
+        "Buz"
+      ],
+      "tier": 5,
+      "description": "Soğuk bulutlardan dökülen kristal yağış.",
+      "category": "01_elements"
+    },
+    "Yıldırım": {
+      "inputs": [
+        "Fırtına",
+        "Enerji"
+      ],
+      "tier": 5,
+      "description": "Fırtına bulutlarından boşalan elektrik arkı.",
+      "category": "01_elements"
+    },
+    "Plaj": {
+      "inputs": [
+        "Kum",
+        "Deniz"
+      ],
+      "tier": 5,
+      "description": "Deniz kıyısında uzanan kum şeridi.",
+      "category": "02_doga"
+    },
+    "Cam": {
+      "inputs": [
+        "Kum",
+        "Ateş"
+      ],
+      "tier": 5,
+      "description": "Kumun yüksek ısıda saydamlaşması.",
+      "category": "05_maden_ve_materyaller"
+    },
+    "Alet": {
+      "inputs": [
+        "İnsan",
+        "Taş"
+      ],
+      "tier": 5,
+      "description": "İnsan eliyle yontulmuş ilk el aleti.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Gökkuşağı": {
+      "inputs": [
+        "Güneş",
+        "Yağmur"
+      ],
+      "tier": 5,
+      "description": "Işığın yağmur damlalarında spektruma ayrılması.",
+      "category": "01_elements"
+    },
+    "Çöl": {
+      "inputs": [
+        "Kum",
+        "Güneş"
+      ],
+      "tier": 5,
+      "description": "Kavurucu güneş altında uzanan kum denizi.",
+      "category": "02_doga"
+    },
+    "Buzul": {
+      "inputs": [
+        "Buz",
+        "Dağ"
+      ],
+      "tier": 5,
+      "description": "Yüksek dağ yamaçlarında dev buz kütlesi.",
+      "category": "02_doga"
+    },
+    "Dolu": {
+      "inputs": [
+        "Yağmur",
+        "Buz"
+      ],
+      "tier": 5,
+      "description": "Donmuş sert yağmur taneleri.",
+      "category": "01_elements"
+    },
+    "Hortum": {
+      "inputs": [
+        "Fırtına",
+        "Rüzgâr"
+      ],
+      "tier": 5,
+      "description": "Fırtınanın dönen yıkıcı hava girdabı.",
+      "category": "01_elements"
+    },
+    "Köy": {
+      "inputs": [
+        "Ev",
+        "Ev"
+      ],
+      "tier": 6,
+      "description": "Evlerin birleşmesiyle kurulan yerleşim.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Ağaç": {
+      "inputs": [
+        "Bitki",
+        "Güneş"
+      ],
+      "tier": 6,
+      "description": "Güneş ışığıyla göğe yükselen gövdeli bitki.",
+      "category": "03_canlilar"
+    },
+    "Çiçek": {
+      "inputs": [
+        "Bitki",
+        "Işık"
+      ],
+      "tier": 6,
+      "description": "Işığa doğru açan rengarenk taç yapraklar.",
+      "category": "03_canlilar"
+    },
+    "Yosun": {
+      "inputs": [
+        "Bitki",
+        "Su"
+      ],
+      "tier": 6,
+      "description": "Islak zeminlerde yayılan ilkel yeşil tabaka.",
+      "category": "03_canlilar"
+    },
+    "Tarım": {
+      "inputs": [
+        "İnsan",
+        "Bitki"
+      ],
+      "tier": 6,
+      "description": "Toprağı ekip biçme ve hasat etme sanatı.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Şelale": {
+      "inputs": [
+        "Nehir",
+        "Dağ"
+      ],
+      "tier": 6,
+      "description": "Dağ yamacından köpürerek dökülen akarsu.",
+      "category": "02_doga"
+    },
+    "Zaman": {
+      "inputs": [
+        "Kum",
+        "Cam"
+      ],
+      "tier": 6,
+      "description": "Kum saatiyle ölçülen evrensel akış.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Orman": {
+      "inputs": [
+        "Ağaç",
+        "Ağaç"
+      ],
+      "tier": 7,
+      "description": "Ağaçların oluşturduğu uçsuz bucaksız yeşillik.",
+      "category": "02_doga"
+    },
+    "Odun": {
+      "inputs": [
+        "Ağaç",
+        "Alet"
+      ],
+      "tier": 7,
+      "description": "Ağaçtan kesilen kaliteli kereste.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Meyve": {
+      "inputs": [
+        "Ağaç",
+        "Çiçek"
+      ],
+      "tier": 7,
+      "description": "Çiçeklenen ağacın lezzetli ve sulu hediyesi.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Yaprak": {
+      "inputs": [
+        "Ağaç",
+        "Rüzgâr"
+      ],
+      "tier": 7,
+      "description": "Ağaç dallarından dökülen yeşil örtü.",
+      "category": "03_canlilar"
+    },
+    "Yuva": {
+      "inputs": [
+        "Ağaç",
+        "Kuş"
+      ],
+      "tier": 7,
+      "description": "Kuşların dallar arasına kurduğu korunaklı ev.",
+      "category": "03_canlilar"
+    },
+    "Kömür": {
+      "inputs": [
+        "Ağaç",
+        "Ateş"
+      ],
+      "tier": 7,
+      "description": "Yüksek ısıda kömürleşmiş fosil yakıt.",
+      "category": "05_maden_ve_materyaller"
+    },
+    "Un": {
+      "inputs": [
+        "Tarım",
+        "Taş"
+      ],
+      "tier": 7,
+      "description": "Tahılların taş değirmende öğütülmesi.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Şehir": {
+      "inputs": [
+        "Köy",
+        "Köy"
+      ],
+      "tier": 7,
+      "description": "Gelişmiş büyük medeniyet merkezi.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Hayvan": {
+      "inputs": [
+        "Yaşam",
+        "Orman"
+      ],
+      "tier": 8,
+      "description": "Ormanlarda dolaşan vahşi canlı.",
+      "category": "03_canlilar"
+    },
+    "Çelik": {
+      "inputs": [
+        "Metal",
+        "Kömür"
+      ],
+      "tier": 8,
+      "description": "Demirin karbonla dövülüp sertleşmesi.",
+      "category": "05_maden_ve_materyaller"
+    },
+    "Tekerlek": {
+      "inputs": [
+        "Odun",
+        "Alet"
+      ],
+      "tier": 8,
+      "description": "Dönerek yük taşımayı sağlayan devrimsel buluş.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Hamur": {
+      "inputs": [
+        "Un",
+        "Su"
+      ],
+      "tier": 8,
+      "description": "Un ve suyun yoğrulmasıyla oluşan karışım.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Yangın": {
+      "inputs": [
+        "Orman",
+        "Ateş"
+      ],
+      "tier": 8,
+      "description": "Ağaçların alev alarak kontrolden çıkması.",
+      "category": "02_doga"
+    },
+    "Balta": {
+      "inputs": [
+        "Odun",
+        "Metal"
+      ],
+      "tier": 8,
+      "description": "Odun saplı metal kesici alet.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Kül": {
+      "inputs": [
+        "Odun",
+        "Ateş"
+      ],
+      "tier": 8,
+      "description": "Yanan odunun bıraktığı ince gri toz.",
+      "category": "01_elements"
+    },
+    "Sal": {
+      "inputs": [
+        "Odun",
+        "Su"
+      ],
+      "tier": 8,
+      "description": "Su üzerinde batmadan yüzen kütükler.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Köprü": {
+      "inputs": [
+        "Odun",
+        "Nehir"
+      ],
+      "tier": 8,
+      "description": "Nehirleri birbirine bağlayan ahşap geçit.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Akkor": {
+      "inputs": [
+        "Kömür",
+        "Ateş"
+      ],
+      "tier": 8,
+      "description": "Kömürün ışıl ışıl yanan en sıcak hali.",
+      "category": "01_elements"
+    },
+    "Evcil Hayvan": {
+      "inputs": [
+        "Hayvan",
+        "İnsan"
+      ],
+      "tier": 9,
+      "description": "İnsanla dost olan uysal canlı.",
+      "category": "03_canlilar"
+    },
+    "İnek": {
+      "inputs": [
+        "Hayvan",
+        "Tarım"
+      ],
+      "tier": 9,
+      "description": "Çiftlikte beslenen sütçü büyükbaş.",
+      "category": "03_canlilar"
+    },
+    "Domuz": {
+      "inputs": [
+        "Hayvan",
+        "Çamur"
+      ],
+      "tier": 9,
+      "description": "Çamur banyosunu seven pembe çiftlik hayvanı.",
+      "category": "03_canlilar"
+    },
+    "Ekmek": {
+      "inputs": [
+        "Hamur",
+        "Ateş"
+      ],
+      "tier": 9,
+      "description": "Taş fırında pişen mis kokulu ekmek.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Kılıç": {
+      "inputs": [
+        "Çelik",
+        "Odun"
+      ],
+      "tier": 9,
+      "description": "Keskin çelikten dövülmüş savaş silahı.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Araba": {
+      "inputs": [
+        "Tekerlek",
+        "Odun"
+      ],
+      "tier": 9,
+      "description": "Tekerlekli ilkel yük arabası.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Yelkenli": {
+      "inputs": [
+        "Sal",
+        "Rüzgâr"
+      ],
+      "tier": 9,
+      "description": "Rüzgar gücüyle denizleri aşan tekne.",
+      "category": "04_zanaat_ve_aletler"
+    },
+    "Buhar Motoru": {
+      "inputs": [
+        "Buhar",
+        "Çelik"
+      ],
+      "tier": 9,
+      "description": "Buharın gücünü harekete çeviren makine.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Süt": {
+      "inputs": [
+        "İnek",
+        "İnsan"
+      ],
+      "tier": 10,
+      "description": "İnekten sağılan taze beyaz içecek.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "At": {
+      "inputs": [
+        "Evcil Hayvan",
+        "Rüzgâr"
+      ],
+      "tier": 10,
+      "description": "Rüzgar gibi koşan asil binek.",
+      "category": "03_canlilar"
+    },
+    "Tren": {
+      "inputs": [
+        "Buhar Motoru",
+        "Araba"
+      ],
+      "tier": 10,
+      "description": "Raylar üzerinde giden buharlı dev lokomotif.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Buharlı Gemi": {
+      "inputs": [
+        "Buhar Motoru",
+        "Sal"
+      ],
+      "tier": 10,
+      "description": "Buhar çarklarıyla okyanusları aşan dev gemi.",
+      "category": "07_bilim_ve_teknoloji"
+    },
+    "Peynir": {
+      "inputs": [
+        "Süt",
+        "Zaman"
+      ],
+      "tier": 11,
+      "description": "Mayalanıp olgunlaşmış leziz süt ürünü.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Tereyağı": {
+      "inputs": [
+        "Süt",
+        "Enerji"
+      ],
+      "tier": 11,
+      "description": "Sütün çalkalanmasıyla elde edilen saf yağ.",
+      "category": "06_yemek_ve_tarim"
+    },
+    "Dondurma": {
+      "inputs": [
+        "Süt",
+        "Buz"
+      ],
+      "tier": 11,
+      "description": "Süt ve buzla yapılan serinletici tatlı.",
+      "category": "06_yemek_ve_tarim"
+    }
   },
   "recipes_by_result": {
     "Çamur": {
