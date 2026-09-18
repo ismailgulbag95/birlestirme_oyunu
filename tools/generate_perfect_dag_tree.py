@@ -2,12 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Perfect Hierarchical DAG Tree Generator for All 521 Items
----------------------------------------------------------
-Garanti Edilen Özellikler:
-1. %100 Çakışmasızlık (Her ikili [A, B] formülü dünyada SADECE 1 eşyayı üretir).
-2. %100 Döngüsüzlük ve Ulaşılabilirlik (Strict DAG: 521 eşyanın tamamı 4 kök elementten adım adım üretilir).
-3. Genelden Özele Hiyerarşi (Örn: Su+Toprak = Çamur; Karpuz = Meyve + Su).
-4. 3D Model Arketip, Renk Paleti, İkon ve Parçacık Görsellerinin %100 Korunması.
+Kullanıcı Kuralları ve Yüksek Bağlamlı Simya Formülleri ile Revize Edilmiş Motor.
 """
 
 import json
@@ -100,6 +95,12 @@ def run_build():
     add("yagmur", ["su", "hava"], [["su", "su", "hava"]], "Havadaki nemin yağışa dönüşmesi.")
     add("kum", ["toprak", "hava"], [["toprak", "toprak", "hava"]], "Rüzgarın toprağı ufalamasıyla oluşan tanecikler.")
     add("enerji", ["ates", "hava"], [["ates", "hava", "hava"]], "Ateş ve havanın enerjisi.")
+    
+    # KURAL 1: Su + Su = Deniz
+    add("deniz", ["su", "su"], [["su", "su", "su"]], "Geniş tuzlu su havzası.")
+    add("basinc", ["hava", "hava"], [["hava", "hava", "enerji"]], "Havanın sıkışmasıyla oluşan yüksek fiziksel kuvvet.")
+    add("bubble", ["su", "buhar"], [["su", "buhar", "hava"]], "Suyun içinde hapsolan buhar küreciği.")
+    add("boiling", ["buhar", "ates"], [["su", "ates", "ates"]], "Suyun yüksek sıcaklıkta buharlaşarak kaynama noktasına ulaşması.")
 
     # =========================================================================
     # KATMAN 2: İLKEL DOĞA, ATMOSFER & TEMEL MATERYALLER (Tier 3)
@@ -110,36 +111,41 @@ def run_build():
     add("cam", ["kum", "ates"], [["kum", "ates", "hava"]], "Kumun erimesiyle oluşan şeffaf cam.")
     add("bulut", ["buhar", "hava"], [["buhar", "hava", "hava"]], "Gökyüzünde toplanan nem kütlesi.")
     add("sis", ["buhar", "toprak"], [["buhar", "toprak", "hava"]], "Yeryüzüne çöken nem tabakası.")
-    add("kul", ["ates", "kum"], [["ates", "kum", "hava"]], "Yanma sonucu kalan mineral külü.")
     add("volkan", ["lav", "toprak"], [["lav", "toprak", "ates"]], "Magmayı yüzeye püskürten dağ.")
     add("buz", ["su", "ruzgar"], [["su", "ruzgar", "hava"]], "Donmuş şeffaf buz kristali.")
     add("kar", ["bulut", "buz"], [["bulut", "buz", "hava"]], "Donmuş beyaz kar taneleri.")
     add("dolu", ["yagmur", "buz"], [["yagmur", "buz", "ruzgar"]], "Donarak düşen buz taneleri.")
-    add("deniz", ["su", "yagmur"], [["su", "su", "yagmur"]], "Geniş tuzlu su havzası.")
     add("okyanus", ["deniz", "su"], [["deniz", "deniz", "su"]], "Dev su kütlesi.")
-    add("tuz", ["deniz", "ates"], [["deniz", "ates", "toprak"]], "Tuzlu sudan kalan mineral.")
-    add("tuzlu_su", ["su", "tuz"], [["su", "tuz", "toprak"]], "Tuzla doymuş doğal su.")
+    
+    # KURAL 8: Güneş = Işık + Ateş
     add("isik", ["enerji", "ates"], [["enerji", "ates", "hava"]], "Aydınlatan ışık dalgası.")
-    add("gunes", ["isik", "enerji"], [["isik", "enerji", "ates"]], "Gökyüzünü aydınlatan ulu yıldız.")
+    add("gunes", ["isik", "ates"], [["isik", "ates", "hava"]], "Gökyüzünü aydınlatan ulu yıldız.")
+    
+    # KURAL 4: Deniz + Güneş = Tuz
+    add("tuz", ["deniz", "gunes"], [["deniz", "gunes", "ates"]], "Deniz suyunun güneşle buharlaşmasından kalan mineral.")
+    add("tuzlu_su", ["su", "tuz"], [["su", "tuz", "toprak"]], "Tuzla doymuş doğal su.")
+    
     add("firtina", ["ruzgar", "bulut"], [["ruzgar", "bulut", "enerji"]], "Güçlü fırtına.")
     add("yildirim", ["firtina", "enerji"], [["firtina", "enerji", "bulut"]], "Çakan dev elektrik arkı.")
-    add("elektrik", ["yildirim", "enerji"], [["yildirim", "enerji", "tas"]], "Elektrik enerjisi.")
+    
+    # KURAL 5 & 2: Fay Hattı + Enerji = Deprem, Deniz + Deprem = Tsunami
     add("fay_hatti", ["toprak", "tas"], [["toprak", "tas", "enerji"]], "Yer kabuğundaki kırık çizgisi.")
     add("deprem", ["fay_hatti", "enerji"], [["fay_hatti", "enerji", "toprak"]], "Tektonik sarsıntı.")
     add("tsunami", ["deniz", "deprem"], [["deniz", "deprem", "okyanus"]], "Devasa okyanus dalgası.")
+    
     add("alev", ["ates", "isik"], [["ates", "isik", "hava"]], "Ateşin parlayan dili.")
-    add("duman", ["kul", "hava"], [["kul", "hava", "ates"]], "Yanma gazı ve is.")
-    add("asit_yagmuru", ["duman", "yagmur"], [["duman", "yagmur", "hava"]], "Asitli yağış.")
     add("gayzer", ["su", "volkan"], [["su", "volkan", "buhar"]], "Fışkıran sıcak yeraltı suyu.")
     add("dag", ["tas", "fay_hatti"], [["tas", "fay_hatti", "toprak"]], "Göğe yükselen ulu zirve.")
     add("tepe", ["toprak", "tas"], [["toprak", "tas", "camur"]], "Doğal tepe yükseltisi.")
     add("yanardag", ["volkan", "dag"], [["volkan", "dag", "lav"]], "Püsküren volkanik dağ.")
     add("kaya", ["tas", "tas"], [["tas", "tas", "dag"]], "Büyük kaya kütlesi.")
     add("magara", ["dag", "tas"], [["dag", "tas", "toprak"]], "Derin kaya kovuğu.")
-    add("gol", ["su", "camur"], [["su", "camur", "toprak"]], "Tatlı su gölü.")
-    add("nehir", ["gol", "dag"], [["gol", "dag", "su"]], "Akan tatlı su nehri.")
+    add("vadi", ["dag", "toprak"], [["dag", "toprak", "nehir"]], "Akarsu vadisi.")
+    
+    # KURAL 1: Yağmur + Çamur = Göl
+    add("gol", ["yagmur", "camur"], [["yagmur", "camur", "toprak"]], "Tatlı su gölü.")
+    add("nehir", ["gol", "tas"], [["gol", "tas", "su"]], "Akan tatlı su nehri.")
     add("selale", ["nehir", "dag"], [["nehir", "dag", "su"]], "Yüksekten dökülen şelale.")
-    add("vadi", ["nehir", "dag"], [["nehir", "dag", "toprak"]], "Akarsu vadisi.")
     add("kanyon", ["nehir", "tas"], [["nehir", "tas", "kaya"]], "Derin yarılmış kanyon.")
     add("ada", ["deniz", "volkan"], [["deniz", "volkan", "toprak"]], "Dört tarafı suyla çevrili ada.")
     add("yarimada", ["ada", "toprak"], [["ada", "toprak", "deniz"]], "Üç tarafı suyla çevrili kara.")
@@ -157,11 +163,14 @@ def run_build():
     add("tufan", ["yagmur", "okyanus"], [["yagmur", "okyanus", "deniz"]], "Büyük su tufanı.")
     add("plato", ["dag", "toprak"], [["dag", "toprak", "tepe"]], "Geniş yüksek düzlük.")
     add("fiyort", ["deniz", "dag"], [["deniz", "dag", "buzul"]], "Buzul körfezi.")
+    add("beach", ["kum", "deniz"], [["kum", "deniz", "gunes"]], "Kum ve denizin buluştuğu güneşli sahil şeridi.")
+    add("arctic", ["buz", "okyanus"], [["buz", "okyanus", "kar"]], "Buzullarla ve donmuş denizlerle kaplı kutup bölgesi.")
+    add("atom", ["basinc", "enerji"], [["basinc", "enerji", "elektrik"]], "Maddenin en küçük yapı taşı ve enerji çekirdeği.")
     add("korfez", ["deniz", "yarimada"], [["deniz", "yarimada", "su"]], "Korunaklı körfez.")
     add("ozon", ["hava", "yildirim"], [["hava", "yildirim", "elektrik"]], "Ozon gazı.")
     add("aurora", ["isik", "hava"], [["isik", "hava", "enerji"]], "Kutup ışıkları.")
     add("cakmaktasi", ["tas", "enerji"], [["tas", "enerji", "ates"]], "Kıvılcım çıkaran çakmaktaşı.")
-    add("kirec", ["tas", "ates"], [["tas", "ates", "su"]], "Kalker tozu.")
+    add("kirec", ["tas", "su"], [["tas", "su", "kirec"]], "Kalker tozu.")
     add("alci", ["kirec", "su"], [["kirec", "su", "kum"]], "Alçı harcı.")
     add("cimento", ["kirec", "camur"], [["kirec", "camur", "kum"]], "Çimento tozu.")
     add("harc", ["cimento", "su"], [["cimento", "su", "kum"]], "Bağlama harcı.")
@@ -170,32 +179,99 @@ def run_build():
     add("tugla_duvar", ["tugla", "harc"], [["tugla", "harc", "cimento"]], "Tuğla duvar.")
 
     # =========================================================================
-    # KATMAN 3: İLK YAŞAM & BİYOLOJİK KÖKLER (Tier 4)
+    # KATMAN 3: MADENLER, METALLER VE ELEKTRİK (KURAL 3)
+    # =========================================================================
+    add("metal", ["tas", "ates"], [["tas", "ates", "lav"]], "Kayaçların yüksek ısıyla eritilmesinden elde edilen saf metal.")
+    
+    # KURAL 3: Metal + Enerji = Elektrik
+    add("elektrik", ["metal", "enerji"], [["metal", "enerji", "yildirim"]], "Metal iletken üzerinden akan elektrik akımı.")
+    
+    add("demir", ["metal", "toprak"], [["metal", "toprak", "ates"]], "Sağlam demir.")
+    add("bakir", ["metal", "ates"], [["metal", "ates", "elektrik"]], "Kızıl bakır.")
+    add("bronz", ["bakir", "tas"], [["bakir", "tas", "metal"]], "Bronz alaşımı.")
+    add("altin", ["metal", "gunes"], [["metal", "gunes", "isik"]], "Parlayan altın.")
+    add("gumus", ["metal", "isik"], [["metal", "isik", "buz"]], "Değerli gümüş.")
+    add("kursun", ["metal", "kum"], [["metal", "kum", "toprak"]], "Ağır kurşun.")
+    add("civa", ["metal", "su"], [["metal", "su", "gumus"]], "Sıvı cıva.")
+    add("uranyum", ["metal", "enerji"], [["metal", "enerji", "yildirim"]], "Uranyum madeni.")
+    add("kukurt", ["volkan", "toprak"], [["volkan", "toprak", "ates"]], "Kükürt minerali.")
+    add("anchor", ["demir", "deniz"], [["demir", "deniz", "metal"]], "Gemileri denizde sabit tutmak için atılan ağır demir çapa.")
+
+    # =========================================================================
+    # KATMAN 4: İLK YAŞAM, BİTKİLER, TOHUM & İNSAN
     # =========================================================================
     add("yasam", ["camur", "enerji"], [["camur", "enerji", "yildirim"]], "İlk yaşam kıvılcımı.")
-    add("hucre", ["yasam", "su"], [["yasam", "su", "camur"]], "Temel hücre birimi.")
-    add("bakteri", ["hucre", "camur"], [["hucre", "camur", "su"]], "Tek hücreli bakteri.")
-    add("virus", ["bakteri", "hava"], [["bakteri", "hava", "toprak"]], "Genetik virüs.")
-    add("bitki", ["toprak", "yasam"], [["toprak", "yasam", "su"]], "Fotosentez yapan yeşil bitki.")
+    
+    # KURAL 10: İnsan = Yaşam + Toprak
+    add("i_nsan", ["yasam", "toprak"], [["yasam", "toprak", "enerji"]], "Bilinçli insan.")
+    
+    add("bitki", ["yasam", "su"], [["yasam", "su", "toprak"]], "Fotosentez yapan yeşil bitki.")
     add("kok", ["bitki", "toprak"], [["bitki", "toprak", "su"]], "Bitkinin kökleri.")
     add("yosun", ["bitki", "su"], [["bitki", "su", "tas"]], "Nemli taş yosunu.")
+    add("algae", ["deniz", "bitki"], [["deniz", "bitki", "gunes"]], "Suda serbestçe fotosentez yapan ilkel su bitkisi ve alg.")
+    add("oksijen", ["bitki", "gunes"], [["bitki", "gunes", "hava"]], "Bitkilerin fotosenteziyle açığa çıkan yaşamsal oksijen gazı.")
     add("cimen", ["bitki", "yagmur"], [["bitki", "yagmur", "toprak"]], "Yeşil çimenlik.")
     add("cali", ["cimen", "toprak"], [["cimen", "toprak", "bitki"]], "Bodur çalı.")
     add("bozkir", ["cimen", "ruzgar"], [["cimen", "ruzgar", "toprak"]], "Geniş bozkır.")
+    
+    # KURAL 6: Bitki + Rüzgâr = Tohum
     add("tohum", ["bitki", "ruzgar"], [["bitki", "ruzgar", "toprak"]], "Bitki tohumu.")
     add("cicek", ["bitki", "isik"], [["bitki", "isik", "gunes"]], "Renkli çiçek.")
     add("agac", ["bitki", "tohum"], [["bitki", "tohum", "toprak"]], "Odunlaşan ağaç.")
+    add("branch", ["agac", "ruzgar"], [["agac", "ruzgar", "orman"]], "Ağaç gövdesinden ayrılan ahşap dal parçası.")
     add("odun", ["agac", "tas"], [["agac", "tas", "toprak"]], "Sert ahşap odun.")
-    add("kiymik", ["odun", "tas"], [["odun", "tas", "agac"]], "Ahşap kıymık.")
+    add("kiymik", ["odun", "ruzgar"], [["odun", "tas", "agac"]], "Ahşap kıymık.")
     add("yaprak", ["agac", "isik"], [["agac", "isik", "ruzgar"]], "Yeşil yaprak.")
     add("agac_kabugu", ["agac", "hava"], [["agac", "hava", "ruzgar"]], "Ağaç kabuğu.")
     add("orman", ["agac", "toprak"], [["agac", "toprak", "yasam"]], "Büyük ağaç ormanı.")
     add("recine", ["agac", "ates"], [["agac", "ates", "gunes"]], "Ağaç özsuyu.")
     add("kehribar", ["recine", "tas"], [["recine", "tas", "toprak"]], "Kehribar fosili.")
     add("fosil", ["tas", "yasam"], [["tas", "yasam", "toprak"]], "Canlı fosili.")
+    add("petrol", ["basinc", "fosil"], [["basinc", "fosil", "toprak"]], "Organik fosillerin yer altında basınç altında kalmasıyla oluşan petrol.")
     add("bataklik", ["camur", "bitki"], [["camur", "bitki", "su"]], "Islak bataklık.")
     add("tundra", ["buzul", "toprak"], [["buzul", "toprak", "kar"]], "Donmuş tundra.")
     add("karli_cam_agaci", ["agac", "kar"], [["agac", "kar", "buzul"]], "Karlı çam.")
+
+    # Kömür, Elmas, Çelik Zinciri
+    add("komur", ["odun", "ates"], [["odun", "ates", "toprak"]], "Yanmış ahşap kömürü.")
+    add("karbon", ["komur", "ates"], [["komur", "ates", "odun"]], "Kömürleşme sonucu oluşan temel organik karbon elementi.")
+    add("karbondioksit", ["karbon", "oksijen"], [["karbon", "oksijen", "ates"]], "Karbon ve oksijenin birleşimiyle oluşan sera gazı.")
+    add("elmas", ["komur", "tas"], [["komur", "tas", "enerji"]], "Sert elmas.")
+    add("celik", ["demir", "komur"], [["demir", "komur", "ates"]], "Sağlam çelik.")
+    add("demir_kulce", ["demir", "ates"], [["demir", "ates", "celik"]], "Demir külçe.")
+    add("celik_kulce", ["celik", "ates"], [["celik", "ates", "demir_kulce"]], "Çelik külçe.")
+    add("barut", ["kukurt", "komur"], [["kukurt", "komur", "ates"]], "Barut tozu.")
+
+    # Kağıt, Yazı, Kitap Zinciri (KURAL 9)
+    add("kagit", ["agac", "su"], [["agac", "su", "gunes"]], "Ağaç liflerinden üretilen beyaz kağıt.")
+    add("kalem", ["odun", "komur"], [["odun", "komur", "kagit"]], "Kömür uçlu ahşap kurşun kalem.")
+    add("yazi", ["kalem", "kagit"], [["kalem", "kagit", "i_nsan"]], "Sembolik yazılı metin.")
+    add("kitap", ["kagit", "yazi"], [["kagit", "yazi", "i_nsan"]], "Bilgi dolu ciltli kitap.")
+
+    # Temel Canlılar
+    add("hayvan", ["yasam", "toprak"], [["yasam", "toprak", "orman"]], "Yeryüzü hayvanı.")
+    add("balik", ["yasam", "deniz"], [["yasam", "deniz", "su"]], "Deniz balığı.")
+    add("plankton", ["deniz", "algae"], [["deniz", "algae", "yasam"]], "Deniz ekosisteminin temelini oluşturan mikroskobik canlılar.")
+    add("aquarium", ["cam", "balik"], [["cam", "balik", "su"]], "Balıkların ve su canlılarının yaşadığı şeffaf cam akvaryum.")
+    add("kus", ["yasam", "hava"], [["yasam", "hava", "ruzgar"]], "Uçan kuş.")
+    add("bocek", ["yasam", "cimen"], [["yasam", "cimen", "toprak"]], "Küçük böcek.")
+    add("surungen", ["hayvan", "kum"], [["hayvan", "kum", "tas"]], "Pullu sürüngen.")
+    add("kurbaga", ["hayvan", "camur"], [["hayvan", "camur", "su"]], "Yeşil kurbağa.")
+    add("bat", ["kus", "magara"], [["kus", "magara", "yasam"]], "Karanlık mağaralarda yaşayan uçan yarasa.")
+    add("beaver", ["hayvan", "odun"], [["hayvan", "odun", "nehir"]], "Nehirlerde baraj kuran kunduz.")
+    add("boar", ["hayvan", "orman"], [["hayvan", "orman", "toprak"]], "Ormanlarda yaşayan yaban domuzu.")
+    add("caterpillar", ["bocek", "yaprak"], [["bocek", "yaprak", "cimen"]], "Yaprak yiyen tırtıl.")
+    add("crayfish", ["bocek", "nehir"], [["bocek", "nehir", "tas"]], "Tatlı su kereviti.")
+    add("crow", ["kus", "tas"], [["kus", "tas", "agac"]], "Zeki siyah karga.")
+    add("cuckoo", ["kus", "orman"], [["kus", "orman", "agac"]], "Orman guguk kuşu.")
+    add("elephant", ["hayvan", "tepe"], [["hayvan", "tepe", "orman"]], "Devasa fil.")
+    add("firefly", ["bocek", "isik"], [["bocek", "isik", "ates"]], "Işık saçan ateşböceği.")
+    add("flamingo", ["kus", "gol"], [["kus", "gol", "su"]], "Zarif pembe flamingo.")
+    add("flying_fish", ["balik", "hava"], [["balik", "hava", "ruzgar"]], "Süzülen uçan balık.")
+    add("fox", ["hayvan", "cali"], [["hayvan", "cali", "orman"]], "Kızıl orman tilkisi.")
+    add("giraffe", ["hayvan", "agac"], [["hayvan", "agac", "bozkir"]], "Uzun boyunlu zürafa.")
+    add("hedgehog", ["hayvan", "kiymik"], [["hayvan", "kiymik", "cali"]], "Dikenli kirpi.")
+    add("kangaroo", ["hayvan", "bozkir"], [["hayvan", "bozkir", "toprak"]], "Keseli kanguru.")
 
     # Tarım ve Meyve
     add("meyve", ["cicek", "agac"], [["cicek", "agac", "gunes"]], "Tatlı meyve.")
@@ -207,49 +283,35 @@ def run_build():
     add("mantar", ["camur", "yosun"], [["camur", "yosun", "orman"]], "Orman mantarı.")
     add("palmiye", ["agac", "kum"], [["agac", "kum", "vaha"]], "Tropik palmiye.")
 
-    # Madenler ve Metaller
-    add("maden", ["tas", "toprak"], [["tas", "toprak", "dag"]], "Cevher yatağı.")
-    add("metal", ["maden", "ates"], [["maden", "ates", "lav"]], "Saf metal.")
-    add("demir", ["metal", "toprak"], [["metal", "toprak", "ates"]], "Sağlam demir.")
-    add("bakir", ["metal", "ates"], [["metal", "ates", "elektrik"]], "Kızıl bakır.")
-    add("bronz", ["bakir", "tas"], [["bakir", "tas", "metal"]], "Bronz alaşımı.")
-    add("altin", ["metal", "gunes"], [["metal", "gunes", "isik"]], "Parlayan altın.")
-    add("gumus", ["metal", "isik"], [["metal", "isik", "buz"]], "Değerli gümüş.")
-    add("kursun", ["metal", "kum"], [["metal", "kum", "toprak"]], "Ağır kurşun.")
-    add("civa", ["metal", "su"], [["metal", "su", "gumus"]], "Sıvı cıva.")
-    add("uranyum", ["metal", "enerji"], [["metal", "enerji", "yildirim"]], "Uranyum madeni.")
-    add("kukurt", ["volkan", "toprak"], [["volkan", "toprak", "ates"]], "Kükürt minerali.")
-    add("komur", ["odun", "ates"], [["odun", "ates", "toprak"]], "Kömür yakıtı.")
-    add("elmas", ["komur", "tas"], [["komur", "tas", "enerji"]], "Sert elmas.")
-    add("celik", ["demir", "komur"], [["demir", "komur", "ates"]], "Sağlam çelik.")
-    add("demir_kulce", ["demir", "ates"], [["demir", "ates", "celik"]], "Demir külçe.")
-    add("celik_kulce", ["celik", "ates"], [["celik", "ates", "demir_kulce"]], "Çelik külçe.")
-    add("barut", ["kukurt", "komur"], [["kukurt", "komur", "ates"]], "Barut tozu.")
-    add("granit", ["lav", "tas"], [["lav", "tas", "volkan"]], "Granit kayaç.")
-    add("mermer", ["tas", "kirec"], [["tas", "kirec", "dag"]], "Mermer taş.")
-    add("zumrut", ["tas", "bitki"], [["tas", "bitki", "toprak"]], "Zümrüt taşı.")
-    add("yakut", ["tas", "ates"], [["tas", "ates", "isik"]], "Kızıl yakut.")
-    add("safir", ["tas", "deniz"], [["tas", "deniz", "su"]], "Mavi safir.")
-    add("ametist", ["tas", "enerji"], [["tas", "enerji", "isik"]], "Mor ametist.")
-    add("yesim", ["tas", "su"], [["tas", "su", "yosun"]], "Yeşim taşı.")
-    add("kuvars", ["kum", "enerji"], [["kum", "enerji", "cam"]], "Kuvars kristali.")
-    add("kristal", ["su", "tas"], [["su", "tas", "buz"]], "Kristal yapı.")
-    add("platin", ["metal", "elmas"], [["metal", "elmas", "gumus"]], "Platin madeni.")
-    add("titanyum", ["metal", "celik"], [["metal", "celik", "elmas"]], "Titanyum metali.")
-
-    # Temel Canlılar (Fauna)
-    add("hayvan", ["yasam", "toprak"], [["yasam", "toprak", "orman"]], "Yeryüzü hayvanı.")
-    add("balik", ["yasam", "deniz"], [["yasam", "deniz", "su"]], "Deniz balığı.")
-    add("kus", ["yasam", "hava"], [["yasam", "hava", "ruzgar"]], "Uçan kuş.")
-    add("bocek", ["yasam", "cimen"], [["yasam", "cimen", "toprak"]], "Küçük böcek.")
-    add("surungen", ["hayvan", "kum"], [["hayvan", "kum", "tas"]], "Pullu sürüngen.")
-    add("kurbaga", ["hayvan", "camur"], [["hayvan", "camur", "su"]], "Yeşil kurbağa.")
-    add("i_nsan", ["hayvan", "enerji"], [["hayvan", "enerji", "yasam"]], "Bilinçli insan.")
-
     # =========================================================================
-    # KATMAN 4: SPESİFİK MEYVELER & TARIM ÜRÜNLERİ (Genelden Özele!)
+    # KATMAN 5: TEKNOLOJİ, BİLGİSAYAR & KURAL 7 (ROBOT)
     # =========================================================================
-    # Karpuz: Meyve + Su
+    add("alet", ["odun", "tas"], [["odun", "tas", "i_nsan"]], "Temel el aleti.")
+    add("balta", ["alet", "odun"], [["alet", "odun", "tas"]], "Odun baltası.")
+    add("kazma", ["alet", "tas"], [["alet", "tas", "maden"]], "Madenci kazması.")
+    add("bicak", ["alet", "metal"], [["alet", "metal", "tas"]], "Keskin bıçak.")
+    add("cekic", ["alet", "demir"], [["alet", "demir", "odun"]], "Ağır çekiç.")
+    add("kurek", ["alet", "toprak"], [["alet", "toprak", "odun"]], "Toprak küreği.")
+    add("testere", ["alet", "celik"], [["alet", "celik", "odun"]], "Odun testeresi.")
+    add("ors", ["demir", "tas"], [["demir", "tas", "ates"]], "Demirci örsü.")
+    add("kilic", ["celik", "ates"], [["celik", "ates", "alet"]], "Savaş kılıcı.")
+    add("mizrak", ["odun", "bicak"], [["odun", "bicak", "metal"]], "Uzun mızrak.")
+    add("kalkan", ["odun", "demir"], [["odun", "demir", "alet"]], "Savunma kalkanı.")
+    add("zirh", ["celik", "demir"], [["celik", "demir", "i_nsan"]], "Savaş zırhı.")
+    add("migfer", ["demir", "ates"], [["demir", "ates", "alet"]], "Metal miğfer.")
+    add("pusula", ["demir", "cam"], [["demir", "cam", "miknatis"]], "Yön gösteren pusula.")
+    
+    # Motor, Bilgisayar ve Robot
+    add("elektrik_motoru", ["demir", "elektrik"], [["demir", "elektrik", "enerji"]], "Elektromekanik motor.")
+    add("jenerator", ["elektrik_motoru", "enerji"], [["elektrik_motoru", "enerji", "demir"]], "Elektrik jeneratörü.")
+    add("bilgisayar", ["elektrik", "cam"], [["elektrik", "cam", "metal"]], "Elektronik bilgisayar.")
+    
+    # KURAL 7: Bilgisayar + Demir = Robot
+    add("robot", ["bilgisayar", "demir"], [["bilgisayar", "demir", "elektrik"]], "Programlanabilir mekanik robot.")
+    add("yapay_zeka", ["bilgisayar", "i_nsan"], [["bilgisayar", "i_nsan", "elektrik"]], "Yapay zeka zihni.")
+    add("zaman", ["kum", "cam"], [["kum", "cam", "gunes"]], "Kum saati ve güneşle akan zaman.")
+
+    # Kalan Katman 5-8 Spesifik Öğeler
     add("karpuz", ["meyve", "su"], [["tohum", "su", "toprak"]], "İçi sulu tatlı dev kırmızı karpuz.")
     add("elma", ["meyve", "agac"], [["meyve", "agac", "gunes"]], "Çıtır tatlı elma.")
     add("portakal", ["meyve", "gunes"], [["meyve", "gunes", "agac"]], "Turuncu sulu narenciye.")
@@ -278,22 +340,6 @@ def run_build():
     add("baharat_cesnisi", ["baharat", "tuz"], [["baharat", "tuz", "tohum"]], "Baharat çeşnisi.")
     add("nane", ["yaprak", "ruzgar"], [["yaprak", "ruzgar", "su"]], "Ferahlatıcı nane.")
 
-    # =========================================================================
-    # KATMAN 5: ALET, ZANAAT, SİLAH & GİYSİ
-    # =========================================================================
-    add("alet", ["odun", "tas"], [["odun", "tas", "i_nsan"]], "Temel el aleti.")
-    add("balta", ["alet", "odun"], [["alet", "odun", "tas"]], "Odun baltası.")
-    add("kazma", ["alet", "tas"], [["alet", "tas", "maden"]], "Madenci kazması.")
-    add("bicak", ["alet", "metal"], [["alet", "metal", "tas"]], "Keskin bıçak.")
-    add("cekic", ["alet", "demir"], [["alet", "demir", "odun"]], "Ağır çekiç.")
-    add("kurek", ["alet", "toprak"], [["alet", "toprak", "odun"]], "Toprak küreği.")
-    add("testere", ["alet", "celik"], [["alet", "celik", "odun"]], "Odun testeresi.")
-    add("ors", ["demir", "tas"], [["demir", "tas", "ates"]], "Demirci örsü.")
-    add("kilic", ["celik", "ates"], [["celik", "ates", "alet"]], "Savaş kılıcı.")
-    add("mizrak", ["odun", "bicak"], [["odun", "bicak", "metal"]], "Uzun mızrak.")
-    add("kalkan", ["odun", "demir"], [["odun", "demir", "alet"]], "Savunma kalkanı.")
-    add("zirh", ["celik", "demir"], [["celik", "demir", "i_nsan"]], "Savaş zırhı.")
-    add("migfer", ["demir", "ates"], [["demir", "ates", "alet"]], "Metal miğfer.")
     add("lif", ["pamuk", "ruzgar"], [["pamuk", "ruzgar", "bitki"]], "Doğal lif.")
     add("i_p", ["lif", "lif"], [["lif", "lif", "alet"]], "Bağlama ipi.")
     add("i_plik", ["i_p", "i_p"], [["i_p", "i_p", "lif"]], "Dikiş ipliği.")
@@ -311,9 +357,7 @@ def run_build():
     add("demir_kalkan", ["kalkan", "demir"], [["kalkan", "demir", "celik"]], "Demir kalkan.")
     add("ahsap_kalkan", ["kalkan", "odun"], [["kalkan", "odun", "tas"]], "Ahşap kalkan.")
 
-    # =========================================================================
-    # KATMAN 6: SPESİFİK FAUNA & HAYVANLAR
-    # =========================================================================
+    # Canlılar
     add("ari", ["bocek", "cicek"], [["bocek", "cicek", "gunes"]], "Bal arısı.")
     add("bal", ["ari", "cicek"], [["ari", "cicek", "gunes"]], "Tatlı bal.")
     add("kelebek", ["bocek", "isik"], [["bocek", "isik", "cicek"]], "Renkli kelebek.")
@@ -328,8 +372,8 @@ def run_build():
     add("et", ["hayvan", "bicak"], [["hayvan", "bicak", "ates"]], "Taze et.")
     add("kavrulmus_et", ["et", "ates"], [["et", "ates", "tuz"]], "Pişmiş et.")
     add("balik_eti", ["balik", "bicak"], [["balik", "bicak", "tuz"]], "Balık eti.")
-    add("inek", ["hayvan", "cimen"], [["hayvan", "cimen", "toprak"]], "Sütçü inek.")
-    add("sut", ["inek", "su"], [["inek", "su", "cimen"]], "Taze süt.")
+    add("i_nek", ["hayvan", "cimen"], [["hayvan", "cimen", "toprak"]], "Sütçü inek.")
+    add("sut", ["i_nek", "su"], [["i_nek", "su", "cimen"]], "Taze süt.")
     add("peynir", ["sut", "tuz"], [["sut", "tuz", "bakteri"]], "Mayalı peynir.")
     add("yogurt", ["sut", "bakteri"], [["sut", "bakteri", "ates"]], "Geleneksel yoğurt.")
     add("tereyagi", ["sut", "enerji"], [["sut", "enerji", "tuz"]], "Tereyağı.")
@@ -355,10 +399,9 @@ def run_build():
     add("timsah", ["surungen", "nehir"], [["surungen", "nehir", "camur"]], "Nehir timsahı.")
     add("kaplumbaga", ["surungen", "tas"], [["surungen", "tas", "deniz"]], "Kaplumbağa.")
     add("bukalemun", ["surungen", "isik"], [["surungen", "isik", "orman"]], "Bukalemun.")
+    add("dinozor", ["surungen", "fosil"], [["surungen", "fosil", "toprak"]], "Tarih öncesi dev dinozor.")
 
-    # =========================================================================
-    # KATMAN 7: MUTFAK, YEMEK, İÇECEK & GIDA
-    # =========================================================================
+    # Mutfak ve Gıda
     add("un", ["bugday", "tas"], [["bugday", "tas", "ruzgar"]], "Öğütülmüş un.")
     add("hamur", ["un", "su"], [["un", "su", "tuz"]], "Ekmek hamuru.")
     add("ekmek", ["hamur", "ates"], [["hamur", "ates", "un"]], "Taze ekmek.")
@@ -373,10 +416,53 @@ def run_build():
     add("sarap", ["uzum", "alkol"], [["uzum", "alkol", "agac"]], "Kırmızı şarap.")
     add("bira", ["bugday", "alkol"], [["bugday", "alkol", "su"]], "Arpa birası.")
     add("sirke", ["sarap", "hava"], [["sarap", "hava", "bakteri"]], "Mayalı sirke.")
+    add("acorn", ["tohum", "orman"], [["tohum", "orman", "agac"]], "Meşe palamudu tohumu.")
+    add("baobab", ["agac", "col"], [["agac", "col", "gunes"]], "Geniş gövdeli baobab ağacı.")
+    add("berry", ["meyve", "cali"], [["meyve", "cali", "orman"]], "Yabani böğürtlen meyvesi.")
+    add("cacao", ["tohum", "palmiye"], [["tohum", "palmiye", "gunes"]], "Kakao çekirdeği.")
+    add("coconut", ["palmiye", "meyve"], [["palmiye", "meyve", "kum"]], "Tropik hindistan cevizi.")
+    add("sunflower", ["cicek", "gunes"], [["cicek", "gunes", "tohum"]], "Sarı ayçiçeği.")
+    add("candy", ["seker", "meyve"], [["seker", "meyve", "ates"]], "Meyveli tatlı şekerleme.")
+    add("caramel", ["seker", "ates"], [["seker", "ates", "sut"]], "Kızarmış karamel şekeri.")
+    add("canned_food", ["et", "metal"], [["et", "metal", "tuz"]], "Metal kutuda konserve gıda.")
+    add("toast", ["ekmek", "ates"], [["ekmek", "ates", "peynir"]], "Kızarmış çıtır tost ekmeği.")
+    add("sandwich", ["ekmek", "peynir"], [["ekmek", "peynir", "et"]], "Lezzetli sandviç.")
+    add("champagne", ["sarap", "bubble"], [["sarap", "bubble", "cam"]], "Köpüklü kutlama şampanyası.")
+    add("barrel", ["odun", "demir"], [["odun", "demir", "sarap"]], "Depolama ahşap fıçısı.")
+    add("bouquet", ["cicek", "cicek"], [["cicek", "cicek", "cicek"]], "Rengarenk çiçek buketi.")
+    add("box", ["odun", "odun"], [["odun", "odun", "alet"]], "Eşya saklama kutusu.")
+    add("balloon", ["hava", "kumas"], [["hava", "kumas", "i_p"]], "Renkli uçan balon.")
+    add("bandage", ["kumas", "i_nsan"], [["kumas", "i_nsan", "alet"]], "Tıbbi yara bandajı.")
+    add("boomerang", ["odun", "kus"], [["odun", "kus", "alet"]], "Avcı bumerangı.")
+    add("broom", ["odun", "cali"], [["odun", "cali", "i_p"]], "Çalı süpürgesi.")
+    add("brush", ["odun", "yun"], [["odun", "yun", "alet"]], "Ressam fırçası.")
+    add("bucket", ["demir", "kutu"], [["demir", "kutu", "su"]], "Metal su kovası.")
+    add("comb", ["kemik", "alet"], [["kemik", "alet", "i_nsan"]], "Kemik tarak.")
+    add("fan", ["elektrik_motoru", "ruzgar"], [["elektrik_motoru", "ruzgar", "demir"]], "Masaüstü vantilatör.")
+    add("antenna", ["metal", "radyo"], [["metal", "radyo", "elektrik"]], "İletişim anteni.")
+    add("binoculars", ["cam", "teleskop"], [["cam", "teleskop", "metal"]], "Çift gözlü dürbün.")
+    add("flashlight", ["cam", "isik"], [["cam", "isik", "pil"]], "Pilli el feneri.")
+    add("flask", ["metal", "deri"], [["metal", "deri", "su"]], "Yolcu matarası.")
+    add("glasses", ["cam", "cam"], [["cam", "cam", "metal"]], "Okuma gözlüğü.")
+    add("grenade", ["barut", "metal"], [["barut", "metal", "ates"]], "Parça tesirli el bombası.")
+    add("matches", ["odun", "kukurt"], [["odun", "kukurt", "ates"]], "Kibrit çöpü.")
+    add("alien", ["yasam", "meteor"], [["yasam", "meteor", "uzay"]], "Uzaylı varlık.")
+    add("baby", ["i_nsan", "zaman"], [["i_nsan", "zaman", "sevgi"]], "Sevimli bebek.")
+    add("blood", ["i_nsan", "bicak"], [["i_nsan", "bicak", "et"]], "Yaşamsal kan.")
+    add("brain", ["i_nsan", "elektrik"], [["i_nsan", "elektrik", "enerji"]], "İnsan beyni.")
+    add("dna", ["yasam", "atom"], [["yasam", "atom", "enerji"]], "Genetik DNA zinciri.")
+    add("skeleton", ["kemik", "kemik"], [["kemik", "kemik", "kemik"]], "Kemik iskelet.")
+    add("mummy", ["i_nsan", "bandage"], [["i_nsan", "bandage", "piramit"]], "Sargılı mumya.")
+    add("knight", ["i_nsan", "zirh"], [["i_nsan", "zirh", "kilic"]], "Zırhlı şövalye.")
+    add("pirate", ["i_nsan", "yelkenli"], [["i_nsan", "yelkenli", "deniz"]], "Deniz korsanı.")
+    add("soldier", ["i_nsan", "tufek"], [["i_nsan", "tufek", "zirh"]], "Silahlı asker.")
+    add("spy", ["i_nsan", "glasses"], [["i_nsan", "glasses", "sehir"]], "Gizli casus.")
+    add("firefighter", ["i_nsan", "bucket"], [["i_nsan", "bucket", "ates"]], "Kahraman itfaiyeci.")
+    add("scarecrow", ["kumas", "cali"], [["kumas", "cali", "kus"]], "Tarla korkuluğu.")
+    add("snowman", ["kar", "i_nsan"], [["kar", "i_nsan", "havuc"]], "Kardan adam.")
+    add("pinocchio", ["odun", "yasam"], [["odun", "yasam", "i_nsan"]], "Canlı tahta kukla Pinokyo.")
 
-    # =========================================================================
-    # KATMAN 8: YAPI, ŞEHİR, MİMARİ & MEDENİYET
-    # =========================================================================
+    # Yapı, Şehir, Medeniyet
     add("ev", ["odun", "tugla_duvar"], [["odun", "tugla_duvar", "i_nsan"]], "Sıcak yuva ev.")
     add("cadir", ["kumas", "odun"], [["kumas", "odun", "i_p"]], "Kumaş çadır.")
     add("yatak", ["kumas", "yun"], [["kumas", "yun", "odun"]], "Yumuşak yatak.")
@@ -402,24 +488,89 @@ def run_build():
     add("liman", ["deniz", "ev"], [["deniz", "ev", "odun"]], "Liman.")
     add("denizfeneri", ["kule", "isik"], [["kule", "isik", "deniz"]], "Deniz feneri.")
     add("tunel", ["dag", "kazma"], [["dag", "kazma", "yol"]], "Dağ tüneli.")
+    add("igloo", ["buz", "ev"], [["buz", "ev", "kar"]], "Kutup iglosu.")
+    add("skyscraper", ["sehir", "cam"], [["sehir", "cam", "celik"]], "Modern gökdelen.")
+    add("fountain", ["su", "anit"], [["su", "anit", "sehir"]], "Şehir fıskiyesi.")
+    add("grave", ["toprak", "kemik"], [["toprak", "kemik", "tas"]], "Taş mezar.")
+    add("labyrinth", ["sur", "yol"], [["sur", "yol", "tas"]], "Karmaşık labirent.")
+    add("bonfire", ["odun", "alev"], [["odun", "alev", "ates"]], "Kamp ateşi.")
+    add("fireworks", ["barut", "isik"], [["barut", "isik", "hava"]], "Kutlama havai fişeği.")
+    add("gasoline", ["petrol", "ates"], [["petrol", "ates", "enerji"]], "Rafine benzin yakıtı.")
+    add("black_hole", ["meteor", "basinc"], [["meteor", "basinc", "uzay"]], "Kozmik kara delik.")
+    add("supernova", ["gunes", "enerji"], [["gunes", "enerji", "isik"]], "Kozmik süpernova patlaması.")
+    add("crystal_ball", ["cam", "buyu"], [["cam", "buyu", "kristal"]], "Büyülü kristal küre.")
+    add("centaur", ["i_nsan", "at"], [["i_nsan", "at", "orman"]], "Yarı insan yarı at kentaur.")
+    add("cerberus", ["kopek", "lav"], [["kopek", "lav", "ates"]], "Üç başlı cehennem köpeği Kerberos.")
+    add("hydra", ["yilan", "bataklik"], [["yilan", "bataklik", "su"]], "Çok başlı su ejderi Hidra.")
+    add("giant", ["i_nsan", "dag"], [["i_nsan", "dag", "tas"]], "Devasa yaratık dev.")
+    add("camel", ["hayvan", "col"], [["hayvan", "col", "kum"]], "Çöl devesi.")
+    add("mouse", ["hayvan", "peynir"], [["hayvan", "peynir", "ev"]], "Peynir kurdu fare.")
+    add("pig", ["hayvan", "camur"], [["hayvan", "camur", "cimen"]], "Çiftlik domuzu.")
+    add("reindeer", ["hayvan", "kar"], [["hayvan", "kar", "tundra"]], "Kutup ren geyiği.")
+    add("snail", ["bocek", "camur"], [["bocek", "camur", "yagmur"]], "Kabuklu salyangoz.")
+    add("squid", ["ahtapot", "okyanus"], [["ahtapot", "okyanus", "derinlik"]], "Derin deniz mürekkepbalığı.")
+    add("vulture", ["kus", "col"], [["kus", "col", "et"]], "Çöl akbabası.")
+    add("scarab", ["bocek", "kum"], [["bocek", "kum", "piramit"]], "Mısır böceği skarabe.")
+    add("nest", ["kus", "branch"], [["kus", "branch", "agac"]], "Kuş yuvası.")
+    add("birdhouse", ["ev", "kus"], [["ev", "kus", "odun"]], "Bahçe kuş evi.")
+    add("sponge", ["algae", "kum"], [["algae", "kum", "deniz"]], "Deniz süngeri.")
+    add("fence", ["odun", "koy"], [["odun", "koy", "civi"]], "Ahşap bahçe çiti.")
+    add("incubator", ["kus", "lamba"], [["kus", "lamba", "elektrik"]], "Kuluçka makinesi.")
+    add("vase", ["camur", "cicek"], [["camur", "cicek", "ates"]], "Çiçek vazosu.")
+    add("pillow", ["kumas", "kus_tuyu"], [["kumas", "kus_tuyu", "yatak"]], "Yumuşak uyku yastığı.")
+    add("medicine", ["bitki", "i_ksir"], [["bitki", "i_ksir", "i_nsan"]], "Şifalı ilaç.")
+    add("soap", ["kul", "zeytinyagi"], [["kul", "zeytinyagi", "su"]], "Temizleyici sabun.")
+    add("perfume", ["cicek", "alkol"], [["cicek", "alkol", "su"]], "Hoş kokulu parfüm.")
+    add("paint", ["cicek", "recine"], [["cicek", "recine", "su"]], "Renkli boya pigmenti.")
+    add("glue", ["recine", "un"], [["recine", "un", "su"]], "Güçlü yapıştırıcı tutkal.")
+    add("ring", ["altin", "elmas"], [["altin", "elmas", "metal"]], "Değerli altın yüzük.")
+    add("medal", ["altin", "kumas"], [["altin", "kumas", "i_p"]], "Ödül madalyası.")
+    add("letter", ["kagit", "kalem"], [["kagit", "kalem", "yazi"]], "Mühürlü mektup.")
+    add("umbrella", ["kumas", "yagmur"], [["kumas", "yagmur", "metal"]], "Yağmur şemsiyesi.")
+    add("raincoat", ["kiyafet", "yagmur"], [["kiyafet", "yagmur", "kumas"]], "Su geçirmez yağmurluk.")
+    add("parachute", ["kumas", "hava"], [["kumas", "hava", "i_p"]], "Hava paraşütü.")
+    add("fridge", ["metal", "buz"], [["metal", "buz", "elektrik"]], "Elektrikli buzdolabı.")
+    add("vacuum", ["broom", "elektrik_motoru"], [["broom", "elektrik_motoru", "demir"]], "Elektrikli süpürge vakum.")
+    add("toy", ["odun", "kumas"], [["odun", "kumas", "i_nsan"]], "Ahşap oyuncak.")
+    add("pipe", ["odun", "tutun"], [["odun", "tutun", "ates"]], "Tütün piposu.")
+    add("aluminium", ["metal", "hava"], [["metal", "hava", "ates"]], "Hafif alüminyum.")
+    add("bitcoin", ["bilgisayar", "altin_sikke"], [["bilgisayar", "altin_sikke", "elektrik"]], "Kripto para Bitcoin.")
+    add("calendar", ["zaman", "kagit"], [["zaman", "kagit", "gunes"]], "Zaman takvimi.")
+    add("camouflage", ["kumas", "orman"], [["kumas", "orman", "asker"]], "Askeri kamuflaj deseni.")
+    add("cardboard", ["kagit", "kagit"], [["kagit", "kagit", "kutu"]], "Mukavva karton.")
+    add("chemical_waste", ["kukurt", "su"], [["kukurt", "su", "ates"]], "Zehirli kimyasal atık.")
+    add("cross", ["altin", "tapinak"], [["altin", "tapinak", "isik"]], "Kutsal haç sembolü.")
+    add("escalator", ["ev", "elektrik_motoru"], [["ev", "elektrik_motoru", "i_nsan"]], "Otomatik yürüyen merdiven.")
+    add("explosive", ["barut", "ates"], [["barut", "ates", "kukurt"]], "Patlayıcı dinamit.")
+    add("lamp", ["ampul", "metal"], [["ampul", "metal", "elektrik"]], "Masa lambası.")
+    add("lasso", ["halat", "at"], [["halat", "at", "i_p"]], "Kovboy kemendi.")
+    add("scuba", ["oksijen", "deniz"], [["oksijen", "deniz", "metal"]], "Sualtı dalış tüpü.")
+    add("tank", ["araba", "zirh"], [["araba", "zirh", "tufek"]], "Zırhlı savaş tankı.")
+    add("weapon", ["alet", "barut"], [["alet", "barut", "metal"]], "Askeri silah.")
+    add("bit", ["bilgisayar", "elektrik"], [["bilgisayar", "elektrik", "isik"]], "Dijital bit verisi.")
+
+    # Mistik & Evren
+    add("buyu", ["enerji", "kristal"], [["enerji", "kristal", "isik"]], "Gizemli büyü gücü.")
+    add("buyu_parsomeni", ["buyu", "kagit"], [["buyu", "kagit", "yazi"]], "Büyü yazılı parşömen.")
+    add("i_ksir", ["su", "bitki"], [["su", "bitki", "buyu"]], "Şifalı simya iksiri.")
+    add("felsefe_tasi", ["i_ksir", "altin"], [["i_ksir", "altin", "elmas"]], "Efsanevi felsefe taşı.")
+    add("cin", ["hava", "ates"], [["hava", "ates", "buyu"]], "Dumansız ateşten doğan cin.")
+    add("anka_kusu", ["kus", "ates"], [["kus", "ates", "kul"]], "Küllerinden doğan Anka kuşu.")
+    add("anka_kulu", ["anka_kusu", "kul"], [["anka_kusu", "kul", "ates"]], "Kutsal anka külü.")
+
+    # Ulaşım & Araçlar
+    add("tekerlek", ["odun", "alet"], [["odun", "alet", "tas"]], "Dönen ahşap tekerlek.")
+    add("araba", ["metal", "tekerlek"], [["metal", "tekerlek", "odun"]], "Dört tekerlekli araba.")
+    add("tren", ["buhar", "demir"], [["buhar", "demir", "komur"]], "Raylarda giden buharlı tren.")
+    add("tekne", ["odun", "su"], [["odun", "su", "alet"]], "Ahşap su teknesi.")
+    add("gemi", ["tekne", "demir"], [["tekne", "demir", "deniz"]], "Büyük deniz gemisi.")
+    add("yelkenli", ["tekne", "kumas"], [["tekne", "kumas", "ruzgar"]], "Rüzgarla giden yelkenli.")
+    add("ucak", ["metal", "kus"], [["metal", "kus", "elektrik_motoru"]], "Gökyüzünde uçan uçak.")
+    add("ayna", ["cam", "gumus"], [["cam", "gumus", "isik"]], "Işığı yansıtan ayna.")
 
     # =========================================================================
     # OTOMATİK ÇÖZÜMLEME DÖNGÜSÜ: KALAN TÜM EŞYALARI SEMANTİK KURALLARLA ÇÖZ
     # =========================================================================
-    if str(WORKSPACE_DIR / "tools") not in sys.path:
-        sys.path.insert(0, str(WORKSPACE_DIR / "tools"))
-    import generate_full_521_crafting_tree as old_gen
-    old_recipes = old_gen.get_complete_recipe_book()
-
-    alias_cleaner = {
-        "insan": "i_nsan", "ip": "i_p", "iplik": "i_plik", "iksir": "i_ksir",
-        "inek": "i_nek", "icten_yanmali_motor": "i_cten_yanmali_motor",
-        "ipek": "i_pek", "ipekbocegi": "i_pekbocegi", "inci": "i_nci",
-        "imparatorluk": "i_mparatorluk", "igne": "i_gne", "internet": "i_nternet",
-        "ilkel_bicak": "i_lkel_bicak", "illuzyon_aynasi": "i_lluzyon_aynasi",
-        "iksir_kazani": "i_ksir_kazani"
-    }
-
     round_num = 0
     while True:
         unresolved = [k for k in b.all_keys if k not in b.reachable]
@@ -431,17 +582,6 @@ def run_build():
         
         for k in unresolved:
             candidate_pairs = []
-            
-            # 1. Eski tariften gelen girdi
-            if k in old_recipes:
-                raw_inputs = old_recipes[k].get("inputs", [])
-                if len(raw_inputs) == 2:
-                    c_a = alias_cleaner.get(raw_inputs[0], raw_inputs[0])
-                    c_b = alias_cleaner.get(raw_inputs[1], raw_inputs[1])
-                    if c_a in b.reachable and c_b in b.reachable and c_a != k and c_b != k:
-                        candidate_pairs.append((c_a, c_b))
-            
-            # 2. Kategori bazlı akıllı semantik adaylar
             cat = all_items_data.get(k, {}).get("category", "")
             
             # Zanaat ve Aletler
@@ -475,8 +615,8 @@ def run_build():
             # Genel Havuz (Genelden Özele son eklenen kavramları tara)
             pool = list(b.reachable)
             pool.reverse()
-            for p1 in pool[:50]:
-                for p2 in pool[:50]:
+            for p1 in pool[:60]:
+                for p2 in pool[:60]:
                     if p1 != p2:
                         candidate_pairs.append((p1, p2))
 
@@ -494,15 +634,12 @@ def run_build():
             inp_a, inp_b = meta["inputs"]
             trio_candidates = []
             
-            # Eğer A'nın kendi 2'li girdileri varsa: [A1, A2, B]
             if inp_a in b.recipes:
                 a1, a2 = b.recipes[inp_a]["inputs"]
                 trio_candidates.append([a1, a2, inp_b])
-            # Eğer B'nin kendi 2'li girdileri varsa: [A, B1, B2]
             if inp_b in b.recipes:
                 b1, b2 = b.recipes[inp_b]["inputs"]
                 trio_candidates.append([inp_a, b1, b2])
-            # Katalizör element ile: [A, B, ates/su/toprak/hava]
             for cat in BASE_ELEMENTS:
                 trio_candidates.append([inp_a, inp_b, cat])
 
@@ -543,7 +680,7 @@ def run_build():
     # =========================================================================
     tree_export = {
         "metadata": {
-            "version": "2.0.0",
+            "version": "2.1.0",
             "total_items": len(b.all_keys),
             "base_elements": ["Ateş", "Su", "Toprak", "Hava"],
             "is_collision_free": True,

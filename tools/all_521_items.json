@@ -13164,5 +13164,950 @@
     "icon": "✨",
     "category": "06_yemek_ve_tarim",
     "archetype3d": "mineral"
+  },
+  "basinc": {
+    "name": "Basınç",
+    "emoji": "💨",
+    "color": "#78909c",
+    "category": "Fizik & Fenomen",
+    "description": "Havanın veya maddenin sıkışmasıyla oluşan yüksek fiziksel kuvvet."
+  },
+  "oksijen": {
+    "name": "Oksijen",
+    "emoji": "🫧",
+    "color": "#81d4fa",
+    "category": "Kimya & Madde",
+    "description": "Bitkilerin fotosenteziyle açığa çıkan yaşamsal gaz."
+  },
+  "atom": {
+    "name": "Atom",
+    "emoji": "⚛️",
+    "color": "#ba68c8",
+    "category": "Fizik & Fenomen",
+    "description": "Maddenin en küçük yapı taşı ve enerji çekirdeği."
+  },
+  "petrol": {
+    "name": "Petrol",
+    "emoji": "🛢️",
+    "color": "#37474f",
+    "category": "Enerji & Maden",
+    "description": "Organik fosillerin yer altında milyonlarca yıl basınç altında kalmasıyla oluşan sıvı yakıt."
+  },
+  "karbon": {
+    "name": "Karbon",
+    "emoji": "⬛",
+    "color": "#212121",
+    "category": "Kimya & Madde",
+    "description": "Kömürleşme ve aşırı yanma sonucu oluşan temel organik element."
+  },
+  "karbondioksit": {
+    "name": "Karbondioksit",
+    "emoji": "🌫️",
+    "color": "#90a4ae",
+    "category": "Kimya & Madde",
+    "description": "Karbon ve oksijenin birleşimiyle oluşan sera gazı."
+  },
+  "algae": {
+    "name": "Su Yosunu",
+    "emoji": "🌿",
+    "color": "#4caf50",
+    "category": "Flora & Doğa",
+    "description": "Suda serbestçe fotosentez yapan ilkel su bitkisi."
+  },
+  "plankton": {
+    "name": "Plankton",
+    "emoji": "🦠",
+    "color": "#80cbc4",
+    "category": "Fauna & Deniz",
+    "description": "Deniz ekosisteminin temelini oluşturan mikroskobik canlılar."
+  },
+  "arctic": {
+    "name": "Kutup",
+    "emoji": "❄️",
+    "color": "#e0f7fa",
+    "category": "Coğrafya & Doğa",
+    "description": "Buzullarla ve donmuş denizlerle kaplı kutup bölgesi."
+  },
+  "beach": {
+    "name": "Plaj",
+    "emoji": "🏖️",
+    "color": "#ffe082",
+    "category": "Coğrafya & Doğa",
+    "description": "Kum ve denizin buluştuğu güneşli sahil şeridi."
+  },
+  "bubble": {
+    "name": "Baloncuk",
+    "emoji": "🫧",
+    "color": "#b3e5fc",
+    "category": "Fizik & Sıvı",
+    "description": "Suyun içinde hapsolan buhar veya hava küreciği."
+  },
+  "boiling": {
+    "name": "Kaynama",
+    "emoji": "♨️",
+    "color": "#ff7043",
+    "category": "Fizik & Termodinamik",
+    "description": "Suyun yüksek sıcaklıkta buharlaşarak kaynama noktasına ulaşması."
+  },
+  "branch": {
+    "name": "Dal",
+    "emoji": "🪵",
+    "color": "#8d6e63",
+    "category": "Flora & Malzeme",
+    "description": "Ağaç gövdesinden ayrılan ahşap dal parçası."
+  },
+  "anchor": {
+    "name": "Çapa",
+    "emoji": "⚓",
+    "color": "#607d8b",
+    "category": "Araç & Deniz",
+    "description": "Gemileri denizde sabit tutmak için atılan ağır demir alet."
+  },
+  "aquarium": {
+    "name": "Akvaryum",
+    "emoji": "🐠",
+    "color": "#4fc3f7",
+    "category": "Yaşam & Ev",
+    "description": "Balıkların ve su canlılarının yaşadığı şeffaf cam fanus."
+  },
+  "bat": {
+    "name": "Yarasa",
+    "emoji": "🦇",
+    "color": "#5d4037",
+    "category": "Fauna & Hayvanlar",
+    "description": "Karanlık mağaralarda yankıyla yön bulan uçan memeli."
+  },
+  "beaver": {
+    "name": "Kunduz",
+    "emoji": "🦫",
+    "color": "#795548",
+    "category": "Fauna & Hayvanlar",
+    "description": "Nehirlerde odunlarla barajlar inşa eden marifetli kemirgen."
+  },
+  "boar": {
+    "name": "Yaban Domuzu",
+    "emoji": "🐗",
+    "color": "#4e342e",
+    "category": "Fauna & Hayvanlar",
+    "description": "Ormanlarda yaşayan güçlü ve dişli vahşi domuz."
+  },
+  "caterpillar": {
+    "name": "Tırtıl",
+    "emoji": "🐛",
+    "color": "#8bc34a",
+    "category": "Fauna & Böcekler",
+    "description": "Yaprakları kemirerek koza örmeye hazırlanan sevimli larva."
+  },
+  "crayfish": {
+    "name": "Kerevit",
+    "emoji": "🦞",
+    "color": "#d32f2f",
+    "category": "Fauna & Su Canlıları",
+    "description": "Tatlı sularda ve nehirlerde yaşayan tatlı su ıstakozu."
+  },
+  "crow": {
+    "name": "Karga",
+    "emoji": "🐦‍⬛",
+    "color": "#263238",
+    "category": "Fauna & Kuşlar",
+    "description": "Zekası ve siyah tüyleriyle bilinen bilge kuş."
+  },
+  "cuckoo": {
+    "name": "Guguk Kuşu",
+    "emoji": "🐦",
+    "color": "#8d6e63",
+    "category": "Fauna & Kuşlar",
+    "description": "Kendine has ötüşüyle ormanları çınlatan göçmen kuş."
+  },
+  "elephant": {
+    "name": "Fil",
+    "emoji": "🐘",
+    "color": "#78909c",
+    "category": "Fauna & Hayvanlar",
+    "description": "Dev hortumu ve fildişleriyle yeryüzünün en büyük kara memelisi."
+  },
+  "firefly": {
+    "name": "Ateşböceği",
+    "emoji": "🪲",
+    "color": "#ffeb3b",
+    "category": "Fauna & Böcekler",
+    "description": "Geceleri karnından biyolüminesans yeşil-sarı ışık saçan böcek."
+  },
+  "flamingo": {
+    "name": "Flamingo",
+    "emoji": "🦩",
+    "color": "#f06292",
+    "category": "Fauna & Kuşlar",
+    "description": "Göllerin sığ sularında tek ayak üstünde duran zarif pembe kuş."
+  },
+  "flying_fish": {
+    "name": "Uçan Balık",
+    "emoji": "🐟",
+    "color": "#29b6f6",
+    "category": "Fauna & Su Canlıları",
+    "description": "Geniş yüzgeçleriyle su yüzeyinin üzerinde süzülebilen balık."
+  },
+  "fox": {
+    "name": "Tilki",
+    "emoji": "🦊",
+    "color": "#ff7043",
+    "category": "Fauna & Hayvanlar",
+    "description": "Kızıl kürkü ve kurnazlığıyla tanınan orman avcısı."
+  },
+  "giraffe": {
+    "name": "Zürafa",
+    "emoji": "🦒",
+    "color": "#ffa726",
+    "category": "Fauna & Hayvanlar",
+    "description": "Yüksek ağaç yapraklarına ulaşan upuzun boyunlu memeli."
+  },
+  "hedgehog": {
+    "name": "Kirpi",
+    "emoji": "🦔",
+    "color": "#a1887f",
+    "category": "Fauna & Hayvanlar",
+    "description": "Sırtı dikenlerle kaplı sevimli küçük memeli."
+  },
+  "kangaroo": {
+    "name": "Kanguru",
+    "emoji": "🦘",
+    "color": "#bcaaa4",
+    "category": "Fauna & Hayvanlar",
+    "description": "Güçlü bacaklarıyla zıplayan ve yavrusunu kesesinde taşıyan canlı."
+  },
+  "acorn": {
+    "name": "Palamut",
+    "emoji": "🌰",
+    "color": "#795548",
+    "category": "Flora & Meyveler",
+    "description": "Meşe ağaçlarının kabuklu tohumu."
+  },
+  "baobab": {
+    "name": "Baobab",
+    "emoji": "🌳",
+    "color": "#8d6e63",
+    "category": "Flora & Ağaçlar",
+    "description": "Geniş gövdeli kadim Afrika ağacı."
+  },
+  "berry": {
+    "name": "Böğürtlen",
+    "emoji": "🫐",
+    "color": "#5c6bc0",
+    "category": "Flora & Meyveler",
+    "description": "Çalılarda yetişen sulu tatlı yabani meyve."
+  },
+  "cacao": {
+    "name": "Kakao",
+    "emoji": "🫘",
+    "color": "#4e342e",
+    "category": "Flora & Tarım",
+    "description": "Çikolatanın ana maddesi olan aromatik çekirdek."
+  },
+  "coconut": {
+    "name": "Hindistan Cevizi",
+    "emoji": "🥥",
+    "color": "#6d4c41",
+    "category": "Flora & Meyveler",
+    "description": "Palmiyelerde yetişen sert kabuklu sütlü meyve."
+  },
+  "sunflower": {
+    "name": "Ayçiçeği",
+    "emoji": "🌻",
+    "color": "#fbc02d",
+    "category": "Flora & Çiçekler",
+    "description": "Yüzünü daima güneşe dönen sarı çiçek."
+  },
+  "candy": {
+    "name": "Şekerleme",
+    "emoji": "🍭",
+    "color": "#ec407a",
+    "category": "Gıda & Tatlı",
+    "description": "Meyve aromalı tatlı rengarenk şeker."
+  },
+  "caramel": {
+    "name": "Karamel",
+    "emoji": "🍮",
+    "color": "#ffb300",
+    "category": "Gıda & Tatlı",
+    "description": "Şekerin ateşte eritilip kızarmasıyla oluşan lezzet."
+  },
+  "canned_food": {
+    "name": "Konserve",
+    "emoji": "🥫",
+    "color": "#e53935",
+    "category": "Gıda & Mutfak",
+    "description": "Metal kutuda uzun süre saklanabilen gıda."
+  },
+  "toast": {
+    "name": "Tost",
+    "emoji": "🍞",
+    "color": "#ffa726",
+    "category": "Gıda & Ekmek",
+    "description": "Ateşte kızartılmış çıtır ekmek dilimi."
+  },
+  "sandwich": {
+    "name": "Sandviç",
+    "emoji": "🥪",
+    "color": "#8bc34a",
+    "category": "Gıda & Mutfak",
+    "description": "İki ekmek dilimi arasına konulan peynir ve lezzetler."
+  },
+  "champagne": {
+    "name": "Şampanya",
+    "emoji": "🍾",
+    "color": "#ffd54f",
+    "category": "Gıda & İçecek",
+    "description": "Köpüklü ve baloncuklu kutlama şarabı."
+  },
+  "barrel": {
+    "name": "Fıçı",
+    "emoji": "🛢️",
+    "color": "#a1887f",
+    "category": "Malzeme & Eşya",
+    "description": "Ahşap ve demir çemberlerle yapılan depolama fıçısı."
+  },
+  "bouquet": {
+    "name": "Buket",
+    "emoji": "💐",
+    "color": "#ab47bc",
+    "category": "Flora & Çiçekler",
+    "description": "Bir araya getirilip bağlanan rengarenk çiçek buketi."
+  },
+  "box": {
+    "name": "Kutu",
+    "emoji": "📦",
+    "color": "#d7ccc8",
+    "category": "Malzeme & Eşya",
+    "description": "Eşyaları saklamak ve taşımak için yapılan kapalı kutu."
+  },
+  "antenna": {
+    "name": "Anten",
+    "emoji": "📡",
+    "color": "#78909c",
+    "category": "Teknoloji & İletişim",
+    "description": "Elektromanyetik dalgaları alıp yayan metal çubuk."
+  },
+  "balloon": {
+    "name": "Balon",
+    "emoji": "🎈",
+    "color": "#e91e63",
+    "category": "Eşya & Eğlence",
+    "description": "Gazla şişirilen hafif ve renkli uçan balon."
+  },
+  "bandage": {
+    "name": "Bandaj",
+    "emoji": "🩹",
+    "color": "#ffcc80",
+    "category": "Tıp & Sağlık",
+    "description": "Yaraları koruyup saran tıbbi kumaş sargı."
+  },
+  "binoculars": {
+    "name": "Dürbün",
+    "emoji": "🔭",
+    "color": "#37474f",
+    "category": "Alet & Optik",
+    "description": "Uzak mesafeleri iki gözle yakınlaştıran optik alet."
+  },
+  "boomerang": {
+    "name": "Bumerang",
+    "emoji": "🪃",
+    "color": "#8d6e63",
+    "category": "Silah & Avcılık",
+    "description": "Fırlatıldığında havada kavis çizip geri dönen ahşap av aleti."
+  },
+  "broom": {
+    "name": "Süpürge",
+    "emoji": "🧹",
+    "color": "#bcaaa4",
+    "category": "Ev & Temizlik",
+    "description": "Yerleri süpürmek için çalı ve saptan yapılan süpürge."
+  },
+  "brush": {
+    "name": "Fırça",
+    "emoji": "🖌️",
+    "color": "#d7ccc8",
+    "category": "Sanat & Alet",
+    "description": "Boya sürmek veya yüzey temizlemek için kullanılan kıllı alet."
+  },
+  "bucket": {
+    "name": "Kova",
+    "emoji": "🪣",
+    "color": "#90a4ae",
+    "category": "Ev & Depolama",
+    "description": "Su ve sıvı taşımaya yarayan kulplu metal/ahşap kap."
+  },
+  "comb": {
+    "name": "Tarak",
+    "emoji": "🪮",
+    "color": "#6d4c41",
+    "category": "Kişisel Bakım",
+    "description": "Saçları düzeltmek ve taramak için dişli alet."
+  },
+  "fan": {
+    "name": "Vantilatör",
+    "emoji": "🪭",
+    "color": "#81d4fa",
+    "category": "Teknoloji & Ev",
+    "description": "Dönen pervanesiyle serin hava akımı üreten cihaz."
+  },
+  "flashlight": {
+    "name": "El Feneri",
+    "emoji": "🔦",
+    "color": "#ffd600",
+    "category": "Alet & Aydınlatma",
+    "description": "Karanlığı aydınlatan pilli taşınabilir ışık kaynağı."
+  },
+  "flask": {
+    "name": "Matara",
+    "emoji": "🍶",
+    "color": "#aed581",
+    "category": "Macera & Eşya",
+    "description": "Yolculuklarda su ve içecek taşımaya yarayan dayanıklı şişe."
+  },
+  "glasses": {
+    "name": "Gözlük",
+    "emoji": "👓",
+    "color": "#455a64",
+    "category": "Alet & Optik",
+    "description": "Net görmeyi sağlayan iki mercekli gözlük."
+  },
+  "grenade": {
+    "name": "El Bombası",
+    "emoji": "💣",
+    "color": "#558b2f",
+    "category": "Silah & Askeri",
+    "description": "Pimi çekilip fırlatılan parça tesirli patlayıcı."
+  },
+  "matches": {
+    "name": "Kibrit",
+    "emoji": "🪵",
+    "color": "#ff7043",
+    "category": "Alet & Ateş",
+    "description": "Sürtünmeyle hemen alev alan kükürt başlı ahşap çöp."
+  },
+  "alien": {
+    "name": "Uzaylı",
+    "emoji": "👽",
+    "color": "#76ff03",
+    "category": "Uzay & Bilim Kurgu",
+    "description": "Dünya dışı gezegenlerden gelen akıllı varlık."
+  },
+  "baby": {
+    "name": "Bebek",
+    "emoji": "👶",
+    "color": "#ff80ab",
+    "category": "İnsan & Yaşam",
+    "description": "Yeni doğmuş sevimli küçük insan yavrusu."
+  },
+  "blood": {
+    "name": "Kan",
+    "emoji": "🩸",
+    "color": "#d50000",
+    "category": "Biyoloji & Vücut",
+    "description": "Damarlarda dolaşan kırmızı yaşamsal sıvı."
+  },
+  "brain": {
+    "name": "Beyin",
+    "emoji": "🧠",
+    "color": "#f48fb1",
+    "category": "Biyoloji & Vücut",
+    "description": "Düşünce, bilinç ve sinir sisteminin kontrol merkezi."
+  },
+  "dna": {
+    "name": "DNA",
+    "emoji": "🧬",
+    "color": "#40c4ff",
+    "category": "Biyoloji & Genetik",
+    "description": "Tüm canlıların genetik kodunu taşıyan çift sarmallı molekül."
+  },
+  "skeleton": {
+    "name": "İskelet",
+    "emoji": "💀",
+    "color": "#eceff1",
+    "category": "Biyoloji & Vücut",
+    "description": "Vücuda destek veren kemik çatısı."
+  },
+  "mummy": {
+    "name": "Mumya",
+    "emoji": "🩹",
+    "color": "#d7ccc8",
+    "category": "Tarih & Mitoloji",
+    "description": "Bandajlarla sarılarak korunmuş kadim Mısır cenazesi."
+  },
+  "knight": {
+    "name": "Şövalye",
+    "emoji": "🛡️",
+    "color": "#90a4ae",
+    "category": "Tarih & Meslek",
+    "description": "Zırh kuşanmış cesur ve onurlu savaşçı."
+  },
+  "pirate": {
+    "name": "Korsan",
+    "emoji": "🏴‍☠️",
+    "color": "#3e2723",
+    "category": "Tarih & Meslek",
+    "description": "Denizlerde hazine peşinde koşan gözüpek denizci."
+  },
+  "soldier": {
+    "name": "Asker",
+    "emoji": "🪖",
+    "color": "#33691e",
+    "category": "Tarih & Meslek",
+    "description": "Vatanını savunan eğitimli ve silahlı savaşçı."
+  },
+  "spy": {
+    "name": "Casus",
+    "emoji": "🕵️",
+    "color": "#212121",
+    "category": "Meslek & Gizem",
+    "description": "Gizli operasyonlar yürüten istihbarat ajanı."
+  },
+  "firefighter": {
+    "name": "İtfaiyeci",
+    "emoji": "🧑‍🚒",
+    "color": "#ff6f00",
+    "category": "Meslek & Toplum",
+    "description": "Yangınları söndüren ve hayat kurtaran kahraman."
+  },
+  "scarecrow": {
+    "name": "Korkuluk",
+    "emoji": "🌾",
+    "color": "#8d6e63",
+    "category": "Tarım & Eşya",
+    "description": "Tarlalardaki ekinleri kuşlardan koruyan saman manken."
+  },
+  "snowman": {
+    "name": "Kardan Adam",
+    "emoji": "⛄",
+    "color": "#b3e5fc",
+    "category": "Kış & Eğlence",
+    "description": "Kardan yapılan havuç burunlu sevimli figür."
+  },
+  "pinocchio": {
+    "name": "Pinokyo",
+    "emoji": "🤥",
+    "color": "#ffab91",
+    "category": "Masal & Karakter",
+    "description": "Yalan söylediğinde burnu uzayan canlı tahta kukla."
+  },
+  "black_hole": {
+    "name": "Kara Delik",
+    "emoji": "🕳️",
+    "color": "#311b92",
+    "category": "Uzay & Kozmoloji",
+    "description": "Işığın bile kaçamadığı devasa çekim alanına sahip uzay girdabı."
+  },
+  "supernova": {
+    "name": "Süpernova",
+    "emoji": "💥",
+    "color": "#ff6d00",
+    "category": "Uzay & Kozmoloji",
+    "description": "Ömrünü tamamlayan dev yıldızların kozmik patlaması."
+  },
+  "crystal_ball": {
+    "name": "Kristal Küre",
+    "emoji": "🔮",
+    "color": "#9c27b0",
+    "category": "Mistik & Büyü",
+    "description": "Geleceği ve gizemleri gösteren parlayan büyü küresi."
+  },
+  "centaur": {
+    "name": "Kentaur",
+    "emoji": "🏹",
+    "color": "#6d4c41",
+    "category": "Mitoloji & Yaratık",
+    "description": "Gövdesi insan, altı at olan efsanevi orman savaşçısı."
+  },
+  "cerberus": {
+    "name": "Kerberos",
+    "emoji": "🐕‍🦺",
+    "color": "#bf360c",
+    "category": "Mitoloji & Yaratık",
+    "description": "Yeraltı dünyasının kapılarını bekleyen üç başlı alev köpeği."
+  },
+  "hydra": {
+    "name": "Hidra",
+    "emoji": "🐉",
+    "color": "#2e7d32",
+    "category": "Mitoloji & Yaratık",
+    "description": "Kafası kesildikçe yerine yenisi çıkan çok başlı bataklık ejderi."
+  },
+  "giant": {
+    "name": "Dev",
+    "emoji": "🗿",
+    "color": "#78909c",
+    "category": "Mitoloji & Yaratık",
+    "description": "Dağlar kadar büyük heybetli efsanevi yaratık."
+  },
+  "igloo": {
+    "name": "İglo",
+    "emoji": "🛖",
+    "color": "#e0f7fa",
+    "category": "Yapı & Barınak",
+    "description": "Kutup soğuğunda sıkıştırılmış kar ve buz bloklarından yapılan kubbeli ev."
+  },
+  "skyscraper": {
+    "name": "Gökdelen",
+    "emoji": "🏙️",
+    "color": "#607d8b",
+    "category": "Yapı & Şehir",
+    "description": "Bulutlara uzanan çelik ve cam kaplı dev şehir kulesi."
+  },
+  "fountain": {
+    "name": "Fıskiye",
+    "emoji": "⛲",
+    "color": "#00b0ff",
+    "category": "Yapı & Şehir",
+    "description": "Yukarıya su püskürten mermer şehir süs havuzu."
+  },
+  "grave": {
+    "name": "Mezar",
+    "emoji": "🪦",
+    "color": "#546e7a",
+    "category": "Tarih & Yapı",
+    "description": "Taş anıtla işaretlenmiş ebedi istirahat yeri."
+  },
+  "labyrinth": {
+    "name": "Labirent",
+    "emoji": "🧱",
+    "color": "#8d6e63",
+    "category": "Yapı & Gizem",
+    "description": "Çıkışını bulması son derece güç karmaşık yollar bütünü."
+  },
+  "bonfire": {
+    "name": "Kamp Ateşi",
+    "emoji": "🔥",
+    "color": "#ff3d00",
+    "category": "Doğa & Ateş",
+    "description": "Açık havada dallar ve odunlarla yakılan büyük ısınma ateşi."
+  },
+  "fireworks": {
+    "name": "Havai Fişek",
+    "emoji": "🎆",
+    "color": "#ff4081",
+    "category": "Kutlama & Işık",
+    "description": "Gökyüzünde patlayarak rengarenk ışıklar saçan kutlama fişeği."
+  },
+  "gasoline": {
+    "name": "Benzin",
+    "emoji": "⛽",
+    "color": "#d50000",
+    "category": "Enerji & Yakıt",
+    "description": "Motorlu araçları çalıştıran yüksek enerjili rafine sıvı yakıt."
+  },
+  "camel": {
+    "name": "Deve",
+    "emoji": "🐪",
+    "color": "#c5a059",
+    "category": "Fauna & Hayvanlar",
+    "description": "Çöl sıcağına ve susuzluğa dayanıklı hörgüçlü hayvan."
+  },
+  "mouse": {
+    "name": "Fare",
+    "emoji": "🐭",
+    "color": "#9e9e9e",
+    "category": "Fauna & Hayvanlar",
+    "description": "Peynir seven çevik küçük kemirgen."
+  },
+  "pig": {
+    "name": "Domuz",
+    "emoji": "🐷",
+    "color": "#f48fb1",
+    "category": "Fauna & Hayvanlar",
+    "description": "Çamurda yuvarlanmayı seven pembe çiftlik hayvanı."
+  },
+  "reindeer": {
+    "name": "Ren Geyiği",
+    "emoji": "🦌",
+    "color": "#8d6e63",
+    "category": "Fauna & Hayvanlar",
+    "description": "Kutup soğuklarında ve tundrada yaşayan çatallı boynuzlu geyik."
+  },
+  "snail": {
+    "name": "Salyangoz",
+    "emoji": "🐌",
+    "color": "#bcaaa4",
+    "category": "Fauna & Canlılar",
+    "description": "Sırtında helezonik kabuğunu taşıyan yavaş canlı."
+  },
+  "squid": {
+    "name": "Mürekkepbalığı",
+    "emoji": "🦑",
+    "color": "#7e57c2",
+    "category": "Fauna & Deniz",
+    "description": "Tehlike anında mürekkep püskürten çok kollu deniz canlısı."
+  },
+  "vulture": {
+    "name": "Akbaba",
+    "emoji": "🦅",
+    "color": "#455a64",
+    "category": "Fauna & Kuşlar",
+    "description": "Çöllerde ve yüksek kayalıklarda süzülen leş yiyici yırtıcı kuş."
+  },
+  "scarab": {
+    "name": "Skarabe",
+    "emoji": "🪲",
+    "color": "#ffb300",
+    "category": "Fauna & Mitoloji",
+    "description": "Eski Mısırda kutsal sayılan altın kabuklu böcek."
+  },
+  "nest": {
+    "name": "Kuş Yuvası",
+    "emoji": "🪺",
+    "color": "#8d6e63",
+    "category": "Doğa & Kuşlar",
+    "description": "Kuşların dallarla örüp yumurtalarını koruduğu yuva."
+  },
+  "birdhouse": {
+    "name": "Kuş Evi",
+    "emoji": "🛖",
+    "color": "#ff7043",
+    "category": "Eşya & Doğa",
+    "description": "Bahçelere asılan minik ahşap kuş barınağı."
+  },
+  "sponge": {
+    "name": "Sünger",
+    "emoji": "🧽",
+    "color": "#fbc02d",
+    "category": "Deniz & Temizlik",
+    "description": "Suyu yüksek oranda içine çeken gözenekli deniz canlısı / temizlik gereci."
+  },
+  "fence": {
+    "name": "Çit",
+    "emoji": "🪵",
+    "color": "#bcaaa4",
+    "category": "Yapı & Bahçe",
+    "description": "Bahçeleri ve arazileri çevreleyen ahşap çit."
+  },
+  "incubator": {
+    "name": "Kuluçka",
+    "emoji": "🥚",
+    "color": "#42a5f5",
+    "category": "Teknoloji & Tarım",
+    "description": "Yumurtaların güvenle çatlamasını sağlayan ısıtmalı kuluçka cihazı."
+  },
+  "vase": {
+    "name": "Vazo",
+    "emoji": "🏺",
+    "color": "#3f51b5",
+    "category": "Ev & Sanat",
+    "description": "Çiçek koymak için seramik ve çamurdan yapılan süslü kap."
+  },
+  "pillow": {
+    "name": "Yastık",
+    "emoji": "🛏️",
+    "color": "#bbdefb",
+    "category": "Ev & Eşya",
+    "description": "İçi kuş tüyü ve pamukla dolu yumuşacık uyku yastığı."
+  },
+  "medicine": {
+    "name": "İlaç",
+    "emoji": "💊",
+    "color": "#ef5350",
+    "category": "Tıp & Sağlık",
+    "description": "Hastalıkları iyileştiren şifalı bitkisel ve kimyasal bileşen."
+  },
+  "soap": {
+    "name": "Sabun",
+    "emoji": "🧼",
+    "color": "#4fc3f7",
+    "category": "Temizlik & Hijyen",
+    "description": "Kül ve yağın birleşimiyle üretilen köpüklü temizlik maddesi."
+  },
+  "perfume": {
+    "name": "Parfüm",
+    "emoji": "🧴",
+    "color": "#f06292",
+    "category": "Kozmetik & Koku",
+    "description": "Çiçek özlerinin alkolle damıtılmasıyla yapılan hoş koku."
+  },
+  "paint": {
+    "name": "Boya",
+    "emoji": "🎨",
+    "color": "#ab47bc",
+    "category": "Sanat & Renk",
+    "description": "Yüzeyleri renklendirmek ve resim yapmak için pigment karışımı."
+  },
+  "glue": {
+    "name": "Tutkal",
+    "emoji": "🧴",
+    "color": "#ffb74d",
+    "category": "Alet & Yapıştırıcı",
+    "description": "Nesneleri birbirine sıkıca tutturan güçlü yapıştırıcı."
+  },
+  "ring": {
+    "name": "Yüzük",
+    "emoji": "💍",
+    "color": "#ffd700",
+    "category": "Mücevher & Eşya",
+    "description": "Parmağa takılan değerli altın ve elmas halka."
+  },
+  "medal": {
+    "name": "Madalya",
+    "emoji": "🥇",
+    "color": "#ffb300",
+    "category": "Onur & Ödül",
+    "description": "Başarı ve zaferleri taçlandıran şeritli altın madalya."
+  },
+  "letter": {
+    "name": "Mektup",
+    "emoji": "✉️",
+    "color": "#e0e0e0",
+    "category": "İletişim & Yazı",
+    "description": "Duygu ve haberleri ulaştıran mühürlü kağıt mesaj."
+  },
+  "umbrella": {
+    "name": "Şemsiye",
+    "emoji": "☂️",
+    "color": "#5c6bc0",
+    "category": "Eşya & Koruma",
+    "description": "Yağmurdan ve güneşten koruyan açılır kapanır kubbe."
+  },
+  "raincoat": {
+    "name": "Yağmurluk",
+    "emoji": "🧥",
+    "color": "#fbc02d",
+    "category": "Giysi & Koruma",
+    "description": "Su geçirmeyen koruyucu başlıklı ceket."
+  },
+  "parachute": {
+    "name": "Paraşüt",
+    "emoji": "🪂",
+    "color": "#ff5722",
+    "category": "Havacılık & Araç",
+    "description": "Yüksekten güvenle süzülerek inmeyi sağlayan kumaş kubbe."
+  },
+  "fridge": {
+    "name": "Buzdolabı",
+    "emoji": "🧊",
+    "color": "#b0bec5",
+    "category": "Ev & Teknoloji",
+    "description": "Yiyecek ve içecekleri taze ve soğuk tutan elektrikli cihaz."
+  },
+  "vacuum": {
+    "name": "Vakum",
+    "emoji": "🧹",
+    "color": "#29b6f6",
+    "category": "Ev & Teknoloji",
+    "description": "Tozları ve kirleri güçlü hava akımıyla içine çeken elektrikli süpürge."
+  },
+  "toy": {
+    "name": "Oyuncak",
+    "emoji": "🧸",
+    "color": "#ff7043",
+    "category": "Eşya & Eğlence",
+    "description": "Çocukların eğlenmesi için ahşap veya kumaştan yapılan figür."
+  },
+  "pipe": {
+    "name": "Pipo",
+    "emoji": "🪵",
+    "color": "#6d4c41",
+    "category": "Eşya & Keyif",
+    "description": "Tütün içmek için ahşaptan oyulmuş klasik pipo."
+  },
+  "aluminium": {
+    "name": "Alüminyum",
+    "emoji": "🪙",
+    "color": "#cfd8dc",
+    "category": "Maden & Metal",
+    "description": "Hafif, dayanıklı ve paslanmaz beyaz metal."
+  },
+  "bitcoin": {
+    "name": "Bitcoin",
+    "emoji": "₿",
+    "color": "#ff9800",
+    "category": "Finans & Teknoloji",
+    "description": "Kriptografik dijital blokzincir para birimi."
+  },
+  "calendar": {
+    "name": "Takvim",
+    "emoji": "📅",
+    "color": "#ef5350",
+    "category": "Zaman & Bilgi",
+    "description": "Günleri, ayları ve yılları takip eden çizelge."
+  },
+  "camouflage": {
+    "name": "Kamuflaj",
+    "emoji": "🪖",
+    "color": "#558b2f",
+    "category": "Askeri & Giysi",
+    "description": "Çevreye uyum sağlayarak gizlenmeyi sağlayan desen."
+  },
+  "cardboard": {
+    "name": "Karton",
+    "emoji": "📦",
+    "color": "#bcaaa4",
+    "category": "Malzeme & Kağıt",
+    "description": "Koli ve kutu yapımında kullanılan kalın mukavva."
+  },
+  "chemical_waste": {
+    "name": "Kimyasal Atık",
+    "emoji": "☣️",
+    "color": "#76ff03",
+    "category": "Sanayi & Çevre",
+    "description": "Sanayi işlemlerinden arta kalan zehirli tehlikeli atık."
+  },
+  "cross": {
+    "name": "Haç",
+    "emoji": "✝️",
+    "color": "#ffd700",
+    "category": "Tarih & Sembol",
+    "description": "Altın ve ahşaptan yapılan kutsal manevi sembol."
+  },
+  "escalator": {
+    "name": "Yürüyen Merdiven",
+    "emoji": "🪜",
+    "color": "#78909c",
+    "category": "Teknoloji & Ulaşım",
+    "description": "İnsanları katlar arasında otomatik taşıyan elektrikli basamaklar."
+  },
+  "explosive": {
+    "name": "Patlayıcı",
+    "emoji": "🧨",
+    "color": "#d50000",
+    "category": "Silah & Enerji",
+    "description": "Ani gaz ve basınç patlaması oluşturan kimyasal dinamit."
+  },
+  "lamp": {
+    "name": "Lamba",
+    "emoji": "🛋️",
+    "color": "#ffe082",
+    "category": "Ev & Aydınlatma",
+    "description": "Masa veya odayı aydınlatan elektrikli abajur / lamba."
+  },
+  "lasso": {
+    "name": "Kement",
+    "emoji": "🪢",
+    "color": "#8d6e63",
+    "category": "Araç & Avcılık",
+    "description": "Hayvanları yakalamak için fırlatılan halkalı ip."
+  },
+  "scuba": {
+    "name": "Dalış Tüpü",
+    "emoji": "🤿",
+    "color": "#00e5ff",
+    "category": "Spor & Deniz",
+    "description": "Suyun derinliklerinde nefes almayı sağlayan oksijen tüpü."
+  },
+  "tank": {
+    "name": "Tank",
+    "emoji": "🛡️",
+    "color": "#33691e",
+    "category": "Askeri & Araç",
+    "description": "Paletli ağır zırhlı ve toplu muharebe aracı."
+  },
+  "weapon": {
+    "name": "Silah",
+    "emoji": "⚔️",
+    "color": "#455a64",
+    "category": "Silah & Savaş",
+    "description": "Saldırı ve savunma amacıyla kullanılan askeri mühimmat."
+  },
+  "bit": {
+    "name": "Bit",
+    "emoji": "0️⃣",
+    "color": "#00e676",
+    "category": "Bilişim & Veri",
+    "description": "Bilgisayarlardaki en küçük 0 ve 1 ikili dijital veri birimi."
   }
 }

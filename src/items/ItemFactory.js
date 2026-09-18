@@ -3,6 +3,404 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { ITEM_DEFINITIONS, getCanonicalId } from './itemDefinitions.js';
 
 export class ItemFactory {
+  static _textureLoader = new THREE.TextureLoader();
+  static _coinCache = new Map();
+  static _coinTextureCache = new Map();
+
+  static _createCoinCompositeTextures(image, palette, width = 512, height = 512) {
+    const primary = palette?.primary || '#d97706';
+    const secondary = palette?.secondary || '#fef08a';
+    const emissive = palette?.emissive || '#b45309';
+
+    // Helper: draw single face with upright orientation
+    const renderFace = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      const cx = width / 2;
+      const cy = height / 2;
+      const r = width / 2;
+
+      // 1. Sadece şeffaf alanlar için dolu arka plan (Opaque background - circular clip)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.clip();
+
+      // Derin koyu metalik zemin (ikon rengi değişmesin diye düz dolgu)
+      const bgGrad = ctx.createRadialGradient(cx, cy, r * 0.1, cx, cy, r);
+      bgGrad.addColorStop(0, '#1a1a1a');
+      bgGrad.addColorStop(0.7, '#111111');
+      bgGrad.addColorStop(1, '#000000');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 2. Büyülü Rünik & Simya Geometrisi (ikon olmayan alanlarda)
+      ctx.strokeStyle = secondary;
+      ctx.lineWidth = 4;
+      ctx.globalAlpha = 0.45;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 0.86, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.setLineDash([8, 12]);
+      ctx.lineWidth = 2.5;
+      ctx.globalAlpha = 0.3;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 0.76, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.globalAlpha = 0.18;
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = secondary;
+      for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(angle) * (r * 0.2), cy + Math.sin(angle) * (r * 0.2));
+        ctx.lineTo(cx + Math.cos(angle) * (r * 0.74), cy + Math.sin(angle) * (r * 0.74));
+        ctx.stroke();
+      }
+
+      // 3. İkonu doğrudan çiz (renk değişikliği yok, shadow yok, globalAlpha=1)
+      ctx.globalAlpha = 1.0;
+      ctx.shadowColor = 'transparent'; // Shadow sıfırla - ikon rengini bozmaz
+      ctx.shadowBlur = 0;
+
+      const iconSize = width * 0.72;
+
+      // Görseli 180 derece döndürerek tam doğru dik pozisyona getir
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(Math.PI / 2);
+      ctx.drawImage(image, -iconSize / 2, -iconSize / 2, iconSize, iconSize);
+      ctx.restore();
+
+      ctx.restore(); // clip serbest bırak
+
+      return canvas;
+    };
+
+    // Ön yüzü çiz
+    const frontCanvas = renderFace();
+
+    // Arka yüz: Three.js CylinderGeometry bottom cap UV haritası hem U hem V ekseninde ters olduğu için
+    // ön yüzün hem yatay (X) hem dikey (Y) tersini (180° rotasyon) alarak coin döndüğünde
+    // karşıdan bakan birinin iki yüzde de sembolü birebir aynı ve düz görmesini sağlıyoruz.
+    const backCanvas = document.createElement('canvas');
+    backCanvas.width = width;
+    backCanvas.height = height;
+    const backCtx = backCanvas.getContext('2d');
+    backCtx.translate(width, height);
+    backCtx.scale(-1, -1);
+    backCtx.drawImage(frontCanvas, 0, 0);
+
+    // Bump / Kabartma Haritası Üretimi
+    const createBump = (srcCanvas) => {
+      const bCanvas = document.createElement('canvas');
+      bCanvas.width = width;
+      bCanvas.height = height;
+      const bCtx = bCanvas.getContext('2d');
+      const imgData = srcCanvas.getContext('2d').getImageData(0, 0, width, height);
+      const data = imgData.data;
+      const bData = bCtx.createImageData(width, height);
+
+      for (let i = 0; i < data.length; i += 4) {
+        // Luminance hesapla
+        const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+        bData.data[i] = lum;
+        bData.data[i + 1] = lum;
+        bData.data[i + 2] = lum;
+        bData.data[i + 3] = 255;
+      }
+      bCtx.putImageData(bData, 0, 0);
+      const tex = new THREE.CanvasTexture(bCanvas);
+      tex.wrapS = THREE.ClampToEdgeWrapping;
+      tex.wrapT = THREE.ClampToEdgeWrapping;
+      return tex;
+    };
+
+    const frontTex = new THREE.CanvasTexture(frontCanvas);
+    frontTex.colorSpace = THREE.SRGBColorSpace;
+    frontTex.wrapS = THREE.ClampToEdgeWrapping;
+    frontTex.wrapT = THREE.ClampToEdgeWrapping;
+
+    const backTex = new THREE.CanvasTexture(backCanvas);
+    backTex.colorSpace = THREE.SRGBColorSpace;
+    backTex.wrapS = THREE.ClampToEdgeWrapping;
+    backTex.wrapT = THREE.ClampToEdgeWrapping;
+
+    const frontBump = createBump(frontCanvas);
+    const backBump = createBump(backCanvas);
+
+    return {
+      diffuse: frontTex,
+      diffuseBack: backTex,
+      bump: frontBump,
+      bumpBack: backBump
+    };
+  }
+
+  static _createReliefCoinMesh(canonicalId, def) {
+    const group = new THREE.Group();
+    group.userData.itemId = canonicalId;
+    group.userData.definition = def;
+
+    // Radius: 0.48, Thickness: 0.10, Segments: 48
+    const radius = 0.48;
+    const thickness = 0.10;
+    const coinGeo = new THREE.CylinderGeometry(radius, radius, thickness, 48);
+
+    // Palet renkleri
+    const palette = def?.colorPalette || def?.color_palette || {};
+    const primaryColor = new THREE.Color(palette.primary || '#d97706');
+    const secondaryColor = new THREE.Color(palette.secondary || '#fef08a');
+    const emissiveColor = new THREE.Color(palette.emissive || '#b45309');
+
+    // 1. Dış Pahlı Metalik Altın / Element Gövdesi (Rim Material)
+    const rimMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffd700,
+      metalness: 0.95,
+      roughness: 0.18,
+      emissive: emissiveColor,
+      emissiveIntensity: 0.45,
+      flatShading: false
+    });
+
+    // 2. Ön ve Arka Yüz Materyalleri (Görsel rengini bozmamak için emissive sıfır, saf beyaz diffuse)
+    const frontFaceMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      metalness: 0.1,
+      roughness: 0.5,
+      emissive: 0x000000,
+      emissiveIntensity: 0,
+      bumpScale: 0.05,
+      transparent: false // İçi boş görünmesini engelle, arkası dolu
+    });
+
+    const backFaceMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      metalness: 0.1,
+      roughness: 0.5,
+      emissive: 0x000000,
+      emissiveIntensity: 0,
+      bumpScale: 0.05,
+      transparent: false
+    });
+
+    // 3. Çoklu materyal: [0: Yan Kenar, 1: Üst/Ön Yüz, 2: Alt/Arka Yüz]
+    const coinMesh = new THREE.Mesh(coinGeo, [rimMaterial, frontFaceMat, backFaceMat]);
+    coinMesh.rotation.x = Math.PI / 2; // Madalyonu dik masaya çevir
+    coinMesh.castShadow = true;
+    coinMesh.receiveShadow = true;
+
+    // 4. Dekoratif Pahlı Dış Yüzükler & Büyülü Tırtıklar (Beveled Outer Rings)
+    const ringGeo = new THREE.TorusGeometry(radius * 0.98, 0.025, 16, 48);
+    const ringMat = new THREE.MeshStandardMaterial({
+      color: 0xffe066,
+      metalness: 0.95,
+      roughness: 0.12,
+      emissive: primaryColor,
+      emissiveIntensity: 0.6
+    });
+    const ringFront = new THREE.Mesh(ringGeo, ringMat);
+    ringFront.position.z = thickness * 0.51;
+    const ringBack = new THREE.Mesh(ringGeo, ringMat);
+    ringBack.position.z = -thickness * 0.51;
+
+    // 5. Büyülü Dış Enerji Parçacıkları (Floating Arcane Orbiters)
+    const orbGroup = new THREE.Group();
+    const orbCount = 6;
+    const orbGeo = new THREE.OctahedronGeometry(0.038, 0);
+    const orbMat = new THREE.MeshStandardMaterial({
+      color: secondaryColor,
+      emissive: primaryColor,
+      emissiveIntensity: 1.5,
+      roughness: 0.1
+    });
+
+    const orbiters = [];
+    for (let i = 0; i < orbCount; i++) {
+      const orb = new THREE.Mesh(orbGeo, orbMat);
+      const angle = (i / orbCount) * Math.PI * 2;
+      orb.userData = {
+        angle: angle,
+        radius: radius * 1.35 + (i % 2) * 0.08,
+        speed: 1.8 + (i % 3) * 0.4,
+        yOffset: ((i % 3) - 1) * 0.12
+      };
+      orbGroup.add(orb);
+      orbiters.push(orb);
+    }
+
+    // Madalyon Gövdesini toparla
+    const coinBody = new THREE.Group();
+    coinBody.add(coinMesh);
+    coinBody.add(ringFront);
+    coinBody.add(ringBack);
+    coinBody.add(orbGroup);
+    coinBody.position.y = 0.38; // Masadan yukarıda süzülme tabanı
+    group.add(coinBody);
+
+    // 6. 2D İkon Doku & Bump Yükleme
+    const iconNameMap = {
+      'ates': 'ates.png',
+      'fire': 'ates.png',
+      'su': 'su.png',
+      'water': 'su.png',
+      'toprak': 'toprak.png',
+      'earth': 'toprak.png',
+      'hava': 'hava.png',
+      'air': 'hava.png'
+    };
+    const iconFileName = iconNameMap[canonicalId] || `${canonicalId}.png`;
+    const texturePath = `./textures/items/${iconFileName}`;
+
+    if (this._coinTextureCache.has(texturePath)) {
+      const cached = this._coinTextureCache.get(texturePath);
+      frontFaceMat.map = cached.diffuse;
+      frontFaceMat.bumpMap = cached.bump;
+      frontFaceMat.needsUpdate = true;
+
+      backFaceMat.map = cached.diffuseBack;
+      backFaceMat.bumpMap = cached.bumpBack;
+      backFaceMat.needsUpdate = true;
+    } else {
+      this._textureLoader.load(
+        texturePath,
+        (tex) => {
+          const comp = this._createCoinCompositeTextures(tex.image, palette);
+          this._coinTextureCache.set(texturePath, comp);
+
+          frontFaceMat.map = comp.diffuse;
+          frontFaceMat.bumpMap = comp.bump;
+          frontFaceMat.needsUpdate = true;
+
+          backFaceMat.map = comp.diffuseBack;
+          backFaceMat.bumpMap = comp.bumpBack;
+          backFaceMat.needsUpdate = true;
+        },
+        undefined,
+        (err) => {
+          console.warn(`[ItemFactory] Coin texture load fallback for ${canonicalId}:`, err);
+        }
+      );
+    }
+
+    // 7. 60 FPS Büyülü Parıldayan Turntable & Yörünge Animasyonu
+    group.userData.update = (time, delta) => {
+      const dt = delta || 0.016;
+      group.rotation.y += dt * 1.5; // Kendi etrafında akıcı dönüş
+      
+      // Havada süzülme (Mystic Bobbing)
+      coinBody.position.y = 0.38 + Math.sin(time * 2.8) * 0.045;
+      coinBody.rotation.z = Math.sin(time * 1.8) * 0.05; // Nazik madalyon salınımı
+
+      // Büyülü Işıma Nabzı (Sadece kenar ve altın halkalarda parıldama)
+      const pulse = 0.45 + Math.sin(time * 4.5) * 0.35;
+      rimMaterial.emissiveIntensity = pulse;
+      ringMat.emissiveIntensity = pulse * 1.4;
+
+      // Yörüngedeki Büyülü Kıvılcımların Dönüşü
+      orbiters.forEach(orb => {
+        const u = orb.userData;
+        u.angle += u.speed * dt;
+        orb.position.x = Math.cos(u.angle) * u.radius;
+        orb.position.y = Math.sin(u.angle) * u.radius;
+        orb.position.z = Math.sin(time * 3.0 + u.angle) * 0.08 + u.yOffset;
+        orb.rotation.x += dt * 3.0;
+        orb.rotation.y += dt * 2.5;
+      });
+    };
+
+    return group;
+  }
+
+  static _gltfLoader = new GLTFLoader();
+  static _modelCache = new Map();
+  static _category01GlbMap = {
+    'camur': './models/01_elements/camur.glb',
+    'mud': './models/01_elements/camur.glb',
+    'lav': './models/01_elements/lav.glb',
+    'lava': './models/01_elements/lav.glb',
+    'buhar': './models/01_elements/buhar.glb',
+    'steam': './models/01_elements/buhar.glb',
+    'yagmur': './models/01_elements/yagmur.glb',
+    'rain': './models/01_elements/yagmur.glb',
+    'enerji': './models/01_elements/enerji.glb',
+    'energy': './models/01_elements/enerji.glb',
+    'ruzgar': './models/01_elements/ruzgar.glb',
+    'wind': './models/01_elements/ruzgar.glb',
+    'buz': './models/01_elements/buz.glb',
+    'ice': './models/01_elements/buz.glb',
+    'yildirim': './models/01_elements/yildirim.glb',
+    'lightning': './models/01_elements/yildirim.glb',
+    'bulut': './models/01_elements/bulut.glb',
+    'cloud': './models/01_elements/bulut.glb',
+    'firtina': './models/01_elements/firtina.glb',
+    'storm': './models/01_elements/firtina.glb'
+  };
+
+  static _setupGlbModel(gltfScene, canonicalId, targetGroup) {
+    const model = gltfScene.clone(true);
+    
+    // Auto-fit & center bounding box
+    const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    
+    const maxDim = Math.max(size.x, size.y, size.z) || 1.0;
+    const targetSize = 0.95; // Fit inside slot plate bounds
+    const scale = targetSize / maxDim;
+    
+    model.scale.set(scale, scale, scale);
+    model.position.set(-center.x * scale, -box.min.y * scale, -center.z * scale);
+    
+    // Enable shadows & PBR material settings
+    const emissiveMaterials = [];
+    model.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        if (child.material) {
+          if (child.material.emissive && child.material.emissive.getHex() !== 0) {
+            emissiveMaterials.push(child.material);
+          }
+        }
+      }
+    });
+
+    // Replace placeholder inside targetGroup smoothly
+    while (targetGroup.children.length > 0) {
+      targetGroup.remove(targetGroup.children[0]);
+    }
+    
+    const wrapper = new THREE.Group();
+    wrapper.add(model);
+    targetGroup.add(wrapper);
+
+    // Animation hook: Turntable rotation + Floating Bobbing + Pulse
+    targetGroup.userData.update = (time, delta) => {
+      const dt = delta || 0.016;
+      targetGroup.rotation.y += dt * 0.85; // Smooth turntable spin on plate
+      
+      // Gentle floating bobbing
+      wrapper.position.y = Math.sin(time * 2.5) * 0.04;
+      
+      // Elemental dynamic animations
+      if (['ates', 'fire', 'lav', 'lava', 'yildirim', 'lightning', 'enerji', 'energy'].includes(canonicalId)) {
+        const pulse = 0.85 + Math.sin(time * 4.0) * 0.35;
+        emissiveMaterials.forEach(mat => {
+          mat.emissiveIntensity = pulse;
+        });
+      } else if (['hava', 'air', 'ruzgar', 'wind', 'buhar', 'steam'].includes(canonicalId)) {
+        wrapper.rotation.z = Math.sin(time * 3.0) * 0.04;
+        wrapper.rotation.x = Math.cos(time * 2.2) * 0.03;
+      }
+    };
+  }
+
   constructor() {
     // Cache or setup if needed
   }
@@ -29,19 +427,13 @@ export class ItemFactory {
     switch (canonicalId) {
       case 'ates':
       case 'fire':
-        mainMesh = this._createFireMesh(def);
-        break;
       case 'su':
       case 'water':
-        mainMesh = this._createWaterMesh(def);
-        break;
       case 'toprak':
       case 'earth':
-        mainMesh = this._createEarthMesh(def);
-        break;
       case 'hava':
       case 'air':
-        mainMesh = this._createAirMesh(def);
+        mainMesh = this._createReliefCoinMesh(canonicalId, def);
         break;
       case 'buhar':
       case 'steam':
@@ -1779,8 +2171,28 @@ export class ItemFactory {
     } else {
       group.userData.update = (time, delta) => {
         const dt = delta || 0.016;
-        group.rotation.y += dt * 1.0;
+        group.rotation.y += dt * 0.85;
       };
+    }
+
+    // 01_elements 3D GLB Model Asynchronous Loader & Animation Wiring
+    const glbPath = this._category01GlbMap[canonicalId];
+    if (glbPath) {
+      if (this._modelCache.has(glbPath)) {
+        this._setupGlbModel(this._modelCache.get(glbPath), canonicalId, group);
+      } else {
+        this._gltfLoader.load(
+          glbPath,
+          (gltf) => {
+            this._modelCache.set(glbPath, gltf.scene);
+            this._setupGlbModel(gltf.scene, canonicalId, group);
+          },
+          undefined,
+          (err) => {
+            console.warn(`[ItemFactory] GLB load fallback for ${canonicalId}:`, err);
+          }
+        );
+      }
     }
 
     // Generate 4-6 fracture pieces for shattering mechanics
