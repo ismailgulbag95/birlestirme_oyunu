@@ -70,10 +70,10 @@ export class ItemFactory {
 
       const iconSize = width * 0.72;
 
-      // Görseli 180 derece döndürerek tam doğru dik pozisyona getir
+      // İkonu 90 derece sola çevir (-90° / -Math.PI / 2)
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(Math.PI / 2);
+      ctx.rotate(-Math.PI / 2);
       ctx.drawImage(image, -iconSize / 2, -iconSize / 2, iconSize, iconSize);
       ctx.restore();
 
@@ -85,15 +85,11 @@ export class ItemFactory {
     // Ön yüzü çiz
     const frontCanvas = renderFace();
 
-    // Arka yüz: Three.js CylinderGeometry bottom cap UV haritası hem U hem V ekseninde ters olduğu için
-    // ön yüzün hem yatay (X) hem dikey (Y) tersini (180° rotasyon) alarak coin döndüğünde
-    // karşıdan bakan birinin iki yüzde de sembolü birebir aynı ve düz görmesini sağlıyoruz.
+    // Arka yüz: Ön yüz ile birebir aynı (herhangi bir rotasyon veya flip uygulanmaz)
     const backCanvas = document.createElement('canvas');
     backCanvas.width = width;
     backCanvas.height = height;
     const backCtx = backCanvas.getContext('2d');
-    backCtx.translate(width, height);
-    backCtx.scale(-1, -1);
     backCtx.drawImage(frontCanvas, 0, 0);
 
     // Bump / Kabartma Haritası Üretimi
@@ -418,23 +414,12 @@ export class ItemFactory {
   static createItemMesh(itemId) {
     const canonicalId = getCanonicalId(itemId) || itemId;
     const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId] || ITEM_DEFINITIONS.fire;
-    const group = new THREE.Group();
-    group.userData.itemId = canonicalId;
-    group.userData.definition = def;
+    return this._createReliefCoinMesh(canonicalId, def);
+  }
 
+  static _createLegacyMesh(canonicalId, def) {
     let mainMesh;
-
     switch (canonicalId) {
-      case 'ates':
-      case 'fire':
-      case 'su':
-      case 'water':
-      case 'toprak':
-      case 'earth':
-      case 'hava':
-      case 'air':
-        mainMesh = this._createReliefCoinMesh(canonicalId, def);
-        break;
       case 'buhar':
       case 'steam':
         mainMesh = this._createSteamMesh(def);
