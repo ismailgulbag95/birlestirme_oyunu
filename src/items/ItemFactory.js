@@ -13,7 +13,7 @@ export class ItemFactory {
     const emissive = palette?.emissive || '#b45309';
 
     // Helper: draw single face with upright orientation
-    const renderFace = () => {
+    const renderFace = (angle = 0) => {
       const canvas = document.createElement('canvas');
       canvas.width = width;
       canvas.height = height;
@@ -73,7 +73,9 @@ export class ItemFactory {
       // Görseli 180 derece döndürerek tam doğru dik pozisyona getir
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(Math.PI / 2);
+      if (angle !== 0) {
+        ctx.rotate(angle);
+      }
       ctx.drawImage(image, -iconSize / 2, -iconSize / 2, iconSize, iconSize);
       ctx.restore();
 
@@ -82,19 +84,11 @@ export class ItemFactory {
       return canvas;
     };
 
-    // Ön yüzü çiz
-    const frontCanvas = renderFace();
+    // Ön yüz: 90 derece sola (-Math.PI / 2)
+    const frontCanvas = renderFace(-Math.PI / 2);
 
-    // Arka yüz: Three.js CylinderGeometry bottom cap UV haritası hem U hem V ekseninde ters olduğu için
-    // ön yüzün hem yatay (X) hem dikey (Y) tersini (180° rotasyon) alarak coin döndüğünde
-    // karşıdan bakan birinin iki yüzde de sembolü birebir aynı ve düz görmesini sağlıyoruz.
-    const backCanvas = document.createElement('canvas');
-    backCanvas.width = width;
-    backCanvas.height = height;
-    const backCtx = backCanvas.getContext('2d');
-    backCtx.translate(width, height);
-    backCtx.scale(-1, -1);
-    backCtx.drawImage(frontCanvas, 0, 0);
+    // Arka yüz: 90 derece sağa (Math.PI / 2)
+    const backCanvas = renderFace(Math.PI / -2);
 
     // Bump / Kabartma Haritası Üretimi
     const createBump = (srcCanvas) => {

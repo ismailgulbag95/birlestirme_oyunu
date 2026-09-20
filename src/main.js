@@ -11,7 +11,7 @@ import {
 } from './items/itemDefinitions.js';
 import { CraftingSystem } from './systems/CraftingSystem.js';
 import { HintSystem } from './systems/HintSystem.js';
-import { EnvironmentProgressionManager } from './systems/EnvironmentProgressionManager.js';
+import { EnvironmentProgressionManager, SHELF_ITEMS } from './systems/EnvironmentProgressionManager.js';
 import { UIManager } from './ui/UIManager.js';
 import { i18n } from './i18n/translations.js';
 import { audioManager } from './core/AudioManager.js';
@@ -25,106 +25,6 @@ class Game {
     const canvas = document.getElementById('canvas');
     this.failedCraftAttempts = 0;
 
-    const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
-
-    // Kayıtlı oyunu yükle
-    const savedData = this._loadSavedGame();
-    this.gameMode = savedData.gameMode || 'classic'; // 'classic' (92 eşya) veya 'grandmaster' (666 eşya)
-    this.crafting = new CraftingSystem(this.gameMode);
-    this.hintSystem = new HintSystem(this.gameMode);
-
-    const modeDefs = getItemDefinitionsForMode(this.gameMode);
-    const allDefKeys = Object.keys(modeDefs);
-
-    const defaultLocked = allDefKeys.filter(id => {
-      const canonical = getCanonicalId(id) || id;
-      return !defaultUnlocked.includes(id) && !defaultUnlocked.includes(canonical);
-    });
-    this.defaultLockedItems = defaultLocked;
-
-    this.unlockedItems = (savedData.unlockedItems || defaultUnlocked).filter(id => {
-      const canonical = getCanonicalId(id) || id;
-      return allDefKeys.includes(id) || allDefKeys.includes(canonical);
-    });
-    if (this.unlockedItems.length === 0) {
-      this.unlockedItems = [...defaultUnlocked];
-    }
-
-    this.lockedItems = allDefKeys.filter(id => {
-      const canonical = getCanonicalId(id) || id;
-      return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
-    });
-
-    if (savedData.hintRights !== undefined) {
-      this.hintSystem.hintRights = savedData.hintRights;
-    }
-    if (savedData.hintLevels) {
-      this.hintSystem.hintLevels = savedData.hintLevels;
-    }
-    if (savedData.discoveryCount !== undefined) {
-      this.hintSystem.discoveryCount = savedData.discoveryCount;
-    } else if (savedData.successfulMatches !== undefined) {
-      this.hintSystem.discoveryCount = savedData.successfulMatches;
-    }
-    if (savedData.successfulMatches !== undefined) {
-      this.hintSystem.successfulMatches = savedData.successfulMatches;
-    }
-
-    // Karakter kilidi ve başlangıç karakteri:
-    // character1: daima açık (0 eşya)
-    // character2 (Gözlemci): 40 eşyada açılır
-    // character3 (Gezgin): Sadece Grandmaster aboneliğinde açılır
-    const savedChar = savedData.activeCharacterId || 'character1';
-    let initialChar = 'character1';
-    const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
-    if (savedChar === 'character3' && isGm) {
-      initialChar = 'character3';
-    } else if (savedChar === 'character2' && this.unlockedItems.length >= 40) {
-      initialChar = 'character2';
-    } else {
-      initialChar = 'character1';
-    }
-
-    this.sceneManager = new SceneManager(canvas);
-    this.tableScene = new TableScene(this.sceneManager, initialChar);
-    this.tableScene.setMode(this.gameMode, false);
-    this.envProgression = new EnvironmentProgressionManager(this.sceneManager, this.tableScene.getRoomEnvironment());
-    this.envProgression.syncWithUnlockedItems(this.unlockedItems);
-    this.physics = new RapierWorld();
-    await this.physics.init();
-
-    const debugHandlers = {
-      onUnlockAll: () => this.unlockAllItems(),
-      onSetInfiniteHints: (enabled) => this.setInfiniteHints(enabled),
-      onRevealAllHints: () => this.revealAllHints(),
-      onResetProgress: () => this.resetProgress(),
-      onSpawnBasics: () => this.spawnBasicElements(),
-      onToggleFps: (enabled) => { this.fpsEnabled = enabled; }
-    };
-
-    this.ui = new UIManager(
-      (itemId) => this.onInventoryItemSelect(itemId),
-      (itemId) => this.onGetHint(itemId),
-      (itemId) => this.onWatchAd(itemId),
-      () => this.clearTableAndPieces(),
-      (charId) => {
-        if (charId === 'character3' && !subscriptionManager.isGrandmaster() && this.gameMode !== 'grandmaster') {
-          this.ui.showToast(i18n.t('char_wanderer_gm_locked'), 'warn');
-          this.ui.showGrandmasterOfferModal('character_unlock');
-          return;
-        }
-        this.tableScene.switchCharacter(charId);
-        this._saveGame();
-      },
-      () => audioManager.cycleMusicMode(),
-      debugHandlers,
-      () => {
-        this.tableScene.playTalkingAnimation();
-        this.triggerCrafting();
-      },
-      (newMode) => this.switchGameMode(newMode)
-    );
-
     const removeLoadingScreen = () => {
       const loadingScreen = document.getElementById('loading-screen');
       if (loadingScreen) {
@@ -137,7 +37,117 @@ class Game {
       }
     };
 
+    // Acil durum koruması: 2.5 saniye sonra yükleme ekranı kesinlikle kalkar
+    setTimeout(removeLoadingScreen, 2500);
+
     try {
+      const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
+
+      // Kayıtlı oyunu yükle
+      const savedData = this._loadSavedGame();
+      this.gameMode = savedData.gameMode || 'classic'; // 'classic' (92 eşya) veya 'grandmaster' (666 eşya)
+      this.crafting = new CraftingSystem(this.gameMode);
+      this.hintSystem = new HintSystem(this.gameMode);
+
+      const modeDefs = getItemDefinitionsForMode(this.gameMode);
+      const allDefKeys = Object.keys(modeDefs);
+
+      const defaultLocked = allDefKeys.filter(id => {
+        const canonical = getCanonicalId(id) || id;
+        return !defaultUnlocked.includes(id) && !defaultUnlocked.includes(canonical);
+      });
+      this.defaultLockedItems = defaultLocked;
+
+      this.unlockedItems = (savedData.unlockedItems || defaultUnlocked).filter(id => {
+        const canonical = getCanonicalId(id) || id;
+        return allDefKeys.includes(id) || allDefKeys.includes(canonical);
+      });
+      if (this.unlockedItems.length === 0) {
+        this.unlockedItems = [...defaultUnlocked];
+      }
+
+      this.lockedItems = allDefKeys.filter(id => {
+        const canonical = getCanonicalId(id) || id;
+        return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
+      });
+
+      if (savedData.hintRights !== undefined) {
+        this.hintSystem.hintRights = savedData.hintRights;
+      }
+      if (savedData.hintLevels) {
+        this.hintSystem.hintLevels = savedData.hintLevels;
+      }
+      if (savedData.discoveryCount !== undefined) {
+        this.hintSystem.discoveryCount = savedData.discoveryCount;
+      } else if (savedData.successfulMatches !== undefined) {
+        this.hintSystem.discoveryCount = savedData.successfulMatches;
+      }
+      if (savedData.successfulMatches !== undefined) {
+        this.hintSystem.successfulMatches = savedData.successfulMatches;
+      }
+
+      // Karakter kilidi ve başlangıç karakteri:
+      const savedChar = savedData.activeCharacterId || 'character1';
+      let initialChar = 'character1';
+      const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+      if (savedChar === 'character3' && isGm) {
+        initialChar = 'character3';
+      } else if (savedChar === 'character2' && this.unlockedItems.length >= 40) {
+        initialChar = 'character2';
+      } else {
+        initialChar = 'character1';
+      }
+
+      this.sceneManager = new SceneManager(canvas);
+      this.tableScene = new TableScene(this.sceneManager, initialChar);
+      this.tableScene.setMode(this.gameMode, false);
+      
+      try {
+        this.envProgression = new EnvironmentProgressionManager(this.sceneManager, this.tableScene.getRoomEnvironment());
+        this.envProgression.syncWithUnlockedItems(this.unlockedItems);
+      } catch (e) {
+        console.warn("EnvironmentProgression uyarısı:", e);
+      }
+
+      try {
+        this.physics = new RapierWorld();
+        await this.physics.init();
+      } catch (e) {
+        console.warn("Fizik dünyası başlatma uyarısı:", e);
+      }
+
+      const debugHandlers = {
+        onUnlockAll: () => this.unlockAllItems(),
+        onSetInfiniteHints: (enabled) => this.setInfiniteHints(enabled),
+        onRevealAllHints: () => this.revealAllHints(),
+        onResetProgress: () => this.resetProgress(),
+        onSpawnBasics: () => this.spawnBasicElements(),
+        onToggleFps: (enabled) => { this.fpsEnabled = enabled; }
+      };
+
+      this.ui = new UIManager(
+        (itemId) => this.onInventoryItemSelect(itemId),
+        (itemId) => this.onGetHint(itemId),
+        (itemId) => this.onWatchAd(itemId),
+        () => this.clearTableAndPieces(),
+        (charId) => {
+          if (charId === 'character3' && !subscriptionManager.isGrandmaster() && this.gameMode !== 'grandmaster') {
+            this.ui.showToast(i18n.t('char_wanderer_gm_locked'), 'warn');
+            this.ui.showGrandmasterOfferModal('character_unlock');
+            return;
+          }
+          this.tableScene.switchCharacter(charId);
+          this._saveGame();
+        },
+        () => audioManager.cycleMusicMode(),
+        debugHandlers,
+        () => {
+          this.tableScene.playTalkingAnimation();
+          this.triggerCrafting();
+        },
+        (newMode) => this.switchGameMode(newMode)
+      );
+
       this.ui.setGameMode(this.gameMode);
       this.ui.setUnlockedItemCount(this.unlockedItems.length);
       this.ui.updateCharacterButton(initialChar);
@@ -321,15 +331,39 @@ class Game {
 
       const firstHit = intersects[0];
 
-      // 1. Aşama: Kullanıcının parmağının / faresinin DOĞRUDAN bastığı nesne masadaki bir eşya mı?
-      let targetSlot = null;
+      // 1. Aşama: Raflardaki 12 Rozet / Koleksiyon 3D sembollerinden birine mi tıklandı?
+      let badgeOrCol = null;
       let curr = firstHit.object;
+      while (curr && curr !== this.sceneManager.scene) {
+        if (curr.userData && (curr.userData.isBadgeOrCollection || curr.userData.id)) {
+          const itemId = curr.userData.id;
+          const shelfItem = SHELF_ITEMS.find(s => s.id === itemId || (curr.userData.slotIndex !== undefined && s.slotIndex === curr.userData.slotIndex));
+          if (shelfItem) {
+            badgeOrCol = shelfItem;
+            break;
+          }
+        }
+        curr = curr.parent;
+      }
+
+      if (badgeOrCol) {
+        console.log(`Raflardaki 3D sembole tıklandı: ${badgeOrCol.id} (${badgeOrCol.type})`);
+        try {
+          audioManager.playClick();
+        } catch (e) {}
+        this.ui.openAchievementsSubtab(badgeOrCol.type, badgeOrCol.id);
+        return;
+      }
+
+      // 2. Aşama: Kullanıcının parmağının / faresinin DOĞRUDAN bastığı nesne masadaki bir eşya mı?
+      let targetSlot = null;
+      curr = firstHit.object;
       while (curr && curr !== this.sceneManager.scene) {
         if (curr.userData) {
           if (curr.userData.slot) {
             targetSlot = curr.userData.slot;
             break;
-          } else if (curr.userData.slotIndex !== undefined && curr.userData.isOccupied) {
+          } else if (curr.userData.slotIndex !== undefined && curr.userData.isOccupied && curr.userData.mesh) {
             targetSlot = curr;
             break;
           }
@@ -343,7 +377,7 @@ class Game {
         return;
       }
 
-      // 2. Aşama: Masadaki eşyaya doğrudan basılmadıysa; sahneye, karaktere veya masaya yapılan her dokunuş BİRLEŞTİRME (CRAFT) eylemidir!
+      // 3. Aşama: Masadaki eşyaya veya rafa basılmadıysa; sahneye, karaktere veya masaya yapılan her dokunuş BİRLEŞTİRME (CRAFT) eylemidir!
       console.log("Karakter/Masa etkileşimi algılandı! Craft tetikleniyor...");
       try {
         this.tableScene.playTalkingAnimation();
@@ -358,10 +392,18 @@ class Game {
     const mesh = slot.userData.mesh;
     if (!mesh) return;
 
+    const currentItemId = slot.userData.currentItem;
+
     slot.userData.isOccupied = false;
     slot.userData.currentItem = null;
     slot.userData.mesh = null;
     mesh.userData.slot = null;
+
+    if (!mesh.userData.fracturePieces) {
+      const canonicalId = getCanonicalId(currentItemId) || currentItemId;
+      const def = mesh.userData.definition || ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[currentItemId] || ITEM_DEFINITIONS.ates;
+      mesh.userData.fracturePieces = ItemFactory._generateFracturePieces(def);
+    }
 
     // Animate throw upwards and backwards towards character
     gsap.to(mesh.position, {
@@ -462,15 +504,13 @@ class Game {
           const newDiscoveryCount = this.unlockedItems.length;
           this.ui.setUnlockedItemCount(newDiscoveryCount);
 
-          // Odaya süzülme animasyonu
+          // Başarımları ve Milestone'ları kontrol et
+          achievementManager.checkMilestones(newDiscoveryCount);
+
+          // Odaya süzülme animasyonu ve rafları güncelleme
           if (this.envProgression) {
             this.envProgression.flyItemToShelf(canonicalResult, new THREE.Vector3(0, 1.2, 0));
           }
-          // Masanın önünde yeni keşif bildirimini göster
-          this.ui.showDiscoveryAnnouncement(canonicalResult);
-
-          // Başarımları ve Milestone'ları kontrol et
-          achievementManager.checkMilestones(newDiscoveryCount);
 
           // 40 eşyaya ulaşıldığında Gözlemci karakter kilidi açılma kutlaması
           if (prevDiscoveryCount < 40 && newDiscoveryCount >= 40) {
@@ -653,6 +693,9 @@ class Game {
       });
 
       this.tableScene.update(delta);
+      if (this.envProgression) {
+        this.envProgression.update(delta);
+      }
       this.physics.step(this.sceneManager.scene);
       this.sceneManager.render();
     };
@@ -661,10 +704,16 @@ class Game {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+function startGame() {
   const game = new Game();
   game.init().catch(err => {
     console.error("Game initialization failed:", err);
-    alert("Oyun başlatılırken hata oluştu: " + err.message);
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startGame);
+} else {
+  startGame();
+}
+

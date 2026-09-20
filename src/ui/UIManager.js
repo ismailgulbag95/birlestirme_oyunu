@@ -725,6 +725,61 @@ export class UIManager {
         color: #ffffff;
       }
 
+      /* =================================================== */
+      /* RAYCAST SAĞ PANEL: Seçenekler / Ayarlar Menüsü       */
+      /* =================================================== */
+      #right-drawer {
+        position: absolute;
+        right: -240px;
+        top: 16px;
+        width: 240px;
+        height: calc(100% - 84px);
+        background: var(--rc-surface);
+        border: 1px solid var(--rc-hairline);
+        border-right: none;
+        border-radius: 14px 0 0 14px;
+        pointer-events: auto;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        z-index: 20;
+        box-shadow: -12px 0 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 var(--rc-hairline-soft);
+      }
+
+      #right-drawer.open {
+        transform: translateX(-240px);
+      }
+
+      #settings-drawer-toggle {
+        position: absolute;
+        left: -44px;
+        top: 24px;
+        width: 44px;
+        height: 60px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+        color: var(--rc-ink);
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+        pointer-events: auto;
+        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: all 0.15s ease;
+      }
+
+      #settings-drawer-toggle:hover {
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
+      }
+
       .drawer-header {
         padding: 12px 14px;
         background: var(--rc-surface-card);
@@ -827,12 +882,10 @@ export class UIManager {
         cursor: not-allowed;
       }
 
-
-
       /* =================================================== */
-      /* MODALLAR (AYARLAR, ABONELİK, BAŞARIMLAR, REHBER)    */
+      /* MODALLAR & SEÇENEKLER KARTLARI                      */
       /* =================================================== */
-      #settings-modal, #grandmaster-offer-modal, #achievements-modal, #welcome-modal, #char-unlock-modal {
+      #grandmaster-offer-modal, #achievements-modal, #welcome-modal, #char-unlock-modal {
         position: absolute;
         top: 0;
         left: 0;
@@ -850,11 +903,11 @@ export class UIManager {
         box-sizing: border-box;
       }
 
-      #settings-modal.show, #grandmaster-offer-modal.show, #achievements-modal.show, #welcome-modal.show, #char-unlock-modal.show {
+      #grandmaster-offer-modal.show, #achievements-modal.show, #welcome-modal.show, #char-unlock-modal.show {
         display: flex;
       }
 
-      .settings-box, .gm-offer-box, .achievements-box, .welcome-card, .celebrate-card {
+      .gm-offer-box, .achievements-box, .welcome-card, .celebrate-card {
         background: var(--rc-surface);
         border: 1px solid var(--rc-hairline);
         border-radius: 14px;
@@ -881,14 +934,6 @@ export class UIManager {
           opacity: 1;
           transform: scale(1) translateY(0);
         }
-      }
-
-      .settings-top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        width: 100%;
       }
 
       .settings-header {
@@ -941,23 +986,23 @@ export class UIManager {
         padding: 3px;
         border-radius: 8px;
         border: 1px solid var(--rc-hairline);
-        flex: 1;
       }
 
       .settings-tab-btn {
         flex: 1;
-        padding: 7px 4px;
+        padding: 6px 3px;
         border-radius: 6px;
         border: none;
         background: transparent;
         color: var(--rc-ink-muted);
         font-family: var(--rc-font);
-        font-size: 11.5px;
+        font-size: 10.5px;
         font-weight: 700;
         cursor: pointer;
         transition: all 0.15s ease;
         text-align: center;
         letter-spacing: 0.2px;
+        white-space: nowrap;
       }
 
       .settings-tab-btn.active {
@@ -974,37 +1019,37 @@ export class UIManager {
 
       .settings-btn-row {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: stretch;
         background: var(--rc-surface-card);
         border: 1px solid var(--rc-hairline);
         border-radius: 8px;
-        padding: 10px 12px;
-        gap: 10px;
+        padding: 8px 10px;
+        gap: 6px;
       }
 
       .settings-btn-row-info {
         display: flex;
         flex-direction: column;
         gap: 2px;
-        flex: 1;
       }
 
       .settings-btn-label {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 800;
         color: #f4f4f6;
         letter-spacing: 0.2px;
       }
 
       .settings-btn-sub {
-        font-size: 11px;
+        font-size: 10px;
         color: var(--rc-ink-muted);
+        line-height: 1.35;
       }
 
       /* Raycast Buton Seti */
       .settings-action-btn {
-        padding: 6px 14px;
+        padding: 6px 12px;
         border-radius: 6px;
         font-family: var(--rc-font);
         font-size: 11px;
@@ -1014,6 +1059,7 @@ export class UIManager {
         white-space: nowrap;
         user-select: none;
         border: 1px solid var(--rc-hairline);
+        text-align: center;
       }
 
       .settings-action-btn:active {
@@ -1763,21 +1809,17 @@ export class UIManager {
     const container = document.createElement('div');
     container.id = 'ui-container';
     container.innerHTML = `
-      <!-- ÜST AKSİYON BARI (ORTADA TEMİZLE, SAĞDA SEÇENEKLER) -->
+      <!-- ÜST AKSİYON BARI (ORTADA TEMİZLE) -->
       <div id="top-action-bar">
         <button id="top-cleanup-btn" class="top-bar-btn top-cleanup-btn" title="${i18n.t('cleanup')}">
           <span style="font-size: 14px;">🧹</span>
           <span id="top-cleanup-btn-label">${i18n.t('cleanup')}</span>
         </button>
-        <button id="top-settings-btn" class="top-bar-btn top-settings-btn" title="${i18n.t('settings_btn')}">
-          <span style="font-size: 14px;">⚙️</span>
-          <span id="top-settings-btn-label">${i18n.t('settings_btn')}</span>
-        </button>
       </div>
 
       <!-- SOL ÇEKMECE: İpuçları & Simya Kodeksi -->
       <div id="left-drawer">
-        <div id="drawer-toggle" title="İpuçları">
+        <div id="drawer-toggle" title="${i18n.t('hints_title')}">
           <img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML='<span style=\\'font-size: 15px;\\'>📜</span>';">
           <span style="font-size: 8px; font-weight: 700; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>
         </div>
@@ -1793,82 +1835,25 @@ export class UIManager {
         </div>
       </div>
 
-      <!-- 3 KADEMELİ ALT KAYAR KEŞİF ÇEKMECESİ -->
-      <div id="bottom-discovery-drawer" class="tier-1">
-        <!-- 1. KADEME: Yatay Şerit Başlığı & Genişlet Butonu -->
-        <div class="drawer-tier1-header">
-          <div class="drawer-tier1-title-badge">
-            <span>🧭</span>
-            <span id="drawer-tier1-count-badge">4 Keşfedildi</span>
-          </div>
-          <button id="drawer-expand-btn" class="drawer-expand-btn" title="Genişlet">
-            <span style="font-size: 12px; line-height: 1;">⌃</span>
-            <span>GENİŞLET</span>
-          </button>
+      <!-- SAĞ ÇEKMECE: Seçenekler Menüsü -->
+      <div id="right-drawer">
+        <div id="settings-drawer-toggle" title="${i18n.t('settings_title')}">
+          <span style="font-size: 16px;">⚙️</span>
+          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;" id="settings-toggle-label">${i18n.currentLang === 'tr' ? 'AYARLAR' : 'SETTINGS'}</span>
         </div>
-
-        <!-- 1. KADEME: Yatay Kayan İkonlar -->
-        <div id="drawer-tier1-strip" class="drawer-tier1-strip">
-          <!-- İkonlar dinamik yüklenecek -->
+        <div class="drawer-header" style="border-radius: 14px 0 0 0;">
+          <span id="drawer-settings-title">${i18n.t('settings_title')}</span>
+          <span class="hint-badge" style="color: var(--rc-accent-blue); background: var(--rc-surface-elevated); border: 1px solid var(--rc-hairline);">⚙️</span>
         </div>
-
-        <!-- 2. & 3. KADEME: Başlık ve Kontroller -->
-        <div class="drawer-expanded-header">
-          <div class="drawer-header-left">
-            <span style="font-size: 15px;">🧭</span>
-            <span id="drawer-expanded-title" class="drawer-expanded-title">KEŞFEDİLENLER</span>
-            <span id="drawer-items-count-badge" class="drawer-count-badge">4 Keşfedildi</span>
-          </div>
-          <div class="drawer-header-right">
-            <button id="drawer-fullscreen-btn" class="drawer-header-btn" title="Tam Ekran Ansiklopedi">
-              <span style="font-size: 13px;">⛶</span>
-              <span style="font-size: 9px; font-weight: 700;">TAM EKRAN</span>
-            </button>
-            <button id="drawer-collapse-btn" class="drawer-header-btn" title="Küçült / 1. Kademeye Dön">
-              <span style="font-size: 14px; line-height: 1;">⌄</span>
-            </button>
-            <button id="drawer-close-fullscreen-btn" class="drawer-close-btn" title="Kapat (1. Kademeye Dön)" style="display: none;">
-              ✕
-            </button>
+        <div style="padding: 6px 8px 0 8px;">
+          <div class="settings-tabs">
+            <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
+            <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
+            <button class="settings-tab-btn" id="tab-pro-btn" data-tab="pro">${i18n.t('tab_pro')}</button>
+            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
           </div>
         </div>
-
-        <!-- 2. & 3. KADEME: Arama ve Filtreleme Çubuğu -->
-        <div class="drawer-search-filter-bar">
-          <div class="search-input-wrapper">
-            <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
-          </div>
-          <div class="filter-sort-group">
-            <button id="filter-btn" class="drawer-filter-btn" title="Kategori Filtrele">${this._getFilterLabel('all')}</button>
-            <button id="sort-btn" class="drawer-filter-btn" title="Sıralama Modu">${this._getSortLabel('discovery')}</button>
-          </div>
-        </div>
-
-        <!-- 2. KADEME: Masa Altına Açılan Kompakt Izgara (İsim + Sembol + Formül) -->
-        <div id="drawer-tier2-grid" class="drawer-tier2-grid">
-          <!-- İsim, Sembol, Formül kartları dinamik yüklenecek -->
-        </div>
-
-        <!-- 3. KADEME: Tam Ekran Codex / Ansiklopedi (İsim + Sembol + Formül + Lore Açıklaması) -->
-        <div id="drawer-tier3-grid" class="drawer-tier3-grid" style="display: none;">
-          <!-- Detaylı hikaye kartları dinamik yüklenecek -->
-        </div>
-      </div>
-
-      <div id="fps-counter-hud">FPS: -- | Nesne: 0</div>
-
-      <div id="settings-modal">
-        <div class="settings-box">
-          <div class="settings-top-bar">
-            <div class="settings-tabs">
-              <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
-              <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
-              <button class="settings-tab-btn" id="tab-pro-btn" data-tab="pro">${i18n.t('tab_pro')}</button>
-              <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
-            </div>
-            <button class="settings-close-icon" id="settings-close-btn" title="${i18n.t('settings_close')}">✕</button>
-          </div>
-
+        <div class="drawer-content" id="drawer-settings-content">
           <!-- 1. Genel Ayarlar Sekmesi -->
           <div class="settings-tab-pane" id="pane-general">
             <div class="settings-btn-row">
@@ -1979,7 +1964,7 @@ export class UIManager {
               <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
             </div>
 
-            <div class="gm-plans-grid">
+            <div class="gm-plans-grid" style="grid-template-columns: 1fr;">
               <div class="gm-plan-card recommended" data-plan="intro_monthly">
                 <span class="gm-plan-badge">ÖNERİLEN</span>
                 <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-yellow);">Tanışma Paketi</span>
@@ -2030,7 +2015,7 @@ export class UIManager {
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-debug-unlock">${i18n.t('debug_unlock_all')}</span>
-                <span class="settings-btn-sub" id="sub-debug-unlock">Tüm 180+ eşyayı anında aç</span>
+                <span class="settings-btn-sub" id="sub-debug-unlock">Tüm eşyaları anında aç</span>
               </div>
               <button id="debug-unlock-all-btn" class="settings-action-btn btn-cyan">${i18n.t('debug_unlock_all')}</button>
             </div>
@@ -2067,6 +2052,68 @@ export class UIManager {
               <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${i18n.t('debug_reset_progress')}</button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- 3 KADEMELİ ALT KAYAR KEŞİF ÇEKMECESİ -->
+      <div id="bottom-discovery-drawer" class="tier-1">
+        <!-- 1. KADEME: Yatay Şerit Başlığı & Genişlet Butonu -->
+        <div class="drawer-tier1-header">
+          <div class="drawer-tier1-title-badge">
+            <span>🧭</span>
+            <span id="drawer-tier1-count-badge">4 Keşfedildi</span>
+          </div>
+          <button id="drawer-expand-btn" class="drawer-expand-btn" title="Genişlet">
+            <span style="font-size: 12px; line-height: 1;">⌃</span>
+            <span>GENİŞLET</span>
+          </button>
+        </div>
+
+        <!-- 1. KADEME: Yatay Kayan İkonlar -->
+        <div id="drawer-tier1-strip" class="drawer-tier1-strip">
+          <!-- İkonlar dinamik yüklenecek -->
+        </div>
+
+        <!-- 2. & 3. KADEME: Başlık ve Kontroller -->
+        <div class="drawer-expanded-header">
+          <div class="drawer-header-left">
+            <span style="font-size: 15px;">🧭</span>
+            <span id="drawer-expanded-title" class="drawer-expanded-title">KEŞFEDİLENLER</span>
+            <span id="drawer-items-count-badge" class="drawer-count-badge">4 Keşfedildi</span>
+          </div>
+          <div class="drawer-header-right">
+            <button id="drawer-fullscreen-btn" class="drawer-header-btn" title="Tam Ekran Ansiklopedi">
+              <span style="font-size: 13px;">⛶</span>
+              <span style="font-size: 9px; font-weight: 700;">TAM EKRAN</span>
+            </button>
+            <button id="drawer-collapse-btn" class="drawer-header-btn" title="Küçült / 1. Kademeye Dön">
+              <span style="font-size: 14px; line-height: 1;">⌄</span>
+            </button>
+            <button id="drawer-close-fullscreen-btn" class="drawer-close-btn" title="Kapat (1. Kademeye Dön)" style="display: none;">
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. & 3. KADEME: Arama ve Filtreleme Çubuğu -->
+        <div class="drawer-search-filter-bar">
+          <div class="search-input-wrapper">
+            <input type="text" id="item-search-input" placeholder="${i18n.t('search_placeholder')}" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="filter-sort-group">
+            <button id="filter-btn" class="drawer-filter-btn" title="Kategori Filtrele">${this._getFilterLabel('all')}</button>
+            <button id="sort-btn" class="drawer-filter-btn" title="Sıralama Modu">${this._getSortLabel('discovery')}</button>
+          </div>
+        </div>
+
+        <!-- 2. KADEME: Masa Altına Açılan Kompakt Izgara (İsim + Sembol + Formül) -->
+        <div id="drawer-tier2-grid" class="drawer-tier2-grid">
+          <!-- İsim, Sembol, Formül kartları dinamik yüklenecek -->
+        </div>
+
+        <!-- 3. KADEME: Tam Ekran Codex / Ansiklopedi (İsim + Sembol + Formül + Lore Açıklaması) -->
+        <div id="drawer-tier3-grid" class="drawer-tier3-grid" style="display: none;">
+          <!-- Detaylı hikaye kartları dinamik yüklenecek -->
         </div>
       </div>
 
@@ -2405,8 +2452,11 @@ export class UIManager {
     const topCleanupLabel = document.getElementById('top-cleanup-btn-label');
     if (topCleanupLabel) topCleanupLabel.textContent = i18n.t('cleanup');
 
-    const topSettingsLabel = document.getElementById('top-settings-btn-label');
-    if (topSettingsLabel) topSettingsLabel.textContent = i18n.t('settings_btn');
+    const drawerSettingsTitle = document.getElementById('drawer-settings-title');
+    if (drawerSettingsTitle) drawerSettingsTitle.textContent = i18n.t('settings_title');
+
+    const settingsToggleLabel = document.getElementById('settings-toggle-label');
+    if (settingsToggleLabel) settingsToggleLabel.textContent = i18n.currentLang === 'tr' ? 'AYARLAR' : 'SETTINGS';
 
     const charBtn = document.getElementById('character-switch-btn');
     if (charBtn) {
@@ -2451,9 +2501,7 @@ export class UIManager {
     const closeAdBtn = document.getElementById('close-ad-btn');
     if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
 
-    // 7. Settings Modal & Debug Labels
-    const settingsBtnLabel = document.getElementById('settings-open-btn-label');
-    if (settingsBtnLabel) settingsBtnLabel.textContent = i18n.t('settings_btn');
+    // 7. Settings Drawer & Debug Labels
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
@@ -2546,6 +2594,17 @@ export class UIManager {
     }
   }
 
+  closeRightDrawer() {
+    const drawer = document.getElementById('right-drawer');
+    const toggle = document.getElementById('settings-drawer-toggle');
+    if (drawer && drawer.classList.contains('open')) {
+      drawer.classList.remove('open');
+      if (toggle) {
+        toggle.innerHTML = `<span style="font-size: 16px;">⚙️</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;" id="settings-toggle-label">${i18n.currentLang === 'tr' ? 'AYARLAR' : 'SETTINGS'}</span>`;
+      }
+    }
+  }
+
   setDrawerTier(tier) {
     this.drawerTier = tier;
     const drawer = document.getElementById('bottom-discovery-drawer');
@@ -2582,6 +2641,7 @@ export class UIManager {
           if (this.drawerTier === 3) {
             this.setDrawerTier(1);
           }
+          this.closeRightDrawer();
           drawer.classList.add('open');
           toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
         } else {
@@ -2611,16 +2671,6 @@ export class UIManager {
       });
     }
 
-    const topSettingsBtn = document.getElementById('top-settings-btn');
-    const settingsModal = document.getElementById('settings-modal');
-    if (topSettingsBtn && settingsModal) {
-      topSettingsBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        gsap.to(topSettingsBtn, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 });
-        settingsModal.classList.add('show');
-      });
-    }
-
     // 3 Kademeli Alt Çekmece Kontrolleri
     const expandBtn = document.getElementById('drawer-expand-btn');
     const fullscreenBtn = document.getElementById('drawer-fullscreen-btn');
@@ -2631,6 +2681,7 @@ export class UIManager {
       expandBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         this.closeLeftDrawer();
+        this.closeRightDrawer();
         this.setDrawerTier(2);
       });
     }
@@ -2639,6 +2690,7 @@ export class UIManager {
       fullscreenBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         this.closeLeftDrawer();
+        this.closeRightDrawer();
         this.setDrawerTier(3);
       });
     }
@@ -2715,29 +2767,25 @@ export class UIManager {
   }
 
   _setupSettingsLogic() {
-    const modal = document.getElementById('settings-modal');
-    const openBtn = document.getElementById('settings-open-btn');
-    const closeBtn = document.getElementById('settings-close-btn');
+    const drawer = document.getElementById('right-drawer');
+    const toggle = document.getElementById('settings-drawer-toggle');
 
-    if (openBtn && modal) {
-      openBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        gsap.to(openBtn, { scale: 0.92, duration: 0.1, yoyo: true, repeat: 1 });
-        modal.classList.add('show');
-      });
-    }
-
-    if (closeBtn && modal) {
-      closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        modal.classList.remove('show');
-      });
-    }
-
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('show');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        const willOpen = !drawer.classList.contains('open');
+        if (willOpen) {
+          if (this.drawerTier === 3) {
+            this.setDrawerTier(1);
+          }
+          this.closeLeftDrawer();
+          drawer.classList.add('open');
+          toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
+          if (this.currentActiveTab === 'collections') {
+            this._renderBadges();
+            this._renderCollections();
+          }
+        } else {
+          this.closeRightDrawer();
         }
       });
     }
@@ -2754,6 +2802,7 @@ export class UIManager {
     const paneDebug = document.getElementById('pane-debug');
 
     const switchTab = (activeTab) => {
+      this.currentActiveTab = activeTab;
       tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
       tabCollectionsBtn?.classList.toggle('active', activeTab === 'collections');
       tabProBtn?.classList.toggle('active', activeTab === 'pro');
@@ -3511,12 +3560,12 @@ export class UIManager {
         break;
 
       case 4:
-        // Üst Seçenekler & Modlar: Kutucuk yukarı çekilir, üst sağ seçenekler butonu gösterilir
+        // Seçenekler & Modlar: Kutucuk yukarı çekilir, sağ seçenekler çekmecesi gösterilir
         if (cardBox) cardBox.className = 'tutorial-card pos-top';
         if (stepIcon) stepIcon.textContent = '⚙️';
         if (stepTitle) stepTitle.textContent = i18n.t('tutorial_step4_title');
         if (stepDesc) stepDesc.textContent = i18n.t('tutorial_step4_desc');
-        this._pointToElement('#top-settings-btn', 'down');
+        this._pointToElement('#settings-drawer-toggle', 'left');
         break;
 
       case 5:
@@ -3568,12 +3617,19 @@ export class UIManager {
     arrow.style.display = 'flex';
     arrow.className = '';
 
-    if (direction === 'right') {
+    if (direction === 'left') {
       const left = Math.max(10, rect.left - 54);
       const top = rect.top + (rect.height / 2) - 24;
       arrow.style.left = `${left}px`;
       arrow.style.top = `${top}px`;
       arrow.style.transform = 'rotate(-90deg)';
+      arrow.classList.add('arrow-bounce-right');
+    } else if (direction === 'right') {
+      const left = Math.max(10, rect.right + 10);
+      const top = rect.top + (rect.height / 2) - 24;
+      arrow.style.left = `${left}px`;
+      arrow.style.top = `${top}px`;
+      arrow.style.transform = 'rotate(90deg)';
       arrow.classList.add('arrow-bounce-right');
     } else if (direction === 'down') {
       const left = rect.left + (rect.width / 2) - 24;
@@ -3653,14 +3709,39 @@ export class UIManager {
   }
 
   showAchievementsModal() {
-    const modal = document.getElementById('settings-modal');
-    if (!modal) return;
-    modal.classList.add('show');
+    this.openAchievementsSubtab('badges');
+  }
+
+  openAchievementsSubtab(subtabType = 'badges', itemId = null) {
+    const drawer = document.getElementById('right-drawer');
+    const toggle = document.getElementById('settings-drawer-toggle');
+    if (drawer) {
+      this.closeLeftDrawer();
+      if (this.drawerTier === 3) this.setDrawerTier(1);
+      drawer.classList.add('open');
+      if (toggle) {
+        toggle.innerHTML = '<span style="font-size: 16px;">✕</span><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px;">KAPAT</span>';
+      }
+    }
     if (this.switchSettingsTab) {
       this.switchSettingsTab('collections');
-    } else {
-      this._renderBadges();
-      this._renderCollections();
+    }
+
+    const subtabBadgesBtn = document.getElementById('subtab-badges-btn');
+    const subtabSetsBtn = document.getElementById('subtab-sets-btn');
+
+    if (subtabType === 'badges' || subtabType === 'badge') {
+      if (subtabBadgesBtn) {
+        subtabBadgesBtn.click();
+      } else {
+        this._renderBadges();
+      }
+    } else if (subtabType === 'collections' || subtabType === 'collection') {
+      if (subtabSetsBtn) {
+        subtabSetsBtn.click();
+      } else {
+        this._renderCollections();
+      }
     }
   }
 
@@ -3705,7 +3786,6 @@ export class UIManager {
     cols.forEach(col => {
       const card = document.createElement('div');
       card.className = 'col-card-box';
-
       const chipsHtml = col.items.map(it => `
         <div class="col-item-chip ${it.isOwned ? 'owned' : 'locked'}" title="${it.isOwned ? it.name : (i18n.currentLang === 'tr' ? 'Kilitli Eşya' : 'Locked Item')}">
           <span>${it.isOwned ? it.icon : '🔒'}</span>
@@ -3741,9 +3821,9 @@ export class UIManager {
   }
 
   updateAchievementsUI() {
-    const settingsModal = document.getElementById('settings-modal');
+    const drawer = document.getElementById('right-drawer');
     const paneCollections = document.getElementById('pane-collections');
-    if (settingsModal?.classList.contains('show') && paneCollections?.style.display !== 'none') {
+    if (drawer?.classList.contains('open') && paneCollections?.style.display !== 'none') {
       this._renderBadges();
       this._renderCollections();
     }
@@ -3802,8 +3882,8 @@ export class UIManager {
     if (reason === 'classic_complete') {
       if (titleEl) titleEl.textContent = i18n.currentLang === 'tr' ? '🎉 KLASİK MOD TAMAMLANDI!' : '🎉 CLASSIC REALM COMPLETED!';
       if (subEl) subEl.textContent = i18n.currentLang === 'tr'
-        ? 'Tebrikler Simyacı! 80 eşyayı eksiksiz çözdün. Şimdi 3\'lü kombinasyonlar ve 521 eşyanın kadim evrenine geçiş yapma zamanı!'
-        : 'Congratulations! You mastered all 80 items. Step into the realm of 3-item recipes and 521 items!';
+        ? 'Tebrikler Simyacı! Klasik modun tüm eşyalarını eksiksiz çözdün. Şimdi 3\'lü kombinasyonlar ve yüzlerce yeni eşyanın kadim evrenine geçiş yapma zamanı!'
+        : 'Congratulations! You mastered all items in Classic mode. Step into the realm of 3-item recipes and hundreds of new items!';
     } else {
       if (titleEl) titleEl.textContent = i18n.t('grandmaster_offer_title');
       if (subEl) subEl.textContent = i18n.t('grandmaster_offer_subtitle');

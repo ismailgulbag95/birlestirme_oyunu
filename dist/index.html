@@ -4,6 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>3D Simya Oyunu</title>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+      setTimeout(function() {
+        var ls = document.getElementById('loading-screen');
+        if (ls) {
+          ls.classList.add('fade-out');
+          setTimeout(function() { if (ls.parentNode) ls.remove(); }, 500);
+        }
+      }, 3000);
+    </script>
     <style>
       * {
         box-sizing: border-box;
@@ -192,7 +208,7 @@
         50% { opacity: 1; text-shadow: 0 0 22px rgba(251, 191, 36, 0.8); }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-Cvdyv2ao.js"></script>
+    <script type="module" crossorigin src="./assets/index-DqmYIbTY.js"></script>
   </head>
   <body>
     <!-- Kum Saati Oyun Yükleniyor Ekranı -->

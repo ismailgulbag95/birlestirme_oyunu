@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json
+import json, re, sys
+sys.stdout.reconfigure(encoding='utf-8')
 from pathlib import Path
 import networkx as nx
 
@@ -9,21 +10,8 @@ ITEMS_JS_PATH = WORKSPACE_DIR / "src" / "items" / "itemDefinitions.js"
 
 BASE_ELEMENTS = ["ates", "su", "toprak", "hava"]
 
-def main():
-    with open(ITEMS_JS_PATH, "r", encoding="utf-8") as f:
-        content = f.read()
-    start_marker = "export const ITEM_DEFINITIONS = "
-    end_marker = ";\n\nexport function getCanonicalId"
-    start_idx = content.find(start_marker)
-    json_str = content[start_idx + len(start_marker):]
-    end_idx = json_str.rfind(end_marker)
-    if end_idx != -1:
-        json_str = json_str[:end_idx].strip()
-    else:
-        json_str = json_str.rstrip("; \n")
-
-    items = json.loads(json_str)
-
+def verify_mode_graph(mode_name, items):
+    print(f"\n--- {mode_name.upper()} DOĞRULANIYOR ---")
     G = nx.DiGraph()
     for item_id in items.keys():
         G.add_node(item_id)
@@ -31,14 +19,13 @@ def main():
             for inp in items[item_id]["recipe"]["inputs"]:
                 G.add_edge(inp.lower().strip(), item_id)
 
-    assert nx.is_directed_acyclic_graph(G), "Graf döngü içeriyor!"
+    assert nx.is_directed_acyclic_graph(G), f"{mode_name} grafı döngü içeriyor!"
     reachable = set(BASE_ELEMENTS)
     for b in BASE_ELEMENTS:
         reachable.update(nx.descendants(G, b))
     unreachable = set(items.keys()) - reachable
-    assert len(unreachable) == 0, f"Ulaşılamayan eşyalar: {unreachable}"
+    assert len(unreachable) == 0, f"{mode_name} modunda ulaşılamayan eşyalar var: {unreachable}"
 
-    # Çakışma kontrolü
     recipes = {}
     collisions = []
     for item_id, def_item in items.items():
@@ -49,11 +36,30 @@ def main():
             else:
                 recipes[key] = item_id
 
-    assert len(collisions) == 0, f"Çakışan tarifler var: {collisions}"
+    assert len(collisions) == 0, f"{mode_name} modunda çakışan tarifler var: {collisions}"
 
-    print(f"BAŞARILI: %100 ulaşıla-bilir, sıfır çakışma ve sıfır döngülü!")
-    print(f"Toplam Eşya: {len(items)}")
-    print(f"Toplam 2'li Tarif: {len(G.edges()) // 2}")
+    trio_count = sum(1 for d in items.values() if d.get("recipe") and len(d["recipe"]["inputs"]) == 3)
+    duo_count = sum(1 for d in items.values() if d.get("recipe") and len(d["recipe"]["inputs"]) == 2)
+
+    print(f"✓ {mode_name} BAŞARILI: %100 Ulaşılabilir, 0 Çakışma, 0 Döngü.")
+    print(f"  Toplam Eşya: {len(items)} | 2'li Tarif: {duo_count} | 3'lü Tarif: {trio_count}")
+
+def main():
+    with open(ITEMS_JS_PATH, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Extract CLASSIC_ITEM_DEFINITIONS and GRANDMASTER_ITEM_DEFINITIONS
+    classic_match = re.search(r'export const CLASSIC_ITEM_DEFINITIONS\s*=\s*(\{.*?\});\s*\n\s*export const GRANDMASTER', content, re.DOTALL)
+    gm_match = re.search(r'export const GRANDMASTER_ITEM_DEFINITIONS\s*=\s*(\{.*?\});\s*\n\s*export const ITEM_DEFINITIONS', content, re.DOTALL)
+
+    if not classic_match or not gm_match:
+        raise ValueError("itemDefinitions.js içinden mod tanımları regex ile okunamadı!")
+
+    classic_items = json.loads(classic_match.group(1))
+    gm_items = json.loads(gm_match.group(1))
+
+    verify_mode_graph("Klasik Mod (Mod 1)", classic_items)
+    verify_mode_graph("Grandmaster / Simyacı Kazanı (Mod 2)", gm_items)
 
 if __name__ == "__main__":
     main()

@@ -39,8 +39,8 @@ export const BADGES = [
     id: 'badge_70',
     titleTr: 'Usta Adayı',
     titleEn: 'Master Candidate',
-    descTr: '70 eşya keşfettin, Klasik Evrenin sonuna yaklaşıyorsun!',
-    descEn: 'Discovered 70 items, approaching the end of Classic Realm!',
+    descTr: '70 farklı eşyaya ulaştın, simya bilgin derinleşiyor!',
+    descEn: 'Discovered 70 unique items, your alchemical mastery grows!',
     icon: '🔮',
     requiredCount: 70,
     type: 'milestone'
@@ -49,10 +49,10 @@ export const BADGES = [
     id: 'badge_80',
     titleTr: 'Klasik Simya Ustası',
     titleEn: 'Classic Alchemy Master',
-    descTr: 'Klasik modun 80 eşyasını eksiksiz tamamladın! Simyacı Kazanı seni çağırıyor.',
-    descEn: 'Completed all 80 items in Classic mode! Grandmaster awaits.',
+    descTr: 'Klasik modun tüm eşyalarını eksiksiz keşfettin! Simyacı Kazanı seni çağırıyor.',
+    descEn: 'Discovered all items in Classic mode! Grandmaster awaits.',
     icon: '👑',
-    requiredCount: 80,
+    requiredCount: 92,
     type: 'milestone'
   },
   {
