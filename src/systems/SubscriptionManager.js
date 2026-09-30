@@ -27,6 +27,8 @@ export const SUBSCRIPTION_PLANS = [
     nameEn: 'Annual Grandmaster',
     priceFormatted: '₺499,99',
     billingPeriod: 'Yılda bir (Aylık ~₺41,60)',
+    monthlyEquivalentTr: 'Aylık sadece ₺41,60 (%48 İndirim!)',
+    monthlyEquivalentEn: 'Just ₺41,60/mo (48% OFF!)',
     badgeTr: '%48 İNDİRİM',
     badgeEn: '48% OFF'
   },
@@ -41,12 +43,43 @@ export const SUBSCRIPTION_PLANS = [
   }
 ];
 
+export const HINT_PACKS = [
+  {
+    id: 'hint_pack_5',
+    hints: 5,
+    nameTr: '5 İpucu Paketi',
+    nameEn: '5 Hints Pack',
+    priceFormatted: '₺19,99',
+    badgeTr: 'POPÜLER',
+    badgeEn: 'POPULAR'
+  },
+  {
+    id: 'hint_pack_15',
+    hints: 15,
+    nameTr: '15 İpucu Paketi',
+    nameEn: '15 Hints Pack',
+    priceFormatted: '₺39,99',
+    badgeTr: '%20 EXTRA',
+    badgeEn: '20% EXTRA'
+  },
+  {
+    id: 'hint_pack_40',
+    hints: 40,
+    nameTr: '40 İpucu Paketi',
+    nameEn: '40 Hints Pack',
+    priceFormatted: '₺79,99',
+    badgeTr: 'EN İYİ DEĞER',
+    badgeEn: 'BEST VALUE'
+  }
+];
+
 export class SubscriptionManager {
   constructor() {
     this.status = 'free'; // 'free', 'trial', 'active', 'lifetime'
     this.planId = null;
     this.expiryDate = null;
     this.lastDailyBonusDate = null;
+    this.demoPassExpiryTimestamp = null;
     this.listeners = [];
     this.billingProvider = null;
 
@@ -64,6 +97,7 @@ export class SubscriptionManager {
         this.planId = data.planId || null;
         this.expiryDate = data.expiryDate ? new Date(data.expiryDate) : null;
         this.lastDailyBonusDate = data.lastDailyBonusDate || null;
+        this.demoPassExpiryTimestamp = data.demoPassExpiryTimestamp || null;
 
         // Süre kontrolü
         if (this.status === 'active' && this.expiryDate && new Date() > this.expiryDate) {
@@ -84,6 +118,7 @@ export class SubscriptionManager {
         planId: this.planId,
         expiryDate: this.expiryDate ? this.expiryDate.toISOString() : null,
         lastDailyBonusDate: this.lastDailyBonusDate,
+        demoPassExpiryTimestamp: this.demoPassExpiryTimestamp,
         updatedAt: Date.now()
       };
       localStorage.setItem('alchemy_sub_data', JSON.stringify(data));
@@ -120,8 +155,38 @@ export class SubscriptionManager {
     }
   }
 
+  isDemoPassActive() {
+    if (!this.demoPassExpiryTimestamp) return false;
+    return Date.now() < this.demoPassExpiryTimestamp;
+  }
+
+  startDemoPass(durationMinutes = 10) {
+    this.demoPassExpiryTimestamp = Date.now() + (durationMinutes * 60 * 1000);
+    this._save();
+    return true;
+  }
+
+  getDemoPassRemainingSeconds() {
+    if (!this.isDemoPassActive()) return 0;
+    return Math.max(0, Math.floor((this.demoPassExpiryTimestamp - Date.now()) / 1000));
+  }
+
   isGrandmaster() {
-    return this.status === 'active' || this.status === 'lifetime' || this.status === 'trial';
+    return this.status === 'active' || this.status === 'lifetime' || this.status === 'trial' || this.isDemoPassActive();
+  }
+
+  async buyHintPack(packId) {
+    const pack = HINT_PACKS.find(p => p.id === packId);
+    if (!pack) return { success: false, error: 'Invalid pack' };
+    try {
+      if (this.billingProvider) {
+        await this.billingProvider.purchase(packId);
+      }
+      return { success: true, hints: pack.hints, pack };
+    } catch (err) {
+      console.error('[SubscriptionManager] Hint pack purchase failed:', err);
+      return { success: false, error: err.message };
+    }
   }
 
   getHintMultiplier() {

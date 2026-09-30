@@ -23,9 +23,11 @@ export class AudioManager {
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     // Varsayılan olarak 1. müzik (Stride of the Traveler), eğer daha önce kapatılmışsa 0 veya geçerli mod
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
-    this.volume = 0.55;
+    const savedVolume = parseFloat(localStorage.getItem('alchemy_music_volume'));
+    this.volume = Number.isFinite(savedVolume) ? Math.max(0, Math.min(1, savedVolume)) : 0.55;
     this.isPlaying = false;
     this.audioUnlocked = false;
+    this._fadeInInterval = null;
 
     this._setupAudio();
     this._setupUnlockListeners();
@@ -147,40 +149,54 @@ export class AudioManager {
     return this.musicMode === 0;
   }
 
-  setVolume(vol) {
+  setVolume(vol, persist = true) {
+    if (this._fadeInInterval) {
+      clearInterval(this._fadeInInterval);
+      this._fadeInInterval = null;
+    }
+
     this.volume = Math.max(0, Math.min(1, vol));
     if (this.bgm) {
       this.bgm.volume = this.volume;
+    }
+
+    if (persist) {
+      localStorage.setItem('alchemy_music_volume', this.volume.toString());
     }
   }
 
   _fadeIn(durationMs = 1500) {
     if (!this.bgm || this.musicMode === 0) return;
+    if (this._fadeInInterval) clearInterval(this._fadeInInterval);
+
     const currentAudio = this.bgm;
-    const targetVol = this.volume;
     const stepTime = 50;
-    const steps = durationMs / stepTime;
-    const volIncrement = targetVol / steps;
+    const startTime = performance.now();
 
     currentAudio.volume = 0;
-    let currentVol = 0;
-
     const interval = setInterval(() => {
       if (this.bgm !== currentAudio || this.musicMode === 0) {
         clearInterval(interval);
+        if (this._fadeInInterval === interval) this._fadeInInterval = null;
         return;
       }
-      currentVol += volIncrement;
-      if (currentVol >= targetVol) {
-        currentAudio.volume = targetVol;
+
+      const progress = Math.min(1, (performance.now() - startTime) / durationMs);
+      currentAudio.volume = this.volume * progress;
+      if (progress >= 1) {
         clearInterval(interval);
-      } else {
-        currentAudio.volume = currentVol;
+        if (this._fadeInInterval === interval) this._fadeInInterval = null;
       }
     }, stepTime);
+    this._fadeInInterval = interval;
   }
 
   _fadeOut(durationMs = 1000, onComplete) {
+    if (this._fadeInInterval) {
+      clearInterval(this._fadeInInterval);
+      this._fadeInInterval = null;
+    }
+
     if (!this.bgm) {
       if (onComplete) onComplete();
       return;

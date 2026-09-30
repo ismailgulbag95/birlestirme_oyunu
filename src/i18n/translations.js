@@ -40,8 +40,9 @@ export const TRANSLATIONS = {
       "mode_switched_grandmaster": "Simyacı Kazanı Moduna geçildi (2'li ve 3'lü birleştirmeler aktif!)",
       "table_full_classic": "Masa dolu! Klasik modda en fazla 2 eşya koyabilirsiniz.",
       "table_full_grandmaster": "Masa dolu! En fazla 3 eşya koyabilirsiniz.",
-      "settings_btn": "⚙️ Seçenekler",
-      "settings_title": "Seçenekler",
+      "settings_btn": "⚙️ Ayarlar",
+      "settings_title": "Ayarlar",
+      "settings_toggle_label": "AYARLAR",
       "settings_close": "Kapat",
       "tab_general": "Genel",
       "tab_collections": "Koleksiyonlar",
@@ -55,6 +56,10 @@ export const TRANSLATIONS = {
       "music_2": "🎶 Müzik: Keşif & Macera",
       "music_3": "🎼 Müzik: Mistik Gece",
       "music_none": "🔇 Müzik: Kapalı",
+      "music_label": "Müzik",
+      "music_sub": "Arka plan parçasını seç",
+      "music_volume_label": "Müzik seviyesi",
+      "music_volume_desc": "Ses düzeyini ayarla",
       "char_wanderer": "🧭 Gezgin",
       "char_locked_msg": "🔒 Bu karakter kilitli! Açmak için en az {count} eşya keşfetmelisin (Mevcut: {current}).",
       "char_unlocked_celebration": "Tebrikler! {count} eşya keşfederek {name} karakterinin kilidini açtın!",
@@ -72,7 +77,7 @@ export const TRANSLATIONS = {
       "tutorial_step3_title": "Masaya Koyma & Birleştirme",
       "tutorial_step3_desc": "Alt menüdeki eşyalara dokunarak masaya yerleştir. Eşyaları birleştirmek için masanın arkasındaki karaktere dokun!",
       "tutorial_step4_title": "İpuçları & Modlar",
-      "tutorial_step4_desc": "Sol taraftaki parşömenden kilitli eşyalar için ipuçları alabilir, sağ taraftaki Seçenekler menüsünden Klasik veya Simyacı Kazanı modunu değiştirebilirsin.",
+      "tutorial_step4_desc": "Sol taraftaki parşömenden kilitli eşyalar için ipuçları alabilir, sağ taraftaki Ayarlar menüsünden Klasik veya Simyacı Kazanı modunu değiştirebilirsin.",
       "tutorial_step5_title": "Karakterler & İlerleme",
       "tutorial_step5_desc": "Keşif yaptıkça yeni simyacı karakterleri ve odan için özel koleksiyon eşyaları açılır!",
       "welcome_title": "Simya Dünyasına Hoş Geldin!",
@@ -116,7 +121,29 @@ export const TRANSLATIONS = {
       "sub_monthly_btn": "Aylık ₺79,99",
       "sub_yearly_btn": "Yıllık ₺499,99 (%48 İndirim)",
       "sub_lifetime_btn": "Ömür Boyu ₺999,99",
-      "sub_active_badge": "👑 AKTİF GRANDMASTER"
+      "sub_active_badge": "👑 AKTİF GRANDMASTER",
+      "wheel_btn": "🎡 Çark",
+      "wheel_title": "🎡 Günlük Şans Çarkı",
+      "wheel_subtitle": "Çarkı çevirerek ücretsiz ipucu hakları kazan!",
+      "wheel_spin_free": "Ücretsiz Çevir ✨",
+      "wheel_spin_ad": "Reklam İzle & Çevir 📺",
+      "wheel_already_spun": "Bugünün ücretsiz çevirme hakkını kullandın! Ekstra çevirmek için reklam izleyebilirsin.",
+      "wheel_won_title": "Tebrikler!",
+      "wheel_won_msg": "Çarktan {prize} kazandınız!",
+      "wheel_prize_1": "+1 İpucu Hakkı",
+      "wheel_prize_2": "+2 İpucu Hakkı",
+      "wheel_prize_3": "+3 İpucu Hakkı",
+      "wheel_prize_5": "+5 İpucu Hakkı",
+      "wheel_prize_10": "🌟 +10 İpucu İkramiyesi!",
+      "hint_store_title": "💎 İpucu Paketleri",
+      "hint_pack_buy": "Satın Al ({price})",
+      "hint_pack_success": "Tebrikler! {count} adet İpucu Paketi hesabınıza eklendi.",
+      "demo_pass_btn": "📺 Reklam İzle & 10 Dakika GM Dene",
+      "demo_pass_active_hud": "⏱️ GM Önizleme: {time}",
+      "demo_pass_activated": "✨ 10 Dakikalık Grandmaster Önizlemesi Aktifleşti!",
+      "demo_pass_expired_title": "⏳ Demo Süresi Bitti",
+      "demo_pass_expired_desc": "10 dakikalık Grandmaster önizleme süreniz sona erdi. Klasik moda dönüldü.",
+      "yearly_discount_badge": "Aylık sadece ₺41.60 (%48 İndirim!)"
     },
     "items": {
       "ates": {
@@ -1239,8 +1266,9 @@ export const TRANSLATIONS = {
       "mode_switched_grandmaster": "Switched to Grand Alchemist Mode (2 & 3-Item combinations active!)",
       "table_full_classic": "Table is full! You can place max 2 items in Classic mode.",
       "table_full_grandmaster": "Table is full! You can place max 3 items in Grand Alchemist mode.",
-      "settings_btn": "⚙️ Options",
-      "settings_title": "Options",
+      "settings_btn": "⚙️ Settings",
+      "settings_title": "Settings",
+      "settings_toggle_label": "SETTINGS",
       "settings_close": "Close",
       "tab_general": "General",
       "tab_collections": "Collections",
@@ -1254,6 +1282,10 @@ export const TRANSLATIONS = {
       "music_2": "🎶 Music: Exploration",
       "music_3": "🎼 Music: Mystic Night",
       "music_none": "🔇 Music: OFF",
+      "music_label": "Music",
+      "music_sub": "Choose the background track",
+      "music_volume_label": "Music volume",
+      "music_volume_desc": "Adjust the sound level",
       "char_wanderer": "🧭 Wanderer",
       "char_locked_msg": "🔒 This character is locked! Discover at least {count} items to unlock (Current: {current}).",
       "char_unlocked_celebration": "Congratulations! You discovered {count} items and unlocked the character {name}!",
@@ -1315,7 +1347,29 @@ export const TRANSLATIONS = {
       "sub_monthly_btn": "Monthly ₺79.99",
       "sub_yearly_btn": "Annual ₺499.99 (48% OFF)",
       "sub_lifetime_btn": "Lifetime ₺999.99",
-      "sub_active_badge": "👑 ACTIVE GRANDMASTER"
+      "sub_active_badge": "👑 ACTIVE GRANDMASTER",
+      "wheel_btn": "🎡 Wheel",
+      "wheel_title": "🎡 Daily Lucky Wheel",
+      "wheel_subtitle": "Spin the wheel to earn free hint rights!",
+      "wheel_spin_free": "Spin Free ✨",
+      "wheel_spin_ad": "Watch Ad & Spin 📺",
+      "wheel_already_spun": "You already used today's free spin! Watch an ad to spin again.",
+      "wheel_won_title": "Congratulations!",
+      "wheel_won_msg": "You won {prize} from the wheel!",
+      "wheel_prize_1": "+1 Hint Right",
+      "wheel_prize_2": "+2 Hint Rights",
+      "wheel_prize_3": "+3 Hint Rights",
+      "wheel_prize_5": "+5 Hint Rights",
+      "wheel_prize_10": "🌟 +10 Hints Jackpot!",
+      "hint_store_title": "💎 Hint Bundles",
+      "hint_pack_buy": "Buy ({price})",
+      "hint_pack_success": "Congratulations! {count} Hint bundle added to your account.",
+      "demo_pass_btn": "📺 Watch Ad & Try 10-Min GM",
+      "demo_pass_active_hud": "⏱️ GM Preview: {time}",
+      "demo_pass_activated": "✨ 10-Minute Grandmaster Preview Activated!",
+      "demo_pass_expired_title": "⏳ Demo Expired",
+      "demo_pass_expired_desc": "Your 10-minute Grandmaster preview has ended. Reverted to Classic mode.",
+      "yearly_discount_badge": "Just $3.99/mo (48% OFF!)"
     },
     "items": {
       "ates": {
@@ -2417,6 +2471,10 @@ export class I18nManager {
   }
 
   get language() {
+    return this.currentLanguage;
+  }
+
+  get currentLang() {
     return this.currentLanguage;
   }
 

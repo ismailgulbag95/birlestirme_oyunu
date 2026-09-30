@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curio Alchemy store screenshot composition</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #0c1020; }
+    body { position: relative; color: #f8f4e8; font-family: Arial, Helvetica, sans-serif; }
+    body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 52% 12%, rgba(233,171,59,.18), transparent 40%), radial-gradient(ellipse at 7% 66%, rgba(65,120,180,.11), transparent 42%), linear-gradient(155deg,#11162b 0%,#0c1020 62%,#171627 100%); }
+    .brand { position: absolute; z-index: 2; left: 6.1%; top: 2.7%; display: flex; align-items: center; gap: 18px; }
+    .brand-mark { width: 68px; height: 68px; flex: none; }
+    .brand-name { font-size: 31px; font-weight: 800; letter-spacing: 2px; }
+    .headline { position: absolute; z-index: 2; left: 6.2%; top: 8.0%; width: 88%; margin: 0; font-size: 82px; line-height: 1.02; letter-spacing: -2px; font-weight: 800; }
+    .headline .accent { color: #f4c66c; }
+    .subtitle { position: absolute; z-index: 2; left: 6.3%; top: 14.0%; width: 86%; margin: 0; color: #c9cede; font-size: 34px; line-height: 1.2; font-weight: 500; }
+    .shot { position: absolute; z-index: 1; left: 10%; top: 18.8%; width: 80%; height: auto; display: block; border: 3px solid rgba(244,198,108,.55); border-radius: 28px; box-shadow: 0 28px 90px rgba(0,0,0,.52), 0 0 42px rgba(233,171,59,.10); }
+    .footer { display: none; }
+    body.play .brand { left: 6%; top: 2.5%; gap: 10px; }
+    body.play .brand-mark { width: 46px; height: 46px; }
+    body.play .brand-name { font-size: 22px; letter-spacing: 1.5px; }
+    body.play .headline { left: 6%; top: 5.5%; font-size: 52px; letter-spacing: -.8px; }
+    body.play .subtitle { left: 6%; top: 11.5%; font-size: 23px; }
+    body.play .shot { top: 13.5%; left: 17.5%; width: 65%; border-width: 2px; border-radius: 22px; }
+  </style>
+</head>
+<body>
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true"><path d="M 188 58 A 94 94 0 1 0 188 198" fill="none" stroke="#E9AB3B" stroke-width="24" stroke-linecap="round"/><path d="M128 105 151 128 128 151 105 128Z" fill="#E9AB3B"/></svg>
+    <div class="brand-name">CURIO ALCHEMY</div>
+  </div>
+  <h1 class="headline" id="headline"></h1>
+  <p class="subtitle" id="subtitle"></p>
+  <img class="shot" id="shot" alt="Actual Curio Alchemy gameplay screenshot">
+  <div class="footer" id="footer">COMBINE · DISCOVER · COLLECT</div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const lang = params.get('lang') === 'tr' ? 'tr' : 'en';
+    const slide = Number(params.get('slide') || 1);
+    const play = params.get('platform') === 'play';
+    const copy = {
+      en: [
+        ['Start with the <span class="accent">four elements</span>', 'Fire · Water · Earth · Air'],
+        ['Combine two. <span class="accent">Discover what’s next.</span>', 'Experiment at the alchemist’s workbench.'],
+        ['Every discovery <span class="accent">grows your collection.</span>', 'See how far your curiosity takes you.']
+      ],
+      tr: [
+        ['<span class="accent">Dört elementle</span> başla', 'Ateş · Su · Toprak · Hava'],
+        ['İki elementi birleştir. <span class="accent">Yeni keşifler yap.</span>', 'Simyacı masasındaki tarifleri dene.'],
+        ['Her keşif <span class="accent">koleksiyonunu büyütür.</span>', 'Merakının seni nereye götüreceğini gör.']
+      ]
+    };
+    document.documentElement.lang = lang;
+    if (play) document.body.classList.add('play');
+    if (lang === 'tr') document.querySelector('.brand-name').textContent = 'CURIO SİMYA';
+    document.getElementById('headline').innerHTML = copy[lang][slide - 1][0];
+    document.getElementById('subtitle').textContent = copy[lang][slide - 1][1];
+    document.getElementById('shot').src = `/store-package/source-shots/apple-${lang}-${String(slide).padStart(2, '0')}-${lang === 'tr' ? ['baslangic','birlestir','kesfet'][slide-1] : ['start','combine','evolve'][slide-1]}-1320.png`;
+    if (lang === 'tr') document.getElementById('footer').textContent = 'BİRLEŞTİR · KEŞFET · KOLEKSİYONUNU BÜYÜT';
+    document.getElementById('shot').addEventListener('load', () => { document.body.dataset.creativeReady = 'true'; }, { once: true });
+  </script>
+</body>
+</html>

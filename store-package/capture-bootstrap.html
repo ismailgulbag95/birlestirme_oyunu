@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Store capture bootstrap</title>
+  </head>
+  <body>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const language = params.get('lang') === 'tr' ? 'tr' : 'en';
+      const mode = params.get('mode') === 'grandmaster' ? 'grandmaster' : 'classic';
+      const items = (params.get('items') || 'ates,su,toprak,hava').split(',').filter(Boolean);
+      localStorage.setItem('alchemy_lang', language);
+      localStorage.setItem('alchemy_welcome_seen', '1');
+      localStorage.setItem('alchemy_game_save', JSON.stringify({ gameMode: mode, unlockedItems: items }));
+      location.replace('/');
+    </script>
+  </body>
+</html>

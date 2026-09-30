@@ -37,9 +37,6 @@ class Game {
       }
     };
 
-    // Acil durum koruması: 2.5 saniye sonra yükleme ekranı kesinlikle kalkar
-    setTimeout(removeLoadingScreen, 2500);
-
     try {
       const defaultUnlocked = ['ates', 'su', 'toprak', 'hava'];
 
@@ -84,6 +81,12 @@ class Game {
       }
       if (savedData.successfulMatches !== undefined) {
         this.hintSystem.successfulMatches = savedData.successfulMatches;
+      }
+      if (savedData.lastWheelSpinDate) {
+        this.hintSystem.lastWheelSpinDate = savedData.lastWheelSpinDate;
+      }
+      if (savedData.lastFreeHintDate) {
+        this.hintSystem.lastFreeHintDate = savedData.lastFreeHintDate;
       }
 
       // Karakter kilidi ve başlangıç karakteri:
@@ -145,7 +148,9 @@ class Game {
           this.tableScene.playTalkingAnimation();
           this.triggerCrafting();
         },
-        (newMode) => this.switchGameMode(newMode)
+        (newMode) => this.switchGameMode(newMode),
+        (volume, persist) => audioManager.setVolume(volume, persist),
+        audioManager.volume
       );
 
       this.ui.setGameMode(this.gameMode);
@@ -163,16 +168,19 @@ class Game {
       this._setupRaycasting(canvas);
       this._startLoop();
 
-      // 3D Masa ve Karakter modeli yüklenene kadar bekle (maksimum 1.5sn timeout)
-      await Promise.race([
-        this.tableScene.whenReady(),
-        new Promise(resolve => setTimeout(resolve, 1500))
-      ]);
-    } catch (err) {
-      console.warn("Init aşamasında hata yakalandı, oyun yine de başlatılıyor:", err);
-    } finally {
-      // Her koşulda kum saati yükleme ekranını kaldır
+      // Yükleme ekranını, masa ve etkin karakter hazır olup en az bir kare çizilene kadar tut.
+      await this.tableScene.whenReady();
+      await new Promise(resolve => requestAnimationFrame(resolve));
       removeLoadingScreen();
+    } catch (err) {
+      console.error("Oyun başlatılamadı; yükleme ekranı açık tutuluyor:", err);
+      const loadingSubtitle = document.getElementById('loading-subtitle-text');
+      if (loadingSubtitle) {
+        loadingSubtitle.textContent = i18n.currentLang === 'tr'
+          ? 'Yükleme tamamlanamadı. Tekrar denemek için sayfayı yenileyin.'
+          : 'Loading failed. Reload the page to try again.';
+      }
+      return;
     }
 
     // Hoşgeldiniz Ekranı (İlk Girişte)
@@ -212,6 +220,8 @@ class Game {
         hintLevels: this.hintSystem ? this.hintSystem.hintLevels : {},
         discoveryCount: this.hintSystem ? this.hintSystem.discoveryCount : 0,
         successfulMatches: this.hintSystem ? this.hintSystem.successfulMatches : 0,
+        lastWheelSpinDate: this.hintSystem ? this.hintSystem.lastWheelSpinDate : null,
+        lastFreeHintDate: this.hintSystem ? this.hintSystem.lastFreeHintDate : null,
         savedAt: Date.now()
       };
       localStorage.setItem('alchemy_game_save', JSON.stringify(saveData));
@@ -602,9 +612,11 @@ class Game {
       }
     });
     this.lockedItems = [];
+    achievementManager.unlockAllBadges();
     this.ui.setUnlockedItemCount(this.unlockedItems.length);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    this.ui.updateAchievementsUI();
     if (this.envProgression) {
       this.envProgression.syncWithUnlockedItems(this.unlockedItems);
     }
@@ -633,6 +645,7 @@ class Game {
 
   resetProgress() {
     localStorage.removeItem('alchemy_game_save');
+    achievementManager.resetProgress();
     this.unlockedItems = ['ates', 'su', 'toprak', 'hava'];
     this.lockedItems = (this.defaultLockedItems || []).filter(id => {
       const canonical = getCanonicalId(id) || id;
@@ -650,6 +663,7 @@ class Game {
     this.ui.updateHintRights(this.hintSystem.hintRights);
     this.ui._populateInventory(this.unlockedItems);
     this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
+    this.ui.updateAchievementsUI();
     if (this.envProgression) {
       this.envProgression.syncWithUnlockedItems(this.unlockedItems);
     }

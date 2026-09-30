@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curio Alchemy Google Play feature graphic</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #11162b; }
+    body { position: relative; color: #f8f4e8; font-family: Arial, Helvetica, sans-serif; }
+    body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 24% 20%, rgba(233,171,59,.17), transparent 48%), linear-gradient(120deg,#11162b,#10152a 62%,#1b1c2d); }
+    .copy { position: absolute; z-index: 2; left: 6.4%; top: 12%; width: 57%; }
+    .brand { display: flex; align-items: center; gap: 15px; margin-bottom: 29px; }
+    .mark { width: 55px; height: 55px; }
+    .name { font-weight: 800; font-size: 27px; letter-spacing: 2px; }
+    h1 { margin: 0 0 19px; font-size: 47px; line-height: 1.06; letter-spacing: -1.2px; font-weight: 800; }
+    h1 span { color: #f4c66c; }
+    p { margin: 0; color: #c9cede; font-size: 22px; line-height: 1.3; max-width: 510px; }
+    .pill { display: inline-flex; margin-top: 24px; padding: 10px 16px; border: 1px solid rgba(233,171,59,.45); border-radius: 999px; color: #f5d89e; font-size: 15px; letter-spacing: 1.2px; font-weight: 700; }
+    .hero { position: absolute; z-index: 1; top: 0; right: 0; width: 39%; height: 100%; object-fit: cover; object-position: center 22%; border-left: 2px solid rgba(244,198,108,.65); }
+    .shade { position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg,rgba(17,22,43,0) 48%,rgba(17,22,43,.08) 57%,rgba(17,22,43,0) 71%); }
+  </style>
+</head>
+<body>
+  <div class="copy">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 256 256" aria-hidden="true"><path d="M 188 58 A 94 94 0 1 0 188 198" fill="none" stroke="#E9AB3B" stroke-width="24" stroke-linecap="round"/><path d="M128 105 151 128 128 151 105 128Z" fill="#E9AB3B"/></svg>
+      <div class="name" id="name">CURIO ALCHEMY</div>
+    </div>
+    <h1 id="headline">COMBINE ELEMENTS.<br><span>DISCOVER WHAT’S NEXT.</span></h1>
+    <p id="sub">A 3D alchemy puzzle with 92 Classic discoveries.</p>
+    <div class="pill" id="pill">COMBINE · DISCOVER · COLLECT</div>
+  </div>
+  <img class="hero" id="hero" alt="Real alchemy workshop gameplay">
+  <div class="shade"></div>
+  <script>
+    const lang = new URLSearchParams(location.search).get('lang') === 'tr' ? 'tr' : 'en';
+    if (lang === 'tr') {
+      document.documentElement.lang = 'tr';
+      document.getElementById('name').textContent = 'CURIO SİMYA';
+      document.getElementById('headline').innerHTML = 'ELEMENTLERİ BİRLEŞTİR.<br><span>YENİ KEŞİFLER BUL.</span>';
+      document.getElementById('sub').textContent = 'Klasik koleksiyonda 92 keşif içeren 3D simya bulmacası.';
+      document.getElementById('pill').textContent = 'BİRLEŞTİR · KEŞFET · BİRİKTİR';
+    }
+    document.getElementById('hero').src = `/store-package/source-shots/apple-${lang}-02-${lang === 'tr' ? 'birlestir' : 'combine'}-1320.png`;
+    document.getElementById('hero').addEventListener('load', () => { document.body.dataset.creativeReady = 'true'; }, { once: true });
+  </script>
+</body>
+</html>

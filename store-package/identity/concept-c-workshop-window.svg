@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <title>Curio Alchemy concept C: Workshop window</title>
+  <path d="M60 38H196Q218 38 218 60V196Q218 218 196 218H60Q38 218 38 196V60Q38 38 60 38Z" fill="none" stroke="#111111" stroke-width="20"/>
+  <path d="M128 76 180 128 128 180 76 128Z" fill="none" stroke="#111111" stroke-width="16"/>
+  <path d="M128 106 150 128 128 150 106 128Z" fill="#111111"/>
+</svg>

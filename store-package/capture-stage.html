@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Store capture</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body, iframe { margin: 0; width: 100%; height: 100%; overflow: hidden; border: 0; }
+      iframe { position: fixed; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <iframe id="game" title="Game capture"></iframe>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const language = params.get('lang') === 'tr' ? 'tr' : 'en';
+      const mode = params.get('mode') === 'grandmaster' ? 'grandmaster' : 'classic';
+      const starterItems = ['ates','su','toprak','hava'];
+      const progressionItems = [
+        ...starterItems, 'duman','buhar','lav','enerji','deniz','nem','tas','camur','basinc',
+        'ruzgar','sis','kaynama','bulut','kaya','ada','isik','yasam','metal','duvar','elektrik',
+        'yagmur','dag','kum','gunes','buz','firtina','balik','kus','insan','ev','ampul','bitki',
+        'gol','volkan','nehir','kar'
+      ];
+      const items = params.get('progress') === '40' ? progressionItems :
+        params.get('progress') === '20' ? progressionItems.slice(0,20) : starterItems;
+      localStorage.setItem('alchemy_language', language);
+      localStorage.setItem('alchemy_lang', language);
+      localStorage.setItem('alchemy_welcome_seen', '1');
+      localStorage.setItem('alchemy_game_save', JSON.stringify({ gameMode: mode, unlockedItems: items }));
+      const frame = document.getElementById('game');
+      frame.src = '/';
+      const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      const waitFor = async (doc, selector, timeout = 30000) => {
+        const end = Date.now() + timeout;
+        while (Date.now() < end) {
+          const value = doc.querySelector(selector);
+          if (value) return value;
+          await delay(100);
+        }
+        return null;
+      };
+      frame.addEventListener('load', async () => {
+        const doc = frame.contentDocument;
+        const action = params.get('action') || 'home';
+        if (!await waitFor(doc, '#drawer-tier1-strip .tier1-item-btn')) return;
+        await delay(1800);
+        if (action === 'combine') {
+          const items = doc.querySelectorAll('#drawer-tier1-strip .tier1-item-btn');
+          items[0]?.click();
+          await delay(300);
+          items[1]?.click();
+          await delay(900);
+          doc.getElementById('craft-action-btn')?.click();
+          await delay(1800);
+        } else if (action === 'codex') {
+          doc.getElementById('drawer-expand-btn')?.click();
+          await delay(500);
+          doc.getElementById('drawer-fullscreen-btn')?.click();
+          await delay(500);
+        } else if (action === 'hints') {
+          doc.getElementById('drawer-toggle')?.click();
+          await delay(500);
+        } else if (action === 'collections') {
+          doc.getElementById('settings-drawer-toggle')?.click();
+          await delay(500);
+          doc.getElementById('tab-collections-btn')?.click();
+          await delay(500);
+        }
+        document.body.dataset.captureReady = action;
+      });
+    </script>
+  </body>
+</html>

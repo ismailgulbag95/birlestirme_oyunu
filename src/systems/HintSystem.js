@@ -51,6 +51,20 @@ export class HintSystem {
     return false;
   }
 
+  addHintRights(amount = 1) {
+    if (this.infiniteHints) return;
+    this.hintRights = (this.hintRights || 0) + amount;
+  }
+
+  canSpinDailyWheel() {
+    const today = new Date().toISOString().slice(0, 10);
+    return this.lastWheelSpinDate !== today;
+  }
+
+  recordWheelSpin() {
+    this.lastWheelSpinDate = new Date().toISOString().slice(0, 10);
+  }
+
   /**
    * Günlük 1 ücretsiz ipucu alabilme kontrolü
    */

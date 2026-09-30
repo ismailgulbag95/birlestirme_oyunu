@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>Curio Alchemy app icon A</title>
+  <rect width="1024" height="1024" fill="#11162B"/>
+  <circle cx="512" cy="512" r="370" fill="none" stroke="#E9AB3B" stroke-width="86" stroke-dasharray="1810 518" stroke-dashoffset="260" stroke-linecap="round" transform="rotate(90 512 512)"/>
+  <path d="M512 393 631 512 512 631 393 512Z" fill="#F4C66C"/>
+</svg>

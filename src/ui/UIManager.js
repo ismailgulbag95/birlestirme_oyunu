@@ -7,13 +7,15 @@ import { achievementManager } from '../systems/AchievementManager.js';
 import { adManager } from '../systems/AdManager.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null, onModeSwitch = null) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null, onModeSwitch = null, onMusicVolumeChange = null, musicVolume = 0.55) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
     this.onCleanup = onCleanup; // () => void
     this.onCharacterSwitch = onCharacterSwitch; // (characterId) => void
     this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
+    this.onMusicVolumeChange = onMusicVolumeChange; // (volume, persist) => void
+    this.musicVolume = Number.isFinite(musicVolume) ? Math.max(0, Math.min(1, musicVolume)) : 0.55;
     this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
     this.onCraftClick = onCraftClick; // () => void
     this.onModeSwitch = onModeSwitch; // (newMode) => void
@@ -110,27 +112,6 @@ export class UIManager {
         -webkit-backdrop-filter: blur(12px);
         transition: all 0.15s ease;
         user-select: none;
-      }
-
-      .top-cleanup-btn {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--rc-accent-red);
-        border-color: rgba(255, 97, 97, 0.28);
-        background: rgba(13, 13, 13, 0.88);
-      }
-
-      .top-cleanup-btn:hover {
-        background: rgba(255, 97, 97, 0.18);
-        border-color: var(--rc-accent-red);
-        color: #ffffff;
-        transform: translateX(-50%) translateY(-1px);
-        box-shadow: 0 6px 20px rgba(255, 97, 97, 0.35);
-      }
-
-      .top-cleanup-btn:active {
-        transform: translateX(-50%) translateY(1px);
       }
 
       .top-settings-btn {
@@ -283,25 +264,46 @@ export class UIManager {
       }
 
       .drawer-expand-btn {
-        background: var(--rc-surface-card);
-        border: 1px solid var(--rc-hairline);
-        color: var(--rc-accent-blue);
-        border-radius: 6px;
-        padding: 2px 8px;
+        background: linear-gradient(135deg, rgba(87, 193, 255, 0.22) 0%, rgba(87, 193, 255, 0.1) 100%);
+        border: 1px solid rgba(87, 193, 255, 0.5);
+        color: #57c1ff;
+        border-radius: 8px;
+        padding: 4px 10px;
         font-family: var(--rc-font);
-        font-size: 10.5px;
-        font-weight: 700;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 3px;
-        transition: all 0.15s ease;
+        gap: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        user-select: none;
       }
 
       .drawer-expand-btn:hover {
-        background: var(--rc-surface-hover);
-        border-color: var(--rc-accent-blue);
+        background: linear-gradient(135deg, rgba(87, 193, 255, 0.38) 0%, rgba(87, 193, 255, 0.2) 100%);
+        border-color: #57c1ff;
         color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(87, 193, 255, 0.35);
+      }
+
+      .drawer-expand-btn:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .drawer-expand-btn .expand-icon {
+        font-size: 11px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+        display: inline-block;
+      }
+
+      .drawer-expand-btn:hover .expand-icon {
+        transform: translateY(-2px);
       }
 
       .drawer-tier1-strip {
@@ -1032,6 +1034,40 @@ export class UIManager {
         display: flex;
         flex-direction: column;
         gap: 2px;
+      }
+
+      .settings-volume-control {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 8px;
+        border-top: 1px solid var(--rc-hairline-soft);
+      }
+
+      .settings-volume-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .settings-volume-value {
+        color: var(--rc-accent-green);
+        font-size: 10px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .settings-volume-slider {
+        width: 100%;
+        margin: 0;
+        accent-color: var(--rc-accent-green);
+        cursor: pointer;
+      }
+
+      .settings-volume-slider:focus-visible {
+        outline: 2px solid var(--rc-accent-green);
+        outline-offset: 3px;
       }
 
       .settings-btn-label {
@@ -1809,12 +1845,13 @@ export class UIManager {
     const container = document.createElement('div');
     container.id = 'ui-container';
     container.innerHTML = `
-      <!-- ÜST AKSİYON BARI (ORTADA TEMİZLE) -->
+      <!-- ÜST AKSİYON BARI -->
       <div id="top-action-bar">
-        <button id="top-cleanup-btn" class="top-bar-btn top-cleanup-btn" title="${i18n.t('cleanup')}">
-          <span style="font-size: 14px;">🧹</span>
-          <span id="top-cleanup-btn-label">${i18n.t('cleanup')}</span>
-        </button>
+        <div style="position: absolute; left: 16px; top: 0; display: flex; align-items: center; gap: 6px; pointer-events: auto;">
+          <div id="top-demopass-hud" class="top-bar-btn" style="display: none; color: #a78bfa; border-color: rgba(167, 139, 250, 0.4); background: rgba(167, 139, 250, 0.12);">
+            <span id="demopass-hud-label">⏱️ GM Demo: 10:00</span>
+          </div>
+        </div>
       </div>
 
       <!-- SOL ÇEKMECE: İpuçları & Simya Kodeksi -->
@@ -1835,11 +1872,11 @@ export class UIManager {
         </div>
       </div>
 
-      <!-- SAĞ ÇEKMECE: Seçenekler Menüsü -->
+      <!-- SAĞ ÇEKMECE: Ayarlar Menüsü -->
       <div id="right-drawer">
         <div id="settings-drawer-toggle" title="${i18n.t('settings_title')}">
           <span style="font-size: 16px;">⚙️</span>
-          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;" id="settings-toggle-label">${i18n.currentLang === 'tr' ? 'AYARLAR' : 'SETTINGS'}</span>
+          <span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;" id="settings-toggle-label">${i18n.t('settings_toggle_label')}</span>
         </div>
         <div class="drawer-header" style="border-radius: 14px 0 0 0;">
           <span id="drawer-settings-title">${i18n.t('settings_title')}</span>
@@ -1856,6 +1893,14 @@ export class UIManager {
         <div class="drawer-content" id="drawer-settings-content">
           <!-- 1. Genel Ayarlar Sekmesi -->
           <div class="settings-tab-pane" id="pane-general">
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-daily-wheel">${i18n.t('wheel_title')}</span>
+                <span class="settings-btn-sub" id="sub-daily-wheel">Çarkı çevirerek ücretsiz ipucu kazan</span>
+              </div>
+              <button id="settings-wheel-btn" class="settings-action-btn btn-amber">${i18n.t('wheel_btn')}</button>
+            </div>
+
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-game-mode">Oyun Modu</span>
@@ -1887,10 +1932,19 @@ export class UIManager {
 
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-music">Müzik</span>
-                <span class="settings-btn-sub" id="sub-music">Arka plan müziği modunu seç</span>
+                <span class="settings-btn-label" id="label-music">${i18n.t('music_label')}</span>
+                <span class="settings-btn-sub" id="sub-music">${i18n.t('music_sub')}</span>
               </div>
               <button id="music-toggle-btn" class="settings-action-btn btn-green ${this.musicMode === 0 ? 'muted' : ''}">${this._getMusicButtonLabel()}</button>
+
+              <div class="settings-volume-control">
+                <div class="settings-volume-heading">
+                  <label class="settings-btn-label" id="label-music-volume" for="music-volume-slider">${i18n.t('music_volume_label')}</label>
+                  <output class="settings-volume-value" id="music-volume-value" for="music-volume-slider">${Math.round(this.musicVolume * 100)}%</output>
+                </div>
+                <input class="settings-volume-slider" id="music-volume-slider" type="range" min="0" max="100" step="1" value="${Math.round(this.musicVolume * 100)}" aria-label="${i18n.t('music_volume_label')}" />
+                <span class="settings-btn-sub" id="sub-music-volume">${i18n.t('music_volume_desc')}</span>
+              </div>
             </div>
 
             <div class="settings-btn-row">
@@ -1976,7 +2030,10 @@ export class UIManager {
                 <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
                 <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
                 <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
-                <span style="font-size: 9px; color: var(--rc-ink-muted);">Yılda bir faturalandırılır</span>
+                <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-green); background: rgba(89,212,153,0.15); border: 1px solid rgba(89,212,153,0.35); padding: 2px 6px; border-radius: 4px; margin-top: 2px;">
+                  ${i18n.t('yearly_discount_badge')}
+                </div>
+                <span style="font-size: 9px; color: var(--rc-ink-muted); margin-top: 2px;">Yılda bir faturalandırılır</span>
                 <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
               </div>
             </div>
@@ -1992,7 +2049,28 @@ export class UIManager {
               </button>
             </div>
 
-            <div style="display: flex; justify-content: center; margin-top: 2px;">
+            <!-- İpucu Paketleri Satış Grubu -->
+            <div style="margin-top: 10px; border-top: 1px solid var(--rc-hairline); padding-top: 8px;">
+              <div style="font-size: 11px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                <span>💎 ${i18n.t('hint_store_title')}</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+                <button class="hint-pack-card" data-pack="hint_pack_5" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">5 İpucu</span>
+                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺19,99</span>
+                </button>
+                <button class="hint-pack-card" data-pack="hint_pack_15" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">15 İpucu</span>
+                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺39,99</span>
+                </button>
+                <button class="hint-pack-card" data-pack="hint_pack_40" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">40 İpucu</span>
+                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺79,99</span>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: 6px;">
               <button id="pro-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
             </div>
           </div>
@@ -2002,6 +2080,14 @@ export class UIManager {
             <div style="background: rgba(255, 197, 51, 0.1); border: 1px solid rgba(255, 197, 51, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: var(--rc-accent-yellow); display: flex; align-items: center; gap: 6px;">
               <span>⚠️</span>
               <span id="debug-warning-text">${i18n.t('debug_warning')}</span>
+            </div>
+
+            <div class="settings-btn-row">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-debug-mode">🛠️ Mod Değiştir (2'li / 3'lü)</span>
+                <span class="settings-btn-sub" id="sub-debug-mode">Abonelik kontrolü olmadan modu değiştir</span>
+              </div>
+              <button id="debug-force-mode-btn" class="settings-action-btn btn-purple">Mod Değiştir</button>
             </div>
 
             <div class="settings-btn-row">
@@ -2064,7 +2150,7 @@ export class UIManager {
             <span id="drawer-tier1-count-badge">4 Keşfedildi</span>
           </div>
           <button id="drawer-expand-btn" class="drawer-expand-btn" title="Genişlet">
-            <span style="font-size: 12px; line-height: 1;">⌃</span>
+            <span class="expand-icon">▲</span>
             <span>GENİŞLET</span>
           </button>
         </div>
@@ -2275,7 +2361,10 @@ export class UIManager {
               <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
               <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
               <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
-              <span style="font-size: 9px; color: var(--rc-ink-muted);">Yılda bir faturalandırılır</span>
+              <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-green); background: rgba(89,212,153,0.15); border: 1px solid rgba(89,212,153,0.35); padding: 2px 6px; border-radius: 4px; margin-top: 2px;">
+                ${i18n.t('yearly_discount_badge')}
+              </div>
+              <span style="font-size: 9px; color: var(--rc-ink-muted); margin-top: 2px;">Yılda bir faturalandırılır</span>
               <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
             </div>
           </div>
@@ -2291,9 +2380,59 @@ export class UIManager {
             </button>
           </div>
 
-          <div style="display: flex; justify-content: center; margin-top: 2px;">
+          <!-- Demo Pass Önizleme Kutusu (Klasik Mod bitince gösterilecek) -->
+          <div id="gm-demo-pass-container" style="display: none; margin-top: 8px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 8px; padding: 8px; text-align: center;">
+            <p style="font-size: 10px; color: #e9d5ff; margin-bottom: 4px; line-height: 1.3;">
+              Klasik modu bitirdin! 10 dakikalık Grandmaster önizlemesini hemen ücretsiz başlat!
+            </p>
+            <button id="gm-demo-pass-btn" class="btn-purple" style="width: 100%; padding: 6px; font-size: 11px; font-weight: 700; border-radius: 6px;">
+              ${i18n.t('demo_pass_btn')}
+            </button>
+          </div>
+
+          <!-- İpucu Paketleri Satış Grubu -->
+          <div style="margin-top: 8px; border-top: 1px solid var(--rc-hairline); padding-top: 6px;">
+            <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 4px;">💎 ${i18n.t('hint_store_title')}</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+              <button class="hint-pack-card" data-pack="hint_pack_5" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">5 İpucu</span>
+                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺19,99</span>
+              </button>
+              <button class="hint-pack-card" data-pack="hint_pack_15" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">15 İpucu</span>
+                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺39,99</span>
+              </button>
+              <button class="hint-pack-card" data-pack="hint_pack_40" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">40 İpucu</span>
+                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺79,99</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: center; margin-top: 6px;">
             <button id="gm-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
           </div>
+        </div>
+      </div>
+
+      <!-- Günlük Şans Çarkı Modalı -->
+      <div id="wheel-modal" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(7, 8, 10, 0.88); backdrop-filter: blur(14px); display: none; align-items: center; justify-content: center; pointer-events: auto; z-index: 140;">
+        <div class="wheel-box" style="background: var(--rc-surface); border: 1px solid var(--rc-hairline); border-radius: 16px; padding: 20px; width: 90%; max-width: 340px; text-align: center; color: var(--rc-ink); position: relative; box-shadow: 0 16px 40px rgba(0,0,0,0.9);">
+          <button class="settings-close-icon" id="wheel-close-btn" style="position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--rc-ink-muted); font-size: 16px; cursor: pointer;">✕</button>
+          <h3 id="wheel-title" style="margin-bottom: 2px; color: var(--rc-accent-yellow); font-size: 16px; font-weight: 700;">${i18n.t('wheel_title')}</h3>
+          <p id="wheel-subtitle" style="font-size: 11px; color: var(--rc-ink-muted); margin-bottom: 14px;">${i18n.t('wheel_subtitle')}</p>
+
+          <div style="position: relative; width: 220px; height: 220px; margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center;">
+            <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 10; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 18px solid var(--rc-accent-yellow); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));"></div>
+            <canvas id="wheel-canvas" width="220" height="220" style="width: 220px; height: 220px; border-radius: 50%; box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px var(--rc-accent-yellow);"></canvas>
+            <div style="position: absolute; width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle, #fde047 0%, #d97706 100%); border: 3px solid #07080a; box-shadow: 0 0 10px rgba(251, 191, 36, 0.6); display: flex; align-items: center; justify-content: center; font-size: 16px; pointer-events: none;">✨</div>
+          </div>
+
+          <div id="wheel-status-text" style="font-size: 11px; color: var(--rc-accent-green); margin-bottom: 10px; min-height: 16px; font-weight: 600;"></div>
+
+          <button id="spin-wheel-btn" class="btn-gold-primary" style="width: 100%; padding: 10px; font-size: 13px; font-weight: 700; border-radius: 8px;">
+            ${i18n.t('wheel_spin_free')}
+          </button>
         </div>
       </div>
     `;
@@ -2310,6 +2449,9 @@ export class UIManager {
     this._setupAchievementsLogic();
     this._setupGrandmasterOfferLogic();
     this._setupDailyHintLogic();
+    this._setupWheelModal();
+    this._startDemoPassTimerLoop();
+    this._updateUILanguage();
   }
 
   _setupCraftButton() {
@@ -2337,6 +2479,13 @@ export class UIManager {
     if (toggleBtn) {
       toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (this.gameMode === 'classic') {
+          if (!subscriptionManager.isGrandmaster()) {
+            this.showToast(i18n.currentLang === 'tr' ? '🔒 3\'lü Simyacı Kazanı Modu için Grandmaster aboneliği gereklidir!' : '🔒 Grandmaster subscription required for 3-Item mode!', 'warn');
+            this.showGrandmasterOfferModal('mode_switch_locked');
+            return;
+          }
+        }
         const newMode = this.gameMode === 'classic' ? 'grandmaster' : 'classic';
         if (this.onModeSwitch) {
           this.onModeSwitch(newMode);
@@ -2432,6 +2581,21 @@ export class UIManager {
     const langBtn = document.getElementById('lang-toggle-btn');
     if (langBtn) langBtn.textContent = i18n.t('lang_btn');
 
+    const drawerToggleLabel = document.querySelector('#drawer-toggle > span');
+    if (drawerToggleLabel) drawerToggleLabel.textContent = i18n.currentLang === 'tr' ? 'İPUCU' : 'HINT';
+    const drawerExpandBtn = document.getElementById('drawer-expand-btn');
+    if (drawerExpandBtn) {
+      const expandLabel = drawerExpandBtn.querySelector('span:not(.expand-icon)');
+      if (expandLabel) expandLabel.textContent = i18n.currentLang === 'tr' ? 'GENİŞLET' : 'EXPAND';
+      drawerExpandBtn.title = i18n.currentLang === 'tr' ? 'Genişlet' : 'Expand';
+    }
+    const fullscreenBtn = document.getElementById('drawer-fullscreen-btn');
+    if (fullscreenBtn) {
+      const fullscreenLabel = fullscreenBtn.querySelector('span:last-child');
+      if (fullscreenLabel) fullscreenLabel.textContent = i18n.currentLang === 'tr' ? 'TAM EKRAN' : 'FULL SCREEN';
+      fullscreenBtn.title = i18n.currentLang === 'tr' ? 'Tam Ekran Ansiklopedi' : 'Full-Screen Encyclopedia';
+    }
+
     const quickLabel = document.getElementById('mode-quick-btn-label');
     if (quickLabel) quickLabel.textContent = this._getModeQuickLabel();
 
@@ -2449,9 +2613,6 @@ export class UIManager {
     const cleanupBtn = document.getElementById('cleanup-btn');
     if (cleanupBtn) cleanupBtn.textContent = i18n.t('cleanup');
 
-    const topCleanupLabel = document.getElementById('top-cleanup-btn-label');
-    if (topCleanupLabel) topCleanupLabel.textContent = i18n.t('cleanup');
-
     const drawerSettingsTitle = document.getElementById('drawer-settings-title');
     if (drawerSettingsTitle) drawerSettingsTitle.textContent = i18n.t('settings_title');
 
@@ -2468,6 +2629,17 @@ export class UIManager {
       musicBtn.textContent = this._getMusicButtonLabel();
       musicBtn.classList.toggle('muted', this.musicMode === 0);
     }
+
+    const musicLabel = document.getElementById('label-music');
+    if (musicLabel) musicLabel.textContent = i18n.t('music_label');
+    const musicSub = document.getElementById('sub-music');
+    if (musicSub) musicSub.textContent = i18n.t('music_sub');
+    const musicVolumeLabel = document.getElementById('label-music-volume');
+    if (musicVolumeLabel) musicVolumeLabel.textContent = i18n.t('music_volume_label');
+    const musicVolumeSub = document.getElementById('sub-music-volume');
+    if (musicVolumeSub) musicVolumeSub.textContent = i18n.t('music_volume_desc');
+    const musicVolumeSlider = document.getElementById('music-volume-slider');
+    if (musicVolumeSlider) musicVolumeSlider.setAttribute('aria-label', i18n.t('music_volume_label'));
 
     // 3. Search placeholder & Drawer Title
     const searchInput = document.getElementById('item-search-input');
@@ -2502,6 +2674,13 @@ export class UIManager {
     if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
 
     // 7. Settings Drawer & Debug Labels
+    const labelDailyWheel = document.getElementById('label-daily-wheel');
+    if (labelDailyWheel) labelDailyWheel.textContent = i18n.t('wheel_title');
+    const subDailyWheel = document.getElementById('sub-daily-wheel');
+    if (subDailyWheel) subDailyWheel.textContent = i18n.currentLang === 'tr' ? 'Çarkı çevirerek ücretsiz ipucu kazan' : 'Spin the wheel for free hints';
+    const settingsWheelBtn = document.getElementById('settings-wheel-btn');
+    if (settingsWheelBtn) settingsWheelBtn.textContent = i18n.t('wheel_btn');
+
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
@@ -2590,6 +2769,8 @@ export class UIManager {
       drawer.classList.remove('open');
       if (toggle) {
         toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
+        const label = toggle.querySelector('span:last-child');
+        if (label) label.textContent = i18n.currentLang === 'tr' ? 'İPUCU' : 'HINT';
       }
     }
   }
@@ -2648,26 +2829,6 @@ export class UIManager {
           drawer.classList.remove('open');
           toggle.innerHTML = '<img src="./textures/ui/icon_codex.png" style="width: 20px; height: 20px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));" onerror="this.onerror=null; this.outerHTML=\'<span style=\\\'font-size: 16px;\\\'>📜</span>\';"><span style="font-size: 8px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;">İPUCU</span>';
         }
-      });
-    }
-
-    // Üst Bar Butonları
-    const topCleanupBtn = document.getElementById('top-cleanup-btn');
-    if (topCleanupBtn) {
-      topCleanupBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        gsap.to(topCleanupBtn, {
-          scale: 0.9,
-          xPercent: -50,
-          duration: 0.1,
-          yoyo: true,
-          repeat: 1,
-          onComplete: () => {
-            if (this.onCleanup) {
-              this.onCleanup();
-            }
-          }
-        });
       });
     }
 
@@ -2749,9 +2910,7 @@ export class UIManager {
 
   _setupMusicToggle() {
     const musicBtn = document.getElementById('music-toggle-btn');
-    if (!musicBtn) return;
-
-    musicBtn.addEventListener('click', () => {
+    musicBtn?.addEventListener('click', () => {
       if (this.onMusicToggle) {
         this.musicMode = this.onMusicToggle();
       } else {
@@ -2764,6 +2923,19 @@ export class UIManager {
       musicBtn.classList.toggle('muted', this.musicMode === 0);
       musicBtn.textContent = this._getMusicButtonLabel();
     });
+
+    const volumeSlider = document.getElementById('music-volume-slider');
+    const volumeValue = document.getElementById('music-volume-value');
+    const updateVolume = (persist) => {
+      this.musicVolume = Number(volumeSlider.value) / 100;
+      if (volumeValue) volumeValue.value = `${Math.round(this.musicVolume * 100)}%`;
+      if (this.onMusicVolumeChange) {
+        this.onMusicVolumeChange(this.musicVolume, persist);
+      }
+    };
+
+    volumeSlider?.addEventListener('input', () => updateVolume(false));
+    volumeSlider?.addEventListener('change', () => updateVolume(true));
   }
 
   _setupSettingsLogic() {
@@ -2874,6 +3046,17 @@ export class UIManager {
     });
 
     // Debug butonları
+    // 0. Mod Değiştir (2'li / 3'lü)
+    const forceModeBtn = document.getElementById('debug-force-mode-btn');
+    if (forceModeBtn) {
+      forceModeBtn.addEventListener('click', () => {
+        const newMode = this.gameMode === 'classic' ? 'grandmaster' : 'classic';
+        if (this.onModeSwitch) {
+          this.onModeSwitch(newMode);
+        }
+      });
+    }
+
     // 1. Sınırsız İpucu
     const infHintsBtn = document.getElementById('debug-infinite-hints-btn');
     if (infHintsBtn) {
@@ -3196,9 +3379,16 @@ export class UIManager {
 
     // Filter
     let filtered = targetIds.filter(id => {
-      const def = ITEM_DEFINITIONS[id];
+      const canonicalId = getCanonicalId(id) || id;
+      const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
       if (!def) return false;
-      const localizedName = i18n.getItemName(id, def.name);
+
+      // Klasik modda abonelik yoksa sadece Klasik (FreeTier) eşyaları listele
+      if (this.gameMode === 'classic' && !isGm && !FreeTierManager.isItemInFreeTier(canonicalId)) {
+        return false;
+      }
+
+      const localizedName = i18n.getItemName(canonicalId, def.name);
 
       // Search Query filter
       if (this.searchQuery) {
@@ -3868,6 +4058,37 @@ export class UIManager {
       });
     });
 
+    // Demo Pass Butonu
+    const demoPassBtn = document.getElementById('gm-demo-pass-btn');
+    demoPassBtn?.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const res = await adManager.showRewardedAd({ rewardType: 'demo_pass' });
+      if (res && res.success) {
+        subscriptionManager.startDemoPass(10);
+        document.getElementById('grandmaster-offer-modal')?.classList.remove('show');
+        this.showToast(i18n.t('demo_pass_activated'), 'success');
+        if (this.onModeSwitch && this.gameMode !== 'grandmaster') {
+          this.onModeSwitch('grandmaster');
+        }
+      }
+    });
+
+    // İpucu Paketi Satın Alma Butonları
+    const hintPackBtns = document.querySelectorAll('.hint-pack-card, .hint-pack-btn');
+    hintPackBtns.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const packId = btn.getAttribute('data-pack');
+        if (!packId) return;
+        const res = await subscriptionManager.buyHintPack(packId);
+        if (res && res.success) {
+          this.hintSystem?.addHintRights(res.hints);
+          this.updateHintRights(this.hintSystem.hintRights);
+          this.showToast(i18n.t('hint_pack_success', { count: res.hints }), 'success');
+        }
+      });
+    });
+
     restoreBtn?.addEventListener('click', () => {
       this.showToast(i18n.currentLang === 'tr' ? 'Satın alımlar başarıyla kontrol edildi ve güncellendi.' : 'Purchases restored successfully.', 'info');
     });
@@ -3878,13 +4099,16 @@ export class UIManager {
     if (!modal) return;
     const titleEl = document.getElementById('gm-modal-title');
     const subEl = document.getElementById('gm-modal-subtitle');
+    const demoContainer = document.getElementById('gm-demo-pass-container');
 
     if (reason === 'classic_complete') {
+      if (demoContainer) demoContainer.style.display = 'block';
       if (titleEl) titleEl.textContent = i18n.currentLang === 'tr' ? '🎉 KLASİK MOD TAMAMLANDI!' : '🎉 CLASSIC REALM COMPLETED!';
       if (subEl) subEl.textContent = i18n.currentLang === 'tr'
         ? 'Tebrikler Simyacı! Klasik modun tüm eşyalarını eksiksiz çözdün. Şimdi 3\'lü kombinasyonlar ve yüzlerce yeni eşyanın kadim evrenine geçiş yapma zamanı!'
         : 'Congratulations! You mastered all items in Classic mode. Step into the realm of 3-item recipes and hundreds of new items!';
     } else {
+      if (demoContainer) demoContainer.style.display = 'none';
       if (titleEl) titleEl.textContent = i18n.t('grandmaster_offer_title');
       if (subEl) subEl.textContent = i18n.t('grandmaster_offer_subtitle');
     }
@@ -3905,6 +4129,266 @@ export class UIManager {
       }
     });
   }
+
+  _setupWheelModal() {
+    const wheelModal = document.getElementById('wheel-modal');
+    const closeBtn = document.getElementById('wheel-close-btn');
+    const settingsWheelBtn = document.getElementById('settings-wheel-btn');
+    const spinBtn = document.getElementById('spin-wheel-btn');
+
+    settingsWheelBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.openWheelModal();
+    });
+
+    closeBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (this.isWheelSpinning) return;
+      wheelModal?.style.setProperty('display', 'none');
+    });
+
+    wheelModal?.addEventListener('click', (e) => {
+      if (e.target === wheelModal && !this.isWheelSpinning) {
+        wheelModal.style.display = 'none';
+      }
+    });
+
+    spinBtn?.addEventListener('click', () => {
+      this._spinWheel();
+    });
+
+    this._drawWheel(0);
+  }
+
+  openWheelModal() {
+    const wheelModal = document.getElementById('wheel-modal');
+    const spinBtn = document.getElementById('spin-wheel-btn');
+    const statusText = document.getElementById('wheel-status-text');
+    if (!wheelModal) return;
+
+    wheelModal.style.display = 'flex';
+    this._drawWheel(this._currentWheelAngle || 0);
+
+    const canFree = this.hintSystem?.canSpinDailyWheel();
+    if (canFree) {
+      if (spinBtn) spinBtn.textContent = i18n.t('wheel_spin_free');
+      if (statusText) statusText.textContent = i18n.t('wheel_subtitle');
+    } else {
+      if (spinBtn) spinBtn.textContent = i18n.t('wheel_spin_ad');
+      if (statusText) statusText.textContent = i18n.t('wheel_already_spun');
+    }
+  }
+
+  _drawWheel(currentAngleDegrees = 0) {
+    const canvas = document.getElementById('wheel-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const width = canvas.width;
+    const height = canvas.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = width / 2 - 4;
+
+    ctx.clearRect(0, 0, width, height);
+
+    const segments = [
+      { label: '+1 İpucu', color1: '#059669', color2: '#10b981' },
+      { label: '+2 İpucu', color1: '#0284c7', color2: '#38bdf8' },
+      { label: '+1 İpucu', color1: '#059669', color2: '#10b981' },
+      { label: '+3 İpucu', color1: '#7c3aed', color2: '#a78bfa' },
+      { label: '+1 İpucu', color1: '#059669', color2: '#10b981' },
+      { label: '+2 İpucu', color1: '#0284c7', color2: '#38bdf8' },
+      { label: '+5 İpucu', color1: '#d97706', color2: '#fbbf24' },
+      { label: '+1 İpucu', color1: '#059669', color2: '#10b981' },
+      { label: '+2 İpucu', color1: '#0284c7', color2: '#38bdf8' },
+      { label: '🌟 +10 İpucu!', color1: '#dc2626', color2: '#f87171' }
+    ];
+
+    const sliceAngle = (2 * Math.PI) / segments.length;
+    const offsetRad = (currentAngleDegrees * Math.PI) / 180;
+
+    segments.forEach((seg, i) => {
+      const startAngle = i * sliceAngle + offsetRad;
+      const endAngle = (i + 1) * sliceAngle + offsetRad;
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+      ctx.closePath();
+
+      const grad = ctx.createRadialGradient(centerX, centerY, 20, centerX, centerY, radius);
+      grad.addColorStop(0, seg.color1);
+      grad.addColorStop(1, seg.color2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      ctx.strokeStyle = '#07080a';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.save();
+      ctx.translate(centerX, centerY);
+      ctx.rotate(startAngle + sliceAngle / 2);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 11px Inter, sans-serif';
+      ctx.shadowColor = 'rgba(0,0,0,0.8)';
+      ctx.shadowBlur = 4;
+      ctx.fillText(seg.label, radius - 12, 4);
+      ctx.restore();
+    });
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#fbbf24';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  }
+
+  _spinWheel() {
+    if (this.isWheelSpinning) return;
+
+    const canFree = this.hintSystem?.canSpinDailyWheel();
+
+    const doSpin = () => {
+      this.isWheelSpinning = true;
+      const spinBtn = document.getElementById('spin-wheel-btn');
+      if (spinBtn) spinBtn.disabled = true;
+
+      const segments = [
+        { count: 1 },  // 0: +1
+        { count: 2 },  // 1: +2
+        { count: 1 },  // 2: +1
+        { count: 3 },  // 3: +3
+        { count: 1 },  // 4: +1
+        { count: 2 },  // 5: +2
+        { count: 5 },  // 6: +5
+        { count: 1 },  // 7: +1
+        { count: 2 },  // 8: +2
+        { count: 10 }  // 9: +10 (Jackpot)
+      ];
+
+      // Olasılıklar:
+      // +1 İpucu: %57 (Dilimler: 0, 2, 4, 7)
+      // +2 İpucu: %25 (Dilimler: 1, 5, 8)
+      // +3 İpucu: %12 (Dilim: 3)
+      // +5 İpucu: %5  (Dilim: 6)
+      // +10 İpucu: %1 (Dilim: 9 - Çok Nadir!)
+
+      const rand = Math.random() * 100;
+      let winningIndex = 0;
+
+      if (rand < 57) {
+        const ones = [0, 2, 4, 7];
+        winningIndex = ones[Math.floor(Math.random() * ones.length)];
+      } else if (rand < 82) {
+        const twos = [1, 5, 8];
+        winningIndex = twos[Math.floor(Math.random() * twos.length)];
+      } else if (rand < 94) {
+        winningIndex = 3;
+      } else if (rand < 99) {
+        winningIndex = 6;
+      } else {
+        winningIndex = 9;
+      }
+
+      const wonAmount = segments[winningIndex].count;
+
+      const sliceDeg = 360 / 10;
+      const segmentCenterDeg = (winningIndex + 0.5) * sliceDeg;
+      const targetDeg = 270 - segmentCenterDeg;
+
+      const startAngle = this._currentWheelAngle || 0;
+      const fullRotations = 360 * 5;
+      const finalAngle = startAngle + fullRotations + ((targetDeg - (startAngle % 360) + 360) % 360);
+
+      const obj = { angle: startAngle };
+
+      gsap.to(obj, {
+        angle: finalAngle,
+        duration: 4,
+        ease: 'power4.out',
+        onUpdate: () => {
+          this._currentWheelAngle = obj.angle;
+          this._drawWheel(obj.angle);
+        },
+        onComplete: () => {
+          this.isWheelSpinning = false;
+          if (spinBtn) spinBtn.disabled = false;
+
+          if (canFree) {
+            this.hintSystem?.recordWheelSpin();
+          }
+
+          this.hintSystem?.addHintRights(wonAmount);
+          this.updateHintRights(this.hintSystem.hintRights);
+
+          const prizeText = wonAmount === 10
+            ? i18n.t('wheel_prize_10')
+            : i18n.t(`wheel_prize_${wonAmount}`);
+
+          this.showToast(i18n.t('wheel_won_msg', { prize: prizeText }), 'success');
+
+          const stillCanFree = this.hintSystem?.canSpinDailyWheel();
+          const statusText = document.getElementById('wheel-status-text');
+          if (stillCanFree) {
+            if (spinBtn) spinBtn.textContent = i18n.t('wheel_spin_free');
+            if (statusText) statusText.textContent = i18n.t('wheel_subtitle');
+          } else {
+            if (spinBtn) spinBtn.textContent = i18n.t('wheel_spin_ad');
+            if (statusText) statusText.textContent = i18n.t('wheel_already_spun');
+          }
+        }
+      });
+    };
+
+    if (canFree) {
+      doSpin();
+    } else {
+      adManager.showRewardedAd({ rewardType: 'wheel_spin' }).then(res => {
+        if (res && res.success) {
+          doSpin();
+        } else {
+          this.showToast(i18n.currentLang === 'tr' ? 'Reklam izleme tamamlanamadı!' : 'Ad not completed!', 'warn');
+        }
+      });
+    }
+  }
+
+  _startDemoPassTimerLoop() {
+    if (this._demoPassInterval) clearInterval(this._demoPassInterval);
+    let wasActive = subscriptionManager.isDemoPassActive();
+
+    this._demoPassInterval = setInterval(() => {
+      const isActive = subscriptionManager.isDemoPassActive();
+      const hud = document.getElementById('top-demopass-hud');
+      const hudLabel = document.getElementById('demopass-hud-label');
+
+      if (isActive) {
+        if (hud) hud.style.display = 'inline-flex';
+        const remSecs = subscriptionManager.getDemoPassRemainingSeconds();
+        const mins = Math.floor(remSecs / 60);
+        const secs = remSecs % 60;
+        const timeStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        if (hudLabel) hudLabel.textContent = i18n.t('demo_pass_active_hud', { time: timeStr });
+        wasActive = true;
+      } else {
+        if (hud) hud.style.display = 'none';
+        if (wasActive) {
+          wasActive = false;
+          if (this.gameMode === 'grandmaster' && !subscriptionManager.isGrandmaster()) {
+            if (this.onModeSwitch) {
+              this.onModeSwitch('classic');
+            }
+          }
+          alert(`${i18n.t('demo_pass_expired_title')}\n\n${i18n.t('demo_pass_expired_desc')}`);
+        }
+      }
+    }, 1000);
+  }
 }
+
 
 

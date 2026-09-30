@@ -79,35 +79,35 @@ export const COLLECTIONS = [
     titleTr: 'Doğa & Botanik',
     titleEn: 'Nature & Flora',
     icon: '🌱',
-    items: ['tohum', 'bitki', 'cicek', 'cimen', 'pamuk', 'ahsap', 'kar']
+    items: ['bitki', 'agac', 'cicek', 'odun', 'yosun', 'orman', 'kar']
   },
   {
     id: 'col_minerals',
     titleTr: 'Maden & Jeoloji',
     titleEn: 'Minerals & Geology',
     icon: '⛏️',
-    items: ['tas', 'kum', 'kil', 'demir', 'elmas', 'safir', 'obsidyen', 'dag', 'volkan']
+    items: ['tas', 'kum', 'kaya', 'metal', 'celik', 'komur', 'dag', 'volkan']
   },
   {
     id: 'col_craft',
     titleTr: 'Zanaat & Araçlar',
     titleEn: 'Craft & Tools',
     icon: '⚔️',
-    items: ['balta', 'kazma', 'cam', 'kagit', 'cark', 'heykel', 'batarya']
+    items: ['balta', 'alet', 'cam', 'tekerlek', 'kilic', 'ampul', 'elektrik']
   },
   {
     id: 'col_life',
     titleTr: 'Canlılar Âlemi',
     titleEn: 'Living Creatures',
     icon: '🧬',
-    items: ['at', 'balik', 'kutup_ayisi', 'bakteri', 'kemik']
+    items: ['yasam', 'insan', 'kus', 'balik', 'hayvan', 'at', 'inek', 'domuz']
   },
   {
     id: 'col_mystic',
     titleTr: 'Mistik & Gökyüzü',
     titleEn: 'Mystic & Sky',
     icon: '🌌',
-    items: ['gunes', 'enerji', 'yildirim', 'gokkusagi', 'goktasi', 'kahin_kuresi', 'lazer']
+    items: ['gunes', 'enerji', 'yildirim', 'gokkusagi', 'isik', 'firtina', 'zaman']
   }
 ];
 
@@ -179,6 +179,33 @@ export class AchievementManager {
       return badge;
     }
     return null;
+  }
+
+  /**
+   * Tüm rozetlerin kilidini açar (Debug modu için).
+   */
+  unlockAllBadges() {
+    BADGES.forEach(badge => {
+      this.unlockedBadgeIds.add(badge.id);
+    });
+    this._save();
+    this._notify(BADGES);
+  }
+
+  /**
+   * Tüm rozetleri ve başarımları sıfırlar.
+   */
+  resetProgress() {
+    this.unlockedBadgeIds.clear();
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem('alchemy_achievements_data');
+      }
+    } catch (e) {
+      console.warn('[AchievementManager] Reset error:', e);
+    }
+    this._save();
+    this._notify([]);
   }
 
   getBadges() {
