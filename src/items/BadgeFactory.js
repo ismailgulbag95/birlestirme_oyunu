@@ -338,7 +338,7 @@ export class BadgeFactory {
     group.add(ruby);
   }
 
-  // 12. ROZET: BÜYÜK SİMYACI (badge_grandmaster_unlocked)
+  // 12. ROZET: ÜÇLÜ SİMYACI (badge_grandmaster_unlocked)
   static _buildBadgeGrandmasterMesh(group, isUnlocked) {
     const silMat = this.getSilhouetteMaterial();
     const darkMetal = isUnlocked ? new THREE.MeshStandardMaterial({ color: 0x212121, roughness: 0.5, metalness: 0.8 }) : silMat;

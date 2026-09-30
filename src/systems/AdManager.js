@@ -4,49 +4,36 @@
 export class AdManager {
   constructor() {
     this.provider = null;
-    this.isLoaded = true;
     this.onRewardCallbacks = [];
+    this.rewardInProgress = false;
     this._initProvider();
   }
 
   _initProvider() {
     // 1. Capacitor AdMob eklentisi mevcutsa onu bağla
-    if (typeof window !== 'undefined' && window.Capacitor?.Plugins?.AdMob) {
+    const adMob = typeof window !== 'undefined' ? window.Capacitor?.Plugins?.AdMob : null;
+    if (adMob && typeof adMob.showRewardVideoAd === 'function') {
       this.provider = {
         name: 'CapacitorAdMob',
-        native: window.Capacitor.Plugins.AdMob,
         showRewarded: async () => {
           try {
-            await window.Capacitor.Plugins.AdMob.showRewardVideoAd();
-            return true;
+            return await adMob.showRewardVideoAd();
           } catch (err) {
-            console.warn('[AdManager] Native AdMob error, falling back:', err);
+            console.warn('[AdManager] Native AdMob error:', err);
             return false;
           }
         }
       };
       console.log('[AdManager] Native AdMob provider detected.');
     } else {
-      // 2. Mock / Web Test Sağlayıcısı (Tarayıcı ortamında sorunsuz çalışır)
-      this.provider = {
-        name: 'MockWebProvider',
-        showRewarded: async (rewardDetails) => {
-          return new Promise((resolve) => {
-            console.log('[AdManager] Mock rewarded ad started...', rewardDetails);
-            // Simüle edilmiş kısa reklam izleme akışı
-            setTimeout(() => {
-              console.log('[AdManager] Mock rewarded ad finished successfully.');
-              resolve(true);
-            }, 500);
-          });
-        }
-      };
+      console.warn('[AdManager] No rewarded ad provider configured.');
     }
   }
 
   /**
    * Özel bir reklam sağlayıcısı (örn: Production AdMob, IronSource, Unity) atamak için kullanılır.
-   * @param {Object} customProvider - { name: string, showRewarded: async (details) => boolean, isReady?: () => boolean }
+   * The provider must resolve true (or { rewarded: true }) only after its SDK confirms the reward.
+   * @param {Object} customProvider - { name: string, showRewarded: async (details) => boolean | { rewarded: boolean }, isReady?: () => boolean }
    */
   setProvider(customProvider) {
     if (customProvider && typeof customProvider.showRewarded === 'function') {
@@ -59,12 +46,12 @@ export class AdManager {
     if (this.provider && typeof this.provider.isReady === 'function') {
       return this.provider.isReady();
     }
-    return this.isLoaded;
+    return Boolean(this.provider);
   }
 
   preloadNext() {
     if (this.provider && typeof this.provider.prepare === 'function') {
-      this.provider.prepare().catch(e => console.warn('[AdManager] Preload error:', e));
+      Promise.resolve(this.provider.prepare()).catch(e => console.warn('[AdManager] Preload error:', e));
     }
   }
 
@@ -75,22 +62,27 @@ export class AdManager {
    */
   async showRewardedAd(options = {}) {
     const multiplier = options.multiplier || 1;
-    if (!this.provider) {
-      return { success: false, multiplier: 1 };
+    if (!this.provider || typeof this.provider.showRewarded !== 'function') {
+      return { success: false, multiplier: 1, error: 'unavailable' };
     }
+    if (this.rewardInProgress) return { success: false, multiplier: 1, error: 'in_progress' };
 
+    this.rewardInProgress = true;
     try {
-      const watched = await this.provider.showRewarded(options);
-      if (watched) {
+      const result = await this.provider.showRewarded(options);
+      const rewarded = result === true || result?.rewarded === true;
+      if (rewarded) {
         this.onRewardCallbacks.forEach(cb => {
           try { cb(options); } catch (e) { console.error(e); }
         });
         return { success: true, multiplier };
       }
-      return { success: false, multiplier: 1 };
+      return { success: false, multiplier: 1, error: 'not_rewarded' };
     } catch (err) {
       console.error('[AdManager] Error during showRewardedAd:', err);
-      return { success: false, multiplier: 1 };
+      return { success: false, multiplier: 1, error: 'failed' };
+    } finally {
+      this.rewardInProgress = false;
     }
   }
 

@@ -23,7 +23,7 @@ export const SHELF_ITEMS = [
   { id: 'badge_40', type: 'badge', slotIndex: 8, titleTr: 'Gözlemci Uyanışı' },
   { id: 'badge_70', type: 'badge', slotIndex: 9, titleTr: 'Usta Adayı' },
   { id: 'badge_80', type: 'badge', slotIndex: 10, titleTr: 'Klasik Simya Ustası' },
-  { id: 'badge_grandmaster_unlocked', type: 'badge', slotIndex: 11, titleTr: 'Büyük Simyacı' }
+  { id: 'badge_grandmaster_unlocked', type: 'badge', slotIndex: 11, titleTr: 'Üçlü Simyacı' }
 ];
 
 /**

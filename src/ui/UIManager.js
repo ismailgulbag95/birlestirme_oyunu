@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 import { FreeTierManager } from '../systems/FreeTierManager.js';
-import { subscriptionManager, SUBSCRIPTION_PLANS } from '../systems/SubscriptionManager.js';
+import { purchaseManager } from '../systems/PurchaseManager.js';
 import { achievementManager } from '../systems/AchievementManager.js';
 import { adManager } from '../systems/AdManager.js';
 
@@ -19,6 +19,7 @@ export class UIManager {
     this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
     this.onCraftClick = onCraftClick; // () => void
     this.onModeSwitch = onModeSwitch; // (newMode) => void
+    this.onUnlockTrioFormulas = null;
     this.gameMode = 'classic'; // 'classic' or 'grandmaster'
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
@@ -887,7 +888,7 @@ export class UIManager {
       /* =================================================== */
       /* MODALLAR & SEÇENEKLER KARTLARI                      */
       /* =================================================== */
-      #grandmaster-offer-modal, #achievements-modal, #welcome-modal, #char-unlock-modal {
+      #trio-formula-modal, #achievements-modal, #welcome-modal, #char-unlock-modal {
         position: absolute;
         top: 0;
         left: 0;
@@ -905,11 +906,11 @@ export class UIManager {
         box-sizing: border-box;
       }
 
-      #grandmaster-offer-modal.show, #achievements-modal.show, #welcome-modal.show, #char-unlock-modal.show {
+      #trio-formula-modal.show, #achievements-modal.show, #welcome-modal.show, #char-unlock-modal.show {
         display: flex;
       }
 
-      .gm-offer-box, .achievements-box, .welcome-card, .celebrate-card {
+      .trio-formula-box, .achievements-box, .welcome-card, .celebrate-card {
         background: var(--rc-surface);
         border: 1px solid var(--rc-hairline);
         border-radius: 14px;
@@ -1370,7 +1371,7 @@ export class UIManager {
         color: var(--rc-accent-green);
       }
 
-      /* Freemium & Grandmaster Elements */
+      /* Classic and three-item mode elements */
       .inv-progress-container {
         width: 100%;
         box-sizing: border-box;
@@ -1438,46 +1439,6 @@ export class UIManager {
       .daily-hint-action-btn:hover {
         background: var(--rc-surface-hover);
         border-color: var(--rc-accent-blue);
-      }
-
-      .gm-plans-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        margin-top: 4px;
-      }
-      .gm-plan-card {
-        background: var(--rc-surface-card);
-        border: 1px solid var(--rc-hairline);
-        border-radius: 10px;
-        padding: 12px 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 4px;
-        cursor: pointer;
-        position: relative;
-        transition: all 0.15s ease;
-      }
-      .gm-plan-card:hover {
-        border-color: var(--rc-hairline-strong);
-        background: var(--rc-surface-hover);
-        transform: translateY(-1px);
-      }
-      .gm-plan-card.recommended {
-        border-color: var(--rc-accent-yellow);
-        background: rgba(255, 197, 51, 0.08);
-      }
-      .gm-plan-badge {
-        position: absolute;
-        top: -7px;
-        background: var(--rc-accent-yellow);
-        color: #07080a;
-        font-size: 8px;
-        font-weight: 800;
-        padding: 1px 5px;
-        border-radius: 4px;
       }
 
       /* Badges & Collections */
@@ -1886,7 +1847,7 @@ export class UIManager {
           <div class="settings-tabs">
             <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
             <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
-            <button class="settings-tab-btn" id="tab-pro-btn" data-tab="pro">${i18n.t('tab_pro')}</button>
+            <button class="settings-tab-btn" id="tab-hints-btn" data-tab="hints">${i18n.t('tab_hints')}</button>
             <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
           </div>
         </div>
@@ -1905,6 +1866,7 @@ export class UIManager {
               <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-game-mode">Oyun Modu</span>
                 <span class="settings-btn-sub" id="sub-game-mode">${this.gameMode === 'classic' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)'}</span>
+                <span class="settings-btn-sub" id="trio-quota-counter" style="display: none; color: var(--rc-accent-yellow);"></span>
               </div>
               <button id="mode-toggle-btn" class="settings-action-btn btn-indigo">${this._getModeButtonLabel()}</button>
             </div>
@@ -1925,7 +1887,7 @@ export class UIManager {
                     <span style="font-size: 9px; font-weight: 600; background: rgba(87, 193, 255, 0.15); color: var(--rc-accent-blue); border: 1px solid rgba(87, 193, 255, 0.3); padding: 1px 5px; border-radius: 4px;">CC BY 4.0</span>
                   </a>
                 </div>
-                <span class="settings-btn-sub" id="sub-character">Gözlemci (40 eşya), Gezgin (Grandmaster)</span>
+                <span class="settings-btn-sub" id="sub-character">Gözlemci (40 eşya), Gezgin (üçlü mod)</span>
               </div>
               <button id="character-switch-btn" class="settings-action-btn btn-purple">${this._getCharacterLabel()}</button>
             </div>
@@ -2003,57 +1965,10 @@ export class UIManager {
             </div>
           </div>
 
-          <!-- 3. Grandmaster (Pro) Sekmesi -->
-          <div class="settings-tab-pane" id="pane-pro" style="display: none;">
-            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 4px;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
-                <span style="font-size: 12px; font-weight: 700; color: #e9d5ff; display: flex; align-items: center; gap: 6px;">
-                  <span>👑</span> <span>Grandmaster Ayrıcalıkları</span>
-                </span>
-                <span style="font-size: 9px; font-weight: 700; background: var(--rc-accent-purple); color: #fff; padding: 1px 6px; border-radius: 4px;">PRO</span>
-              </div>
-              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_1')}</div>
-              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_2')}</div>
-              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_3')}</div>
-              <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
-            </div>
-
-            <div class="gm-plans-grid" style="grid-template-columns: 1fr;">
-              <div class="gm-plan-card recommended" data-plan="intro_monthly">
-                <span class="gm-plan-badge">ÖNERİLEN</span>
-                <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-yellow);">Tanışma Paketi</span>
-                <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺49,99</span>
-                <span style="font-size: 9px; color: var(--rc-ink-muted);">İlk ay (sonra ₺79,99)</span>
-                <button class="btn-gold-primary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Başla</button>
-              </div>
-              <div class="gm-plan-card" data-plan="yearly">
-                <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
-                <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
-                <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
-                <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-green); background: rgba(89,212,153,0.15); border: 1px solid rgba(89,212,153,0.35); padding: 2px 6px; border-radius: 4px; margin-top: 2px;">
-                  ${i18n.t('yearly_discount_badge')}
-                </div>
-                <span style="font-size: 9px; color: var(--rc-ink-muted); margin-top: 2px;">Yılda bir faturalandırılır</span>
-                <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 6px; margin-top: 2px;">
-              <button class="gm-plan-card" data-plan="monthly" style="flex: 1; padding: 6px;">
-                <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Aylık Standart</span>
-                <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺79,99/ay</span>
-              </button>
-              <button class="gm-plan-card" data-plan="lifetime" style="flex: 1; padding: 6px;">
-                <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Ömür Boyu</span>
-                <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺999,99</span>
-              </button>
-            </div>
-
-            <!-- İpucu Paketleri Satış Grubu -->
-            <div style="margin-top: 10px; border-top: 1px solid var(--rc-hairline); padding-top: 8px;">
-              <div style="font-size: 11px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
-                <span>💎 ${i18n.t('hint_store_title')}</span>
-              </div>
+          <!-- One-time hint packs -->
+          <div class="settings-tab-pane" id="pane-hints" style="display: none;">
+            <div style="margin-top: 4px; border-top: 1px solid var(--rc-hairline); padding-top: 8px;">
+              <div style="font-size: 11px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 6px;">💎 ${i18n.t('hint_store_title')}</div>
               <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
                 <button class="hint-pack-card" data-pack="hint_pack_5" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
                   <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">5 İpucu</span>
@@ -2069,10 +1984,6 @@ export class UIManager {
                 </button>
               </div>
             </div>
-
-            <div style="display: flex; justify-content: center; margin-top: 6px;">
-              <button id="pro-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
-            </div>
           </div>
 
           <!-- 4. Debug Sekmesi -->
@@ -2085,7 +1996,7 @@ export class UIManager {
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-debug-mode">🛠️ Mod Değiştir (2'li / 3'lü)</span>
-                <span class="settings-btn-sub" id="sub-debug-mode">Abonelik kontrolü olmadan modu değiştir</span>
+                <span class="settings-btn-sub" id="sub-debug-mode">Oyun modları arasında geçiş yap</span>
               </div>
               <button id="debug-force-mode-btn" class="settings-action-btn btn-purple">Mod Değiştir</button>
             </div>
@@ -2265,7 +2176,7 @@ export class UIManager {
               <div class="tutorial-char-card locked" id="tut-card-char3">
                 <span class="tutorial-char-icon">🧭</span>
                 <span class="tutorial-char-name">Gezgin</span>
-                <span class="tutorial-char-badge badge-locked">🔒 Grandmaster</span>
+                <span class="tutorial-char-badge badge-locked">🔒 3'lü Mod</span>
               </div>
             </div>
           </div>
@@ -2326,91 +2237,21 @@ export class UIManager {
         </div>
       </div>
 
-      <!-- Grandmaster Davet / Abonelik Modalı -->
-      <div id="grandmaster-offer-modal">
-        <div class="gm-offer-box">
+      <!-- Triple formula discovery quota dialog -->
+      <div id="trio-formula-modal" role="dialog" aria-modal="true" aria-labelledby="trio-formula-title">
+        <div class="trio-formula-box" style="width: 90%; max-width: 340px; color: var(--rc-ink);">
           <div class="settings-header">
             <div class="settings-title" style="color: var(--rc-accent-purple);">
-              <span>🔮</span>
-              <span id="gm-modal-title">${i18n.t('grandmaster_offer_title')}</span>
               <span>⚗️</span>
+              <span id="trio-formula-title">${i18n.t('trio_gate_title')}</span>
             </div>
-            <button class="settings-close-icon" id="gm-offer-close-btn" title="Kapat">✕</button>
+            <button class="settings-close-icon" id="trio-formula-close-btn" title="${i18n.t('trio_gate_cancel')}">✕</button>
           </div>
-
-          <p style="font-size: 12px; color: var(--rc-ink-muted); line-height: 1.45; margin: 0;" id="gm-modal-subtitle">
-            ${i18n.t('grandmaster_offer_subtitle')}
-          </p>
-
-          <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 4px;">
-            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_1')}</div>
-            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_2')}</div>
-            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_3')}</div>
-            <div style="font-size: 11px; font-weight: 600; color: #e9d5ff;">${i18n.t('grandmaster_feature_4')}</div>
-          </div>
-
-          <div class="gm-plans-grid">
-            <div class="gm-plan-card recommended" data-plan="intro_monthly">
-              <span class="gm-plan-badge">ÖNERİLEN</span>
-              <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-yellow);">Tanışma Paketi</span>
-              <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺49,99</span>
-              <span style="font-size: 9px; color: var(--rc-ink-muted);">İlk ay (sonra ₺79,99)</span>
-              <button class="btn-gold-primary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Başla</button>
-            </div>
-            <div class="gm-plan-card" data-plan="yearly">
-              <span class="gm-plan-badge" style="background: var(--rc-accent-purple); color: #fff;">%48 İNDİRİM</span>
-              <span style="font-size: 11px; font-weight: 600; color: var(--rc-accent-purple);">Yıllık Grandmaster</span>
-              <span style="font-size: 16px; font-weight: 800; color: #ffffff;">₺499,99</span>
-              <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-green); background: rgba(89,212,153,0.15); border: 1px solid rgba(89,212,153,0.35); padding: 2px 6px; border-radius: 4px; margin-top: 2px;">
-                ${i18n.t('yearly_discount_badge')}
-              </div>
-              <span style="font-size: 9px; color: var(--rc-ink-muted); margin-top: 2px;">Yılda bir faturalandırılır</span>
-              <button class="btn-dark-secondary" style="padding: 5px 10px; font-size: 10px; margin-top: 4px; width: 100%;">Seç</button>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 6px; margin-top: 2px;">
-            <button class="gm-plan-card" data-plan="monthly" style="flex: 1; padding: 6px;">
-              <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Aylık Standart</span>
-              <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺79,99/ay</span>
-            </button>
-            <button class="gm-plan-card" data-plan="lifetime" style="flex: 1; padding: 6px;">
-              <span style="font-size: 10px; font-weight: 600; color: var(--rc-ink-muted);">Ömür Boyu</span>
-              <span style="font-size: 12px; font-weight: 700; color: #ffffff;">₺999,99</span>
-            </button>
-          </div>
-
-          <!-- Demo Pass Önizleme Kutusu (Klasik Mod bitince gösterilecek) -->
-          <div id="gm-demo-pass-container" style="display: none; margin-top: 8px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 8px; padding: 8px; text-align: center;">
-            <p style="font-size: 10px; color: #e9d5ff; margin-bottom: 4px; line-height: 1.3;">
-              Klasik modu bitirdin! 10 dakikalık Grandmaster önizlemesini hemen ücretsiz başlat!
-            </p>
-            <button id="gm-demo-pass-btn" class="btn-purple" style="width: 100%; padding: 6px; font-size: 11px; font-weight: 700; border-radius: 6px;">
-              ${i18n.t('demo_pass_btn')}
-            </button>
-          </div>
-
-          <!-- İpucu Paketleri Satış Grubu -->
-          <div style="margin-top: 8px; border-top: 1px solid var(--rc-hairline); padding-top: 6px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 4px;">💎 ${i18n.t('hint_store_title')}</div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
-              <button class="hint-pack-card" data-pack="hint_pack_5" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">5 İpucu</span>
-                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺19,99</span>
-              </button>
-              <button class="hint-pack-card" data-pack="hint_pack_15" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">15 İpucu</span>
-                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺39,99</span>
-              </button>
-              <button class="hint-pack-card" data-pack="hint_pack_40" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 5px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">40 İpucu</span>
-                <span style="font-size: 11px; font-weight: 800; color: #ffffff;">₺79,99</span>
-              </button>
-            </div>
-          </div>
-
-          <div style="display: flex; justify-content: center; margin-top: 6px;">
-            <button id="gm-restore-btn" style="background: none; border: none; color: var(--rc-ink-subtle); font-size: 10px; cursor: pointer; text-decoration: underline;">Satın Alımları Geri Yükle</button>
+          <p id="trio-formula-subtitle" style="font-size: 12px; color: var(--rc-ink-muted); line-height: 1.45; margin: 0;">${i18n.t('trio_gate_subtitle')}</p>
+          <p id="trio-formula-status" aria-live="polite" style="font-size: 11px; color: var(--rc-accent-yellow); margin: 10px 0 0;"></p>
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button id="trio-watch-ad-btn" class="btn-gold-primary" style="flex: 1; padding: 9px; font-size: 12px; font-weight: 700; border-radius: 8px;">${i18n.t('trio_gate_watch_ad')}</button>
+            <button id="trio-cancel-btn" class="btn-dark-secondary" style="padding: 9px 12px; font-size: 12px; border-radius: 8px;">${i18n.t('trio_gate_cancel')}</button>
           </div>
         </div>
       </div>
@@ -2447,10 +2288,10 @@ export class UIManager {
     this._setupCraftButton();
     this._setupTutorialLogic();
     this._setupAchievementsLogic();
-    this._setupGrandmasterOfferLogic();
+    this._setupTrioFormulaGate();
+    this._setupHintPackPurchases();
     this._setupDailyHintLogic();
     this._setupWheelModal();
-    this._startDemoPassTimerLoop();
     this._updateUILanguage();
   }
 
@@ -2479,13 +2320,6 @@ export class UIManager {
     if (toggleBtn) {
       toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (this.gameMode === 'classic') {
-          if (!subscriptionManager.isGrandmaster()) {
-            this.showToast(i18n.currentLang === 'tr' ? '🔒 3\'lü Simyacı Kazanı Modu için Grandmaster aboneliği gereklidir!' : '🔒 Grandmaster subscription required for 3-Item mode!', 'warn');
-            this.showGrandmasterOfferModal('mode_switch_locked');
-            return;
-          }
-        }
         const newMode = this.gameMode === 'classic' ? 'grandmaster' : 'classic';
         if (this.onModeSwitch) {
           this.onModeSwitch(newMode);
@@ -2509,6 +2343,8 @@ export class UIManager {
         ? (i18n.currentLang === 'tr' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Classic (2-Item combinations only)')
         : (i18n.currentLang === 'tr' ? 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)' : 'Grand Alchemist (2 & 3-Item combinations)');
     }
+    this.updateTrioFormulaQuota(this.trioFormulaQuotaStatus);
+    this._updateCharacterSubLabel();
 
     this._populateInventory();
     if (this._lastHintsArgs) {
@@ -2608,6 +2444,7 @@ export class UIManager {
         ? (i18n.currentLang === 'tr' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Classic (2-Item combinations only)')
         : (i18n.currentLang === 'tr' ? 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)' : 'Grand Alchemist (2 & 3-Item combinations)');
     }
+    this.updateTrioFormulaQuota(this.trioFormulaQuotaStatus);
 
     // 2. Action buttons (Top Bar & Settings)
     const cleanupBtn = document.getElementById('cleanup-btn');
@@ -2685,8 +2522,18 @@ export class UIManager {
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
     if (tabCollectionsBtn) tabCollectionsBtn.textContent = i18n.t('tab_collections');
-    const tabProBtn = document.getElementById('tab-pro-btn');
-    if (tabProBtn) tabProBtn.textContent = i18n.t('tab_pro');
+    const tabHintsBtn = document.getElementById('tab-hints-btn');
+    if (tabHintsBtn) tabHintsBtn.textContent = i18n.t('tab_hints');
+    const trioGateTitle = document.getElementById('trio-formula-title');
+    if (trioGateTitle) trioGateTitle.textContent = i18n.t('trio_gate_title');
+    const trioGateSubtitle = document.getElementById('trio-formula-subtitle');
+    if (trioGateSubtitle) trioGateSubtitle.textContent = i18n.t('trio_gate_subtitle');
+    const trioGateWatch = document.getElementById('trio-watch-ad-btn');
+    if (trioGateWatch && !trioGateWatch.disabled) trioGateWatch.textContent = i18n.t('trio_gate_watch_ad');
+    const trioGateCancel = document.getElementById('trio-cancel-btn');
+    if (trioGateCancel) trioGateCancel.textContent = i18n.t('trio_gate_cancel');
+    const trioGateClose = document.getElementById('trio-formula-close-btn');
+    if (trioGateClose) trioGateClose.title = i18n.t('trio_gate_cancel');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
     if (tabDebugBtn) tabDebugBtn.textContent = i18n.t('tab_debug');
 
@@ -2884,6 +2731,10 @@ export class UIManager {
       charBtn.addEventListener('click', () => {
         const nextId = this._getNextCandidateCharacterId(this.currentCharacterId);
         if (!this.isCharacterUnlocked(nextId)) {
+          if (nextId === 'character3') {
+            this.showToast(i18n.t('char_wanderer_three_mode'), 'warn');
+            return;
+          }
           const req = this.getCharacterRequiredCount(nextId);
           this.showToast(i18n.t('char_locked_msg', { count: req, current: this.unlockedItemCount }), 'warning');
           return;
@@ -2965,19 +2816,19 @@ export class UIManager {
     // 4 Ana Sekme Butonları & Panelleri
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
-    const tabProBtn = document.getElementById('tab-pro-btn');
+    const tabHintsBtn = document.getElementById('tab-hints-btn');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
 
     const paneGeneral = document.getElementById('pane-general');
     const paneCollections = document.getElementById('pane-collections');
-    const panePro = document.getElementById('pane-pro');
+    const paneHints = document.getElementById('pane-hints');
     const paneDebug = document.getElementById('pane-debug');
 
     const switchTab = (activeTab) => {
       this.currentActiveTab = activeTab;
       tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
       tabCollectionsBtn?.classList.toggle('active', activeTab === 'collections');
-      tabProBtn?.classList.toggle('active', activeTab === 'pro');
+      tabHintsBtn?.classList.toggle('active', activeTab === 'hints');
       tabDebugBtn?.classList.toggle('active', activeTab === 'debug');
 
       if (paneGeneral) paneGeneral.style.display = activeTab === 'general' ? 'flex' : 'none';
@@ -2988,7 +2839,7 @@ export class UIManager {
           this._renderCollections();
         }
       }
-      if (panePro) panePro.style.display = activeTab === 'pro' ? 'flex' : 'none';
+      if (paneHints) paneHints.style.display = activeTab === 'hints' ? 'flex' : 'none';
       if (paneDebug) paneDebug.style.display = activeTab === 'debug' ? 'flex' : 'none';
     };
 
@@ -2996,7 +2847,7 @@ export class UIManager {
 
     tabGeneralBtn?.addEventListener('click', () => switchTab('general'));
     tabCollectionsBtn?.addEventListener('click', () => switchTab('collections'));
-    tabProBtn?.addEventListener('click', () => switchTab('pro'));
+    tabHintsBtn?.addEventListener('click', () => switchTab('hints'));
     tabDebugBtn?.addEventListener('click', () => switchTab('debug'));
 
     // Koleksiyon Alt Sekmeleri (Rozetler vs Setler)
@@ -3019,30 +2870,6 @@ export class UIManager {
       if (subpaneBadges) subpaneBadges.style.display = 'none';
       if (subpaneSets) subpaneSets.style.display = 'block';
       this._renderCollections();
-    });
-
-    // Pro / Grandmaster Sekmesi Abonelik Plan Butonları
-    const proPlans = panePro?.querySelectorAll('.gm-plan-card');
-    proPlans?.forEach(card => {
-      card.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        const planId = card.getAttribute('data-plan') || 'intro_monthly';
-        const res = await subscriptionManager.subscribe(planId);
-        if (res.success) {
-          achievementManager.unlockBadge('badge_grandmaster_unlocked');
-          this.showToast(i18n.currentLang === 'tr' ? '👑 Grandmaster aboneliğiniz aktif edildi! Hoş geldiniz!' : '👑 Grandmaster active! Welcome!', 'success');
-          this._populateInventory();
-          if (this.onModeSwitch && this.gameMode !== 'grandmaster') {
-            this.onModeSwitch('grandmaster');
-          }
-        }
-      });
-    });
-
-    const proRestoreBtn = document.getElementById('pro-restore-btn');
-    proRestoreBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.showToast(i18n.currentLang === 'tr' ? 'Satın alımlar başarıyla kontrol edildi ve güncellendi.' : 'Purchases restored successfully.', 'info');
     });
 
     // Debug butonları
@@ -3202,13 +3029,12 @@ export class UIManager {
   isCharacterUnlocked(characterId) {
     if (characterId === 'character1') return true;
     if (characterId === 'character2') return this.unlockedItemCount >= 40;
-    if (characterId === 'character3') return subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+    if (characterId === 'character3') return this.gameMode === 'grandmaster';
     return false;
   }
 
   getCharacterRequiredCount(characterId) {
     if (characterId === 'character2') return 40;
-    if (characterId === 'character3') return 80;
     return 0;
   }
 
@@ -3238,12 +3064,16 @@ export class UIManager {
 
     if (!c2Unlocked && !c3Unlocked) {
       subEl.textContent = i18n.currentLang === 'tr'
-        ? `Gözlemci (🔒 40 Eşya: ${this.unlockedItemCount}/40), Gezgin (🔒 Grandmaster)`
-        : `Observer (🔒 40 Items: ${this.unlockedItemCount}/40), Wanderer (🔒 Grandmaster)`;
+        ? `Gözlemci (🔒 40 eşya: ${this.unlockedItemCount}/40), Gezgin (üçlü modda)`
+        : `Observer (🔒 40 items: ${this.unlockedItemCount}/40), Wanderer (three-item mode)`;
+    } else if (!c2Unlocked) {
+      subEl.textContent = i18n.currentLang === 'tr'
+        ? `Gözlemci (🔒 40 eşya: ${this.unlockedItemCount}/40), Gezgin (Açık)`
+        : `Observer (🔒 40 items: ${this.unlockedItemCount}/40), Wanderer (Unlocked)`;
     } else if (!c3Unlocked) {
       subEl.textContent = i18n.currentLang === 'tr'
-        ? `Gözlemci (Açık), Gezgin (🔒 Grandmaster Aboneliği)`
-        : `Observer (Unlocked), Wanderer (🔒 Grandmaster Subscription)`;
+        ? `Gözlemci (Açık), Gezgin (üçlü modda)`
+        : `Observer (Unlocked), Wanderer (three-item mode)`;
     } else {
       subEl.textContent = i18n.currentLang === 'tr'
         ? 'Tüm karakterlerin kilidi açık!'
@@ -3268,7 +3098,7 @@ export class UIManager {
       const unl = this.isCharacterUnlocked('character3');
       tutCardChar3.className = `tutorial-char-card ${unl ? 'unlocked' : 'locked'}`;
       tutCardChar3.querySelector('.tutorial-char-badge').className = `tutorial-char-badge ${unl ? 'badge-unlocked' : 'badge-locked'}`;
-      tutCardChar3.querySelector('.tutorial-char-badge').textContent = unl ? 'Açık' : '🔒 Grandmaster';
+      tutCardChar3.querySelector('.tutorial-char-badge').textContent = unl ? 'Açık' : '🔒 3’lü Mod';
     }
   }
 
@@ -3365,7 +3195,7 @@ export class UIManager {
     const targetIds = this.lastItemIds || [];
 
     // İlerleme rozetlerini güncelle
-    const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+    const isGm = this.gameMode === 'grandmaster';
     const prog = FreeTierManager.getProgression(targetIds, isGm);
     const tier1CountBadge = document.getElementById('drawer-tier1-count-badge');
     const itemsCountBadge = document.getElementById('drawer-items-count-badge');
@@ -3383,7 +3213,7 @@ export class UIManager {
       const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
       if (!def) return false;
 
-      // Klasik modda abonelik yoksa sadece Klasik (FreeTier) eşyaları listele
+      // Klasik modda yalnızca klasik eşya havuzunu listele
       if (this.gameMode === 'classic' && !isGm && !FreeTierManager.isItemInFreeTier(canonicalId)) {
         return false;
       }
@@ -4019,101 +3849,70 @@ export class UIManager {
     }
   }
 
-  _setupGrandmasterOfferLogic() {
-    const gmModal = document.getElementById('grandmaster-offer-modal');
-    const closeBtn = document.getElementById('gm-offer-close-btn');
-    const openBadgeBtn = document.getElementById('grandmaster-open-badge-btn');
-    const restoreBtn = document.getElementById('gm-restore-btn');
-
-    openBadgeBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.showGrandmasterOfferModal('badge_click');
+  _setupTrioFormulaGate() {
+    const modal = document.getElementById('trio-formula-modal');
+    const close = () => modal?.classList.remove('show');
+    document.getElementById('trio-formula-close-btn')?.addEventListener('click', close);
+    document.getElementById('trio-cancel-btn')?.addEventListener('click', close);
+    modal?.addEventListener('click', event => {
+      if (event.target === modal) close();
     });
 
-    closeBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      gmModal?.classList.remove('show');
-    });
-
-    gmModal?.addEventListener('click', (e) => {
-      if (e.target === gmModal) gmModal.classList.remove('show');
-    });
-
-    // Plan butonları
-    const planCards = gmModal?.querySelectorAll('.gm-plan-card');
-    planCards?.forEach(card => {
-      card.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        const planId = card.getAttribute('data-plan') || 'intro_monthly';
-        const res = await subscriptionManager.subscribe(planId);
-        if (res.success) {
-          gmModal.classList.remove('show');
-          achievementManager.unlockBadge('badge_grandmaster_unlocked');
-          this.showToast(i18n.currentLang === 'tr' ? '👑 Grandmaster aboneliğiniz aktif edildi! Hoş geldiniz!' : '👑 Grandmaster active! Welcome!', 'success');
-          this._populateInventory();
-          if (this.onModeSwitch && this.gameMode !== 'grandmaster') {
-            this.onModeSwitch('grandmaster');
-          }
+    const watchButton = document.getElementById('trio-watch-ad-btn');
+    watchButton?.addEventListener('click', async event => {
+      event.stopPropagation();
+      if (watchButton.disabled) return;
+      watchButton.disabled = true;
+      watchButton.textContent = i18n.t('trio_gate_loading');
+      try {
+        if (this.onUnlockTrioFormulas) {
+          await this.onUnlockTrioFormulas();
+        } else {
+          this.showToast(i18n.t('trio_gate_ad_unavailable'), 'warn');
         }
-      });
-    });
-
-    // Demo Pass Butonu
-    const demoPassBtn = document.getElementById('gm-demo-pass-btn');
-    demoPassBtn?.addEventListener('click', async (e) => {
-      e.stopPropagation();
-      const res = await adManager.showRewardedAd({ rewardType: 'demo_pass' });
-      if (res && res.success) {
-        subscriptionManager.startDemoPass(10);
-        document.getElementById('grandmaster-offer-modal')?.classList.remove('show');
-        this.showToast(i18n.t('demo_pass_activated'), 'success');
-        if (this.onModeSwitch && this.gameMode !== 'grandmaster') {
-          this.onModeSwitch('grandmaster');
-        }
+      } finally {
+        watchButton.disabled = false;
+        watchButton.textContent = i18n.t('trio_gate_watch_ad');
       }
-    });
-
-    // İpucu Paketi Satın Alma Butonları
-    const hintPackBtns = document.querySelectorAll('.hint-pack-card, .hint-pack-btn');
-    hintPackBtns.forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        const packId = btn.getAttribute('data-pack');
-        if (!packId) return;
-        const res = await subscriptionManager.buyHintPack(packId);
-        if (res && res.success) {
-          this.hintSystem?.addHintRights(res.hints);
-          this.updateHintRights(this.hintSystem.hintRights);
-          this.showToast(i18n.t('hint_pack_success', { count: res.hints }), 'success');
-        }
-      });
-    });
-
-    restoreBtn?.addEventListener('click', () => {
-      this.showToast(i18n.currentLang === 'tr' ? 'Satın alımlar başarıyla kontrol edildi ve güncellendi.' : 'Purchases restored successfully.', 'info');
     });
   }
 
-  showGrandmasterOfferModal(reason = 'classic_complete') {
-    const modal = document.getElementById('grandmaster-offer-modal');
-    if (!modal) return;
-    const titleEl = document.getElementById('gm-modal-title');
-    const subEl = document.getElementById('gm-modal-subtitle');
-    const demoContainer = document.getElementById('gm-demo-pass-container');
+  _setupHintPackPurchases() {
+    document.querySelectorAll('#pane-hints .hint-pack-card').forEach(button => {
+      button.addEventListener('click', async event => {
+        event.stopPropagation();
+        const result = await purchaseManager.buyHintPack(button.getAttribute('data-pack'));
+        if (result?.success) {
+          this.hintSystem?.addHintRights(result.hints);
+          this.updateHintRights(this.hintSystem.hintRights);
+          this.showToast(i18n.t('hint_pack_success', { count: result.hints }), 'success');
+        } else {
+          this.showToast(i18n.currentLang === 'tr' ? 'Satın alma tamamlanamadı.' : 'Purchase could not be completed.', 'warn');
+        }
+      });
+    });
+  }
 
-    if (reason === 'classic_complete') {
-      if (demoContainer) demoContainer.style.display = 'block';
-      if (titleEl) titleEl.textContent = i18n.currentLang === 'tr' ? '🎉 KLASİK MOD TAMAMLANDI!' : '🎉 CLASSIC REALM COMPLETED!';
-      if (subEl) subEl.textContent = i18n.currentLang === 'tr'
-        ? 'Tebrikler Simyacı! Klasik modun tüm eşyalarını eksiksiz çözdün. Şimdi 3\'lü kombinasyonlar ve yüzlerce yeni eşyanın kadim evrenine geçiş yapma zamanı!'
-        : 'Congratulations! You mastered all items in Classic mode. Step into the realm of 3-item recipes and hundreds of new items!';
-    } else {
-      if (demoContainer) demoContainer.style.display = 'none';
-      if (titleEl) titleEl.textContent = i18n.t('grandmaster_offer_title');
-      if (subEl) subEl.textContent = i18n.t('grandmaster_offer_subtitle');
+  updateTrioFormulaQuota(status) {
+    if (!status) return;
+    this.trioFormulaQuotaStatus = status;
+    const text = i18n.t('trio_quota_status', status);
+    const counter = document.getElementById('trio-quota-counter');
+    if (counter) {
+      counter.textContent = text;
+      counter.style.display = this.gameMode === 'grandmaster' ? 'block' : 'none';
     }
+    const modalStatus = document.getElementById('trio-formula-status');
+    if (modalStatus) modalStatus.textContent = text;
+  }
 
-    modal.classList.add('show');
+  showTrioFormulaGate(status) {
+    this.updateTrioFormulaQuota(status);
+    document.getElementById('trio-formula-modal')?.classList.add('show');
+  }
+
+  closeTrioFormulaGate() {
+    document.getElementById('trio-formula-modal')?.classList.remove('show');
   }
 
   _setupDailyHintLogic() {
@@ -4357,37 +4156,6 @@ export class UIManager {
     }
   }
 
-  _startDemoPassTimerLoop() {
-    if (this._demoPassInterval) clearInterval(this._demoPassInterval);
-    let wasActive = subscriptionManager.isDemoPassActive();
-
-    this._demoPassInterval = setInterval(() => {
-      const isActive = subscriptionManager.isDemoPassActive();
-      const hud = document.getElementById('top-demopass-hud');
-      const hudLabel = document.getElementById('demopass-hud-label');
-
-      if (isActive) {
-        if (hud) hud.style.display = 'inline-flex';
-        const remSecs = subscriptionManager.getDemoPassRemainingSeconds();
-        const mins = Math.floor(remSecs / 60);
-        const secs = remSecs % 60;
-        const timeStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        if (hudLabel) hudLabel.textContent = i18n.t('demo_pass_active_hud', { time: timeStr });
-        wasActive = true;
-      } else {
-        if (hud) hud.style.display = 'none';
-        if (wasActive) {
-          wasActive = false;
-          if (this.gameMode === 'grandmaster' && !subscriptionManager.isGrandmaster()) {
-            if (this.onModeSwitch) {
-              this.onModeSwitch('classic');
-            }
-          }
-          alert(`${i18n.t('demo_pass_expired_title')}\n\n${i18n.t('demo_pass_expired_desc')}`);
-        }
-      }
-    }, 1000);
-  }
 }
 
 

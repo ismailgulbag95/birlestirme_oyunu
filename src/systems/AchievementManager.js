@@ -49,18 +49,18 @@ export const BADGES = [
     id: 'badge_80',
     titleTr: 'Klasik Simya Ustası',
     titleEn: 'Classic Alchemy Master',
-    descTr: 'Klasik modun tüm eşyalarını eksiksiz keşfettin! Simyacı Kazanı seni çağırıyor.',
-    descEn: 'Discovered all items in Classic mode! Grandmaster awaits.',
+    descTr: 'Klasik modun tüm eşyalarını eksiksiz keşfettin! Üçlü modu ayarlardan açabilirsin.',
+    descEn: 'Discovered all items in Classic mode! You can switch to three-item mode in settings.',
     icon: '👑',
     requiredCount: 92,
     type: 'milestone'
   },
   {
     id: 'badge_grandmaster_unlocked',
-    titleTr: 'Büyük Simyacı',
-    titleEn: 'Grand Alchemist',
-    descTr: 'Grandmaster moduna katıldın ve 3\'lü kombinasyonların kapısını araladın!',
-    descEn: 'Joined Grandmaster and opened the gate of 3-item recipes!',
+    titleTr: 'Üçlü Simyacı',
+    titleEn: 'Three-Item Alchemist',
+    descTr: 'Üçlü tarif modunu açtın!',
+    descEn: 'Switched on three-item crafting!',
     icon: '⚗️',
     type: 'special'
   }
@@ -168,7 +168,7 @@ export class AchievementManager {
   }
 
   /**
-   * Özel bir rozeti açar (örn: Grandmaster abonelik).
+   * Özel bir rozeti açar.
    */
   unlockBadge(badgeId) {
     const badge = BADGES.find(b => b.id === badgeId);

@@ -1,7 +1,6 @@
 import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 import { FreeTierManager } from './FreeTierManager.js';
-import { subscriptionManager } from './SubscriptionManager.js';
 
 export class HintSystem {
   constructor(mode = 'classic') {
@@ -84,10 +83,10 @@ export class HintSystem {
 
   /**
    * Keşfedilebilir kilitli eşyaları listeler.
-   * Klasik moddaysa ve Grandmaster abonesi değilse yalnızca FreeTier (80 eşya) içindekileri hedefler.
+   * Klasik moddaysa yalnızca klasik eşya havuzundaki içerikleri hedefler.
    */
   getCraftableLockedItems(discoveredItems, lockedItems) {
-    const isGrandmaster = this.mode === 'grandmaster' || subscriptionManager.isGrandmaster();
+    const isGrandmaster = this.mode === 'grandmaster';
     const discoveredCanonical = new Set(discoveredItems.map(i => getCanonicalId(i) || i));
 
     return lockedItems.filter(itemId => {
@@ -208,7 +207,7 @@ export class HintSystem {
 
   watchAdForHint(itemId, multiplier = 1) {
     const canonicalId = getCanonicalId(itemId) || itemId;
-    // Reklam izlendiğinde kazanılan hak (ücretsiz modda 1, abonelikte 3)
+    // Reklam izlendiğinde kazanılan hak
     const gained = Math.max(1, multiplier);
     this.hintRights += gained;
     this.hintRights--; // Bu ipucu için 1 hak harca

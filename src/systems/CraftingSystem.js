@@ -65,6 +65,10 @@ export class CraftingSystem {
   }
 
   checkRecipe(itemIds) {
+    return this.getRecipeDetails(itemIds)?.resultId || null;
+  }
+
+  getRecipeDetails(itemIds) {
     // Klasik modda 3 eşya verilmişse üretim yapılamaz
     const nonNullCount = itemIds.filter(x => x !== null && x !== undefined).length;
     if (this.mode === 'classic' && nonNullCount > 2) {
@@ -77,7 +81,19 @@ export class CraftingSystem {
 
     const canonicalInputs = padded.map(id => (id ? getCanonicalId(id) : null));
     const key = this._sortAndKey(canonicalInputs);
-    return this.recipes[key] || null;
+    const resultId = this.recipes[key];
+    return resultId ? { resultId, formulaKey: key, inputCount: nonNullCount } : null;
+  }
+
+  static getFormulaKey(itemIds) {
+    const canonicalInputs = itemIds.map(id => (id ? getCanonicalId(id) : null));
+    const sorted = [...canonicalInputs].sort((a, b) => {
+      if (a === null && b === null) return 0;
+      if (a === null) return 1;
+      if (b === null) return -1;
+      return a.localeCompare(b);
+    });
+    return sorted.map(id => (id === null ? 'null' : id)).join('+');
   }
 }
 

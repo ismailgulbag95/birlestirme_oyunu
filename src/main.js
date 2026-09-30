@@ -16,14 +16,16 @@ import { UIManager } from './ui/UIManager.js';
 import { i18n } from './i18n/translations.js';
 import { audioManager } from './core/AudioManager.js';
 import { FreeTierManager } from './systems/FreeTierManager.js';
-import { subscriptionManager } from './systems/SubscriptionManager.js';
 import { achievementManager } from './systems/AchievementManager.js';
 import { adManager } from './systems/AdManager.js';
+import { TrioFormulaQuotaManager } from './systems/TrioFormulaQuotaManager.js';
 
 class Game {
   async init() {
     const canvas = document.getElementById('canvas');
     this.failedCraftAttempts = 0;
+    this.craftingInProgress = false;
+    this.trioFormulaAdPending = false;
 
     const removeLoadingScreen = () => {
       const loadingScreen = document.getElementById('loading-screen');
@@ -42,7 +44,7 @@ class Game {
 
       // Kayıtlı oyunu yükle
       const savedData = this._loadSavedGame();
-      this.gameMode = savedData.gameMode || 'classic'; // 'classic' (92 eşya) veya 'grandmaster' (666 eşya)
+      this.gameMode = savedData.gameMode || 'classic'; // classic: 2-item, grandmaster: 2-item and 3-item recipes
       this.crafting = new CraftingSystem(this.gameMode);
       this.hintSystem = new HintSystem(this.gameMode);
 
@@ -68,6 +70,21 @@ class Game {
         return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
       });
 
+      const legacyFormulaKeys = [];
+      if (!Array.isArray(savedData.trioDiscoveredFormulaKeys)) {
+        const unlockedCanonicals = new Set(this.unlockedItems.map(id => getCanonicalId(id) || id));
+        Object.entries(getItemDefinitionsForMode('grandmaster')).forEach(([id, def]) => {
+          const outputId = getCanonicalId(def.id || id) || def.id || id;
+          if (!unlockedCanonicals.has(outputId) || !Array.isArray(def.trioRecipes)) return;
+          def.trioRecipes.forEach(inputs => {
+            if (Array.isArray(inputs) && inputs.length === 3) {
+              legacyFormulaKeys.push(CraftingSystem.getFormulaKey(inputs));
+            }
+          });
+        });
+      }
+      this.trioFormulaQuota = new TrioFormulaQuotaManager(savedData, legacyFormulaKeys);
+
       if (savedData.hintRights !== undefined) {
         this.hintSystem.hintRights = savedData.hintRights;
       }
@@ -92,7 +109,7 @@ class Game {
       // Karakter kilidi ve başlangıç karakteri:
       const savedChar = savedData.activeCharacterId || 'character1';
       let initialChar = 'character1';
-      const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+      const isGm = this.gameMode === 'grandmaster';
       if (savedChar === 'character3' && isGm) {
         initialChar = 'character3';
       } else if (savedChar === 'character2' && this.unlockedItems.length >= 40) {
@@ -134,9 +151,8 @@ class Game {
         (itemId) => this.onWatchAd(itemId),
         () => this.clearTableAndPieces(),
         (charId) => {
-          if (charId === 'character3' && !subscriptionManager.isGrandmaster() && this.gameMode !== 'grandmaster') {
-            this.ui.showToast(i18n.t('char_wanderer_gm_locked'), 'warn');
-            this.ui.showGrandmasterOfferModal('character_unlock');
+          if (charId === 'character3' && this.gameMode !== 'grandmaster') {
+            this.ui.showToast(i18n.t('char_wanderer_three_mode'), 'warn');
             return;
           }
           this.tableScene.switchCharacter(charId);
@@ -154,6 +170,8 @@ class Game {
       );
 
       this.ui.setGameMode(this.gameMode);
+      this.ui.onUnlockTrioFormulas = () => this.unlockTrioFormulaBatch();
+      this.ui.updateTrioFormulaQuota(this.trioFormulaQuota.getStatus());
       this.ui.setUnlockedItemCount(this.unlockedItems.length);
       this.ui.updateCharacterButton(initialChar);
       this.ui._populateInventory(this.unlockedItems);
@@ -222,6 +240,8 @@ class Game {
         successfulMatches: this.hintSystem ? this.hintSystem.successfulMatches : 0,
         lastWheelSpinDate: this.hintSystem ? this.hintSystem.lastWheelSpinDate : null,
         lastFreeHintDate: this.hintSystem ? this.hintSystem.lastFreeHintDate : null,
+        trioDiscoveredFormulaKeys: this.trioFormulaQuota ? [...this.trioFormulaQuota.discoveredFormulaKeys] : [],
+        trioRewardedFormulaSlots: this.trioFormulaQuota ? this.trioFormulaQuota.rewardedFormulaSlots : 0,
         savedAt: Date.now()
       };
       localStorage.setItem('alchemy_game_save', JSON.stringify(saveData));
@@ -234,6 +254,7 @@ class Game {
   switchGameMode(newMode) {
     if (this.gameMode === newMode) return;
     this.gameMode = newMode;
+    if (newMode === 'grandmaster') achievementManager.unlockBadge('badge_grandmaster_unlocked');
     this._saveGame();
     setTimeout(() => {
       window.location.reload();
@@ -309,16 +330,37 @@ class Game {
   }
 
   async onWatchAd(itemId) {
-    const isGm = subscriptionManager.isGrandmaster();
-    const mult = isGm ? 3 : 1;
-    const adRes = await adManager.showRewardedAd({ rewardType: 'hint', itemId, multiplier: mult });
+    const adRes = await adManager.showRewardedAd({ rewardType: 'hint', itemId, multiplier: 1 });
     if (adRes.success) {
-      this.hintSystem.watchAdForHint(itemId, mult);
+      this.hintSystem.watchAdForHint(itemId, 1);
       this.ui.updateHintRights(this.hintSystem.hintRights);
       this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
       this._saveGame();
-      const msg = isGm ? i18n.t('ad_reward_subscriber') : i18n.t('ad_watched_alert');
-      this.ui.showToast(msg, 'success');
+      this.ui.showToast(i18n.t('ad_watched_alert'), 'success');
+    } else {
+      this.ui.showToast(i18n.t(adRes.error === 'unavailable' ? 'ad_unavailable' : 'ad_not_completed'), 'warn');
+    }
+  }
+
+  async unlockTrioFormulaBatch() {
+    if (this.trioFormulaAdPending) return;
+    this.trioFormulaAdPending = true;
+
+    try {
+      const result = await adManager.showRewardedAd({ rewardType: 'trio_formula_batch' });
+      if (!result.success) {
+        this.ui.showToast(i18n.t(result.error === 'unavailable' ? 'trio_gate_ad_unavailable' : 'trio_gate_ad_failed'), 'warn');
+        return;
+      }
+
+      this.trioFormulaQuota.grantRewardedBatch();
+      this.ui.closeTrioFormulaGate();
+      this.ui.updateTrioFormulaQuota(this.trioFormulaQuota.getStatus());
+      this._saveGame();
+      this.trioFormulaAdPending = false;
+      this.triggerCrafting();
+    } finally {
+      this.trioFormulaAdPending = false;
     }
   }
 
@@ -440,6 +482,7 @@ class Game {
   }
 
   triggerCrafting() {
+    if (this.craftingInProgress || this.trioFormulaAdPending) return;
     const slots = this.tableScene.getSlots();
     // 3 girdi yuvası bulunur; boş yuvalar null kabul edilir.
     const itemIds = slots.map(s => s.userData.currentItem || null);
@@ -449,9 +492,17 @@ class Game {
       return;
     }
 
-    const resultId = this.crafting.checkRecipe(itemIds);
+    const recipe = this.crafting.getRecipeDetails(itemIds);
+    const resultId = recipe?.resultId;
+
+    if (resultId && this.gameMode === 'grandmaster' && recipe.inputCount === 3 &&
+      !this.trioFormulaQuota.canDiscover(recipe.formulaKey)) {
+      this.ui.showTrioFormulaGate(this.trioFormulaQuota.getStatus());
+      return;
+    }
 
     if (resultId) {
+      this.craftingInProgress = true;
       this.failedCraftAttempts = 0;
       this.ui.showToast(i18n.t('craft_success'), 'success');
       try {
@@ -529,13 +580,12 @@ class Game {
             }, 1200);
           }
 
-          // Klasik modda 80 eşya tamamlandığında Grand Finale / Grandmaster Davet Ekranı
-          const isGm = subscriptionManager.isGrandmaster() || this.gameMode === 'grandmaster';
+          // Klasik modun koleksiyonu tamamlandığında başarı rozetini aç
+          const isGm = this.gameMode === 'grandmaster';
           const prog = FreeTierManager.getProgression(this.unlockedItems, isGm);
           if (!isGm && prog.isComplete) {
             setTimeout(() => {
               achievementManager.unlockBadge('badge_80');
-              this.ui.showGrandmasterOfferModal('classic_complete');
             }, 1800);
           }
 
@@ -547,6 +597,11 @@ class Game {
           }
         }
 
+        if (this.gameMode === 'grandmaster' && recipe.inputCount === 3) {
+          this.trioFormulaQuota.recordDiscovery(recipe.formulaKey);
+          this.ui.updateTrioFormulaQuota(this.trioFormulaQuota.getStatus());
+        }
+
         this.lockedItems = this.lockedItems.filter(id => id !== resultId && getCanonicalId(id) !== canonicalResult);
 
         // Arayüzü ve ipuçlarını güncelle
@@ -556,6 +611,7 @@ class Game {
         // İlerleme veya ipucu hakkı değiştiğinde kaydet
         this._saveGame();
         this._updateCraftButtonState();
+        this.craftingInProgress = false;
       }, 320);
 
     } else {
@@ -646,6 +702,7 @@ class Game {
   resetProgress() {
     localStorage.removeItem('alchemy_game_save');
     achievementManager.resetProgress();
+    this.trioFormulaQuota.reset();
     this.unlockedItems = ['ates', 'su', 'toprak', 'hava'];
     this.lockedItems = (this.defaultLockedItems || []).filter(id => {
       const canonical = getCanonicalId(id) || id;
@@ -656,6 +713,7 @@ class Game {
     this.hintSystem.discoveryCount = 0;
     this.hintSystem.successfulMatches = 0;
     this.hintSystem.setInfiniteHints(false);
+    this.ui.updateTrioFormulaQuota(this.trioFormulaQuota.getStatus());
     this.clearTableAndPieces();
     this.ui.setUnlockedItemCount(this.unlockedItems.length);
     this.tableScene.switchCharacter('character1');
