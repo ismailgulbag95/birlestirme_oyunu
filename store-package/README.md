@@ -24,7 +24,7 @@ This folder contains a proposed English/Turkish store package for the current al
 
 ## Release status
 
-The copy and image assets are prepared from the current project and avoid unverified features. They are not a substitute for final store-console entry or a signed release build. Before submission, integrate the selected icon/name into the Android and iOS binaries, complete a full English/Turkish in-game copy review (some Codex/item-lore text still falls back to Turkish), verify the real billing/ad setup, provide privacy/support URLs and publisher details, and complete each store's rating and data-safety forms. There is currently no iOS project in this checkout.
+The copy and image assets are prepared from the current project and avoid unverified features. They are not a substitute for final store-console entry or a signed release build. Before submission, integrate the selected icon/name into the Android binary, complete a full English/Turkish in-game copy review (some Codex/item-lore text still falls back to Turkish), configure production AdMob IDs and consent messaging, provide privacy/support URLs and publisher details, and complete each store's rating and data-safety forms. The Android release build now requires production ad IDs and an upload signing key. There is currently no iOS project in this checkout.
 
 The working name `Curio Alchemy` needs exact/similar trademark and store-name clearance before public use. Keyword demand is qualitative: no paid keyword-volume dataset was available, so this package does not invent search-volume numbers.
 

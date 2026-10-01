@@ -1,32 +1,82 @@
-// AdManager.js - Reklam Yönetim ve Entegrasyon Altyapısı
-// Google AdMob (Capacitor) ve gelecekteki diğer reklam sağlayıcıları (Unity Ads vb.) için hazır soyutlama katmanı.
+import { Capacitor } from '@capacitor/core';
+import { AdMob, AdmobConsentStatus } from '@capacitor-community/admob';
+
+const TEST_REWARDED_AD_UNIT_ID = 'ca-app-pub-3940256099942544/5224354917';
+const buildEnv = import.meta.env ?? {};
 
 export class AdManager {
   constructor() {
     this.provider = null;
     this.onRewardCallbacks = [];
     this.rewardInProgress = false;
-    this._initProvider();
+    this.useTestAds = Boolean(buildEnv.DEV) || buildEnv.MODE === 'test' || buildEnv.VITE_ADMOB_TEST_ADS === 'true';
+    this.adUnitId = this.useTestAds
+      ? TEST_REWARDED_AD_UNIT_ID
+      : buildEnv.VITE_ADMOB_REWARDED_AD_UNIT_ID;
+    this.isNative = Capacitor.isNativePlatform();
+    this.initialization = this._initProvider();
   }
 
-  _initProvider() {
-    // 1. Capacitor AdMob eklentisi mevcutsa onu bağla
-    const adMob = typeof window !== 'undefined' ? window.Capacitor?.Plugins?.AdMob : null;
-    if (adMob && typeof adMob.showRewardVideoAd === 'function') {
-      this.provider = {
-        name: 'CapacitorAdMob',
-        showRewarded: async () => {
-          try {
-            return await adMob.showRewardVideoAd();
-          } catch (err) {
-            console.warn('[AdManager] Native AdMob error:', err);
+  async _initProvider() {
+    if (!this.isNative || !this.adUnitId) return false;
+
+    try {
+      await AdMob.initialize({ initializeForTesting: this.useTestAds });
+      const consent = await AdMob.requestConsentInfo();
+      if (consent.isConsentFormAvailable && consent.status === AdmobConsentStatus.REQUIRED) {
+        await AdMob.showConsentForm();
+      }
+
+      let adReady = false;
+      let preparingAd = null;
+      const prepare = () => {
+        if (adReady) return Promise.resolve(true);
+        if (preparingAd) return preparingAd;
+
+        preparingAd = AdMob.prepareRewardVideoAd({
+          adId: this.adUnitId,
+          isTesting: this.useTestAds
+        })
+          .then(() => {
+            adReady = true;
+            return true;
+          })
+          .catch(error => {
+            console.warn('[AdManager] Rewarded ad load failed:', error);
             return false;
+          })
+          .finally(() => {
+            preparingAd = null;
+          });
+
+        return preparingAd;
+      };
+
+      this.provider = {
+        name: 'CapacitorCommunityAdMob',
+        isReady: () => adReady,
+        prepare,
+        showRewarded: async () => {
+          if (!await prepare()) return { error: 'unavailable' };
+
+          try {
+            const reward = await AdMob.showRewardVideoAd();
+            adReady = false;
+            this.preloadNext();
+            return { rewarded: Number(reward?.amount) > 0 };
+          } catch (error) {
+            adReady = false;
+            this.preloadNext();
+            throw error;
           }
         }
       };
-      console.log('[AdManager] Native AdMob provider detected.');
-    } else {
-      console.warn('[AdManager] No rewarded ad provider configured.');
+
+      this.preloadNext();
+      return true;
+    } catch (error) {
+      console.warn('[AdManager] AdMob initialization or consent failed:', error);
+      return false;
     }
   }
 
@@ -49,10 +99,18 @@ export class AdManager {
     return Boolean(this.provider);
   }
 
+  isAdConfigured() {
+    return this.isNative && Boolean(this.adUnitId);
+  }
+
   preloadNext() {
     if (this.provider && typeof this.provider.prepare === 'function') {
-      Promise.resolve(this.provider.prepare()).catch(e => console.warn('[AdManager] Preload error:', e));
+      return Promise.resolve(this.provider.prepare()).catch(e => {
+        console.warn('[AdManager] Preload error:', e);
+        return false;
+      });
     }
+    return Promise.resolve(false);
   }
 
   /**
@@ -62,6 +120,7 @@ export class AdManager {
    */
   async showRewardedAd(options = {}) {
     const multiplier = options.multiplier || 1;
+    await this.initialization;
     if (!this.provider || typeof this.provider.showRewarded !== 'function') {
       return { success: false, multiplier: 1, error: 'unavailable' };
     }
@@ -70,14 +129,14 @@ export class AdManager {
     this.rewardInProgress = true;
     try {
       const result = await this.provider.showRewarded(options);
-      const rewarded = result === true || result?.rewarded === true;
+      const rewarded = result === true || result?.rewarded === true || Number(result?.amount) > 0;
       if (rewarded) {
         this.onRewardCallbacks.forEach(cb => {
           try { cb(options); } catch (e) { console.error(e); }
         });
         return { success: true, multiplier };
       }
-      return { success: false, multiplier: 1, error: 'not_rewarded' };
+      return { success: false, multiplier: 1, error: result?.error || 'not_rewarded' };
     } catch (err) {
       console.error('[AdManager] Error during showRewardedAd:', err);
       return { success: false, multiplier: 1, error: 'failed' };

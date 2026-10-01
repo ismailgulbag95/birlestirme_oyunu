@@ -1,5 +1,5 @@
 // Internationalization (i18n) Module
-// Synchronized with 270 items for Multi-Mode Crafting
+// Original 270 item translations; newer Grandmaster items fall back to their definitions.
 
 export const TRANSLATIONS = {
   "tr": {
@@ -48,7 +48,6 @@ export const TRANSLATIONS = {
       "settings_close": "Kapat",
       "tab_general": "Genel",
       "tab_collections": "Koleksiyonlar",
-      "tab_hints": "İpuçları",
       "tab_debug": "Debug",
       "craft_btn": "Birleştir",
       "craft_no_items": "Masada birleştirilecek eşya yok!",
@@ -132,9 +131,6 @@ export const TRANSLATIONS = {
       "wheel_prize_3": "+3 İpucu Hakkı",
       "wheel_prize_5": "+5 İpucu Hakkı",
       "wheel_prize_10": "🌟 +10 İpucu İkramiyesi!",
-      "hint_store_title": "💎 İpucu Paketleri",
-      "hint_pack_buy": "Satın Al ({price})",
-      "hint_pack_success": "Tebrikler! {count} adet İpucu Paketi hesabınıza eklendi.",
     },
     "items": {
       "ates": {
@@ -1265,7 +1261,6 @@ export const TRANSLATIONS = {
       "settings_close": "Close",
       "tab_general": "General",
       "tab_collections": "Collections",
-      "tab_hints": "Hints",
       "tab_debug": "Debug",
       "craft_btn": "Combine",
       "craft_no_items": "No items on the table to craft!",
@@ -1349,9 +1344,6 @@ export const TRANSLATIONS = {
       "wheel_prize_3": "+3 Hint Rights",
       "wheel_prize_5": "+5 Hint Rights",
       "wheel_prize_10": "🌟 +10 Hints Jackpot!",
-      "hint_store_title": "💎 Hint Bundles",
-      "hint_pack_buy": "Buy ({price})",
-      "hint_pack_success": "Congratulations! {count} Hint bundle added to your account.",
     },
     "items": {
       "ates": {

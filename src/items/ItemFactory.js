@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { ITEM_DEFINITIONS, getCanonicalId } from './itemDefinitions.js';
+import { ITEM_DEFINITIONS, getItemDefinitionsForMode, getCanonicalId } from './itemDefinitions.js';
 
 export class ItemFactory {
   static _textureLoader = new THREE.TextureLoader();
@@ -409,9 +409,10 @@ export class ItemFactory {
     return outlineMesh;
   }
 
-  static createItemMesh(itemId) {
+  static createItemMesh(itemId, mode = 'classic') {
     const canonicalId = getCanonicalId(itemId) || itemId;
-    const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId] || ITEM_DEFINITIONS.ates;
+    const modeDefinitions = getItemDefinitionsForMode(mode);
+    const def = modeDefinitions[canonicalId] || modeDefinitions[itemId] || ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId] || ITEM_DEFINITIONS.ates;
     return this._createReliefCoinMesh(canonicalId, def);
   }
 

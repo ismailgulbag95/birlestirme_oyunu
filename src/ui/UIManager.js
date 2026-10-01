@@ -1,13 +1,12 @@
 import gsap from 'gsap';
-import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
+import { getItemDefinitionsForMode, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 import { FreeTierManager } from '../systems/FreeTierManager.js';
-import { purchaseManager } from '../systems/PurchaseManager.js';
 import { achievementManager } from '../systems/AchievementManager.js';
 import { adManager } from '../systems/AdManager.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = {}, onCraftClick = null, onModeSwitch = null, onMusicVolumeChange = null, musicVolume = 0.55) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = null, onCraftClick = null, onModeSwitch = null, onMusicVolumeChange = null, musicVolume = 0.55) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
@@ -21,6 +20,7 @@ export class UIManager {
     this.onModeSwitch = onModeSwitch; // (newMode) => void
     this.onUnlockTrioFormulas = null;
     this.gameMode = 'classic'; // 'classic' or 'grandmaster'
+    this.itemDefinitions = getItemDefinitionsForMode(this.gameMode);
     const savedMode = parseInt(localStorage.getItem('alchemy_music_mode'), 10);
     this.musicMode = isNaN(savedMode) ? 1 : savedMode;
     this.currentCharacterId = 'character2';
@@ -78,7 +78,7 @@ export class UIManager {
       }
 
       /* =================================================== */
-      /* ÜST AKSİYON BARI: Temizle & Seçenekler              */
+      /* ÜST AKSİYON BARI: Çark & Temizle                    */
       /* =================================================== */
       #top-action-bar {
         position: fixed;
@@ -775,6 +775,67 @@ export class UIManager {
         pointer-events: auto;
         box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
         transition: all 0.15s ease;
+      }
+
+      #main-action-stack {
+        position: absolute;
+        top: 106px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 50;
+        pointer-events: none;
+      }
+
+      #right-drawer.open + #main-action-stack {
+        display: none;
+      }
+
+      .side-action-btn {
+        width: 44px;
+        height: 60px;
+        padding: 4px 2px;
+        background: var(--rc-surface-card);
+        border: 1px solid var(--rc-hairline);
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+        color: var(--rc-ink);
+        font-family: var(--rc-font);
+        font-size: 8px;
+        font-weight: 800;
+        line-height: 1.1;
+        white-space: normal;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+        pointer-events: auto;
+        box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--rc-hairline-soft);
+        transition: all 0.15s ease;
+      }
+
+      .side-action-btn:hover {
+        background: var(--rc-surface-hover);
+        border-color: var(--rc-hairline-strong);
+        color: #ffffff;
+      }
+
+      .side-action-btn:active {
+        transform: translateY(1px);
+      }
+
+      .side-action-wheel {
+        color: var(--rc-accent-yellow);
+        border-color: rgba(255, 197, 51, 0.35);
+      }
+
+      .side-action-cleanup {
+        color: var(--rc-accent-red);
+        border-color: rgba(255, 97, 97, 0.35);
       }
 
       #settings-drawer-toggle:hover {
@@ -1847,7 +1908,6 @@ export class UIManager {
           <div class="settings-tabs">
             <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
             <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
-            <button class="settings-tab-btn" id="tab-hints-btn" data-tab="hints">${i18n.t('tab_hints')}</button>
             <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
           </div>
         </div>
@@ -1856,27 +1916,11 @@ export class UIManager {
           <div class="settings-tab-pane" id="pane-general">
             <div class="settings-btn-row">
               <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-daily-wheel">${i18n.t('wheel_title')}</span>
-                <span class="settings-btn-sub" id="sub-daily-wheel">Çarkı çevirerek ücretsiz ipucu kazan</span>
-              </div>
-              <button id="settings-wheel-btn" class="settings-action-btn btn-amber">${i18n.t('wheel_btn')}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
                 <span class="settings-btn-label" id="label-game-mode">Oyun Modu</span>
                 <span class="settings-btn-sub" id="sub-game-mode">${this.gameMode === 'classic' ? 'Klasik (Sadece 2\'li birleşimler)' : 'Simyacı Kazanı (2\'li ve 3\'lü birleşimler)'}</span>
                 <span class="settings-btn-sub" id="trio-quota-counter" style="display: none; color: var(--rc-accent-yellow);"></span>
               </div>
               <button id="mode-toggle-btn" class="settings-action-btn btn-indigo">${this._getModeButtonLabel()}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-cleanup">${i18n.t('cleanup')}</span>
-                <span class="settings-btn-sub" id="sub-cleanup">Masadaki tüm eşyaları ve kırıkları temizle</span>
-              </div>
-              <button id="cleanup-btn" class="settings-action-btn btn-danger">${i18n.t('cleanup')}</button>
             </div>
 
             <div class="settings-btn-row">
@@ -1965,28 +2009,7 @@ export class UIManager {
             </div>
           </div>
 
-          <!-- One-time hint packs -->
-          <div class="settings-tab-pane" id="pane-hints" style="display: none;">
-            <div style="margin-top: 4px; border-top: 1px solid var(--rc-hairline); padding-top: 8px;">
-              <div style="font-size: 11px; font-weight: 700; color: var(--rc-accent-yellow); margin-bottom: 6px;">💎 ${i18n.t('hint_store_title')}</div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
-                <button class="hint-pack-card" data-pack="hint_pack_5" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">5 İpucu</span>
-                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺19,99</span>
-                </button>
-                <button class="hint-pack-card" data-pack="hint_pack_15" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">15 İpucu</span>
-                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺39,99</span>
-                </button>
-                <button class="hint-pack-card" data-pack="hint_pack_40" style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 6px; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                  <span style="font-size: 9px; font-weight: 700; color: var(--rc-accent-yellow);">40 İpucu</span>
-                  <span style="font-size: 12px; font-weight: 800; color: #ffffff;">₺79,99</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Debug Sekmesi -->
+          <!-- 3. Debug Sekmesi -->
           <div class="settings-tab-pane" id="pane-debug" style="display: none;">
             <div style="background: rgba(255, 197, 51, 0.1); border: 1px solid rgba(255, 197, 51, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: var(--rc-accent-yellow); display: flex; align-items: center; gap: 6px;">
               <span>⚠️</span>
@@ -2050,6 +2073,17 @@ export class UIManager {
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="main-action-stack">
+        <button id="wheel-action-btn" class="side-action-btn side-action-wheel" type="button" aria-label="${i18n.t('wheel_title')}">
+          <span aria-hidden="true" style="font-size: 16px;">🎡</span>
+          <span id="wheel-action-label">${i18n.t('wheel_btn').replace(/^🎡\s*/, '')}</span>
+        </button>
+        <button id="cleanup-btn" class="side-action-btn side-action-cleanup" type="button" aria-label="${i18n.t('cleanup')}">
+          <span aria-hidden="true" style="font-size: 16px;">🧹</span>
+          <span id="cleanup-btn-label">${i18n.t('cleanup')}</span>
+        </button>
       </div>
 
       <!-- 3 KADEMELİ ALT KAYAR KEŞİF ÇEKMECESİ -->
@@ -2277,6 +2311,10 @@ export class UIManager {
         </div>
       </div>
     `;
+    if (!this.debugHandlers) {
+      container.querySelector('#tab-debug-btn')?.remove();
+      container.querySelector('#pane-debug')?.remove();
+    }
     document.body.appendChild(container);
 
     this._setupDrawerLogic();
@@ -2289,7 +2327,6 @@ export class UIManager {
     this._setupTutorialLogic();
     this._setupAchievementsLogic();
     this._setupTrioFormulaGate();
-    this._setupHintPackPurchases();
     this._setupDailyHintLogic();
     this._setupWheelModal();
     this._updateUILanguage();
@@ -2334,6 +2371,7 @@ export class UIManager {
 
   setGameMode(mode) {
     this.gameMode = mode;
+    this.itemDefinitions = getItemDefinitionsForMode(mode);
     const toggleBtn = document.getElementById('mode-toggle-btn');
     const subMode = document.getElementById('sub-game-mode');
 
@@ -2446,9 +2484,17 @@ export class UIManager {
     }
     this.updateTrioFormulaQuota(this.trioFormulaQuotaStatus);
 
-    // 2. Action buttons (Top Bar & Settings)
+    // 2. Main screen action buttons
     const cleanupBtn = document.getElementById('cleanup-btn');
-    if (cleanupBtn) cleanupBtn.textContent = i18n.t('cleanup');
+    const cleanupBtnLabel = document.getElementById('cleanup-btn-label');
+    if (cleanupBtnLabel) cleanupBtnLabel.textContent = i18n.t('cleanup');
+    if (cleanupBtn) cleanupBtn.setAttribute('aria-label', i18n.t('cleanup'));
+    const wheelActionBtn = document.getElementById('wheel-action-btn');
+    const wheelActionLabel = document.getElementById('wheel-action-label');
+    if (wheelActionBtn) {
+      wheelActionBtn.setAttribute('aria-label', i18n.t('wheel_title'));
+    }
+    if (wheelActionLabel) wheelActionLabel.textContent = i18n.t('wheel_btn').replace(/^🎡\s*/, '');
 
     const drawerSettingsTitle = document.getElementById('drawer-settings-title');
     if (drawerSettingsTitle) drawerSettingsTitle.textContent = i18n.t('settings_title');
@@ -2511,19 +2557,10 @@ export class UIManager {
     if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
 
     // 7. Settings Drawer & Debug Labels
-    const labelDailyWheel = document.getElementById('label-daily-wheel');
-    if (labelDailyWheel) labelDailyWheel.textContent = i18n.t('wheel_title');
-    const subDailyWheel = document.getElementById('sub-daily-wheel');
-    if (subDailyWheel) subDailyWheel.textContent = i18n.currentLang === 'tr' ? 'Çarkı çevirerek ücretsiz ipucu kazan' : 'Spin the wheel for free hints';
-    const settingsWheelBtn = document.getElementById('settings-wheel-btn');
-    if (settingsWheelBtn) settingsWheelBtn.textContent = i18n.t('wheel_btn');
-
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
     if (tabCollectionsBtn) tabCollectionsBtn.textContent = i18n.t('tab_collections');
-    const tabHintsBtn = document.getElementById('tab-hints-btn');
-    if (tabHintsBtn) tabHintsBtn.textContent = i18n.t('tab_hints');
     const trioGateTitle = document.getElementById('trio-formula-title');
     if (trioGateTitle) trioGateTitle.textContent = i18n.t('trio_gate_title');
     const trioGateSubtitle = document.getElementById('trio-formula-subtitle');
@@ -2816,19 +2853,16 @@ export class UIManager {
     // 4 Ana Sekme Butonları & Panelleri
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
-    const tabHintsBtn = document.getElementById('tab-hints-btn');
     const tabDebugBtn = document.getElementById('tab-debug-btn');
 
     const paneGeneral = document.getElementById('pane-general');
     const paneCollections = document.getElementById('pane-collections');
-    const paneHints = document.getElementById('pane-hints');
     const paneDebug = document.getElementById('pane-debug');
 
     const switchTab = (activeTab) => {
       this.currentActiveTab = activeTab;
       tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
       tabCollectionsBtn?.classList.toggle('active', activeTab === 'collections');
-      tabHintsBtn?.classList.toggle('active', activeTab === 'hints');
       tabDebugBtn?.classList.toggle('active', activeTab === 'debug');
 
       if (paneGeneral) paneGeneral.style.display = activeTab === 'general' ? 'flex' : 'none';
@@ -2839,7 +2873,6 @@ export class UIManager {
           this._renderCollections();
         }
       }
-      if (paneHints) paneHints.style.display = activeTab === 'hints' ? 'flex' : 'none';
       if (paneDebug) paneDebug.style.display = activeTab === 'debug' ? 'flex' : 'none';
     };
 
@@ -2847,7 +2880,6 @@ export class UIManager {
 
     tabGeneralBtn?.addEventListener('click', () => switchTab('general'));
     tabCollectionsBtn?.addEventListener('click', () => switchTab('collections'));
-    tabHintsBtn?.addEventListener('click', () => switchTab('hints'));
     tabDebugBtn?.addEventListener('click', () => switchTab('debug'));
 
     // Koleksiyon Alt Sekmeleri (Rozetler vs Setler)
@@ -3124,7 +3156,7 @@ export class UIManager {
     }
 
     craftableItems.forEach(itemId => {
-      const def = ITEM_DEFINITIONS[itemId];
+      const def = this.itemDefinitions[itemId];
       if (!def) return;
 
       const localizedName = i18n.getItemName(itemId, def.name);
@@ -3210,7 +3242,7 @@ export class UIManager {
     // Filter
     let filtered = targetIds.filter(id => {
       const canonicalId = getCanonicalId(id) || id;
-      const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+      const def = this.itemDefinitions[canonicalId] || this.itemDefinitions[id];
       if (!def) return false;
 
       // Klasik modda yalnızca klasik eşya havuzunu listele
@@ -3251,8 +3283,8 @@ export class UIManager {
         '08_mistik_ve_evren': 8
       };
       filtered.sort((a, b) => {
-        const catA = catOrder[ITEM_DEFINITIONS[a]?.category] || 99;
-        const catB = catOrder[ITEM_DEFINITIONS[b]?.category] || 99;
+        const catA = catOrder[this.itemDefinitions[a]?.category] || 99;
+        const catB = catOrder[this.itemDefinitions[b]?.category] || 99;
         if (catA !== catB) return catA - catB;
         return 0;
       });
@@ -3264,7 +3296,7 @@ export class UIManager {
       tier1Strip.innerHTML = '';
       filtered.forEach(id => {
         const canonicalId = getCanonicalId(id) || id;
-        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        const def = this.itemDefinitions[canonicalId] || this.itemDefinitions[id];
         if (!def) return;
         const localizedName = i18n.getItemName(canonicalId, def.name);
 
@@ -3294,7 +3326,7 @@ export class UIManager {
       tier2Grid.innerHTML = '';
       filtered.forEach(id => {
         const canonicalId = getCanonicalId(id) || id;
-        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        const def = this.itemDefinitions[canonicalId] || this.itemDefinitions[id];
         if (!def) return;
         const localizedName = i18n.getItemName(canonicalId, def.name);
 
@@ -3306,7 +3338,7 @@ export class UIManager {
         if (recipeInputs && recipeInputs.length > 0) {
           const parts = recipeInputs.map(inpId => {
             const canonicalInpId = getCanonicalId(inpId) || inpId;
-            const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
+            const inpDef = this.itemDefinitions[canonicalInpId] || this.itemDefinitions[inpId];
             return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
           });
           formulaText = `(${parts.join(' + ')})`;
@@ -3344,7 +3376,7 @@ export class UIManager {
       tier3Grid.innerHTML = '';
       filtered.forEach(id => {
         const canonicalId = getCanonicalId(id) || id;
-        const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[id];
+        const def = this.itemDefinitions[canonicalId] || this.itemDefinitions[id];
         if (!def) return;
         const localizedName = i18n.getItemName(canonicalId, def.name);
         const localizedDesc = i18n.getItemDescription(canonicalId, def.description || def.lore || '');
@@ -3358,7 +3390,7 @@ export class UIManager {
         if (recipeInputs && recipeInputs.length > 0) {
           const parts = recipeInputs.map(inpId => {
             const canonicalInpId = getCanonicalId(inpId) || inpId;
-            const inpDef = ITEM_DEFINITIONS[canonicalInpId] || ITEM_DEFINITIONS[inpId];
+            const inpDef = this.itemDefinitions[canonicalInpId] || this.itemDefinitions[inpId];
             return i18n.getItemName(canonicalInpId, inpDef?.name || inpId);
           });
           formulaText = `⚗️ ${i18n.currentLang === 'tr' ? 'Formül' : 'Recipe'}: ${parts.join(' + ')}`;
@@ -3390,7 +3422,7 @@ export class UIManager {
   }
 
   showDiscoveryAnnouncement(itemId) {
-    const def = ITEM_DEFINITIONS[itemId];
+    const def = this.itemDefinitions[itemId];
     if (!def) return;
 
     const banner = document.getElementById('discovery-banner');
@@ -3877,22 +3909,6 @@ export class UIManager {
     });
   }
 
-  _setupHintPackPurchases() {
-    document.querySelectorAll('#pane-hints .hint-pack-card').forEach(button => {
-      button.addEventListener('click', async event => {
-        event.stopPropagation();
-        const result = await purchaseManager.buyHintPack(button.getAttribute('data-pack'));
-        if (result?.success) {
-          this.hintSystem?.addHintRights(result.hints);
-          this.updateHintRights(this.hintSystem.hintRights);
-          this.showToast(i18n.t('hint_pack_success', { count: result.hints }), 'success');
-        } else {
-          this.showToast(i18n.currentLang === 'tr' ? 'Satın alma tamamlanamadı.' : 'Purchase could not be completed.', 'warn');
-        }
-      });
-    });
-  }
-
   updateTrioFormulaQuota(status) {
     if (!status) return;
     this.trioFormulaQuotaStatus = status;
@@ -3932,10 +3948,10 @@ export class UIManager {
   _setupWheelModal() {
     const wheelModal = document.getElementById('wheel-modal');
     const closeBtn = document.getElementById('wheel-close-btn');
-    const settingsWheelBtn = document.getElementById('settings-wheel-btn');
+    const wheelActionBtn = document.getElementById('wheel-action-btn');
     const spinBtn = document.getElementById('spin-wheel-btn');
 
-    settingsWheelBtn?.addEventListener('click', (e) => {
+    wheelActionBtn?.addEventListener('click', (e) => {
       e.stopPropagation();
       this.openWheelModal();
     });

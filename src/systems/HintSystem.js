@@ -1,4 +1,4 @@
-import { ITEM_DEFINITIONS, getCanonicalId } from '../items/itemDefinitions.js';
+import { getItemDefinitionsForMode, getCanonicalId } from '../items/itemDefinitions.js';
 import { i18n } from '../i18n/translations.js';
 import { FreeTierManager } from './FreeTierManager.js';
 
@@ -25,8 +25,9 @@ export class HintSystem {
   }
 
   revealAllHints(lockedItems) {
+    const itemDefinitions = getItemDefinitionsForMode(this.mode);
     lockedItems.forEach(itemId => {
-      const def = ITEM_DEFINITIONS[itemId];
+      const def = itemDefinitions[itemId];
       if (!def) return;
       const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
         ? def.trioRecipes[0]
@@ -88,10 +89,11 @@ export class HintSystem {
   getCraftableLockedItems(discoveredItems, lockedItems) {
     const isGrandmaster = this.mode === 'grandmaster';
     const discoveredCanonical = new Set(discoveredItems.map(i => getCanonicalId(i) || i));
+    const itemDefinitions = getItemDefinitionsForMode(this.mode);
 
     return lockedItems.filter(itemId => {
       const canonicalId = getCanonicalId(itemId) || itemId;
-      const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId];
+      const def = itemDefinitions[canonicalId] || itemDefinitions[itemId];
       if (!def) return false;
 
       // Klasik mod kısıtlaması: Sadece FreeTier (80 eşya) listesinde olanlar
@@ -126,7 +128,8 @@ export class HintSystem {
 
   getHint(itemId) {
     const canonicalId = getCanonicalId(itemId) || itemId;
-    const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId];
+    const itemDefinitions = getItemDefinitionsForMode(this.mode);
+    const def = itemDefinitions[canonicalId] || itemDefinitions[itemId];
     const itemName = i18n.getItemName(canonicalId, def?.name);
     if (!def || (!def.recipe && (!def.trioRecipes || def.trioRecipes.length === 0))) {
       return { text: i18n.t('hint_basic_element'), level: 0, maxLevel: 0 };
@@ -161,7 +164,7 @@ export class HintSystem {
       const componentNames = inputs.map((inp, idx) => {
         if (idx < revealedCount) {
           const canonical = getCanonicalId(inp) || inp;
-          return i18n.getItemName(canonical, ITEM_DEFINITIONS[canonical]?.name || inp);
+          return i18n.getItemName(canonical, itemDefinitions[canonical]?.name || inp);
         } else {
           return '?';
         }
@@ -176,7 +179,8 @@ export class HintSystem {
 
   canUseHint(itemId) {
     const canonicalId = getCanonicalId(itemId) || itemId;
-    const def = ITEM_DEFINITIONS[canonicalId] || ITEM_DEFINITIONS[itemId];
+    const itemDefinitions = getItemDefinitionsForMode(this.mode);
+    const def = itemDefinitions[canonicalId] || itemDefinitions[itemId];
     if (!def) return false;
     const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
       ? def.trioRecipes[0]

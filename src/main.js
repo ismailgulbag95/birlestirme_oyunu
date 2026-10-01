@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { SceneManager } from './core/SceneManager.js';
 import { TableScene } from './scenes/TableScene.js';
-import { RapierWorld } from './physics/RapierWorld.js';
 import { ItemFactory } from './items/ItemFactory.js';
 import { 
   ITEM_DEFINITIONS, 
@@ -129,21 +128,18 @@ class Game {
         console.warn("EnvironmentProgression uyarısı:", e);
       }
 
-      try {
-        this.physics = new RapierWorld();
-        await this.physics.init();
-      } catch (e) {
-        console.warn("Fizik dünyası başlatma uyarısı:", e);
-      }
+      this.physics = null;
+      // Rapier/WASM yüklemesi sahne ve arayüz hazırlığıyla paralel ilerlesin.
+      this._initPhysicsInBackground();
 
-      const debugHandlers = {
+      const debugHandlers = import.meta.env.DEV ? {
         onUnlockAll: () => this.unlockAllItems(),
         onSetInfiniteHints: (enabled) => this.setInfiniteHints(enabled),
         onRevealAllHints: () => this.revealAllHints(),
         onResetProgress: () => this.resetProgress(),
         onSpawnBasics: () => this.spawnBasicElements(),
         onToggleFps: (enabled) => { this.fpsEnabled = enabled; }
-      };
+      } : null;
 
       this.ui = new UIManager(
         (itemId) => this.onInventoryItemSelect(itemId),
@@ -211,6 +207,17 @@ class Game {
       }
     } catch (e) {
       console.warn("Welcome modal uyarısı:", e);
+    }
+  }
+
+  async _initPhysicsInBackground() {
+    try {
+      const { RapierWorld } = await import('./physics/RapierWorld.js');
+      const physics = new RapierWorld();
+      await physics.init();
+      this.physics = physics;
+    } catch (e) {
+      console.warn("Fizik dünyası başlatma uyarısı:", e);
     }
   }
 
@@ -289,7 +296,7 @@ class Game {
     emptySlot.userData.isOccupied = true;
     emptySlot.userData.currentItem = itemId;
 
-    const itemMesh = ItemFactory.createItemMesh(itemId);
+    const itemMesh = ItemFactory.createItemMesh(itemId, this.gameMode);
     itemMesh.position.set(emptySlot.position.x, 3.0, emptySlot.position.z);
     itemMesh.scale.set(0, 0, 0);
     this.sceneManager.add(itemMesh);
@@ -473,7 +480,7 @@ class Game {
             piece.position.copy(mesh.position);
             piece.scale.set(0.5, 0.5, 0.5);
             this.sceneManager.add(piece);
-            this.physics.addPiece(piece, mesh.position, originalPiece.userData.breakVelocity);
+      this.physics?.addPiece(piece, mesh.position, originalPiece.userData.breakVelocity);
           });
         }
       }
@@ -495,7 +502,7 @@ class Game {
     const recipe = this.crafting.getRecipeDetails(itemIds);
     const resultId = recipe?.resultId;
 
-    if (resultId && this.gameMode === 'grandmaster' && recipe.inputCount === 3 &&
+    if (resultId && this.gameMode === 'grandmaster' && recipe.inputCount === 3 && adManager.isAdConfigured() &&
       !this.trioFormulaQuota.canDiscover(recipe.formulaKey)) {
       this.ui.showTrioFormulaGate(this.trioFormulaQuota.getStatus());
       return;
@@ -539,7 +546,7 @@ class Game {
         middleSlot.userData.isOccupied = true;
         middleSlot.userData.currentItem = resultId;
 
-        const resultMesh = ItemFactory.createItemMesh(resultId);
+        const resultMesh = ItemFactory.createItemMesh(resultId, this.gameMode);
         resultMesh.position.set(0, 0.8, 0);
         resultMesh.scale.set(0, 0, 0);
         this.sceneManager.add(resultMesh);
@@ -646,7 +653,7 @@ class Game {
   }
 
   clearTableAndPieces() {
-    this.physics.clearPieces(this.sceneManager.scene);
+    this.physics?.clearPieces(this.sceneManager.scene);
     const slots = this.tableScene.getSlots();
     slots.forEach(s => {
       if (s.userData.mesh) {
@@ -660,7 +667,7 @@ class Game {
   }
 
   unlockAllItems() {
-    const allDefs = Object.keys(ITEM_DEFINITIONS);
+    const allDefs = Object.keys(getItemDefinitionsForMode(this.gameMode));
     allDefs.forEach(id => {
       const can = getCanonicalId(id) || id;
       if (!this.unlockedItems.includes(id) && !this.unlockedItems.includes(can)) {
@@ -768,7 +775,7 @@ class Game {
       if (this.envProgression) {
         this.envProgression.update(delta);
       }
-      this.physics.step(this.sceneManager.scene);
+      this.physics?.step(this.sceneManager.scene);
       this.sceneManager.render();
     };
 

@@ -3,6 +3,7 @@ name: Web Build & Deploy
 on:
   push:
     branches: [ "main" ]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -32,6 +33,28 @@ jobs:
       - name: Bağımlılıkları Yükle
         run: npm ci
 
+      - name: Temel mantık testlerini çalıştır
+        run: npm test
+
+      - name: JDK 21 ortamını kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Android SDK ortamını kur
+        uses: android-actions/setup-android@v4
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+
+      - name: Android test uygulamasını hazırla
+        run: npm run build:android:test
+
+      - name: Android debug uygulamasını derle
+        run: ./gradlew --no-daemon assembleDebug
+        working-directory: android
+
       - name: Web Uygulamasını Derle (Vite Build)
         run: npm run build
 
@@ -49,9 +72,9 @@ jobs:
 
   deploy-pages:
     name: GitHub Pages Canlı Yayın
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
-    continue-on-error: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

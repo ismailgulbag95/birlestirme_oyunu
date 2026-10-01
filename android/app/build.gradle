@@ -9,6 +9,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,11 +17,57 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            def keystorePath = System.getenv('ANDROID_KEYSTORE_PATH')
+            storeFile file(keystorePath ?: 'missing-upload-key.jks')
+            storePassword System.getenv('ANDROID_KEYSTORE_PASSWORD') ?: ''
+            keyAlias System.getenv('ANDROID_KEY_ALIAS') ?: ''
+            keyPassword System.getenv('ANDROID_KEY_PASSWORD') ?: ''
+        }
+    }
     buildTypes {
         release {
+            def productionAdMobAppId = project.findProperty('ADMOB_APP_ID') ?: System.getenv('ADMOB_APP_ID')
+            if (productionAdMobAppId) {
+                resValue "string", "admob_app_id", productionAdMobAppId
+            }
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+tasks.register('verifyReleaseAdMobConfig') {
+    doLast {
+        def appId = project.findProperty('ADMOB_APP_ID') ?: System.getenv('ADMOB_APP_ID')
+        def rewardedAdUnitId = System.getenv('VITE_ADMOB_REWARDED_AD_UNIT_ID')
+        def keystorePath = System.getenv('ANDROID_KEYSTORE_PATH')
+        def signingValues = [
+            keystorePath,
+            System.getenv('ANDROID_KEYSTORE_PASSWORD'),
+            System.getenv('ANDROID_KEY_ALIAS'),
+            System.getenv('ANDROID_KEY_PASSWORD')
+        ]
+        if (!appId || !rewardedAdUnitId) {
+            throw new GradleException('Set ADMOB_APP_ID and VITE_ADMOB_REWARDED_AD_UNIT_ID before creating a release build.')
+        }
+        if (!(appId ==~ /ca-app-pub-\d+~\d+/) || !(rewardedAdUnitId ==~ /ca-app-pub-\d+\/\d+/)) {
+            throw new GradleException('AdMob release IDs must use the application-ID and rewarded-ad-unit formats shown in docs/RELEASE.md.')
+        }
+        if (signingValues.any { !it } || !file(keystorePath).isFile()) {
+            throw new GradleException('Set the four ANDROID_KEYSTORE_* signing variables to an existing upload keystore before creating a release build.')
+        }
+        if (appId == 'ca-app-pub-3940256099942544~3347511713' || rewardedAdUnitId == 'ca-app-pub-3940256099942544/5224354917') {
+            throw new GradleException('Google test ad IDs are blocked in release builds.')
+        }
+    }
+}
+
+tasks.configureEach { task ->
+    if (task.name == 'preReleaseBuild') {
+        task.dependsOn('verifyReleaseAdMobConfig')
     }
 }
 

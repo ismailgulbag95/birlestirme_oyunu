@@ -5,7 +5,7 @@ import {
 
 export class CraftingSystem {
   constructor(mode = 'classic') {
-    this.mode = mode; // 'classic' (92 eşya 2'li) veya 'grandmaster' (666 eşya 2'li ve 3'lü)
+    this.mode = mode; // 'classic' (92 öğe, ikili) veya 'grandmaster' (443 öğe, ikili ve üçlü)
     this.recipes = {};
     this._initRecipes();
   }

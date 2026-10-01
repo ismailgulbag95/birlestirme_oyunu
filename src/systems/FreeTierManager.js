@@ -28,11 +28,9 @@ export class FreeTierManager {
   /**
    * Bir eşyanın Grandmaster kilitli olup olmadığını döner.
    * @param {string} itemId 
-   * @param {boolean} isGrandmasterSubscribed 
    * @returns {boolean}
    */
-  static isLockedByGrandmaster(itemId, isGrandmasterSubscribed = false) {
-    if (isGrandmasterSubscribed) return false;
+  static isLockedByGrandmaster(itemId) {
     return !this.isItemInFreeTier(itemId);
   }
 
