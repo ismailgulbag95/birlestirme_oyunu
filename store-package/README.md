@@ -11,6 +11,9 @@ This folder contains a proposed English/Turkish store package for the current al
 - [Creative test plan](CREATIVE_TESTS.md)
 - [Preview storyboard](PREVIEW_STORYBOARD.md)
 - [Submission gates](SUBMISSION_GATES.md)
+- [Google Play Console checklist (TR)](PLAY_RELEASE_CHECKLIST_TR.md)
+- [Privacy policy draft (TR)](PRIVACY_POLICY_TR_DRAFT.md)
+- [Privacy policy draft (EN)](PRIVACY_POLICY_EN_DRAFT.md)
 - [Visual overview](creative/package-overview.png)
 - [Exact upload file map](UPLOAD_FILES.md)
 
@@ -24,7 +27,7 @@ This folder contains a proposed English/Turkish store package for the current al
 
 ## Release status
 
-The copy and image assets are prepared from the current project and avoid unverified features. They are not a substitute for final store-console entry or a signed release build. Before submission, integrate the selected icon/name into the Android binary, complete a full English/Turkish in-game copy review (some Codex/item-lore text still falls back to Turkish), configure production AdMob IDs and consent messaging, provide privacy/support URLs and publisher details, and complete each store's rating and data-safety forms. The Android release build now requires production ad IDs and an upload signing key. There is currently no iOS project in this checkout.
+The copy and image assets are prepared from the current project and avoid unverified features. The recommended Curio icon and localized app label are now integrated into the Capacitor Android app. This is not yet a signed production release: the publisher still needs to clear the working name, host and review the privacy policy, set production AdMob IDs and consent messages, supply an upload key, complete the Play Console declarations, and finish the required testing track if their account is subject to it. The release task requires production ad IDs, an HTTPS privacy-policy URL, and an upload signing key. There is currently no iOS project in this checkout.
 
 The working name `Curio Alchemy` needs exact/similar trademark and store-name clearance before public use. Keyword demand is qualitative: no paid keyword-volume dataset was available, so this package does not invent search-volume numbers.
 

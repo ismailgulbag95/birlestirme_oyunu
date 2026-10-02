@@ -9,33 +9,11 @@ export class HintSystem {
     this.discoveryCount = 0;
     this.successfulMatches = 0;
     this.hintLevels = {}; // itemId -> level
-    this.infiniteHints = false;
     this.lastFreeHintDate = null;
   }
 
   setMode(mode) {
     this.mode = mode;
-  }
-
-  setInfiniteHints(enabled) {
-    this.infiniteHints = !!enabled;
-    if (this.infiniteHints) {
-      this.hintRights = 999;
-    }
-  }
-
-  revealAllHints(lockedItems) {
-    const itemDefinitions = getItemDefinitionsForMode(this.mode);
-    lockedItems.forEach(itemId => {
-      const def = itemDefinitions[itemId];
-      if (!def) return;
-      const inputs = (this.mode === 'grandmaster' && def.trioRecipes && def.trioRecipes.length > 0)
-        ? def.trioRecipes[0]
-        : (def.recipe ? def.recipe.inputs.filter(inp => inp != null) : []);
-      if (inputs.length > 0) {
-        this.hintLevels[itemId] = inputs.length + 1;
-      }
-    });
   }
 
   recordDiscovery() {
@@ -52,7 +30,6 @@ export class HintSystem {
   }
 
   addHintRights(amount = 1) {
-    if (this.infiniteHints) return;
     this.hintRights = (this.hintRights || 0) + amount;
   }
 
@@ -193,12 +170,6 @@ export class HintSystem {
 
   useHint(itemId) {
     const canonicalId = getCanonicalId(itemId) || itemId;
-    if (this.infiniteHints) {
-      this.hintRights = 999;
-      const currentLevel = this.hintLevels[canonicalId] || 0;
-      this.hintLevels[canonicalId] = currentLevel + 1;
-      return { success: true, needsAd: false };
-    }
     if (this.hintRights > 0) {
       this.hintRights--;
       const currentLevel = this.hintLevels[canonicalId] || 0;

@@ -15,6 +15,11 @@ The Android project targets API 36 and uses the minimum Android Gradle Plugin
 and Gradle versions documented for compiling against that API. Keep these
 values current with Google Play's submission policy.
 
+Production Vite builds omit the three unused original/preview character GLBs
+from `public/` while leaving those source files untouched. The game loads
+`character.glb`, `character2.glb`, and `character3.glb`; keeping preview copies
+out of `dist/` prevents them from inflating the Android package.
+
 ## Android phone test
 
 ```sh
@@ -30,13 +35,33 @@ web production deployment.
 
 ## Android Play release
 
-Set these environment variables in the build shell before building the web
-assets and Android bundle:
+Copy `.env.example` to the Git-ignored `.env.local` and set these production
+values there before building the web assets and Android bundle:
 
 - `VITE_ADMOB_REWARDED_AD_UNIT_ID`: the production rewarded ad unit ID.
+- `VITE_PRIVACY_POLICY_URL`: public HTTPS privacy-policy page; the app shows it
+  in Settings and the release task rejects a missing/non-HTTPS URL.
 - `ADMOB_APP_ID`: the production AdMob application ID.
-- `ANDROID_KEYSTORE_PATH`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`,
-  and `ANDROID_KEY_PASSWORD`: the upload signing key configuration.
+
+Vite reads the `VITE_` values for the app UI. Gradle reads the same three
+values from `.env.local` when packaging the native app, so they do not need to
+be copied into a separate shell session. Do not put keystore passwords in this
+file.
+
+Set the upload signing key in the ignored local file `android/key.properties`:
+
+```properties
+storeFile=app/upload-key.jks
+keyAlias=upload
+storePassword=your-store-password
+keyPassword=your-key-password
+```
+
+`storeFile` is relative to the `android/` directory. Copy the format from
+`android/key.properties.example`; never commit `key.properties`, the keystore,
+or passwords. Gradle reads these properties automatically. The four
+`ANDROID_KEYSTORE_*` environment variables remain available as a CI/advanced
+alternative when the properties are left as `REPLACE_ME`.
 
 Then run:
 
@@ -47,9 +72,12 @@ cd android
 ./gradlew bundleRelease
 ```
 
-The release Gradle task fails when the AdMob IDs or signing key are missing, or
-when Google's demo IDs are supplied. Keep the keystore and passwords outside
-the repository.
+The release Gradle task fails when the AdMob IDs, privacy-policy URL, or
+signing key are missing, or when Google's demo IDs are supplied. Keep the
+keystore and passwords out of version control. UMP consent is checked before
+the Mobile Ads SDK initializes or requests a rewarded ad. The app exposes
+Google's privacy-options form in Settings when UMP reports that an entry point
+is required.
 
 Before store submission, finish the store-specific privacy, data-safety,
 content-rating, support, and publisher fields in `store-package/SUBMISSION_GATES.md`.

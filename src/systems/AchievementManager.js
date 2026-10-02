@@ -181,33 +181,6 @@ export class AchievementManager {
     return null;
   }
 
-  /**
-   * Tüm rozetlerin kilidini açar (Debug modu için).
-   */
-  unlockAllBadges() {
-    BADGES.forEach(badge => {
-      this.unlockedBadgeIds.add(badge.id);
-    });
-    this._save();
-    this._notify(BADGES);
-  }
-
-  /**
-   * Tüm rozetleri ve başarımları sıfırlar.
-   */
-  resetProgress() {
-    this.unlockedBadgeIds.clear();
-    try {
-      if (typeof localStorage !== 'undefined') {
-        localStorage.removeItem('alchemy_achievements_data');
-      }
-    } catch (e) {
-      console.warn('[AchievementManager] Reset error:', e);
-    }
-    this._save();
-    this._notify([]);
-  }
-
   getBadges() {
     return BADGES.map(badge => ({
       ...badge,

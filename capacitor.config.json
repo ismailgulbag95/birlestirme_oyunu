@@ -1,6 +1,6 @@
 {
   "appId": "com.birlestirme.oyunu",
-  "appName": "Birlestirme Oyunu",
+  "appName": "Curio Simya",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"

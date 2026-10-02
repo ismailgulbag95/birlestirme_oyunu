@@ -132,15 +132,6 @@ class Game {
       // Rapier/WASM yüklemesi sahne ve arayüz hazırlığıyla paralel ilerlesin.
       this._initPhysicsInBackground();
 
-      const debugHandlers = import.meta.env.DEV ? {
-        onUnlockAll: () => this.unlockAllItems(),
-        onSetInfiniteHints: (enabled) => this.setInfiniteHints(enabled),
-        onRevealAllHints: () => this.revealAllHints(),
-        onResetProgress: () => this.resetProgress(),
-        onSpawnBasics: () => this.spawnBasicElements(),
-        onToggleFps: (enabled) => { this.fpsEnabled = enabled; }
-      } : null;
-
       this.ui = new UIManager(
         (itemId) => this.onInventoryItemSelect(itemId),
         (itemId) => this.onGetHint(itemId),
@@ -155,7 +146,6 @@ class Game {
           this._saveGame();
         },
         () => audioManager.cycleMusicMode(),
-        debugHandlers,
         () => {
           this.tableScene.playTalkingAnimation();
           this.triggerCrafting();
@@ -666,97 +656,14 @@ class Game {
     this._updateCraftButtonState();
   }
 
-  unlockAllItems() {
-    const allDefs = Object.keys(getItemDefinitionsForMode(this.gameMode));
-    allDefs.forEach(id => {
-      const can = getCanonicalId(id) || id;
-      if (!this.unlockedItems.includes(id) && !this.unlockedItems.includes(can)) {
-        this.unlockedItems.push(can);
-      }
-    });
-    this.lockedItems = [];
-    achievementManager.unlockAllBadges();
-    this.ui.setUnlockedItemCount(this.unlockedItems.length);
-    this.ui._populateInventory(this.unlockedItems);
-    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
-    this.ui.updateAchievementsUI();
-    if (this.envProgression) {
-      this.envProgression.syncWithUnlockedItems(this.unlockedItems);
-    }
-    this._saveGame();
-  }
-
-  setInfiniteHints(enabled) {
-    this.hintSystem.setInfiniteHints(enabled);
-    this.ui.updateHintRights(this.hintSystem.hintRights);
-    this._saveGame();
-  }
-
-  revealAllHints() {
-    this.hintSystem.revealAllHints(this.lockedItems);
-    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
-    this._saveGame();
-  }
-
-  spawnBasicElements() {
-    this.clearTableAndPieces();
-    const basics = ['ates', 'su', 'toprak'];
-    basics.forEach(id => {
-      this.onInventoryItemSelect(id);
-    });
-  }
-
-  resetProgress() {
-    localStorage.removeItem('alchemy_game_save');
-    achievementManager.resetProgress();
-    this.trioFormulaQuota.reset();
-    this.unlockedItems = ['ates', 'su', 'toprak', 'hava'];
-    this.lockedItems = (this.defaultLockedItems || []).filter(id => {
-      const canonical = getCanonicalId(id) || id;
-      return !this.unlockedItems.includes(id) && !this.unlockedItems.includes(canonical);
-    });
-    this.hintSystem.hintRights = 3;
-    this.hintSystem.hintLevels = {};
-    this.hintSystem.discoveryCount = 0;
-    this.hintSystem.successfulMatches = 0;
-    this.hintSystem.setInfiniteHints(false);
-    this.ui.updateTrioFormulaQuota(this.trioFormulaQuota.getStatus());
-    this.clearTableAndPieces();
-    this.ui.setUnlockedItemCount(this.unlockedItems.length);
-    this.tableScene.switchCharacter('character1');
-    this.ui.updateCharacterButton('character1');
-    this.ui.updateHintRights(this.hintSystem.hintRights);
-    this.ui._populateInventory(this.unlockedItems);
-    this.ui.populateHints(this.unlockedItems, this.lockedItems, this.hintSystem);
-    this.ui.updateAchievementsUI();
-    if (this.envProgression) {
-      this.envProgression.syncWithUnlockedItems(this.unlockedItems);
-    }
-    this._saveGame();
-  }
-
   _startLoop() {
     const clock = new THREE.Clock();
-    let frameCount = 0;
-    let lastFpsUpdate = performance.now();
-    let currentFps = 60;
 
     const animate = () => {
       requestAnimationFrame(animate);
 
       const delta = clock.getDelta();
       const elapsedTime = clock.getElapsedTime();
-
-      // FPS & Performans takibi
-      frameCount++;
-      const now = performance.now();
-      if (now - lastFpsUpdate >= 500) {
-        currentFps = Math.round((frameCount * 1000) / (now - lastFpsUpdate));
-        frameCount = 0;
-        lastFpsUpdate = now;
-        const sceneObjs = this.sceneManager.scene ? this.sceneManager.scene.children.length : 0;
-        this.ui.updateFpsHud(currentFps, sceneObjs);
-      }
 
       // Masadaki slotlarda bulunan animasyonlu eşyaları güncelle (örneğin dans eden ateş ve dönme)
       const slots = this.tableScene.getSlots();

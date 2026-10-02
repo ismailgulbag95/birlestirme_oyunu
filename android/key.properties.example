@@ -1,0 +1,6 @@
+# Local Play upload signing configuration. Never commit this file.
+# storeFile is relative to the android/ directory; for android/app/upload-key.jks use app/upload-key.jks.
+storeFile=REPLACE_ME
+keyAlias=REPLACE_ME
+storePassword=REPLACE_ME
+keyPassword=REPLACE_ME

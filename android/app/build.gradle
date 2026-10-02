@@ -1,5 +1,44 @@
 apply plugin: 'com.android.application'
 
+def releaseEnv = new Properties()
+def releaseEnvFile = rootProject.file('../.env.local')
+if (releaseEnvFile.isFile()) {
+    releaseEnvFile.eachLine('UTF-8') { rawLine ->
+        def line = rawLine.trim()
+        if (!line || line.startsWith('#')) return
+        def separator = line.indexOf('=')
+        if (separator <= 0) return
+        def name = line.substring(0, separator).trim()
+        def value = line.substring(separator + 1).trim()
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.substring(1, value.length() - 1)
+        }
+        releaseEnv.setProperty(name, value)
+    }
+}
+def releaseConfigValue = { String name ->
+    System.getenv(name)?.trim() ?: releaseEnv.getProperty(name)?.trim()
+}
+
+def signingProperties = new Properties()
+def signingPropertiesFile = rootProject.file('key.properties')
+if (signingPropertiesFile.exists()) {
+    signingPropertiesFile.withInputStream { signingProperties.load(it) }
+}
+
+def signingValue = { String propertyName, String environmentName ->
+    def value = signingProperties.getProperty(propertyName)?.trim()
+    if (!value || value.contains('REPLACE_ME')) {
+        value = System.getenv(environmentName)?.trim()
+    }
+    value
+}
+def signingStorePath = signingValue('storeFile', 'ANDROID_KEYSTORE_PATH')
+def signingStorePassword = signingValue('storePassword', 'ANDROID_KEYSTORE_PASSWORD')
+def signingKeyAlias = signingValue('keyAlias', 'ANDROID_KEY_ALIAS')
+def signingKeyPassword = signingValue('keyPassword', 'ANDROID_KEY_PASSWORD')
+def signingKeystoreFile = signingStorePath ? rootProject.file(signingStorePath) : rootProject.file('missing-upload-key.jks')
+
 android {
     namespace "com.birlestirme.oyunu"
     compileSdk rootProject.ext.compileSdkVersion
@@ -8,7 +47,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         resValue "string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
@@ -19,20 +58,21 @@ android {
     }
     signingConfigs {
         release {
-            def keystorePath = System.getenv('ANDROID_KEYSTORE_PATH')
-            storeFile file(keystorePath ?: 'missing-upload-key.jks')
-            storePassword System.getenv('ANDROID_KEYSTORE_PASSWORD') ?: ''
-            keyAlias System.getenv('ANDROID_KEY_ALIAS') ?: ''
-            keyPassword System.getenv('ANDROID_KEY_PASSWORD') ?: ''
+            storeFile signingKeystoreFile
+            storePassword signingStorePassword ?: ''
+            keyAlias signingKeyAlias ?: ''
+            keyPassword signingKeyPassword ?: ''
         }
     }
     buildTypes {
         release {
-            def productionAdMobAppId = project.findProperty('ADMOB_APP_ID') ?: System.getenv('ADMOB_APP_ID')
+            def productionAdMobAppId = project.findProperty('ADMOB_APP_ID') ?: releaseConfigValue('ADMOB_APP_ID')
             if (productionAdMobAppId) {
                 resValue "string", "admob_app_id", productionAdMobAppId
             }
             signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -41,23 +81,26 @@ android {
 
 tasks.register('verifyReleaseAdMobConfig') {
     doLast {
-        def appId = project.findProperty('ADMOB_APP_ID') ?: System.getenv('ADMOB_APP_ID')
-        def rewardedAdUnitId = System.getenv('VITE_ADMOB_REWARDED_AD_UNIT_ID')
-        def keystorePath = System.getenv('ANDROID_KEYSTORE_PATH')
+        def appId = project.findProperty('ADMOB_APP_ID') ?: releaseConfigValue('ADMOB_APP_ID')
+        def rewardedAdUnitId = releaseConfigValue('VITE_ADMOB_REWARDED_AD_UNIT_ID')
+        def privacyPolicyUrl = releaseConfigValue('VITE_PRIVACY_POLICY_URL')
         def signingValues = [
-            keystorePath,
-            System.getenv('ANDROID_KEYSTORE_PASSWORD'),
-            System.getenv('ANDROID_KEY_ALIAS'),
-            System.getenv('ANDROID_KEY_PASSWORD')
+            signingStorePath,
+            signingStorePassword,
+            signingKeyAlias,
+            signingKeyPassword
         ]
         if (!appId || !rewardedAdUnitId) {
             throw new GradleException('Set ADMOB_APP_ID and VITE_ADMOB_REWARDED_AD_UNIT_ID before creating a release build.')
         }
+        if (!privacyPolicyUrl?.startsWith('https://') || privacyPolicyUrl.contains('your-domain.example') || privacyPolicyUrl.contains('REPLACE_ME')) {
+            throw new GradleException('Set VITE_PRIVACY_POLICY_URL to the public HTTPS privacy policy before creating a release build.')
+        }
         if (!(appId ==~ /ca-app-pub-\d+~\d+/) || !(rewardedAdUnitId ==~ /ca-app-pub-\d+\/\d+/)) {
             throw new GradleException('AdMob release IDs must use the application-ID and rewarded-ad-unit formats shown in docs/RELEASE.md.')
         }
-        if (signingValues.any { !it } || !file(keystorePath).isFile()) {
-            throw new GradleException('Set the four ANDROID_KEYSTORE_* signing variables to an existing upload keystore before creating a release build.')
+        if (signingValues.any { !it?.trim() || it.contains('REPLACE_ME') } || !signingKeystoreFile.isFile()) {
+            throw new GradleException('Set storeFile, keyAlias, storePassword, and keyPassword in android/key.properties to an existing upload keystore before creating a release build.')
         }
         if (appId == 'ca-app-pub-3940256099942544~3347511713' || rewardedAdUnitId == 'ca-app-pub-3940256099942544/5224354917') {
             throw new GradleException('Google test ad IDs are blocked in release builds.')
@@ -87,6 +130,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation project(':capacitor-cordova-android-plugins')
+    implementation 'com.google.android.ump:user-messaging-platform:3.2.0'
 }
 
 apply from: 'capacitor.build.gradle'

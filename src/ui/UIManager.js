@@ -6,7 +6,7 @@ import { achievementManager } from '../systems/AchievementManager.js';
 import { adManager } from '../systems/AdManager.js';
 
 export class UIManager {
-  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, debugHandlers = null, onCraftClick = null, onModeSwitch = null, onMusicVolumeChange = null, musicVolume = 0.55) {
+  constructor(onItemSelect, onGetHint, onWatchAd, onCleanup, onCharacterSwitch, onMusicToggle, onCraftClick = null, onModeSwitch = null, onMusicVolumeChange = null, musicVolume = 0.55) {
     this.onItemSelect = onItemSelect;
     this.onGetHint = onGetHint; // (itemId) => result
     this.onWatchAd = onWatchAd; // (itemId) => void
@@ -15,7 +15,6 @@ export class UIManager {
     this.onMusicToggle = onMusicToggle; // () => number (musicMode: 1, 2, 0)
     this.onMusicVolumeChange = onMusicVolumeChange; // (volume, persist) => void
     this.musicVolume = Number.isFinite(musicVolume) ? Math.max(0, Math.min(1, musicVolume)) : 0.55;
-    this.debugHandlers = debugHandlers; // { onUnlockAll, onSetInfiniteHints, onRevealAllHints, onResetProgress, onSpawnBasics }
     this.onCraftClick = onCraftClick; // () => void
     this.onModeSwitch = onModeSwitch; // (newMode) => void
     this.onUnlockTrioFormulas = null;
@@ -28,8 +27,6 @@ export class UIManager {
     this.sortMode = 'discovery'; // 'discovery', 'category'
     this.searchQuery = '';
     this.lastItemIds = [];
-    this.infiniteHintsEnabled = false;
-    this.fpsHudEnabled = false;
     this.drawerTier = 1; // 1: Collapsed Strip, 2: Mid Compact Grid, 3: Fullscreen Codex
     this.unlockedItemCount = 4;
     this.currentTutorialStep = 1;
@@ -1325,25 +1322,6 @@ export class UIManager {
         border-color: var(--rc-hairline-strong);
       }
 
-      /* FPS HUD */
-      #fps-counter-hud {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: var(--rc-surface-card);
-        border: 1px solid var(--rc-hairline);
-        border-radius: 6px;
-        padding: 4px 8px;
-        color: var(--rc-accent-blue);
-        font-family: monospace, Consolas, sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        pointer-events: none;
-        z-index: 50;
-        display: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      }
-
       /* Masanın Önündeki Keşif Bilgilendirme Banner'ı */
       #discovery-banner {
         position: absolute;
@@ -1908,7 +1886,6 @@ export class UIManager {
           <div class="settings-tabs">
             <button class="settings-tab-btn active" id="tab-general-btn" data-tab="general">${i18n.t('tab_general')}</button>
             <button class="settings-tab-btn" id="tab-collections-btn" data-tab="collections">${i18n.t('tab_collections')}</button>
-            <button class="settings-tab-btn" id="tab-debug-btn" data-tab="debug">${i18n.t('tab_debug')}</button>
           </div>
         </div>
         <div class="drawer-content" id="drawer-settings-content">
@@ -1969,6 +1946,22 @@ export class UIManager {
               <button id="tutorial-replay-btn" class="settings-action-btn btn-amber">${i18n.t('tutorial_replay_btn')}</button>
             </div>
 
+            <div class="settings-btn-row" id="privacy-policy-row" style="display: none;">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-privacy-policy">${i18n.t('privacy_policy')}</span>
+                <span class="settings-btn-sub" id="sub-privacy-policy">${i18n.t('privacy_policy_desc')}</span>
+              </div>
+              <a id="privacy-policy-link" target="_blank" rel="noopener noreferrer" style="color: var(--rc-accent-blue); font-size: 12px; font-weight: 700; text-decoration: none;">${i18n.t('privacy_policy_open')}</a>
+            </div>
+
+            <div class="settings-btn-row" id="privacy-options-row" style="display: none;">
+              <div class="settings-btn-row-info">
+                <span class="settings-btn-label" id="label-privacy-options">${i18n.t('privacy_options')}</span>
+                <span class="settings-btn-sub" id="sub-privacy-options">${i18n.t('privacy_options_desc')}</span>
+              </div>
+              <button id="privacy-options-btn" class="settings-action-btn btn-blue">${i18n.t('privacy_options_open')}</button>
+            </div>
+
             <!-- Karakter Lisansı & Atıf Kartı -->
             <div style="background: var(--rc-surface-card); border: 1px solid var(--rc-hairline); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -2009,69 +2002,6 @@ export class UIManager {
             </div>
           </div>
 
-          <!-- 3. Debug Sekmesi -->
-          <div class="settings-tab-pane" id="pane-debug" style="display: none;">
-            <div style="background: rgba(255, 197, 51, 0.1); border: 1px solid rgba(255, 197, 51, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: var(--rc-accent-yellow); display: flex; align-items: center; gap: 6px;">
-              <span>⚠️</span>
-              <span id="debug-warning-text">${i18n.t('debug_warning')}</span>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-mode">🛠️ Mod Değiştir (2'li / 3'lü)</span>
-                <span class="settings-btn-sub" id="sub-debug-mode">Oyun modları arasında geçiş yap</span>
-              </div>
-              <button id="debug-force-mode-btn" class="settings-action-btn btn-purple">Mod Değiştir</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-hints">${i18n.t('debug_infinite_hints')}</span>
-                <span class="settings-btn-sub" id="sub-debug-hints">İpucu hakkı hiç eksilmez (999)</span>
-              </div>
-              <button id="debug-infinite-hints-btn" class="settings-action-btn btn-amber">${this.infiniteHintsEnabled ? 'Açık (Sınırsız)' : 'Aktif Et'}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-unlock">${i18n.t('debug_unlock_all')}</span>
-                <span class="settings-btn-sub" id="sub-debug-unlock">Tüm eşyaları anında aç</span>
-              </div>
-              <button id="debug-unlock-all-btn" class="settings-action-btn btn-cyan">${i18n.t('debug_unlock_all')}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-reveal">${i18n.t('debug_reveal_hints')}</span>
-                <span class="settings-btn-sub" id="sub-debug-reveal">Tüm tarifleri ipucunda göster</span>
-              </div>
-              <button id="debug-reveal-hints-btn" class="settings-action-btn btn-indigo">${i18n.t('debug_reveal_hints')}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-spawn">${i18n.t('debug_spawn_basics')}</span>
-                <span class="settings-btn-sub" id="sub-debug-spawn">4 elementi masaya koy</span>
-              </div>
-              <button id="debug-spawn-basics-btn" class="settings-action-btn btn-emerald">${i18n.t('debug_spawn_basics')}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-fps">${i18n.t('debug_fps_counter')}</span>
-                <span class="settings-btn-sub" id="sub-debug-fps">FPS ve sahne nesne sayısı</span>
-              </div>
-              <button id="debug-fps-toggle-btn" class="settings-action-btn btn-slate ${this.fpsHudEnabled ? 'active' : ''}">${this.fpsHudEnabled ? 'Açık' : 'Kapalı'}</button>
-            </div>
-
-            <div class="settings-btn-row">
-              <div class="settings-btn-row-info">
-                <span class="settings-btn-label" id="label-debug-reset" style="color: var(--rc-accent-red);">${i18n.t('debug_reset_progress')}</span>
-                <span class="settings-btn-sub" id="sub-debug-reset">Kayıtları temizle ve sıfırla</span>
-              </div>
-              <button id="debug-reset-progress-btn" class="settings-action-btn btn-danger-outline">${i18n.t('debug_reset_progress')}</button>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -2311,10 +2241,6 @@ export class UIManager {
         </div>
       </div>
     `;
-    if (!this.debugHandlers) {
-      container.querySelector('#tab-debug-btn')?.remove();
-      container.querySelector('#pane-debug')?.remove();
-    }
     document.body.appendChild(container);
 
     this._setupDrawerLogic();
@@ -2556,11 +2482,23 @@ export class UIManager {
     const closeAdBtn = document.getElementById('close-ad-btn');
     if (closeAdBtn) closeAdBtn.textContent = i18n.t('ad_cancel_btn');
 
-    // 7. Settings Drawer & Debug Labels
+    // 7. Settings Drawer
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     if (tabGeneralBtn) tabGeneralBtn.textContent = i18n.t('tab_general');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
     if (tabCollectionsBtn) tabCollectionsBtn.textContent = i18n.t('tab_collections');
+    const privacyPolicyLabel = document.getElementById('label-privacy-policy');
+    if (privacyPolicyLabel) privacyPolicyLabel.textContent = i18n.t('privacy_policy');
+    const privacyPolicyDesc = document.getElementById('sub-privacy-policy');
+    if (privacyPolicyDesc) privacyPolicyDesc.textContent = i18n.t('privacy_policy_desc');
+    const privacyPolicyLink = document.getElementById('privacy-policy-link');
+    if (privacyPolicyLink) privacyPolicyLink.textContent = i18n.t('privacy_policy_open');
+    const privacyOptionsLabel = document.getElementById('label-privacy-options');
+    if (privacyOptionsLabel) privacyOptionsLabel.textContent = i18n.t('privacy_options');
+    const privacyOptionsDesc = document.getElementById('sub-privacy-options');
+    if (privacyOptionsDesc) privacyOptionsDesc.textContent = i18n.t('privacy_options_desc');
+    const privacyOptionsBtn = document.getElementById('privacy-options-btn');
+    if (privacyOptionsBtn) privacyOptionsBtn.textContent = i18n.t('privacy_options_open');
     const trioGateTitle = document.getElementById('trio-formula-title');
     if (trioGateTitle) trioGateTitle.textContent = i18n.t('trio_gate_title');
     const trioGateSubtitle = document.getElementById('trio-formula-subtitle');
@@ -2571,9 +2509,6 @@ export class UIManager {
     if (trioGateCancel) trioGateCancel.textContent = i18n.t('trio_gate_cancel');
     const trioGateClose = document.getElementById('trio-formula-close-btn');
     if (trioGateClose) trioGateClose.title = i18n.t('trio_gate_cancel');
-    const tabDebugBtn = document.getElementById('tab-debug-btn');
-    if (tabDebugBtn) tabDebugBtn.textContent = i18n.t('tab_debug');
-
     const subtabBadgesBtn = document.getElementById('subtab-badges-btn');
     if (subtabBadgesBtn) subtabBadgesBtn.textContent = `🏆 ${i18n.t('tab_badges')}`;
     const subtabSetsBtn = document.getElementById('subtab-sets-btn');
@@ -2594,30 +2529,6 @@ export class UIManager {
     if (paneCreditsSummaryText) paneCreditsSummaryText.textContent = i18n.t('credits_terms_summary');
     const paneCreditsLinkBtn = document.getElementById('pane-credits-link-btn');
     if (paneCreditsLinkBtn) paneCreditsLinkBtn.textContent = i18n.t('credits_view_license');
-
-    const debugWarning = document.getElementById('debug-warning-text');
-    if (debugWarning) debugWarning.textContent = i18n.t('debug_warning');
-
-    const lblDebugHints = document.getElementById('label-debug-hints');
-    if (lblDebugHints) lblDebugHints.textContent = i18n.t('debug_infinite_hints');
-    const lblDebugUnlock = document.getElementById('label-debug-unlock');
-    if (lblDebugUnlock) lblDebugUnlock.textContent = i18n.t('debug_unlock_all');
-    const btnDebugUnlock = document.getElementById('debug-unlock-all-btn');
-    if (btnDebugUnlock) btnDebugUnlock.textContent = i18n.t('debug_unlock_all');
-    const lblDebugReveal = document.getElementById('label-debug-reveal');
-    if (lblDebugReveal) lblDebugReveal.textContent = i18n.t('debug_reveal_hints');
-    const btnDebugReveal = document.getElementById('debug-reveal-hints-btn');
-    if (btnDebugReveal) btnDebugReveal.textContent = i18n.t('debug_reveal_hints');
-    const lblDebugSpawn = document.getElementById('label-debug-spawn');
-    if (lblDebugSpawn) lblDebugSpawn.textContent = i18n.t('debug_spawn_basics');
-    const btnDebugSpawn = document.getElementById('debug-spawn-basics-btn');
-    if (btnDebugSpawn) btnDebugSpawn.textContent = i18n.t('debug_spawn_basics');
-    const lblDebugFps = document.getElementById('label-debug-fps');
-    if (lblDebugFps) lblDebugFps.textContent = i18n.t('debug_fps_counter');
-    const lblDebugReset = document.getElementById('label-debug-reset');
-    if (lblDebugReset) lblDebugReset.textContent = i18n.t('debug_reset_progress');
-    const btnDebugReset = document.getElementById('debug-reset-progress-btn');
-    if (btnDebugReset) btnDebugReset.textContent = i18n.t('debug_reset_progress');
 
     // 8. Hoşgeldiniz, Rehber & Ayarlar Metinleri
     const welcomeTitle = document.getElementById('welcome-modal-title');
@@ -2853,18 +2764,13 @@ export class UIManager {
     // 4 Ana Sekme Butonları & Panelleri
     const tabGeneralBtn = document.getElementById('tab-general-btn');
     const tabCollectionsBtn = document.getElementById('tab-collections-btn');
-    const tabDebugBtn = document.getElementById('tab-debug-btn');
-
     const paneGeneral = document.getElementById('pane-general');
     const paneCollections = document.getElementById('pane-collections');
-    const paneDebug = document.getElementById('pane-debug');
 
     const switchTab = (activeTab) => {
       this.currentActiveTab = activeTab;
       tabGeneralBtn?.classList.toggle('active', activeTab === 'general');
       tabCollectionsBtn?.classList.toggle('active', activeTab === 'collections');
-      tabDebugBtn?.classList.toggle('active', activeTab === 'debug');
-
       if (paneGeneral) paneGeneral.style.display = activeTab === 'general' ? 'flex' : 'none';
       if (paneCollections) {
         paneCollections.style.display = activeTab === 'collections' ? 'flex' : 'none';
@@ -2873,14 +2779,42 @@ export class UIManager {
           this._renderCollections();
         }
       }
-      if (paneDebug) paneDebug.style.display = activeTab === 'debug' ? 'flex' : 'none';
     };
 
     this.switchSettingsTab = switchTab;
 
+    const privacyPolicyUrl = import.meta.env.VITE_PRIVACY_POLICY_URL || '';
+    const privacyPolicyRow = document.getElementById('privacy-policy-row');
+    const privacyPolicyLink = document.getElementById('privacy-policy-link');
+    if (privacyPolicyRow && privacyPolicyLink && privacyPolicyUrl) {
+      try {
+        const policyUrl = new URL(privacyPolicyUrl);
+        if (policyUrl.protocol === 'https:') {
+          privacyPolicyLink.href = policyUrl.href;
+          privacyPolicyRow.style.display = 'flex';
+        }
+      } catch {
+        privacyPolicyRow.style.display = 'none';
+      }
+    }
+
+    const privacyOptionsRow = document.getElementById('privacy-options-row');
+    const privacyOptionsBtn = document.getElementById('privacy-options-btn');
+    const updatePrivacyOptionsVisibility = () => {
+      if (privacyOptionsRow) {
+        privacyOptionsRow.style.display = adManager.isPrivacyOptionsRequired() ? 'flex' : 'none';
+      }
+    };
+    Promise.resolve(adManager.initialization).then(updatePrivacyOptionsVisibility);
+    privacyOptionsBtn?.addEventListener('click', async () => {
+      privacyOptionsBtn.disabled = true;
+      await adManager.showPrivacyOptions();
+      updatePrivacyOptionsVisibility();
+      privacyOptionsBtn.disabled = false;
+    });
+
     tabGeneralBtn?.addEventListener('click', () => switchTab('general'));
     tabCollectionsBtn?.addEventListener('click', () => switchTab('collections'));
-    tabDebugBtn?.addEventListener('click', () => switchTab('debug'));
 
     // Koleksiyon Alt Sekmeleri (Rozetler vs Setler)
     const subtabBadgesBtn = document.getElementById('subtab-badges-btn');
@@ -2904,105 +2838,6 @@ export class UIManager {
       this._renderCollections();
     });
 
-    // Debug butonları
-    // 0. Mod Değiştir (2'li / 3'lü)
-    const forceModeBtn = document.getElementById('debug-force-mode-btn');
-    if (forceModeBtn) {
-      forceModeBtn.addEventListener('click', () => {
-        const newMode = this.gameMode === 'classic' ? 'grandmaster' : 'classic';
-        if (this.onModeSwitch) {
-          this.onModeSwitch(newMode);
-        }
-      });
-    }
-
-    // 1. Sınırsız İpucu
-    const infHintsBtn = document.getElementById('debug-infinite-hints-btn');
-    if (infHintsBtn) {
-      infHintsBtn.addEventListener('click', () => {
-        this.infiniteHintsEnabled = !this.infiniteHintsEnabled;
-        if (this.debugHandlers.onSetInfiniteHints) {
-          this.debugHandlers.onSetInfiniteHints(this.infiniteHintsEnabled);
-        }
-        infHintsBtn.classList.toggle('active', this.infiniteHintsEnabled);
-        infHintsBtn.textContent = this.infiniteHintsEnabled
-          ? (i18n.currentLang === 'tr' ? 'Açık (Sınırsız)' : 'Enabled (Unlimited)')
-          : (i18n.currentLang === 'tr' ? 'Aktif Et' : 'Enable');
-      });
-    }
-
-    // 2. Tüm Tarifleri / Eşyaları Aç
-    const unlockAllBtn = document.getElementById('debug-unlock-all-btn');
-    if (unlockAllBtn) {
-      unlockAllBtn.addEventListener('click', () => {
-        if (this.debugHandlers.onUnlockAll) {
-          this.debugHandlers.onUnlockAll();
-        }
-        alert(i18n.t('debug_all_unlocked_msg'));
-      });
-    }
-
-    // 3. Tüm İpuçlarını Çöz
-    const revealHintsBtn = document.getElementById('debug-reveal-hints-btn');
-    if (revealHintsBtn) {
-      revealHintsBtn.addEventListener('click', () => {
-        if (this.debugHandlers.onRevealAllHints) {
-          this.debugHandlers.onRevealAllHints();
-        }
-        alert(i18n.t('debug_all_hints_revealed_msg'));
-      });
-    }
-
-    // 4. 4 Temel Elementi Masaya Koy
-    const spawnBasicsBtn = document.getElementById('debug-spawn-basics-btn');
-    if (spawnBasicsBtn) {
-      spawnBasicsBtn.addEventListener('click', () => {
-        if (this.debugHandlers.onSpawnBasics) {
-          this.debugHandlers.onSpawnBasics();
-        }
-        modal.classList.remove('show');
-      });
-    }
-
-    // 5. FPS Sayacı Toggle
-    const fpsToggleBtn = document.getElementById('debug-fps-toggle-btn');
-    const fpsHud = document.getElementById('fps-counter-hud');
-    if (fpsToggleBtn) {
-      fpsToggleBtn.addEventListener('click', () => {
-        this.fpsHudEnabled = !this.fpsHudEnabled;
-        if (fpsHud) {
-          fpsHud.style.display = this.fpsHudEnabled ? 'block' : 'none';
-        }
-        fpsToggleBtn.classList.toggle('active', this.fpsHudEnabled);
-        fpsToggleBtn.textContent = this.fpsHudEnabled
-          ? (i18n.currentLang === 'tr' ? 'Açık' : 'ON')
-          : (i18n.currentLang === 'tr' ? 'Kapalı' : 'OFF');
-        if (this.debugHandlers.onToggleFps) {
-          this.debugHandlers.onToggleFps(this.fpsHudEnabled);
-        }
-      });
-    }
-
-    // 6. İlerlemeyi Sıfırla
-    const resetBtn = document.getElementById('debug-reset-progress-btn');
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        if (confirm(i18n.t('debug_reset_confirm'))) {
-          if (this.debugHandlers.onResetProgress) {
-            this.debugHandlers.onResetProgress();
-          }
-          modal.classList.remove('show');
-        }
-      });
-    }
-  }
-
-  updateFpsHud(fps, sceneObjectCount = 0) {
-    if (!this.fpsHudEnabled) return;
-    const hud = document.getElementById('fps-counter-hud');
-    if (hud) {
-      hud.textContent = `FPS: ${fps} | Nesne: ${sceneObjectCount}`;
-    }
   }
 
   _setupInventoryControls() {
